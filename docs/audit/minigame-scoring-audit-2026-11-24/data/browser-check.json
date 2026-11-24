@@ -1,0 +1,74 @@
+[
+ {
+  "id": "push-puzzle",
+  "what": "右と左を1回ずつタップして放置(0問クリア)",
+  "expect": "30点で記録される",
+  "raw": 30,
+  "recorded": true,
+  "recordedScore": 30,
+  "coins": 30,
+  "message": "ちょっとくやしい!／30コインをもらった",
+  "pageErrors": 0,
+  "err": null
+ },
+ {
+  "id": "tilt-maze-3d",
+  "what": "3秒ごとに右/下を短く押すだけ(ゴールしない)",
+  "expect": "失敗なのに30点以上で記録される",
+  "raw": 35,
+  "recorded": true,
+  "recordedScore": 35,
+  "coins": 30,
+  "message": "今回はここまで!／30コインをもらった",
+  "pageErrors": 0,
+  "err": null
+ },
+ {
+  "id": "stack-themed",
+  "what": "「おとす」を0.15秒ごとに連打",
+  "expect": "高得点(100点近く)",
+  "raw": 100,
+  "recorded": true,
+  "recordedScore": 100,
+  "coins": 60,
+  "message": "",
+  "pageErrors": 0,
+  "err": null
+ },
+ {
+  "id": "falling-block-puzzle",
+  "what": "「いっきに」を連打して即終了(0ライン)",
+  "expect": "35点前後で記録される",
+  "raw": 36,
+  "recorded": true,
+  "recordedScore": 36,
+  "coins": 30,
+  "message": "",
+  "pageErrors": 0,
+  "err": null
+ },
+ {
+  "id": "asteroids-classic",
+  "what": "画面中央を0.3秒ごとにタップ(回転・移動なし)",
+  "expect": "高得点が出やすい",
+  "raw": 86,
+  "recorded": true,
+  "recordedScore": 86,
+  "coins": 60,
+  "message": "",
+  "pageErrors": 0,
+  "err": null
+ },
+ {
+  "id": "rhythm-highway-3d",
+  "what": "3レーンのボタンを同時に0.1秒ごとに連打",
+  "expect": "空振りに罰がなく70点以上",
+  "raw": 73,
+  "recorded": true,
+  "recordedScore": 73,
+  "coins": 60,
+  "message": "",
+  "pageErrors": 0,
+  "err": null
+ }
+]

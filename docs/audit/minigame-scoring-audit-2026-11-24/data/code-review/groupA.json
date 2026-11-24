@@ -1,0 +1,1359 @@
+[
+ {
+  "id": "road-themed",
+  "name": "ロードげーむ(道路/空/海 ランダムテーマ)",
+  "category": "road",
+  "factory": "makeRoadGame",
+  "lines": "165-301, 304-308(randomThemeGame で road/sky/sea を毎回抽選)",
+  "genre": "アクション",
+  "formula": "score = clamp(round(8 + points*0.3 + bestCombo*2), 8, 100)(L292)。points: よい物を取るたび +8+min(6, combo*1.5)(1こ目9.5→4連続以上14)、わるい物に当たると points=max(0,points-8)・combo=0(L254-255)。当たり判定は実位置 playerX、よい物は幅0.52レーン・わるい物は0.38レーン(L253)。 テーマ3種は絵文字とシーンの見た目だけの差(sky はよい物3種・わるい物2種)。採点は共通。",
+  "timeLimit": "lerp(18,15,ageDifficulty)秒(L169。ふつう最大難度0.55で約16.4秒)+開始猶予0.6秒。20秒未満なので「みじかめ」×0.7は掛からない。やさしいは×1.2(最大21.6秒)。turn-basedではない。",
+  "endConditions": "時間切れのみ(L281)。ライフ・ゲームオーバーなし。",
+  "minScore": 8,
+  "maxScore": 100,
+  "hundredReachable": true,
+  "hundredCondition": "よい物をほぼ全部連続で取る(combo最大を伸ばす)。出現数が確率的(BAD_CHANCE 0.34〜0.46)なので、全部取っても100に届くのは約5〜7割(L292の式でモンテカルロ試算、平均95前後)。",
+  "idle": {
+   "raw": "13〜41(真ん中レーンに来るよい物を自動で取るため。harness 5シード: road-themed 22〜41、road-city/jungle/desert/p3-drive 13〜41)",
+   "t7": "meterあり→記録されない(harness c0)",
+   "basis": "harness"
+  },
+  "zeroAchievement": {
+   "score": "8",
+   "scenario": "よい物を1つも取らない(わるい物だけ当たる/全部よける)",
+   "basis": "code"
+  },
+  "partial": "よい物5こ連続ていど: 8+約55*0.3+10 ≒ 35(ふつう)。10こ取得(最大連続5)≒ 8+約120*0.3+10 ≒ 54",
+  "fullClear": "全取得で 95〜100",
+  "timeout": "時間切れが唯一の終了。点は上記のとおり",
+  "bonuses": "bestCombo*2(最大でも+30〜+36前後)とコンボ加算(1こあたり最大+6)。本来の取得点(8点/こ*0.3)に対しコンボ系が約4〜5割を占め比率は大きめだが、連続取得自体が技能なので妥当。",
+  "exploits": [
+   "真ん中レーンでときどき真ん中をタップ(meter.act はレーンが変わらなくても数える L196)するだけで13〜41点・記録あり(harness: 2秒ごと中央タップで road-themed 18〜41、road-city 13〜41、すべて counted=1)。平均は失敗帯(〜26)だが、シード次第で「ふつう」30コインに届く。"
+  ],
+  "solvability": {
+   "randomGen": true,
+   "risk": "なし",
+   "note": "アイテムは1こずつ間隔(gap)を空けて出るので、よい物とわるい物が同時に同じ位置に来ることはなく、常に全回避・全取得可能。"
+  },
+  "luck": "中",
+  "playSec": {
+   "min": 16,
+   "typical": 17,
+   "max": 22
+  },
+  "difficulty": "ふつう 3レーン切替のみで分かりやすい",
+  "mobile": "画面の左/中/右3分割タップ or パッドを左右になぞる(stepPx30)。判定はレーン単位で広く、スマホ向き。",
+  "issues": [
+   {
+    "level": "軽微",
+    "text": "放置でも真ん中レーンの自動取得で13〜41点(最大でふつう帯)。meterで無操作は弾けるが、ときどき中央タップするだけで記録される。",
+    "basis": "harness"
+   }
+  ],
+  "verdict": "軽微",
+  "proposal": "基礎点8と真ん中自動取得の分を考え、レーン変更(実際に lane が変わったとき)だけ meter.act() する、または開始時の lane をランダムにする。"
+ },
+ {
+  "id": "road-city",
+  "name": "都会を走ろう(地域: city)",
+  "category": "road",
+  "factory": "makeRoadGame",
+  "lines": "165-301, 10656-10659",
+  "genre": "アクション",
+  "formula": "score = clamp(round(8 + points*0.3 + bestCombo*2), 8, 100)(L292)。points: よい物を取るたび +8+min(6, combo*1.5)(1こ目9.5→4連続以上14)、わるい物に当たると points=max(0,points-8)・combo=0(L254-255)。当たり判定は実位置 playerX、よい物は幅0.52レーン・わるい物は0.38レーン(L253)。 scene:'city'。見た目のみの差分。",
+  "timeLimit": "lerp(18,15,ageDifficulty)秒(L169。ふつう最大難度0.55で約16.4秒)+開始猶予0.6秒。20秒未満なので「みじかめ」×0.7は掛からない。やさしいは×1.2(最大21.6秒)。turn-basedではない。",
+  "endConditions": "時間切れのみ(L281)。ライフ・ゲームオーバーなし。",
+  "minScore": 8,
+  "maxScore": 100,
+  "hundredReachable": true,
+  "hundredCondition": "よい物をほぼ全部連続で取る(combo最大を伸ばす)。出現数が確率的(BAD_CHANCE 0.34〜0.46)なので、全部取っても100に届くのは約5〜7割(L292の式でモンテカルロ試算、平均95前後)。",
+  "idle": {
+   "raw": "13〜41(真ん中レーンに来るよい物を自動で取るため。harness 5シード: road-themed 22〜41、road-city/jungle/desert/p3-drive 13〜41)",
+   "t7": "meterあり→記録されない(harness c0)",
+   "basis": "harness"
+  },
+  "zeroAchievement": {
+   "score": "8",
+   "scenario": "よい物を1つも取らない(わるい物だけ当たる/全部よける)",
+   "basis": "code"
+  },
+  "partial": "よい物5こ連続ていど: 8+約55*0.3+10 ≒ 35(ふつう)。10こ取得(最大連続5)≒ 8+約120*0.3+10 ≒ 54",
+  "fullClear": "全取得で 95〜100",
+  "timeout": "時間切れが唯一の終了。点は上記のとおり",
+  "bonuses": "bestCombo*2(最大でも+30〜+36前後)とコンボ加算(1こあたり最大+6)。本来の取得点(8点/こ*0.3)に対しコンボ系が約4〜5割を占め比率は大きめだが、連続取得自体が技能なので妥当。",
+  "exploits": [
+   "真ん中レーンでときどき真ん中をタップ(meter.act はレーンが変わらなくても数える L196)するだけで13〜41点・記録あり(harness: 2秒ごと中央タップで road-themed 18〜41、road-city 13〜41、すべて counted=1)。平均は失敗帯(〜26)だが、シード次第で「ふつう」30コインに届く。"
+  ],
+  "solvability": {
+   "randomGen": true,
+   "risk": "なし",
+   "note": "アイテムは1こずつ間隔(gap)を空けて出るので、よい物とわるい物が同時に同じ位置に来ることはなく、常に全回避・全取得可能。"
+  },
+  "luck": "中",
+  "playSec": {
+   "min": 16,
+   "typical": 17,
+   "max": 22
+  },
+  "difficulty": "ふつう 3レーン切替のみで分かりやすい",
+  "mobile": "画面の左/中/右3分割タップ or パッドを左右になぞる(stepPx30)。判定はレーン単位で広く、スマホ向き。",
+  "issues": [
+   {
+    "level": "軽微",
+    "text": "放置でも真ん中レーンの自動取得で13〜41点(最大でふつう帯)。meterで無操作は弾けるが、ときどき中央タップするだけで記録される。",
+    "basis": "harness"
+   }
+  ],
+  "verdict": "軽微",
+  "proposal": "基礎点8と真ん中自動取得の分を考え、レーン変更(実際に lane が変わったとき)だけ meter.act() する、または開始時の lane をランダムにする。"
+ },
+ {
+  "id": "road-jungle",
+  "name": "ジャングルをかけぬけろ(地域: jungle)",
+  "category": "road",
+  "factory": "makeRoadGame",
+  "lines": "165-301, 10692-10695",
+  "genre": "アクション",
+  "formula": "score = clamp(round(8 + points*0.3 + bestCombo*2), 8, 100)(L292)。points: よい物を取るたび +8+min(6, combo*1.5)(1こ目9.5→4連続以上14)、わるい物に当たると points=max(0,points-8)・combo=0(L254-255)。当たり判定は実位置 playerX、よい物は幅0.52レーン・わるい物は0.38レーン(L253)。 scene:'jungle'。見た目のみの差分。",
+  "timeLimit": "lerp(18,15,ageDifficulty)秒(L169。ふつう最大難度0.55で約16.4秒)+開始猶予0.6秒。20秒未満なので「みじかめ」×0.7は掛からない。やさしいは×1.2(最大21.6秒)。turn-basedではない。",
+  "endConditions": "時間切れのみ(L281)。ライフ・ゲームオーバーなし。",
+  "minScore": 8,
+  "maxScore": 100,
+  "hundredReachable": true,
+  "hundredCondition": "よい物をほぼ全部連続で取る(combo最大を伸ばす)。出現数が確率的(BAD_CHANCE 0.34〜0.46)なので、全部取っても100に届くのは約5〜7割(L292の式でモンテカルロ試算、平均95前後)。",
+  "idle": {
+   "raw": "13〜41(真ん中レーンに来るよい物を自動で取るため。harness 5シード: road-themed 22〜41、road-city/jungle/desert/p3-drive 13〜41)",
+   "t7": "meterあり→記録されない(harness c0)",
+   "basis": "harness"
+  },
+  "zeroAchievement": {
+   "score": "8",
+   "scenario": "よい物を1つも取らない(わるい物だけ当たる/全部よける)",
+   "basis": "code"
+  },
+  "partial": "よい物5こ連続ていど: 8+約55*0.3+10 ≒ 35(ふつう)。10こ取得(最大連続5)≒ 8+約120*0.3+10 ≒ 54",
+  "fullClear": "全取得で 95〜100",
+  "timeout": "時間切れが唯一の終了。点は上記のとおり",
+  "bonuses": "bestCombo*2(最大でも+30〜+36前後)とコンボ加算(1こあたり最大+6)。本来の取得点(8点/こ*0.3)に対しコンボ系が約4〜5割を占め比率は大きめだが、連続取得自体が技能なので妥当。",
+  "exploits": [
+   "真ん中レーンでときどき真ん中をタップ(meter.act はレーンが変わらなくても数える L196)するだけで13〜41点・記録あり(harness: 2秒ごと中央タップで road-themed 18〜41、road-city 13〜41、すべて counted=1)。平均は失敗帯(〜26)だが、シード次第で「ふつう」30コインに届く。"
+  ],
+  "solvability": {
+   "randomGen": true,
+   "risk": "なし",
+   "note": "アイテムは1こずつ間隔(gap)を空けて出るので、よい物とわるい物が同時に同じ位置に来ることはなく、常に全回避・全取得可能。"
+  },
+  "luck": "中",
+  "playSec": {
+   "min": 16,
+   "typical": 17,
+   "max": 22
+  },
+  "difficulty": "ふつう 3レーン切替のみで分かりやすい",
+  "mobile": "画面の左/中/右3分割タップ or パッドを左右になぞる(stepPx30)。判定はレーン単位で広く、スマホ向き。",
+  "issues": [
+   {
+    "level": "軽微",
+    "text": "放置でも真ん中レーンの自動取得で13〜41点(最大でふつう帯)。meterで無操作は弾けるが、ときどき中央タップするだけで記録される。",
+    "basis": "harness"
+   }
+  ],
+  "verdict": "軽微",
+  "proposal": "基礎点8と真ん中自動取得の分を考え、レーン変更(実際に lane が変わったとき)だけ meter.act() する、または開始時の lane をランダムにする。"
+ },
+ {
+  "id": "road-desert",
+  "name": "さばくを走ろう(地域: desert)",
+  "category": "road",
+  "factory": "makeRoadGame",
+  "lines": "165-301, 10698-10701",
+  "genre": "アクション",
+  "formula": "score = clamp(round(8 + points*0.3 + bestCombo*2), 8, 100)(L292)。points: よい物を取るたび +8+min(6, combo*1.5)(1こ目9.5→4連続以上14)、わるい物に当たると points=max(0,points-8)・combo=0(L254-255)。当たり判定は実位置 playerX、よい物は幅0.52レーン・わるい物は0.38レーン(L253)。 scene:'desert'。見た目のみの差分。",
+  "timeLimit": "lerp(18,15,ageDifficulty)秒(L169。ふつう最大難度0.55で約16.4秒)+開始猶予0.6秒。20秒未満なので「みじかめ」×0.7は掛からない。やさしいは×1.2(最大21.6秒)。turn-basedではない。",
+  "endConditions": "時間切れのみ(L281)。ライフ・ゲームオーバーなし。",
+  "minScore": 8,
+  "maxScore": 100,
+  "hundredReachable": true,
+  "hundredCondition": "よい物をほぼ全部連続で取る(combo最大を伸ばす)。出現数が確率的(BAD_CHANCE 0.34〜0.46)なので、全部取っても100に届くのは約5〜7割(L292の式でモンテカルロ試算、平均95前後)。",
+  "idle": {
+   "raw": "13〜41(真ん中レーンに来るよい物を自動で取るため。harness 5シード: road-themed 22〜41、road-city/jungle/desert/p3-drive 13〜41)",
+   "t7": "meterあり→記録されない(harness c0)",
+   "basis": "harness"
+  },
+  "zeroAchievement": {
+   "score": "8",
+   "scenario": "よい物を1つも取らない(わるい物だけ当たる/全部よける)",
+   "basis": "code"
+  },
+  "partial": "よい物5こ連続ていど: 8+約55*0.3+10 ≒ 35(ふつう)。10こ取得(最大連続5)≒ 8+約120*0.3+10 ≒ 54",
+  "fullClear": "全取得で 95〜100",
+  "timeout": "時間切れが唯一の終了。点は上記のとおり",
+  "bonuses": "bestCombo*2(最大でも+30〜+36前後)とコンボ加算(1こあたり最大+6)。本来の取得点(8点/こ*0.3)に対しコンボ系が約4〜5割を占め比率は大きめだが、連続取得自体が技能なので妥当。",
+  "exploits": [
+   "真ん中レーンでときどき真ん中をタップ(meter.act はレーンが変わらなくても数える L196)するだけで13〜41点・記録あり(harness: 2秒ごと中央タップで road-themed 18〜41、road-city 13〜41、すべて counted=1)。平均は失敗帯(〜26)だが、シード次第で「ふつう」30コインに届く。"
+  ],
+  "solvability": {
+   "randomGen": true,
+   "risk": "なし",
+   "note": "アイテムは1こずつ間隔(gap)を空けて出るので、よい物とわるい物が同時に同じ位置に来ることはなく、常に全回避・全取得可能。"
+  },
+  "luck": "中",
+  "playSec": {
+   "min": 16,
+   "typical": 17,
+   "max": 22
+  },
+  "difficulty": "ふつう 3レーン切替のみで分かりやすい",
+  "mobile": "画面の左/中/右3分割タップ or パッドを左右になぞる(stepPx30)。判定はレーン単位で広く、スマホ向き。",
+  "issues": [
+   {
+    "level": "軽微",
+    "text": "放置でも真ん中レーンの自動取得で13〜41点(最大でふつう帯)。meterで無操作は弾けるが、ときどき中央タップするだけで記録される。",
+    "basis": "harness"
+   }
+  ],
+  "verdict": "軽微",
+  "proposal": "基礎点8と真ん中自動取得の分を考え、レーン変更(実際に lane が変わったとき)だけ meter.act() する、または開始時の lane をランダムにする。"
+ },
+ {
+  "id": "p3-space",
+  "name": "3Dうちゅうフライト",
+  "category": "road",
+  "factory": "makeRoadGame",
+  "lines": "165-301, 1115",
+  "genre": "アクション",
+  "formula": "score = clamp(round(8 + points*0.3 + bestCombo*2), 8, 100)(L292)。points: よい物を取るたび +8+min(6, combo*1.5)(1こ目9.5→4連続以上14)、わるい物に当たると points=max(0,points-8)・combo=0(L254-255)。当たり判定は実位置 playerX、よい物は幅0.52レーン・わるい物は0.38レーン(L253)。 scene:'space'、playerEmoji🚀、spawnPattern:'meteor'(わるい物の30%が予告線つきで隣レーンへ移る。出現距離 AHEAD=54 と長め L172/L215-216)。",
+  "timeLimit": "lerp(18,15,ageDifficulty)秒(L169。ふつう最大難度0.55で約16.4秒)+開始猶予0.6秒。20秒未満なので「みじかめ」×0.7は掛からない。やさしいは×1.2(最大21.6秒)。turn-basedではない。",
+  "endConditions": "時間切れのみ(L281)。ライフ・ゲームオーバーなし。",
+  "minScore": 8,
+  "maxScore": 100,
+  "hundredReachable": true,
+  "hundredCondition": "よい物をほぼ全部連続で取る(combo最大を伸ばす)。出現数が確率的(BAD_CHANCE 0.34〜0.46)なので、全部取っても100に届くのは約5〜7割(L292の式でモンテカルロ試算、平均95前後)。",
+  "idle": {
+   "raw": "13〜40(harness 5シード 21/28/13/40/20)",
+   "t7": "meterあり→記録されない(harness c0)",
+   "basis": "harness"
+  },
+  "zeroAchievement": {
+   "score": "8",
+   "scenario": "よい物を1つも取らない(わるい物だけ当たる/全部よける)",
+   "basis": "code"
+  },
+  "partial": "よい物5こ連続ていど: 8+約55*0.3+10 ≒ 35(ふつう)。10こ取得(最大連続5)≒ 8+約120*0.3+10 ≒ 54",
+  "fullClear": "全取得で 95〜100",
+  "timeout": "時間切れが唯一の終了。点は上記のとおり",
+  "bonuses": "bestCombo*2(最大でも+30〜+36前後)とコンボ加算(1こあたり最大+6)。本来の取得点(8点/こ*0.3)に対しコンボ系が約4〜5割を占め比率は大きめだが、連続取得自体が技能なので妥当。",
+  "exploits": [
+   "真ん中レーンでときどき真ん中をタップ(meter.act はレーンが変わらなくても数える L196)するだけで13〜41点・記録あり(harness: 2秒ごと中央タップで road-themed 18〜41、road-city 13〜41、すべて counted=1)。平均は失敗帯(〜26)だが、シード次第で「ふつう」30コインに届く。"
+  ],
+  "solvability": {
+   "randomGen": true,
+   "risk": "なし",
+   "note": "アイテムは1こずつ間隔(gap)を空けて出るので、よい物とわるい物が同時に同じ位置に来ることはなく、常に全回避・全取得可能。流れ星(30%のわるい物が隣レーンへ移動)も予告線つきで判定の手前(MOVE_END=20seg)で移り終える(L237-241)。"
+  },
+  "luck": "中",
+  "playSec": {
+   "min": 16,
+   "typical": 17,
+   "max": 22
+  },
+  "difficulty": "ふつう 流れ星の予告を読む要素が加わり他のロードより少し難しい",
+  "mobile": "画面の左/中/右3分割タップ or パッドを左右になぞる(stepPx30)。判定はレーン単位で広く、スマホ向き。",
+  "issues": [
+   {
+    "level": "軽微",
+    "text": "放置でも真ん中レーンの自動取得で13〜41点(最大でふつう帯)。meterで無操作は弾けるが、ときどき中央タップするだけで記録される。",
+    "basis": "harness"
+   }
+  ],
+  "verdict": "軽微",
+  "proposal": "基礎点8と真ん中自動取得の分を考え、レーン変更(実際に lane が変わったとき)だけ meter.act() する、または開始時の lane をランダムにする。"
+ },
+ {
+  "id": "p3-drive",
+  "name": "3Dハイウェイ",
+  "category": "road",
+  "factory": "makeRoadGame",
+  "lines": "165-301, 1116",
+  "genre": "アクション",
+  "formula": "score = clamp(round(8 + points*0.3 + bestCombo*2), 8, 100)(L292)。points: よい物を取るたび +8+min(6, combo*1.5)(1こ目9.5→4連続以上14)、わるい物に当たると points=max(0,points-8)・combo=0(L254-255)。当たり判定は実位置 playerX、よい物は幅0.52レーン・わるい物は0.38レーン(L253)。 scene:'highway'、playerEmoji🏎️。見た目のみの差分。",
+  "timeLimit": "lerp(18,15,ageDifficulty)秒(L169。ふつう最大難度0.55で約16.4秒)+開始猶予0.6秒。20秒未満なので「みじかめ」×0.7は掛からない。やさしいは×1.2(最大21.6秒)。turn-basedではない。",
+  "endConditions": "時間切れのみ(L281)。ライフ・ゲームオーバーなし。",
+  "minScore": 8,
+  "maxScore": 100,
+  "hundredReachable": true,
+  "hundredCondition": "よい物をほぼ全部連続で取る(combo最大を伸ばす)。出現数が確率的(BAD_CHANCE 0.34〜0.46)なので、全部取っても100に届くのは約5〜7割(L292の式でモンテカルロ試算、平均95前後)。",
+  "idle": {
+   "raw": "13〜41(真ん中レーンに来るよい物を自動で取るため。harness 5シード: road-themed 22〜41、road-city/jungle/desert/p3-drive 13〜41)",
+   "t7": "meterあり→記録されない(harness c0)",
+   "basis": "harness"
+  },
+  "zeroAchievement": {
+   "score": "8",
+   "scenario": "よい物を1つも取らない(わるい物だけ当たる/全部よける)",
+   "basis": "code"
+  },
+  "partial": "よい物5こ連続ていど: 8+約55*0.3+10 ≒ 35(ふつう)。10こ取得(最大連続5)≒ 8+約120*0.3+10 ≒ 54",
+  "fullClear": "全取得で 95〜100",
+  "timeout": "時間切れが唯一の終了。点は上記のとおり",
+  "bonuses": "bestCombo*2(最大でも+30〜+36前後)とコンボ加算(1こあたり最大+6)。本来の取得点(8点/こ*0.3)に対しコンボ系が約4〜5割を占め比率は大きめだが、連続取得自体が技能なので妥当。",
+  "exploits": [
+   "真ん中レーンでときどき真ん中をタップ(meter.act はレーンが変わらなくても数える L196)するだけで13〜41点・記録あり(harness: 2秒ごと中央タップで road-themed 18〜41、road-city 13〜41、すべて counted=1)。平均は失敗帯(〜26)だが、シード次第で「ふつう」30コインに届く。"
+  ],
+  "solvability": {
+   "randomGen": true,
+   "risk": "なし",
+   "note": "アイテムは1こずつ間隔(gap)を空けて出るので、よい物とわるい物が同時に同じ位置に来ることはなく、常に全回避・全取得可能。"
+  },
+  "luck": "中",
+  "playSec": {
+   "min": 16,
+   "typical": 17,
+   "max": 22
+  },
+  "difficulty": "ふつう 3レーン切替のみで分かりやすい",
+  "mobile": "画面の左/中/右3分割タップ or パッドを左右になぞる(stepPx30)。判定はレーン単位で広く、スマホ向き。",
+  "issues": [
+   {
+    "level": "軽微",
+    "text": "放置でも真ん中レーンの自動取得で13〜41点(最大でふつう帯)。meterで無操作は弾けるが、ときどき中央タップするだけで記録される。",
+    "basis": "harness"
+   }
+  ],
+  "verdict": "軽微",
+  "proposal": "基礎点8と真ん中自動取得の分を考え、レーン変更(実際に lane が変わったとき)だけ meter.act() する、または開始時の lane をランダムにする。"
+ },
+ {
+  "id": "stack-themed",
+  "name": "つみき/パンケーキ/ケーキタワー(ランダムテーマ)",
+  "category": "stack",
+  "factory": "makeStackGame",
+  "lines": "342-423, 432-438",
+  "genre": "アクション",
+  "formula": "score = clamp(round(8 + n*7 + perfects*4), 8, 100)(L419)。n=積んだ段数(blocks.length-1)、perfects=中心ずれ<5px の回数(L397)。 STACK_THEMES 3種(🟦/🥞/🍰)を毎回抽選。見た目のみ。",
+  "timeLimit": "25秒(mgDuration(25000) L346)+開始猶予0.6秒。「みじかめ」で17.5秒、やさしいで30秒。turn-basedではない。",
+  "endConditions": "時間切れ、または重なりが4px以下で落下(over→1.4秒後に終了 L393)。",
+  "minScore": 8,
+  "maxScore": 100,
+  "hundredReachable": true,
+  "hundredCondition": "n*7+perfects*4 ≥ 92。例: 13段(パーフェクト0)/10段+パーフェクト6/9段+パーフェクト8 など。1段0.5〜1秒で落とせるため25秒内で到達可能(inference)。",
+  "idle": {
+   "raw": "8",
+   "t7": "meterなし→入力0なら記録されない(onComplete(score) のみ L421)",
+   "basis": "harness"
+  },
+  "zeroAchievement": {
+   "score": "8",
+   "scenario": "1つ目のブロックを外して落下(重なり≤4px)",
+   "basis": "code"
+  },
+  "partial": "3段=29、5段=43(ふつう)、8段+パーフェクト2=72(great)",
+  "fullClear": "クリア概念なし。13段以上で100",
+  "timeout": "時間切れは段数どおり(落下時と同じ式)",
+  "bonuses": "パーフェクト1回+4(段の7点の約57%)+幅が6px戻る。比率は妥当。",
+  "exploits": [
+   "一定間隔(1.3秒)の連打は 22〜29点・数秒で落下(harness)。揺れ速度が段ごとに上がる(L398)ので周期打ちは効かない。目立った抜け道なし。"
+  ],
+  "solvability": {
+   "randomGen": true,
+   "risk": "なし",
+   "note": "初期位置と向きだけランダム(中央から16px以上離す L376)。常に操作可能。"
+  },
+  "luck": "低",
+  "playSec": {
+   "min": 3,
+   "typical": 20,
+   "max": 26
+  },
+  "difficulty": "ふつう 細くなるほど難しくなる定番タワー",
+  "mobile": "大きな「おとす!」ボタン(mg-race-controls min-height 58px)と画面タップの両方。タイミング1点押しでスマホ向き。パーフェクト窓は±5px(速度120〜170px/sで約±30ms)と厳しいがボーナス扱い。",
+  "issues": [
+   {
+    "level": "軽微",
+    "text": "meter を渡していないので「1回タップ→落下」でも記録される(点は15前後で失敗帯なので実害は小さい)。",
+    "basis": "code"
+   }
+  ],
+  "verdict": "現行維持",
+  "proposal": ""
+ },
+ {
+  "id": "stack-snowman",
+  "name": "ゆきだるまタワー",
+  "category": "stack",
+  "factory": "makeStackGame",
+  "lines": "342-423, 440-444",
+  "genre": "アクション",
+  "formula": "score = clamp(round(8 + n*7 + perfects*4), 8, 100)(L419)。n=積んだ段数(blocks.length-1)、perfects=中心ずれ<5px の回数(L397)。 blockEmoji ⚪、palette が白〜ごく薄い青7色。",
+  "timeLimit": "25秒(mgDuration(25000) L346)+開始猶予0.6秒。「みじかめ」で17.5秒、やさしいで30秒。turn-basedではない。",
+  "endConditions": "時間切れ、または重なりが4px以下で落下(over→1.4秒後に終了 L393)。",
+  "minScore": 8,
+  "maxScore": 100,
+  "hundredReachable": true,
+  "hundredCondition": "n*7+perfects*4 ≥ 92。例: 13段(パーフェクト0)/10段+パーフェクト6/9段+パーフェクト8 など。1段0.5〜1秒で落とせるため25秒内で到達可能(inference)。",
+  "idle": {
+   "raw": "8",
+   "t7": "meterなし→入力0なら記録されない(onComplete(score) のみ L421)",
+   "basis": "harness"
+  },
+  "zeroAchievement": {
+   "score": "8",
+   "scenario": "1つ目のブロックを外して落下(重なり≤4px)",
+   "basis": "code"
+  },
+  "partial": "3段=29、5段=43(ふつう)、8段+パーフェクト2=72(great)",
+  "fullClear": "クリア概念なし。13段以上で100",
+  "timeout": "時間切れは段数どおり(落下時と同じ式)",
+  "bonuses": "パーフェクト1回+4(段の7点の約57%)+幅が6px戻る。比率は妥当。",
+  "exploits": [
+   "一定間隔(1.3秒)の連打は 22〜29点・数秒で落下(harness)。揺れ速度が段ごとに上がる(L398)ので周期打ちは効かない。目立った抜け道なし。"
+  ],
+  "solvability": {
+   "randomGen": true,
+   "risk": "なし",
+   "note": "初期位置と向きだけランダム(中央から16px以上離す L376)。常に操作可能。"
+  },
+  "luck": "低",
+  "playSec": {
+   "min": 3,
+   "typical": 20,
+   "max": 26
+  },
+  "difficulty": "ふつう 細くなるほど難しくなる定番タワー",
+  "mobile": "大きな「おとす!」ボタン(mg-race-controls min-height 58px)と画面タップの両方。タイミング1点押しでスマホ向き。パーフェクト窓は±5px(速度120〜170px/sで約±30ms)と厳しいがボーナス扱い。",
+  "issues": [
+   {
+    "level": "軽微",
+    "text": "meter を渡していないので「1回タップ→落下」でも記録される(点は15前後で失敗帯なので実害は小さい)。",
+    "basis": "code"
+   },
+   {
+    "level": "軽微",
+    "text": "palette がほぼ白一色(#ffffff,#f0f8ff…)でブロック同士・⚪絵文字とのコントラストが低く、重なりの境目が見えにくい可能性(見た目のみ、採点は共通)。",
+    "basis": "inference"
+   }
+  ],
+  "verdict": "現行維持",
+  "proposal": ""
+ },
+ {
+  "id": "stack-harvest",
+  "name": "いなかの収穫タワー(地域: countryside)",
+  "category": "stack",
+  "factory": "makeStackGame",
+  "lines": "342-423, 10662-10667",
+  "genre": "アクション",
+  "formula": "score = clamp(round(8 + n*7 + perfects*4), 8, 100)(L419)。n=積んだ段数(blocks.length-1)、perfects=中心ずれ<5px の回数(L397)。 blockEmoji 🌾(STACK_BLOCK_ART の atlas 画像で描画 L314)。見た目のみ。",
+  "timeLimit": "25秒(mgDuration(25000) L346)+開始猶予0.6秒。「みじかめ」で17.5秒、やさしいで30秒。turn-basedではない。",
+  "endConditions": "時間切れ、または重なりが4px以下で落下(over→1.4秒後に終了 L393)。",
+  "minScore": 8,
+  "maxScore": 100,
+  "hundredReachable": true,
+  "hundredCondition": "n*7+perfects*4 ≥ 92。例: 13段(パーフェクト0)/10段+パーフェクト6/9段+パーフェクト8 など。1段0.5〜1秒で落とせるため25秒内で到達可能(inference)。",
+  "idle": {
+   "raw": "8",
+   "t7": "meterなし→入力0なら記録されない(onComplete(score) のみ L421)",
+   "basis": "harness"
+  },
+  "zeroAchievement": {
+   "score": "8",
+   "scenario": "1つ目のブロックを外して落下(重なり≤4px)",
+   "basis": "code"
+  },
+  "partial": "3段=29、5段=43(ふつう)、8段+パーフェクト2=72(great)",
+  "fullClear": "クリア概念なし。13段以上で100",
+  "timeout": "時間切れは段数どおり(落下時と同じ式)",
+  "bonuses": "パーフェクト1回+4(段の7点の約57%)+幅が6px戻る。比率は妥当。",
+  "exploits": [
+   "一定間隔(1.3秒)の連打は 22〜29点・数秒で落下(harness)。揺れ速度が段ごとに上がる(L398)ので周期打ちは効かない。目立った抜け道なし。"
+  ],
+  "solvability": {
+   "randomGen": true,
+   "risk": "なし",
+   "note": "初期位置と向きだけランダム(中央から16px以上離す L376)。常に操作可能。"
+  },
+  "luck": "低",
+  "playSec": {
+   "min": 3,
+   "typical": 20,
+   "max": 26
+  },
+  "difficulty": "ふつう 細くなるほど難しくなる定番タワー",
+  "mobile": "大きな「おとす!」ボタン(mg-race-controls min-height 58px)と画面タップの両方。タイミング1点押しでスマホ向き。パーフェクト窓は±5px(速度120〜170px/sで約±30ms)と厳しいがボーナス扱い。",
+  "issues": [
+   {
+    "level": "軽微",
+    "text": "meter を渡していないので「1回タップ→落下」でも記録される(点は15前後で失敗帯なので実害は小さい)。",
+    "basis": "code"
+   }
+  ],
+  "verdict": "現行維持",
+  "proposal": ""
+ },
+ {
+  "id": "stack-acorn",
+  "name": "きのみタワー(地域: forest)",
+  "category": "stack",
+  "factory": "makeStackGame",
+  "lines": "342-423, 10669-10674",
+  "genre": "アクション",
+  "formula": "score = clamp(round(8 + n*7 + perfects*4), 8, 100)(L419)。n=積んだ段数(blocks.length-1)、perfects=中心ずれ<5px の回数(L397)。 blockEmoji 🌰。見た目のみ。",
+  "timeLimit": "25秒(mgDuration(25000) L346)+開始猶予0.6秒。「みじかめ」で17.5秒、やさしいで30秒。turn-basedではない。",
+  "endConditions": "時間切れ、または重なりが4px以下で落下(over→1.4秒後に終了 L393)。",
+  "minScore": 8,
+  "maxScore": 100,
+  "hundredReachable": true,
+  "hundredCondition": "n*7+perfects*4 ≥ 92。例: 13段(パーフェクト0)/10段+パーフェクト6/9段+パーフェクト8 など。1段0.5〜1秒で落とせるため25秒内で到達可能(inference)。",
+  "idle": {
+   "raw": "8",
+   "t7": "meterなし→入力0なら記録されない(onComplete(score) のみ L421)",
+   "basis": "harness"
+  },
+  "zeroAchievement": {
+   "score": "8",
+   "scenario": "1つ目のブロックを外して落下(重なり≤4px)",
+   "basis": "code"
+  },
+  "partial": "3段=29、5段=43(ふつう)、8段+パーフェクト2=72(great)",
+  "fullClear": "クリア概念なし。13段以上で100",
+  "timeout": "時間切れは段数どおり(落下時と同じ式)",
+  "bonuses": "パーフェクト1回+4(段の7点の約57%)+幅が6px戻る。比率は妥当。",
+  "exploits": [
+   "一定間隔(1.3秒)の連打は 22〜29点・数秒で落下(harness)。揺れ速度が段ごとに上がる(L398)ので周期打ちは効かない。目立った抜け道なし。"
+  ],
+  "solvability": {
+   "randomGen": true,
+   "risk": "なし",
+   "note": "初期位置と向きだけランダム(中央から16px以上離す L376)。常に操作可能。"
+  },
+  "luck": "低",
+  "playSec": {
+   "min": 3,
+   "typical": 20,
+   "max": 26
+  },
+  "difficulty": "ふつう 細くなるほど難しくなる定番タワー",
+  "mobile": "大きな「おとす!」ボタン(mg-race-controls min-height 58px)と画面タップの両方。タイミング1点押しでスマホ向き。パーフェクト窓は±5px(速度120〜170px/sで約±30ms)と厳しいがボーナス扱い。",
+  "issues": [
+   {
+    "level": "軽微",
+    "text": "meter を渡していないので「1回タップ→落下」でも記録される(点は15前後で失敗帯なので実害は小さい)。",
+    "basis": "code"
+   }
+  ],
+  "verdict": "現行維持",
+  "proposal": ""
+ },
+ {
+  "id": "stack-sakura",
+  "name": "さくらタワー(季節: 春)",
+  "category": "stack",
+  "factory": "makeStackGame",
+  "lines": "342-423, 10715-10720",
+  "genre": "アクション",
+  "formula": "score = clamp(round(8 + n*7 + perfects*4), 8, 100)(L419)。n=積んだ段数(blocks.length-1)、perfects=中心ずれ<5px の回数(L397)。 blockEmoji 🌸(atlas 画像)。見た目のみ。",
+  "timeLimit": "25秒(mgDuration(25000) L346)+開始猶予0.6秒。「みじかめ」で17.5秒、やさしいで30秒。turn-basedではない。",
+  "endConditions": "時間切れ、または重なりが4px以下で落下(over→1.4秒後に終了 L393)。",
+  "minScore": 8,
+  "maxScore": 100,
+  "hundredReachable": true,
+  "hundredCondition": "n*7+perfects*4 ≥ 92。例: 13段(パーフェクト0)/10段+パーフェクト6/9段+パーフェクト8 など。1段0.5〜1秒で落とせるため25秒内で到達可能(inference)。",
+  "idle": {
+   "raw": "8",
+   "t7": "meterなし→入力0なら記録されない(onComplete(score) のみ L421)",
+   "basis": "harness"
+  },
+  "zeroAchievement": {
+   "score": "8",
+   "scenario": "1つ目のブロックを外して落下(重なり≤4px)",
+   "basis": "code"
+  },
+  "partial": "3段=29、5段=43(ふつう)、8段+パーフェクト2=72(great)",
+  "fullClear": "クリア概念なし。13段以上で100",
+  "timeout": "時間切れは段数どおり(落下時と同じ式)",
+  "bonuses": "パーフェクト1回+4(段の7点の約57%)+幅が6px戻る。比率は妥当。",
+  "exploits": [
+   "一定間隔(1.3秒)の連打は 22〜29点・数秒で落下(harness)。揺れ速度が段ごとに上がる(L398)ので周期打ちは効かない。目立った抜け道なし。"
+  ],
+  "solvability": {
+   "randomGen": true,
+   "risk": "なし",
+   "note": "初期位置と向きだけランダム(中央から16px以上離す L376)。常に操作可能。"
+  },
+  "luck": "低",
+  "playSec": {
+   "min": 3,
+   "typical": 20,
+   "max": 26
+  },
+  "difficulty": "ふつう 細くなるほど難しくなる定番タワー",
+  "mobile": "大きな「おとす!」ボタン(mg-race-controls min-height 58px)と画面タップの両方。タイミング1点押しでスマホ向き。パーフェクト窓は±5px(速度120〜170px/sで約±30ms)と厳しいがボーナス扱い。",
+  "issues": [
+   {
+    "level": "軽微",
+    "text": "meter を渡していないので「1回タップ→落下」でも記録される(点は15前後で失敗帯なので実害は小さい)。",
+    "basis": "code"
+   }
+  ],
+  "verdict": "現行維持",
+  "proposal": ""
+ },
+ {
+  "id": "stack-leaves",
+  "name": "落ち葉タワー(季節: 秋)",
+  "category": "stack",
+  "factory": "makeStackGame",
+  "lines": "342-423, 10725-10730",
+  "genre": "アクション",
+  "formula": "score = clamp(round(8 + n*7 + perfects*4), 8, 100)(L419)。n=積んだ段数(blocks.length-1)、perfects=中心ずれ<5px の回数(L397)。 blockEmoji 🍁(atlas 画像)。見た目のみ。",
+  "timeLimit": "25秒(mgDuration(25000) L346)+開始猶予0.6秒。「みじかめ」で17.5秒、やさしいで30秒。turn-basedではない。",
+  "endConditions": "時間切れ、または重なりが4px以下で落下(over→1.4秒後に終了 L393)。",
+  "minScore": 8,
+  "maxScore": 100,
+  "hundredReachable": true,
+  "hundredCondition": "n*7+perfects*4 ≥ 92。例: 13段(パーフェクト0)/10段+パーフェクト6/9段+パーフェクト8 など。1段0.5〜1秒で落とせるため25秒内で到達可能(inference)。",
+  "idle": {
+   "raw": "8",
+   "t7": "meterなし→入力0なら記録されない(onComplete(score) のみ L421)",
+   "basis": "harness"
+  },
+  "zeroAchievement": {
+   "score": "8",
+   "scenario": "1つ目のブロックを外して落下(重なり≤4px)",
+   "basis": "code"
+  },
+  "partial": "3段=29、5段=43(ふつう)、8段+パーフェクト2=72(great)",
+  "fullClear": "クリア概念なし。13段以上で100",
+  "timeout": "時間切れは段数どおり(落下時と同じ式)",
+  "bonuses": "パーフェクト1回+4(段の7点の約57%)+幅が6px戻る。比率は妥当。",
+  "exploits": [
+   "一定間隔(1.3秒)の連打は 22〜29点・数秒で落下(harness)。揺れ速度が段ごとに上がる(L398)ので周期打ちは効かない。目立った抜け道なし。"
+  ],
+  "solvability": {
+   "randomGen": true,
+   "risk": "なし",
+   "note": "初期位置と向きだけランダム(中央から16px以上離す L376)。常に操作可能。"
+  },
+  "luck": "低",
+  "playSec": {
+   "min": 3,
+   "typical": 20,
+   "max": 26
+  },
+  "difficulty": "ふつう 細くなるほど難しくなる定番タワー",
+  "mobile": "大きな「おとす!」ボタン(mg-race-controls min-height 58px)と画面タップの両方。タイミング1点押しでスマホ向き。パーフェクト窓は±5px(速度120〜170px/sで約±30ms)と厳しいがボーナス扱い。",
+  "issues": [
+   {
+    "level": "軽微",
+    "text": "meter を渡していないので「1回タップ→落下」でも記録される(点は15前後で失敗帯なので実害は小さい)。",
+    "basis": "code"
+   }
+  ],
+  "verdict": "現行維持",
+  "proposal": ""
+ },
+ {
+  "id": "bowling-3d",
+  "name": "ボウリング",
+  "category": "swipeThrow",
+  "factory": "makeBowlingGame",
+  "lines": "450-636, 756",
+  "genre": "スポーツ",
+  "formula": "score = clamp(round(14 + pinsDown*2.9 + strikes*12 + spares*5), 12, 100)(L625)。2フレーム×最大2投(FRAMES=2 L457)。",
+  "timeLimit": "制限時間なし。開始から50秒(GIVE_UP_MS、mgDuration 非適用)経過かつ投球前なら打ち切り(L616)。",
+  "endConditions": "2フレーム終了、または50秒経過時に投げていなければ終了。",
+  "minScore": 14,
+  "maxScore": 96,
+  "hundredReachable": false,
+  "hundredCondition": "到達不能。最大は2ストライク: 14+20*2.9+24=96(L625)。ストライク+スペア=89。",
+  "idle": {
+   "raw": "14",
+   "t7": "meterなし→入力0なら記録されない",
+   "basis": "harness"
+  },
+  "zeroAchievement": {
+   "score": "14",
+   "scenario": "4投すべてガター",
+   "basis": "code"
+  },
+  "partial": "まっすぐ遅めのスワイプ: 49〜60(harness)。各フレーム7〜8本ていど",
+  "fullClear": "2ストライク=96(S)",
+  "timeout": "50秒打ち切り時はそこまでの本数で同式",
+  "bonuses": "ストライク+12、スペア+5。本数点(最大58)に対しストライク2回で+24(約4割)。",
+  "exploits": [
+   "速いスワイプを中心からわずかに(3〜6px)ずらして上へ払うだけで、ほぼ毎回ストライク→96点(harness: dx=±3 fast で 6シード中5回が96)。狙い・フックの技能がほぼ不要。"
+  ],
+  "solvability": {
+   "randomGen": true,
+   "risk": "なし",
+   "note": "ピン衝突に乱数あり(L540-541)。配置は固定。"
+  },
+  "luck": "低",
+  "playSec": {
+   "min": 15,
+   "typical": 30,
+   "max": 51
+  },
+  "difficulty": "やさしい 定型のスワイプでストライクが安定",
+  "mobile": "キャンバス上の上方向スワイプ(dy≥30px)。立ち位置はパッド。スワイプは自然でスマホ向き。",
+  "issues": [
+   {
+    "level": "改善推奨",
+    "text": "式の上限が96で100点(満点)に届かない。2ストライクの完璧プレイでも96。",
+    "basis": "code"
+   },
+   {
+    "level": "改善推奨",
+    "text": "ポケット狙いの速いスワイプでストライクがほぼ確定し、簡単に96(Sランク)になる。",
+    "basis": "harness"
+   },
+   {
+    "level": "軽微",
+    "text": "difficulty を宣言しているが未使用(年齢・難易度設定で変化しない)。",
+    "basis": "code"
+   }
+  ],
+  "verdict": "改善推奨",
+  "proposal": "2ストライクで100になるよう係数を調整(例 14+pins*3.1+strikes*12)。ピン衝突の乱数か、ポケットの許容幅に難易度を掛けて、同じスワイプの再現でストライクが確定しないようにする。"
+ },
+ {
+  "id": "archery-3d",
+  "name": "アーチェリー",
+  "category": "swipeThrow",
+  "factory": "makeArcheryGame",
+  "lines": "638-754, 757",
+  "genre": "スポーツ",
+  "formula": "score = clamp(round(total/50*100), 8, 100)(L745)。total=5本の的点(0〜10、ringScore L679)。着弾 = 照準 + wind*26/draw + 手ぶれ(±shake/2、shake=lerp(3,6,難度)+長押し2.5秒超で増加)(L669-671)。",
+  "timeLimit": "制限時間なし。55秒(GIVE_UP_MS、mgDuration非適用)で打ち切り(L734)。",
+  "endConditions": "5本撃ち終わり、または55秒経過。",
+  "minScore": 8,
+  "maxScore": 100,
+  "hundredReachable": true,
+  "hundredCondition": "5本すべて10点(中心から targetR/10 以内)。",
+  "idle": {
+   "raw": "8",
+   "t7": "meterなし→入力0なら記録されない",
+   "basis": "harness"
+  },
+  "zeroAchievement": {
+   "score": "8",
+   "scenario": "5本とも的を外す",
+   "basis": "code"
+  },
+  "partial": "平均7点/本で70",
+  "fullClear": "5本10点で100",
+  "timeout": "55秒で撃った分だけの合計",
+  "bonuses": "なし",
+  "exploits": [
+   "風を無視して「まっすぐ下へ、いっぱいに引いて離す」を繰り返すだけで 92〜98点(harness 8シード、ふつう年齢25/ふつう最大難度/むずかしい最大でも82〜98)。風の補正は最大でも的半径の1〜2割しかずれないため、ほぼ9〜10点に入る。ヒント文にもこの操作が書かれている(L654)。"
+  ],
+  "solvability": {
+   "randomGen": true,
+   "risk": "なし",
+   "note": "風・距離が毎本ランダムだが常に狙える。"
+  },
+  "luck": "低",
+  "playSec": {
+   "min": 12,
+   "typical": 18,
+   "max": 56
+  },
+  "difficulty": "やさしすぎ 風を読む要素がほぼ効いていない",
+  "mobile": "画面を押して後ろへ引くドラッグ。照準(風込み)が表示され操作は分かりやすい。",
+  "issues": [
+   {
+    "level": "改善推奨",
+    "text": "風を読まずに真下へ全力で引くだけで毎回S(92〜98)。タイトルの「風を読んで」が採点に効いていない。",
+    "basis": "harness"
+   }
+  ],
+  "verdict": "改善推奨",
+  "proposal": "風の影響(wind*26)を的半径に比例させて2〜3倍にする、または照準表示から風の分を外して「読む」要素にする。中心10点の半径を狭めて90点以上を技能帯にする。"
+ },
+ {
+  "id": "breakout-classic",
+  "name": "ブロックくずし",
+  "category": "breakout",
+  "factory": "makeBreakoutGame",
+  "lines": "762-847, 849",
+  "genre": "アクション",
+  "formula": "全ステージ(3)クリア: clamp(85+lives*5, 85, 100)。それ以外: clamp(round(10 + score/7 + cleared*12), 10, 80)(L839)。score=通常ブロック10・かたいブロック30(L803)。",
+  "timeLimit": "30秒(mgDuration(30000) L766)、みじかめ21秒、やさしい36秒。turn-basedではない。",
+  "endConditions": "時間切れ、ライフ3つ全損、3ステージ全クリア。",
+  "minScore": 10,
+  "maxScore": 100,
+  "hundredReachable": false,
+  "hundredCondition": "3ステージ全クリア+ライフ3。ステージ1=32枚、2=約27枚(+かたい8)、3=約44枚(+かたい多数)で計120回以上の命中が必要。30秒(みじかめ21秒)では事実上不可能(inference)。現実的な上限は非クリア上限の80。",
+  "idle": {
+   "raw": "14〜20",
+   "t7": "meterなし→入力0なら記録されない",
+   "basis": "harness"
+  },
+  "zeroAchievement": {
+   "score": "10",
+   "scenario": "1枚も壊さず3球落とす",
+   "basis": "code"
+  },
+  "partial": "ステージ1クリア(320点)=68、ブロック10枚=24",
+  "fullClear": "85〜100(事実上到達不能)",
+  "timeout": "10+score/7+cleared*12(上限80)",
+  "bonuses": "ステージクリア+12、全クリア時ライフ×5。",
+  "exploits": [
+   "特になし。放置(パドル中央固定)は14〜20点の失敗帯。"
+  ],
+  "solvability": {
+   "randomGen": true,
+   "risk": "高",
+   "note": "盤面は固定でアイテム(12%)と発射角のみランダム。全3ステージを30秒で壊し切るのは物理的に困難で、85〜100帯は実質使われない。"
+  },
+  "luck": "低",
+  "playSec": {
+   "min": 8,
+   "typical": 31,
+   "max": 37
+  },
+  "difficulty": "むずかしい(満点帯)。80までは技能どおり",
+  "mobile": "キャンバスのドラッグ(相対移動×1.15)とパッド。ボール半径5px・速度245〜295px/sと速め。",
+  "issues": [
+   {
+    "level": "改善推奨",
+    "text": "30秒(みじかめ21秒)で3ステージ全クリアは事実上不可能で、85〜100帯(Sランク)に届かない。実質の最高は80。",
+    "basis": "inference"
+   }
+  ],
+  "verdict": "改善推奨",
+  "proposal": "ステージ数を1〜2に減らすか、時間を延ばす。あるいは非クリア時の上限80を撤廃し score/7 の係数で100まで届くようにする。"
+ },
+ {
+  "id": "dragDecorate-cake",
+  "name": "ケーキデコレーション",
+  "category": "dragDecorate",
+  "factory": "makeCakeDecorateGame",
+  "lines": "932-1012, 1101",
+  "genre": "育成・料理",
+  "formula": "3つ全部置くと finish(100)(L997)。時間切れは round(placed/3*100)=0/33/67(L1006)。",
+  "timeLimit": "16秒(mgDuration(16000)、20秒未満なのでみじかめ短縮なし)、やさしい19.2秒。",
+  "endConditions": "3つ置き終わる、または時間切れ。",
+  "minScore": 0,
+  "maxScore": 100,
+  "hundredReachable": true,
+  "hundredCondition": "指示どおり いちご→チョコ→さくらんぼ を光っている枠に3回ドラッグ。",
+  "idle": {
+   "raw": "0",
+   "t7": "meterなし→入力0なら記録されない",
+   "basis": "harness"
+  },
+  "zeroAchievement": {
+   "score": "0",
+   "scenario": "1つも置けない",
+   "basis": "code"
+  },
+  "partial": "1つ=33(ふつう)、2つ=67",
+  "fullClear": "100",
+  "timeout": "0/33/67",
+  "bonuses": "なし",
+  "exploits": [
+   "置く場所(光る枠)と順番が表示され、間違いは元に戻るだけで減点なし。3回のドラッグ(数秒)で100点・Sランク。"
+  ],
+  "solvability": {
+   "randomGen": false,
+   "risk": "なし",
+   "note": "固定配置。"
+  },
+  "luck": "低",
+  "playSec": {
+   "min": 4,
+   "typical": 8,
+   "max": 16
+  },
+  "difficulty": "やさしすぎ 判断要素がない",
+  "mobile": "ドラッグ&ドロップ(fixed配置で指追従)。枠に入れるだけで精度は不要。",
+  "issues": [
+   {
+    "level": "改善推奨",
+    "text": "正解の位置と順番が常に表示され、失敗ペナルティもないため数秒で必ず100点(S、60コイン)。報酬に対して難易度が低すぎる。",
+    "basis": "code"
+   }
+  ],
+  "verdict": "改善推奨",
+  "proposal": "置いた位置の精度(枠中心からの距離)や所要時間で点を付ける、トッピング数を増やして見本を短時間だけ見せる等で技能差を出す。"
+ },
+ {
+  "id": "dragDecorate-bento",
+  "name": "おべんとうづくり",
+  "category": "dragDecorate",
+  "factory": "makeBentoBoxGame",
+  "lines": "1018-1098, 1102",
+  "genre": "パズル",
+  "formula": "score = round(正しい枠に置いた数/4*100) = 0/25/50/75/100(L1081 全部置いた時、L1093 時間切れ)。",
+  "timeLimit": "見本2.2秒+つめる時間11秒(mgDuration(11000)、短縮なし)、やさしい13.2秒。",
+  "endConditions": "4つ全部置く(正誤を問わず)、または時間切れ。",
+  "minScore": 0,
+  "maxScore": 100,
+  "hundredReachable": true,
+  "hundredCondition": "見本どおり4つ全部正しい枠へ。",
+  "idle": {
+   "raw": "0",
+   "t7": "meterなし→入力0なら記録されない",
+   "basis": "harness"
+  },
+  "zeroAchievement": {
+   "score": "0〜100(でたらめ置きの期待値25)",
+   "scenario": "見本を覚えずに4つを適当な枠へ置く: 4!通りの不動点分布で 0点37.5%/25点33%/50点25%/100点4%。約29%で30点以上(ふつう)",
+   "basis": "code"
+  },
+  "partial": "2つ正解=50",
+  "fullClear": "100",
+  "timeout": "正解数どおり",
+  "bonuses": "なし",
+  "exploits": [
+   "でたらめに置いても約29%で50点以上・約4%で100点(運)。"
+  ],
+  "solvability": {
+   "randomGen": true,
+   "risk": "なし",
+   "note": "配置シャッフルのみ。常に解ける。"
+  },
+  "luck": "中",
+  "playSec": {
+   "min": 5,
+   "typical": 9,
+   "max": 14
+  },
+  "difficulty": "やさしい 4つの位置記憶",
+  "mobile": "ドラッグ&ドロップ。枠は4つで大きく、精密操作不要。",
+  "issues": [
+   {
+    "level": "軽微",
+    "text": "当て推量で約29%がふつう以上になる(4択の記憶なので構造上やむをえない面あり)。",
+    "basis": "code"
+   }
+  ],
+  "verdict": "軽微",
+  "proposal": "具材を5〜6に増やすか、間違い1つにつき減点(例 -10)を入れて当て推量の期待値を下げる。"
+ },
+ {
+  "id": "fp-dungeon",
+  "name": "3Dダンジョン",
+  "category": "firstPerson",
+  "factory": "makeFirstPersonDungeonGame",
+  "lines": "1332-1434(共通 createRaycastView 等 1120-1330), 1435",
+  "genre": "探索",
+  "formula": "脱出: clamp(52 + taken*12 + remRatio*16 - trapHits*4, 40, 100)(L1425)。remRatio=1-(経過+落とし穴ペナルティ)/制限。時間切れ: clamp(18 + taken*9, 15, 45)(L1426)。",
+  "timeLimit": "lerp(28,24,難度)秒(L1338)、みじかめ×0.7(約17〜20秒)、やさしい×1.2。落とし穴1回で-4秒。",
+  "endConditions": "出口マスに入る(宝箱0でも脱出可)、または時間切れ。",
+  "minScore": 15,
+  "maxScore": 100,
+  "hundredReachable": false,
+  "hundredCondition": "宝箱3+脱出で88、残り時間比75%以上が必要(88+16*0.75=100)。宝箱3つ経由の最短経路は中央値29マス(p10=24, 生成2万回の試算)で移動だけで約12秒+旋回。制限の25%以内(約7秒)は不可能(inference)。現実的上限は90〜95。",
+  "idle": {
+   "raw": "18",
+   "t7": "meterなし→入力0なら記録されない",
+   "basis": "harness"
+  },
+  "zeroAchievement": {
+   "score": "18(時間切れ)/ 52〜66(宝箱0で出口へ直行して脱出)",
+   "scenario": "宝箱を1つも取らずに出口に入ると 52+remRatio*16 でふつう帯。宝箱3つ取って時間切れ(45)より高い",
+   "basis": "code"
+  },
+  "partial": "宝箱1+脱出≒70、宝箱3+時間切れ=45",
+  "fullClear": "宝箱3+脱出で約90〜95",
+  "timeout": "18/27/36/45(宝箱数)",
+  "bonuses": "残り時間で最大+16(本来の達成 52+36=88 に対し約18%)。",
+  "exploits": [
+   "宝箱を無視して出口(コンパスは宝箱を指すが出口はミニマップで探す)へ直行すれば52〜66点。"
+  ],
+  "solvability": {
+   "randomGen": true,
+   "risk": "低",
+   "note": "generateMaze(連結な迷路+ループ3)。宝箱3つは2万回の生成で必ず配置された(scratchpad maze.cjs)。みじかめ(約17〜20秒)では宝箱3つ+脱出が時間的にかなり厳しい(inference)。"
+  },
+  "luck": "中",
+  "playSec": {
+   "min": 8,
+   "typical": 25,
+   "max": 34
+  },
+  "difficulty": "ふつう〜むずかしい 一人称迷路",
+  "mobile": "sticky パッドで旋回・前進、画面ドラッグで見回し。一人称の操作はスマホでやや難しい。",
+  "issues": [
+   {
+    "level": "改善推奨",
+    "text": "100点の条件(残り75%以上)が迷路の最短経路長から事実上不可能。",
+    "basis": "inference"
+   },
+   {
+    "level": "軽微",
+    "text": "宝箱0で脱出(52〜66)が宝箱3つで時間切れ(45)より高い。",
+    "basis": "code"
+   },
+   {
+    "level": "軽微",
+    "text": "みじかめ設定で約17〜20秒になり、宝箱3つ回収+脱出が厳しい(MG_TURN_BASED外)。",
+    "basis": "inference"
+   }
+  ],
+  "verdict": "改善推奨",
+  "proposal": "remRatio を「制限の50%で満額」などに緩めるか、宝箱3+脱出で100(残り時間は同点時の順位用)にする。"
+ },
+ {
+  "id": "downhill-snow",
+  "name": "スキー/スノーボード ダウンヒル(地域: snow)",
+  "category": "downhill",
+  "factory": "makeDownhillGame",
+  "lines": "1446-1593, 1708-1711, 10680",
+  "genre": "レース",
+  "formula": "ゴール: clamp(45 + gateRatio*35 + min(20, jumpsOk*5) - hits*6, 30, 100)(L1583)。時間切れ: clamp(10 + progress*40 + gateRatio*10, 10, 55)(L1584)。gateRatio=通過ゲート/通過判定したゲート数(0判定なら0.5)。",
+  "timeLimit": "lerp(24,20,難度)秒(L1450)。20秒以上なのでみじかめ×0.7(約14〜17秒)、やさしい×1.2。",
+  "endConditions": "ゴール到達、または時間切れ。",
+  "minScore": 10,
+  "maxScore": 100,
+  "hundredReachable": true,
+  "hundredCondition": "ゲート全通過(+35)+丸太ジャンプ4回以上(+20)+衝突0でゴール。丸太は出現20%なので4本出ない回は100に届かない(運)。",
+  "idle": {
+   "raw": "30〜48(harness 5シード: 33/48/48/30/48。カーブで勝手に進みゴールすることもある)",
+   "t7": "meterあり→記録されない(harness c0)",
+   "basis": "harness"
+  },
+  "zeroAchievement": {
+   "score": "44〜75",
+   "scenario": "ハンドル操作なしで1秒ごとにジャンプを押し続ける(ゲート0)。ジャンプ中は障害物・丸太を無視し、jump() が meter.act() を呼ぶので記録される(harness 8シード、ふつう年齢25: 48〜75、ふつう最大難度: 47〜71、むずかしい: 44〜69、すべて counted=1)",
+   "basis": "harness"
+  },
+  "partial": "ゲート半分+ゴール≒62〜80",
+  "fullClear": "ゲート全通過+ジャンプ4+無衝突=100",
+  "timeout": "10〜55",
+  "bonuses": "ジャンプ成功1回+5(最大+20)。ゲート比率35点に対して大きめ。ゴール基礎45が大きい。",
+  "exploits": [
+   "ジャンプ連打+ハンドル無操作で44〜75点(great帯まで)が記録される。ゲート(本来の技能)を1つも通らなくてよい。"
+  ],
+  "solvability": {
+   "randomGen": true,
+   "risk": "低",
+   "note": "コースは乱数生成。ゲート中心は±0.55以内、常に到達可能。みじかめでは完走に約12〜15秒必要で、harness のジャンプ連打は大半が時間切れ(17.6秒)だった。"
+  },
+  "luck": "中",
+  "playSec": {
+   "min": 12,
+   "typical": 20,
+   "max": 29
+  },
+  "difficulty": "ふつう",
+  "mobile": "パッド左右/キャンバスのドラッグ(位置でハンドル)、ジャンプボタン。上スワイプでもジャンプ。",
+  "issues": [
+   {
+    "level": "改善推奨",
+    "text": "ハンドルを使わずジャンプを連打するだけで44〜75点(最大great)。空中は障害物を無視、ゴール基礎点45が高い。ゲート0でもふつう〜great。",
+    "basis": "harness"
+   },
+   {
+    "level": "軽微",
+    "text": "jump() は押せない時(空中・クールダウン中)でも meter.act() する(L1489)ので連打で参加判定を満たせる。",
+    "basis": "code"
+   }
+  ],
+  "verdict": "改善推奨",
+  "proposal": "ゴール基礎点を下げ(例 25)ゲート比率の比重を上げる。ジャンプ成功は丸太を越えた時だけでなく、丸太以外の空中時間に上限やクールダウンを設ける。meter.act() は実際にジャンプした時だけにする。"
+ },
+ {
+  "id": "downhill-mountain",
+  "name": "岩場のぼり(地域: mountain、保存id流用)",
+  "category": "climbing",
+  "factory": "makeRockClimbGame",
+  "lines": "1595-1706, 10677",
+  "genre": "リズム",
+  "formula": "登頂: clamp(100 - misses*4, 60, 100)(L1693)。時間切れ: clamp(10 + row/10*65 - misses*2, 10, 70)(L1693)。",
+  "timeLimit": "24秒(mgDuration(24000))、みじかめ16.8秒、やさしい28.8秒。",
+  "endConditions": "10段登頂、または時間切れ。にぎる力3を失うと直前の休憩岩(3段ごと)へ戻る(L1652-1655)。",
+  "minScore": 10,
+  "maxScore": 100,
+  "hundredReachable": true,
+  "hundredCondition": "ミス0で10段登頂。針は1.8秒周期の往復で、窓幅は明るい岩0.34〜0.26/小さい岩0.22〜0.16。",
+  "idle": {
+   "raw": "10",
+   "t7": "meterなし→入力0なら記録されない",
+   "basis": "harness"
+  },
+  "zeroAchievement": {
+   "score": "10",
+   "scenario": "0.5秒ごとの「つかむ」連打(harness 8シードすべて10)。ミス-2が累積して最低点",
+   "basis": "harness"
+  },
+  "partial": "5段・ミス2で約39、登頂ミス5で80",
+  "fullClear": "60〜100(ミス数次第)",
+  "timeout": "10〜70",
+  "bonuses": "なし(ミス減点のみ)。",
+  "exploits": [
+   "特になし。連打はミス減点で10点に張り付く。"
+  ],
+  "solvability": {
+   "randomGen": true,
+   "risk": "なし",
+   "note": "ルートは隣接レーンへ±1しか動かず、選べる範囲(lane±1)に必ず明るい岩がある。"
+  },
+  "luck": "低",
+  "playSec": {
+   "min": 8,
+   "typical": 15,
+   "max": 25
+  },
+  "difficulty": "ふつう タイミング押し",
+  "mobile": "◀▶と「つかむ!」の大ボタン(mg-race-controls)。画面タップでも岩を選べる。スマホ向き。",
+  "issues": [
+   {
+    "level": "軽微",
+    "text": "保存id が downhill-mountain だが中身は岩登り(コメントどおり記録維持のため)。監査・集計で取り違えに注意。",
+    "basis": "code"
+   },
+   {
+    "level": "軽微",
+    "text": "meter を渡していない。",
+    "basis": "code"
+   }
+  ],
+  "verdict": "現行維持",
+  "proposal": ""
+ },
+ {
+  "id": "falling-block-puzzle",
+  "name": "ブロックパズル",
+  "category": "fallingBlock",
+  "factory": "makeFallingBlockPuzzleGame",
+  "lines": "1714-1755, 1756",
+  "genre": "パズル",
+  "formula": "result = clamp(35 + lines*11 + min(25, score/70), 30, 100)(L1752)。score: ライン 100/260/480/800、ソフトドロップ(自動落下を含む)+1/行、ハードドロップ+2/行(L1738-1741)。",
+  "timeLimit": "28秒(mgDuration(28000))、みじかめ19.6秒、やさしい33.6秒。",
+  "endConditions": "時間切れ、または新ピースが出現位置で重なる(トップアウト L1735)。",
+  "minScore": 35,
+  "maxScore": 100,
+  "hundredReachable": true,
+  "hundredCondition": "6ライン以上(35+66=101)、または4ライン+score1470以上。8×14盤で28秒なら上級者は到達可能(inference)。",
+  "idle": {
+   "raw": "35〜36",
+   "t7": "meterあり→記録されない(harness c0)",
+   "basis": "harness"
+  },
+  "zeroAchievement": {
+   "score": "35〜36",
+   "scenario": "ラインを1本も消さない。⏬連打で約2.5秒でトップアウトしても36点・記録あり(harness 8シードすべて counted=1)。1秒ごとの回転だけでも35〜36・記録あり",
+   "basis": "harness"
+  },
+  "partial": "1ライン=約47〜50、3ライン≒70",
+  "fullClear": "6ライン以上で100",
+  "timeout": "同式",
+  "bonuses": "score/70(最大+25)。自動落下でも+1ずつ入るので放置で+1前後。",
+  "exploits": [
+   "⏬いっきに を連打してすぐトップアウト→約2.5秒・0ラインで36点(ふつう、30コイン、チャレンジ達成)が記録される(1区切りで終わったゲームは1区切りで参加扱い)。"
+  ],
+  "solvability": {
+   "randomGen": true,
+   "risk": "なし",
+   "note": "ピースはランダムだが常に操作可能。"
+  },
+  "luck": "低",
+  "playSec": {
+   "min": 3,
+   "typical": 29,
+   "max": 34
+  },
+  "difficulty": "ふつう",
+  "mobile": "パッド(steps 24px)、回転・⏬ボタン、盤面スワイプ。",
+  "issues": [
+   {
+    "level": "改善推奨",
+    "text": "基礎点35のため達成ゼロ(0ライン)でも35〜36点=ふつう(30コイン・そだち+7・チャレンジクリア)。⏬連打で約2.5秒で終わらせても記録される。",
+    "basis": "harness"
+   }
+  ],
+  "verdict": "改善推奨",
+  "proposal": "基礎点を 10〜15 に下げ、lines の係数を上げる(例 12+lines*14+min(20,score/80))。トップアウト時は減点するか、0ラインは30未満にする。"
+ },
+ {
+  "id": "crane-game-3d",
+  "name": "UFOキャッチャー",
+  "category": "crane",
+  "factory": "makeCraneGame",
+  "lines": "1762-1897, 1898",
+  "genre": "カード・運",
+  "formula": "景品あり: clamp(round(40 + pts*0.7 + tries*5), 40, 100)。景品なし: clamp(round(14 + (3-tries)*2), 10, 25)(L1888)。pts: あめ20/くま30/プレゼント45/おうかん70。",
+  "timeLimit": "45秒(mgDuration(45000))、みじかめ31.5秒。時間切れ判定は phase==='idle' の時だけ(L1879)。",
+  "endConditions": "3回(tries)使い切る、全景品取得、またはアイドル状態で時間切れ。",
+  "minScore": 14,
+  "maxScore": 100,
+  "hundredReachable": true,
+  "hundredCondition": "pts≥86: おうかん+くま(100pts→110)、おうかん+プレゼント等。おうかんは grip0.6で運搬中に滑落しやすい(0.35秒ごとに約25〜34%で落下判定、運搬約2.3秒)。",
+  "idle": {
+   "raw": "14",
+   "t7": "meterなし→入力0なら記録されない",
+   "basis": "harness"
+  },
+  "zeroAchievement": {
+   "score": "20",
+   "scenario": "3回とも何も取れない(14+3*2)",
+   "basis": "code"
+  },
+  "partial": "あめ1つ=54、くま1つ=61、プレゼント+くま=93",
+  "fullClear": "100",
+  "timeout": "同式",
+  "bonuses": "tries*5 は終了が「tries≤0 か全景品取得」の時なので、景品4つを3回で取ることは不可能で実質常に0(死にコード)。",
+  "exploits": [
+   "特になし(短押し連打は20点)。"
+  ],
+  "solvability": {
+   "randomGen": true,
+   "risk": "なし",
+   "note": "景品配置は固定。滑落は乱数。"
+  },
+  "luck": "高",
+  "playSec": {
+   "min": 15,
+   "typical": 30,
+   "max": 46
+  },
+  "difficulty": "ふつう 運の比重が大きい",
+  "mobile": "長押しボタン1つ(またはキャンバス長押し)。離すタイミングで位置合わせ(速度0.95/0.85単位/秒)。",
+  "issues": [
+   {
+    "level": "軽微",
+    "text": "時間切れは phase==='idle' の時しか見ないため、横移動後(奥へ動かす待ち)で放置すると永久に終わらない(L1879)。",
+    "basis": "code"
+   },
+   {
+    "level": "軽微",
+    "text": "tries*5 ボーナスは到達不能な死にコード。",
+    "basis": "code"
+   },
+   {
+    "level": "軽微",
+    "text": "景品0で20点、最安の あめ1つで54点と、1つ取れるかで報酬が大きく跳ぶ(滑落の運が強い)。",
+    "basis": "code"
+   }
+  ],
+  "verdict": "軽微",
+  "proposal": "時間切れ判定を全 phase(移動中を除く待機状態 depth も含む)に広げる。tries ボーナスは削除するか「残り回数」でなく「1回目で取れた」等に置き換える。"
+ },
+ {
+  "id": "pinball-physics",
+  "name": "ピンボール",
+  "category": "pinball",
+  "factory": "makePinballGame",
+  "lines": "1904-2057, 2058",
+  "genre": "アクション",
+  "formula": "目標達成: clamp(74 + balls*8 + min(10,(score-GOAL)/50), 74, 100)。未達: clamp(20 + score/GOAL*52, 20, 70)(L2051)。GOAL=round(lerp(1150,1600,難度)/50)*50(L1908)。",
+  "timeLimit": "lerp(25,21,難度)秒(L1907)、みじかめ×0.7。タイマーは最初の発射から開始(L1964)。",
+  "endConditions": "score≥GOAL で即クリア、ボール3つ全損、発射後の時間切れ。",
+  "minScore": 20,
+  "maxScore": 100,
+  "hundredReachable": true,
+  "hundredCondition": "ボール3つ残しで目標達成(98)+目標超過100点(+2)、または超過で+10上限。",
+  "idle": {
+   "raw": "なし(終わらない)",
+   "t7": "meterなし→入力0なら記録されない。ただし発射しないとタイマーが始まらず、ゲームが永久に終わらない(harness 400秒でも未終了)",
+   "basis": "harness"
+  },
+  "zeroAchievement": {
+   "score": "22〜58",
+   "scenario": "フリッパーを一度も使わず発射だけ3回(バンパー・スリングショットの自動加点のみ)。harness 6シード×2: 22〜58、多くが30以上(ふつう)。記録あり",
+   "basis": "harness"
+  },
+  "partial": "目標の半分=46",
+  "fullClear": "目標達成で82〜100",
+  "timeout": "20〜70",
+  "bonuses": "残りボール×8(最大+24)、超過分最大+10。",
+  "exploits": [
+   "発射だけ(フリッパー無操作)で22〜58点(多くがふつう)。",
+   "左右フリッパーを0.2秒ごとに同時連打+発射で 56〜100点(harness: ふつう年齢25で 70/70/91/99/100/100、むずかしい最大でも 56〜100)。ボールを見ずに達成できる。"
+  ],
+  "solvability": {
+   "randomGen": false,
+   "risk": "なし",
+   "note": "盤面固定、発射の横ぶれのみ乱数。"
+  },
+  "luck": "中",
+  "playSec": {
+   "min": 14,
+   "typical": 24,
+   "max": 26
+  },
+  "difficulty": "やさしい(連打で達成可能)",
+  "mobile": "左右の押しっぱなしボタン+長押し発射、キャンバス左右半分タッチ。",
+  "issues": [
+   {
+    "level": "改善推奨",
+    "text": "フリッパーを見ずに同時連打するだけで高確率で目標達成・90〜100点。発射だけでも30点以上がよく出る。",
+    "basis": "harness"
+   },
+   {
+    "level": "改善推奨",
+    "text": "発射するまでタイマーが動かず、無操作だと永久に終わらない(アプリ側の中断操作が必要)。",
+    "basis": "harness"
+   }
+  ],
+  "verdict": "改善推奨",
+  "proposal": "タイマーを画面表示時から開始(または発射を一定時間後に自動実行)。未達時の基礎点20を下げ、自動加点(バンパー)の比重を下げる。フリッパーの上げっぱなし・連打の効率を下げる(フリッパーが上がっている間は反発を弱める等)か、GOAL を引き上げる。"
+ },
+ {
+  "id": "haunted-house-3d",
+  "name": "3Dおばけ屋敷",
+  "category": "firstPerson",
+  "factory": "makeHauntedHouseGame",
+  "lines": "2060-2199(共通 createRaycastView 等 1120-1330), 2200",
+  "genre": "探索",
+  "formula": "脱出: clamp(100 - max(0, 経過秒-25)*1.4, 70, 100)(L2189)。つかまる: かぎあり34/なし22(L2190)。時間切れ: かぎあり40/なし25(L2191)。",
+  "timeLimit": "lerp(30,26,難度)秒(L2066)、みじかめ×0.7(約18〜21秒)、やさしい×1.2(最大36秒)。",
+  "endConditions": "かぎを持って出口に入る、ゆうれいに捕まる(距離<0.55)、時間切れ。",
+  "minScore": 22,
+  "maxScore": 100,
+  "hundredReachable": true,
+  "hundredCondition": "25秒以内に脱出。ふつう・みじかめの制限時間では脱出=ほぼ常に93〜100(経過は制限以下なので最低でも約93)。",
+  "idle": {
+   "raw": "22〜25(徘徊ゆうれいに捕まれば22、時間切れ25)",
+   "t7": "meterなし→入力0なら記録されない",
+   "basis": "harness"
+  },
+  "zeroAchievement": {
+   "score": "22/25",
+   "scenario": "かぎを取れずに捕まる/時間切れ",
+   "basis": "code"
+  },
+  "partial": "かぎを取って捕まる=34(ふつう)、かぎを取って逃げ回り時間切れ=40(ふつう)",
+  "fullClear": "脱出で93〜100",
+  "timeout": "25/40",
+  "bonuses": "時間減点のみ(25秒超)。",
+  "exploits": [
+   "かぎを取った後わざと捕まっても34点(ふつう)。脱出しなくてもかぎだけでふつう帯。"
+  ],
+  "solvability": {
+   "randomGen": true,
+   "risk": "中",
+   "note": "かぎ・出口は開始から遠いセル(pickFarCell)。開始→かぎ→出口の最短経路は中央値28マス(p90=36, 最大48、2万回試算)で移動だけ約12〜20秒+旋回。かぎ取得後のゆうれい(速さ1.45〜1.85)は出口付近から出発しうるため、通路で挟まれて脱出不能になる回がありうる(inference)。みじかめでは時間的にも厳しい。"
+  },
+  "luck": "中",
+  "playSec": {
+   "min": 13,
+   "typical": 25,
+   "max": 37
+  },
+  "difficulty": "むずかしい 迷路+追跡",
+  "mobile": "sticky パッド/画面ドラッグ。一人称操作はスマホでやや難しい。",
+  "issues": [
+   {
+    "level": "改善推奨",
+    "text": "みじかめ(約18〜21秒)では最短経路中央値28マスの往復が時間的にきわどく、脱出不能な回が増える(MG_TURN_BASED外)。",
+    "basis": "inference"
+   },
+   {
+    "level": "軽微",
+    "text": "かぎ取得後に捕まっても34点でふつう帯(脱出失敗でも報酬)。",
+    "basis": "code"
+   },
+   {
+    "level": "軽微",
+    "text": "脱出点はほぼ100固定で、速さの差がほとんど点に出ない。",
+    "basis": "code"
+   }
+  ],
+  "verdict": "改善推奨",
+  "proposal": "みじかめ時は迷路を小さくする(またはこのゲームを短縮対象から外す)。捕まった時は かぎあり でも30未満(例 26)にする。"
+ }
+]

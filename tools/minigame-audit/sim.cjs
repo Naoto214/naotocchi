@@ -141,12 +141,13 @@ function main() {
   const out = [];
   const origLog = console.log; const origWarn = console.warn; const origErr = console.error;
   for (const id of ids) for (const bot of bots) {
-    const n = bot === 'idle' || bot === 'tap1' ? Math.min(2, seeds) : seeds;
+    const n = bot === 'idle' || bot === 'tap1' ? Math.min(Number(opt('fixedSeeds', '2')), seeds) : bot === 'mash' ? Math.min(Number(opt('mashSeeds', String(seeds))), seeds) : seeds;
     for (let sd = 1; sd <= n; sd++) {
       console.log = console.warn = console.error = () => {};
       const t0 = Date.now(); let res;
-      try { res = playOnce(id, bot, sd, {difficulty, length}); } finally { console.log = origLog; console.warn = origWarn; console.error = origErr; }
+      try { res = playOnce(id, bot, sd, {difficulty, length, limitMs: Number(opt('limit', '400000'))}); } finally { console.log = origLog; console.warn = origWarn; console.error = origErr; }
       res.wallMs = Date.now() - t0; out.push(res);
+      if (opt('jsonl')) require('fs').appendFileSync(opt('jsonl'), JSON.stringify(res) + '\n');
       process.stderr.write(`${id} ${bot} s${sd}: raw=${res.raw} rec=${res.recorded} t=${res.endedMs} ${res.err ? 'ERR ' + res.err : ''} (${res.wallMs}ms)\n`);
     }
   }

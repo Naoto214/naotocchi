@@ -1,0 +1,241 @@
+<meta charset="utf-8">
+<title>なおとっち ミニゲーム採点監査</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@500;800&family=Noto+Sans+JP:wght@400;500;700&display=swap">
+<style>
+/* Layout: 結論と件数 → 絞り込み → 100本のカード一覧(タップで詳細)。1カラム、横幅は 960px まで */
+:root {
+  --bg: #f4f7f5; --panel: #ffffff; --ink: #1f2a27; --muted: #5d6b66; --line: #dbe4e0; --accent: #2f8f72; --accent-ink: #ffffff;
+  --p1: #c8372d; --p1-bg: #fde8e6; --p2: #c2640e; --p2-bg: #fdeedd; --p3: #8a6d00; --p3-bg: #fbf3cf; --p4: #4d6680; --p4-bg: #e5edf5; --ok: #2f7a4f; --ok-bg: #e1f2e7;
+  --chip: #eef3f1;
+  --display: "M PLUS Rounded 1c", "Hiragino Maru Gothic ProN", "Noto Sans JP", sans-serif;
+  --body: "Noto Sans JP", "Hiragino Sans", "Yu Gothic", system-ui, sans-serif;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --bg: #121816; --panel: #1b2320; --ink: #e6efeb; --muted: #9db0a9; --line: #2c3833; --accent: #5cc6a2; --accent-ink: #0d1412;
+  --p1: #ff8a7f; --p1-bg: #3a1c1a; --p2: #ffad66; --p2-bg: #3a2714; --p3: #e8cc5c; --p3-bg: #332c10; --p4: #9dbbd8; --p4-bg: #1d2a37; --ok: #7fd3a0; --ok-bg: #16301f; --chip: #222c29; color-scheme: dark; } }
+:root[data-theme="dark"] {
+  --bg: #121816; --panel: #1b2320; --ink: #e6efeb; --muted: #9db0a9; --line: #2c3833; --accent: #5cc6a2; --accent-ink: #0d1412;
+  --p1: #ff8a7f; --p1-bg: #3a1c1a; --p2: #ffad66; --p2-bg: #3a2714; --p3: #e8cc5c; --p3-bg: #332c10; --p4: #9dbbd8; --p4-bg: #1d2a37; --ok: #7fd3a0; --ok-bg: #16301f; --chip: #222c29; color-scheme: dark; }
+* { box-sizing: border-box; }
+body { background: var(--bg); color: var(--ink); font: 15px/1.7 var(--body); margin: 0; }
+.wrap { max-width: 960px; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); padding-block: 24px 64px; display: grid; gap: 20px; }
+h1, h2 { font-family: var(--display); text-wrap: balance; margin: 0; line-height: 1.3; }
+h1 { font-size: 1.6rem; font-weight: 800; }
+h2 { font-size: 1.15rem; font-weight: 800; }
+.eyebrow { font-size: .78rem; letter-spacing: .08em; color: var(--muted); }
+.lead { color: var(--muted); margin: 6px 0 0; max-width: 65ch; }
+.tally { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 8px; }
+.tally button { font: inherit; border: 1px solid var(--line); background: var(--panel); color: var(--ink); border-radius: 12px; padding: 10px 6px; cursor: pointer; text-align: center; }
+.tally b { display: block; font-family: var(--display); font-size: 1.6rem; line-height: 1.1; font-variant-numeric: tabular-nums; }
+.tally span { font-size: .75rem; color: var(--muted); }
+.tally button[aria-pressed="true"] { outline: 2px solid var(--accent); outline-offset: -2px; }
+.tally .t-P1 b { color: var(--p1); } .tally .t-P2 b { color: var(--p2); } .tally .t-P3 b { color: var(--p3); } .tally .t-P4 b { color: var(--p4); } .tally .t-ok b { color: var(--ok); }
+.panel { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 16px; display: grid; gap: 10px; min-width: 0; }
+.panel ul { margin: 0; padding-left: 1.2em; display: grid; gap: 4px; }
+.panel p { margin: 0; }
+.filters { background: var(--bg); padding-block: 8px; display: grid; gap: 8px; }
+@media (min-width: 700px) { .filters { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5; } }
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 10; background: var(--bg); }
+.frow { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+input[type="search"], select { font: inherit; color: var(--ink); background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: 8px 10px; min-width: 0; }
+input[type="search"] { flex: 1 1 200px; }
+.chk { display: inline-flex; gap: 6px; align-items: center; font-size: .85rem; background: var(--chip); border-radius: 999px; padding: 4px 10px; cursor: pointer; }
+.count { font-size: .85rem; color: var(--muted); }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.list { display: grid; gap: 10px; }
+.card { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; overflow: hidden; }
+.card > summary { list-style: none; cursor: pointer; padding: 12px 14px; display: grid; gap: 6px; }
+.card > summary::-webkit-details-marker { display: none; }
+.head { display: flex; gap: 8px; align-items: baseline; flex-wrap: wrap; }
+.name { font-weight: 700; font-size: 1rem; }
+.id { font-size: .75rem; color: var(--muted); font-family: ui-monospace, SFMono-Regular, Menlo, monospace; }
+.pill { font-size: .72rem; font-weight: 700; border-radius: 999px; padding: 1px 9px; white-space: nowrap; }
+.pr-P1 { color: var(--p1); background: var(--p1-bg); } .pr-P2 { color: var(--p2); background: var(--p2-bg); } .pr-P3 { color: var(--p3); background: var(--p3-bg); } .pr-P4 { color: var(--p4); background: var(--p4-bg); } .pr-ok { color: var(--ok); background: var(--ok-bg); }
+.genre { font-size: .72rem; color: var(--muted); background: var(--chip); border-radius: 999px; padding: 1px 9px; }
+.facts { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 6px 12px; font-size: .8rem; }
+.facts div { min-width: 0; }
+.facts dt { color: var(--muted); font-size: .7rem; }
+.facts dd { margin: 0; font-variant-numeric: tabular-nums; overflow-wrap: anywhere; }
+.issue1 { font-size: .85rem; color: var(--ink); }
+.body { border-top: 1px solid var(--line); padding: 12px 14px 16px; display: grid; gap: 10px; font-size: .88rem; }
+.body h3 { font-size: .78rem; color: var(--muted); margin: 0 0 2px; font-weight: 700; letter-spacing: .04em; }
+.body p, .body ul { margin: 0; overflow-wrap: anywhere; }
+.body ul { padding-left: 1.2em; }
+.basis { font-size: .68rem; border: 1px solid var(--line); border-radius: 6px; padding: 0 5px; color: var(--muted); margin-left: 4px; white-space: nowrap; }
+.sim { display: flex; flex-wrap: wrap; gap: 4px; }
+.dot { font-size: .72rem; font-variant-numeric: tabular-nums; border-radius: 6px; padding: 0 6px; background: var(--chip); }
+.dot.g { color: var(--accent-ink); background: var(--accent); } .dot.s { background: var(--p3-bg); color: var(--p3); } .dot.x { opacity: .55; text-decoration: line-through; }
+.note { font-size: .8rem; color: var(--muted); }
+table.plan { border-collapse: collapse; width: 100%; font-size: .82rem; min-width: 640px; }
+table.plan th, table.plan td { border-top: 1px solid var(--line); padding: 6px 8px; text-align: left; vertical-align: top; }
+table.plan th { color: var(--muted); font-weight: 700; }
+.scroll { overflow-x: auto; }
+.rec { color: var(--accent); font-weight: 700; }
+@media (max-width: 560px) { .tally { grid-template-columns: repeat(3, minmax(0, 1fr)); } .facts { grid-template-columns: repeat(2, minmax(0, 1fr)); } h1 { font-size: 1.35rem; } }
+@media (prefers-reduced-motion: no-preference) { .card { transition: border-color .15s; } .card:hover { border-color: var(--accent); } }
+</style>
+
+<div class="wrap">
+  <header>
+    <div class="eyebrow">なおとっち・通常ミニゲーム100本 / main 4d12c33d / 2026-11-24</div>
+    <h1>ミニゲーム採点・バランス監査</h1>
+    <p class="lead">全100本の採点式をコードから読み、放置・1回だけ・でたらめ・連打の4種類の自動プレイ(1,021回)と、実ブラウザでの操作(6本)で確かめました。本番のコードは変えていません。人間によるプレイの評価は、まだ行っていません。</p>
+  </header>
+
+  <div class="tally" id="tally"></div>
+
+  <section class="panel">
+    <h2>要点</h2>
+    <ul>
+      <li><b>重大は3本</b>: たまころがし迷路(失敗でも30〜40点になる採点バグ)、上海(取る順番で詰み、時間切れまで進めない。約4%)、スライドパズル(まれに解けない盤)。</li>
+      <li><b>そうこばんと同じ「達成ゼロでも30点以上」は20本以上</b>。ブロックパズル(0ラインで36点)、スキー2本、リングフライト、着陸、ジェンガ、りくじょう、対戦の時間切れ(40点)など。</li>
+      <li><b>連打・放置に近い操作で大成功(70点以上)が安定するもの約15本</b>。つみあげタワー6本は連打で100点(実ブラウザでも100点・60コイン)、アステロイド86点、リズム73点。</li>
+      <li><b>100点に届かないもの17本</b>(上限88〜99点、または時間内に届かない)。</li>
+      <li><b>報酬は1回あたりは公平</b>(点の帯だけで0/30/60コイン、げんき12)。<b>時間あたりは最大約19倍の差</b>(ケーキは8秒で必ず100点)。</li>
+      <li>推奨は <span class="rec">B案</span>(達成度と挑戦のバランス)を「採点の5つの原則」として採り入れ、重大の修正から段階的に進めることです。</li>
+    </ul>
+  </section>
+
+  <section class="panel">
+    <h2>A・B・C 案の比較</h2>
+    <div class="scroll"><table class="plan">
+      <thead><tr><th>論点</th><th>A 現行維持+不整合のみ</th><th>B バランス(推奨)</th><th>C 共通基準</th></tr></thead>
+      <tbody>
+        <tr><td>0点・放置</td><td>現行どおり(T7で記録しない)</td><td>放置=記録しない、を0点の代わりにする。全ゲームに操作量メーターを渡す</td><td>放置=0点を式に組みこむ</td></tr>
+        <tr><td>挑戦した失敗</td><td>ゲームごと(5〜50)</td><td>10〜25点(しっぱい帯)+「がんばった」</td><td>一律10点</td></tr>
+        <tr><td>部分達成</td><td>各ゲームの式のまま</td><td>最初の小目標1つで30点。それ未満は30点未満</td><td>達成率×70</td></tr>
+        <tr><td>ボーナス</td><td>ゲームごと</td><td>達成の上に乗せるだけ。点の2割まで</td><td>一律の時間ボーナス</td></tr>
+        <tr><td>完全クリアと100点</td><td>17本が届かない</td><td>上手なクリアで100点、ふつうのクリアで75点以上</td><td>クリア=100固定</td></tr>
+        <tr><td>区分・報酬</td><td>変えない</td><td>70/30・S〜D・コインは変えない。結果の一言を70/30にそろえる</td><td>作りなおす</td></tr>
+        <tr><td>弱み</td><td>P2の33本が残る</td><td>33本前後の式の見直し</td><td>個性が消え、過去の記録と比べられない</td></tr>
+      </tbody>
+    </table></div>
+    <p class="note">採点の5つの原則(B案): ①達成ゼロは30点未満 ②単純な操作の繰り返しで70点以上が安定しない ③上手な完全クリアで100点に届く ④ボーナスは達成の上に乗せる ⑤負け・時間切れは決着の勝ちより低い。①②は自動プレイのボットでテストとして毎回確かめられます。</p>
+  </section>
+
+  <section class="panel">
+    <h2>段階的な計画(承認後に、段階ごとに別のPRで)</h2>
+    <ul>
+      <li><b>第1段階</b>: 重大3本(迷路の採点バグ、上海の詰み、スライドパズルの偶奇)。</li>
+      <li><b>第2段階</b>: 達成ゼロで30点以上のものを30点未満へ。そうこばんは承認済みの仕様なので、手数ボーナスを「解いた問題だけ」で計算する案を別にご確認ください。</li>
+      <li><b>第3段階</b>: 連打・放置で大成功になるもの(つみあげタワー6本、アステロイド、リズム、ダーツ、ピンボール、ケーキ、ドミノなど)。</li>
+      <li><b>第4段階</b>: 100点に届かない17本、時間と構造のずれ、対戦の時間切れ帯の再検討。</li>
+      <li><b>第5段階</b>: 約70本に操作量メーターを渡す、放置で終わらない7本、軽微な点。過去の自己ベストは巻き戻しません。</li>
+    </ul>
+  </section>
+
+  <section class="panel">
+    <h2>クイックゲーム50本(補足)</h2>
+    <p>1本クリアにつき5点(1本ずつは10点)。コインは混ぜたランの20/20だけで100コインです。げんきを使わず、育成・勧誘・avgSkill には入りません。通常ゲームの採点の問題は及びません。気づいた点: 19/20でも0コインの「崖」があります。また、熟練者が連続でパーフェクトを出すと、時間あたりのコインは通常ゲームを上回りえます(人間での測定が必要)。</p>
+  </section>
+
+  <section class="filters" aria-label="絞り込み">
+    <div class="frow">
+      <input type="search" id="q" placeholder="ゲーム名・ID・問題点で検索" aria-label="検索">
+      <select id="genre" aria-label="ジャンル"><option value="">すべてのジャンル</option></select>
+      <select id="sort" aria-label="並び順"><option value="pri">優先度順</option><option value="genre">ジャンル順</option><option value="name">名前順</option><option value="rnd">でたらめ操作の平均点が高い順</option></select>
+    </div>
+    <div class="frow">
+      <label class="chk"><input type="checkbox" id="f100">100点に届かない</label>
+      <label class="chk"><input type="checkbox" id="fend">放置で終わらない</label>
+      <label class="chk"><input type="checkbox" id="fsolve">解答可能性に懸念</label>
+      <span class="count" id="count"></span>
+    </div>
+  </section>
+
+  <div class="list" id="list"><p class="note">読みこみ中… audit.json(同じフォルダ)を読みこめないときは table.md をご覧ください。</p></div>
+
+  <footer class="note">
+    根拠の表記: <span class="basis">code</span> コードから確認 / <span class="basis">harness</span> 自動テスト(テスト用ハーネスで本物のゲームを動かした)/ <span class="basis">inference</span> 推定・シミュレーション。自動プレイの点: <span class="dot g">70+</span> 大成功 <span class="dot s">30+</span> ふつう <span class="dot">29以下</span> <span class="dot x">記録されない</span> ∞=終わらない。
+    「想定時間」「難易度」はコードの数値からの推定で、人間のプレイでは測っていません。
+  </footer>
+</div>
+
+<script>
+(() => {
+  const PR = { P1: ['重大', 'P1'], P2: ['改善推奨・高', 'P2'], P3: ['改善推奨・中', 'P3'], P4: ['軽微', 'P4'], '—': ['現行維持', 'ok'] };
+  const $ = (id) => document.getElementById(id);
+  const esc = (s) => String(s == null ? '' : s).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[c]);
+  const txt = (v) => (v == null ? '' : typeof v === 'object' ? JSON.stringify(v) : String(v));
+  let rows = [], activePri = new Set();
+  const store = { get(k) { try { return localStorage.getItem(k); } catch (e) { return null; } }, set(k, v) { try { localStorage.setItem(k, v); } catch (e) {} } };
+
+  function dots(arr) {
+    if (!arr || !arr.length) return '<span class="dot">―</span>';
+    return arr.map((r) => { const v = r.raw === null ? '∞' : r.raw; const cls = !r.rec ? 'x' : r.raw >= 70 ? 'g' : r.raw >= 30 ? 's' : ''; return `<span class="dot ${cls}">${v}</span>`; }).join('');
+  }
+  const range = (st) => (st ? `${st.min}〜${st.max}` : '記録なし');
+  function card(r) {
+    const p = PR[r.priority];
+    const first = (r.issues[0] && r.issues[0].text) || '問題は見つかっていません';
+    const ps = r.playSec ? `${r.playSec.min}/${r.playSec.typical}/${r.playSec.max}秒` : '';
+    const issues = r.issues.map((i) => `<li>${esc(i.level)}: ${esc(i.text)}<span class="basis">${esc(i.basis)}</span></li>`).join('');
+    const ex = (r.exploits || []).map((e) => `<li>${esc(e)}</li>`).join('');
+    const sol = r.solvability || {};
+    return `<details class="card" data-id="${r.id}"><summary>
+      <div class="head"><span class="pill pr-${p[1]}">${p[1] === 'ok' ? '現行維持' : r.priority + ' ' + p[0]}</span><span class="name">${esc(r.name)}</span><span class="genre">${esc(r.genre)}</span><span class="id">${r.id}</span></div>
+      <dl class="facts">
+        <div><dt>最低〜最高</dt><dd>${esc(r.minScore)}〜${esc(r.maxScore)}${r.hundredReachable ? '' : '(100不可)'}</dd></div>
+        <div><dt>放置</dt><dd>${esc(txt(r.idle && r.idle.raw)).slice(0, 40)}</dd></div>
+        <div><dt>達成なし</dt><dd>${esc(txt(r.zeroAchievement && r.zeroAchievement.score)).slice(0, 40)}</dd></div>
+        <div><dt>想定時間(最短/通常/最大)</dt><dd>${ps}</dd></div>
+        <div><dt>でたらめ操作</dt><dd>${range(r.sim.randomStat)}</dd></div>
+        <div><dt>連打</dt><dd>${range(r.sim.mashStat)}</dd></div>
+        <div><dt>でたらめ時の期待コイン</dt><dd>${r.sim.randomStat ? r.sim.randomStat.coins : 0}/回</dd></div>
+        <div><dt>運</dt><dd>${esc(r.luck)}</dd></div>
+      </dl>
+      <div class="issue1">${esc(first)}</div>
+    </summary>
+    <div class="body">
+      <div><h3>採点の計算式</h3><p>${esc(r.formula)}</p></div>
+      <div><h3>制限時間・終了条件</h3><p>${esc(r.timeLimit)} / ${esc(r.endConditions)}</p></div>
+      <div><h3>100点の条件</h3><p>${esc(r.hundredCondition)}</p></div>
+      <div><h3>放置/達成なし/一部/完全/時間切れ</h3><p>放置: ${esc(txt(r.idle && r.idle.raw))}(${esc(r.idle && r.idle.t7)})<br>達成なし: ${esc(txt(r.zeroAchievement && r.zeroAchievement.score))} … ${esc(r.zeroAchievement && r.zeroAchievement.scenario)}<br>一部: ${esc(r.partial)}<br>完全クリア: ${esc(r.fullClear)}<br>時間切れ: ${esc(r.timeout)}</p></div>
+      <div><h3>ボーナス</h3><p>${esc(r.bonuses)}</p></div>
+      ${ex ? `<div><h3>意図しない操作</h3><ul>${ex}</ul></div>` : ''}
+      <div><h3>自動プレイ(放置 / 1回だけ / でたらめ / 連打)</h3><div class="sim">${dots(r.sim.idle)} | ${dots(r.sim.tap1)} | ${dots(r.sim.random)} | ${dots(r.sim.mash)}</div></div>
+      <div><h3>解答可能性・難易度・スマホ</h3><p>ランダム生成: ${sol.randomGen ? 'あり' : 'なし'} / 解けない懸念: ${esc(sol.risk)} — ${esc(sol.note)}<br>難易度: ${esc(r.difficulty)}<br>スマホ: ${esc(r.mobile)}</p></div>
+      <div><h3>問題点</h3><ul>${issues || '<li>なし</li>'}</ul></div>
+      <div><h3>改善提案(主観的な提案)</h3><p>${esc(r.proposal || '変更の必要なし')}</p></div>
+      ${r.reviewNote ? `<div><h3>統合時の判定メモ</h3><p>${esc(r.reviewNote)}</p></div>` : ''}
+      <p class="note">games.js ${esc(r.lines)} / ${esc(r.factory)} / コード読解時の判定: ${esc(r.reviewVerdict)}</p>
+    </div></details>`;
+  }
+  function tally() {
+    const c = {}; rows.forEach((r) => { c[r.priority] = (c[r.priority] || 0) + 1; });
+    $('tally').innerHTML = Object.entries(PR).map(([k, v]) => `<button type="button" class="t-${v[1]}" data-pri="${k}" aria-pressed="${activePri.has(k)}"><b>${c[k] || 0}</b><span>${v[0]}</span></button>`).join('');
+    $('tally').querySelectorAll('button').forEach((b) => b.addEventListener('click', () => { const k = b.dataset.pri; activePri.has(k) ? activePri.delete(k) : activePri.add(k); tally(); draw(); }));
+  }
+  const ORDER = { P1: 0, P2: 1, P3: 2, P4: 3, '—': 4 };
+  function draw() {
+    const q = $('q').value.trim().toLowerCase(), g = $('genre').value, s = $('sort').value;
+    let list = rows.filter((r) => (!activePri.size || activePri.has(r.priority)) && (!g || r.genre === g)
+      && (!$('f100').checked || !r.hundredReachable || r.maxScore < 100)
+      && (!$('fend').checked || r.sim.neverEnds.length)
+      && (!$('fsolve').checked || (r.solvability && /中|高/.test(r.solvability.risk || '')) || r.priority === 'P1' && /shanghai|slide/.test(r.id))
+      && (!q || (r.name + r.id + r.genre + r.issues.map((i) => i.text).join('')).toLowerCase().includes(q)));
+    const nm = (a, b) => a.name.localeCompare(b.name, 'ja');
+    if (s === 'pri') list.sort((a, b) => ORDER[a.priority] - ORDER[b.priority] || nm(a, b));
+    if (s === 'genre') list.sort((a, b) => a.genre.localeCompare(b.genre, 'ja') || ORDER[a.priority] - ORDER[b.priority]);
+    if (s === 'name') list.sort(nm);
+    if (s === 'rnd') list.sort((a, b) => ((b.sim.randomStat || {}).mean || 0) - ((a.sim.randomStat || {}).mean || 0));
+    $('count').textContent = `${list.length} / ${rows.length} 本`;
+    $('list').innerHTML = list.length ? list.map(card).join('') : '<p class="note">条件に合うゲームはありません。絞り込みを外してください。</p>';
+    store.set('mgAuditFilter', JSON.stringify({ g, s, pri: [...activePri] }));
+  }
+  function init(data) {
+    rows = data;
+    const genres = [...new Set(rows.map((r) => r.genre))].sort((a, b) => a.localeCompare(b, 'ja'));
+    $('genre').insertAdjacentHTML('beforeend', genres.map((g) => `<option>${esc(g)}</option>`).join(''));
+    try { const f = JSON.parse(store.get('mgAuditFilter') || 'null'); if (f) { $('genre').value = f.g || ''; $('sort').value = f.s || 'pri'; activePri = new Set(f.pri || []); } } catch (e) {}
+    ['q', 'genre', 'sort', 'f100', 'fend', 'fsolve'].forEach((id) => $(id).addEventListener('input', draw));
+    tally(); draw();
+  }
+  fetch('audit.json').then((r) => { if (!r.ok) throw new Error(r.status); return r.json(); }).then(init).catch((e) => { console.error(e);
+    $('list').innerHTML = '<p class="note">audit.json を読みこめませんでした。同じフォルダの table.md に同じ一覧があります。</p>';
+  });
+})();
+</script>

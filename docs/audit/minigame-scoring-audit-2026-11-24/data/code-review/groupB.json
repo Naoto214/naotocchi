@@ -1,0 +1,1055 @@
+[
+ {
+  "id": "race-3d",
+  "name": "3Dレース",
+  "category": "roadRace",
+  "factory": "makeRoadRaceGame",
+  "lines": "2378-2509",
+  "genre": "レース",
+  "formula": "ゴール: clamp(62 + remRatio*34 - hits*5 - min(12, offroad秒*2), 55, 100)(2495)。remRatio=1-経過/制限(2492)。時間切れ: clamp(14 + progress*44, 14, 58)(2496)。onComplete 2498のみ",
+  "timeLimit": "mgDuration(lerp(26000,22000,difficulty))(2382)=ふつう約23.8〜26秒、やさしい×1.2、みじかめ×0.7(約16.7〜18.2秒)。開始猶予あり",
+  "endConditions": "ゴール到達(2476) or 時間切れ(2486)",
+  "minScore": 14,
+  "maxScore": 85,
+  "hundredReachable": false,
+  "hundredCondition": "不可。remRatio=1は経過0秒でしかありえない。コース長は約250〜510セグメント(平均約366、2400-2407)、最高速36seg/s・加速3秒(2397-2398)で最短でも約8〜16秒(平均約11.6秒)かかるため remRatio は最大約0.5〜0.68 → ゴール点の上限は約79〜85(inference: コース長からの計算)",
+  "idle": {
+   "raw": "14〜15",
+   "t7": "meterなし→入力0なら記録されない",
+   "basis": "harness"
+  },
+  "zeroAchievement": {
+   "score": "14〜58(進んだ距離比例)",
+   "scenario": "ゴールできない=時間切れで 14+進捗*44。アクセルだけ押しっぱなし(ハンドル操作なし)で47〜59点(harness: 6シード中1回はゴールして59)",
+   "basis": "harness"
+  },
+  "partial": "時間切れ50%地点=36点、90%=54点。ゴール時は最低55",
+  "fullClear": "ゴール: ノーミスで約75〜85(残り時間次第)。衝突1回-5",
+  "timeout": "14〜58",
+  "bonuses": "残り時間ボーナス最大+34だが実際には+16〜23程度しか取れない(inference)。基礎62がゴール時点で確定",
+  "exploits": [
+   "アクセル押しっぱなしのみ(ハンドル無操作)で47〜59点=ふつう判定(harness)。カーブの遠心力が弱く、コースアウトしても速度がOFF_LIMIT(最高速の1/4)までしか落ちない(2463)ため"
+  ],
+  "solvability": {
+   "randomGen": true,
+   "risk": "低",
+   "note": "コースと車はランダムだが常に走破可能。長いコースを引くとみじかめ(約17秒)では時間内ゴールが厳しい(inference)"
+  },
+  "luck": "中",
+  "playSec": {
+   "min": 10,
+   "typical": 20,
+   "max": 31
+  },
+  "difficulty": "やさしい〜ふつう: ゴール自体は容易だが高得点が取れない",
+  "mobile": "アクセル長押しボタン+下部パッドで左右、またはキャンバス押しっぱなし(押した位置で操舵)。精密操作は不要",
+  "issues": [
+   {
+    "level": "改善推奨",
+    "text": "100点に構造的に届かない(残り時間比率が1にならず、ゴール点上限は約80前後)。Sランク(90)も実質不可",
+    "basis": "inference"
+   },
+   {
+    "level": "改善推奨",
+    "text": "アクセル押しっぱなしだけで約50点(ふつう)。ハンドル操作の価値が小さい",
+    "basis": "harness"
+   },
+   {
+    "level": "軽微",
+    "text": "T7 の meter を渡していないため、1回タップして放置でも14〜15点で記録される(failure扱い)",
+    "basis": "code"
+   }
+  ],
+  "verdict": "改善推奨",
+  "proposal": "ゴール点を 62+remRatio*34 ではなく『想定最短時間比』で正規化(例: remRatio を (制限-経過)/(制限-想定最短) にclamp)し、ノーミス好タイムで100に届くようにする。meter(mgPlayMeter)を渡す"
+ },
+ {
+  "id": "rhythm-highway-3d",
+  "name": "リズムハイウェイ",
+  "category": "rhythmHighway",
+  "factory": "makeRhythmHighwayGame",
+  "lines": "2513-2628",
+  "genre": "リズム",
+  "formula": "score = clamp(round((perfect*3 + good*2) / (total*3) * 100), 8, 100)(2613-2614)。PERFECT ±60ms、GOOD ±170ms(2552,2556)。onComplete 2616のみ",
+  "timeLimit": "曲の長さ mgDuration(22000)(2518)=ふつう22秒、やさしい26.4秒、みじかめ15.4秒。ノーツ数は時間とBPMに比例",
+  "endConditions": "曲の終了(2603)のみ",
+  "minScore": 8,
+  "maxScore": 100,
+  "hundredReachable": true,
+  "hundredCondition": "全ノーツPERFECT(±60ms)",
+  "idle": {
+   "raw": 8,
+   "t7": "meterなし→入力0なら記録されない",
+   "basis": "harness"
+  },
+  "zeroAchievement": {
+   "score": 8,
+   "scenario": "1つも当たらない=8(下限)",
+   "basis": "code"
+  },
+  "partial": "全部GOOD=67、半分PERFECT半分MISS=50",
+  "fullClear": "全PERFECT=100",
+  "timeout": "曲終了=通常終了",
+  "bonuses": "なし(コンボは表示のみ)",
+  "exploits": [
+   "空振りにペナルティがない(2553で『…』表示のみ)ため、3レーンを同時に連打するだけで高得点。150ms間隔の3レーン同時連打で75〜77点(great)、50〜100ms間隔で67点(harness)。リズムを見なくてもgreat報酬"
+  ],
+  "solvability": {
+   "randomGen": true,
+   "risk": "なし",
+   "note": "ノーツは2.2秒以降に生成、同一レーン3連続を避ける(2525)。和音は最大2レーン"
+  },
+  "luck": "低",
+  "playSec": {
+   "min": 15,
+   "typical": 22,
+   "max": 27
+  },
+  "difficulty": "ふつう: GOOD窓±170msは広め",
+  "mobile": "3レーンボタン+キャンバス3分割タップ。判定窓は広く押しやすい",
+  "issues": [
+   {
+    "level": "改善推奨",
+    "text": "空振り無罰のため全レーン連打で75点前後(great・60コイン)が取れる",
+    "basis": "harness"
+   }
+  ],
+  "verdict": "改善推奨",
+  "proposal": "ノーツのない空振りを MISS 扱い(またはコンボ切れ+減点)にする。もしくは同時押しの連打を検知して判定を無効化。meter も渡す"
+ },
+ {
+  "id": "tilt-maze-3d",
+  "name": "たまころがし迷路",
+  "category": "tiltMaze",
+  "factory": "makeTiltMazeGame",
+  "lines": "2632-2765",
+  "genre": "アクション",
+  "formula": "ゴール: clamp(100 - falls*12 - max(0, 経過秒-18)*1.5, 55, 100)(2750)。失敗(時間切れ/ライフ0): prog = 1 - bestD / d0[goal]; clamp(15 + prog*30, 15, 45)(2751)。bestD 初期値は BFS距離 d0[goal](2664)だが更新はマンハッタン距離(2701)。onComplete 2754のみ(meterあり)",
+  "timeLimit": "mgDuration(lerp(24000,20000,difficulty))(2638)=ふつう約21.8〜24秒、やさしい×1.2、みじかめ×0.7(約15〜17秒)",
+  "endConditions": "ゴール到達(2702)、穴に3回落ちる(2699)、時間切れ(2716)",
+  "minScore": 15,
+  "maxScore": 100,
+  "hundredReachable": true,
+  "hundredCondition": "穴に落ちず18秒以内にゴール",
+  "idle": {
+   "raw": "30〜35",
+   "t7": "meterあり→記録されない",
+   "basis": "harness"
+  },
+  "zeroAchievement": {
+   "score": "30〜40",
+   "scenario": "ゴールできずに時間切れ/穴3回で終了。無操作でも30〜35、適当にドラッグして穴に3回落ちても30〜40で記録される(success・30コイン)(harness)",
+   "basis": "harness"
+  },
+  "partial": "ゴール近くまで行って時間切れ=最大45",
+  "fullClear": "ノーミス18秒以内=100、穴1回=88",
+  "timeout": "30〜45(進捗。ただし下記バグで底上げ)",
+  "bonuses": "失敗時の進捗点最大+30",
+  "exploits": [
+   "進捗の計算で初期値(BFS経路長)と更新値(マンハッタン距離)を混ぜているため、スタート地点から1歩も動かなくても prog≈0.5 となり失敗でも30点以上(ふつう判定)になる"
+  ],
+  "solvability": {
+   "randomGen": true,
+   "risk": "低",
+   "note": "generateMaze+BFSでゴールは最遠セル、穴は d0>=3 かつゴール・他の穴から距離3以上(2644-2650)。穴が通路をふさぐ可能性はあり(通過経路上の穴を回避できる幅かは未検証)"
+  },
+  "luck": "低",
+  "playSec": {
+   "min": 8,
+   "typical": 20,
+   "max": 29
+  },
+  "difficulty": "ふつう: 慣性のあるドラッグ操作",
+  "mobile": "キャンバスのジョイスティック風ドラッグ or 下部パッド。指を離すと即停止(brake)で扱いやすい",
+  "issues": [
+   {
+    "level": "重大",
+    "text": "採点バグ: bestD の初期値(BFS距離)と更新(マンハッタン距離)の尺度が違うため、何も達成しなくても失敗点が30〜35点になり、success(30コイン・そだち+7)を得る。meterで完全放置は記録されないが、少し触って穴に落ちるだけで30〜40点で記録される",
+    "basis": "harness"
+   }
+  ],
+  "verdict": "重大",
+  "proposal": "2701 を d0[cy][cx](BFS距離)で更新するよう統一し、失敗時の点を 10+prog*25 程度(上限35未満)にする"
+ },
+ {
+  "id": "space-gunner-3d",
+  "name": "スペースガンナー",
+  "category": "spaceGunner",
+  "factory": "makeSpaceGunnerGame",
+  "lines": "2769-2912",
+  "genre": "シューティング",
+  "formula": "シールド0: clamp(12 + kills*4, 12, 48)。生存: clamp(30 + kills*6.5 + shields*7 + 命中率*10, 15, 100)(2898)。onComplete 2901のみ",
+  "timeLimit": "mgDuration(lerp(24000,20000,difficulty))(2773)=ふつう約21.8〜24秒、みじかめ×0.7",
+  "endConditions": "時間切れ(2885) or シールド3枚喪失(2853)",
+  "minScore": 12,
+  "maxScore": 100,
+  "hundredReachable": true,
+  "hundredCondition": "生存かつ 6.5*kills+7*shields+10*命中率 >= 70(例: シールド3・命中100%で6機撃破)",
+  "idle": {
+   "raw": 12,
+   "t7": "meterなし→入力0なら記録されない",
+   "basis": "harness"
+  },
+  "zeroAchievement": {
+   "score": 12,
+   "scenario": "1機も倒せない→約8〜9秒でシールド全損し12点",
+   "basis": "harness"
+  },
+  "partial": "生存3機撃破シールド1枚=約64前後、全損9機=48",
+  "fullClear": "生存6機以上ノーダメ=100",
+  "timeout": "生存=30+…(最低でも約37)",
+  "bonuses": "生存基礎30+シールド7/枚+命中率10。生存すれば基礎だけで37以上",
+  "exploits": [
+   "画面中央に照準を置いたまま『うつ!』を0.2秒間隔で連打すると28〜48点(harness)。狙わなくても半分近く取れるが great には届かない"
+  ],
+  "solvability": {
+   "randomGen": true,
+   "risk": "なし",
+   "note": "敵の出現はランダム、同時6体まで"
+  },
+  "luck": "低",
+  "playSec": {
+   "min": 8,
+   "typical": 22,
+   "max": 29
+  },
+  "difficulty": "ふつう",
+  "mobile": "照準ドラッグ+発射ボタン。照準移動と発射の同時操作は2本指が必要でやや難",
+  "issues": [
+   {
+    "level": "軽微",
+    "text": "meter を渡していない(1タップ放置で12点記録)",
+    "basis": "code"
+   }
+  ],
+  "verdict": "現行維持",
+  "proposal": ""
+ },
+ {
+  "id": "mini-golf-physics",
+  "name": "ミニゴルフ",
+  "category": "miniGolf",
+  "factory": "makeMiniGolfGame",
+  "lines": "2914-3056",
+  "genre": "スポーツ",
+  "formula": "over = (完了ホールの打数 + 未完了ホール数×6) - パー合計; score = clamp(100 - max(0,over)*9 + min(0,over)*-4, 15, 100)(3040-3046)。onComplete 3049のみ",
+  "timeLimit": "mgDuration(40000)(2928)=ふつう40秒、やさしい48秒、みじかめ28秒。開始猶予なし",
+  "endConditions": "3ホール終了(3013) or 時間切れ(3031)。1ホール6打で打ち切り(3007-3008)",
+  "minScore": 15,
+  "maxScore": 100,
+  "hundredReachable": true,
+  "hundredCondition": "3ホール合計がパー(6〜9)以下",
+  "idle": {
+   "raw": "15〜19",
+   "t7": "meterなし→入力0なら記録されない",
+   "basis": "harness"
+  },
+  "zeroAchievement": {
+   "score": "15〜19",
+   "scenario": "1ホールも入らない=各6打換算でパー+9〜12 → 15〜19",
+   "basis": "code"
+  },
+  "partial": "各ホール+1(ボギー)=73、+2ずつ=46",
+  "fullClear": "パー=100、ボギー1つ=91",
+  "timeout": "未完了ホールは6打扱い→大きく減点",
+  "bonuses": "アンダーパーは100でclamp(ボーナス無効)",
+  "exploits": [],
+  "solvability": {
+   "randomGen": true,
+   "risk": "なし",
+   "note": "6ホールから3つを抽選。固定レイアウト"
+  },
+  "luck": "低",
+  "playSec": {
+   "min": 12,
+   "typical": 30,
+   "max": 48
+  },
+  "difficulty": "ふつう: ボールは減衰が遅く(0.32^t)1打最大約3.6秒転がる",
+  "mobile": "ボール近く(24px*S)から引っぱる。ボール付近をタップする必要があり小画面ではやや精密",
+  "issues": [
+   {
+    "level": "改善推奨",
+    "text": "みじかめ(28秒・猶予なし)では1打最大約3.6秒+カップイン1.2秒待ちのため3ホール完走が厳しく、未完了ホール6打換算で大幅減点されやすい(inference)",
+    "basis": "inference"
+   },
+   {
+    "level": "軽微",
+    "text": "meter未使用",
+    "basis": "code"
+   }
+  ],
+  "verdict": "軽微",
+  "proposal": "ゴルフは MG_TURN_BASED に入れる(1打の重さが変わらない)か、みじかめ時はホール数を2に"
+ },
+ {
+  "id": "real-fishing",
+  "name": "ほんかくさかなつり",
+  "category": "realFishing",
+  "factory": "makeRealFishingGame",
+  "lines": "3058-3288",
+  "genre": "釣り",
+  "formula": "score = clamp(18 + pts*1.2 - escaped*4, 10, 100)(3261-3262)。pts=つった魚の value 合計、escaped=糸切れ/たるみで逃がした回数(あたりを逃した・早すぎは数えない)。onComplete は 3265 の1か所のみ。標準魚(あじ20〜さめ70)。出現はpow(random,1.6-0.5*diff)で小物寄り(3097)",
+  "timeLimit": "mgDuration(lerp(28000,24000,difficulty))(3073)=ふつう約24.8〜28秒、やさしい×1.2、みじかめ×0.7(約17〜20秒)。開始猶予なし(startTime=now、3078)。turn-basedではない",
+  "endConditions": "時間切れのみ(3251)。キャッチ数上限なし",
+  "minScore": 10,
+  "maxScore": 100,
+  "hundredReachable": true,
+  "hundredCondition": "pts>=68.3(例: さめ1匹、あじ+ふぐ+…で約3匹)",
+  "idle": {
+   "raw": 18,
+   "t7": "meterなし→入力0なら記録されない(1回でもタップすれば18点で記録=failure)",
+   "basis": "harness"
+  },
+  "zeroAchievement": {
+   "score": "18(0匹)〜10",
+   "scenario": "投げても1匹もつれない=18。かけた魚を糸切れ/たるみで逃がすと1回-4(最低10)",
+   "basis": "code"
+  },
+  "partial": "あじ1匹=42、あじ2匹=66、いか+あじ=90",
+  "fullClear": "2〜3匹で約70〜100",
+  "timeout": "時間切れが唯一の終了。つった合計で決まる",
+  "bonuses": "ボーナスなし。基礎点18が無条件で入る(30点の6割)。逃がしペナルティ-4/回",
+  "exploits": [
+   "「あわせる」連打は接近中/ついばみ中の魚を逃がす(3122-3123)ため不利。放置・連打の得はなし(code)"
+  ],
+  "solvability": {
+   "randomGen": true,
+   "risk": "なし",
+   "note": "魚は常に3匹以上補充される"
+  },
+  "luck": "中",
+  "playSec": {
+   "min": 17,
+   "typical": 28,
+   "max": 34
+  },
+  "difficulty": "ふつう: 投げ→あたり(窓0.52〜0.75秒、3166)→テンション管理の巻き、の多段で初見はやや難",
+  "mobile": "1ボタン(長押しキャスト/タップであわせ/長押しで巻く)+キャンバスでも同操作。あわせ窓0.52〜0.75秒は子どもにはやや短い。精密ドラッグ不要",
+  "issues": [
+   {
+    "level": "軽微",
+    "text": "開始猶予なし(startTimeが即時)でみじかめ(約17〜20秒)では1〜2匹が限度",
+    "basis": "inference"
+   },
+   {
+    "level": "軽微",
+    "text": "meter未使用(1タップで18点記録)",
+    "basis": "code"
+   }
+  ],
+  "verdict": "現行維持",
+  "proposal": ""
+ },
+ {
+  "id": "fishing-sea",
+  "name": "うみでほんかくさかなつり",
+  "category": "fishing(地域枠)",
+  "factory": "makeRealFishingGame",
+  "lines": "10683(設定)/3070-3288(本体)",
+  "genre": "釣り",
+  "formula": "score = clamp(18 + pts*1.2 - escaped*4, 10, 100)(3261-3262)。pts=つった魚の value 合計、escaped=糸切れ/たるみで逃がした回数(あたりを逃した・早すぎは数えない)。onComplete は 3265 の1か所のみ。差分: hotspot=flock, reach, recast。🐦の群れの下以外では魚の寄り率が1/30以下(FLOCK_OUT=0.03、3141)、遠投ほど大物・巻き速度アップ(3172)、あわせで回収して投げ直し可(3124)。魚種は標準と同じ",
+  "timeLimit": "mgDuration(lerp(28000,24000,difficulty))(3073)=ふつう約24.8〜28秒、やさしい×1.2、みじかめ×0.7(約17〜20秒)。開始猶予なし(startTime=now、3078)。turn-basedではない",
+  "endConditions": "時間切れのみ(3251)。キャッチ数上限なし",
+  "minScore": 10,
+  "maxScore": 100,
+  "hundredReachable": true,
+  "hundredCondition": "pts>=68.3",
+  "idle": {
+   "raw": 18,
+   "t7": "meterなし→入力0なら記録されない(1回でもタップすれば18点で記録=failure)",
+   "basis": "harness"
+  },
+  "zeroAchievement": {
+   "score": "18(0匹)",
+   "scenario": "投げても1匹もつれない=18。かけた魚を糸切れ/たるみで逃がすと1回-4(最低10)",
+   "basis": "code"
+  },
+  "partial": "群れの下に投げられれば標準と同程度。群れを外し続けると0匹=18",
+  "fullClear": "2〜3匹で約70〜100",
+  "timeout": "時間切れが唯一の終了。つった合計で決まる",
+  "bonuses": "ボーナスなし。基礎点18が無条件で入る(30点の6割)。逃がしペナルティ-4/回",
+  "exploits": [
+   "「あわせる」連打は接近中/ついばみ中の魚を逃がす(3122-3123)ため不利。放置・連打の得はなし(code)"
+  ],
+  "solvability": {
+   "randomGen": true,
+   "risk": "なし",
+   "note": "群れは6〜8.5秒ごとに移動"
+  },
+  "luck": "中",
+  "playSec": {
+   "min": 17,
+   "typical": 28,
+   "max": 34
+  },
+  "difficulty": "ふつう: 投げ→あたり(窓0.52〜0.75秒、3166)→テンション管理の巻き、の多段で初見はやや難",
+  "mobile": "1ボタン(長押しキャスト/タップであわせ/長押しで巻く)+キャンバスでも同操作。あわせ窓0.52〜0.75秒は子どもにはやや短い。精密ドラッグ不要",
+  "issues": [
+   {
+    "level": "軽微",
+    "text": "群れの外ではほぼ寄らないので、仕組みを理解しないと0匹(18点)になりやすい。ため量の目印は表示される(3227)",
+    "basis": "code"
+   },
+   {
+    "level": "軽微",
+    "text": "meter未使用",
+    "basis": "code"
+   }
+  ],
+  "verdict": "現行維持",
+  "proposal": ""
+ },
+ {
+  "id": "fishing-deepsea",
+  "name": "しんかいフィッシング",
+  "category": "fishing(地域枠)",
+  "factory": "makeRealFishingGame",
+  "lines": "10686(設定)/3070-3288(本体)",
+  "genre": "釣り",
+  "formula": "score = clamp(18 + pts*1.2 - escaped*4, 10, 100)(3261-3262)。pts=つった魚の value 合計、escaped=糸切れ/たるみで逃がした回数(あたりを逃した・早すぎは数えない)。onComplete は 3265 の1か所のみ。差分: species=DEEPSEA_FISH(ふぐ28〜くじら95)。最小の魚でも28点",
+  "timeLimit": "mgDuration(lerp(28000,24000,difficulty))(3073)=ふつう約24.8〜28秒、やさしい×1.2、みじかめ×0.7(約17〜20秒)。開始猶予なし(startTime=now、3078)。turn-basedではない",
+  "endConditions": "時間切れのみ(3251)。キャッチ数上限なし",
+  "minScore": 10,
+  "maxScore": 100,
+  "hundredReachable": true,
+  "hundredCondition": "さめかくじら1匹、または小物2匹以上(pts>=68.3)",
+  "idle": {
+   "raw": 18,
+   "t7": "meterなし→入力0なら記録されない(1回でもタップすれば18点で記録=failure)",
+   "basis": "harness"
+  },
+  "zeroAchievement": {
+   "score": "18(0匹)",
+   "scenario": "投げても1匹もつれない=18。かけた魚を糸切れ/たるみで逃がすと1回-4(最低10)",
+   "basis": "code"
+  },
+  "partial": "ふぐ1匹=52、さめ1匹かくじら1匹=100",
+  "fullClear": "1〜2匹で約52〜100",
+  "timeout": "時間切れが唯一の終了。つった合計で決まる",
+  "bonuses": "ボーナスなし。基礎点18が無条件で入る(30点の6割)。逃がしペナルティ-4/回",
+  "exploits": [
+   "「あわせる」連打は接近中/ついばみ中の魚を逃がす(3122-3123)ため不利。放置・連打の得はなし(code)"
+  ],
+  "solvability": {
+   "randomGen": true,
+   "risk": "なし",
+   "note": ""
+  },
+  "luck": "高",
+  "playSec": {
+   "min": 17,
+   "typical": 28,
+   "max": 34
+  },
+  "difficulty": "ふつう: 投げ→あたり(窓0.52〜0.75秒、3166)→テンション管理の巻き、の多段で初見はやや難",
+  "mobile": "1ボタン(長押しキャスト/タップであわせ/長押しで巻く)+キャンバスでも同操作。あわせ窓0.52〜0.75秒は子どもにはやや短い。精密ドラッグ不要",
+  "issues": [
+   {
+    "level": "軽微",
+    "text": "魚の価値が高く1匹で52点、大物1匹で100点。標準/川(1匹42点)との報酬差が大きく運の比重が高い",
+    "basis": "code"
+   },
+   {
+    "level": "軽微",
+    "text": "くじら(pull 3.0)は巻き取りが遅く時間内に上げにくい(inference)",
+    "basis": "inference"
+   }
+  ],
+  "verdict": "軽微",
+  "proposal": "魚価値を標準と同程度に揃えるか、深海は基礎点を下げる"
+ },
+ {
+  "id": "fishing-river",
+  "name": "みずべで魚つり",
+  "category": "fishing(地域枠)",
+  "factory": "makeRealFishingGame",
+  "lines": "10689(設定)/3070-3288(本体)",
+  "genre": "釣り",
+  "formula": "score = clamp(18 + pts*1.2 - escaped*4, 10, 100)(3261-3262)。pts=つった魚の value 合計、escaped=糸切れ/たるみで逃がした回数(あたりを逃した・早すぎは数えない)。onComplete は 3265 の1か所のみ。差分: species=RIVER_FISH(あゆ20〜ワニ70)。てながえびは size0.9/pull0.7 で最も易しい",
+  "timeLimit": "mgDuration(lerp(28000,24000,difficulty))(3073)=ふつう約24.8〜28秒、やさしい×1.2、みじかめ×0.7(約17〜20秒)。開始猶予なし(startTime=now、3078)。turn-basedではない",
+  "endConditions": "時間切れのみ(3251)。キャッチ数上限なし",
+  "minScore": 10,
+  "maxScore": 100,
+  "hundredReachable": true,
+  "hundredCondition": "pts>=68.3(ワニ1匹など)",
+  "idle": {
+   "raw": 18,
+   "t7": "meterなし→入力0なら記録されない(1回でもタップすれば18点で記録=failure)",
+   "basis": "harness"
+  },
+  "zeroAchievement": {
+   "score": "18(0匹)〜10",
+   "scenario": "投げても1匹もつれない=18。かけた魚を糸切れ/たるみで逃がすと1回-4(最低10)",
+   "basis": "code"
+  },
+  "partial": "あゆ1匹=42、2匹=66〜70",
+  "fullClear": "2〜3匹で約70〜100",
+  "timeout": "時間切れが唯一の終了。つった合計で決まる",
+  "bonuses": "ボーナスなし。基礎点18が無条件で入る(30点の6割)。逃がしペナルティ-4/回",
+  "exploits": [
+   "「あわせる」連打は接近中/ついばみ中の魚を逃がす(3122-3123)ため不利。放置・連打の得はなし(code)"
+  ],
+  "solvability": {
+   "randomGen": true,
+   "risk": "なし",
+   "note": ""
+  },
+  "luck": "中",
+  "playSec": {
+   "min": 17,
+   "typical": 28,
+   "max": 34
+  },
+  "difficulty": "ふつう: 投げ→あたり(窓0.52〜0.75秒、3166)→テンション管理の巻き、の多段で初見はやや難",
+  "mobile": "1ボタン(長押しキャスト/タップであわせ/長押しで巻く)+キャンバスでも同操作。あわせ窓0.52〜0.75秒は子どもにはやや短い。精密ドラッグ不要",
+  "issues": [
+   {
+    "level": "軽微",
+    "text": "meter未使用",
+    "basis": "code"
+   }
+  ],
+  "verdict": "現行維持",
+  "proposal": ""
+ },
+ {
+  "id": "basketball-3d",
+  "name": "3Dバスケ",
+  "category": "basketball",
+  "factory": "makeBasketballGame",
+  "lines": "3290-3416",
+  "genre": "スポーツ",
+  "formula": "score = clamp(round(18 + made*11 + 成功率*20 + 最大連続*3), 12, 100)(3406)。onComplete 3409のみ",
+  "timeLimit": "mgDuration(lerp(26000,22000,difficulty))(3296)=ふつう約23.8〜26秒、みじかめ×0.7",
+  "endConditions": "時間切れのみ(3399)",
+  "minScore": 18,
+  "maxScore": 100,
+  "hundredReachable": true,
+  "hundredCondition": "例: 5本全部成功(18+55+20+15=108)",
+  "idle": {
+   "raw": 18,
+   "t7": "meterなし→入力0なら記録されない",
+   "basis": "harness"
+  },
+  "zeroAchievement": {
+   "score": 18,
+   "scenario": "1本も入らない=18(シュート数に関係なく)",
+   "basis": "code"
+  },
+  "partial": "2/6成功・連続1=18+22+6.7+3≈50",
+  "fullClear": "5本以上全成功で100",
+  "timeout": "時間切れが唯一の終了",
+  "bonuses": "成功率最大+20、連続*3。基礎18",
+  "exploits": [
+   "落下地点の予測リングが表示され緑で成功確定に近い(3383)ため、同じ強さのスワイプを繰り返せば高得点(仕様上の補助。ゴールの揺れは30%自動追従、3321)"
+  ],
+  "solvability": {
+   "randomGen": false,
+   "risk": "なし",
+   "note": ""
+  },
+  "luck": "低",
+  "playSec": {
+   "min": 22,
+   "typical": 25,
+   "max": 32
+  },
+  "difficulty": "やさしい〜ふつう: 予測リング付き",
+  "mobile": "上方向スワイプのみ。30px以上必要",
+  "issues": [
+   {
+    "level": "軽微",
+    "text": "meter未使用",
+    "basis": "code"
+   }
+  ],
+  "verdict": "現行維持",
+  "proposal": ""
+ },
+ {
+  "id": "pingpong-3d",
+  "name": "3D卓球",
+  "category": "pingPong",
+  "factory": "makePingPongGame",
+  "lines": "3418-3543",
+  "genre": "スポーツ",
+  "formula": "decided = clamp(round((勝ち?62:20) + (me-ai)*5 + min(18, bestRally*2)), 12, 100)(3531)→ mgVersusOutcome(3533): 先に4点=decisive、時間切れ=judgement(勝ち55〜69上限、負け≤34、同点≤40)",
+  "timeLimit": "mgDuration(28000)(3423)=ふつう28秒、やさしい33.6秒、みじかめ19.6秒",
+  "endConditions": "どちらかが4点(3448)、または時間切れ(3519)",
+  "minScore": 12,
+  "maxScore": 100,
+  "hundredReachable": true,
+  "hundredCondition": "4-0で勝ち、かつ最大ラリー9回以上(62+20+18)。28秒内でラリー9往復(1往復約1.8秒)+4得点は実質ほぼ不可、みじかめでは不可能(inference)",
+  "idle": {
+   "raw": "12(みじかめでは時間切れ判定負けで12〜17)",
+   "t7": "meterなし→入力0なら記録されない",
+   "basis": "harness"
+  },
+  "zeroAchievement": {
+   "score": 12,
+   "scenario": "0-4で負け=clamp下限12",
+   "basis": "code"
+  },
+  "partial": "4-2勝ち・ラリー3=78、時間切れ2-1勝ち=約59〜60",
+  "fullClear": "4-0勝ち・ラリー4=90",
+  "timeout": "判定勝ち55〜69、同点20〜38(≤40)、判定負け≤34",
+  "bonuses": "ラリー最大+18(本来の勝敗差+20に匹敵)",
+  "exploits": [
+   "初期位置のラケット(中央)で返球できることがあり、無操作でもまれに得点する(みじかめで17点の例、harness)。影響は小"
+  ],
+  "solvability": {
+   "randomGen": true,
+   "risk": "なし",
+   "note": ""
+  },
+  "luck": "中",
+  "playSec": {
+   "min": 10,
+   "typical": 25,
+   "max": 34
+  },
+  "difficulty": "ふつう",
+  "mobile": "キャンバス上でラケットを指で追従。当たり判定 x±0.26m, y±0.3m",
+  "issues": [
+   {
+    "level": "改善推奨",
+    "text": "100点に実質届かない: 4-0勝利に加えラリー9回が必要で、28秒(みじかめ19.6秒)では時間が足りない。早く勝つほどラリー点が減る逆インセンティブ",
+    "basis": "inference"
+   },
+   {
+    "level": "軽微",
+    "text": "meter未使用",
+    "basis": "code"
+   }
+  ],
+  "verdict": "改善推奨",
+  "proposal": "ラリー点を合計ラリー数(上限付き)にするか、4-0勝利の基礎を高く(例 4-0で95+)"
+ },
+ {
+  "id": "chain-puzzle",
+  "name": "れんさパズル",
+  "category": "chainPuzzle",
+  "factory": "makeChainPuzzleGame",
+  "lines": "3551-3680",
+  "genre": "パズル",
+  "formula": "result = clamp(round(12 + popped*1 + maxChain*9 + min(20, score/60)), 10, 100)(3671)。score=消した数*10*連鎖倍率(1/2/4/8/16)。onComplete 3674のみ。積み上がりによる終了にペナルティなし",
+  "timeLimit": "mgDuration(lerp(32000,27000,difficulty))(3557)=ふつう約29〜32秒、みじかめ×0.7(約20〜22秒)",
+  "endConditions": "時間切れ(3663) or 積み上がり(出現位置が埋まる、3574)",
+  "minScore": 12,
+  "maxScore": 100,
+  "hundredReachable": true,
+  "hundredCondition": "popped + 9*maxChain + min(20,score/60) >= 88(例: 40個消し・3連鎖)。30秒では上級者向け",
+  "idle": {
+   "raw": 12,
+   "t7": "meterなし→入力0なら記録されない",
+   "basis": "harness"
+  },
+  "zeroAchievement": {
+   "score": 12,
+   "scenario": "1つも消せない=12。ハードドロップ連打で約3秒で積み上がって12(harness)",
+   "basis": "harness"
+  },
+  "partial": "12個消し・連鎖なし=約26、20個・2連鎖=約52",
+  "fullClear": "(クリア概念なし)",
+  "timeout": "通常終了",
+  "bonuses": "連鎖1段+9、スコア換算最大+20",
+  "exploits": [],
+  "solvability": {
+   "randomGen": true,
+   "risk": "なし",
+   "note": "色4〜5のランダム"
+  },
+  "luck": "中",
+  "playSec": {
+   "min": 3,
+   "typical": 30,
+   "max": 38
+  },
+  "difficulty": "むずかしい: 30秒で連鎖を組むのは子どもには難。4個消し1回で+4点程度と少ない",
+  "mobile": "パッド/スワイプ+回転・一気ボタン。操作は多いが標準的",
+  "issues": [
+   {
+    "level": "改善推奨",
+    "text": "消去1個=+1点と小さく、普通にプレイしても30点前後に留まりやすい(4個消し4回で約28点)。30秒枠では連鎖を組む余裕が少なく難しすぎる(inference)",
+    "basis": "inference"
+   },
+   {
+    "level": "軽微",
+    "text": "meter未使用",
+    "basis": "code"
+   }
+  ],
+  "verdict": "改善推奨",
+  "proposal": "消去1個あたりの係数を上げる(例 popped*1.8)か制限時間を延ばす"
+ },
+ {
+  "id": "street-fight",
+  "name": "かくとうバトル",
+  "category": "streetFight",
+  "factory": "makeStreetFightGame",
+  "lines": "3684-3848",
+  "genre": "対戦アクション",
+  "formula": "score = clamp(round((勝ち?50:16) + 自HP*0.3 + min(12,hits) - min(15,taken)), 10, 100)(3834)。時間切れは 自HP>=相手HP なら勝ち(3827)。mgVersusOutcome 未使用",
+  "timeLimit": "mgDuration(25000)(3688)=ふつう25秒、やさしい30秒、みじかめ17.5秒",
+  "endConditions": "どちらかのHP0(3767) or 時間切れ(3827)",
+  "minScore": 10,
+  "maxScore": 92,
+  "hundredReachable": false,
+  "hundredCondition": "不可。勝ち50+HP100*0.3(30)+hits上限12 = 92が上限",
+  "idle": {
+   "raw": "10〜34",
+   "t7": "meterなし→入力0なら記録されない",
+   "basis": "harness"
+  },
+  "zeroAchievement": {
+   "score": "10〜39",
+   "scenario": "ガード押しっぱなしで一度も攻撃しない: 時間切れ判定負けで25〜39点(5シード中3回30以上)(harness)。無操作でもシードにより34点",
+   "basis": "harness"
+  },
+  "partial": "時間切れ判定勝ち(HP80・8hit・被弾5)=約77",
+  "fullClear": "KO勝ちノーダメ12hit以上=92",
+  "timeout": "判定勝ち=勝ちと同じ式(50+…)、判定負け=16+…",
+  "bonuses": "HP残量最大+30、hits最大+12、被弾-15まで",
+  "exploits": [
+   "キックを0.75秒間隔で押し続けるだけで77〜89点で勝利(harness、5/5勝)。AIのガードが連打対策(350ms以内のrushed)の外側のテンポに弱い",
+   "ガード押しっぱなし(攻撃なし)で30点以上になることがある(harness)"
+  ],
+  "solvability": {
+   "randomGen": false,
+   "risk": "なし",
+   "note": ""
+  },
+  "luck": "中",
+  "playSec": {
+   "min": 10,
+   "typical": 25,
+   "max": 31
+  },
+  "difficulty": "ふつう(実際は単純連打で勝てるのでやさしい)",
+  "mobile": "パッド+パンチ/キック/ガード3ボタン、キャンバス上下タップも可",
+  "issues": [
+   {
+    "level": "改善推奨",
+    "text": "100点に届かない(上限92)",
+    "basis": "code"
+   },
+   {
+    "level": "改善推奨",
+    "text": "一定間隔のキック連打で great 勝利が安定(harness)",
+    "basis": "harness"
+   },
+   {
+    "level": "改善推奨",
+    "text": "攻撃ゼロ(ガード押しっぱなし)でも30点以上になる場合がある",
+    "basis": "harness"
+   },
+   {
+    "level": "軽微",
+    "text": "対戦なのに mgVersusOutcome を通らず、時間切れ判定勝ちも決着勝ちと同じ点",
+    "basis": "code"
+   }
+  ],
+  "verdict": "改善推奨",
+  "proposal": "勝ち基礎を58程度に上げ上限100に届くようにし、負け側は taken 控除を強めて上限を29以下に。時間切れは mgVersusOutcome(judgement)に通す。AIに同テンポ連打への対処(ガード→反撃)を追加"
+ },
+ {
+  "id": "free-kick-3d",
+  "name": "フリーキック",
+  "category": "freeKick",
+  "factory": "makeFreeKickGame",
+  "lines": "3850-3979",
+  "genre": "スポーツ",
+  "formula": "score = clamp(round(12 + goals*22 + (4本全部? 10:0)), 10, 100)(3969)。onComplete 3972のみ",
+  "timeLimit": "固定70秒(3964、mgDuration未使用・表示なし)。実質は4本蹴ったら終了",
+  "endConditions": "4本蹴り終わる(3911)、または70秒経過",
+  "minScore": 12,
+  "maxScore": 100,
+  "hundredReachable": true,
+  "hundredCondition": "4本すべてゴール(110→100)",
+  "idle": {
+   "raw": 12,
+   "t7": "meterなし→入力0なら記録されない(ただし放置だと70秒待たされる)",
+   "basis": "harness"
+  },
+  "zeroAchievement": {
+   "score": 12,
+   "scenario": "4本すべて失敗=12",
+   "basis": "code"
+  },
+  "partial": "1本=34、2本=56、3本=78",
+  "fullClear": "4本=100",
+  "timeout": "70秒で残りを失敗扱い",
+  "bonuses": "全成功+10",
+  "exploits": [],
+  "solvability": {
+   "randomGen": true,
+   "risk": "低",
+   "note": "壁位置・キーパー位置がランダム"
+  },
+  "luck": "中",
+  "playSec": {
+   "min": 10,
+   "typical": 20,
+   "max": 70
+  },
+  "difficulty": "ふつう",
+  "mobile": "上方向スワイプ(30px以上)、途中で曲げるとカーブ",
+  "issues": [
+   {
+    "level": "軽微",
+    "text": "放置時の上限70秒がタイマー表示されず、みじかめにも反映されない",
+    "basis": "code"
+   },
+   {
+    "level": "軽微",
+    "text": "meter未使用",
+    "basis": "code"
+   }
+  ],
+  "verdict": "現行維持",
+  "proposal": ""
+ },
+ {
+  "id": "tower-defense",
+  "name": "タワーディフェンス",
+  "category": "towerDefense",
+  "factory": "makeTowerDefenseGame",
+  "lines": "3981-4119",
+  "genre": "戦略",
+  "formula": "勝ち: clamp(round(62 + lives*3.8), 60, 100)。負け: clamp(round(12 + wave*9 + kills*0.4), 10, 55)(4108)。時間切れは finish(lives>0)=ライフが残っていれば勝ち扱い(4102)。onComplete 4111のみ",
+  "timeLimit": "mgDuration(90000)(4000)=ふつう90秒、やさしい108秒、みじかめ63秒。ウェーブは8秒後に自動開始、以降クリア5秒後に自動",
+  "endConditions": "4ウェーブ全滅させる(4061)、ライフ0(4067)、時間切れ(4102=ライフ>0なら勝ち)",
+  "minScore": 10,
+  "maxScore": 100,
+  "hundredReachable": true,
+  "hundredCondition": "ライフ10のまま勝利(時間切れでもよい)",
+  "idle": {
+   "raw": 30,
+   "t7": "meterなし→入力0なら記録されない",
+   "basis": "harness"
+  },
+  "zeroAchievement": {
+   "score": 30,
+   "scenario": "タワーを1つも建てない(ボタンを1回押しただけ)で記録される: ウェーブが自動で2まで進み 12+2*9=30点=success(5/5シード、harness)",
+   "basis": "harness"
+  },
+  "partial": "弓タワー2本だけ建てて放置: ふつう77〜92、みじかめ96〜100(どちらも時間切れ=勝ち判定、harness)",
+  "fullClear": "ノーダメで4ウェーブ=100",
+  "timeout": "ライフ>0なら勝ち式(62+lives*3.8)。ウェーブ未完了でも『守りきった』",
+  "bonuses": "残りライフ×3.8(最大+38)",
+  "exploits": [
+   "時間切れ=勝利扱いのため、ウェーブを全部こなさなくても62点以上。みじかめ(63秒)では4ウェーブ目(ボス)が来る前に時間切れになりやすく、弓2本建てて放置で96〜100点(harness)",
+   "タワー0本でも自動進行で wave=2 に達し30点(success)"
+  ],
+  "solvability": {
+   "randomGen": false,
+   "risk": "なし",
+   "note": "固定マップ"
+  },
+  "luck": "低",
+  "playSec": {
+   "min": 50,
+   "typical": 90,
+   "max": 108
+  },
+  "difficulty": "やさしい: 初期資金で2本建てるだけで高得点",
+  "mobile": "マスタップ(8列、1マス=画面幅/8)。タワー選択ボタン",
+  "issues": [
+   {
+    "level": "重大",
+    "text": "時間切れを勝利(62+)として扱う採点バグ。4ウェーブ未達でも『守りきった』になり、みじかめでは最小限の操作で100点近く出る",
+    "basis": "harness"
+   },
+   {
+    "level": "改善推奨",
+    "text": "タワー0本の『達成ゼロ』でもちょうど30点(success)",
+    "basis": "harness"
+   },
+   {
+    "level": "軽微",
+    "text": "meter未使用",
+    "basis": "code"
+   }
+  ],
+  "verdict": "重大",
+  "proposal": "時間切れは負け式(または wave/WAVES に比例した50点未満)にし、勝ちは全ウェーブ撃破のみ。負け式の基礎を wave*9 から『倒した割合』ベースにし、建設0なら30未満に。TD はターン制に近いので MG_TURN_BASED 入りも検討"
+ },
+ {
+  "id": "roguelike-dungeon",
+  "name": "ローグライク",
+  "category": "roguelike",
+  "factory": "makeRoguelikeGame",
+  "lines": "4123-4240",
+  "genre": "探索",
+  "formula": "脱出: clamp(round(60 + hp*1.2 + min(20, gold*0.3)), 60, 100)。失敗(死亡/時間切れ): clamp(round(12 + (floor-1)*24 + kills*3 + min(10, gold*0.2)), 10, 58)(4230)。onComplete 4233のみ",
+  "timeLimit": "mgDuration(90000)=90秒(やさしい108秒)。MG_TURN_BASED のためみじかめで短縮されない",
+  "endConditions": "B2Fの階段(4176)、HP0(4189)、時間切れ(4220)",
+  "minScore": 10,
+  "maxScore": 100,
+  "hundredReachable": true,
+  "hundredCondition": "HP20(最大)で脱出かつ gold>=67 程度(60+24+20=104)",
+  "idle": {
+   "raw": 12,
+   "t7": "meterなし→入力0なら記録されない",
+   "basis": "harness"
+  },
+  "zeroAchievement": {
+   "score": "12〜18",
+   "scenario": "B1Fで何も倒せず死亡/時間切れ=12、金を拾っても+最大10",
+   "basis": "code"
+  },
+  "partial": "B2Fに降りて死亡=36〜58",
+  "fullClear": "脱出=60以上。HP満タン・金そこそこで90〜100",
+  "timeout": "失敗式(最大58)",
+  "bonuses": "残りHP×1.2(最大+24)、金最大+20",
+  "exploits": [
+   "『まつ』で1ターンごとにHP+1(4196)。敵がいない所で待てば満タンにでき、残りHPボーナスを容易に最大化できる(実時間90秒の制約のみ)"
+  ],
+  "solvability": {
+   "randomGen": true,
+   "risk": "低",
+   "note": "generateMaze(ループ付き)+部屋。階段はBFS最遠セル。敵が通路をふさいでも戦闘で突破可能"
+  },
+  "luck": "中",
+  "playSec": {
+   "min": 20,
+   "typical": 60,
+   "max": 108
+  },
+  "difficulty": "ふつう",
+  "mobile": "パッドのステップ移動/スワイプ/隣接マスタップ。11x11マス",
+  "issues": [
+   {
+    "level": "軽微",
+    "text": "meter未使用",
+    "basis": "code"
+   }
+  ],
+  "verdict": "現行維持",
+  "proposal": ""
+ },
+ {
+  "id": "grand-prix-3d",
+  "name": "グランプリ",
+  "category": "grandPrix",
+  "factory": "makeGrandPrixGame",
+  "lines": "4248-4357",
+  "genre": "レース",
+  "formula": "table=[100,86,74,62,50,40]; ゴール: table[順位-1]、時間切れ: table[順位-1]-25、いずれも -min(10,hits)、clamp 12..100(4347-4348)。onComplete 4351のみ",
+  "timeLimit": "mgDuration(30000)(4252)=ふつう30秒、やさしい36秒、みじかめ21秒。開始猶予+1.5秒",
+  "endConditions": "2周完走(4297) or 時間切れ(4339)",
+  "minScore": 12,
+  "maxScore": 100,
+  "hundredReachable": true,
+  "hundredCondition": "1位でゴール・接触なし。ただしみじかめ(21秒)では2周(約360seg×2/最高速34seg/s≈21秒+加速)が時間内に終わらず完走不能→上限75",
+  "idle": {
+   "raw": 15,
+   "t7": "meterなし→入力0なら記録されない",
+   "basis": "harness"
+  },
+  "zeroAchievement": {
+   "score": "12〜15",
+   "scenario": "走らない/最下位で時間切れ=15",
+   "basis": "harness"
+  },
+  "partial": "3位ゴール=74、1位で時間切れ=75",
+  "fullClear": "1位ゴール=100",
+  "timeout": "順位表-25(1位でも75)",
+  "bonuses": "なし(順位のみ)",
+  "exploits": [
+   "アクセル押しっぱなし(ハンドル無操作)だけで6シード中3回が完走して90〜98点(harness)。結果はコース次第で12〜98と極端"
+  ],
+  "solvability": {
+   "randomGen": true,
+   "risk": "中",
+   "note": "みじかめでは完走がほぼ不可能(harness: アクセル押しっぱなしで全シード時間切れ、最大73)"
+  },
+  "luck": "高",
+  "playSec": {
+   "min": 24,
+   "typical": 30,
+   "max": 38
+  },
+  "difficulty": "やさしい〜ふつう(ふつう時間)。みじかめでは完走不能",
+  "mobile": "アクセル長押し+パッド or キャンバス押しっぱなし",
+  "issues": [
+   {
+    "level": "改善推奨",
+    "text": "みじかめ設定(21秒)では2周が物理的にほぼ終わらず、最高75点。モード間で報酬が大きく変わる",
+    "basis": "harness"
+   },
+   {
+    "level": "改善推奨",
+    "text": "アクセル押しっぱなしだけで高確率で上位完走(90点超)。操舵の価値が低く、結果の分散が大きい",
+    "basis": "harness"
+   },
+   {
+    "level": "軽微",
+    "text": "meter未使用",
+    "basis": "code"
+   }
+  ],
+  "verdict": "改善推奨",
+  "proposal": "みじかめでは LAPS=1 にする(または時間短縮を除外)。カーブの遠心力を強める/コースアウト減速を強めて操舵を必要に"
+ },
+ {
+  "id": "sky-shooter",
+  "name": "スカイシューター",
+  "category": "skyShooter",
+  "factory": "makeSkyShooterGame",
+  "lines": "4361-4467",
+  "genre": "シューティング",
+  "formula": "result = clamp(round(14 + min(44, kills*3) + (ボス撃破?34:0) + 残機*6), 10, 100)(4456)。死亡ペナルティなし(残機0で+0になるだけ)。onComplete 4460(meterあり)",
+  "timeLimit": "mgDuration(27000)=ふつう27秒、やさしい32.4秒、みじかめ18.9秒。ボス出現 BOSS_AT=15000 は固定(4365)",
+  "endConditions": "時間切れ、残機0(4436)、ボス撃破から3秒後(4449)",
+  "minScore": 10,
+  "maxScore": 100,
+  "hundredReachable": true,
+  "hundredCondition": "ボス撃破+15機以上撃破+残機2以上 等(14+44+34+12=104)",
+  "idle": {
+   "raw": "32〜41",
+   "t7": "meterあり→記録されない",
+   "basis": "harness"
+  },
+  "zeroAchievement": {
+   "score": "29〜41",
+   "scenario": "自動連射なので、避けずに約11秒で撃墜されても撃破数で30点前後(1秒おきに小さく動かした場合29〜35で記録、harness)",
+   "basis": "harness"
+  },
+  "partial": "ボス未撃破・残機3・10機=62",
+  "fullClear": "ボス撃破=約90〜100",
+  "timeout": "撃破数+残機",
+  "bonuses": "ボス+34、残機6/機。撃破は15機で頭打ち",
+  "exploits": [
+   "自動連射のため回避しなくても撃破点が入り、撃墜されても30点前後(success)になりうる"
+  ],
+  "solvability": {
+   "randomGen": true,
+   "risk": "中",
+   "note": "みじかめ(18.9秒)ではボス出現15秒→残り約3.9秒でHP70以上のボスを倒す必要があり実質不可→上限約76(inference)"
+  },
+  "luck": "低",
+  "playSec": {
+   "min": 11,
+   "typical": 20,
+   "max": 33
+  },
+  "difficulty": "ふつう",
+  "mobile": "相対ドラッグで機体移動(自動射撃)+ボムボタン。操作は単純",
+  "issues": [
+   {
+    "level": "改善推奨",
+    "text": "BOSS_AT が mgDuration に連動しないため、みじかめではボス撃破(+34)がほぼ不可能で上限が約76に下がる",
+    "basis": "inference"
+   },
+   {
+    "level": "改善推奨",
+    "text": "撃墜されても撃破点だけで30点前後(success)になる。死亡時の基礎点が高い",
+    "basis": "harness"
+   }
+  ],
+  "verdict": "改善推奨",
+  "proposal": "BOSS_AT を DURATION_MS*0.55 に連動。残機0時は上限29などで failure にする"
+ }
+]

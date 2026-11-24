@@ -1,0 +1,10 @@
+const {play}=require('./run.cjs');
+const q=(b,s)=>b.querySelector(s);
+const out=(name,f)=>{const r=[];for(let seed=1;seed<=6;seed++){const p=f(seed);r.push(p.raw+'@'+(p.t/1000).toFixed(1)+(p.counted!=null?'c'+p.counted:''));}console.log(name,r.join(' | '));};
+const dirs=[[60,0],[0,60],[-60,0],[0,-60]];
+out('tilt random drag',seed=>play('tilt-maze-3d',{seed,during:(h,t,b)=>{const c=q(b,'#tmCanvas');if(t%1500===0){const d=dirs[(t/1500+seed)%4];h.dispatch(c,'pointerup',{pointerId:1,clientX:0,clientY:0});h.dispatch(c,'pointerdown',{pointerId:1,clientX:150,clientY:150});h.dispatch(c,'pointermove',{pointerId:1,clientX:150+d[0],clientY:150+d[1]});}}}));
+out('race touch-hold center',seed=>play('race-3d',{seed,during:(h,t,b)=>{if(t===100){const c=q(b,'#rcCanvas');h.dispatch(c,'pointerdown',{pointerId:1,clientX:150,clientY:150});}}}));
+out('race accel btn only',seed=>play('race-3d',{seed,during:(h,t,b)=>{if(t===100){h.dispatch(q(b,'#rcAccel'),'pointerdown',{pointerId:2,clientX:1,clientY:1});}}}));
+out('gp accel btn only',seed=>play('grand-prix-3d',{seed,during:(h,t,b)=>{if(t===100){h.dispatch(q(b,'#gpAccel'),'pointerdown',{pointerId:2,clientX:1,clientY:1});}}}));
+out('gp accel short',seed=>play('grand-prix-3d',{seed,mode:{length:'short'},during:(h,t,b)=>{if(t===100){h.dispatch(q(b,'#gpAccel'),'pointerdown',{pointerId:2,clientX:1,clientY:1});}}}));
+out('golf idle short',seed=>play('mini-golf-physics',{seed,mode:{length:'short'}}));
