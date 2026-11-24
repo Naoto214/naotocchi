@@ -1,9 +1,19 @@
 {
   "index.html": {
     "before": "c9432f2b62b2c95a36338f8166627abe8feb97d3",
-    "after": "fa35a4a83da3e57386c7463335f18dbb39270cd2",
+    "after": "8139ec82ae3509d1968f1c5e5eada2257c04adc4",
     "size": 73040,
     "reverse": [
+      [
+        70781,
+        70793,
+        "4642cb6e6de0"
+      ],
+      [
+        5675,
+        5687,
+        "64a21f8c6ff3"
+      ],
       [
         7529,
         7646,
@@ -23,9 +33,24 @@
   },
   "tools/pages/allowlist.json": {
     "before": "f1b1fb9cf575c6305fac17fb25dcf80a59d13c31",
-    "after": "d9b36be870a645afbd407a17000fc4b5fb6ca29b",
+    "after": "7753783f158a2935cfbdd48b61f40ca4ad24b400",
     "size": 296524,
     "reverse": [
+      [
+        281887,
+        281951,
+        "64a21f8c6ff3fb9ee5afbac5fec292881ea4eae9887ddedcbedfa73c582cbb09"
+      ],
+      [
+        267529,
+        267593,
+        "1338e2678e2019165513b904efcc384e0231e2e92bb56b0ed71c4f949eb4e78c"
+      ],
+      [
+        265217,
+        265281,
+        "4642cb6e6de070aaaae79dcb7f653ac61a80e669682a7d5f1139e10e8562d2a6"
+      ],
       [
         267529,
         267593,
