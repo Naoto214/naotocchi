@@ -171,10 +171,11 @@ async function slideOpen(page, random) {
       const r = await tiltIdle(page);
       assert.equal(r.raw, 15, `${engine} tilt idle raw`); assert.equal(r.recorded, false, `${engine} tilt idle is not recorded`);
       row.tiltIdle = r; assert.deepEqual(errors, []); await ctx.close(); }
-    // shanghai(1局ごとに 新しい ページ: 何局も つづけると ホームの できごと〔へんしん・寿命など〕が 画面に 出て、タップを ふさぐ ことが ある)
-    { const games = [];
+    // shanghai(6局ごとに 新しい ページ: 何局も つづけると ホームの できごと〔へんしん・寿命など〕が 画面に 出て、タップを ふさぐ ことが ある)
+    { const games = []; let cur = null;
       for (let k = 0; k < 24; k++) {
-        const {ctx, page, errors} = await openPage(browser, engine);
+        if (k % 6 === 0) { if (cur) { assert.deepEqual(cur.errors, []); await cur.ctx.close(); } cur = await openPage(browser, engine); } // 6局ごとに 新しい ページ
+        const {page, errors} = cur;
         const mode = k % 2 ? 'hard' : null, res = await shPlay(page, 1000 + k * 7919, mode);
         if (!res.cleared && shots) { fs.mkdirSync(shots, {recursive: true}); await page.screenshot({path: path.join(shots, `${engine}-shanghai-fail-${k}.png`)}); }
         assert.equal(res.total, mode ? 68 : 60, `${engine} shanghai size`);
@@ -182,8 +183,10 @@ async function slideOpen(page, random) {
         assert.ok(res.score >= 60, `${engine} shanghai game ${k}: full-clear score ${res.score}`);
         games.push({mode: mode || 'normal', score: res.score, lowered: res.lowered});
         if (shots && k === 1) { fs.mkdirSync(shots, {recursive: true}); await page.screenshot({path: path.join(shots, `${engine}-shanghai.png`)}); }
-        assert.deepEqual(errors, []); await ctx.close();
+        assert.deepEqual(errors, []);
+        await page.clock.runFor(4000);
       }
+      await cur.ctx.close();
       row.shanghai = {games: games.length, cleared: games.length, lowered: games.filter((g) => g.lowered).length, scores: games.map((g) => g.score)}; }
     // slide-puzzle
     { const {ctx, page, errors} = await openPage(browser, engine);
