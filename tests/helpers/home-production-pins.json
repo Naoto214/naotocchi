@@ -1,0 +1,110 @@
+{
+  "index.html": {
+    "before": "c9432f2b62b2c95a36338f8166627abe8feb97d3",
+    "after": "fa35a4a83da3e57386c7463335f18dbb39270cd2",
+    "size": 73040,
+    "reverse": [
+      [
+        7529,
+        7646,
+        ""
+      ],
+      [
+        72257,
+        72298,
+        "home-production-diorama.js?v=ecac051a6f90"
+      ],
+      [
+        72191,
+        72230,
+        "home-production-model.js?v=812fad81ddc5"
+      ]
+    ]
+  },
+  "tools/pages/allowlist.json": {
+    "before": "f1b1fb9cf575c6305fac17fb25dcf80a59d13c31",
+    "after": "e361ee271f93809f1638052a4f76e9873a04c052",
+    "size": 296524,
+    "reverse": [
+      [
+        267529,
+        267593,
+        "d144940ba40c365bd295d0873c4c17eeaeee7d66c19f3343228a9674ddb6abfd"
+      ],
+      [
+        294254,
+        294385,
+        "    \"home-ground-expansion.mjs\": "
+      ],
+      [
+        174918,
+        174981,
+        "    \"home-ground-expansion.mjs\",\n"
+      ],
+      [
+        266351,
+        266415,
+        "812fad81ddc5f157ad57bd71930dd925af4c91e680ba927d56346e838dec8856"
+      ],
+      [
+        265286,
+        265350,
+        "b08b767e0984c662aae5bd2e98dfc1463923950b7c41ded9af7ee4a26f8668be"
+      ],
+      [
+        266762,
+        266826,
+        "9a7e25d9fbe9598f66f04139fc534b70cf847a289c53b908d5dc69e3eb62578d"
+      ],
+      [
+        294368,
+        294432,
+        "47d394909efd22698dc697883efab1dc5f5142842d03615283d43d2f9490093b"
+      ],
+      [
+        266657,
+        266721,
+        "d824c818c676353898afb052b43f8e88db9a14a7add55c3986af0104dbdc9ca6"
+      ],
+      [
+        291725,
+        291789,
+        "9459d7632eb786f8415839e102ddd422829804423f0b9e674bae44424eef678e"
+      ],
+      [
+        267499,
+        267563,
+        "76cd45be9c8bccfa81f96a04a52caa54c9fae9159436a83fca1a0fe42bd72cc7"
+      ],
+      [
+        265946,
+        266010,
+        "ecac051a6f903dab5ee2f266d70b879686e15a035fbcefd1e6a84fa5a2db783a"
+      ]
+    ]
+  },
+  "home-recovered-navigation.mjs": {
+    "before": "392624821463fe597bdd839eb692c3ace330e5f6",
+    "after": "6fd8f045c74aecacb24ae5d7518a90b377b5c809",
+    "size": 4803,
+    "reverse": [
+      [
+        27,
+        4477,
+        "} from './home-art-navigation.mjs?v=b08b767e0984';\nexport function createRecoveredNavigation(spec,host,stage,options){\n const nav=createArtNavigation(spec,host,stage,options),[far,near,min,max]=spec.depth;\n return {...nav,depthScale:p=>Math.max(min,Math.min(max,min+(nav.unproject(p).z-far)/(near-far)*(max-min))),\n initialPoint(index,count){"
+      ]
+    ]
+  },
+  "tests/home-production-test.cjs": {
+    "before": "0711af56ebb2c2e61fd1a1d3c7a3efc8018a7f75",
+    "after": "2e4a5fac7b41f599684f32caa1ace2eba8d6d318",
+    "size": 15367,
+    "reverse": [
+      [
+        14093,
+        14159,
+        "restored"
+      ]
+    ]
+  }
+}

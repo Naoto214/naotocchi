@@ -305,11 +305,11 @@
     function ensureWorld(){
       const M=getMeguru();if(!M||worldLoading||world||!doc.body)return;
       worldLoading=true;const generation=++loadGeneration;worldHost=doc.createElement('div');worldHost.className='home-living-world';worldHost.setAttribute('aria-hidden','true');doc.body.appendChild(worldHost);
-      import('./home-production-world.mjs?v=d824c818c676').then(mod=>{if(generation!==loadGeneration||dead||!enabled)return;
+      import('./home-production-world.mjs?v=0508f848b656').then(mod=>{if(generation!==loadGeneration||dead||!enabled)return;
         world=mod.createHomeWorld({M,container:worldHost,document:doc,window:env,
           getGroundAnchor:()=>scene?displayRect(stage).top-displayRect(worldHost).top+scene.floor*.8:undefined,
           onStatus:(mode,error)=>{stage.dataset.worldRenderer=mode;if(error)stage.dataset.worldError=error;else delete stage.dataset.worldError;doc.body.dataset.livingHome=mode;}});
-        worldLoading=false;world.setEnvironment(environment);if(scene){scene.navigation=world.navigation(displayRect(stage));scene.visualPoints=world.observationPoints?.(scene.navigation)||[];scene.visible=visibleAt;sync();}
+        worldLoading=false;world.setEnvironment(environment);if(scene){scene.navigation=world.navigation(displayRect(stage));scene.visualPoints=world.observationPoints?.(scene.navigation)||[];scene.visible=visibleAt;scene.planVisibility=planVisibility;sync();}
       }).catch(error=>{if(generation!==loadGeneration)return;worldLoading=false;stage.dataset.worldRenderer='unavailable';stage.dataset.worldError=String(error.message);});
     }
     function clearWorld(){pendingResidentPresentation=false;loadGeneration++;worldLoading=false;world?.destroy();world=null;worldHost?.remove();worldHost=null;if(doc.body)delete doc.body.dataset.livingHome;}
@@ -329,7 +329,7 @@
     }
     const displayBoundsCache=new Map();
     function actorBounds(a,b){
-      const v=env.NaotocchiHomeViewport,p=v?.residentPresentation?.(),row=rows.get(a.key),ink=row?.paintExtent;
+      const v=env.NaotocchiHomeViewport,p=v?.residentPresentation?.(),row=rows.get(a.key),ink=row?.relationshipInk||row?.paintExtent;
       if(doc.body?.dataset.homeDisplayVersion==='18'&&p&&!p.landscape){
         const base=portraitWalkingBounds(b,scene,false),frame=stage.closest?.('.screen-frame');
         if(!frame||!ink)return base;
@@ -384,25 +384,134 @@
         n.style.maskImage=n.style.webkitMaskImage=url;n.style.maskSize=n.style.webkitMaskSize='100% 100%';n.style.maskPosition=n.style.webkitMaskPosition='0px 0px';n.style.maskRepeat=n.style.webkitMaskRepeat='no-repeat';n.style.maskClip=n.style.webkitMaskClip='no-clip';
       }
     }
+    const inside=(x,y,poly)=>{let yes=false;for(let i=0,j=poly.length-1;i<poly.length;j=i++){const u=poly[i],v=poly[j];if((u[1]>y)!==(v[1]>y)&&x<(v[0]-u[0])*(y-u[1])/(v[1]-u[1])+u[0])yes=!yes;}return yes;};
+    function visibilityTest(polys,a){
+      if(!polys.length)return ()=>true;
+      const stageRect=displayRect(stage),host=displayRect(worldHost);
+      // Evaluate the same nine points and polygon edges in the native coordinates.
+      const horizontal=[-.3*a.w,0,.3*a.w],vertical=[.22*a.h,.5*a.h,.8*a.h];
+      return p=>{
+        for(const dy of vertical)for(const dx of horizontal)for(const poly of polys){
+          if(inside(p.x+dx+stageRect.left-host.left,p.y-dy+stageRect.top-host.top,poly))return false;
+        }
+        return true;
+      };
+    }
     function visibleAt(p,a){
       if(!world||!scene?.navigation)return true;
-      const polys=polygonsAt(p);if(!polys.length)return true;
-      const stageRect=displayRect(stage),host=displayRect(worldHost);
-      const inside=(x,y,poly)=>{let yes=false;for(let i=0,j=poly.length-1;i<poly.length;j=i++){const u=poly[i],v=poly[j];if((u[1]>y)!==(v[1]>y)&&x<(v[0]-u[0])*(y-u[1])/(v[1]-u[1])+u[0])yes=!yes;}return yes;};
-      // Keep the face and body centre visible; true triangle masks still cover feet/edges.
-      return [.22,.5,.8].every(f=>[-.3,0,.3].every(x=>!polys.some(poly=>inside(p.x+a.w*x+stageRect.left-host.left,p.y-a.h*f+stageRect.top-host.top,poly))));
+      return visibilityTest(polygonsAt(p),a)(p);
     }
+    function planVisibility(a){
+      // A painted foreground projects identically for every candidate foot in
+      // this synchronous search. Step and the next request read fresh geometry.
+      if(world?.pointIndependentOcclusion&&scene?.navigation)return visibilityTest(polygonsAt(a),a);
+      return p=>visibleAt(p,a);
+    }
+    // A relationship expression rebuilds both companion rows. Identical bare
+    // sprites still need their measured bounds on the very first replacement sync.
+    function sameCompanionImage(old, next){
+      function shape(row){
+        const host=row.owner, visual=host.firstElementChild, image=visual?.firstElementChild;
+        if(!host.matches('.companion-chip-small') || host.dataset.companionId!==row.id || host.children.length!==1 ||
+            !visual?.matches('.character-visual.character-companion.has-asset') ||
+            visual.children.length!==2 || !visual.lastElementChild.matches('.character-emoji-fallback') ||
+            !image?.matches('img.character-asset') || image.hasAttribute('srcset') || image.hasAttribute('sizes') ||
+            !row.asset || image.getAttribute('src')!==row.asset || (image.currentSrc && image.currentSrc!==image.src))return null;
+        const geometry=el=>[el.className,...['width','height','object-fit','object-position','transform','scale','rotate']
+          .map(name=>el.style.getPropertyValue(name))];
+        return JSON.stringify([host.className,geometry(visual),geometry(image)]);
+      }
+      if(old.kind!=='companion' || next.kind!=='companion' || old.attachments?.length || next.attachments?.length)return false;
+      const ink=old.paintExtent;
+      if(!ink || ink.up!==Math.max(next.h+12,next.h*1.08+next.w*.12) || ink.down!==8 ||
+          ink.left!==next.w/2 || ink.right!==next.w/2 || ink.side!==next.w/2)return false;
+      // renderCompanionRow installs fresh chips before renderHomeCast applies
+      // the unchanged solver frame. An explicitly styled replacement must match.
+      if(next.owner.hasAttribute('style') && ['left','top','width','height'].some(k=>old.owner.style[k]!==next.owner.style[k]))return false;
+      const before=shape(old);
+      return before!==null && before===shape(next);
+    }
+    // A relationship redraw can replace a chip before the next viewport update.
+    // Read the new artwork's approved 128px envelope and its own current cues.
+    function relationshipChipInk(a, previous, currentFoot) {
+      if(a.kind!=='companion'||!a.owner.matches?.('.companion-chip-small')||
+         a.owner.dataset.companionId!==a.id||a.attachments?.length)return null;
+      const image=a.owner.querySelector('.character-visual.character-companion > img.character-asset');
+      const src=image?.getAttribute('src'), oldSrc=previous?.owner.querySelector('img.character-asset')?.getAttribute('src');
+      const positive='assets/characters/relationship/'+a.id+'/positive.png';
+      const lonely='assets/characters/relationship/'+a.id+'/lonely.png';
+      if(![positive,lonely].includes(src)&&!(src===a.asset&&[positive,lonely].includes(oldSrc)))return null;
+      if(!image||image.hasAttribute('srcset')||image.hasAttribute('sizes')||
+         (image.currentSrc&&image.currentSrc!==image.src))return null;
+      const base=env.NaotocchiCastBounds?.[a.asset]?.box;
+      const box=src===a.asset?base:env.NaotocchiRelationshipExpression?.ART_BOUNDS?.[a.id];
+      if(!base||!box||!(base[2]>base[0]&&base[3]>base[1]))return null;
+      const sx=a.w/(base[2]-base[0]),sy=a.h/(base[3]-base[1]);
+      const footX=(base[0]+base[2])/2*sx,footY=base[3]*sy;
+      let left=box[0]*sx,right=box[2]*sx,top=box[1]*sy,bottom=box[3]*sy;
+      for(const cue of a.owner.children){
+        if(!cue.matches('.relationship-heart,.relationship-aura'))continue;
+        const [x,y,w,h]=['left','top','width','height'].map(k=>parseFloat(cue.style[k]));
+        if(![x,y,w,h].every(Number.isFinite))return null;
+        const aura=cue.matches('.relationship-aura'),dx=aura?w*.02:0,dy=aura?h*.02:0;
+        let inset=0;
+        if(!aura){
+          // Near the frame top, lower only the floating heart. Using the
+          // display guard's same depth, scale and motion allowance keeps a
+          // legal resident planted when its ornament would cross the edge.
+          const v=env.NaotocchiHomeViewport?.residentPresentation?.(),foot=currentFoot(a.key);
+          const frame=stage.closest?.('.screen-frame')?.getBoundingClientRect();
+          if(foot&&frame&&v&&!v.landscape&&doc.body?.dataset.homeDisplayVersion==='18'){
+            const footYScreen=v.y+(displayRect(stage).top+foot.y-v.y)*v.scaleY;
+            const scale=Math.max(v.bodyScale,v.bodyScaleLimit||v.bodyScale);
+            const depth=scene.navigation?.depthScale?.(foot)||1;
+            const room=((footYScreen-frame.top)/scale-5)/depth;
+            inset=Math.min(h,Math.max(0,footY-y+3-room+.25));
+          }
+          cue.style.marginTop=inset?inset+'px':'';
+        }
+        left=Math.min(left,x-dx);right=Math.max(right,x+w+dx);
+        top=Math.min(top,y+inset-dy-(aura?0:3));bottom=Math.max(bottom,y+inset+h+dy);
+      }
+      // Facing can reverse at the same foot. Reserve both horizontal extremes.
+      const side=Math.max(a.w/2,footX-left,right-footX);
+      return {left:side,right:side,side,up:Math.max(a.h+12,a.h*1.08+a.w*.12,footY-top),down:Math.max(8,bottom-footY)};
+    }
+    let syncedNavigation=null;
     function sync(){
       if(!enabled||!scene||pendingResidentPresentation)return;
       const list=getActors(),next=new Map();
+      const unchangedLayout=!!scene.navigation && scene.navigation===syncedNavigation &&
+        list.some(a=>rows.get(a.key)?.owner!==a.owner) &&
+        list.length===rows.size && list.every(a=>{
+          const r=rows.get(a.key);
+          return r && ['id','kind','asset','x','y','w','h','originX'].every(k=>a[k]===r[k]) &&
+            ['left','right','top','bottom'].every(k=>a.extent?.[k]===r.extent?.[k]);
+        });
+      let existingFeet;
+      const currentFoot=key=>{
+        if(!existingFeet)existingFeet=new Map(model.snapshot().map(p=>[p.key,p]));
+        return existingFeet.get(key);
+      };
       for(const a of list){
         if(!a.owner?.isConnected)continue;
         let row=rows.get(a.key);
-        if(row&&row.owner!==a.owner){restore(row);row=null;}
+        let retainedInk,expressionInk;
+        if(!row||row.owner!==a.owner||row.relationshipInk||a.owner.dataset.relationshipState==='positive'||a.owner.dataset.relationshipState==='lonely'){
+          expressionInk=relationshipChipInk(a,row,currentFoot);
+        }
+        if(row&&row.owner!==a.owner){
+          if(row.paintExtent && unchangedLayout && sameCompanionImage(row,a))retainedInk=row.paintExtent;
+          restore(row);row=null;
+        }
         if(!row){const shadow=doc.createElement('span');shadow.className='diorama-shadow';overlay.appendChild(shadow);row={shadow,original:Object.fromEntries(['role','tabindex','aria-label','aria-pressed'].map(k=>[k,a.owner.getAttribute?.(k)??null]))};}
+        if(retainedInk)row.paintExtent=retainedInk;
+        row.relationshipInk=expressionInk;
+        if(expressionInk&&!row.paintExtent)row.paintExtent=expressionInk;
         Object.assign(row,a);a.owner.dataset.dioramaActor=a.key;a.owner.setAttribute('role','button');a.owner.setAttribute('tabindex','0');a.owner.setAttribute('aria-label',`${a.label||a.id}をえらぶ`);
         next.set(a.key,row);
       }
+      syncedNavigation=scene.navigation;
       for(const [key,row]of rows)if(!next.has(key)){restore(row);if(gesture?.key===key)clearGesture();}
       let newbornPoint=null;
       const newborn=list.find(a=>a.kind==='pet');
@@ -621,7 +730,7 @@
       art.hidden=false;overlay.hidden=false;showGuide();
       const r=displayRect(stage);scene=sceneFor(e,r.width,r.height,getProfile(e.region),getWorld(e.region));
       const key=JSON.stringify([e.region,r.width,r.height,f.tier]);if(key!==sceneKey){sceneKey=key;art.innerHTML='';clearGesture();}
-      ensureWorld();world?.setEnvironment(e);if(world){scene.navigation=world.navigation(displayRect(stage));scene.visualPoints=world.observationPoints?.(scene.navigation)||[];}scene.visible=visibleAt;scene.actorBounds=actorBounds;scene.referenceBounds=a=>{
+      ensureWorld();world?.setEnvironment(e);if(world){scene.navigation=world.navigation(displayRect(stage));scene.visualPoints=world.observationPoints?.(scene.navigation)||[];}scene.visible=visibleAt;scene.planVisibility=planVisibility;scene.actorBounds=actorBounds;scene.referenceBounds=a=>{
         const p=env.NaotocchiHomeViewport?.residentPresentation?.();
         return doc.body?.dataset.homeDisplayVersion==='18'&&p&&!p.landscape?portraitWalkingBounds(modelAPI.bounds(a,{...scene,actorBounds:null}),scene,false):null;
       };sync();stage.dataset.dioramaPaused=String(blocked());
@@ -646,14 +755,19 @@
     }
     function down(e){if(!enabled)return;if(e.isPrimary===false){clearGesture();return;}if(blocked()||e.button>0||e.target?.closest?.('button,a,input,select,textarea'))return;
       const p=point(e),key=hit(p,e.target);if(!key&&!model.selected())return;
-      gesture={pointerId:e.pointerId,start:p,key,drag:false};if(key)model.select(key);paint();try{stage.setPointerCapture(e.pointerId);}catch(_){}e.preventDefault();}
+      gesture={pointerId:e.pointerId,start:p,clientX:e.clientX,clientY:e.clientY,key,drag:false};if(key)model.select(key);paint();try{stage.setPointerCapture(e.pointerId);}catch(_){}e.preventDefault();}
     function move(e){if(!gesture||gesture.pointerId!==e.pointerId)return;if(blocked()){clearGesture();return;}
       const p=point(e);if(Math.hypot(p.x-gesture.start.x,p.y-gesture.start.y)>=8)gesture.drag=true;
       if(gesture.drag){const key=gesture.key||model.selected(),a=model.snapshot().find(a=>a.key===key);if(a){const b=model.bounds(a);marker.hidden=false;marker.style.left=Math.max(b.left,Math.min(b.right,p.x))+'px';marker.style.top=Math.max(b.top,Math.min(b.bottom,p.y))+'px';}}
       e.preventDefault();}
     function up(e){if(!gesture||gesture.pointerId!==e.pointerId)return;const g=gesture,p=point(e);clearGesture();if(blocked())return;
+      // A quick release can carry the last displacement without a pointermove.
+      // Measure both client points in the release frame if the viewport moved.
+      if(g.key&&!g.drag&&(e.clientX!==g.clientX||e.clientY!==g.clientY)){
+        const start=point(g);g.drag=Math.hypot(p.x-start.x,p.y-start.y)>=8;
+      }
       if(g.key&&model.selected()!==g.key)model.select(g.key);
-      if(g.drag||!g.key){const success=model.move(g.key||model.selected(),p,g.drag?'drag':'ground');if(g.drag){if(g.key&&success&&guide.visible())guideWalk=g.key;guide.drag({actor:!!g.key,success});showGuide();}}
+      if(g.drag||!g.key){const success=model.move(g.key||model.selected(),p,g.drag?'drag':'ground',{pointerDrop:!!g.key&&g.drag});if(g.drag){if(g.key&&success&&guide.visible())guideWalk=g.key;guide.drag({actor:!!g.key,success});showGuide();}}
       paint();resume();e.preventDefault();}
     function keydown(e){if(blocked())return;const owner=e.target?.closest?.('[data-diorama-actor]');const key=[...rows.values()].find(row=>e.target===row.owner||owner===row.owner)?.key;if(!key)return;
       if(e.key==='Enter'||e.key===' '){model.select(key);paint();e.preventDefault();return;}
