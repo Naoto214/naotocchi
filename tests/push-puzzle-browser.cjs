@@ -94,6 +94,19 @@ async function playRun(browser, engine, plan, force, results, first) {
       const lim = plans[plan].levels[i].timeMs / 1000, shown = Number((await page.locator('#mgTimer').textContent()).match(/(\d+)秒/)[1]);
       assert.ok(shown <= lim && shown >= lim - 3, `tier ${i + 1} timer restarts at ${lim}s (${shown})`);
     }
+    if (plan === 'B' && first && i === 0) {
+      // 詰みの 案内: B1a の 左の 箱を 下の 角へ 押すと「もどす」が 光り(動きを へらす 設定なら 枠だけ)、もどすと 消える
+      assert.equal(force[0], 'B1a');
+      const L = tag.endsWith('m') ? 'right' : 'left';
+      for (const d of ['up', 'up', L, L, 'down', 'down']) await key(d).tap();
+      const lit = await page.evaluate(() => { const u = document.querySelector('#pzUndo'); return {outline: u.style.outline, hint: document.querySelector('#pzHint').textContent}; });
+      assert.match(lit.outline, /3px/, 'undo is outlined when a box is stuck');
+      assert.match(lit.hint, /もう動かせない/);
+      await page.locator('#pzUndo').tap({force: true}); // 脈打つ あいだも おせる
+      assert.equal(await page.evaluate(() => document.querySelector('#pzUndo').style.outline), '', 'outline clears after undo');
+      await page.locator('#pzReset').tap({force: true});
+      assert.equal(await moves(), '手0');
+    }
     // すばやい 連続タップ(アニメ 110ms より みじかい 間かく)でも とりこぼさない
     for (const d of sol) await key(KEY[d.join()]).tap({delay: 0});
     assert.equal(await moves(), '手' + sol.length, `${tag}: every tap counted`);
