@@ -1,0 +1,59 @@
+--- a/home-route-navigation.mjs
++++ b/home-route-navigation.mjs
+@@ -2 +2 @@
+-export function createTerrainNavigation({width,height,project,unproject,walkable,segmentWalkable=null,cell=12,gridOrigin=null}){
++export function createTerrainNavigation({width,height,project,unproject,walkable,segmentWalkable=null,cell=12,gridOrigin=null,staticGeometry=false}){
+@@ -4 +4,9 @@
+- const segmentSafe=(a,b,predicate=()=>true)=>{if(segmentWalkable&&!segmentWalkable(a,b))return false;const n=Math.max(1,Math.ceil(Math.hypot(a.x-b.x,a.y-b.y)/3));for(let i=0;i<=n;i++){const p={x:a.x+(b.x-a.x)*i/n,y:a.y+(b.y-a.y)*i/n};if(!predicate(p)||!valid(p))return false;}return true;};
++ function sampleSegment(a,b,accept){
++  const n=Math.max(1,Math.ceil(Math.hypot(a.x-b.x,a.y-b.y)/3));
++  for(let i=0;i<=n;i++)if(!accept({x:a.x+(b.x-a.x)*i/n,y:a.y+(b.y-a.y)*i/n}))return false;
++  return true;
++ }
++ const segmentSafe=(a,b,predicate=()=>true)=>(!segmentWalkable||segmentWalkable(a,b))&&sampleSegment(a,b,p=>predicate(p)&&valid(p));
++ // Immutable art grids already approved each directed edge with the same
++ // 3px samples. Resident/ink predicates are supplied anew for each search.
++ const edgeSafe=staticGeometry?sampleSegment:segmentSafe;
+@@ -6 +14 @@
+- const reference=stable?createTerrainNavigation({width,height,project,unproject,walkable,segmentWalkable,cell}):null;
++ const reference=stable?createTerrainNavigation({width,height,project,unproject,walkable,segmentWalkable,cell,staticGeometry}):null;
+@@ -12,5 +20,19 @@
+-  let edges;const buildEdges=()=>{if(edges)return edges;
+-  const byKey=new Map(nodes.map((p,i)=>[Math.round((p.x-ox)/spacing)+','+Math.round((p.y-oy)/spacing),i]));
+-  edges=nodes.map(p=>{const out=[],gx=Math.round((p.x-ox)/spacing),gy=Math.round((p.y-oy)/spacing);for(let dy=-1;dy<=1;dy++)for(let dx=-1;dx<=1;dx++){if(!dx&&!dy)continue;const i=byKey.get((gx+dx)+','+(gy+dy));if(i!==undefined&&segmentSafe(p,nodes[i]))out.push(i);}return out;});
+-  return edges;};
+-  const g={nodes,get edges(){return buildEdges();}};if(cache.size>16)cache.clear();cache.set(key,g);return g;
++  let byKey,fullyBuilt=false;
++  const edges=[];
++  function neighbors(i){
++   if(edges[i])return edges[i];
++   byKey??=new Map(nodes.map((p,j)=>[Math.round((p.x-ox)/spacing)+','+Math.round((p.y-oy)/spacing),j]));
++   const p=nodes[i],out=[],gx=Math.round((p.x-ox)/spacing),gy=Math.round((p.y-oy)/spacing);
++   for(let dy=-1;dy<=1;dy++)for(let dx=-1;dx<=1;dx++){
++    if(!dx&&!dy)continue;
++    const j=byKey.get((gx+dx)+','+(gy+dy));
++    if(j!==undefined&&segmentSafe(p,nodes[j]))out.push(j);
++   }
++   return edges[i]=out;
++  }
++  const g={nodes,get neighbors(){
++   // A caller with mutable terrain retains the original eager edge snapshot
++   // and the full live validation on every traversal.
++   if(!staticGeometry&&!fullyBuilt){for(let i=0;i<nodes.length;i++)neighbors(i);fullyBuilt=true;}
++   return neighbors;
++  }};if(cache.size>16)cache.clear();cache.set(key,g);return g;
+@@ -24 +46 @@
+-  const {nodes,edges}=grid(bounds),dist=new Float64Array(nodes.length).fill(Infinity),prev=new Int32Array(nodes.length).fill(-1),open=new Set();
++  const {nodes,neighbors}=grid(bounds),dist=new Float64Array(nodes.length).fill(Infinity),prev=new Int32Array(nodes.length).fill(-1),open=new Set();
+@@ -30 +52 @@
+-   for(const j of edges[k]){if(!predicate(nodes[j])||!safe(nodes[k],nodes[j]))continue;const d=dist[k]+Math.hypot(nodes[k].x-nodes[j].x,nodes[k].y-nodes[j].y);if(d+1e-5<dist[j]){dist[j]=d;prev[j]=k;open.add(j);}}
++   for(const j of neighbors(k)){if(!predicate(nodes[j])||!edgeSafe(nodes[k],nodes[j],predicate))continue;const d=dist[k]+Math.hypot(nodes[k].x-nodes[j].x,nodes[k].y-nodes[j].y);if(d+1e-5<dist[j]){dist[j]=d;prev[j]=k;open.add(j);}}
+@@ -41 +63 @@
+-  const {nodes,edges}=grid(bounds,cell/2);if(nodes.length>20000)return [];
++  const {nodes,neighbors}=grid(bounds,cell/2);if(nodes.length>20000)return [];
+@@ -51 +73 @@
+-   for(const j of edges[i])if(prev[j]===-2&&ok(j)&&safe(p,nodes[j])){prev[j]=i;queue.push(j);}
++   for(const j of neighbors(i))if(prev[j]===-2&&ok(j)&&edgeSafe(p,nodes[j],predicate)){prev[j]=i;queue.push(j);}
+@@ -58 +80 @@
+- return {reachable:stable?reachable:null,referenceNearest:reference?.nearest,referenceRoute:reference?.route,rawDestination:stable,project,unproject,valid,segmentSafe,nearest,route,width,height};
++ return {staticGeometry,reachable:stable?reachable:null,referenceNearest:reference?.nearest,referenceRoute:reference?.route,rawDestination:stable,project,unproject,valid,segmentSafe,nearest,route,width,height};

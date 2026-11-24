@@ -1,0 +1,51 @@
+{
+  "terrainFixture": "156x120; native 6px grid; closing boundary x=72",
+  "v4": {
+    "modelSHA256": "812fad81ddc5f157ad57bd71930dd925af4c91e680ba927d56346e838dec8856",
+    "navigationSHA256": "9459d7632eb786f8415839e102ddd422829804423f0b9e674bae44424eef678e",
+    "start": {
+      "x": 52,
+      "y": 68
+    },
+    "requested": {
+      "x": 95,
+      "y": 73
+    },
+    "arrived": {
+      "x": 95,
+      "y": 73
+    },
+    "retained": {
+      "x": 95,
+      "y": 73
+    },
+    "recovered": {
+      "x": 72,
+      "y": 72
+    }
+  },
+  "finish": {
+    "modelSHA256": "d1a8706b7339670b9fc5141bc2eaa056788453fc22c4c3cb3028be5f6d502b05",
+    "navigationSHA256": "32b7d6ca27bba5fb0825b29556e211d0daa726f1cb785525a101fe4654595bb9",
+    "start": {
+      "x": 52,
+      "y": 68
+    },
+    "requested": {
+      "x": 95,
+      "y": 73
+    },
+    "arrived": {
+      "x": 95,
+      "y": 73
+    },
+    "retained": {
+      "x": 95,
+      "y": 73
+    },
+    "recovered": {
+      "x": 72,
+      "y": 72
+    }
+  }
+}

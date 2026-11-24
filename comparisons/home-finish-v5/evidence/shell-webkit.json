@@ -1,0 +1,209 @@
+{
+  "engine": "webkit",
+  "errors": [],
+  "scenes": [
+    {
+      "count": 28,
+      "region": "home",
+      "time": "day",
+      "ground": true,
+      "paused": true,
+      "policy": "B",
+      "curve": "linear",
+      "extra": 15,
+      "selectedLeaf": "B",
+      "lighting": "E3plus",
+      "split": false,
+      "viewport": [
+        375,
+        760
+      ],
+      "childFrames": 0,
+      "controls": 0,
+      "store": [
+        null,
+        null
+      ],
+      "nativeFrames": null,
+      "terrain": "art-25d",
+      "paintWidth": 506.6666666666667,
+      "paintedShadows": 28,
+      "feetSHA256": "bed706081e3ab01c6f8a97130622abadd64122053f811f8a339cbe651d77616d"
+    },
+    {
+      "count": 28,
+      "region": "home",
+      "time": "day",
+      "ground": false,
+      "paused": true,
+      "policy": "B",
+      "curve": "linear",
+      "extra": 15,
+      "selectedLeaf": "B",
+      "lighting": "E3plus",
+      "split": false,
+      "viewport": [
+        375,
+        760
+      ],
+      "childFrames": 0,
+      "controls": 0,
+      "store": [
+        null,
+        null
+      ],
+      "nativeFrames": null,
+      "terrain": "art-25d",
+      "paintWidth": 506.6666666666667,
+      "paintedShadows": 28,
+      "feetSHA256": "bed706081e3ab01c6f8a97130622abadd64122053f811f8a339cbe651d77616d"
+    },
+    {
+      "count": 28,
+      "region": "home",
+      "time": "night",
+      "ground": false,
+      "paused": true,
+      "policy": "B",
+      "curve": "linear",
+      "extra": 15,
+      "selectedLeaf": "B",
+      "lighting": "E3plus",
+      "split": false,
+      "viewport": [
+        375,
+        760
+      ],
+      "childFrames": 0,
+      "controls": 0,
+      "store": [
+        null,
+        null
+      ],
+      "nativeFrames": null,
+      "terrain": "art-25d",
+      "paintWidth": 506.6666666666667,
+      "paintedShadows": 28,
+      "feetSHA256": "bed706081e3ab01c6f8a97130622abadd64122053f811f8a339cbe651d77616d"
+    },
+    {
+      "count": 19,
+      "region": "home",
+      "time": "night",
+      "ground": false,
+      "paused": true,
+      "policy": "B",
+      "curve": "linear",
+      "extra": 1.5,
+      "selectedLeaf": "B",
+      "lighting": "E3plus",
+      "split": false,
+      "viewport": [
+        375,
+        760
+      ],
+      "childFrames": 0,
+      "controls": 0,
+      "store": [
+        null,
+        null
+      ],
+      "nativeFrames": 15,
+      "terrain": "art-25d",
+      "paintWidth": 506.6666666666667,
+      "paintedShadows": 19,
+      "feetSHA256": "c8cdc538a0c183fe4eaec397789c989338fc680de681c932bcd77e5858ff452a"
+    },
+    {
+      "count": 19,
+      "region": "forest",
+      "time": "night",
+      "ground": false,
+      "paused": true,
+      "policy": "B",
+      "curve": "linear",
+      "extra": 1.5,
+      "selectedLeaf": "B",
+      "lighting": "E3plus",
+      "split": false,
+      "viewport": [
+        375,
+        760
+      ],
+      "childFrames": 0,
+      "controls": 0,
+      "store": [
+        null,
+        null
+      ],
+      "nativeFrames": 15,
+      "terrain": "art-25d",
+      "paintWidth": 506.6666666666667,
+      "paintedShadows": 19,
+      "feetSHA256": "1f2a6058b1097027f31502b42b3c90aa86edc3317f12b7f9e8f5e93d8f0ce0cb"
+    },
+    {
+      "count": 19,
+      "region": "forest",
+      "time": "night",
+      "ground": false,
+      "paused": false,
+      "policy": "B",
+      "curve": "linear",
+      "extra": 1.5,
+      "selectedLeaf": "B",
+      "lighting": "E3plus",
+      "split": false,
+      "viewport": [
+        375,
+        760
+      ],
+      "childFrames": 0,
+      "controls": 0,
+      "store": [
+        null,
+        null
+      ],
+      "nativeFrames": 15,
+      "terrain": "art-25d",
+      "paintWidth": 506.6666666666667,
+      "paintedShadows": 19,
+      "feetSHA256": "1f2a6058b1097027f31502b42b3c90aa86edc3317f12b7f9e8f5e93d8f0ce0cb"
+    },
+    {
+      "count": 28,
+      "region": "river_lake",
+      "time": "day",
+      "ground": false,
+      "paused": true,
+      "policy": "B",
+      "curve": "linear",
+      "extra": 15,
+      "selectedLeaf": "B",
+      "lighting": "E3plus",
+      "split": false,
+      "viewport": [
+        375,
+        812
+      ],
+      "childFrames": 0,
+      "controls": 0,
+      "store": [
+        null,
+        null
+      ],
+      "nativeFrames": null,
+      "terrain": "art-25d",
+      "paintWidth": 541.3333333333334,
+      "paintedShadows": 28,
+      "feetSHA256": "88a1ff9c2745e465697ea71989774f2c1d92fb2b3f3e8c5807f25a8249eb6ef0"
+    }
+  ],
+  "version": "26.5",
+  "nativeScripts": [
+    "cast-finish.js?v=4939348c99e2",
+    "home-production-model-finish.js?v=d1a8706b7339",
+    "home-production-diorama-finish.js?v=2631bb91fe16",
+    "home-production-touch-finish.js?v=ec0537400d8a"
+  ]
+}
