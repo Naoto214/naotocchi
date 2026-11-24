@@ -322,3 +322,9 @@ body[data-home-production="true"]:is([data-home-display-version="15"],:is([data-
 
 /* The fixed home lanes can sit outside the inert home screen in either orientation. */
 body[data-home-panel-open="true"] :is(#speechSlot,#homeEventSlot){display:none!important}
+
+/* Meter text only: a thin outline in the current glass tone (light by day, dark at
+   night) keeps the small glyphs readable on bright, busy paintings. No plate, no
+   size or layout change. */
+body[data-home-display-version="18"][data-home-production="true"] #device .home-meters :is(.bar-label,.bar-value){text-shadow:1px 0 0 rgb(var(--world-glass-rgb,245 253 255) / .62),-1px 0 0 rgb(var(--world-glass-rgb,245 253 255) / .62),0 1px 0 rgb(var(--world-glass-rgb,245 253 255) / .62),0 -1px 0 rgb(var(--world-glass-rgb,245 253 255) / .62),1px 1px 0 rgb(var(--world-glass-rgb,245 253 255) / .62),-1px -1px 0 rgb(var(--world-glass-rgb,245 253 255) / .62),1px -1px 0 rgb(var(--world-glass-rgb,245 253 255) / .62),-1px 1px 0 rgb(var(--world-glass-rgb,245 253 255) / .62),0 0 4px rgb(var(--world-glass-rgb,245 253 255) / .75)!important}
+body[data-home-display-version="18"][data-home-production="true"] #device .home-meters .bar-label{font-weight:700!important}

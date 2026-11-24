@@ -1,13 +1,18 @@
 {
   "index.html": {
     "before": "c9432f2b62b2c95a36338f8166627abe8feb97d3",
-    "after": "a7b3547cfab2dd508a1ea410b827262f9057980e",
+    "after": "85980de1c3caa52e859a60ca217a6f92d200d5bc",
     "size": 73040,
     "reverse": [
       [
         70755,
         70805,
         "  <script src=\"games.js?v=24bd3bc4f701\"></script>\n"
+      ],
+      [
+        6970,
+        6982,
+        "0d1b0a12508f"
       ],
       [
         70755,
@@ -33,18 +38,28 @@
   },
   "tools/pages/allowlist.json": {
     "before": "f1b1fb9cf575c6305fac17fb25dcf80a59d13c31",
-    "after": "eec6c6509c55214a8ef3c89ca3e01897376a3fcd",
+    "after": "7f511057f6315c407c7a3e6dc193865ff5acbe68",
     "size": 296524,
     "reverse": [
       [
         267510,
         267596,
-        "    \"index.html\": \"4e2e5b5626fbe13bcd13ff543521b87e9ea071eb35e154848fdc454fc03a648f\",\n"
+        "    \"index.html\": \"d9f9284c4eee19c3964f01fbd0c074ca7c4588eb428a38eb8a0b069b40591140\",\n"
       ],
       [
         265200,
         265284,
         "    \"games.js\": \"24bd3bc4f701498ed342584dc6219c5947b55e303b18e87d6097f4fcc94bccd1\",\n"
+      ],
+      [
+        266177,
+        266241,
+        "0d1b0a12508f0194bbcf62c222be6768242073d0b51a8fed52d8d4a9e81a41fd"
+      ],
+      [
+        267529,
+        267593,
+        "4e2e5b5626fbe13bcd13ff543521b87e9ea071eb35e154848fdc454fc03a648f"
       ],
       [
         267510,
