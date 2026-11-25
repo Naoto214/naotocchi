@@ -40,7 +40,7 @@ function getTracks(kind, count, indoor) {
     const z = i % 3, far = z === 0, near = z === 2;
     if (kind === 'rain') {
       const r = n => hash(1009 * 4 + i * 79 + n);
-      const length = (far ? .022 : near ? .055 : .036) * mix(.78, 1.25, r(1)) * (indoor ? .55 : 1);
+      const length = (far ? .020 : near ? .042 : .030) * mix(.78, 1.25, r(1)) * (indoor ? .55 : 1);
       const land = indoor ? box.y1 : box.y0 + span * (far ? mix(.52,.74,r(2)) : near ? mix(.94,1,r(2)) : mix(.70,.95,r(2)));
       // One shared lean with a small spread: the rain falls straight, never fanned.
       const tilt = (2.2 + 1.6 * (r(3) - .5)) * Math.PI / 180, y0 = box.y0 - length, y1 = land - length;
@@ -139,7 +139,7 @@ export function paintFalling(ctx, rect, env, mood, seconds, {tier = 0, document:
   const indoor = env.region === 'home', tone = TONES[env.time] || TONES.day;
   const W = rect.width, H = rect.height, list = getTracks(kind, fallingCount(env, kind, tier), indoor);
   // Sizes follow the painting, so a larger crop shows proportionally larger flakes.
-  const px = H / 720;
+  const px = Math.min(1.5, H / 720);
   ctx.save();
   if (indoor) {
     const w = HOME_WINDOW;
