@@ -10,7 +10,7 @@
 // 本番の script.js は書きかえない。どの差し替えも「元の文字列が ちょうど1回 ある」ことを
 // たしかめてから当てる(本体が変わって 差し替えが 外れたら、黙って 現行の まま 動かさない)。
 
-const PLAN_IDS = ['current', 'A', 'B', 'C'];
+const PLAN_IDS = ['current', 'A', 'B', 'C', 'B2'];
 
 // 各案の「つまみ」。current は 現行の script.js の値そのもの(差し替えなし)。
 const PLANS = {
@@ -63,6 +63,23 @@ const PLANS = {
     feedGrowth: 6, cleanGrowth: 8, stableGrowth: 0.19,
   },
 };
+// B2 = B案 VERSION 2(2026-11-25 追加検証)。B案の数値は そのままに、
+// 睡眠で 遊びが 止まらないこと・案内に 従って 損を しないこと・死亡の 前に かならず 予告と 猶予が あること を 足した もの。
+PLANS.B2 = Object.assign({}, PLANS.B, {
+  id: 'B2', label: 'B案 VERSION 2', short: 'B2',
+  summary: 'B案に、寝ている間のごはん・あそぶ・じゃれる等で そっと起きる、夜は少し長く眠る、じゃれるの「しつこい」を時間で戻す、けんこう0でも かならず「おわかれのまえぶれ」と猶予を出す、を加えたもの。',
+  wakeOnAction: true,          // ねている間の ごはん・あそぶ・じゃれる・きゅうあい・たび → そっと起きて そのまま
+  autoWakeNightTicks: 60,      // 夜は げんきが戻ってから 3分 ねている(昼は 90秒)
+  spamDecline: 0,              // じゃれすぎ: ごきげんも おとろえも へらさない(せいちょうが 入らない だけ。現行 −5 / +6)
+  affectionCalmTicks: 5,       // じゃれない 15秒ごとに「つづけて じゃれた 回数」を 1 もどす
+  rescuePause: true,           // まえぶれの 間、お世話を 続けて いれば 猶予は へらない(30秒 なにも しないと へりはじめる)。ろうねん(70さい〜)の 老衰には かけない
+  petGrowthWaitTicks: 10,      // じゃれるの せいちょうは 30秒に 1回まで(じゃれる 連打が ミニゲームの 代わりの 稼ぎに ならない ように)
+  poopSickGraceTicks: 40,      // うんちが 満杯に なってから 2分は 病気の 抽選に 入れない
+  healthDeathGrace: true,      // けんこう0が 続いても、即死せず「おわかれの まえぶれ」を 通す
+  dyingGraceTicks: 60,         // まえぶれの 猶予 3分(現行 2分)
+  offlineDecay: 0.14,          // 閉じている間の おなか・ごきげん(/tick)。ひらいている時(0.20)より おだやかに(現行 0.25 > 0.20 で 逆転していた)
+  sleepingFeedNotice: true,    // ねている時の「おなかがすいている」: おすすめを「ごはん」に(押せば 起きて 食べる)
+});
 
 function num(v) { return String(Math.round(v * 100000) / 100000); }
 
@@ -140,11 +157,85 @@ function scriptPatches(plan) {
     'applyGrowth(4); applyDecline(-5);', `applyGrowth(${num(P.cleanGrowth)}); applyDecline(-5);`);
   if (P.stableGrowth !== 0.1) add('よい状態で すごしている間の せいちょう(安定ボーナス、1tickごと)',
     'applyGrowth(0.1, { silent: true });', `applyGrowth(${num(P.stableGrowth)}, { silent: true });`);
+  if (P.wakeOnAction) {
+    add('ねている間に 押したら そっと起きる(共通の 手つづき)',
+      '  function withFeedback(fn, afterRender) {',
+      '  // お世話頻度 監査 B2: ねている間に ごはん・あそぶ・じゃれる などを 押したら、そっと 起きて そのまま する\n' +
+      '  function wakeForAction() {\n    if (!state.isSleeping) return;\n    state.isSleeping = false;\n    stopSleepRecovery();\n' +
+      '    if (state.sleptTicks >= 20) { applyGrowth(3); applyDecline(-3); }\n    state.sleptTicks = 0;\n' +
+      "    if (audio && audio.play) audio.play('wake');\n  }\n\n  function withFeedback(fn, afterRender) {");
+    add('ねている間の ごはん → 起きて 食べる',
+      "if (state.isSleeping) {\n      setActionComment(randomBlockedMessage('sleepingFeed'));\n      return;\n    }",
+      'if (state.isSleeping) wakeForAction();');
+    add('ねている間の じゃれる → 起きて じゃれる',
+      "if (state.isSleeping) {\n      setActionComment(randomBlockedMessage('sleepingPet'));\n      return;\n    }",
+      'if (state.isSleeping) wakeForAction();');
+    add('ねている間の きゅうあい → 起きて する',
+      "if (state.isSleeping) {\n      setActionComment(randomBlockedMessage('sleepingCourt'));\n      return;\n    }",
+      'if (state.isSleeping) wakeForAction();');
+    add('ねている間の あそぶ → げんきが 30 あれば 起きて あそぶ(ねた直後の 1〜2秒だけ まつ)',
+      "    if (state.isSleeping) {\n      setActionComment(randomBlockedMessage('sleepingPlay'));",
+      "    if (state.isSleeping && state.energy >= 30) wakeForAction();\n    if (state.isSleeping) {\n      setActionComment(randomBlockedMessage('sleepingPlay'));");
+    add('ねている間の めぐる → 起きて 出かける',
+      "if (state.isSleeping) { setActionComment(randomBlockedMessage('sleepingTravel')); saveState(); render(); return false; }",
+      'if (state.isSleeping) wakeForAction();');
+    add('ねている間の たび → 起きて 出かける',
+      "if (state.isSleeping) { setActionComment(randomBlockedMessage('sleepingTravel'));saveState();render();return false; }",
+      'if (state.isSleeping) wakeForAction();');
+  }
+  if (P.spamDecline != null) add('じゃれすぎ: ごきげんを へらさない',
+    '    if (spammed) {\n      state.happiness = clamp(state.happiness - 5, 0, 100);\n      applyDecline(6);',
+    P.spamDecline ? `    if (spammed) {\n      applyDecline(${num(P.spamDecline)});` : '    if (spammed) {\n      // お世話頻度 監査 B2: いやがる 反応だけ。ごきげん・おとろえは かえない');
+  if (P.rescuePause) {
+    add('お世話を したら「看病中」の しるしを つける(30秒)',
+      'function markCared() { state.recentActionTicks = RECENT_ACTION_TICKS; }',
+      'function markCared() { state.recentActionTicks = RECENT_ACTION_TICKS; state.rescueTicks = 10; }');
+    add('看病の しるしは 30秒で きえる',
+      '  function updateDyingWarning() {',
+      '  function updateDyingWarning() {\n    const caring = state.rescueTicks > 0 && currentAge() < 70; // お世話頻度 監査 B2: 老衰には かけない\n    if (state.rescueTicks > 0) state.rescueTicks -= 1;');
+    add('まえぶれの 間、看病が 続いて いれば 猶予を へらさない',
+      '      } else if (state.dyingTicks > 0) {\n        state.dyingTicks -= 1;\n      }',
+      '      } else if (!caring && state.dyingTicks > 0) {\n        state.dyingTicks -= 1; // 看病中は 猶予が へらない\n      }');
+  }
+  if (P.affectionCalmTicks) add('じゃれない時間で「つづけて じゃれた 回数」を もどす',
+    'if (state.recentActionTicks > 0) state.recentActionTicks -= 1;',
+    'if (state.recentActionTicks > 0) state.recentActionTicks -= 1;\n' +
+    `    state.affectionCalmTicks = (state.affectionCalmTicks || 0) + 1;\n    if (state.affectionCalmTicks >= ${P.affectionCalmTicks}) { state.affectionCalmTicks = 0; if (state.affectionStreak > 0) state.affectionStreak -= 1; }`);
+  if (P.healthDeathGrace) add('けんこう0が 続いても かならず「おわかれの まえぶれ」を 通す',
+    '        } else {\n          triggerDeath();\n        }\n      }\n\n      // 「死亡」メーターは',
+    '        } else if (!state.dying) {\n          // お世話頻度 監査 B2: 予告なしに 死なせない。まえぶれ(猶予つき)を 先に 出す\n' +
+    '          state.deathMeter = Math.max(state.deathMeter, 80);\n          updateDyingWarning();\n' +
+    '        } else if (state.dyingTicks <= 0) {\n          triggerDeath();\n        }\n      }\n\n      // 「死亡」メーターは');
+  if (P.dyingGraceTicks) add('おわかれの まえぶれの 猶予',
+    'const DYING_GRACE_TICKS = 40; // 2分',
+    `const DYING_GRACE_TICKS = ${P.dyingGraceTicks}; // ${P.dyingGraceTicks * 3 / 60}分(お世話頻度 監査 ${P.short})`);
+  if (P.offlineDecay) {
+    add('閉じている間の おなかの へり(ひらいている時より おだやかに)',
+      'state.hunger = clamp(cap(state.hunger, 0.25 * factor), 0, 100);',
+      `state.hunger = clamp(cap(state.hunger, ${num(P.offlineDecay)} * factor), 0, 100);`);
+    add('閉じている間の ごきげんの へり',
+      'state.happiness = clamp(cap(state.happiness, 0.25 * factor), 0, 100);',
+      `state.happiness = clamp(cap(state.happiness, ${num(P.offlineDecay)} * factor), 0, 100);`);
+  }
+  if (P.petGrowthWaitTicks) {
+    add('じゃれるの せいちょうは 30秒に 1回まで',
+      `      state.happiness = clamp(state.happiness + ${P.petAmount}, 0, 100);\n      applyGrowth(1.5); applyDecline(-2);`,
+      `      state.happiness = clamp(state.happiness + ${P.petAmount}, 0, 100);\n      if (!(state.petGrowthWait > 0)) { applyGrowth(1.5); applyDecline(-2); state.petGrowthWait = ${P.petGrowthWaitTicks}; }`);
+    add('じゃれるの せいちょうの まち時間を へらす',
+      'if (state.boostTicks > 0) state.boostTicks -= 1;',
+      'if (state.boostTicks > 0) state.boostTicks -= 1;\n    if (state.petGrowthWait > 0) state.petGrowthWait -= 1;');
+  }
+  if (P.poopSickGraceTicks) {
+    add('うんちが 満杯に なってからの 時間を かぞえる',
+      `      const neglected = state.poopCount >= ${P.neglectPoop} ||`,
+      `      state.poopFullTicks = state.poopCount >= MAX_POOP ? (state.poopFullTicks || 0) + 1 : 0;\n` +
+      `      const neglected = (state.poopCount >= ${P.neglectPoop} && state.poopFullTicks >= ${P.poopSickGraceTicks}) ||`);
+  }
   if (P.autoWakeTicks > 0) {
     // げんきが まんたんに なって しばらく たつと、じぶんで おきる(起こすのも 今まで通りできる)。
     add('げんきが まんたんに なったら じぶんで おきる',
       'state.sleptTicks += 1;',
-      `state.sleptTicks += 1;\n        if (state.energy >= 100 && state.sleptTicks >= ${P.autoWakeTicks}) {\n` +
+      `state.sleptTicks += 1;\n        if (state.energy >= 100 && state.sleptTicks >= ${P.autoWakeNightTicks ? `(currentEnvironment().time === 'night' ? ${P.autoWakeNightTicks} : ${P.autoWakeTicks})` : P.autoWakeTicks}) {\n` +
       `          state.isSleeping = false;\n          stopSleepRecovery();\n` +
       `          applyGrowth(3); applyDecline(-3);\n          state.sleptTicks = 0;\n` +
       `          if (typeof audio !== 'undefined' && audio && audio.play) audio.play('wake');\n` +
@@ -177,6 +268,18 @@ function careStatusPatches(plan) {
     find: "if (petAvailable) return { action: 'playWithBtn'",
     replace: `if (petAvailable && numeric(state, 'affectionStreak', 0) < ${P.spamThreshold}) return { action: 'playWithBtn'`,
   });
+  if (P.sleepingFeedNotice) {
+    out.push({
+      why: 'ねている時の おなかの おしらせ: 「ごはん」を すすめる(押せば 起きて 食べる)',
+      find: "return notice('hunger', 'warning', 'おなかがすいている', '起きてから、ごはんをあげよう', 'hunger', 'sleepBtn', 'droop');",
+      replace: "return notice('hunger', 'warning', 'おなかがすいている', 'ごはんをあげよう（ねていたら起きて食べるよ）', 'hunger', 'feedBtn', 'droop');",
+    });
+    out.push({
+      why: 'いのちの回復案内も 同じく「ごはん」を すすめる',
+      find: "return { action: 'sleepBtn', detail: lifeRecovery ? '起きて、おなかを60以上にしよう' : '起きて、ごはんをあげよう' };",
+      replace: "return { action: 'feedBtn', detail: lifeRecovery ? 'おなかを60以上にしよう' : 'ごはんをあげよう' };",
+    });
+  }
   return out;
 }
 

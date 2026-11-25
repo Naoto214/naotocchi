@@ -13,7 +13,7 @@
   'use strict';
   var params = new URLSearchParams(location.search);
   var plan = params.get('plan') || 'current';
-  if (!/^(current|A|B|C)$/.test(plan)) plan = 'current';
+  if (!/^(current|A|B|C|B2)$/.test(plan)) plan = 'current';
   var speed = Number(params.get('speed')) || 1;
   if (!(speed >= 1 && speed <= 10)) speed = 1;
 

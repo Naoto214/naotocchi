@@ -387,4 +387,4 @@ if (require.main === module) {
   if (outFile) fs.writeFileSync(outFile, json); else console.log(json);
 }
 
-module.exports = { PERSONAS, runLife, runIdle, loadHarnessModule, loadCareStatus, summarize };
+module.exports = { PERSONAS, runLife, runIdle, loadHarnessModule, loadCareStatus, summarize, step, rng, minigameScore, needCount, BUTTONS, NOTICE_ACTION };

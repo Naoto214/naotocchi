@@ -1,0 +1,1332 @@
+{
+ "plan": "B2",
+ "personas": {
+  "diligent": {
+   "label": "こまめ",
+   "lives": 50,
+   "carePer10": {
+    "mean": 5.73,
+    "p10": 5.6,
+    "p50": 5.7,
+    "p90": 5.9,
+    "max": 5.9
+   },
+   "careLife": {
+    "mean": 57.26,
+    "p10": 56,
+    "p50": 57,
+    "p90": 59,
+    "max": 59
+   },
+   "kindsPerLife": {
+    "feed": 12,
+    "clean": 25.6,
+    "pet": 0,
+    "sleep": 10,
+    "wake": 9.7,
+    "medicine": 0,
+    "game": 30.4
+   },
+   "max1min": {
+    "mean": 3.42,
+    "p10": 3,
+    "p50": 3,
+    "p90": 4,
+    "max": 4
+   },
+   "max5min": {
+    "mean": 6.98,
+    "p10": 7,
+    "p50": 7,
+    "p90": 7,
+    "max": 7
+   },
+   "burstsPerLife": {
+    "mean": 0.58,
+    "p10": 0,
+    "p50": 0,
+    "p90": 2,
+    "max": 3
+   },
+   "freeShare": {
+    "mean": 74.62,
+    "p10": 73,
+    "p50": 74,
+    "p90": 77,
+    "max": 77
+   },
+   "freeStretchMin": {
+    "mean": 6.76,
+    "p10": 3.95,
+    "p50": 7.45,
+    "p90": 7.7,
+    "max": 8.65
+   },
+   "overlap2Share": {
+    "mean": 0,
+    "p10": 0,
+    "p50": 0,
+    "p90": 0,
+    "max": 0
+   },
+   "sicknesses": {
+    "mean": 0,
+    "p10": 0,
+    "p50": 0,
+    "p90": 0,
+    "max": 0
+   },
+   "sleep": {
+    "perLife": {
+     "mean": 9.98,
+     "p10": 10,
+     "p50": 10,
+     "p90": 10,
+     "max": 10
+    },
+    "lengthSec": {
+     "mean": 69.87,
+     "p10": 60,
+     "p50": 72,
+     "p90": 81,
+     "max": 87
+    },
+    "awakeBetweenMin": {
+     "mean": 8.67,
+     "p10": 8.5,
+     "p50": 8.65,
+     "p90": 8.85,
+     "max": 9.6
+    },
+    "sleepShare": 11.6,
+    "blockedWantsPerLife": 0.3,
+    "extraWakeTapsPerLife": 0,
+    "wokenByActionPerLife": 0.3,
+    "playerWakesPerLife": 9.7,
+    "autoWakesPerLife": 0
+   },
+   "annoyedPerLife": 0,
+   "deathRate": 0,
+   "deathLeadDyingSec": {
+    "mean": 0,
+    "p10": null,
+    "p50": null,
+    "p90": null,
+    "max": null
+   },
+   "deathLeadCriticalSec": {
+    "mean": 0,
+    "p10": null,
+    "p50": null,
+    "p90": null,
+    "max": null
+   },
+   "dyingEpisodesPerLife": 0,
+   "dyingSurvivedShare": null,
+   "sodachi": {
+    "mean": 78.92,
+    "p10": 77,
+    "p50": 79,
+    "p90": 80,
+    "max": 82
+   },
+   "clearRate": 1
+  },
+  "casual": {
+   "label": "ときどき",
+   "lives": 50,
+   "carePer10": {
+    "mean": 4.37,
+    "p10": 4.2,
+    "p50": 4.4,
+    "p90": 4.5,
+    "max": 4.6
+   },
+   "careLife": {
+    "mean": 43.7,
+    "p10": 42,
+    "p50": 44,
+    "p90": 45,
+    "max": 46
+   },
+   "kindsPerLife": {
+    "feed": 12,
+    "clean": 25.5,
+    "pet": 0,
+    "sleep": 6.2,
+    "wake": 0,
+    "medicine": 0,
+    "game": 9.5
+   },
+   "max1min": {
+    "mean": 2.94,
+    "p10": 3,
+    "p50": 3,
+    "p90": 3,
+    "max": 3
+   },
+   "max5min": {
+    "mean": 5.7,
+    "p10": 5,
+    "p50": 6,
+    "p90": 6,
+    "max": 7
+   },
+   "burstsPerLife": {
+    "mean": 2.76,
+    "p10": 1,
+    "p50": 3,
+    "p90": 5,
+    "max": 6
+   },
+   "freeShare": {
+    "mean": 72.98,
+    "p10": 70,
+    "p50": 73,
+    "p90": 76,
+    "max": 78
+   },
+   "freeStretchMin": {
+    "mean": 9.86,
+    "p10": 6.75,
+    "p50": 10.7,
+    "p90": 13.95,
+    "max": 15.45
+   },
+   "overlap2Share": {
+    "mean": 0,
+    "p10": 0,
+    "p50": 0,
+    "p90": 0,
+    "max": 0
+   },
+   "sicknesses": {
+    "mean": 0,
+    "p10": 0,
+    "p50": 0,
+    "p90": 0,
+    "max": 0
+   },
+   "sleep": {
+    "perLife": {
+     "mean": 6.2,
+     "p10": 6,
+     "p50": 6,
+     "p90": 7,
+     "max": 7
+    },
+    "lengthSec": {
+     "mean": 87,
+     "p10": 87,
+     "p50": 87,
+     "p90": 87,
+     "max": 87
+    },
+    "awakeBetweenMin": {
+     "mean": 13.59,
+     "p10": 10.35,
+     "p50": 13.55,
+     "p90": 17.05,
+     "max": 20.3
+    },
+    "sleepShare": 9,
+    "blockedWantsPerLife": 0,
+    "extraWakeTapsPerLife": 0,
+    "wokenByActionPerLife": 0,
+    "playerWakesPerLife": 0,
+    "autoWakesPerLife": 6.2
+   },
+   "annoyedPerLife": 0,
+   "deathRate": 0,
+   "deathLeadDyingSec": {
+    "mean": 0,
+    "p10": null,
+    "p50": null,
+    "p90": null,
+    "max": null
+   },
+   "deathLeadCriticalSec": {
+    "mean": 0,
+    "p10": null,
+    "p50": null,
+    "p90": null,
+    "max": null
+   },
+   "dyingEpisodesPerLife": 0,
+   "dyingSurvivedShare": null,
+   "sodachi": {
+    "mean": 69.84,
+    "p10": 68,
+    "p50": 70,
+    "p90": 71,
+    "max": 74
+   },
+   "clearRate": 0.66
+  },
+  "gamer": {
+   "label": "ミニゲーム中心",
+   "lives": 50,
+   "carePer10": {
+    "mean": 4.24,
+    "p10": 4.2,
+    "p50": 4.2,
+    "p90": 4.3,
+    "max": 4.3
+   },
+   "careLife": {
+    "mean": 42.44,
+    "p10": 42,
+    "p50": 42,
+    "p90": 43,
+    "max": 43
+   },
+   "kindsPerLife": {
+    "feed": 10.5,
+    "clean": 12.1,
+    "pet": 0,
+    "sleep": 19.9,
+    "wake": 0,
+    "medicine": 0,
+    "game": 112.7
+   },
+   "max1min": {
+    "mean": 3.94,
+    "p10": 4,
+    "p50": 4,
+    "p90": 4,
+    "max": 4
+   },
+   "max5min": {
+    "mean": 10.22,
+    "p10": 10,
+    "p50": 10,
+    "p90": 11,
+    "max": 11
+   },
+   "burstsPerLife": {
+    "mean": 0.86,
+    "p10": 0,
+    "p50": 1,
+    "p90": 2,
+    "max": 4
+   },
+   "freeShare": {
+    "mean": 58.36,
+    "p10": 57,
+    "p50": 58,
+    "p90": 60,
+    "max": 63
+   },
+   "freeStretchMin": {
+    "mean": 2.31,
+    "p10": 0.85,
+    "p50": 2.6,
+    "p90": 3.3,
+    "max": 3.9
+   },
+   "overlap2Share": {
+    "mean": 1.82,
+    "p10": 1,
+    "p50": 2,
+    "p90": 3,
+    "max": 4
+   },
+   "sicknesses": {
+    "mean": 0,
+    "p10": 0,
+    "p50": 0,
+    "p90": 0,
+    "max": 0
+   },
+   "sleep": {
+    "perLife": {
+     "mean": 19.9,
+     "p10": 19,
+     "p50": 20,
+     "p90": 20,
+     "max": 20
+    },
+    "lengthSec": {
+     "mean": 45.37,
+     "p10": 33,
+     "p50": 45,
+     "p90": 57,
+     "max": 60
+    },
+    "awakeBetweenMin": {
+     "mean": 4.2,
+     "p10": 3.8,
+     "p50": 4.15,
+     "p90": 4.65,
+     "max": 5.25
+    },
+    "sleepShare": 15,
+    "blockedWantsPerLife": 19.7,
+    "extraWakeTapsPerLife": 0,
+    "wokenByActionPerLife": 19.7,
+    "playerWakesPerLife": 0,
+    "autoWakesPerLife": 0
+   },
+   "annoyedPerLife": 0,
+   "deathRate": 0,
+   "deathLeadDyingSec": {
+    "mean": 0,
+    "p10": null,
+    "p50": null,
+    "p90": null,
+    "max": null
+   },
+   "deathLeadCriticalSec": {
+    "mean": 0,
+    "p10": null,
+    "p50": null,
+    "p90": null,
+    "max": null
+   },
+   "dyingEpisodesPerLife": 0,
+   "dyingSurvivedShare": null,
+   "sodachi": {
+    "mean": 99.04,
+    "p10": 97,
+    "p50": 100,
+    "p90": 100,
+    "max": 100
+   },
+   "clearRate": 1
+  },
+  "minimal": {
+   "label": "最低限(おしらせに従う)",
+   "lives": 50,
+   "carePer10": {
+    "mean": 5.07,
+    "p10": 4.8,
+    "p50": 5,
+    "p90": 5.4,
+    "max": 5.7
+   },
+   "careLife": {
+    "mean": 50.66,
+    "p10": 48,
+    "p50": 50,
+    "p90": 54,
+    "max": 57
+   },
+   "kindsPerLife": {
+    "feed": 12.5,
+    "clean": 8.8,
+    "pet": 20.1,
+    "sleep": 5.1,
+    "wake": 4.2,
+    "medicine": 0,
+    "game": 0
+   },
+   "max1min": {
+    "mean": 5,
+    "p10": 5,
+    "p50": 5,
+    "p90": 5,
+    "max": 5
+   },
+   "max5min": {
+    "mean": 9.66,
+    "p10": 8,
+    "p50": 10,
+    "p90": 11,
+    "max": 12
+   },
+   "burstsPerLife": {
+    "mean": 0,
+    "p10": 0,
+    "p50": 0,
+    "p90": 0,
+    "max": 0
+   },
+   "freeShare": {
+    "mean": 22.16,
+    "p10": 21,
+    "p50": 22,
+    "p90": 23,
+    "max": 24
+   },
+   "freeStretchMin": {
+    "mean": 4.77,
+    "p10": 0.4,
+    "p50": 4.2,
+    "p90": 9.95,
+    "max": 11.5
+   },
+   "overlap2Share": {
+    "mean": 69.7,
+    "p10": 65,
+    "p50": 70,
+    "p90": 72,
+    "max": 74
+   },
+   "sicknesses": {
+    "mean": 0,
+    "p10": 0,
+    "p50": 0,
+    "p90": 0,
+    "max": 0
+   },
+   "sleep": {
+    "perLife": {
+     "mean": 5.08,
+     "p10": 5,
+     "p50": 5,
+     "p90": 5,
+     "max": 6
+    },
+    "lengthSec": {
+     "mean": 25.76,
+     "p10": 12,
+     "p50": 12,
+     "p90": 87,
+     "max": 87
+    },
+    "awakeBetweenMin": {
+     "mean": 18.32,
+     "p10": 12,
+     "p50": 19.6,
+     "p90": 21,
+     "max": 23.2
+    },
+    "sleepShare": 2.2,
+    "blockedWantsPerLife": 0,
+    "extraWakeTapsPerLife": 0,
+    "wokenByActionPerLife": 0,
+    "playerWakesPerLife": 4.2,
+    "autoWakesPerLife": 0.8
+   },
+   "annoyedPerLife": 0,
+   "deathRate": 0,
+   "deathLeadDyingSec": {
+    "mean": 0,
+    "p10": null,
+    "p50": null,
+    "p90": null,
+    "max": null
+   },
+   "deathLeadCriticalSec": {
+    "mean": 0,
+    "p10": null,
+    "p50": null,
+    "p90": null,
+    "max": null
+   },
+   "dyingEpisodesPerLife": 0.8,
+   "dyingSurvivedShare": 0,
+   "sodachi": {
+    "mean": 51.44,
+    "p10": 51,
+    "p50": 51,
+    "p90": 52,
+    "max": 52
+   },
+   "clearRate": 0
+  },
+  "follower": {
+   "label": "おすすめに素直",
+   "lives": 50,
+   "carePer10": {
+    "mean": 5.07,
+    "p10": 4.8,
+    "p50": 5,
+    "p90": 5.4,
+    "max": 5.7
+   },
+   "careLife": {
+    "mean": 50.66,
+    "p10": 48,
+    "p50": 50,
+    "p90": 54,
+    "max": 57
+   },
+   "kindsPerLife": {
+    "feed": 12.5,
+    "clean": 8.8,
+    "pet": 20.1,
+    "sleep": 5.1,
+    "wake": 4.2,
+    "medicine": 0,
+    "game": 0
+   },
+   "max1min": {
+    "mean": 5,
+    "p10": 5,
+    "p50": 5,
+    "p90": 5,
+    "max": 5
+   },
+   "max5min": {
+    "mean": 9.66,
+    "p10": 8,
+    "p50": 10,
+    "p90": 11,
+    "max": 12
+   },
+   "burstsPerLife": {
+    "mean": 0,
+    "p10": 0,
+    "p50": 0,
+    "p90": 0,
+    "max": 0
+   },
+   "freeShare": {
+    "mean": 22.16,
+    "p10": 21,
+    "p50": 22,
+    "p90": 23,
+    "max": 24
+   },
+   "freeStretchMin": {
+    "mean": 4.77,
+    "p10": 0.4,
+    "p50": 4.2,
+    "p90": 9.95,
+    "max": 11.5
+   },
+   "overlap2Share": {
+    "mean": 69.7,
+    "p10": 65,
+    "p50": 70,
+    "p90": 72,
+    "max": 74
+   },
+   "sicknesses": {
+    "mean": 0,
+    "p10": 0,
+    "p50": 0,
+    "p90": 0,
+    "max": 0
+   },
+   "sleep": {
+    "perLife": {
+     "mean": 5.08,
+     "p10": 5,
+     "p50": 5,
+     "p90": 5,
+     "max": 6
+    },
+    "lengthSec": {
+     "mean": 25.76,
+     "p10": 12,
+     "p50": 12,
+     "p90": 87,
+     "max": 87
+    },
+    "awakeBetweenMin": {
+     "mean": 18.32,
+     "p10": 12,
+     "p50": 19.6,
+     "p90": 21,
+     "max": 23.2
+    },
+    "sleepShare": 2.2,
+    "blockedWantsPerLife": 0,
+    "extraWakeTapsPerLife": 0,
+    "wokenByActionPerLife": 0,
+    "playerWakesPerLife": 4.2,
+    "autoWakesPerLife": 0.8
+   },
+   "annoyedPerLife": 0,
+   "deathRate": 0,
+   "deathLeadDyingSec": {
+    "mean": 0,
+    "p10": null,
+    "p50": null,
+    "p90": null,
+    "max": null
+   },
+   "deathLeadCriticalSec": {
+    "mean": 0,
+    "p10": null,
+    "p50": null,
+    "p90": null,
+    "max": null
+   },
+   "dyingEpisodesPerLife": 0.8,
+   "dyingSurvivedShare": 0,
+   "sodachi": {
+    "mean": 51.44,
+    "p10": 51,
+    "p50": 51,
+    "p90": 52,
+    "max": 52
+   },
+   "clearRate": 0
+  },
+  "beginner": {
+   "label": "初心者",
+   "lives": 50,
+   "carePer10": {
+    "mean": 9.61,
+    "p10": 8.1,
+    "p50": 9.3,
+    "p90": 11.3,
+    "max": 15.9
+   },
+   "careLife": {
+    "mean": 96.08,
+    "p10": 81,
+    "p50": 93,
+    "p90": 113,
+    "max": 159
+   },
+   "kindsPerLife": {
+    "feed": 13.6,
+    "clean": 18.3,
+    "pet": 49.3,
+    "sleep": 14,
+    "wake": 0.4,
+    "medicine": 0.3,
+    "game": 7.4
+   },
+   "max1min": {
+    "mean": 7.44,
+    "p10": 7,
+    "p50": 7,
+    "p90": 8,
+    "max": 9
+   },
+   "max5min": {
+    "mean": 17.76,
+    "p10": 14,
+    "p50": 17,
+    "p90": 22,
+    "max": 30
+   },
+   "burstsPerLife": {
+    "mean": 13.62,
+    "p10": 9,
+    "p50": 13,
+    "p90": 18,
+    "max": 22
+   },
+   "freeShare": {
+    "mean": 37.78,
+    "p10": 28,
+    "p50": 38,
+    "p90": 48,
+    "max": 56
+   },
+   "freeStretchMin": {
+    "mean": 5.83,
+    "p10": 0.85,
+    "p50": 5.25,
+    "p90": 10.95,
+    "max": 15.85
+   },
+   "overlap2Share": {
+    "mean": 17.2,
+    "p10": 11,
+    "p50": 17,
+    "p90": 24,
+    "max": 29
+   },
+   "sicknesses": {
+    "mean": 0.38,
+    "p10": 0,
+    "p50": 0,
+    "p90": 1,
+    "max": 2
+   },
+   "sleep": {
+    "perLife": {
+     "mean": 4.32,
+     "p10": 4,
+     "p50": 4,
+     "p90": 5,
+     "max": 6
+    },
+    "lengthSec": {
+     "mean": 86.64,
+     "p10": 87,
+     "p50": 87,
+     "p90": 87,
+     "max": 87
+    },
+    "awakeBetweenMin": {
+     "mean": 19.94,
+     "p10": 14.7,
+     "p50": 18.85,
+     "p90": 26.1,
+     "max": 46
+    },
+    "sleepShare": 6.2,
+    "blockedWantsPerLife": 9.7,
+    "extraWakeTapsPerLife": 0.4,
+    "wokenByActionPerLife": 9.3,
+    "playerWakesPerLife": 0.4,
+    "autoWakesPerLife": 4.1
+   },
+   "annoyedPerLife": 3.4,
+   "deathRate": 0.02,
+   "deathLeadDyingSec": {
+    "mean": 213,
+    "p10": 213,
+    "p50": 213,
+    "p90": 213,
+    "max": 213
+   },
+   "deathLeadCriticalSec": {
+    "mean": 231,
+    "p10": 231,
+    "p50": 231,
+    "p90": 231,
+    "max": 231
+   },
+   "dyingEpisodesPerLife": 0.34,
+   "dyingSurvivedShare": 0,
+   "sodachi": {
+    "mean": 63.04,
+    "p10": 61,
+    "p50": 63,
+    "p90": 65,
+    "max": 67
+   },
+   "clearRate": 0
+  },
+  "affection": {
+   "label": "ふれあい好き",
+   "lives": 50,
+   "carePer10": {
+    "mean": 36.28,
+    "p10": 34.9,
+    "p50": 36.3,
+    "p90": 37.2,
+    "max": 38.5
+   },
+   "careLife": {
+    "mean": 362.8,
+    "p10": 349,
+    "p50": 363,
+    "p90": 372,
+    "max": 385
+   },
+   "kindsPerLife": {
+    "feed": 12,
+    "clean": 13.4,
+    "pet": 321.6,
+    "sleep": 7.9,
+    "wake": 7.9,
+    "medicine": 0,
+    "game": 17
+   },
+   "max1min": {
+    "mean": 8.36,
+    "p10": 8,
+    "p50": 8,
+    "p90": 9,
+    "max": 10
+   },
+   "max5min": {
+    "mean": 26.02,
+    "p10": 24,
+    "p50": 26,
+    "p90": 28,
+    "max": 30
+   },
+   "burstsPerLife": {
+    "mean": 3.08,
+    "p10": 1,
+    "p50": 3,
+    "p90": 5,
+    "max": 8
+   },
+   "freeShare": {
+    "mean": 69.84,
+    "p10": 67,
+    "p50": 70,
+    "p90": 73,
+    "max": 77
+   },
+   "freeStretchMin": {
+    "mean": 7.73,
+    "p10": 4.3,
+    "p50": 7.3,
+    "p90": 10.2,
+    "max": 13.05
+   },
+   "overlap2Share": {
+    "mean": 0,
+    "p10": 0,
+    "p50": 0,
+    "p90": 0,
+    "max": 0
+   },
+   "sicknesses": {
+    "mean": 0,
+    "p10": 0,
+    "p50": 0,
+    "p90": 0,
+    "max": 0
+   },
+   "sleep": {
+    "perLife": {
+     "mean": 7.92,
+     "p10": 7,
+     "p50": 8,
+     "p90": 9,
+     "max": 9
+    },
+    "lengthSec": {
+     "mean": 27.1,
+     "p10": 18,
+     "p50": 27,
+     "p90": 36,
+     "max": 36
+    },
+    "awakeBetweenMin": {
+     "mean": 11.49,
+     "p10": 8.6,
+     "p50": 11.7,
+     "p90": 14.75,
+     "max": 18.05
+    },
+    "sleepShare": 3.6,
+    "blockedWantsPerLife": 0,
+    "extraWakeTapsPerLife": 0,
+    "wokenByActionPerLife": 0,
+    "playerWakesPerLife": 7.9,
+    "autoWakesPerLife": 0
+   },
+   "annoyedPerLife": 0.2,
+   "deathRate": 0,
+   "deathLeadDyingSec": {
+    "mean": 0,
+    "p10": null,
+    "p50": null,
+    "p90": null,
+    "max": null
+   },
+   "deathLeadCriticalSec": {
+    "mean": 0,
+    "p10": null,
+    "p50": null,
+    "p90": null,
+    "max": null
+   },
+   "dyingEpisodesPerLife": 0,
+   "dyingSurvivedShare": null,
+   "sodachi": {
+    "mean": 77.16,
+    "p10": 75,
+    "p50": 77,
+    "p90": 79,
+    "max": 82
+   },
+   "clearRate": 1
+  },
+  "viewer": {
+   "label": "眺める(10分ごと)",
+   "lives": 50,
+   "carePer10": {
+    "mean": 4.08,
+    "p10": 3.7,
+    "p50": 4.1,
+    "p90": 4.5,
+    "max": 4.6
+   },
+   "careLife": {
+    "mean": 40.78,
+    "p10": 37,
+    "p50": 41,
+    "p90": 45,
+    "max": 46
+   },
+   "kindsPerLife": {
+    "feed": 12.3,
+    "clean": 9.5,
+    "pet": 14.5,
+    "sleep": 4.5,
+    "wake": 0,
+    "medicine": 0,
+    "game": 0
+   },
+   "max1min": {
+    "mean": 6.6,
+    "p10": 6,
+    "p50": 7,
+    "p90": 8,
+    "max": 8
+   },
+   "max5min": {
+    "mean": 6.6,
+    "p10": 6,
+    "p50": 7,
+    "p90": 8,
+    "max": 8
+   },
+   "burstsPerLife": {
+    "mean": 8.18,
+    "p10": 7,
+    "p50": 8,
+    "p90": 10,
+    "max": 10
+   },
+   "freeShare": {
+    "mean": 65.04,
+    "p10": 62,
+    "p50": 65,
+    "p90": 69,
+    "max": 70
+   },
+   "freeStretchMin": {
+    "mean": 7.43,
+    "p10": 2.95,
+    "p50": 7.95,
+    "p90": 13.95,
+    "max": 16.05
+   },
+   "overlap2Share": {
+    "mean": 11.22,
+    "p10": 8,
+    "p50": 11,
+    "p90": 14,
+    "max": 16
+   },
+   "sicknesses": {
+    "mean": 0,
+    "p10": 0,
+    "p50": 0,
+    "p90": 0,
+    "max": 0
+   },
+   "sleep": {
+    "perLife": {
+     "mean": 4.5,
+     "p10": 4,
+     "p50": 4,
+     "p90": 5,
+     "max": 5
+    },
+    "lengthSec": {
+     "mean": 87,
+     "p10": 87,
+     "p50": 87,
+     "p90": 87,
+     "max": 87
+    },
+    "awakeBetweenMin": {
+     "mean": 18.51,
+     "p10": 17.45,
+     "p50": 18.6,
+     "p90": 19.5,
+     "max": 20.15
+    },
+    "sleepShare": 6.4,
+    "blockedWantsPerLife": 0,
+    "extraWakeTapsPerLife": 0,
+    "wokenByActionPerLife": 0,
+    "playerWakesPerLife": 0,
+    "autoWakesPerLife": 4.2
+   },
+   "annoyedPerLife": 0,
+   "deathRate": 0,
+   "deathLeadDyingSec": {
+    "mean": 0,
+    "p10": null,
+    "p50": null,
+    "p90": null,
+    "max": null
+   },
+   "deathLeadCriticalSec": {
+    "mean": 0,
+    "p10": null,
+    "p50": null,
+    "p90": null,
+    "max": null
+   },
+   "dyingEpisodesPerLife": 0,
+   "dyingSurvivedShare": null,
+   "sodachi": {
+    "mean": 57.64,
+    "p10": 56,
+    "p50": 57,
+    "p90": 59,
+    "max": 59
+   },
+   "clearRate": 0
+  }
+ },
+ "idle": {
+  "full": {
+   "5": {
+    "hunger": {
+     "mean": 80,
+     "p10": 79.99999999999972,
+     "p50": 79.99999999999972,
+     "p90": 79.99999999999972,
+     "max": 79.99999999999972
+    },
+    "happiness": {
+     "mean": 89.53,
+     "p10": 86.70000000000044,
+     "p50": 86.70000000000044,
+     "p90": 92.70000000000044,
+     "max": 98.70000000000044
+    },
+    "energy": {
+     "mean": 80.57,
+     "p10": 79.99999999999972,
+     "p50": 79.99999999999972,
+     "p90": 82.99999999999972,
+     "max": 85.99999999999972
+    },
+    "health": {
+     "mean": 100,
+     "p10": 100,
+     "p50": 100,
+     "p90": 100,
+     "max": 100
+    },
+    "poop": {
+     "mean": 1,
+     "p10": 1,
+     "p50": 1,
+     "p90": 1,
+     "max": 1
+    },
+    "sickShare": 0,
+    "anySignalShare": 0,
+    "warningShare": 0,
+    "deadShare": 0
+   },
+   "10": {
+    "hunger": {
+     "mean": 60,
+     "p10": 59.99999999999943,
+     "p50": 59.99999999999943,
+     "p90": 59.99999999999943,
+     "max": 59.99999999999943
+    },
+    "happiness": {
+     "mean": 76.43,
+     "p10": 69.69500000000075,
+     "p50": 76.03700000000076,
+     "p90": 82.55000000000078,
+     "max": 91.8940000000006
+    },
+    "energy": {
+     "mean": 61.54,
+     "p10": 59.99999999999943,
+     "p50": 59.99999999999943,
+     "p90": 62.99999999999943,
+     "max": 68.99999999999943
+    },
+    "health": {
+     "mean": 100,
+     "p10": 100,
+     "p50": 100,
+     "p90": 100,
+     "max": 100
+    },
+    "poop": {
+     "mean": 2.32,
+     "p10": 2,
+     "p50": 2,
+     "p90": 3,
+     "max": 3
+    },
+    "sickShare": 0,
+    "anySignalShare": 0.317,
+    "warningShare": 0,
+    "deadShare": 0
+   },
+   "15": {
+    "hunger": {
+     "mean": 40,
+     "p10": 39.99999999999915,
+     "p50": 39.99999999999915,
+     "p90": 39.99999999999915,
+     "max": 39.99999999999915
+    },
+    "happiness": {
+     "mean": 49.5,
+     "p10": 33.49800000000093,
+     "p50": 49.72100000000101,
+     "p90": 63.80900000000098,
+     "max": 80.03800000000075
+    },
+    "energy": {
+     "mean": 42.52,
+     "p10": 39.99999999999915,
+     "p50": 42.99999999999915,
+     "p90": 45.99999999999915,
+     "max": 54.99999999999915
+    },
+    "health": {
+     "mean": 99.68,
+     "p10": 100,
+     "p50": 100,
+     "p90": 100,
+     "max": 100
+    },
+    "poop": {
+     "mean": 3.8,
+     "p10": 3,
+     "p50": 4,
+     "p90": 4,
+     "max": 4
+    },
+    "sickShare": 0.03,
+    "anySignalShare": 1,
+    "warningShare": 0.03,
+    "deadShare": 0
+   }
+  },
+  "typical": {
+   "5": {
+    "hunger": {
+     "mean": 50,
+     "p10": 49.999999999999716,
+     "p50": 49.999999999999716,
+     "p90": 49.999999999999716,
+     "max": 49.999999999999716
+    },
+    "happiness": {
+     "mean": 57.98,
+     "p10": 54.363000000000255,
+     "p50": 55.95900000000012,
+     "p90": 61.788000000000395,
+     "max": 68.07300000000042
+    },
+    "energy": {
+     "mean": 50.57,
+     "p10": 49.999999999999716,
+     "p50": 49.999999999999716,
+     "p90": 52.999999999999716,
+     "max": 55.999999999999716
+    },
+    "health": {
+     "mean": 100,
+     "p10": 100,
+     "p50": 100,
+     "p90": 100,
+     "max": 100
+    },
+    "poop": {
+     "mean": 2,
+     "p10": 2,
+     "p50": 2,
+     "p90": 2,
+     "max": 2
+    },
+    "sickShare": 0,
+    "anySignalShare": 1,
+    "warningShare": 0,
+    "deadShare": 0
+   },
+   "10": {
+    "hunger": {
+     "mean": 30,
+     "p10": 29.99999999999947,
+     "p50": 29.99999999999947,
+     "p90": 29.99999999999947,
+     "max": 29.99999999999947
+    },
+    "happiness": {
+     "mean": 40.39,
+     "p10": 32.21800000000041,
+     "p50": 41.59100000000046,
+     "p90": 48.503000000000625,
+     "max": 57.74900000000058
+    },
+    "energy": {
+     "mean": 31.54,
+     "p10": 29.99999999999947,
+     "p50": 29.99999999999947,
+     "p90": 32.999999999999446,
+     "max": 38.99999999999943
+    },
+    "health": {
+     "mean": 100,
+     "p10": 100,
+     "p50": 100,
+     "p90": 100,
+     "max": 100
+    },
+    "poop": {
+     "mean": 3.32,
+     "p10": 3,
+     "p50": 3,
+     "p90": 4,
+     "max": 4
+    },
+    "sickShare": 0,
+    "anySignalShare": 1,
+    "warningShare": 0,
+    "deadShare": 0
+   },
+   "15": {
+    "hunger": {
+     "mean": 10,
+     "p10": 9.999999999999542,
+     "p50": 9.999999999999542,
+     "p90": 9.999999999999542,
+     "max": 9.999999999999542
+    },
+    "happiness": {
+     "mean": 0.44,
+     "p10": 0,
+     "p50": 0,
+     "p90": 0,
+     "max": 23.5730000000008
+    },
+    "energy": {
+     "mean": 12.27,
+     "p10": 9.999999999999542,
+     "p50": 12.999999999999488,
+     "p90": 15.999999999999435,
+     "max": 21.999999999999382
+    },
+    "health": {
+     "mean": 49.67,
+     "p10": 0,
+     "p50": 55,
+     "p90": 89,
+     "max": 100
+    },
+    "poop": {
+     "mean": 4,
+     "p10": 4,
+     "p50": 4,
+     "p90": 4,
+     "max": 4
+    },
+    "sickShare": 0.61,
+    "anySignalShare": 1,
+    "warningShare": 1,
+    "deadShare": 0
+   }
+  }
+ },
+ "rescue": {
+  "30s": {
+   "runs": 80,
+   "reachedCritical": 80,
+   "survived": 1,
+   "dyingShown": 1
+  },
+  "60s": {
+   "runs": 80,
+   "reachedCritical": 80,
+   "survived": 1,
+   "dyingShown": 1
+  },
+  "120s": {
+   "runs": 80,
+   "reachedCritical": 80,
+   "survived": 1,
+   "dyingShown": 1
+  },
+  "180s": {
+   "runs": 80,
+   "reachedCritical": 80,
+   "survived": 0.26,
+   "dyingShown": 1
+  }
+ },
+ "seconds": 210.728
+}
