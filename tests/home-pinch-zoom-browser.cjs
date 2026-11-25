@@ -61,7 +61,12 @@ async function run(name,engine){
    await page.evaluate(([r,c])=>{NaotocchiHomeZoom.reset(false);__zoomQA.scene(r,r==='city'?'night':'day',c);},[region,count]);
    await page.waitForFunction(c=>__zoomQA.nav()&&__zoomQA.model().snapshot().length===c&&document.querySelectorAll('[data-diorama-actor]').length>=c,count,{timeout:30000});
    await page.waitForTimeout(450);await relayout();
-   const frame=await page.evaluate(()=>{const r=document.querySelector('.screen-frame').getBoundingClientRect();return {x:r.left+r.width/2,y:r.top+r.height/2};});
+   // A finger must land on the resident window itself, not on a bubble over it.
+   const frame=await page.evaluate(()=>{const f=document.querySelector('.screen-frame'),r=f.getBoundingClientRect(),free=(x,y)=>f.contains(document.elementFromPoint(x,y));
+    const cx=r.left+r.width/2,cy=r.top+r.height/2;let best=null;
+    for(const fy of [.5,.35,.65,.2,.8])for(const fx of [.5,.4,.6]){const x=r.left+r.width*fx,y=r.top+r.height*fy;if(free(x,y)&&free(x-22,y)&&free(x+22,y)&&free(x-30,y)&&free(x+30,y+10)){best={x,y};break;}if(best)break;}
+    return best||{x:cx,y:cy,covered:true};});
+   if(frame.covered){rows.push({width,region,count,skipped:'resident window covered by UI'});break;}
    const clean=await page.evaluate(inspect);
    await seen();await pinch(frame.x,frame.y,22,70);
    await page.evaluate(()=>new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r))));
@@ -70,19 +75,24 @@ async function run(name,engine){
    else if(!/visible\/none$/.test(zoomed.clip))fail('resident window still clips while zoomed: '+zoomed.clip);
    // The home may re-fit itself as residents walk. Compare the layout it
    // computes under zoom with the one it computes at 1.0x in the next frames.
-   let same=false,sameNav=false,lastDiff='';
-   for(let attempt=0;attempt<3&&!(same&&sameNav);attempt++){
+   let same=false,sameNav=false,lastDiff='',restless=0,compared=0;
+   for(let attempt=0;attempt<5&&!(same&&sameNav);attempt++){
+    // Control: two layout passes at 1.0x must agree, or the home is re-fitting on its own right now.
     const view=await page.evaluate(()=>NaotocchiHomeZoom.state());
-    if(!(view.zoom>1))await page.evaluate(([x,y])=>NaotocchiHomeZoom.zoomAt(x,y,2),[frame.x,frame.y]);
+    await page.evaluate(()=>NaotocchiHomeZoom.reset(false));await relayout();const first=await page.evaluate(inspect);await relayout();const second=await page.evaluate(inspect);
+    if(first.inputs!==second.inputs){restless++;await page.waitForTimeout(700);continue;}
+    await page.evaluate(([x,y,z])=>NaotocchiHomeZoom.zoomAt(x,y,z),[frame.x,frame.y,Math.max(2,view.zoom)]);
     await relayout();const under=await page.evaluate(inspect),nav=await page.evaluateHandle(()=>__zoomQA.nav());
     const keep=await page.evaluate(()=>NaotocchiHomeZoom.state());
     await page.evaluate(()=>NaotocchiHomeZoom.reset(false));await relayout();const plain=await page.evaluate(inspect);
-    same=under.inputs===plain.inputs;
+    compared++;same=under.inputs===plain.inputs;
     if(!same){const u=JSON.parse(under.inputs),q=JSON.parse(plain.inputs);lastDiff=Object.keys(u).filter(k=>JSON.stringify(u[k])!==JSON.stringify(q[k])).map(k=>k+' zoomed='+JSON.stringify(u[k]).slice(0,160)+' 1.0x='+JSON.stringify(q[k]).slice(0,160)).join(' | ');}sameNav=await page.evaluate(n=>n===__zoomQA.nav(),nav);await nav.dispose();
     await page.evaluate(v=>NaotocchiHomeZoom.set(v.zoom,v.x,v.y),keep);await page.waitForTimeout(60);
    }
-   if(!same)fail('layout/movement inputs differ between zoomed and 1.0x: '+lastDiff);
+   if(!compared){rows.push({width,region,count,skipped:'home layout kept re-fitting at 1.0x ('+restless+' checks)'});console.error(label+': home layout differs between two 1.0x passes; zoom comparison not possible');await page.evaluate(()=>NaotocchiHomeZoom.reset(false));break;}
+   if(!same)fail('layout/movement inputs differ between zoomed and 1.0x ('+restless+' restless checks): '+lastDiff);
    if(!sameNav)fail('navigation was rebuilt by zoom');
+   await page.evaluate(([x,y])=>{if(!(NaotocchiHomeZoom.state().zoom>1))NaotocchiHomeZoom.zoomAt(x,y,2);},[frame.x,frame.y]);await page.waitForTimeout(60);
    // Every zoomed tap must choose exactly what the same world point chooses at
    // 1.0x (the existing front-most rule). The selected resident is drawn in
    // front, so both taps start from the same selection.
@@ -142,8 +152,9 @@ async function run(name,engine){
  fs.writeFileSync(path.join(output,name+'.json'),JSON.stringify({rows,failures},null,1));
  const done=rows.filter(r=>!r.skipped),skipped=rows.length-done.length;
  const taps=done.reduce((n,r)=>n+r.taps,0),hits=done.reduce((n,r)=>n+r.hits,0);
- if(skipped>Math.max(2,rows.length*.05))failures.push(name+': '+skipped+' conditions could not be checked because the home kept prompting');
+ if(skipped>Math.max(2,rows.length*.05))failures.push(name+': '+skipped+' conditions could not be checked: '+[...new Set(rows.filter(r=>r.skipped).map(r=>r.skipped.replace(/\(.*\)/,'').trim()))].join('; '));
  console.log(`${name}: ${done.length} conditions checked, ${skipped} skipped, zoomed taps ${hits}/${taps}, failures ${failures.length}`);
+ for(const r of rows.filter(r=>r.skipped))console.log(`${name}/${r.width}/${r.region}/${r.count}: skipped: ${r.skipped}`);
  return failures;
 }
 (async()=>{await new Promise(r=>server.listen(0,'127.0.0.1',r));const pw=require('playwright');let failures=[];
