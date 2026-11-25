@@ -111,8 +111,9 @@ test('retired consumables have no sale, use, or active-effect behavior', () => {
   h.api.startMinigame({id:'legacy-effect-probe',start(c){c.innerHTML='<div></div>'; }},{intro:false});
   h.api.finishMinigame(0);
   assert.equal(s.energy,Math.max(0,before.energy-12));
-  assert.equal(s.deathMeter,before.deathMeter+2);
-  assert.equal(s.decline,before.decline+8);
+  // 2026-11-25 C案: 実際に挑戦した しっぱい(29点以下)は、おとろえ・いのちに 加算しない(引退アイテムの 効果も のこらない)
+  assert.equal(s.deathMeter,before.deathMeter);
+  assert.equal(s.decline,before.decline);
   assert.equal(s.growth,before.growth);
   h.api.renderItemOverlay();
   for(const id of retired) assert.doesNotMatch(h.get('onetimeItemGrid').innerHTML,new RegExp(`data-id="${id}"`));
