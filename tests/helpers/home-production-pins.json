@@ -1,9 +1,14 @@
 {
   "index.html": {
     "before": "c9432f2b62b2c95a36338f8166627abe8feb97d3",
-    "after": "1671db5f26643e0b1ee5397ee5adfad310956f6a",
+    "after": "beb868c0205d07b542ec541561ce1623454413c2",
     "size": 73040,
     "reverse": [
+      [
+        70755,
+        70805,
+        "  <script src=\"games.js?v=24bd3bc4f701\"></script>\n"
+      ],
       [
         6970,
         6982,
@@ -33,9 +38,19 @@
   },
   "tools/pages/allowlist.json": {
     "before": "f1b1fb9cf575c6305fac17fb25dcf80a59d13c31",
-    "after": "6975596a011ea40f0fe4d7331035f7e347a4b4a8",
+    "after": "4ed0f03fa36386d6b9c4564a4cdc3681843ee62b",
     "size": 296524,
     "reverse": [
+      [
+        267510,
+        267596,
+        "    \"index.html\": \"d9f9284c4eee19c3964f01fbd0c074ca7c4588eb428a38eb8a0b069b40591140\",\n"
+      ],
+      [
+        265200,
+        265284,
+        "    \"games.js\": \"24bd3bc4f701498ed342584dc6219c5947b55e303b18e87d6097f4fcc94bccd1\",\n"
+      ],
       [
         266177,
         266241,
@@ -139,9 +154,49 @@
   },
   "games.js": {
     "before": "a93847e0d6ce254074270b01583caad8c54f1928",
-    "after": "66fe58747d88f6a38da2c6531c97997acdfa95ec",
-    "size": 991957,
+    "after": "e22020f8528b080213ab3aec30d86003a385371a",
+    "size": 996426,
     "reverse": [
+      [
+        960020,
+        960343,
+        "        }\n        const isSolved = () => board.every((v, i) => v === i);\n        if (isSolved()) { const a = board[0]; board[0] = board[1]; board[1] = a; }\n"
+      ],
+      [
+        959459,
+        959594,
+        "        for (let k = 0; k < SHUF; k++) {\n"
+      ],
+      [
+        959089,
+        959395,
+        "        // ただしい てじゅんで シャッフル(かならず とける)\n"
+      ],
+      [
+        937286,
+        937881,
+        "          sel = null; shuffles++;\n          say(auto ? '🔀取れる牌がなくなったので、まぜた' : '🔀まぜた(解ききれるならび)', 1200);\n"
+      ],
+      [
+        936753,
+        937177,
+        "          const positions = alive.map((t) => ({ layer: t.layer, x: t.x, y: t.y }));\n"
+      ],
+      [
+        933772,
+        936624,
+        ""
+      ],
+      [
+        210286,
+        210373,
+        "          if (!isWall(cx, cy) && d0[cy][cx] >= 0) bestD = Math.min(bestD, Math.abs(cx - goal.x) + Math.abs(cy - goal.y));\n"
+      ],
+      [
+        204603,
+        204995,
+        ""
+      ],
       [
         409376,
         409396,
