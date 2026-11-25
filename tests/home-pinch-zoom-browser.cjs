@@ -33,6 +33,7 @@ const visible=()=>{const f=document.querySelector('.screen-frame').getBoundingCl
 
 async function run(name,engine){
  const browser=await engine.launch({headless:true}),failures=[],rows=[];
+ let current='start';
  try{for(const width of WIDTHS){
   const context=await browser.newContext({viewport:{width,height:width===320?568:width===375?667:width===390?844:932},deviceScaleFactor:2,hasTouch:true,isMobile:name!=='firefox'});
   const page=await context.newPage(),errors=[];page.on('pageerror',e=>{errors.push(String(e));console.error('pageerror',String(e).slice(0,300));});
@@ -55,7 +56,7 @@ async function run(name,engine){
   const prompt=()=>page.evaluate(()=>[...document.querySelectorAll('[role=dialog]:not(.hidden),.home-choice-popup:not(.hidden)')].some(e=>e.getClientRects().length)||!!document.querySelector('.is-asking'));
   for(const region of ONLY)for(const count of COUNTS)for(let attempt=1;attempt<=3;attempt++){
    const mine=[];let prompted=false;const seen=async()=>{if(await prompt())prompted=true;};
-   const label=[name,width,region,count].join('/'),fail=m=>{mine.push(label+': '+m);if(shots++<3)page.screenshot({path:path.join(output,label.replace(/\//g,'-')+'-'+shots+'.png')}).catch(()=>{});console.error(label+': '+m.slice(0,160));page.evaluate(()=>JSON.stringify({zoom:NaotocchiHomeZoom.state(),fixed:document.getElementById('device').dataset.homeFixed,asking:!!document.querySelector('.is-asking'),dialogs:[...document.querySelectorAll('[role=dialog]:not(.hidden),.home-choice-popup:not(.hidden)')].map(e=>e.id||e.className).slice(0,4)})).then(v=>console.error('  state',v)).catch(()=>{});};
+   const label=[name,width,region,count].join('/');current=label+' (attempt '+attempt+')';const fail=m=>{mine.push(label+': '+m);if(shots++<3)page.screenshot({path:path.join(output,label.replace(/\//g,'-')+'-'+shots+'.png')}).catch(()=>{});console.error(label+': '+m.slice(0,160));page.evaluate(()=>JSON.stringify({zoom:NaotocchiHomeZoom.state(),fixed:document.getElementById('device').dataset.homeFixed,asking:!!document.querySelector('.is-asking'),dialogs:[...document.querySelectorAll('[role=dialog]:not(.hidden),.home-choice-popup:not(.hidden)')].map(e=>e.id||e.className).slice(0,4)})).then(v=>console.error('  state',v)).catch(()=>{});};
    await page.evaluate(([r,c])=>{NaotocchiHomeZoom.reset(false);__zoomQA.scene(r,r==='city'?'night':'day',c);},[region,count]);
    await page.waitForFunction(c=>__zoomQA.nav()&&__zoomQA.model().snapshot().length===c&&document.querySelectorAll('[data-diorama-actor]').length>=c,count,{timeout:30000});
    await page.waitForTimeout(450);await relayout();
@@ -118,7 +119,10 @@ async function run(name,engine){
   await page.waitForFunction(()=>NaotocchiHomeZoom.state().zoom===1,null,{timeout:3000}).catch(()=>failures.push(name+'/'+width+': region change kept zoom'));
   if(errors.length)failures.push(name+'/'+width+' page errors: '+errors.slice(0,3).join(' | '));
   await context.close();
- }}finally{await browser.close();}
+ }}catch(error){
+  // Keep what was checked and name the condition if the browser itself stops.
+  failures.push(name+': stopped during '+current+': '+String(error&&error.message||error).split('\n')[0]);
+ }finally{await browser.close().catch(()=>{});}
  fs.writeFileSync(path.join(output,name+'.json'),JSON.stringify({rows,failures},null,1));
  const done=rows.filter(r=>!r.skipped),skipped=rows.length-done.length;
  const taps=done.reduce((n,r)=>n+r.taps,0),hits=done.reduce((n,r)=>n+r.hits,0);
