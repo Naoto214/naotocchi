@@ -11,7 +11,7 @@ const archivedLeaves = '059657479bfee0d2732a67f2b6dc5874df65a718a2468dea5bb3fe51
 // Second reviewed addition (Draft, awaiting the owner's approval): the
 // view-only pinch zoom camera. Its exact bytes are pinned here as well.
 const pinchZoom = 'home-pinch-zoom.js';
-const pinchZoomDigest = 'a551683bbaf0f08c9a0d988f1e8595680cf74a4bfbdffa2c9b9bfbb1e488f340';
+const pinchZoomDigest = '8b9bcd05df500f7a38cea5e86684ebde44b9f8d4a00f14fa13ed77649bf3ae83';
 
 test('the seasonal renderer adds the reviewed archived source to the pinned package', () => {
   const file = 'home-autumn-leaves.mjs';

@@ -116,6 +116,17 @@ async function run(name,engine){
    if(prompted){held=[];await boot();if(attempt<3)continue;rows.push({width,region,count,skipped:'home prompt'});break;}
    failures.push(...mine);rows.push({width,region,count,zoom:zoomed.zoom,taps,hits});break;
   }
+  // The ceiling is reachable, holds the same layout inputs, and never shows past the backdrop edge.
+  await page.evaluate(()=>{NaotocchiHomeZoom.reset(false);__zoomQA.scene('home','day',5);});await page.waitForTimeout(600);await relayout();
+  {const at=await page.evaluate(()=>{const r=document.querySelector('.screen-frame').getBoundingClientRect();return [r.left+r.width/2,r.top+r.height/2];});
+   const plain=await page.evaluate(inspect);
+   await page.evaluate(([x,y])=>NaotocchiHomeZoom.zoomAt(x,y,99),at);await relayout();
+   const top=await page.evaluate(()=>({...NaotocchiHomeZoom.state(),w:innerWidth,h:innerHeight})),under=await page.evaluate(inspect);
+   if(top.zoom!==top.max)failures.push(name+'/'+width+': ceiling not reached: '+top.zoom+' of '+top.max);
+   if(top.x>0||top.y>0||top.x<top.w*(1-top.zoom)-1e-6||top.y<top.h*(1-top.zoom)-1e-6)failures.push(name+'/'+width+': view leaves the backdrop at the ceiling: '+JSON.stringify(top));
+   await page.evaluate(()=>NaotocchiHomeZoom.reset(false));await relayout();const back=await page.evaluate(inspect);
+   if(under.inputs!==back.inputs&&under.inputs!==plain.inputs)failures.push(name+'/'+width+': layout inputs differ at the ceiling');
+   if(back.trace)failures.push(name+'/'+width+': zoom styles remain after the ceiling: '+back.trace.slice(0,160));}
   // Region change returns to the normal view.
   await page.evaluate(()=>{__zoomQA.scene('forest','day',5);});await page.waitForTimeout(500);
   await page.evaluate(()=>{const r=document.querySelector('.screen-frame').getBoundingClientRect();NaotocchiHomeZoom.zoomAt(r.left+r.width/2,r.top+r.height/2,1.8);});
