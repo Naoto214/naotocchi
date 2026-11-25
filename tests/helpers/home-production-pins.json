@@ -1,9 +1,14 @@
 {
   "index.html": {
     "before": "c9432f2b62b2c95a36338f8166627abe8feb97d3",
-    "after": "88fdd3179c463763b84d7757a196defce340128b",
+    "after": "5b9b1b8b17a0435b0240cfa547bd2a4345a142ad",
     "size": 73040,
     "reverse": [
+      [
+        70755,
+        70805,
+        "  <script src=\"games.js?v=e0769e72dd39\"></script>\n"
+      ],
       [
         72427,
         72478,
@@ -43,9 +48,19 @@
   },
   "tools/pages/allowlist.json": {
     "before": "f1b1fb9cf575c6305fac17fb25dcf80a59d13c31",
-    "after": "79974d70900f1c2d2a2efcfb06234d9f6de7e828",
+    "after": "4d11c0e001f56eba72fc231050fb86fb2034e1de",
     "size": 296524,
     "reverse": [
+      [
+        267510,
+        267596,
+        "    \"index.html\": \"a8689379fc4ffb150c161cc775201bd23c99db1aeb19778298d7213cc7943f8e\",\n"
+      ],
+      [
+        265200,
+        265284,
+        "    \"games.js\": \"e0769e72dd39925a33d4d53e256781f2e7ab784f5352a245ca53af4f557bb0cd\",\n"
+      ],
       [
         281689,
         281774,
@@ -169,9 +184,359 @@
   },
   "games.js": {
     "before": "a93847e0d6ce254074270b01583caad8c54f1928",
-    "after": "e22020f8528b080213ab3aec30d86003a385371a",
-    "size": 996426,
+    "after": "aca59860948d84eedddd3bad73cd01a02e32c7b5",
+    "size": 1006795,
     "reverse": [
+      [
+        987093,
+        987165,
+        "          setTimeout(() => onComplete(score), 650);\n"
+      ],
+      [
+        986619,
+        986950,
+        "          const score = clamp(Math.round((rank === 1 ? 72 : rank === 2 ? 46 : 26) + coins * 1.5 + players[0].pos / LEN * 6), 5, 100);\n"
+      ],
+      [
+        980018,
+        980197,
+        "        rollBtn.addEventListener('pointerdown', (e) => { e.preventDefault(); if (!running || phase !== 'rolling' || players[turn].cpu) return; stopRoll(dieFace); });\n"
+      ],
+      [
+        979572,
+        979741,
+        ""
+      ],
+      [
+        925119,
+        925211,
+        "          setTimeout(() => onComplete(score), 650);\n"
+      ],
+      [
+        924681,
+        925082,
+        "          const last = guesses[guesses.length - 1];\n          const score = clamp(Math.round(solved ? 100 - Math.max(0, guesses.length - 3) * 9 : 18 + (last ? last.hit * 6 + last.blow * 2 : 0)), 5, 100);\n"
+      ],
+      [
+        920356,
+        920487,
+        "          const r = judge(cur); guesses.push({ g: cur.slice(), ...r }); cur = []; sfx(r.hit ? 'hit' : 'tick'); hud();\n"
+      ],
+      [
+        917245,
+        917437,
+        ""
+      ],
+      [
+        786482,
+        786554,
+        "          setTimeout(() => onComplete(score), 650);\n"
+      ],
+      [
+        786031,
+        786345,
+        "          const score = clamp(Math.round(10 + pulled * 8 + (collapsing ? 0 : 12)), 10, 100);\n"
+      ],
+      [
+        780588,
+        780653,
+        "          rows[r][i] = false; pulled++; sfx('pop');\n"
+      ],
+      [
+        777412,
+        777584,
+        ""
+      ],
+      [
+        728497,
+        728569,
+        "          setTimeout(() => onComplete(final), 650);\n"
+      ],
+      [
+        722872,
+        723589,
+        "          if (o) { o.done = true; combo++; sfx('coin'); const gain = 10 + combo * 2; score += gain; popups.push({ x: best.x, y: LANES[best.lane].y - 20, t: `+${gain}`, born: performance.now(), color: '#fff' }); if (order.every((q) => q.done)) { served++; const fast = performance.now() - orderStart < 6000; const bonus = fast ? 25 : 10; score += bonus; say(fast ? `⚡はやい!注文完了+${bonus}` : `✅注文完了+${bonus}`, 1000); newOrder(); } hud(); }\n          else { wrong++; combo = 0; score = Math.max(0, score - 8); sfx('bad'); say('❌ちがうお皿', 700); popups.push({ x: best.x, y: LANES[best.lane].y - 20, t: '-8', born: performance.now(), color: '#ff6b6b' }); hud(); }\n"
+      ],
+      [
+        719854,
+        720090,
+        "        const startTime = performance.now() + MG_ACTION_START_GRACE_MS;\n"
+      ],
+      [
+        678478,
+        678550,
+        "          setTimeout(() => onComplete(score), 650);\n"
+      ],
+      [
+        677825,
+        678268,
+        "          const score = clamp(Math.round(50 + (chips - START) * 0.5), 15, 100);\n"
+      ],
+      [
+        674162,
+        674594,
+        "        hitBtn.addEventListener('pointerdown', (e) => { e.preventDefault(); if (phase !== 'play' || !running) return; sfx('pop'); me.push(draw()); const v = value(me); if (v > 21) { settle(`💦バースト(${v})…まけ`, -1); } else if (v === 21) stand(false); });\n        standBtn.addEventListener('pointerdown', (e) => { e.preventDefault(); if (phase !== 'play' || !running) return; stand(false); });\n"
+      ],
+      [
+        673153,
+        673333,
+        ""
+      ],
+      [
+        628581,
+        628898,
+        "    { name: 'ほし', emoji: '⭐', rows: ['00100', '11111', '01110', '01110', '10001'] },\n"
+      ],
+      [
+        564315,
+        564387,
+        "          setTimeout(() => onComplete(score), 650);\n"
+      ],
+      [
+        563737,
+        564186,
+        "          const score = clamp(Math.round(10 + total * 0.26), 10, 100);\n"
+      ],
+      [
+        557661,
+        557793,
+        "              sfx(crashed ? 'bad' : telemark ? 'coin' : 'hit'); if (crashed) dist *= 0.55;\n"
+      ],
+      [
+        556753,
+        556858,
+        "            if (x > RAMP_END + 2.5) { takeoff(); vy = 0.5; say('飛び出しがおそい!', 900); }\n"
+      ],
+      [
+        556089,
+        556396,
+        "        canvas.addEventListener('pointerdown', (e) => { e.preventDefault(); if (!running) return; held = true; if (phase === 'ready') { startRun(); btn.textContent = 'とぶ!'; } else if (phase === 'run') { takeoff(); } else if (phase === 'fly') tapAt = performance.now(); });\n"
+      ],
+      [
+        555875,
+        556077,
+        "          if (phase === 'ready') { startRun(); btn.textContent = 'とぶ!'; } else if (phase === 'run') { takeoff(); } else if (phase === 'fly') { tapAt = performance.now(); }\n"
+      ],
+      [
+        555016,
+        555399,
+        "        function takeoff() {\n          if (phase !== 'run') return; const late = x - RAMP_END; // >0 は はしを こえてから\n"
+      ],
+      [
+        552652,
+        552877,
+        ""
+      ],
+      [
+        538953,
+        539030,
+        "          setTimeout(() => onComplete(finalScore), 650);\n"
+      ],
+      [
+        538406,
+        538606,
+        ""
+      ],
+      [
+        534555,
+        534712,
+        "          score += gained; moves++; sfx(gained >= 128 ? 'coin' : gained ? 'pop' : 'tick'); anims = moved; animStart = performance.now(); hud();\n"
+      ],
+      [
+        533091,
+        533244,
+        ""
+      ],
+      [
+        492595,
+        493038,
+        "          const score = clamp(Math.round(15 + rings * 5.5 + rate * 20 + coins * 2), 15, 100);\n"
+      ],
+      [
+        460771,
+        461273,
+        "          const score = win ? clamp(Math.round(72 + Math.max(0, 60 - el) * 0.4), 72, 100) : clamp(Math.round(10 + (revealed / total) * 45), 10, 55);\n"
+      ],
+      [
+        454587,
+        454729,
+        ""
+      ],
+      [
+        451256,
+        451478,
+        "        let running = true, rafId = null, flagMode = false, placed = false, revealed = 0, msg = '', msgUntil = 0, boom = null, pressTimer = null, pressCell = null, pressPointer = null, longPressed = false;\n"
+      ],
+      [
+        415476,
+        415577,
+        "          setTimeout(() => onComplete(score, undefined, {inputs:mainInputs}), 650);\n"
+      ],
+      [
+        414639,
+        415324,
+        "          // 手数ボーナスは 3案の 最短手数の 合計(parTotal)の 1.5ばいまで 満点。もどした 手も 歩いた 手として かぞえる\n          const score = clamp(Math.round(15 + solved * 25 + Math.max(0, 15 - Math.max(0, totalMoves - parTotal * 1.5) * 0.5)), 10, 100);\n"
+      ],
+      [
+        408588,
+        409332,
+        "        undoBtn.addEventListener('pointerdown', (e) => { e.preventDefault(); if (!running || levelDone) return; if (!practice) mainInputs++; const s = history.pop(); if (!s) { say('これ以上もどせないよ', 700); return; } sfx('close'); grid = s.grid; px = s.px; py = s.py; moves = s.moves; anim = null; movesEl.textContent = '手' + moves; if (!pushPuzzleStuck(grid, isGoal)) pushPuzzleSuggestUndo(undoBtn, false); });\n        container.querySelector('#pzReset').addEventListener('pointerdown', (e) => { e.preventDefault(); if (!running || levelDone) return; if (!practice) mainInputs++; load(false); say('はじめの形にもどしたよ(時間はそのまま)', 1200); });\n"
+      ],
+      [
+        407437,
+        407965,
+        "          if (solvedAll()) { levelDone = true; pushPuzzleSuggestUndo(undoBtn, false); if (practice) { say('できた！箱はうしろから押す。本番にもどって挑戦しよう。', 6000); return; } doneAt = performance.now(); solved++; say(lvIdx + 1 < 3 ? '✅クリア!次の問題' : '🏆ぜんぶクリア!', 1400); setTimeout(() => { if (!running) return; lvIdx++; if (lvIdx >= 3) { finish(); return; } load(true); }, 1200); return; }\n"
+      ],
+      [
+        407222,
+        407260,
+        ""
+      ],
+      [
+        405651,
+        405749,
+        "            levelStart = performance.now(); pausedMs = 0; doneAt = 0;\n"
+      ],
+      [
+        402173,
+        402649,
+        ""
+      ],
+      [
+        401875,
+        401875,
+        "        const parTotal = levels.reduce((n, { lv }) => n + lv.par, 0);\n"
+      ],
+      [
+        379403,
+        379844,
+        "          const result = clamp(Math.round(14 + Math.min(44, kills * 3.0) + (bossDead ? 34 : 0) + ship.lives * 6), 10, 100);\n"
+      ],
+      [
+        342648,
+        342743,
+        "          setTimeout(() => onComplete(score), 650);\n"
+      ],
+      [
+        341225,
+        342611,
+        "          const score = win ? clamp(Math.round(62 + lives * 3.8), 60, 100) : clamp(Math.round(12 + wave * 9 + kills * 0.4), 10, 55);\n          say(win ? `🏆守りきった!❤️${lives}のこし` : `お城が落ちた…ウェーブ${wave}まで`, 2400);\n"
+      ],
+      [
+        340875,
+        340971,
+        "          if (now - startTime > TIME_LIMIT_MS) { finish(lives > 0); return; }\n"
+      ],
+      [
+        336731,
+        336915,
+        "            for (const e of hitList) { e.hp -= dmg; if (tt.slow) e.slow = 1.2; if (e.hp <= 0 && !e.dead) { e.dead = true; kills++; gold += e.gold; hud(); sfx('tick'); } }\n"
+      ],
+      [
+        335512,
+        335716,
+        "            if (e.d >= PATH.length - 1) { e.dead = true; lives -= e.boss ? 3 : 1; hud(); sfx('bad'); say('敵が通りぬけた!❤️-1', 900); if (lives <= 0) { finish(false); return; } }\n"
+      ],
+      [
+        334843,
+        335287,
+        "            if (!spawnQueue.length && !enemies.length) { waveActive = false; if (wave >= WAVES) { finish(true); return; } gold += 25; hud(); say(`ウェーブ${wave}クリア!💰+25`, 1400); nextWaveAt = now + 5000; }\n"
+      ],
+      [
+        333574,
+        333648,
+        "          wave++; waveActive = true; hud();\n"
+      ],
+      [
+        333258,
+        333538,
+        "        function upgrade(t) { const c = upgradeCost(t); if (t.level >= 3) { say('もう最強!', 700); return; } if (gold < c) { say('お金が足りない…', 800); return; } gold -= c; t.level++; sfx('levelup'); hud(); say(`⬆️ Lv${t.level}に強化!`, 800); }\n"
+      ],
+      [
+        333027,
+        333192,
+        "          gold -= tt.cost; towers.push({ cx, cy, type: selType, level: 1, cd: 0 }); sfx('pop'); hud(); say(`${tt.emoji} ${tt.name}を建てた!`, 700);\n"
+      ],
+      [
+        332072,
+        332220,
+        "        nextBtn.addEventListener('pointerdown', (e) => { e.preventDefault(); if (!waveActive && wave < WAVES) startWave(true); });\n"
+      ],
+      [
+        329592,
+        329993,
+        "        let towers = [], enemies = [], shots = [], booms = [], spawnQueue = [], spawnTimer = 0, waveActive = false, nextWaveAt = 0, kills = 0;\n"
+      ],
+      [
+        163392,
+        163596,
+        "        const result=clear?clamp(74+balls*8+Math.min(10,(score-GOAL)/50),74,100):clamp(20+score/GOAL*52,20,70);\n        setTimeout(()=>onComplete(Math.round(result)),750);\n"
+      ],
+      [
+        162526,
+        162661,
+        ""
+      ],
+      [
+        156360,
+        156477,
+        ""
+      ],
+      [
+        154988,
+        155129,
+        "      function resetBall(){bx=95;by=113;vx=0;vy=0;inLane=true;launched=false;charge=0;launchBtn.disabled=false;}\n"
+      ],
+      [
+        154054,
+        154298,
+        "      canvas.addEventListener('pointerdown',(e)=>{e.preventDefault();const p=mgPointerPos(canvas,e);const side=p.nx<0.5?0:1;touches.set(e.pointerId,side);flippers[side].held=true;try{canvas.setPointerCapture(e.pointerId);}catch(err){}});\n"
+      ],
+      [
+        153231,
+        153885,
+        "      bindHeldButton(container.querySelector('#pbLeft'),(v)=>{flippers[0].held=v;});\n      bindHeldButton(container.querySelector('#pbRight'),(v)=>{flippers[1].held=v;});\n      bindHeldButton(launchBtn,(v)=>{if(!running)return;if(v){if(inLane&&!launched){charging=true;charge=0;chargeDir=1;}}else if(charging){charging=false;launch();}});\n"
+      ],
+      [
+        150365,
+        150817,
+        ""
+      ],
+      [
+        135567,
+        136083,
+        "      function finish(){if(done)return;done=true;cancelAnimationFrame(rafId);hint.textContent='おわり!'+lines+'ライン消した';const result=clamp(35+lines*11+Math.min(25,score/70),30,100);const play=meter.done();setTimeout(()=>onComplete(Math.round(result),null,play),650);}\n"
+      ],
+      [
+        132966,
+        133140,
+        "      function lock(){sfx('pop');for(let r=0;r<piece.length;r++)for(let q=0;q<piece[r].length;q++)if(piece[r][q]&&py+r>=0)board[py+r][px+q]=1;clearLines();spawn();}\n"
+      ],
+      [
+        131026,
+        131100,
+        "      let piece=null,px=2,py=0,lines=0,score=0,done=false,rafId;\n"
+      ],
+      [
+        121912,
+        122601,
+        "          if (win) { score = clamp(45 + gateRatio * 35 + Math.min(20, jumpsOk * 5) - hits * 6, 30, 100); say('🏁ゴール!ゲート' + gates + '/' + gatesTotal); }\n          else { score = clamp(10 + progress * 40 + gateRatio * 10, 10, 55); say('タイムアップ…' + Math.round(progress * 100) + '%まですべった'); }\n"
+      ],
+      [
+        115427,
+        115542,
+        ""
+      ],
+      [
+        115291,
+        115291,
+        "          meter.act();\n"
+      ],
+      [
+        8760,
+        9720,
+        ""
+      ],
       [
         960020,
         960343,

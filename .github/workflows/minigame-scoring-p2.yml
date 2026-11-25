@@ -1,0 +1,54 @@
+name: Minigame scoring P2
+
+# ミニゲーム採点監査 Phase 2(達成なしは30点未満・最初の目標で30点いじょう・参加度メーター)。
+# 本物の ページを スマホ幅・タッチで ひらき、Chromium と WebKit(iPhone の Safari と おなじ エンジン)で たしかめる。
+# 採点の 回帰テスト(16本)は npm test(Runtime smoke test)の tests/minigame-scoring-p2-test.cjs。
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'games.js'
+      - 'script.js'
+      - 'index.html'
+      - 'tests/minigame-scoring-p2-*.cjs'
+      - 'tests/helpers/**'
+      - 'package*.json'
+      - '.github/workflows/minigame-scoring-p2.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'games.js'
+      - 'script.js'
+      - 'index.html'
+      - 'tests/minigame-scoring-p2-*.cjs'
+      - 'tests/helpers/**'
+      - 'package*.json'
+      - '.github/workflows/minigame-scoring-p2.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  minigame-scoring-p2-browser:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm ci
+      - run: npm install --no-save --package-lock=false playwright@1.62.1
+      - run: npx playwright install --with-deps chromium webkit
+      - name: Scoring regressions (harness)
+        run: node --test tests/minigame-scoring-p2-test.cjs
+      - name: Real page, phone size, touch (Chromium and WebKit)
+        run: |
+          mkdir -p test-results/minigame-scoring-p2
+          node tests/minigame-scoring-p2-browser.cjs --engines chromium,webkit --shots test-results/minigame-scoring-p2
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: minigame-scoring-p2
+          path: test-results/minigame-scoring-p2
+          retention-days: 14
