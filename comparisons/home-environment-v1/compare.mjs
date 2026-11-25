@@ -1,9 +1,8 @@
-// Comparison-only driver: the same production renderer, built from main and from this branch.
+// Comparison-only driver: the production renderer (A) beside the proposal in its two modes (B, C).
 import * as nowWorld from './baseline/home-production-world.mjs';
 import * as nowDay from './baseline/home-dayparts.mjs';
 import * as nowLeaf from './baseline/home-autumn-leaves.mjs';
 import * as nextWorld from './proposal/home-production-world.mjs';
-import * as nextDay from './proposal/home-dayparts.mjs';
 import * as nextLeaf from './proposal/home-autumn-leaves.mjs';
 
 const AXES = {
@@ -15,14 +14,33 @@ const AXES = {
   tier:[['0','多い'],['1','ふつう'],['2','少ない']]
 };
 const PRESETS = [
-  ['かわ・秋・昼','river_lake','autumn','sunny','day'],['いなか・秋・夜','countryside','autumn','sunny','night'],
-  ['もり・秋・夜','forest','autumn','sunny','night'],['やま・秋・夕','mountain','autumn','sunny','evening'],
-  ['もり・春・昼','forest','spring','sunny','day'],['かわ・春・夕','river_lake','spring','sunny','evening'],
-  ['うみ・雨・昼','sea','summer','rain','day'],['とかい・雨・夜','city','summer','rain','night'],
-  ['もり・雨・朝','forest','summer','rain','morning'],['ゆきぐに・雪・夜','snow','winter','snow','night'],
-  ['いなか・雪・昼','countryside','winter','snow','day'],['おうち・雨・夕','home','summer','rain','evening']
+  ['うみ・雨・夕','sea','summer','rain','evening'],['うみ・晴れ・朝','sea','summer','sunny','morning'],
+  ['もり・夏・昼','forest','summer','sunny','day'],['もり・夏・夜','forest','summer','sunny','night'],
+  ['もり・秋・昼','forest','autumn','sunny','day'],['かわ・春・夕','river_lake','spring','sunny','evening'],
+  ['かわ・雨・昼','river_lake','summer','rain','day'],['いなか・秋・夜','countryside','autumn','sunny','night'],
+  ['とかい・雨・夜','city','summer','rain','night'],['ゆきぐに・雪・夜','snow','winter','snow','night'],
+  ['やま・夏・朝','mountain','summer','sunny','morning'],['ジャングル・雨・昼','jungle','summer','rain','day'],
+  ['さばく・晴れ・昼','desert','summer','sunny','day'],['おうち・雨・夕','home','summer','rain','evening'],
+  ['しんかい','deepsea','summer','sunny','day'],['ほしぞら・夜','star_stop','summer','sunny','night'],
+  ['きおくのみずうみ・夕','memory_lake','summer','sunny','evening']
 ];
-const state = {region:'river_lake', season:'autumn', weather:'sunny', time:'day', tier:'0'};
+// What the living layer adds in each region (painters reused from #567/#568).
+const LIVING = {
+  home:'窓の外の木の揺れ、床に落ちる光のゆらぎ、雨の日は窓ガラスを伝うしずく。',
+  forest:'枝葉と手前の草が風の波で揺れ、木漏れ日と光の筋が動きます。夏の夕・夜はほたる。',
+  river_lake:'川面の流れとゆらぎ、瀬の白波、きらめき、岸の木の揺れ。',
+  city:'街灯と窓の灯りの呼吸、路面の映り込み（雨の日は長く）、植え込みの揺れ。',
+  countryside:'稲と畦の草が風の帯で揺れ、木の葉がそよぎ、地面の光が動きます。',
+  mountain:'雲と霧がゆっくり流れ、足もとの草花が揺れます。',
+  snow:'雪を載せた枝の揺れ、窓からこぼれる灯り、風に舞う粉雪。',
+  sea:'沖から寄せる波、波打ち際の満ち引き、浅瀬の光の網、太陽・月の光の道。',
+  jungle:'葉の揺れ、差しこむ光の筋のゆらぎ、池の水面、夏の夜の光。',
+  desert:'砂の上を流れる風、稜線の砂けむり、昼のかげろう。',
+  deepsea:'差しこむ光の柱のゆらぎと、ただよう浮遊物・小さな光。',
+  star_stop:'銀河の光の脈動、星のまたたき、ときどき流れ星。',
+  memory_lake:'湖面のゆるやかな流れと映り込み、岸の枝の揺れ、ただよう光。'
+};
+const state = {region:'sea', season:'summer', weather:'rain', time:'evening', tier:'0'};
 const order = ['region','season','weather','time','tier'];
 function readHash() {
   const m = location.hash.match(/^#v(\d+)-(\d)-(\d)-(\d)-(\d)$/);
@@ -33,33 +51,33 @@ function writeHash() {
   if (location.hash !== next) history.replaceState(null, '', next);
 }
 
-function mount(scene, mod) {
+function mount(scene, mod, environmentFx) {
   const stage = scene.querySelector('.stage');
   const body = {dataset:{homeViewportVersion:'12', homeTinyOverview:'true', homeDisplayVersion:'18'}, style:{setProperty() {}}};
   const doc = {body, createElement:tag => document.createElement(tag), getElementById:() => stage, querySelector:() => null};
-  return mod.createHomeWorld({container:scene, document:doc, window});
+  return mod.createHomeWorld({container:scene, document:doc, window, environmentFx});
 }
-const scenes = [document.getElementById('sceneNow'), document.getElementById('sceneNext')];
-const worlds = [mount(scenes[0], nowWorld), mount(scenes[1], nextWorld)];
+const scenes = ['sceneA','sceneB','sceneC'].map(id => document.getElementById(id));
+const worlds = [mount(scenes[0], nowWorld), mount(scenes[1], nextWorld, 'falling'), mount(scenes[2], nextWorld, 'living')];
 
-const COUNT = {old:[16,9,5]};
-function describe(env, day, leaf, proposal) {
-  const mood = day.atmosphere(env), tier = Number(state.tier);
-  if (leaf.usesAutumnLeaves(env.region, env.time, env))
-    return proposal ? '落ち葉B案（承認済みの葉・表裏・風）。夜は月明かりの色、毎秒30コマで描画。' : '落ち葉B案（承認済み）。毎秒約8コマで描画。';
-  const old = COUNT.old[tier];
-  if (mood.particle === 'leaf') return `旧い落ち葉（葉の画像${old}枚が斜めに直進）。B案は未適用。`;
-  if (mood.particle === 'petal') return proposal ? '花びら：ゆれ・傾き・裏返りを個別の周期で。時間帯で色が変わります。' : `旧い花びら（花の画像${old}枚が斜めに直進・一定回転）。`;
-  if (mood.particle === 'rain') return proposal ? '雨：ほぼ真下へ、遠・中・近の3層。雨雲の色かぶせ、水面には雨の輪。' : `旧い雨（1px線${old}本・斜め約7度・不透明度0.36）。`;
-  if (mood.particle === 'snow') return proposal ? '雪：遠・中・近の3層。ふわっと左右にゆれて、ゆるく横へ流れます。' : `旧い雪（点${old}個が斜めに直進）。`;
-  if (mood.particle === 'plankton' || mood.particle === 'spark') return 'ただよう光（現状維持）。';
-  return mood.cloud ? '曇りの薄いベール（現状維持）。' : '粒子なし。原画の光と影のみ（現状維持）。';
+const OLD = [16,9,5];
+function falling(env, proposal) {
+  const mood = nowDay.atmosphere(env), old = OLD[Number(state.tier)];
+  if ((proposal ? nextLeaf : nowLeaf).usesAutumnLeaves(env.region, env.time, env))
+    return proposal ? '落ち葉B案。夜は月明かりの色、毎秒30コマ。' : '落ち葉B案（承認済み）。毎秒約8コマ。';
+  if (mood.particle === 'leaf') return `旧い落ち葉（画像${old}枚が斜めに直進）。`;
+  if (mood.particle === 'petal') return proposal ? '花びら：ゆれ・傾き・裏返りが1枚ずつ別の周期。' : `旧い花びら（画像${old}枚が斜めに直進）。`;
+  if (mood.particle === 'rain') return proposal ? '雨：ほぼ真下へ3層。水面いっぱいに雨の輪（うみ・かわ・ジャングル）。' : `旧い雨（1px線${old}本・斜め約7度）。`;
+  if (mood.particle === 'snow') return proposal ? '雪：3層でふわっと左右にゆれ、ゆるく横へ。' : `旧い雪（点${old}個が斜めに直進）。`;
+  if (mood.particle === 'plankton' || mood.particle === 'spark') return 'ただよう光の点。';
+  return mood.cloud ? '曇りの薄いベール。' : '落下物なし。';
 }
 function apply() {
   const env = {region:state.region, season:state.season, weather:state.weather, time:state.time};
   worlds.forEach(world => world.setEnvironment(env));
-  document.getElementById('noteNow').textContent = describe(env, nowDay, nowLeaf, false);
-  document.getElementById('noteNext').textContent = describe(env, nextDay, nextLeaf, true);
+  document.getElementById('noteA').textContent = falling(env, false);
+  document.getElementById('noteB').textContent = falling(env, true);
+  document.getElementById('noteC').textContent = LIVING[env.region] + ' ＋ ' + falling(env, true).replace('ただよう光の点。', '');
   for (const key of order) for (const button of document.getElementById(key).children)
     button.setAttribute('aria-pressed', String(button.dataset.value === state[key]));
   for (const button of document.getElementById('presets').children) {
@@ -84,20 +102,23 @@ PRESETS.forEach(([label, ...values], index) => {
   document.getElementById('presets').append(button);
 });
 const panes = document.getElementById('panes');
-for (const [id, side] of [['showNow','now'],['showNext','next']]) document.getElementById(id).onclick = () => {
+for (const side of ['a','b','c']) document.getElementById('show' + side.toUpperCase()).onclick = () => {
   panes.dataset.show = side;
-  document.getElementById('showNow').setAttribute('aria-pressed', String(side === 'now'));
-  document.getElementById('showNext').setAttribute('aria-pressed', String(side === 'next'));
+  for (const other of ['a','b','c']) document.getElementById('show' + other.toUpperCase()).setAttribute('aria-pressed', String(other === side));
 };
 readHash();
 addEventListener('hashchange', () => { readHash(); apply(); });
 apply();
 const reduced = matchMedia('(prefers-reduced-motion: reduce)');
+// The home itself steps at 30 fps; the comparison keeps the same cadence.
 let last = performance.now();
 function frame(now) {
-  const dt = Math.min(.1, (now - last) / 1000); last = now;
-  // A pane hidden by the phone layout has no size to paint into.
-  worlds.forEach((world, i) => { if (scenes[i].clientWidth) world.draw(dt, {tier:Number(state.tier), reducedMotion:reduced.matches}); });
+  const gap = now - last;
+  if (gap >= 32) {
+    last = now;
+    // A pane hidden by the phone layout has no size to paint into.
+    worlds.forEach((world, i) => { if (scenes[i].clientWidth) world.draw(Math.min(.1, gap / 1000), {tier:Number(state.tier), reducedMotion:reduced.matches}); });
+  }
   requestAnimationFrame(frame);
 }
 requestAnimationFrame(frame);
