@@ -120,17 +120,18 @@ function groundWaves(ctx, region, time, seconds) {
 
 // The river runs toward the viewer's left: bright slips of current slide downstream from
 // every sampled point of the painted water, each with its own length, speed and rest.
-function riverFlow(ctx, time, weather, seconds) {
+export function riverFlow(ctx, time, weather, seconds, {gain = 1, every = 1} = {}) {
   const tone = LIGHT[time] || LIGHT.day, spots = RAIN_WATER.river_lake, dull = weather === 'sunny' ? 1 : .6;
   ctx.lineCap = 'round';
   ctx.strokeStyle = `rgb(${tone.glint})`;
   spots.forEach(([u, v], i) => {
+    if (i % every) return;
     const depth = clamp((v - .21) / .36), period = 1.5 + 1.7 * hash(i + 601);
     const p = unit(seconds / period + hash(i + 617));
     const travel = (70 + 130 * depth) * p, length = (22 + 46 * depth) * (.6 + .8 * hash(i + 631));
     const x = u * 1000 - .86 * travel, y = v * 1500 + .34 * travel + 3 * Math.sin(seconds * 2.3 + i);
-    ctx.globalAlpha = (.3 + .5 * depth) * dull * Math.sin(Math.PI * p) ** 1.5 * (time === 'night' ? .7 : 1);
-    ctx.lineWidth = 1.2 + 2.2 * depth;
+    ctx.globalAlpha = gain * (.3 + .5 * depth) * dull * Math.sin(Math.PI * p) ** 1.5 * (time === 'night' ? .7 : 1);
+    ctx.lineWidth = (1.2 + 2.2 * depth) * (gain < 1 ? .7 : 1);
     ctx.beginPath(); ctx.moveTo(x, y);
     ctx.quadraticCurveTo(x - .43 * length, y + .17 * length - 3, x - .86 * length, y + .34 * length);
     ctx.stroke();
@@ -177,7 +178,7 @@ function sparkle(ctx, x, y, radius) {
   ctx.quadraticCurveTo(x - radius * .14, y - radius * .14, x, y - radius);
   ctx.fill();
 }
-function waterGlints(ctx, region, time, weather, seconds) {
+export function waterGlints(ctx, region, time, weather, seconds, {gain = 1, size = 1} = {}) {
   const spots = RAIN_WATER[region];
   if (!spots || weather !== 'sunny' && weather !== 'cloudy') return;
   const tone = LIGHT[time] || LIGHT.day, sun = region === 'sea' ? SEA.sun[time] : null;
@@ -190,8 +191,8 @@ function waterGlints(ctx, region, time, weather, seconds) {
     // Points near the sun's or moon's path flash brighter and larger.
     const path = sun == null ? .35 : Math.exp(-(((u - sun) / .13) ** 2));
     const x = (u + (hash(i * 59 + turn) - .5) * .03) * 1000, y = (v + (hash(i * 61 + turn) - .5) * .012) * 1500;
-    ctx.globalAlpha = beat * (.4 + .6 * path) * (weather === 'cloudy' ? .45 : 1);
-    sparkle(ctx, x, y, (4.5 + 8 * depth) * (.7 + .9 * path));
+    ctx.globalAlpha = gain * beat * (.4 + .6 * path) * (weather === 'cloudy' ? .45 : 1);
+    sparkle(ctx, x, y, size * (4.5 + 8 * depth) * (.7 + .9 * path));
   });
 }
 
@@ -226,23 +227,23 @@ export function fireflyAt(region, i, seconds) {
   const period = 2.2 + 3.6 * r(8), cycle = seconds / period + r(9), resting = hash(i * 71 + Math.floor(cycle)) < .28;
   return {x, y, glow:resting ? 0 : Math.sin(Math.PI * unit(cycle)) ** 2.2, size:.75 + .6 * r(10)};
 }
-function fireflies(ctx, region, time, seconds, doc) {
+export function fireflies(ctx, region, time, seconds, doc, {gain = 1, size = 1} = {}) {
   const zone = FIREFLY_ZONES[region];
   if (!zone) return;
   const lake = region === 'memory_lake', brush = glowBrush(doc, lake ? '196,220,255' : '214,255,120');
   const core = glowBrush(doc, lake ? '244,240,255' : '255,255,210');
   if (!brush || !core) return;
   for (let i = 0; i < zone[4]; i++) {
-    const fly = fireflyAt(region, i, seconds), a = fly.glow * (time === 'night' ? 1 : .75);
+    const fly = fireflyAt(region, i, seconds), a = gain * fly.glow * (time === 'night' ? 1 : .75);
     if (a < .02) continue;
-    const halo = 46 * fly.size, dot = 11 * fly.size;
+    const halo = 46 * fly.size * size, dot = 11 * fly.size * size;
     ctx.globalAlpha = a * .8; ctx.drawImage(brush, fly.x - halo, fly.y - halo, 2 * halo, 2 * halo);
     ctx.globalAlpha = a; ctx.drawImage(core, fly.x - dot, fly.y - dot, 2 * dot, 2 * dot);
   }
 }
 
 // Stars twinkle one by one on their own beats, and once in a while one falls.
-function nightSky(ctx, region, seconds) {
+export function nightSky(ctx, region, seconds, {gain = 1, size = 1, meteorEvery = 17} = {}) {
   const stars = NIGHT_STARS[region];
   if (!stars) return;
   ctx.fillStyle = '#f4f7ff';
@@ -250,10 +251,10 @@ function nightSky(ctx, region, seconds) {
     const period = 1.6 + 4.2 * hash(i + 3001), cycle = seconds / period + hash(i + 3011);
     if (hash(i * 41 + Math.floor(cycle)) < .45) return;
     const beat = Math.sin(Math.PI * unit(cycle)) ** 2;
-    ctx.globalAlpha = .85 * beat;
-    sparkle(ctx, u * 1000, v * 1500, 5 + 9 * hash(i + 3023) * beat);
+    ctx.globalAlpha = .85 * beat * gain;
+    sparkle(ctx, u * 1000, v * 1500, size * (5 + 9 * hash(i + 3023) * beat));
   });
-  const every = 17, turn = Math.floor(seconds / every), p = (seconds - turn * every) / 1.1;
+  const every = meteorEvery, turn = Math.floor(seconds / every), p = (seconds - turn * every) / 1.1;
   if (p < 1 && hash(turn * 29 + 3) < .7) {
     const x = 180 + 640 * hash(turn * 29 + 5), y = 40 + 150 * hash(turn * 29 + 7), side = hash(turn * 29 + 9) < .5 ? -1 : 1;
     const hx = x + side * 260 * p, hy = y + 110 * p, tail = 150 * Math.sin(Math.PI * p);

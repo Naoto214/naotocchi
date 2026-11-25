@@ -79,7 +79,7 @@ const peakFaces = [
 ];
 function mountain(ctx,s) {
   const {t,alpha,energy,effects,night,weather}=s;
-  if (effects.motion && !s.reduced && !night && s.image) {
+  if (effects.motion && effects.deform!==false && !s.reduced && !night && s.image) {
     const tiles=sampleParts(s.image,skyClouds);
     skyClouds.forEach(([x,y,w,h],i)=>{
       if (!tiles[i]) return;
@@ -243,7 +243,7 @@ function crestPoint(line,f) {
 function desert(ctx,s) {
   const {t,alpha,energy,effects,night,weather}=s;
   const dry=weather==='sunny'||weather==='cloudy';
-  if(effects.motion && !s.reduced && s.image && weather==='sunny' && s.time==='day' && s.season!=='winter') {
+  if(effects.motion && effects.deform!==false && !s.reduced && s.image && weather==='sunny' && s.time==='day' && s.season!=='winter') {
     const tiles=sampleParts(s.image,heatPatches);
     heatPatches.forEach(([x,y,w,h],i)=>{
       if(!tiles[i])return;

@@ -148,3 +148,48 @@ test('maximum keeps the particle counts of the standard version', () => {
   const drops = lively => { const r = recorder(); paintFalling(r.ctx, rect, env, mood, 7, {tier:0, lively}); return r.calls.filter(([name]) => name === 'moveTo').length; };
   assert.equal(drops(true), drops(false));
 });
+
+test('final: plant sway is seamless, small, and strongest in the foreground', async () => {
+  const {SWAY_SPOTS, swayOffset, FINAL_EFFECTS, paintSway} = await import('./proposal/living/final.mjs');
+  assert.deepEqual(Object.keys(FINAL_EFFECTS).sort(), Object.keys(DAYPARTS).sort());
+  // Every reused painter that cuts out and re-places plants or sky is switched off.
+  for (const region of ['forest','river_lake','countryside','home','city','snow','memory_lake','mountain','jungle','desert'])
+    assert.ok(FINAL_EFFECTS[region].canopy === false && FINAL_EFFECTS[region].deform === false, region);
+  for (const [region, spots] of Object.entries(SWAY_SPOTS)) {
+    spots.forEach((spot, i) => {
+      const [x, y, rx, ry, near] = spot;
+      assert.ok(x - rx > -60 && x + rx < 1060 && y - ry > -40 && y + ry < 1540 && near > 0 && near <= 1);
+      let peak = 0;
+      for (let s = 0; s < 120; s += .2) { const o = swayOffset(region, i, spot, s); peak = Math.max(peak, Math.hypot(o.dx, o.dy)); }
+      // The centre never travels more than a third of the spot's radius: a stretch, not a tear.
+      assert.ok(peak > .8 && peak < Math.min(rx, ry) / 3, `${region} ${i} ${peak}`);
+    });
+  }
+  const far = SWAY_SPOTS.forest.find(spot => spot[4] < .35), near = SWAY_SPOTS.forest.find(spot => spot[4] > .95);
+  const reach = spot => Math.max(...Array.from({length:300}, (_, k) => Math.abs(swayOffset('forest', 0, spot, k * .2).dx)));
+  assert.ok(reach(near) > 1.6 * reach(far));
+  // Cells at the rim of a spot do not move at all, so the spot joins the still painting.
+  const r = recorder(), image = {naturalWidth:1024, naturalHeight:1536};
+  paintSway(r.ctx, image, 'forest', 33);
+  const draws = r.calls.filter(([name]) => name === 'drawImage');
+  assert.ok(draws.length > 300);
+  for (const [, , sx, sy, sw, sh, dx, dy] of draws) {
+    const shift = Math.hypot(dx + .5 - sx / 1.024, dy + .5 - sy / 1.024);
+    assert.ok(shift < 12, String(shift));
+  }
+});
+
+test('final: the forest no longer draws the row of lights, and fireflies are the independent ones', async () => {
+  const {drawForestE} = await import('./proposal/living/forest-e.mjs');
+  const {FINAL_EFFECTS} = await import('./proposal/living/final.mjs');
+  // The reused painter builds its glow brushes on a document canvas.
+  globalThis.document = {createElement:() => ({getContext:() => withGradients(recorder()).ctx})};
+  const marks = effects => {
+    const r = withGradients(recorder());
+    drawForestE(r.ctx, {region:'forest', time:'night', variant:'E3', width:1000, height:1500, seconds:70, opacity:1, strength:1,
+      season:'summer', weather:'sunny', fallPlus:true, fall:{count:0, size:1, speed:1, wind:1}, effects});
+    return r.calls.filter(([name]) => name === 'arc' || name === 'ellipse').length;
+  };
+  assert.ok(marks(undefined) > 10);          // C: fireflies and the procession
+  assert.equal(marks(FINAL_EFFECTS.forest), 0);
+});

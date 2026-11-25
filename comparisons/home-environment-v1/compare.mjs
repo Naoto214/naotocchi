@@ -40,6 +40,22 @@ const LIVING = {
   star_stop:'銀河の光の脈動、星のまたたき、ときどき流れ星。',
   memory_lake:'湖面のゆるやかな流れと映り込み、岸の枝の揺れ、ただよう光。'
 };
+// The final candidate: C's strength, with cut-out deformation and regular motion replaced.
+const FINAL = {
+  home:'窓辺の光とランプのゆらぎ。鉢植えの葉が静かに揺れます。',
+  forest:'葉の茂みと草むらだけが、継ぎ目なく静かに揺れます。幹は動きません。木漏れ日。夏の夕・夜は1匹ずつ別々に飛ぶほたる、夜は星のまたたき。',
+  river_lake:'川面のゆらぎに、下流へすべる控えめな流れときらめき。岸の葉と草の揺れ。夏のほたる、夜の星。',
+  city:'街灯と窓の灯り、路面の映り込み。植え込みの葉の揺れ。',
+  countryside:'木の葉・稲・道ばたの草が静かに揺れます。夏のほたる、夜の星。',
+  mountain:'霧の流れと足もとの草花の揺れ。雲は動かしません。夜の星。',
+  snow:'窓からこぼれる灯りと粉雪。雪を載せた枝は動かしません。夜の星。',
+  sea:'寄せて返す波と波打ち際、浅瀬の光。海面の控えめなきらめき。夜の星。',
+  jungle:'葉とシダの揺れ、光の筋、池のきらめき。夏は1匹ずつ別々のほたる。',
+  desert:'砂の上を流れる風。かげろうの歪みはなし。夜の星。',
+  deepsea:'光の柱と浮遊物（C案と同じ）。',
+  star_stop:'銀河と星のまたたき、流れ星（C案と同じ）。',
+  memory_lake:'湖面のゆらぎと映り込み、柳の葉の揺れ。ただよう光は1つずつ別の道を動きます。夜の星。'
+};
 // What the maximum version adds on top of C.
 const MAXIMUM = {
   home:'C案の動きを最大強度に。',
@@ -56,7 +72,7 @@ const MAXIMUM = {
   star_stop:'銀河・星・流れ星を最大強度に。',
   memory_lake:'ただよう光が1つずつ別の道を動き、夜は星がまたたく。湖面のゆらぎを最大に。'
 };
-const state = {region:'sea', season:'summer', weather:'sunny', time:'evening', tier:'1'};
+const state = {region:'forest', season:'summer', weather:'sunny', time:'night', tier:'1'};
 const order = ['region','season','weather','time','tier'];
 function readHash() {
   const m = location.hash.match(/^#v(\d+)-(\d)-(\d)-(\d)-(\d)$/);
@@ -73,8 +89,8 @@ function mount(scene, mod, environmentFx) {
   const doc = {body, createElement:tag => document.createElement(tag), getElementById:() => stage, querySelector:() => null};
   return mod.createHomeWorld({container:scene, document:doc, window, environmentFx});
 }
-const scenes = ['sceneA','sceneB','sceneC','sceneD'].map(id => document.getElementById(id));
-const worlds = [mount(scenes[0], nowWorld), mount(scenes[1], nextWorld, 'falling'), mount(scenes[2], nextWorld, 'living'), mount(scenes[3], nextWorld, 'maximum')];
+const scenes = ['sceneA','sceneB','sceneC','sceneD','sceneE'].map(id => document.getElementById(id));
+const worlds = [mount(scenes[0], nowWorld), mount(scenes[1], nextWorld, 'falling'), mount(scenes[2], nextWorld, 'living'), mount(scenes[3], nextWorld, 'maximum'), mount(scenes[4], nextWorld, 'final')];
 
 const OLD = [16,9,5];
 function falling(env, proposal) {
@@ -95,6 +111,7 @@ function apply() {
   document.getElementById('noteB').textContent = falling(env, true);
   document.getElementById('noteC').textContent = LIVING[env.region] + ' ＋ ' + falling(env, true).replace('ただよう光の点。', '');
   document.getElementById('noteD').textContent = MAXIMUM[env.region];
+  document.getElementById('noteE').textContent = FINAL[env.region] + ' ＋ ' + falling(env, true).replace('ただよう光の点。', '');
   for (const key of order) for (const button of document.getElementById(key).children)
     button.setAttribute('aria-pressed', String(button.dataset.value === state[key]));
   for (const button of document.getElementById('presets').children) {
@@ -119,11 +136,12 @@ PRESETS.forEach(([label, ...values], index) => {
   document.getElementById('presets').append(button);
 });
 const panes = document.getElementById('panes');
-// The left pane shows one of A, B or C; the maximum version stays beside it. A phone shows one at a time.
-for (const side of ['a','b','c','d']) document.getElementById('show' + side.toUpperCase()).onclick = () => {
-  if (side !== 'd') panes.dataset.left = side;
+// The left pane shows one of A to D; the final candidate stays beside it. A phone shows one at a time.
+const SIDES = ['a','b','c','d','e'];
+for (const side of SIDES) document.getElementById('show' + side.toUpperCase()).onclick = () => {
+  if (side !== 'e') panes.dataset.left = side;
   panes.dataset.show = side;
-  for (const other of ['a','b','c','d']) document.getElementById('show' + other.toUpperCase()).setAttribute('aria-pressed', String(other === 'd' ? side === 'd' : other === panes.dataset.left));
+  for (const other of SIDES) document.getElementById('show' + other.toUpperCase()).setAttribute('aria-pressed', String(other === 'e' ? side === 'e' : other === panes.dataset.left));
 };
 readHash();
 addEventListener('hashchange', () => { readHash(); apply(); });
