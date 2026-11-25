@@ -107,14 +107,15 @@ test('T7: 参加なしは「途中で やめた」と おなじ(元気-6・き�
   assert.deepEqual({...k.s.lifetime.minigameRecords['hang-glider-3d']}, {best: 82, last: 70});
 });
 
-test('T7: 遊んで 低い 点だった ときは いままでの 採点と ペナルティ(失敗)のまま', () => {
+// 2026-11-25 C案: 遊んで 低い 点でも 記録・コイン0 は これまでどおり。寿命(いのち)の ペナルティは つけない
+test('T7: 遊んで 低い 点だった ときは いままでの 採点(失敗・コイン0)のまま、寿命は へらさない', () => {
   const r = finishWith('reversi-6', 20, {acts: 12, cover: 0.7});
   assert.equal(r.final, 20);
   assert.equal(r.counted, 1);
   assert.equal(r.coins, 0);
   assert.equal(r.record.last, 20);
   assert.equal(r.s.lifetime.minigamesPlayed, r.was.played + 1);
-  assert.ok(r.s.deathMeter > r.was.death, '寿命の ペナルティは のこる');
+  assert.ok(r.s.deathMeter <= r.was.death, 'しっぱい では 寿命の ペナルティを つけない');
   assert.ok(!r.h.api.getMessage().includes(IDLE_TEXT));
 });
 
