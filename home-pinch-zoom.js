@@ -134,8 +134,12 @@
   }
   // ---- two-finger gesture (only fingers that start on the home world) ----
   const pair=()=>{const [a,b]=[...pointers.values()];return {d:Math.hypot(a.x-b.x,a.y-b.y)||1,mx:(a.x+b.x)/2,my:(a.y+b.y)/2};};
+  // A lost pointerup must never leave a phantom finger behind.
+  function forget(){pointers.clear();if(pinch){pinch=null;if(z<SNAP)reset(true);}}
   function down(e){
     if(e.pointerType==='mouse')return;
+    // A primary touch starts a new interaction: no earlier finger can remain.
+    if(e.isPrimary)forget();
     // The first finger starts on the resident window. The second may rest on
     // any non-control part of the screen, where the same world shows through.
     if(!active()||e.target.closest?.('button,a,input,select,textarea'))return;
@@ -202,9 +206,14 @@
     doc.addEventListener('pointerup',up,{capture:true,passive:true});
     doc.addEventListener('pointercancel',up,{capture:true,passive:true});
     doc.addEventListener('wheel',wheel,{capture:true,passive:false});
+    const lifted=e=>{if(!e.touches||!e.touches.length)forget();};
+    doc.addEventListener('touchend',lifted,{capture:true,passive:true});
+    doc.addEventListener('touchcancel',lifted,{capture:true,passive:true});
+    doc.addEventListener('visibilitychange',()=>{if(doc.visibilityState==='hidden')forget();});
+    root.addEventListener('blur',forget);
     root.addEventListener('resize',()=>reset(false));
     root.visualViewport?.addEventListener('resize',()=>reset(false));
     root.requestAnimationFrame(watch);
   }
-  root.NaotocchiHomeZoom={point,rect,reset,zoomAt,state:()=>({zoom:z,x:cx,y:cy,max:MAX,min:MIN}),set};
+  root.NaotocchiHomeZoom={point,rect,reset,zoomAt,state:()=>({zoom:z,x:cx,y:cy,max:MAX,min:MIN,fingers:pointers.size,active:active()}),set};
 })(typeof window==='object'?window:globalThis);
