@@ -223,7 +223,7 @@ test('trees: leaves are told apart from sky, bark and the blue distance in every
 
 test('trees: boughs bend from their root, each on its own rhythm, and stay within a few degrees', async () => {
   const {FOLIAGE, boughWind, TREE_SWAYS} = await import('./proposal/living/final.mjs');
-  assert.deepEqual([...TREE_SWAYS], ['bump','tips','branch','still','wide','vivid']);
+  assert.deepEqual([...TREE_SWAYS], ['bump','tips','branch','still','wide','vivid','tips2','tips3','rigid']);
   for (const [region, spots] of Object.entries(FOLIAGE)) for (const [cx, cy, rx, ry, near, px, py] of spots) {
     // The pivot is at or beside the spot's edge, never floating in the leaves' middle.
     assert.ok(Math.abs(px - cx) / rx > .55 || Math.abs(py - cy) / ry > .55, `${region} ${cx},${cy}`);
@@ -321,4 +321,47 @@ test('trees (seamless): the soft tiles rebuild the leaf layer exactly, and work 
     for (let y = 0; y < height; y++) for (let x = 0; x < width; x++) sum[(tile.y + y) * part.width + tile.x + x] += data[4 * (y * width + x) + 3]; }
   // An all-leaf spot: the tile weights add back to full opacity everywhere (within rounding).
   for (const value of sum) assert.ok(Math.abs(value - 255) <= 3, String(value));
+});
+
+test('trees (B2–B4): leaf tips keep the pace and reach of B; B4 turns each bough without bending it', async () => {
+  const {FOLIAGE, FOLIAGE_WIDE, leafShift, boughWind} = await import('./proposal/living/final.mjs');
+  const tips = {bend:0, flutter:1.8, quick:true}, rigid = {bend:1, flutter:0, quick:true, rigid:true}, bendy = {bend:1, flutter:0};
+  const spot = FOLIAGE.forest[0], [cx, cy, rx, ry, near, px, py] = spot;
+  // B2/B3: with no wind bend at all, leaves still move (flutter only) and the root does not.
+  let peak = 0;
+  for (let s = 0; s < 40; s += .1) { const o = leafShift(spot, {bend:0, stir:1}, s, 0, cx, cy, tips); peak = Math.max(peak, Math.hypot(o.dx, o.dy)); }
+  const reachB = 1.5 + 3.2 * near; // the amplitude of the original 'tips' at the far tip
+  assert.ok(peak > .25 * reachB && peak <= 1.6 * reachB, `${peak} vs ${reachB}`);
+  // The same flutter passes a point 2.3–3.8 times per 2π seconds, as in B.
+  const crossings = (i, strength) => { let n = 0, last = 0; for (let s = 0; s < 62.8; s += .02) { const v = Math.sin(0) + leafShift(spot, {bend:0, stir:1}, s, i, cx, cy, strength).dy; if (last < 0 && v >= 0) n++; last = v; } return n / 10; };
+  for (const i of [0, 1, 2, 3]) assert.ok(crossings(i, tips) > 2.6 && crossings(i, tips) < 5.4, String(crossings(i, tips)));
+  // B4: inside the spot the shift is exactly a rotation about the bough's root — every point
+  // turns by the same angle, so lengths and curves are preserved. C2's bend is not.
+  const wind = {bend:.8, stir:1}, angleAt = (strength, x, y) => { const o = leafShift(spot, wind, 5, 0, x, y, strength);
+    const r2 = (x - px) ** 2 + (y - py) ** 2; return (-(y - py) * o.dx + (x - px) * o.dy) / r2; };
+  const points = [[cx, cy], [cx - rx * .3, cy], [cx + rx * .3, cy - ry * .2], [cx, cy + ry * .3]];
+  const turns = points.map(([x, y]) => angleAt(rigid, x, y)), bends = points.map(([x, y]) => angleAt(bendy, x, y));
+  assert.ok(Math.max(...turns) - Math.min(...turns) < 1e-9);
+  assert.ok(Math.max(...bends) - Math.min(...bends) > 1e-4);
+  // The turn stays small: under 1.7 degrees in the foreground even in strong wind.
+  const degrees = Math.abs(angleAt(rigid, cx, cy) / .8) * 180 / Math.PI * 1.05;
+  assert.ok(degrees > .4 && degrees < 1.7, String(degrees));
+  assert.ok(FOLIAGE_WIDE.forest.length === 30 && FOLIAGE.forest.length === 16);
+  void boughWind;
+});
+
+test('trees (B4): twigs travel with their leaves, trunks and thick boughs never do', async () => {
+  const {thinBark, barklike} = await import('./proposal/living/foliage.mjs');
+  assert.ok(barklike(60, 45, 35, 'day') && barklike(40, 38, 36, 'evening'));
+  assert.ok(!barklike(120, 200, 60, 'day') && !barklike(70, 150, 235, 'day') && !barklike(15, 25, 80, 'night') && !barklike(200, 190, 180, 'day'));
+  // A 40 × 30 patch with a 3-pixel twig and a 14-pixel trunk that runs off the bottom edge.
+  const w = 40, h = 30, bark = new Uint8Array(w * h);
+  for (let x = 4; x < 30; x++) for (let y = 6; y < 9; y++) bark[y * w + x] = 1;
+  for (let x = 24; x < 38; x++) for (let y = 12; y < 30; y++) bark[y * w + x] = 1;
+  const thin = thinBark(bark, w, h);
+  let twig = 0, trunk = 0;
+  for (let x = 4; x < 22; x++) for (let y = 6; y < 9; y++) twig += thin[y * w + x];
+  for (let x = 28; x < 34; x++) for (let y = 18; y < 30; y++) trunk += thin[y * w + x];
+  assert.equal(twig, 18 * 3);
+  assert.equal(trunk, 0);
 });

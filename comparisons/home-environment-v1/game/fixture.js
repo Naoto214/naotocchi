@@ -3,13 +3,13 @@
   const REGIONS = ['home','forest','river_lake','city','countryside','mountain','snow','sea','jungle','desert','deepsea','star_stop','memory_lake'];
   const SEASONS = ['spring','summer','autumn','winter'], WEATHER = ['sunny','cloudy','rain','snow'], TIMES = ['morning','day','evening','night'];
   const m = location.hash.match(/^#g([ABCDE])-(\d+)-(\d+)-(\d)-(\d)-(\d)(?:-(\d))?$/) || [];
-  const SWAYS = ['bump','tips','branch','still','wide','vivid'];
+  const SWAYS = ['bump','tips','branch','still','wide','vivid','tips2','tips3','rigid'];
   const pick = (list, index, fallback) => list[Number(index)] || fallback;
   const s = window.NaotocchiEnvCompare = {
     fx:m[1] || 'E', count:[1,4,28].includes(Number(m[2])) ? Number(m[2]) : 4,
     region:pick(REGIONS, m[3], 'forest'), season:pick(SEASONS, m[4], 'autumn'),
     weather:pick(WEATHER, m[5], 'sunny'), time:pick(TIMES, m[6], 'day'),
-    sway:pick(SWAYS, m[7], 'wide'),
+    sway:pick(SWAYS, m[7], 'rigid'),
     lists:{region:REGIONS, season:SEASONS, weather:WEATHER, time:TIMES, sway:SWAYS}
   };
   window.NaotocchiEnvironmentFx = s.fx === 'B' ? 'falling' : s.fx === 'D' ? 'maximum' : s.fx === 'E' ? 'final' : 'living';

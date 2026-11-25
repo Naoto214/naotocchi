@@ -83,7 +83,10 @@ export const FOLIAGE = Object.freeze({
 // 'still'  nothing moves; leaves catch the light as the wind passes
 // 'wide'   'branch' made seamless and spread over more of the canopy, the far trees and the grass
 // 'vivid'  'wide' with a stronger bend and livelier leaf tips
-export const TREE_SWAYS = Object.freeze(['bump','tips','branch','still','wide','vivid']);
+// 'tips2'  'tips' with the same motion made seamless
+// 'tips3'  'tips2' spread over the wider set of spots
+// 'rigid'  'tips3' plus each twig turning about its root as one rigid piece, leaves riding on it
+export const TREE_SWAYS = Object.freeze(['bump','tips','branch','still','wide','vivid','tips2','tips3','rigid']);
 // More of the forest for the seamless modes: upper canopy, middle and far crowns, undergrowth
 // and foreground grass. Trunks and mossy bark are left out.
 const MORE_FOLIAGE = {forest:[[150,62,92,56,0.95,60,118],[530,52,78,48,0.9,452,90],[905,96,88,70,0.95,990,60],[335,520,58,56,0.5,335,574],[592,498,58,50,0.45,592,546],[772,512,54,56,0.45,775,566],[158,600,68,56,0.6,150,654],[92,805,78,44,0.7,92,847],[620,790,68,40,0.35,620,828],[282,802,68,40,0.4,282,840],[935,860,58,40,0.7,935,898],[610,1385,108,58,1,610,1440],[885,1425,98,58,1,885,1480],[62,1185,58,60,0.95,62,1242]]};
@@ -109,20 +112,31 @@ export function leafShift(spot, wind, seconds, i, x, y, strength) {
   const [cx, cy, rx, ry, near, px, py] = spot, win = rimWindow((x - cx) / rx, (y - cy) / ry);
   if (!win) return {dx:0, dy:0};
   const far = Math.hypot(rx, ry) + Math.hypot(cx - px, cy - py), tip = Math.min(1, Math.hypot(x - px, y - py) / far);
-  const swing = wind.bend * (.012 + .034 * near) * strength.bend * (.45 + .55 * tip);
-  const flutter = (.8 + 1.8 * near) * wind.stir * strength.flutter * tip ** 1.2;
-  // One long wave running downwind through the spot. It is longer than the spacing of the
-  // soft tiles, so neighbouring tiles move nearly together and the leaves stay crisp.
-  const phase = seconds * (2.2 + .25 * (i % 4)) - x / 68 + y / 110 + i * 1.3;
-  return {dx:win * (-(y - py) * swing + flutter * Math.sin(phase)),
-    dy:win * ((x - px) * swing + .5 * flutter * Math.cos(phase * 1.27 + .6))};
+  // 'rigid' turns the whole bough by one angle, so its length, thickness and curve are kept.
+  // Otherwise the bough bends: the turn itself grows toward the tip.
+  const swing = strength.rigid ? wind.bend * (.009 + .019 * near) * strength.bend
+    : wind.bend * (.012 + .034 * near) * strength.bend * (.45 + .55 * tip);
+  const flutter = (.8 + 1.8 * near) * wind.stir * strength.flutter * tip ** (strength.quick ? 1.3 : 1.2);
+  // A wave running downwind through the spot, longer than the spacing of the soft tiles so
+  // neighbouring tiles move nearly together and the leaves stay crisp. The quick setting is
+  // the fast, fine leaf-tip flutter of the original 'tips', with a second ripple across it.
+  const phase = strength.quick ? seconds * (2.3 + .5 * (i % 4)) - x / 44 + y / 63 + i * 1.3
+    : seconds * (2.2 + .25 * (i % 4)) - x / 68 + y / 110 + i * 1.3;
+  const ripple = strength.quick ? .35 * Math.sin(phase * 1.7 + x / 31 - y / 27) : 0;
+  return {dx:win * (-(y - py) * swing + flutter * (Math.sin(phase) + ripple)),
+    dy:win * ((x - px) * swing + (strength.quick ? .55 : .5) * flutter * Math.cos(phase * (strength.quick ? 1.31 : 1.27) + .6))};
 }
-const STRENGTH = {wide:{bend:1, flutter:1}, vivid:{bend:1.5, flutter:1.6}};
+const STRENGTH = {
+  wide:{bend:1, flutter:1, wide:true}, vivid:{bend:1.5, flutter:1.6, wide:true},
+  // 1.8 × the gentle flutter equals the amplitude of the original 'tips'.
+  tips2:{bend:0, flutter:1.8, quick:true}, tips3:{bend:0, flutter:1.8, quick:true, wide:true},
+  rigid:{bend:1, flutter:1.8, quick:true, wide:true, rigid:true, twigs:true}
+};
 let scratch = null;
 function paintFoliageSoft(ctx, image, region, time, seconds, mode, doc, boost) {
-  const spots = FOLIAGE_WIDE[region];
+  const strength = STRENGTH[mode], spots = (strength.wide ? FOLIAGE_WIDE : FOLIAGE)[region];
   if (!spots || !image) return;
-  const parts = separateFoliageSoft(image, spots, time, doc), strength = STRENGTH[mode], margin = 16;
+  const parts = separateFoliageSoft(image, spots, time, doc, 5, !!strength.twigs), margin = 16;
   const scale = (image.naturalWidth || image.width) / 1000, scaleY = (image.naturalHeight || image.height) / 1500;
   spots.forEach((spot, i) => {
     const part = parts[i];

@@ -11,10 +11,11 @@ const AXES = {
   tier:[['0','多い'],['1','ふつう'],['2','少ない']]
 };
 const SWAYS = [
-  ['tips','B 葉先だけ','葉を分離し、枝は動かさず葉先だけを細かく揺らします。四角いタイルごとに別々に動かすため、境目や隙間が見えることがあります。'],
-  ['branch','C 枝葉を分離','葉を分離し、枝の付け根を軸にしならせます。16か所。タイルの方式はBと同じです。'],
-  ['wide','C2 範囲を拡張','Cと同じ揺れ幅で、継ぎ目の出ない方式に作り直し、樹冠の上部・中景と遠景の木・下草・手前の草まで30か所に広げました。'],
-  ['vivid','C3 分かりやすさを強化','C2のしなりを約1.5倍、葉先の揺れを約1.6倍に。風の波が木から木へ伝わります。']
+  ['tips','B 葉先（従来）','葉先だけを細かく揺らします。葉のレイヤーを四角いタイルごとに別々に動かすため、境目や隙間が見えることがあります。16か所。'],
+  ['tips2','B2 継ぎ目を改善','Bと同じ速さ・揺れ幅・16か所のまま、継ぎ目の出ない方式に作り直しました。枝は動きません。'],
+  ['tips3','B3 範囲を拡張','B2を、樹冠の上部・中景と遠景の木・下草・手前の草まで30か所に広げました。枝は動きません。'],
+  ['rigid','B4 枝の形を保って回転','B3に加えて、細い小枝を葉と一緒に分離し、付け根を軸に枝ごとわずかに回します。枝の長さ・太さ・曲がりは変わりません。幹と太い枝は固定です。'],
+  ['wide','C2 しなり（前回の候補）','枝の付け根から先へ向かって曲がりが大きくなる「しなり」です。30か所。']
 ];
 const ZOOMS = [['','全体'],['top','木の上部'],['edge','枝先と空の境目'],['mid','中景・遠景の木'],['grass','手前の草']];
 const WINDS = [['0','ふつうの風'],['1','強い風']];
@@ -26,7 +27,7 @@ const PRESETS = [
   ['きおくのみずうみ・夕','memory_lake','summer','sunny','evening'],['やま・夏・朝','mountain','summer','sunny','morning'],
   ['とかい・夜','city','summer','sunny','night'],['おうち・昼','home','summer','sunny','day']
 ];
-const state = {region:'forest', season:'summer', weather:'sunny', time:'day', tier:'1', left:'branch', right:'wide', zoom:'', wind:'0'};
+const state = {region:'forest', season:'summer', weather:'sunny', time:'day', tier:'1', left:'wide', right:'rigid', zoom:'', wind:'0'};
 const order = ['region','season','weather','time','tier'];
 function readHash() {
   const m = location.hash.match(/^#t(\d+)-(\d)-(\d)-(\d)-(\d)-(\d)-(\d)$/);

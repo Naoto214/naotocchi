@@ -128,8 +128,38 @@ export function rimWindow(u, v) {
   const d = Math.hypot(u, v);
   return d <= .7 ? 1 : d >= 1 ? 0 : Math.cos(Math.PI / 2 * (d - .7) / .3) ** 2;
 }
+// Dark, unsaturated, not sky-blue: bark, whether trunk, bough or twig.
+export function barklike(r, g, b, time) {
+  const light = (r + g + b) / 3;
+  // Blue clearly leading red and green is sky or distance, however dark.
+  if (leafness(r, g, b, time) > .2 || b > Math.max(r, g) * 1.15 + 6) return false;
+  return light < (time === 'night' ? 46 : 96);
+}
+// Marks the bark pixels that belong to something thin. A twig a few pixels wide disappears when
+// the bark mask is shrunk by `reach` and grown back; trunks and thick boughs survive and are
+// left out, so only twigs can travel with their leaves.
+export function thinBark(bark, width, height, reach = 3) {
+  const pass = (source, grow) => {
+    const out = new Uint8Array(source.length);
+    for (let y = 0; y < height; y++) for (let x = 0; x < width; x++) {
+      let hit = grow ? 0 : 1;
+      for (let dy = -reach; dy <= reach && hit !== (grow ? 1 : 0); dy++) for (let dx = -reach; dx <= reach; dx++) {
+        if (dx * dx + dy * dy > reach * reach) continue;
+        const xx = x + dx, yy = y + dy, inside = xx >= 0 && yy >= 0 && xx < width && yy < height;
+        // Outside the spot counts as bark, so a trunk running off the edge is not mistaken for a twig.
+        const value = inside ? source[yy * width + xx] : 1;
+        if (grow ? value : !value) { hit = grow ? 1 : 0; break; }
+      }
+      out[y * width + x] = hit;
+    }
+    return out;
+  };
+  const thick = pass(pass(bark, false), true), thin = new Uint8Array(bark.length);
+  for (let i = 0; i < bark.length; i++) thin[i] = bark[i] && !thick[i] ? 1 : 0;
+  return thin;
+}
 const softPrepared = new WeakMap();
-function separateSpot(image, spot, time, doc) {
+function separateSpot(image, spot, time, doc, twigs) {
   const width = image.naturalWidth || image.width, height = image.naturalHeight || image.height;
   const sx = width / 1000, sy = height / 1500, [cx, cy, rx, ry] = spot;
   const w = Math.max(8, Math.round(2 * rx * sx)), h = Math.max(8, Math.round(2 * ry * sy));
@@ -143,6 +173,13 @@ function separateSpot(image, spot, time, doc) {
     // A crisp matte: a leaf is in the layer or it is not, with only a thin soft edge.
     const t = Math.min(1, Math.max(0, (leafness(pixels[4 * i], pixels[4 * i + 1], pixels[4 * i + 2], time) - .2) / .4));
     alpha[i] = t * t * (3 - 2 * t); cover += alpha[i];
+  }
+  if (twigs) {
+    // Twigs join the leaf layer so a bough can turn as one piece, leaves and wood together.
+    const bark = new Uint8Array(w * h);
+    for (let i = 0; i < bark.length; i++) bark[i] = barklike(pixels[4 * i], pixels[4 * i + 1], pixels[4 * i + 2], time) ? 1 : 0;
+    const thin = thinBark(bark, w, h);
+    for (let i = 0; i < thin.length; i++) if (thin[i]) alpha[i] = 1;
   }
   paintOut(pixels, alpha, w, h);
   for (let y = 0; y < h; y++) for (let x = 0; x < w; x++) {
@@ -170,14 +207,15 @@ function separateSpot(image, spot, time, doc) {
 }
 // Prepares a few spots per call and returns what is ready so far (unfinished spots are
 // undefined). Spreading the work over frames avoids a visible pause when a painting changes.
-export function separateFoliageSoft(image, spots, time, doc, budget = 5) {
-  let cache = softPrepared.get(image);
-  if (!cache) softPrepared.set(image, cache = new Map());
+export function separateFoliageSoft(image, spots, time, doc, budget = 5, twigs = false) {
+  let byKind = softPrepared.get(image);
+  if (!byKind) softPrepared.set(image, byKind = [new Map(), new Map()]);
+  const cache = byKind[twigs ? 1 : 0];
   let parts = cache.get(spots);
   if (!parts) cache.set(spots, parts = {list:new Array(spots.length), next:0});
   const now = () => globalThis.performance?.now?.() ?? 0, began = now();
   while (parts.next < spots.length) {
-    parts.list[parts.next] = separateSpot(image, spots[parts.next], time, doc);
+    parts.list[parts.next] = separateSpot(image, spots[parts.next], time, doc, twigs);
     parts.next++;
     if (now() - began > budget) break;
   }
