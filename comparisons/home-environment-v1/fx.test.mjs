@@ -193,3 +193,11 @@ test('final: the forest no longer draws the row of lights, and fireflies are the
   assert.ok(marks(undefined) > 10);          // C: fireflies and the procession
   assert.equal(marks(FINAL_EFFECTS.forest), 0);
 });
+
+test('rain rings draw at every particle setting, including the small jungle pond', () => {
+  for (const region of ['sea','river_lake','jungle']) for (const tier of [0, 1, 2]) for (const lively of [false, true]) {
+    const env = {region, time:'day', weather:'rain', season:'summer'}, r = recorder();
+    for (let s = 0; s < 6; s += .5) paintFalling(r.ctx, rect, env, atmosphere(env), s, {tier, lively});
+    assert.ok(r.calls.some(([name]) => name === 'ellipse'), `${region} ${tier}`);
+  }
+});

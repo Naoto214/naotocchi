@@ -38,8 +38,19 @@ function gallery() {
   const max = JSON.parse(fs.readFileSync(path.join(evidence, 'max.json'), 'utf8'));
   const maxPerf = JSON.parse(fs.readFileSync(path.join(evidence, 'perfmax.json'), 'utf8'));
   const maxRows = maxPerf.rows.map(r => `<tr><td>${sceneName(r.scene)}</td><td>${r.rate === 1 ? '通常' : r.rate + '倍低速'}</td><td>${cell(r.C)}</td><td>${cell(r.D)}</td></tr>`).join('');
-  return `<section class="gallery"><h2>最大演出版を実際のホーム画面で</h2>
-<p>住民とホームUIを表示した本物のホームです。開いた先の上部のパネルで C と最大演出（D）を切り替えられます。使い捨てのセーブで動き、本人のセーブには触れません。</p>
+  const fin = JSON.parse(fs.readFileSync(path.join(evidence, 'final.json'), 'utf8'));
+  const finPerf = JSON.parse(fs.readFileSync(path.join(evidence, 'perffinal.json'), 'utf8'));
+  const finRows = finPerf.rows.map(r => `<tr><td>${sceneName(r.scene)}</td><td>${r.rate === 1 ? '通常' : r.rate + '倍低速'}</td><td>${cell(r.C)}</td><td>${cell(r.E)}</td></tr>`).join('');
+  return `<section class="gallery"><h2>最終候補（E）を実際のホーム画面で</h2>
+<p>住民とホームUIを表示した本物のホームです。開いた先の上部のパネルで C・D・E を切り替えられます。使い捨てのセーブで動き、本人のセーブには触れません。</p>
+<div class="chips">${fin.map(([, tail]) => `<a href="home.html#gE-${tail}"><button type="button">${sceneName(tail)}</button></a>`).join('')}</div>
+<p>下は同じ場面の静止画です（左から C、D、E）。動きは上のボタンから実ホームでご覧ください。</p>
+${fin.map(([name, tail]) => `<p>${sceneName(tail)}</p><div class="strip"><img src="evidence/${name}.jpg" width="1182" height="844" alt="${sceneName(tail)} の C・D・E" loading="lazy"></div>`).join('')}
+<h2>最終候補の滑らかさ（ブラウザの毎秒コマ数）</h2>
+<p>同じ計測回の C と E です。括弧は草木・水面・光の層の更新頻度で、重いときは自動で下がります。計測環境の速さは日によって変わるため、別の表の値とは比べられません。</p>
+<div class="strip"><table><thead><tr><th>場面</th><th>CPU</th><th>C</th><th>E</th></tr></thead><tbody>${finRows}</tbody></table></div>
+<h2>最大演出版（D）を実際のホーム画面で</h2>
+<p>前回の最大演出版です。</p>
 <div class="chips">${max.map(([, tail]) => `<a href="home.html#gD-${tail}"><button type="button">${sceneName(tail)}</button></a>`).join('')}</div>
 <p>下は同じ場面の静止画です（左が C、右が最大演出）。動きは上のボタンから実ホームでご覧ください。</p>
 ${max.map(([name, tail]) => `<p>${sceneName(tail)}</p><div class="strip"><img src="evidence/${name}.jpg" width="786" height="844" alt="${sceneName(tail)} の C と最大演出" loading="lazy"></div>`).join('')}

@@ -137,12 +137,19 @@ PRESETS.forEach(([label, ...values], index) => {
 });
 const panes = document.getElementById('panes');
 // The left pane shows one of A to D; the final candidate stays beside it. A phone shows one at a time.
-const SIDES = ['a','b','c','d','e'];
+const SIDES = ['a','b','c','d','e'], narrow = matchMedia('(max-width: 700px)');
+// Side by side, both the chosen left version and E are lit; on a phone only the one on screen.
+function markSides() {
+  for (const side of SIDES) document.getElementById('show' + side.toUpperCase()).setAttribute('aria-pressed',
+    String(narrow.matches ? side === panes.dataset.show : side === 'e' || side === panes.dataset.left));
+}
 for (const side of SIDES) document.getElementById('show' + side.toUpperCase()).onclick = () => {
   if (side !== 'e') panes.dataset.left = side;
   panes.dataset.show = side;
-  for (const other of SIDES) document.getElementById('show' + other.toUpperCase()).setAttribute('aria-pressed', String(other === 'e' ? side === 'e' : other === panes.dataset.left));
+  markSides();
 };
+narrow.addEventListener('change', markSides);
+markSides();
 readHash();
 addEventListener('hashchange', () => { readHash(); apply(); });
 apply();

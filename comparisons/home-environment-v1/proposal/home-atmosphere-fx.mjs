@@ -112,7 +112,7 @@ export function fallingCount(env, kind, tier = 0) {
 function rings(ctx, rect, env, seconds, tier, tone, lively) {
   const spots = RAIN_WATER[env.region];
   if (!spots) return;
-  const count = [spots.length, 40, 22][Math.min(2, Math.max(0, tier | 0))];
+  const count = Math.min(spots.length, [spots.length, 40, 22][Math.min(2, Math.max(0, tier | 0))]);
   const W = rect.width, H = rect.height, ys = spots.map(spot => spot[1]), top = Math.min(...ys), span = Math.max(...ys) - top || 1;
   ctx.strokeStyle = `rgb(${tone.ripple})`;
   for (let i = 0; i < count; i++) {
