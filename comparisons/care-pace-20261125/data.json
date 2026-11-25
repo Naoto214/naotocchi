@@ -1,0 +1,2550 @@
+{
+ "generated": "2026-11-25",
+ "method": "tools/care-pace/simulate.cjs --lives 40 --idle 150",
+ "plans": {
+  "current": {
+   "plan": {
+    "id": "current",
+    "label": "現行",
+    "short": "現行",
+    "summary": "今の main と同じ。",
+    "hungerDecay": 0.35,
+    "happyDecay": 0.35,
+    "energyDecay": 0.32,
+    "sleepDecayFactor": 0.4,
+    "poop": {
+     "mode": "random",
+     "perTick": 0.035,
+     "sleepFactor": 1
+    },
+    "fullPoopHappyPenalty": 2,
+    "neglectPoop": 3,
+    "sicknessChance": 0.03,
+    "feedAmount": 25,
+    "petAmount": 5,
+    "spamThreshold": 3,
+    "recentActionTicks": 20,
+    "contentFactor": 1,
+    "autoWakeTicks": 0,
+    "envMomentMinMs": 150000,
+    "envMomentSpanMs": 150000,
+    "envMomentMult": 1,
+    "relationDecayYears": 28,
+    "poopNotice": 2,
+    "feedGrowth": 4,
+    "cleanGrowth": 4,
+    "stableGrowth": 0.1
+   },
+   "personas": {
+    "diligent": {
+     "lives": 40,
+     "homeMinutes": 100,
+     "careTapsPer10": 10.977500000000003,
+     "allTapsPer10": 13.392499999999998,
+     "careTapsPer30Max": 46.325,
+     "careTapsPerLife": 109.775,
+     "gamesPerLife": 24.15,
+     "kinds": {
+      "feed": {
+       "per10": 2.5125,
+       "life": 25.125
+      },
+      "clean": {
+       "per10": 5.942500000000001,
+       "life": 59.425
+      },
+      "pet": {
+       "per10": 0.19250000000000003,
+       "life": 1.925
+      },
+      "sleep": {
+       "per10": 1.1575000000000006,
+       "life": 11.575
+      },
+      "wake": {
+       "per10": 1.1225000000000007,
+       "life": 11.225
+      },
+      "medicine": {
+       "per10": 0.05000000000000001,
+       "life": 0.5
+      },
+      "game": {
+       "per10": 2.4150000000000014,
+       "life": 24.15
+      }
+     },
+     "maxTapsIn1Min": 5.125,
+     "maxTapsIn10Min": 19.1,
+     "sessionsPer10": 10.797499999999998,
+     "burstSessionsPerLife": 3.875,
+     "sessionTapsP90": 2,
+     "quietGapMedianMin": 0.75,
+     "signalFreeShare": 0.5866,
+     "noticeFreeShare": 0.9655374999999999,
+     "signalFreeStretchMeanMin": 3.0276129032258035,
+     "signalFreeStretchP90Min": 5.25,
+     "noticeFreeStretchMeanMin": 8.817694063926936,
+     "overlap2Share": 0.005637500000000002,
+     "overlap3Share": 0.0000125,
+     "sicknessesPerLife": 0.5,
+     "sickShare": 0.0010125000000000002,
+     "poopFullShare": 0.0007250000000000001,
+     "sleepShare": 0.13485000000000003,
+     "deathRate": 0,
+     "deathAges": [],
+     "meanDeathMeter": 0.5626967221583334,
+     "maxSodachi": 77.55,
+     "maxSodachiP10": 75,
+     "clearRate": 1,
+     "label": "こまめにお世話"
+    },
+    "casual": {
+     "lives": 40,
+     "homeMinutes": 100,
+     "careTapsPer10": 12.425,
+     "allTapsPer10": 13.354999999999999,
+     "careTapsPer30Max": 52.475,
+     "careTapsPerLife": 124.25,
+     "gamesPerLife": 9.3,
+     "kinds": {
+      "feed": {
+       "per10": 2.3499999999999996,
+       "life": 23.5
+      },
+      "clean": {
+       "per10": 3.5174999999999996,
+       "life": 35.175
+      },
+      "pet": {
+       "per10": 4.252500000000001,
+       "life": 42.525
+      },
+      "sleep": {
+       "per10": 0.8574999999999996,
+       "life": 8.575
+      },
+      "wake": {
+       "per10": 0.8324999999999999,
+       "life": 8.325
+      },
+      "medicine": {
+       "per10": 0.615,
+       "life": 6.15
+      },
+      "game": {
+       "per10": 0.93,
+       "life": 9.3
+      }
+     },
+     "maxTapsIn1Min": 8.125,
+     "maxTapsIn10Min": 24.625,
+     "sessionsPer10": 4.834999999999999,
+     "burstSessionsPerLife": 20.1,
+     "sessionTapsP90": 5,
+     "quietGapMedianMin": 2.1,
+     "signalFreeShare": 0.4530250000000001,
+     "noticeFreeShare": 0.7022,
+     "signalFreeStretchMeanMin": 1.8876041666666692,
+     "signalFreeStretchP90Min": 4.05,
+     "noticeFreeStretchMeanMin": 3.033261339092873,
+     "overlap2Share": 0.189475,
+     "overlap3Share": 0.04567500000000001,
+     "sicknessesPerLife": 5.975,
+     "sickShare": 0.02213749999999999,
+     "poopFullShare": 0.040237499999999995,
+     "sleepShare": 0.2168625,
+     "deathRate": 0,
+     "deathAges": [],
+     "meanDeathMeter": 6.0185658594333376,
+     "maxSodachi": 69.8,
+     "maxSodachiP10": 67,
+     "clearRate": 0.575,
+     "label": "ながめながら時々お世話"
+    },
+    "gamer": {
+     "lives": 40,
+     "homeMinutes": 100,
+     "careTapsPer10": 9.892499999999998,
+     "allTapsPer10": 20.967500000000005,
+     "careTapsPer30Max": 68.65,
+     "careTapsPerLife": 98.925,
+     "gamesPerLife": 110.75,
+     "kinds": {
+      "feed": {
+       "per10": 2.2899999999999987,
+       "life": 22.9
+      },
+      "clean": {
+       "per10": 3.1400000000000006,
+       "life": 31.4
+      },
+      "pet": {
+       "per10": 0,
+       "life": 0
+      },
+      "sleep": {
+       "per10": 2.190000000000001,
+       "life": 21.9
+      },
+      "wake": {
+       "per10": 2.185000000000001,
+       "life": 21.85
+      },
+      "medicine": {
+       "per10": 0.0875,
+       "life": 0.875
+      },
+      "game": {
+       "per10": 11.075,
+       "life": 110.75
+      }
+     },
+     "maxTapsIn1Min": 5.225,
+     "maxTapsIn10Min": 25.875,
+     "sessionsPer10": 13.287499999999998,
+     "burstSessionsPerLife": 12.1,
+     "sessionTapsP90": 2,
+     "quietGapMedianMin": 0.75,
+     "signalFreeShare": 0.514625,
+     "noticeFreeShare": 0.7301375,
+     "signalFreeStretchMeanMin": 1.1139069264069275,
+     "signalFreeStretchP90Min": 2.15,
+     "noticeFreeStretchMeanMin": 1.6472363226170341,
+     "overlap2Share": 0.0893,
+     "overlap3Share": 0.007925000000000003,
+     "sicknessesPerLife": 0.85,
+     "sickShare": 0.0023125000000000003,
+     "poopFullShare": 0.002987500000000001,
+     "sleepShare": 0.16733750000000003,
+     "deathRate": 0,
+     "deathAges": [],
+     "meanDeathMeter": 0.6793773622083342,
+     "maxSodachi": 99.25,
+     "maxSodachiP10": 97,
+     "clearRate": 1,
+     "label": "ミニゲーム中心"
+    },
+    "minimal": {
+     "lives": 40,
+     "homeMinutes": 88.58500000000001,
+     "careTapsPer10": 16.641119209651027,
+     "allTapsPer10": 18.79254254081321,
+     "careTapsPer30Max": 78.325,
+     "careTapsPerLife": 166.4111920965103,
+     "gamesPerLife": 21.514233311621815,
+     "kinds": {
+      "feed": {
+       "per10": 2.632055326408465,
+       "life": 26.320553264084662
+      },
+      "clean": {
+       "per10": 2.3120498559242906,
+       "life": 23.1204985592429
+      },
+      "pet": {
+       "per10": 7.872715176423763,
+       "life": 78.72715176423762
+      },
+      "sleep": {
+       "per10": 1.2359472610971103,
+       "life": 12.359472610971102
+      },
+      "wake": {
+       "per10": 1.2309472610971102,
+       "life": 12.309472610971103
+      },
+      "medicine": {
+       "per10": 1.3574043287002864,
+       "life": 13.574043287002866
+      },
+      "game": {
+       "per10": 2.151423331162181,
+       "life": 21.514233311621815
+      }
+     },
+     "maxTapsIn1Min": 5,
+     "maxTapsIn10Min": 38.7,
+     "sessionsPer10": 18.79254254081321,
+     "burstSessionsPerLife": 0,
+     "sessionTapsP90": 1,
+     "quietGapMedianMin": 0.2,
+     "signalFreeShare": 0.09258909682843924,
+     "noticeFreeShare": 0.3936546253035124,
+     "signalFreeStretchMeanMin": 1.84945054945055,
+     "signalFreeStretchP90Min": 3.9,
+     "noticeFreeStretchMeanMin": 0.7464829396325411,
+     "overlap2Share": 0.8666212589655764,
+     "overlap3Share": 0.46778056622193454,
+     "sicknessesPerLife": 9.875,
+     "sickShare": 0.019246758732403065,
+     "poopFullShare": 0.16473434871020565,
+     "sleepShare": 0.04211971598191175,
+     "deathRate": 0.55,
+     "deathAges": [
+      65,
+      82,
+      79,
+      87,
+      88,
+      85,
+      87,
+      48,
+      85,
+      89,
+      84,
+      87,
+      28,
+      58,
+      83,
+      85,
+      98,
+      96,
+      96,
+      77,
+      95,
+      51
+     ],
+     "meanDeathMeter": 20.99360025490258,
+     "maxSodachi": 71.7,
+     "maxSodachiP10": 65,
+     "clearRate": 0.275,
+     "label": "必要最低限だけ"
+    },
+    "viewer": {
+     "lives": 40,
+     "homeMinutes": 15.72375,
+     "careTapsPer10": 5.121567888104647,
+     "allTapsPer10": 5.523506647889572,
+     "careTapsPer30Max": 13.375,
+     "careTapsPerLife": 51.21567888104646,
+     "gamesPerLife": 4.019387597849253,
+     "kinds": {
+      "feed": {
+       "per10": 0.924458617424403,
+       "life": 9.244586174244025
+      },
+      "clean": {
+       "per10": 0.576482105264716,
+       "life": 5.764821052647159
+      },
+      "pet": {
+       "per10": 2.609633373027328,
+       "life": 26.096333730273283
+      },
+      "sleep": {
+       "per10": 0.3678709202438413,
+       "life": 3.6787092024384145
+      },
+      "wake": {
+       "per10": 0.2201190303005586,
+       "life": 2.201190303005586
+      },
+      "medicine": {
+       "per10": 0.4230038418437988,
+       "life": 4.230038418437988
+      },
+      "game": {
+       "per10": 0.40193875978492527,
+       "life": 4.019387597849253
+      }
+     },
+     "maxTapsIn1Min": 5.375,
+     "maxTapsIn10Min": 10.55,
+     "sessionsPer10": 0.8818441184694249,
+     "burstSessionsPerLife": 5.812921012986525,
+     "sessionTapsP90": 9,
+     "quietGapMedianMin": 0.85,
+     "signalFreeShare": 0.24921700738202218,
+     "noticeFreeShare": 0.26640679032621684,
+     "signalFreeStretchMeanMin": 2.2318840579710146,
+     "signalFreeStretchP90Min": 4.2,
+     "noticeFreeStretchMeanMin": 1.535321100917432,
+     "overlap2Share": 0.516672291006122,
+     "overlap3Share": 0.4012902763574514,
+     "sicknessesPerLife": 1.9,
+     "sickShare": 0.3830998531627182,
+     "poopFullShare": 0.3826840784733797,
+     "sleepShare": 0.13564329407422188,
+     "deathRate": 1,
+     "deathAges": [
+      8,
+      19,
+      20,
+      13,
+      7,
+      8,
+      10,
+      20,
+      6,
+      20,
+      29,
+      8,
+      10,
+      8,
+      34,
+      7,
+      26,
+      6,
+      9,
+      38,
+      7,
+      10,
+      31,
+      20,
+      29,
+      17,
+      12,
+      5,
+      8,
+      31,
+      29,
+      9,
+      12,
+      16,
+      7,
+      26,
+      8,
+      6,
+      6,
+      16
+     ],
+     "meanDeathMeter": 14.456791035899627,
+     "maxSodachi": 26.05,
+     "maxSodachiP10": 21,
+     "clearRate": 0,
+     "label": "しばらく眺めて楽しむ"
+    }
+   },
+   "idle": {
+    "young": {
+     "firstSignal": {
+      "mean": 2.6710000000000007,
+      "p10": 0.8,
+      "p90": 5.3,
+      "reached": 1
+     },
+     "firstNotice": {
+      "mean": 2.697333333333334,
+      "p10": 0.8,
+      "p90": 5.3,
+      "reached": 1
+     },
+     "firstWarning": {
+      "mean": 5.577000000000001,
+      "p10": 2.5,
+      "p90": 9.6,
+      "reached": 1
+     },
+     "firstSick": {
+      "mean": 5.639864864864865,
+      "p10": 2.5,
+      "p90": 9.5,
+      "reached": 0.9866666666666667
+     },
+     "firstFullPoop": {
+      "mean": 5.548648648648653,
+      "p10": 2.45,
+      "p90": 9.15,
+      "reached": 0.9866666666666667
+     },
+     "firstHarm": {
+      "mean": 5.299333333333334,
+      "p10": 2.5,
+      "p90": 8.65,
+      "reached": 1
+     },
+     "death": {
+      "mean": 9.43566666666666,
+      "p10": 6.85,
+      "p90": 12.55,
+      "reached": 1
+     },
+     "autoWake": {
+      "mean": 0,
+      "p10": 0,
+      "p90": 0,
+      "reached": 0
+     },
+     "poopAt10": {
+      "mean": 3.7450980392156863,
+      "p10": 3,
+      "p90": 4,
+      "reached": 0.34
+     },
+     "poopAt20": {
+      "mean": 0,
+      "p10": 0,
+      "p90": 0,
+      "reached": 0
+     }
+    },
+    "old": {
+     "firstSignal": {
+      "mean": 2.6883333333333335,
+      "p10": 0.8,
+      "p90": 5.35,
+      "reached": 1
+     },
+     "firstNotice": {
+      "mean": 2.7100000000000004,
+      "p10": 0.8,
+      "p90": 5.35,
+      "reached": 1
+     },
+     "firstWarning": {
+      "mean": 5.548333333333335,
+      "p10": 2.45,
+      "p90": 9.05,
+      "reached": 1
+     },
+     "firstSick": {
+      "mean": 5.644630872483224,
+      "p10": 2.45,
+      "p90": 9.15,
+      "reached": 0.9933333333333333
+     },
+     "firstFullPoop": {
+      "mean": 5.463265306122452,
+      "p10": 2.55,
+      "p90": 8.85,
+      "reached": 0.98
+     },
+     "firstHarm": {
+      "mean": 4.672000000000002,
+      "p10": 2.45,
+      "p90": 6.55,
+      "reached": 1
+     },
+     "death": {
+      "mean": 9.905666666666663,
+      "p10": 6.65,
+      "p90": 13.75,
+      "reached": 1
+     },
+     "autoWake": {
+      "mean": 0,
+      "p10": 0,
+      "p90": 0,
+      "reached": 0
+     },
+     "poopAt10": {
+      "mean": 3.7115384615384617,
+      "p10": 3,
+      "p90": 4,
+      "reached": 0.3466666666666667
+     },
+     "poopAt20": {
+      "mean": 0,
+      "p10": 0,
+      "p90": 0,
+      "reached": 0
+     }
+    },
+    "sleep": {
+     "firstSignal": {
+      "mean": 2.7859999999999987,
+      "p10": 0.8,
+      "p90": 5.3,
+      "reached": 1
+     },
+     "firstNotice": {
+      "mean": 2.7859999999999987,
+      "p10": 0.8,
+      "p90": 5.3,
+      "reached": 1
+     },
+     "firstWarning": {
+      "mean": 5.7840000000000025,
+      "p10": 2.8,
+      "p90": 9.6,
+      "reached": 1
+     },
+     "firstSick": {
+      "mean": 5.771140939597317,
+      "p10": 2.8,
+      "p90": 9.6,
+      "reached": 0.9933333333333333
+     },
+     "firstFullPoop": {
+      "mean": 5.596917808219179,
+      "p10": 2.45,
+      "p90": 9.75,
+      "reached": 0.9733333333333334
+     },
+     "firstHarm": {
+      "mean": 5.548000000000003,
+      "p10": 2.8,
+      "p90": 8.8,
+      "reached": 1
+     },
+     "death": {
+      "mean": 9.81466666666667,
+      "p10": 7,
+      "p90": 13,
+      "reached": 1
+     },
+     "autoWake": {
+      "mean": 0,
+      "p10": 0,
+      "p90": 0,
+      "reached": 0
+     },
+     "poopAt10": {
+      "mean": 3.694915254237288,
+      "p10": 3,
+      "p90": 4,
+      "reached": 0.3933333333333333
+     },
+     "poopAt20": {
+      "mean": 0,
+      "p10": 0,
+      "p90": 0,
+      "reached": 0
+     }
+    }
+   },
+   "harshCasual": {
+    "lives": 20,
+    "homeMinutes": 98.3025,
+    "careTapsPer10": 14.800272520817561,
+    "allTapsPer10": 15.828122634367901,
+    "careTapsPer30Max": 60.3,
+    "careTapsPerLife": 148.0027252081756,
+    "gamesPerLife": 10.278501135503408,
+    "kinds": {
+     "feed": {
+      "per10": 2.3535503406510214,
+      "life": 23.53550340651022
+     },
+     "clean": {
+      "per10": 3.5614004542013626,
+      "life": 35.61400454201363
+     },
+     "pet": {
+      "per10": 6.539061317183952,
+      "life": 65.39061317183952
+     },
+     "sleep": {
+      "per10": 0.8678501135503408,
+      "life": 8.678501135503407
+     },
+     "wake": {
+      "per10": 0.8628501135503408,
+      "life": 8.628501135503408
+     },
+     "medicine": {
+      "per10": 0.615560181680545,
+      "life": 6.155601816805451
+     },
+     "game": {
+      "per10": 1.0278501135503406,
+      "life": 10.278501135503408
+     }
+    },
+    "maxTapsIn1Min": 9.2,
+    "maxTapsIn10Min": 26.9,
+    "sessionsPer10": 4.904950794852384,
+    "burstSessionsPerLife": 23.484102952308856,
+    "sessionTapsP90": 5,
+    "quietGapMedianMin": 2,
+    "signalFreeShare": 0.3568396669190007,
+    "noticeFreeShare": 0.7008331756245268,
+    "signalFreeStretchMeanMin": 1.4944210526315787,
+    "signalFreeStretchP90Min": 3.2,
+    "noticeFreeStretchMeanMin": 3.023034934497813,
+    "overlap2Share": 0.24929911052233159,
+    "overlap3Share": 0.06144362225586677,
+    "sicknessesPerLife": 5.9,
+    "sickShare": 0.02139320590461772,
+    "poopFullShare": 0.04668007191521574,
+    "sleepShare": 0.20892043906131721,
+    "deathRate": 0.05,
+    "deathAges": [
+     66
+    ],
+    "meanDeathMeter": 6.43253164599229,
+    "maxSodachi": 70.6,
+    "maxSodachiP10": 67,
+    "clearRate": 0.75
+   }
+  },
+  "A": {
+   "plan": {
+    "id": "A",
+    "label": "A案 軽度の緩和",
+    "short": "A",
+    "summary": "今の手ざわりのまま、いちばん忙しい「ごきげん」「うんち」を2〜3割ゆるめる。",
+    "hungerDecay": 0.28,
+    "happyDecay": 0.26,
+    "energyDecay": 0.26,
+    "sleepDecayFactor": 0.4,
+    "poop": {
+     "mode": "random",
+     "perTick": 0.024,
+     "sleepFactor": 0.5
+    },
+    "fullPoopHappyPenalty": 1,
+    "neglectPoop": 3,
+    "sicknessChance": 0.02,
+    "feedAmount": 25,
+    "petAmount": 6,
+    "spamThreshold": 3,
+    "recentActionTicks": 40,
+    "contentFactor": 1,
+    "autoWakeTicks": 0,
+    "envMomentMinMs": 150000,
+    "envMomentSpanMs": 150000,
+    "envMomentMult": 1,
+    "relationDecayYears": 28,
+    "poopNotice": 2,
+    "feedGrowth": 4,
+    "cleanGrowth": 5,
+    "stableGrowth": 0.13
+   },
+   "personas": {
+    "diligent": {
+     "lives": 40,
+     "homeMinutes": 100,
+     "careTapsPer10": 8.242500000000001,
+     "allTapsPer10": 10.915,
+     "careTapsPer30Max": 38.175,
+     "careTapsPerLife": 82.425,
+     "gamesPerLife": 26.725,
+     "kinds": {
+      "feed": {
+       "per10": 2.0125,
+       "life": 20.125
+      },
+      "clean": {
+       "per10": 4.124999999999999,
+       "life": 41.25
+      },
+      "pet": {
+       "per10": 0.0225,
+       "life": 0.225
+      },
+      "sleep": {
+       "per10": 1.0700000000000005,
+       "life": 10.7
+      },
+      "wake": {
+       "per10": 1.0125,
+       "life": 10.125
+      },
+      "medicine": {
+       "per10": 0,
+       "life": 0
+      },
+      "game": {
+       "per10": 2.672500000000001,
+       "life": 26.725
+      }
+     },
+     "maxTapsIn1Min": 4.375,
+     "maxTapsIn10Min": 16.025,
+     "sessionsPer10": 9.479999999999999,
+     "burstSessionsPerLife": 0.9,
+     "sessionTapsP90": 2,
+     "quietGapMedianMin": 0.95,
+     "signalFreeShare": 0.6482874999999997,
+     "noticeFreeShare": 0.9917499999999999,
+     "signalFreeStretchMeanMin": 4.622370766488411,
+     "signalFreeStretchP90Min": 6.25,
+     "noticeFreeStretchMeanMin": 21.21390374331551,
+     "overlap2Share": 0.0017875000000000005,
+     "overlap3Share": 0,
+     "sicknessesPerLife": 0,
+     "sickShare": 0,
+     "poopFullShare": 0.00012499999999999998,
+     "sleepShare": 0.12226249999999998,
+     "deathRate": 0,
+     "deathAges": [],
+     "meanDeathMeter": 0.5521451816000001,
+     "maxSodachi": 78.35,
+     "maxSodachiP10": 76,
+     "clearRate": 1,
+     "label": "こまめにお世話"
+    },
+    "casual": {
+     "lives": 40,
+     "homeMinutes": 100,
+     "careTapsPer10": 7.18,
+     "allTapsPer10": 8.085,
+     "careTapsPer30Max": 30.45,
+     "careTapsPerLife": 71.8,
+     "gamesPerLife": 9.05,
+     "kinds": {
+      "feed": {
+       "per10": 1.9149999999999998,
+       "life": 19.15
+      },
+      "clean": {
+       "per10": 2.7475,
+       "life": 27.475
+      },
+      "pet": {
+       "per10": 1.0025,
+       "life": 10.025
+      },
+      "sleep": {
+       "per10": 0.7274999999999998,
+       "life": 7.275
+      },
+      "wake": {
+       "per10": 0.7074999999999997,
+       "life": 7.075
+      },
+      "medicine": {
+       "per10": 0.08000000000000003,
+       "life": 0.8
+      },
+      "game": {
+       "per10": 0.9049999999999999,
+       "life": 9.05
+      }
+     },
+     "maxTapsIn1Min": 4.15,
+     "maxTapsIn10Min": 13.25,
+     "sessionsPer10": 4.11,
+     "burstSessionsPerLife": 9.025,
+     "sessionTapsP90": 3,
+     "quietGapMedianMin": 2.3,
+     "signalFreeShare": 0.6398124999999998,
+     "noticeFreeShare": 0.8837999999999997,
+     "signalFreeStretchMeanMin": 3.6560714285714293,
+     "signalFreeStretchP90Min": 7.5,
+     "noticeFreeStretchMeanMin": 6.279218472468911,
+     "overlap2Share": 0.05165000000000001,
+     "overlap3Share": 0.0039375,
+     "sicknessesPerLife": 0.8,
+     "sickShare": 0.0030000000000000005,
+     "poopFullShare": 0.004737500000000002,
+     "sleepShare": 0.164025,
+     "deathRate": 0,
+     "deathAges": [],
+     "meanDeathMeter": 1.3011067984916678,
+     "maxSodachi": 66.8,
+     "maxSodachiP10": 64,
+     "clearRate": 0.05,
+     "label": "ながめながら時々お世話"
+    },
+    "gamer": {
+     "lives": 40,
+     "homeMinutes": 100,
+     "careTapsPer10": 8.1925,
+     "allTapsPer10": 19.322499999999998,
+     "careTapsPer30Max": 63.3,
+     "careTapsPerLife": 81.925,
+     "gamesPerLife": 111.3,
+     "kinds": {
+      "feed": {
+       "per10": 1.8099999999999992,
+       "life": 18.1
+      },
+      "clean": {
+       "per10": 2.0225,
+       "life": 20.225
+      },
+      "pet": {
+       "per10": 0,
+       "life": 0
+      },
+      "sleep": {
+       "per10": 2.1675000000000013,
+       "life": 21.675
+      },
+      "wake": {
+       "per10": 2.1625000000000005,
+       "life": 21.625
+      },
+      "medicine": {
+       "per10": 0.03,
+       "life": 0.3
+      },
+      "game": {
+       "per10": 11.129999999999999,
+       "life": 111.3
+      }
+     },
+     "maxTapsIn1Min": 5.05,
+     "maxTapsIn10Min": 23.825,
+     "sessionsPer10": 13.300000000000002,
+     "burstSessionsPerLife": 6.3,
+     "sessionTapsP90": 2,
+     "quietGapMedianMin": 0.75,
+     "signalFreeShare": 0.5638625,
+     "noticeFreeShare": 0.7887500000000001,
+     "signalFreeStretchMeanMin": 1.469348534201958,
+     "signalFreeStretchP90Min": 2.8,
+     "noticeFreeStretchMeanMin": 2.1174496644295306,
+     "overlap2Share": 0.0634875,
+     "overlap3Share": 0.0042375000000000025,
+     "sicknessesPerLife": 0.3,
+     "sickShare": 0.0005500000000000001,
+     "poopFullShare": 0.0009000000000000001,
+     "sleepShare": 0.16345,
+     "deathRate": 0,
+     "deathAges": [],
+     "meanDeathMeter": 0.6727533373166678,
+     "maxSodachi": 99.075,
+     "maxSodachiP10": 96,
+     "clearRate": 1,
+     "label": "ミニゲーム中心"
+    },
+    "minimal": {
+     "lives": 40,
+     "homeMinutes": 99.40625,
+     "careTapsPer10": 9.531211551202501,
+     "allTapsPer10": 9.701052041770941,
+     "careTapsPer30Max": 41.7,
+     "careTapsPerLife": 95.31211551202503,
+     "gamesPerLife": 1.698404905684431,
+     "kinds": {
+      "feed": {
+       "per10": 2.102806008098448,
+       "life": 21.028060080984485
+      },
+      "clean": {
+       "per10": 1.996776496535721,
+       "life": 19.96776496535721
+      },
+      "pet": {
+       "per10": 3.870330548753909,
+       "life": 38.70330548753909
+      },
+      "sleep": {
+       "per10": 0.7225364922733792,
+       "life": 7.225364922733796
+      },
+      "wake": {
+       "per10": 0.7100364922733793,
+       "life": 7.100364922733796
+      },
+      "medicine": {
+       "per10": 0.1287255132676641,
+       "life": 1.2872551326766408
+      },
+      "game": {
+       "per10": 0.16984049056844303,
+       "life": 1.698404905684431
+      }
+     },
+     "maxTapsIn1Min": 5,
+     "maxTapsIn10Min": 20.05,
+     "sessionsPer10": 9.701052041770941,
+     "burstSessionsPerLife": 0,
+     "sessionTapsP90": 1,
+     "quietGapMedianMin": 0.2,
+     "signalFreeShare": 0.16089424956555667,
+     "noticeFreeShare": 0.5170511618984676,
+     "signalFreeStretchMeanMin": 2.743162393162391,
+     "signalFreeStretchP90Min": 5.35,
+     "noticeFreeStretchMeanMin": 1.054979466119098,
+     "overlap2Share": 0.7946794219296174,
+     "overlap3Share": 0.3489947889899604,
+     "sicknessesPerLife": 1.25,
+     "sickShare": 0.00249718002983639,
+     "poopFullShare": 0.014574385992671603,
+     "sleepShare": 0.0404142098539923,
+     "deathRate": 0.05,
+     "deathAges": [
+      87,
+      88
+     ],
+     "meanDeathMeter": 14.029928522343152,
+     "maxSodachi": 59.6,
+     "maxSodachiP10": 58,
+     "clearRate": 0,
+     "label": "必要最低限だけ"
+    },
+    "viewer": {
+     "lives": 40,
+     "homeMinutes": 37.74999999999999,
+     "careTapsPer10": 5.658192078104889,
+     "allTapsPer10": 6.104744524630265,
+     "careTapsPer30Max": 22.1,
+     "careTapsPerLife": 56.58192078104891,
+     "gamesPerLife": 4.46552446525375,
+     "kinds": {
+      "feed": {
+       "per10": 1.1124676281150112,
+       "life": 11.124676281150114
+      },
+      "clean": {
+       "per10": 0.6760662867254273,
+       "life": 6.760662867254274
+      },
+      "pet": {
+       "per10": 2.7021452692521644,
+       "life": 27.02145269252165
+      },
+      "sleep": {
+       "per10": 0.42749152946012003,
+       "life": 4.274915294601201
+      },
+      "wake": {
+       "per10": 0.2837181816433053,
+       "life": 2.8371818164330533
+      },
+      "medicine": {
+       "per10": 0.45630318290886096,
+       "life": 4.56303182908861
+      },
+      "game": {
+       "per10": 0.44655244652537496,
+       "life": 4.46552446525375
+      }
+     },
+     "maxTapsIn1Min": 7.75,
+     "maxTapsIn10Min": 14.1,
+     "sessionsPer10": 0.9414717727880578,
+     "burstSessionsPerLife": 7.292407271990139,
+     "sessionTapsP90": 9,
+     "quietGapMedianMin": 9.1,
+     "signalFreeShare": 0.2890552014268325,
+     "noticeFreeShare": 0.3559156494863054,
+     "signalFreeStretchMeanMin": 3.8543478260869555,
+     "signalFreeStretchP90Min": 7,
+     "noticeFreeStretchMeanMin": 3.8374999999999977,
+     "overlap2Share": 0.4133362765696747,
+     "overlap3Share": 0.27076768610626256,
+     "sicknessesPerLife": 2.7,
+     "sickShare": 0.2937128473805353,
+     "poopFullShare": 0.2483464767215306,
+     "sleepShare": 0.27984930814784664,
+     "deathRate": 0.925,
+     "deathAges": [
+      35,
+      83,
+      71,
+      35,
+      20,
+      69,
+      39,
+      28,
+      7,
+      10,
+      58,
+      8,
+      45,
+      47,
+      10,
+      8,
+      32,
+      8,
+      14,
+      15,
+      9,
+      13,
+      47,
+      24,
+      48,
+      49,
+      13,
+      57,
+      32,
+      65,
+      41,
+      27,
+      61,
+      11,
+      7,
+      7,
+      41
+     ],
+     "meanDeathMeter": 11.869194880885022,
+     "maxSodachi": 35.35,
+     "maxSodachiP10": 21,
+     "clearRate": 0,
+     "label": "しばらく眺めて楽しむ"
+    }
+   },
+   "idle": {
+    "young": {
+     "firstSignal": {
+      "mean": 3.7639999999999993,
+      "p10": 1.05,
+      "p90": 7.2,
+      "reached": 1
+     },
+     "firstNotice": {
+      "mean": 3.8840000000000003,
+      "p10": 1.05,
+      "p90": 7.2,
+      "reached": 1
+     },
+     "firstWarning": {
+      "mean": 8.306666666666672,
+      "p10": 3.85,
+      "p90": 13.4,
+      "reached": 1
+     },
+     "firstSick": {
+      "mean": 8.422448979591842,
+      "p10": 3.85,
+      "p90": 13.3,
+      "reached": 0.98
+     },
+     "firstFullPoop": {
+      "mean": 7.733571428571424,
+      "p10": 3.45,
+      "p90": 12.4,
+      "reached": 0.9333333333333333
+     },
+     "firstHarm": {
+      "mean": 7.961000000000004,
+      "p10": 3.8,
+      "p90": 12.4,
+      "reached": 1
+     },
+     "death": {
+      "mean": 12.643333333333333,
+      "p10": 8.55,
+      "p90": 17.75,
+      "reached": 1
+     },
+     "autoWake": {
+      "mean": 0,
+      "p10": 0,
+      "p90": 0,
+      "reached": 0
+     },
+     "poopAt10": {
+      "mean": 3.396551724137931,
+      "p10": 2,
+      "p90": 4,
+      "reached": 0.7733333333333333
+     },
+     "poopAt20": {
+      "mean": 4,
+      "p10": 4,
+      "p90": 4,
+      "reached": 0.006666666666666667
+     }
+    },
+    "old": {
+     "firstSignal": {
+      "mean": 3.7123333333333344,
+      "p10": 1.05,
+      "p90": 7.15,
+      "reached": 1
+     },
+     "firstNotice": {
+      "mean": 3.819666666666668,
+      "p10": 1.05,
+      "p90": 7.15,
+      "reached": 1
+     },
+     "firstWarning": {
+      "mean": 8.306666666666665,
+      "p10": 4.05,
+      "p90": 13.4,
+      "reached": 1
+     },
+     "firstSick": {
+      "mean": 8.537074829931973,
+      "p10": 4.05,
+      "p90": 14.5,
+      "reached": 0.98
+     },
+     "firstFullPoop": {
+      "mean": 7.612773722627738,
+      "p10": 3.2,
+      "p90": 12.25,
+      "reached": 0.9133333333333333
+     },
+     "firstHarm": {
+      "mean": 6.229666666666668,
+      "p10": 3.75,
+      "p90": 7.5,
+      "reached": 1
+     },
+     "death": {
+      "mean": 13.390476190476189,
+      "p10": 8.9,
+      "p90": 17.6,
+      "reached": 0.98
+     },
+     "autoWake": {
+      "mean": 0,
+      "p10": 0,
+      "p90": 0,
+      "reached": 0
+     },
+     "poopAt10": {
+      "mean": 3.4210526315789473,
+      "p10": 2,
+      "p90": 4,
+      "reached": 0.76
+     },
+     "poopAt20": {
+      "mean": 2.6666666666666665,
+      "p10": 2,
+      "p90": 3,
+      "reached": 0.02
+     }
+    },
+    "sleep": {
+     "firstSignal": {
+      "mean": 8.329000000000004,
+      "p10": 2.25,
+      "p90": 16.55,
+      "reached": 1
+     },
+     "firstNotice": {
+      "mean": 8.336333333333338,
+      "p10": 2.25,
+      "p90": 16.55,
+      "reached": 1
+     },
+     "firstWarning": {
+      "mean": 14.904000000000002,
+      "p10": 6.55,
+      "p90": 24.25,
+      "reached": 1
+     },
+     "firstSick": {
+      "mean": 14.807482993197281,
+      "p10": 6.55,
+      "p90": 24.2,
+      "reached": 0.98
+     },
+     "firstFullPoop": {
+      "mean": 14.95076923076923,
+      "p10": 6.95,
+      "p90": 24,
+      "reached": 0.8666666666666667
+     },
+     "firstHarm": {
+      "mean": 14.397666666666668,
+      "p10": 6.55,
+      "p90": 24,
+      "reached": 1
+     },
+     "death": {
+      "mean": 19.566666666666677,
+      "p10": 11.55,
+      "p90": 28.95,
+      "reached": 1
+     },
+     "autoWake": {
+      "mean": 0,
+      "p10": 0,
+      "p90": 0,
+      "reached": 0
+     },
+     "poopAt10": {
+      "mean": 2.2222222222222223,
+      "p10": 1,
+      "p90": 4,
+      "reached": 0.96
+     },
+     "poopAt20": {
+      "mean": 2.984126984126984,
+      "p10": 2,
+      "p90": 4,
+      "reached": 0.42
+     }
+    }
+   },
+   "harshCasual": {
+    "lives": 20,
+    "homeMinutes": 100,
+    "careTapsPer10": 8.870000000000001,
+    "allTapsPer10": 9.770000000000001,
+    "careTapsPer30Max": 36.7,
+    "careTapsPerLife": 88.7,
+    "gamesPerLife": 9,
+    "kinds": {
+     "feed": {
+      "per10": 1.9299999999999997,
+      "life": 19.3
+     },
+     "clean": {
+      "per10": 2.795,
+      "life": 27.95
+     },
+     "pet": {
+      "per10": 2.635,
+      "life": 26.35
+     },
+     "sleep": {
+      "per10": 0.7349999999999998,
+      "life": 7.35
+     },
+     "wake": {
+      "per10": 0.7299999999999998,
+      "life": 7.3
+     },
+     "medicine": {
+      "per10": 0.045,
+      "life": 0.45
+     },
+     "game": {
+      "per10": 0.9,
+      "life": 9
+     }
+    },
+    "maxTapsIn1Min": 5,
+    "maxTapsIn10Min": 16.2,
+    "sessionsPer10": 4.21,
+    "burstSessionsPerLife": 12.65,
+    "sessionTapsP90": 4,
+    "quietGapMedianMin": 2.25,
+    "signalFreeShare": 0.6166750000000001,
+    "noticeFreeShare": 0.8903500000000001,
+    "signalFreeStretchMeanMin": 2.8682558139534886,
+    "signalFreeStretchP90Min": 5.95,
+    "noticeFreeStretchMeanMin": 6.140344827586206,
+    "overlap2Share": 0.0631,
+    "overlap3Share": 0.0094,
+    "sicknessesPerLife": 0.45,
+    "sickShare": 0.0014750000000000002,
+    "poopFullShare": 0.003425,
+    "sleepShare": 0.16155,
+    "deathRate": 0,
+    "deathAges": [],
+    "meanDeathMeter": 1.4856957918166684,
+    "maxSodachi": 67.15,
+    "maxSodachiP10": 65,
+    "clearRate": 0.15
+   }
+  },
+  "B": {
+   "plan": {
+    "id": "B",
+    "label": "B案 ゆったりとした育成",
+    "short": "B",
+    "summary": "必要なお世話は3〜4分に1回程度。うんちは間隔をそろえ、ねている間はほとんど出ない。おなかと清潔が満たされていればごきげんはゆっくり減る。",
+    "hungerDecay": 0.2,
+    "happyDecay": 0.2,
+    "energyDecay": 0.2,
+    "sleepDecayFactor": 0.25,
+    "poop": {
+     "mode": "timer",
+     "minTicks": 50,
+     "maxTicks": 90,
+     "sleepFactor": 0.3
+    },
+    "fullPoopHappyPenalty": 0.5,
+    "neglectPoop": 4,
+    "sicknessChance": 0.015,
+    "feedAmount": 30,
+    "petAmount": 7,
+    "spamThreshold": 4,
+    "recentActionTicks": 100,
+    "contentFactor": 0.7,
+    "autoWakeTicks": 30,
+    "envMomentMinMs": 90000,
+    "envMomentSpanMs": 90000,
+    "envMomentMult": 1.5,
+    "relationDecayYears": 40,
+    "poopNotice": 3,
+    "feedGrowth": 5,
+    "cleanGrowth": 6,
+    "stableGrowth": 0.17
+   },
+   "personas": {
+    "diligent": {
+     "lives": 40,
+     "homeMinutes": 100,
+     "careTapsPer10": 5.732499999999999,
+     "allTapsPer10": 8.755000000000003,
+     "careTapsPer30Max": 29.125,
+     "careTapsPerLife": 57.325,
+     "gamesPerLife": 30.225,
+     "kinds": {
+      "feed": {
+       "per10": 1.2000000000000006,
+       "life": 12
+      },
+      "clean": {
+       "per10": 2.5449999999999995,
+       "life": 25.45
+      },
+      "pet": {
+       "per10": 0,
+       "life": 0
+      },
+      "sleep": {
+       "per10": 1,
+       "life": 10
+      },
+      "wake": {
+       "per10": 0.9875,
+       "life": 9.875
+      },
+      "medicine": {
+       "per10": 0,
+       "life": 0
+      },
+      "game": {
+       "per10": 3.0225,
+       "life": 30.225
+      }
+     },
+     "maxTapsIn1Min": 3.4,
+     "maxTapsIn10Min": 11.275,
+     "sessionsPer10": 7.984999999999999,
+     "burstSessionsPerLife": 0.35,
+     "sessionTapsP90": 1,
+     "quietGapMedianMin": 1.1,
+     "signalFreeShare": 0.7546749999999999,
+     "noticeFreeShare": 1,
+     "signalFreeStretchMeanMin": 6.829638009049772,
+     "signalFreeStretchP90Min": 7.8,
+     "noticeFreeStretchMeanMin": 100,
+     "overlap2Share": 0,
+     "overlap3Share": 0,
+     "sicknessesPerLife": 0,
+     "sickShare": 0,
+     "poopFullShare": 0,
+     "sleepShare": 0.11702499999999998,
+     "deathRate": 0,
+     "deathAges": [],
+     "meanDeathMeter": 0.9032932345416673,
+     "maxSodachi": 79.175,
+     "maxSodachiP10": 78,
+     "clearRate": 1,
+     "label": "こまめにお世話"
+    },
+    "casual": {
+     "lives": 40,
+     "homeMinutes": 100,
+     "careTapsPer10": 4.385000000000002,
+     "allTapsPer10": 5.325000000000001,
+     "careTapsPer30Max": 19.8,
+     "careTapsPerLife": 43.85,
+     "gamesPerLife": 9.4,
+     "kinds": {
+      "feed": {
+       "per10": 1.2000000000000006,
+       "life": 12
+      },
+      "clean": {
+       "per10": 2.5625000000000004,
+       "life": 25.625
+      },
+      "pet": {
+       "per10": 0,
+       "life": 0
+      },
+      "sleep": {
+       "per10": 0.6225,
+       "life": 6.225
+      },
+      "wake": {
+       "per10": 0,
+       "life": 0
+      },
+      "medicine": {
+       "per10": 0,
+       "life": 0
+      },
+      "game": {
+       "per10": 0.9399999999999998,
+       "life": 9.4
+      }
+     },
+     "maxTapsIn1Min": 2.95,
+     "maxTapsIn10Min": 8.9,
+     "sessionsPer10": 3.444999999999999,
+     "burstSessionsPerLife": 3.05,
+     "sessionTapsP90": 2,
+     "quietGapMedianMin": 2.55,
+     "signalFreeShare": 0.7301874999999998,
+     "noticeFreeShare": 0.9963875,
+     "signalFreeStretchMeanMin": 9.801174496644276,
+     "signalFreeStretchP90Min": 13.95,
+     "noticeFreeStretchMeanMin": 49.20432098765432,
+     "overlap2Share": 0.00025000000000000006,
+     "overlap3Share": 0,
+     "sicknessesPerLife": 0,
+     "sickShare": 0,
+     "poopFullShare": 0,
+     "sleepShare": 0.08976250000000006,
+     "deathRate": 0,
+     "deathAges": [],
+     "meanDeathMeter": 0.7535458423083342,
+     "maxSodachi": 69.85,
+     "maxSodachiP10": 68,
+     "clearRate": 0.625,
+     "label": "ながめながら時々お世話"
+    },
+    "gamer": {
+     "lives": 40,
+     "homeMinutes": 100,
+     "careTapsPer10": 6.222499999999999,
+     "allTapsPer10": 17.4975,
+     "careTapsPer30Max": 56.975,
+     "careTapsPerLife": 62.225,
+     "gamesPerLife": 112.75,
+     "kinds": {
+      "feed": {
+       "per10": 1.0475000000000003,
+       "life": 10.475
+      },
+      "clean": {
+       "per10": 1.2175000000000002,
+       "life": 12.175
+      },
+      "pet": {
+       "per10": 0,
+       "life": 0
+      },
+      "sleep": {
+       "per10": 1.9899999999999998,
+       "life": 19.9
+      },
+      "wake": {
+       "per10": 1.9675,
+       "life": 19.675
+      },
+      "medicine": {
+       "per10": 0,
+       "life": 0
+      },
+      "game": {
+       "per10": 11.274999999999997,
+       "life": 112.75
+      }
+     },
+     "maxTapsIn1Min": 4.375,
+     "maxTapsIn10Min": 21.3,
+     "sessionsPer10": 13.265,
+     "burstSessionsPerLife": 2.25,
+     "sessionTapsP90": 2,
+     "quietGapMedianMin": 0.75,
+     "signalFreeShare": 0.5831625000000001,
+     "noticeFreeShare": 0.8855375000000002,
+     "signalFreeStretchMeanMin": 2.3049901185770785,
+     "signalFreeStretchP90Min": 3.3,
+     "noticeFreeStretchMeanMin": 4.231959378733572,
+     "overlap2Share": 0.018674999999999997,
+     "overlap3Share": 0,
+     "sicknessesPerLife": 0,
+     "sickShare": 0,
+     "poopFullShare": 0,
+     "sleepShare": 0.1496,
+     "deathRate": 0,
+     "deathAges": [],
+     "meanDeathMeter": 0.616486904058334,
+     "maxSodachi": 98.875,
+     "maxSodachiP10": 96,
+     "clearRate": 1,
+     "label": "ミニゲーム中心"
+    },
+    "minimal": {
+     "lives": 40,
+     "homeMinutes": 100,
+     "careTapsPer10": 4.91,
+     "allTapsPer10": 4.994999999999999,
+     "careTapsPer30Max": 24.675,
+     "careTapsPerLife": 49.1,
+     "gamesPerLife": 0.85,
+     "kinds": {
+      "feed": {
+       "per10": 1.24,
+       "life": 12.4
+      },
+      "clean": {
+       "per10": 0.8699999999999994,
+       "life": 8.7
+      },
+      "pet": {
+       "per10": 1.8074999999999999,
+       "life": 18.075
+      },
+      "sleep": {
+       "per10": 0.5525000000000002,
+       "life": 5.525
+      },
+      "wake": {
+       "per10": 0.44000000000000006,
+       "life": 4.4
+      },
+      "medicine": {
+       "per10": 0,
+       "life": 0
+      },
+      "game": {
+       "per10": 0.08500000000000005,
+       "life": 0.85
+      }
+     },
+     "maxTapsIn1Min": 5,
+     "maxTapsIn10Min": 13.725,
+     "sessionsPer10": 4.994999999999999,
+     "burstSessionsPerLife": 0,
+     "sessionTapsP90": 1,
+     "quietGapMedianMin": 1.2,
+     "signalFreeShare": 0.2177,
+     "noticeFreeShare": 0.6994375,
+     "signalFreeStretchMeanMin": 4.535416666666665,
+     "signalFreeStretchP90Min": 9.95,
+     "noticeFreeStretchMeanMin": 2.1840359094457464,
+     "overlap2Share": 0.6917,
+     "overlap3Share": 0.232475,
+     "sicknessesPerLife": 0,
+     "sickShare": 0,
+     "poopFullShare": 0,
+     "sleepShare": 0.025974999999999998,
+     "deathRate": 0,
+     "deathAges": [],
+     "meanDeathMeter": 12.505168380616677,
+     "maxSodachi": 52.15,
+     "maxSodachiP10": 51,
+     "clearRate": 0,
+     "label": "必要最低限だけ"
+    },
+    "viewer": {
+     "lives": 40,
+     "homeMinutes": 100,
+     "careTapsPer10": 4.1625000000000005,
+     "allTapsPer10": 4.1625000000000005,
+     "careTapsPer30Max": 18.35,
+     "careTapsPerLife": 41.625,
+     "gamesPerLife": 0,
+     "kinds": {
+      "feed": {
+       "per10": 1.2375000000000005,
+       "life": 12.375
+      },
+      "clean": {
+       "per10": 0.9549999999999997,
+       "life": 9.55
+      },
+      "pet": {
+       "per10": 1.51,
+       "life": 15.1
+      },
+      "sleep": {
+       "per10": 0.45499999999999996,
+       "life": 4.55
+      },
+      "wake": {
+       "per10": 0,
+       "life": 0
+      },
+      "medicine": {
+       "per10": 0.005,
+       "life": 0.05
+      },
+      "game": {
+       "per10": 0,
+       "life": 0
+      }
+     },
+     "maxTapsIn1Min": 6.6,
+     "maxTapsIn10Min": 10.05,
+     "sessionsPer10": 0.9549999999999997,
+     "burstSessionsPerLife": 8.375,
+     "sessionTapsP90": 6,
+     "quietGapMedianMin": 9.95,
+     "signalFreeShare": 0.6539375000000001,
+     "noticeFreeShare": 0.889625,
+     "signalFreeStretchMeanMin": 7.431107954545454,
+     "signalFreeStretchP90Min": 13.95,
+     "noticeFreeStretchMeanMin": 11.861666666666668,
+     "overlap2Share": 0.10386250000000001,
+     "overlap3Share": 0.02997500000000001,
+     "sicknessesPerLife": 0.05,
+     "sickShare": 0.0002875,
+     "poopFullShare": 0.0022624999999999998,
+     "sleepShare": 0.06429999999999998,
+     "deathRate": 0,
+     "deathAges": [],
+     "meanDeathMeter": 1.8719613526750016,
+     "maxSodachi": 58.5,
+     "maxSodachiP10": 57,
+     "clearRate": 0,
+     "label": "しばらく眺めて楽しむ"
+    }
+   },
+   "idle": {
+    "young": {
+     "firstSignal": {
+      "mean": 10.524666666666663,
+      "p10": 9.2,
+      "p90": 12,
+      "reached": 1
+     },
+     "firstNotice": {
+      "mean": 10.534333333333327,
+      "p10": 9.2,
+      "p90": 12,
+      "reached": 1
+     },
+     "firstWarning": {
+      "mean": 16.434999999999995,
+      "p10": 13.65,
+      "p90": 18.75,
+      "reached": 1
+     },
+     "firstSick": {
+      "mean": 16.77379310344827,
+      "p10": 13.65,
+      "p90": 19.9,
+      "reached": 0.9666666666666667
+     },
+     "firstFullPoop": {
+      "mean": 13.993333333333327,
+      "p10": 12.5,
+      "p90": 15.55,
+      "reached": 1
+     },
+     "firstHarm": {
+      "mean": 15.217666666666668,
+      "p10": 13.65,
+      "p90": 16.35,
+      "reached": 1
+     },
+     "death": {
+      "mean": 21.00633333333333,
+      "p10": 18.75,
+      "p90": 23.35,
+      "reached": 1
+     },
+     "autoWake": {
+      "mean": 0,
+      "p10": 0,
+      "p90": 0,
+      "reached": 0
+     },
+     "poopAt10": {
+      "mean": 2.3466666666666667,
+      "p10": 2,
+      "p90": 3,
+      "reached": 1
+     },
+     "poopAt20": {
+      "mean": 4,
+      "p10": 4,
+      "p90": 4,
+      "reached": 0.7133333333333334
+     }
+    },
+    "old": {
+     "firstSignal": {
+      "mean": 10.583999999999998,
+      "p10": 9.2,
+      "p90": 11.9,
+      "reached": 1
+     },
+     "firstNotice": {
+      "mean": 10.59233333333333,
+      "p10": 9.2,
+      "p90": 11.9,
+      "reached": 1
+     },
+     "firstWarning": {
+      "mean": 15.976666666666675,
+      "p10": 13.8,
+      "p90": 17.6,
+      "reached": 1
+     },
+     "firstSick": {
+      "mean": 15.924803149606298,
+      "p10": 13.65,
+      "p90": 18.3,
+      "reached": 0.8466666666666667
+     },
+     "firstFullPoop": {
+      "mean": 14.05366666666667,
+      "p10": 12.45,
+      "p90": 15.75,
+      "reached": 1
+     },
+     "firstHarm": {
+      "mean": 10.099999999999982,
+      "p10": 10.1,
+      "p90": 10.1,
+      "reached": 1
+     },
+     "death": {
+      "mean": 19.239583333333332,
+      "p10": 18.15,
+      "p90": 19.85,
+      "reached": 0.32
+     },
+     "autoWake": {
+      "mean": 0,
+      "p10": 0,
+      "p90": 0,
+      "reached": 0
+     },
+     "poopAt10": {
+      "mean": 2.2866666666666666,
+      "p10": 2,
+      "p90": 3,
+      "reached": 1
+     },
+     "poopAt20": {
+      "mean": 4,
+      "p10": 4,
+      "p90": 4,
+      "reached": 0.68
+     }
+    },
+    "sleep": {
+     "firstSignal": {
+      "mean": 11.562999999999999,
+      "p10": 10.1,
+      "p90": 12.9,
+      "reached": 1
+     },
+     "firstNotice": {
+      "mean": 11.576666666666664,
+      "p10": 10.1,
+      "p90": 12.9,
+      "reached": 1
+     },
+     "firstWarning": {
+      "mean": 17.600666666666683,
+      "p10": 15,
+      "p90": 19.9,
+      "reached": 1
+     },
+     "firstSick": {
+      "mean": 17.831468531468538,
+      "p10": 15,
+      "p90": 20.95,
+      "reached": 0.9533333333333334
+     },
+     "firstFullPoop": {
+      "mean": 15.086333333333332,
+      "p10": 13.55,
+      "p90": 16.45,
+      "reached": 1
+     },
+     "firstHarm": {
+      "mean": 16.319000000000013,
+      "p10": 15,
+      "p90": 17.45,
+      "reached": 1
+     },
+     "death": {
+      "mean": 22.17533333333333,
+      "p10": 20.05,
+      "p90": 24.6,
+      "reached": 1
+     },
+     "autoWake": {
+      "mean": 1.5,
+      "p10": 1.5,
+      "p90": 1.5,
+      "reached": 1
+     },
+     "poopAt10": {
+      "mean": 2.08,
+      "p10": 2,
+      "p90": 2,
+      "reached": 1
+     },
+     "poopAt20": {
+      "mean": 4,
+      "p10": 4,
+      "p90": 4,
+      "reached": 0.9133333333333333
+     }
+    }
+   },
+   "harshCasual": {
+    "lives": 20,
+    "homeMinutes": 100,
+    "careTapsPer10": 4.41,
+    "allTapsPer10": 5.3100000000000005,
+    "careTapsPer30Max": 19.5,
+    "careTapsPerLife": 44.1,
+    "gamesPerLife": 9,
+    "kinds": {
+     "feed": {
+      "per10": 1.1999999999999997,
+      "life": 12
+     },
+     "clean": {
+      "per10": 2.5450000000000004,
+      "life": 25.45
+     },
+     "pet": {
+      "per10": 0.025,
+      "life": 0.25
+     },
+     "sleep": {
+      "per10": 0.6399999999999998,
+      "life": 6.4
+     },
+     "wake": {
+      "per10": 0,
+      "life": 0
+     },
+     "medicine": {
+      "per10": 0,
+      "life": 0
+     },
+     "game": {
+      "per10": 0.9,
+      "life": 9
+     }
+    },
+    "maxTapsIn1Min": 3,
+    "maxTapsIn10Min": 8.95,
+    "sessionsPer10": 3.3550000000000004,
+    "burstSessionsPerLife": 2.7,
+    "sessionTapsP90": 2,
+    "quietGapMedianMin": 2.6,
+    "signalFreeShare": 0.727675,
+    "noticeFreeShare": 0.99685,
+    "signalFreeStretchMeanMin": 9.574671052631594,
+    "signalFreeStretchP90Min": 13.95,
+    "noticeFreeStretchMeanMin": 49.8425,
+    "overlap2Share": 0.000825,
+    "overlap3Share": 0,
+    "sicknessesPerLife": 0,
+    "sickShare": 0,
+    "poopFullShare": 0,
+    "sleepShare": 0.09279999999999998,
+    "deathRate": 0,
+    "deathAges": [],
+    "meanDeathMeter": 0.8981978064500007,
+    "maxSodachi": 69.45,
+    "maxSodachiP10": 67,
+    "clearRate": 0.45
+   }
+  },
+  "C": {
+   "plan": {
+    "id": "C",
+    "label": "C案 鑑賞・癒やし重視",
+    "short": "C",
+    "summary": "10分以上ながめていても困らない。お世話は「したいとき」が中心で、放っておき続けたときだけ悪くなる。",
+    "hungerDecay": 0.13,
+    "happyDecay": 0.13,
+    "energyDecay": 0.14,
+    "sleepDecayFactor": 0.2,
+    "poop": {
+     "mode": "timer",
+     "minTicks": 80,
+     "maxTicks": 140,
+     "sleepFactor": 0
+    },
+    "fullPoopHappyPenalty": 0.25,
+    "neglectPoop": 4,
+    "sicknessChance": 0.008,
+    "feedAmount": 35,
+    "petAmount": 8,
+    "spamThreshold": 5,
+    "recentActionTicks": 200,
+    "contentFactor": 0.6,
+    "autoWakeTicks": 60,
+    "envMomentMinMs": 60000,
+    "envMomentSpanMs": 60000,
+    "envMomentMult": 2,
+    "relationDecayYears": 56,
+    "poopNotice": 3,
+    "feedGrowth": 6,
+    "cleanGrowth": 8,
+    "stableGrowth": 0.19
+   },
+   "personas": {
+    "diligent": {
+     "lives": 40,
+     "homeMinutes": 100,
+     "careTapsPer10": 3.8000000000000007,
+     "allTapsPer10": 6.1949999999999985,
+     "careTapsPer30Max": 20.7,
+     "careTapsPerLife": 38,
+     "gamesPerLife": 23.95,
+     "kinds": {
+      "feed": {
+       "per10": 0.8000000000000004,
+       "life": 8
+      },
+      "clean": {
+       "per10": 1.6000000000000003,
+       "life": 16
+      },
+      "pet": {
+       "per10": 0,
+       "life": 0
+      },
+      "sleep": {
+       "per10": 0.6999999999999995,
+       "life": 7
+      },
+      "wake": {
+       "per10": 0.6999999999999995,
+       "life": 7
+      },
+      "medicine": {
+       "per10": 0,
+       "life": 0
+      },
+      "game": {
+       "per10": 2.3950000000000014,
+       "life": 23.95
+      }
+     },
+     "maxTapsIn1Min": 2.8,
+     "maxTapsIn10Min": 8.325,
+     "sessionsPer10": 5.872500000000001,
+     "burstSessionsPerLife": 0,
+     "sessionTapsP90": 1,
+     "quietGapMedianMin": 1.35,
+     "signalFreeShare": 0.6140875,
+     "noticeFreeShare": 1,
+     "signalFreeStretchMeanMin": 7.652180685358254,
+     "signalFreeStretchP90Min": 8.2,
+     "noticeFreeStretchMeanMin": 100,
+     "overlap2Share": 0,
+     "overlap3Share": 0,
+     "sicknessesPerLife": 0,
+     "sickShare": 0,
+     "poopFullShare": 0,
+     "sleepShare": 0.08292499999999998,
+     "deathRate": 0,
+     "deathAges": [],
+     "meanDeathMeter": 0.3158187705583334,
+     "maxSodachi": 75.175,
+     "maxSodachiP10": 74,
+     "clearRate": 1,
+     "label": "こまめにお世話"
+    },
+    "casual": {
+     "lives": 40,
+     "homeMinutes": 100,
+     "careTapsPer10": 3.1000000000000005,
+     "allTapsPer10": 4.029999999999999,
+     "careTapsPer30Max": 15.85,
+     "careTapsPerLife": 31,
+     "gamesPerLife": 9.3,
+     "kinds": {
+      "feed": {
+       "per10": 0.6150000000000002,
+       "life": 6.15
+      },
+      "clean": {
+       "per10": 1.5625000000000007,
+       "life": 15.625
+      },
+      "pet": {
+       "per10": 0,
+       "life": 0
+      },
+      "sleep": {
+       "per10": 0.4749999999999999,
+       "life": 4.75
+      },
+      "wake": {
+       "per10": 0.4474999999999999,
+       "life": 4.475
+      },
+      "medicine": {
+       "per10": 0,
+       "life": 0
+      },
+      "game": {
+       "per10": 0.9299999999999999,
+       "life": 9.3
+      }
+     },
+     "maxTapsIn1Min": 2.625,
+     "maxTapsIn10Min": 7.25,
+     "sessionsPer10": 3.037500000000001,
+     "burstSessionsPerLife": 0.85,
+     "sessionTapsP90": 2,
+     "quietGapMedianMin": 2.65,
+     "signalFreeShare": 0.7460500000000001,
+     "noticeFreeShare": 0.9989250000000001,
+     "signalFreeStretchMeanMin": 12.752991452991457,
+     "signalFreeStretchP90Min": 17.85,
+     "noticeFreeStretchMeanMin": 76.84038461538461,
+     "overlap2Share": 0,
+     "overlap3Share": 0,
+     "sicknessesPerLife": 0,
+     "sickShare": 0,
+     "poopFullShare": 0,
+     "sleepShare": 0.105325,
+     "deathRate": 0,
+     "deathAges": [],
+     "meanDeathMeter": 0.8865873458833343,
+     "maxSodachi": 68.75,
+     "maxSodachiP10": 66,
+     "clearRate": 0.325,
+     "label": "ながめながら時々お世話"
+    },
+    "gamer": {
+     "lives": 40,
+     "homeMinutes": 100,
+     "careTapsPer10": 5.049999999999999,
+     "allTapsPer10": 16.440000000000005,
+     "careTapsPer30Max": 53.2,
+     "careTapsPerLife": 50.5,
+     "gamesPerLife": 113.9,
+     "kinds": {
+      "feed": {
+       "per10": 0.6000000000000003,
+       "life": 6
+      },
+      "clean": {
+       "per10": 0.7224999999999998,
+       "life": 7.225
+      },
+      "pet": {
+       "per10": 0,
+       "life": 0
+      },
+      "sleep": {
+       "per10": 1.8724999999999994,
+       "life": 18.725
+      },
+      "wake": {
+       "per10": 1.8549999999999993,
+       "life": 18.55
+      },
+      "medicine": {
+       "per10": 0,
+       "life": 0
+      },
+      "game": {
+       "per10": 11.39,
+       "life": 113.9
+      }
+     },
+     "maxTapsIn1Min": 4.15,
+     "maxTapsIn10Min": 19.95,
+     "sessionsPer10": 13.262499999999998,
+     "burstSessionsPerLife": 0.75,
+     "sessionTapsP90": 2,
+     "quietGapMedianMin": 0.75,
+     "signalFreeShare": 0.5591875000000001,
+     "noticeFreeShare": 0.8583125000000003,
+     "signalFreeStretchMeanMin": 2.466097023153254,
+     "signalFreeStretchP90Min": 3.35,
+     "noticeFreeStretchMeanMin": 4.329445145018912,
+     "overlap2Share": 0.009325000000000005,
+     "overlap3Share": 0,
+     "sicknessesPerLife": 0,
+     "sickShare": 0,
+     "poopFullShare": 0,
+     "sleepShare": 0.13886250000000003,
+     "deathRate": 0,
+     "deathAges": [],
+     "meanDeathMeter": 0.8471052953500013,
+     "maxSodachi": 99.35,
+     "maxSodachiP10": 98,
+     "clearRate": 1,
+     "label": "ミニゲーム中心"
+    },
+    "minimal": {
+     "lives": 40,
+     "homeMinutes": 100,
+     "careTapsPer10": 1.8799999999999997,
+     "allTapsPer10": 1.8799999999999997,
+     "careTapsPer30Max": 8.3,
+     "careTapsPerLife": 18.8,
+     "gamesPerLife": 0,
+     "kinds": {
+      "feed": {
+       "per10": 0.6999999999999995,
+       "life": 7
+      },
+      "clean": {
+       "per10": 0.5425000000000002,
+       "life": 5.425
+      },
+      "pet": {
+       "per10": 0.03500000000000001,
+       "life": 0.35
+      },
+      "sleep": {
+       "per10": 0.30250000000000016,
+       "life": 3.025
+      },
+      "wake": {
+       "per10": 0.30000000000000016,
+       "life": 3
+      },
+      "medicine": {
+       "per10": 0,
+       "life": 0
+      },
+      "game": {
+       "per10": 0,
+       "life": 0
+      }
+     },
+     "maxTapsIn1Min": 2.95,
+     "maxTapsIn10Min": 4.95,
+     "sessionsPer10": 1.8799999999999997,
+     "burstSessionsPerLife": 0,
+     "sessionTapsP90": 1,
+     "quietGapMedianMin": 3.8,
+     "signalFreeShare": 0.31152499999999994,
+     "noticeFreeShare": 0.8294125000000001,
+     "signalFreeStretchMeanMin": 4.90590551181102,
+     "signalFreeStretchP90Min": 14.25,
+     "noticeFreeStretchMeanMin": 5.882358156028367,
+     "overlap2Share": 0.2784375,
+     "overlap3Share": 0.0182625,
+     "sicknessesPerLife": 0,
+     "sickShare": 0,
+     "poopFullShare": 0,
+     "sleepShare": 0.006750000000000004,
+     "deathRate": 0,
+     "deathAges": [],
+     "meanDeathMeter": 9.623670934841686,
+     "maxSodachi": 47.4,
+     "maxSodachiP10": 47,
+     "clearRate": 0,
+     "label": "必要最低限だけ"
+    },
+    "viewer": {
+     "lives": 40,
+     "homeMinutes": 100,
+     "careTapsPer10": 1.9675,
+     "allTapsPer10": 1.9675,
+     "careTapsPer30Max": 8.675,
+     "careTapsPerLife": 19.675,
+     "gamesPerLife": 0,
+     "kinds": {
+      "feed": {
+       "per10": 0.6774999999999998,
+       "life": 6.775
+      },
+      "clean": {
+       "per10": 0.9524999999999997,
+       "life": 9.525
+      },
+      "pet": {
+       "per10": 0.03750000000000001,
+       "life": 0.375
+      },
+      "sleep": {
+       "per10": 0.30000000000000016,
+       "life": 3
+      },
+      "wake": {
+       "per10": 0,
+       "life": 0
+      },
+      "medicine": {
+       "per10": 0,
+       "life": 0
+      },
+      "game": {
+       "per10": 0,
+       "life": 0
+      }
+     },
+     "maxTapsIn1Min": 3.05,
+     "maxTapsIn10Min": 4.975,
+     "sessionsPer10": 0.9524999999999997,
+     "burstSessionsPerLife": 3.075,
+     "sessionTapsP90": 3,
+     "quietGapMedianMin": 9.95,
+     "signalFreeShare": 0.8073625,
+     "noticeFreeShare": 0.9948500000000001,
+     "signalFreeStretchMeanMin": 18.041620111731838,
+     "signalFreeStretchP90Min": 24.05,
+     "noticeFreeStretchMeanMin": 63.16507936507936,
+     "overlap2Share": 0.0020375000000000002,
+     "overlap3Share": 0,
+     "sicknessesPerLife": 0,
+     "sickShare": 0,
+     "poopFullShare": 0,
+     "sleepShare": 0.08849999999999993,
+     "deathRate": 0,
+     "deathAges": [],
+     "meanDeathMeter": 0.41308899747500016,
+     "maxSodachi": 61.925,
+     "maxSodachiP10": 61,
+     "clearRate": 0,
+     "label": "しばらく眺めて楽しむ"
+    }
+   },
+   "idle": {
+    "young": {
+     "firstSignal": {
+      "mean": 16.568333333333324,
+      "p10": 14.6,
+      "p90": 18.6,
+      "reached": 1
+     },
+     "firstNotice": {
+      "mean": 16.592333333333325,
+      "p10": 14.6,
+      "p90": 18.6,
+      "reached": 1
+     },
+     "firstWarning": {
+      "mean": 26.174666666666646,
+      "p10": 22,
+      "p90": 28.85,
+      "reached": 1
+     },
+     "firstSick": {
+      "mean": 27.376811594202884,
+      "p10": 21.95,
+      "p90": 33.5,
+      "reached": 0.92
+     },
+     "firstFullPoop": {
+      "mean": 22.128999999999998,
+      "p10": 20.1,
+      "p90": 24.5,
+      "reached": 1
+     },
+     "firstHarm": {
+      "mean": 23.624666666666666,
+      "p10": 22,
+      "p90": 25.35,
+      "reached": 1
+     },
+     "death": {
+      "mean": 32.93166666666666,
+      "p10": 27.6,
+      "p90": 38.25,
+      "reached": 1
+     },
+     "autoWake": {
+      "mean": 0,
+      "p10": 0,
+      "p90": 0,
+      "reached": 0
+     },
+     "poopAt10": {
+      "mean": 1.28,
+      "p10": 1,
+      "p90": 2,
+      "reached": 1
+     },
+     "poopAt20": {
+      "mean": 3.0866666666666664,
+      "p10": 3,
+      "p90": 3,
+      "reached": 1
+     }
+    },
+    "old": {
+     "firstSignal": {
+      "mean": 16.508000000000006,
+      "p10": 14.45,
+      "p90": 18.5,
+      "reached": 1
+     },
+     "firstNotice": {
+      "mean": 16.486054421768713,
+      "p10": 14.45,
+      "p90": 18.45,
+      "reached": 0.98
+     },
+     "firstWarning": {
+      "mean": 19.56,
+      "p10": 19.25,
+      "p90": 19.75,
+      "reached": 0.03333333333333333
+     },
+     "firstSick": {
+      "mean": 19.56,
+      "p10": 19.25,
+      "p90": 19.75,
+      "reached": 0.03333333333333333
+     },
+     "firstFullPoop": {
+      "mean": 19.247368421052638,
+      "p10": 18.3,
+      "p90": 19.85,
+      "reached": 0.12666666666666668
+     },
+     "firstHarm": {
+      "mean": 14.958000000000016,
+      "p10": 14.35,
+      "p90": 15.15,
+      "reached": 1
+     },
+     "death": {
+      "mean": 0,
+      "p10": 0,
+      "p90": 0,
+      "reached": 0
+     },
+     "autoWake": {
+      "mean": 0,
+      "p10": 0,
+      "p90": 0,
+      "reached": 0
+     },
+     "poopAt10": {
+      "mean": 1.2533333333333334,
+      "p10": 1,
+      "p90": 2,
+      "reached": 1
+     },
+     "poopAt20": {
+      "mean": 3.1066666666666665,
+      "p10": 3,
+      "p90": 4,
+      "reached": 1
+     }
+    },
+    "sleep": {
+     "firstSignal": {
+      "mean": 19.452666666666666,
+      "p10": 17.6,
+      "p90": 21.15,
+      "reached": 1
+     },
+     "firstNotice": {
+      "mean": 19.535666666666664,
+      "p10": 17.6,
+      "p90": 21.45,
+      "reached": 1
+     },
+     "firstWarning": {
+      "mean": 29.136666666666677,
+      "p10": 25.9,
+      "p90": 31.25,
+      "reached": 1
+     },
+     "firstSick": {
+      "mean": 30.632374100719435,
+      "p10": 25.45,
+      "p90": 37.2,
+      "reached": 0.9266666666666666
+     },
+     "firstFullPoop": {
+      "mean": 25.156000000000002,
+      "p10": 22.95,
+      "p90": 27.35,
+      "reached": 1
+     },
+     "firstHarm": {
+      "mean": 26.49000000000002,
+      "p10": 25.65,
+      "p90": 28.35,
+      "reached": 1
+     },
+     "death": {
+      "mean": 35.98066666666666,
+      "p10": 31.5,
+      "p90": 41.05,
+      "reached": 1
+     },
+     "autoWake": {
+      "mean": 3,
+      "p10": 3,
+      "p90": 3,
+      "reached": 1
+     },
+     "poopAt10": {
+      "mean": 1,
+      "p10": 1,
+      "p90": 1,
+      "reached": 1
+     },
+     "poopAt20": {
+      "mean": 2.62,
+      "p10": 2,
+      "p90": 3,
+      "reached": 1
+     }
+    }
+   },
+   "harshCasual": {
+    "lives": 20,
+    "homeMinutes": 100,
+    "careTapsPer10": 3.06,
+    "allTapsPer10": 3.9650000000000007,
+    "careTapsPer30Max": 16,
+    "careTapsPerLife": 30.6,
+    "gamesPerLife": 9.05,
+    "kinds": {
+     "feed": {
+      "per10": 0.6049999999999998,
+      "life": 6.05
+     },
+     "clean": {
+      "per10": 1.51,
+      "life": 15.1
+     },
+     "pet": {
+      "per10": 0,
+      "life": 0
+     },
+     "sleep": {
+      "per10": 0.48500000000000004,
+      "life": 4.85
+     },
+     "wake": {
+      "per10": 0.4600000000000001,
+      "life": 4.6
+     },
+     "medicine": {
+      "per10": 0,
+      "life": 0
+     },
+     "game": {
+      "per10": 0.9049999999999999,
+      "life": 9.05
+     }
+    },
+    "maxTapsIn1Min": 2.8,
+    "maxTapsIn10Min": 7.2,
+    "sessionsPer10": 2.980000000000001,
+    "burstSessionsPerLife": 1.05,
+    "sessionTapsP90": 2,
+    "quietGapMedianMin": 2.65,
+    "signalFreeShare": 0.74625,
+    "noticeFreeShare": 0.9995499999999999,
+    "signalFreeStretchMeanMin": 12.75641025641026,
+    "signalFreeStretchP90Min": 16.45,
+    "noticeFreeStretchMeanMin": 79.964,
+    "overlap2Share": 0,
+    "overlap3Share": 0,
+    "sicknessesPerLife": 0,
+    "sickShare": 0,
+    "poopFullShare": 0,
+    "sleepShare": 0.10644999999999998,
+    "deathRate": 0,
+    "deathAges": [],
+    "meanDeathMeter": 0.7615158495666674,
+    "maxSodachi": 68.2,
+    "maxSodachiP10": 65,
+    "clearRate": 0.4
+   }
+  }
+ },
+ "blindFollower": {
+  "note": "おしらせの おすすめボタンを、30秒後に そのまま押し続けるプレイヤー(30生涯)。現行は じゃれるを続けると いやがる落とし穴あり。A/B/C は おすすめ切りかえの修正入り",
+  "current": {
+   "death": 1,
+   "petPer10": 14.2,
+   "carePer10": 22.3,
+   "sick": 6.9,
+   "sodachi": 42
+  },
+  "A": {
+   "death": 0.067,
+   "petPer10": 3.8,
+   "carePer10": 9.5,
+   "sick": 1.3,
+   "sodachi": 60
+  },
+  "B": {
+   "death": 0,
+   "petPer10": 1.8,
+   "carePer10": 4.9,
+   "sick": 0,
+   "sodachi": 52
+  },
+  "C": {
+   "death": 0,
+   "petPer10": 0.04,
+   "carePer10": 1.9,
+   "sick": 0,
+   "sodachi": 47
+  }
+ }
+}

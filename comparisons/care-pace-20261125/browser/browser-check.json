@@ -1,0 +1,650 @@
+[
+ {
+  "plan": "current",
+  "booted": {
+   "errors": [],
+   "plan": "current"
+  },
+  "start": {
+   "stage": "growing",
+   "ageTicks": 1,
+   "hunger": 89.615,
+   "happiness": 89.6675,
+   "energy": 89.68,
+   "poop": 0,
+   "sick": false,
+   "health": 100,
+   "deathMeter": 0
+  },
+  "timeline": [
+   {
+    "minute": 1,
+    "stage": "growing",
+    "ageTicks": 22,
+    "hunger": 81.52999999999989,
+    "happiness": 82.68500000000009,
+    "energy": 82.96000000000015,
+    "poop": 1,
+    "sick": false,
+    "health": 100,
+    "deathMeter": 0
+   },
+   {
+    "minute": 2,
+    "stage": "growing",
+    "ageTicks": 42,
+    "hunger": 73.82999999999979,
+    "happiness": 76.03500000000017,
+    "energy": 76.56000000000029,
+    "poop": 3,
+    "sick": false,
+    "health": 100,
+    "deathMeter": 0
+   },
+   {
+    "minute": 3,
+    "stage": "growing",
+    "ageTicks": 60,
+    "hunger": 66.8999999999997,
+    "happiness": 70.05000000000024,
+    "energy": 70.80000000000041,
+    "poop": 3,
+    "sick": false,
+    "health": 100,
+    "deathMeter": 0
+   },
+   {
+    "minute": 4,
+    "stage": "growing",
+    "ageTicks": 80,
+    "hunger": 59.19999999999968,
+    "happiness": 35.40000000000023,
+    "energy": 64.40000000000055,
+    "poop": 4,
+    "sick": false,
+    "health": 100,
+    "deathMeter": 0.06
+   },
+   {
+    "minute": 5,
+    "stage": "growing",
+    "ageTicks": 100,
+    "hunger": 51.49999999999972,
+    "happiness": 0,
+    "energy": 58.00000000000055,
+    "poop": 4,
+    "sick": false,
+    "health": 95,
+    "deathMeter": 1.124
+   },
+   {
+    "minute": 6,
+    "stage": "growing",
+    "ageTicks": 120,
+    "hunger": 43.79999999999976,
+    "happiness": 0,
+    "energy": 51.60000000000054,
+    "poop": 4,
+    "sick": true,
+    "health": 65,
+    "deathMeter": 8.604000000000001
+   },
+   {
+    "minute": 7,
+    "stage": "growing",
+    "ageTicks": 140,
+    "hunger": 36.0999999999998,
+    "happiness": 0,
+    "energy": 45.200000000000536,
+    "poop": 4,
+    "sick": true,
+    "health": 25,
+    "deathMeter": 15.74800000000001
+   },
+   {
+    "minute": 8,
+    "stage": "growing",
+    "ageTicks": 160,
+    "hunger": 28.399999999999807,
+    "happiness": 0,
+    "energy": 38.80000000000053,
+    "poop": 4,
+    "sick": true,
+    "health": 0,
+    "deathMeter": 58.10640000000003
+   },
+   {
+    "minute": 9,
+    "stage": "dead",
+    "ageTicks": 166,
+    "hunger": 26.089999999999797,
+    "happiness": 0,
+    "energy": 36.88000000000053,
+    "poop": 4,
+    "sick": true,
+    "health": 0,
+    "deathMeter": 86.22480000000003
+   }
+  ],
+  "notice": {
+   "alert": "",
+   "kind": "",
+   "message": ""
+  },
+  "wroteProductionSave": false,
+  "errors": []
+ },
+ {
+  "plan": "A",
+  "booted": {
+   "errors": [],
+   "plan": "A"
+  },
+  "start": {
+   "stage": "growing",
+   "ageTicks": 1,
+   "hunger": 89.692,
+   "happiness": 89.753,
+   "energy": 89.74,
+   "poop": 0,
+   "sick": false,
+   "health": 100,
+   "deathMeter": 0
+  },
+  "timeline": [
+   {
+    "minute": 1,
+    "stage": "growing",
+    "ageTicks": 22,
+    "hunger": 83.22399999999985,
+    "happiness": 84.566,
+    "energy": 84.27999999999989,
+    "poop": 0,
+    "sick": false,
+    "health": 100,
+    "deathMeter": 0
+   },
+   {
+    "minute": 2,
+    "stage": "growing",
+    "ageTicks": 42,
+    "hunger": 77.06399999999971,
+    "happiness": 79.626,
+    "energy": 79.07999999999979,
+    "poop": 0,
+    "sick": false,
+    "health": 100,
+    "deathMeter": 0
+   },
+   {
+    "minute": 3,
+    "stage": "growing",
+    "ageTicks": 60,
+    "hunger": 71.51999999999958,
+    "happiness": 75.18,
+    "energy": 74.3999999999997,
+    "poop": 0,
+    "sick": false,
+    "health": 100,
+    "deathMeter": 0
+   },
+   {
+    "minute": 4,
+    "stage": "growing",
+    "ageTicks": 80,
+    "hunger": 65.35999999999945,
+    "happiness": 70.24000000000001,
+    "energy": 69.19999999999959,
+    "poop": 1,
+    "sick": false,
+    "health": 100,
+    "deathMeter": 0
+   },
+   {
+    "minute": 5,
+    "stage": "growing",
+    "ageTicks": 100,
+    "hunger": 59.19999999999942,
+    "happiness": 65.30000000000001,
+    "energy": 63.999999999999496,
+    "poop": 1,
+    "sick": false,
+    "health": 100,
+    "deathMeter": 0
+   },
+   {
+    "minute": 6,
+    "stage": "growing",
+    "ageTicks": 120,
+    "hunger": 53.039999999999424,
+    "happiness": 60.360000000000014,
+    "energy": 58.799999999999535,
+    "poop": 2,
+    "sick": false,
+    "health": 100,
+    "deathMeter": 0
+   },
+   {
+    "minute": 7,
+    "stage": "growing",
+    "ageTicks": 140,
+    "hunger": 46.87999999999943,
+    "happiness": 55.420000000000016,
+    "energy": 53.599999999999575,
+    "poop": 3,
+    "sick": false,
+    "health": 100,
+    "deathMeter": 0
+   },
+   {
+    "minute": 8,
+    "stage": "growing",
+    "ageTicks": 160,
+    "hunger": 40.71999999999943,
+    "happiness": 50.48000000000002,
+    "energy": 48.399999999999615,
+    "poop": 3,
+    "sick": false,
+    "health": 100,
+    "deathMeter": 0
+   },
+   {
+    "minute": 9,
+    "stage": "growing",
+    "ageTicks": 180,
+    "hunger": 34.559999999999434,
+    "happiness": 38.54000000000002,
+    "energy": 43.199999999999655,
+    "poop": 4,
+    "sick": false,
+    "health": 100,
+    "deathMeter": 0.060000000000000005
+   },
+   {
+    "minute": 10,
+    "stage": "growing",
+    "ageTicks": 200,
+    "hunger": 28.399999999999437,
+    "happiness": 13.600000000000023,
+    "energy": 37.999999999999694,
+    "poop": 4,
+    "sick": false,
+    "health": 100,
+    "deathMeter": 0.8600000000000001
+   },
+   {
+    "minute": 11,
+    "stage": "growing",
+    "ageTicks": 220,
+    "hunger": 22.23999999999944,
+    "happiness": 0,
+    "energy": 32.799999999999734,
+    "poop": 4,
+    "sick": false,
+    "health": 90,
+    "deathMeter": 2.568000000000001
+   },
+   {
+    "minute": 12,
+    "stage": "growing",
+    "ageTicks": 241,
+    "hunger": 15.771999999999444,
+    "happiness": 0,
+    "energy": 27.339999999999712,
+    "poop": 4,
+    "sick": false,
+    "health": 69,
+    "deathMeter": 6.180000000000002
+   }
+  ],
+  "notice": {
+   "alert": "warning",
+   "kind": "hunger",
+   "message": "後ろ足が出たおたまになった!"
+  },
+  "wroteProductionSave": false,
+  "errors": []
+ },
+ {
+  "plan": "B",
+  "booted": {
+   "errors": [],
+   "plan": "B"
+  },
+  "start": {
+   "stage": "growing",
+   "ageTicks": 1,
+   "hunger": 89.78,
+   "happiness": 89.867,
+   "energy": 89.8,
+   "poop": 0,
+   "sick": false,
+   "health": 100,
+   "deathMeter": 0
+  },
+  "timeline": [
+   {
+    "minute": 1,
+    "stage": "growing",
+    "ageTicks": 22,
+    "hunger": 85.16000000000003,
+    "happiness": 87.0740000000001,
+    "energy": 85.59999999999994,
+    "poop": 0,
+    "sick": false,
+    "health": 100,
+    "deathMeter": 0
+   },
+   {
+    "minute": 2,
+    "stage": "growing",
+    "ageTicks": 42,
+    "hunger": 80.76000000000005,
+    "happiness": 84.41400000000019,
+    "energy": 81.59999999999988,
+    "poop": 0,
+    "sick": false,
+    "health": 100,
+    "deathMeter": 0
+   },
+   {
+    "minute": 3,
+    "stage": "growing",
+    "ageTicks": 60,
+    "hunger": 76.80000000000007,
+    "happiness": 82.02000000000027,
+    "energy": 77.99999999999983,
+    "poop": 0,
+    "sick": false,
+    "health": 100,
+    "deathMeter": 0
+   },
+   {
+    "minute": 4,
+    "stage": "growing",
+    "ageTicks": 80,
+    "hunger": 72.40000000000009,
+    "happiness": 79.36000000000035,
+    "energy": 73.99999999999977,
+    "poop": 1,
+    "sick": false,
+    "health": 100,
+    "deathMeter": 0
+   },
+   {
+    "minute": 5,
+    "stage": "growing",
+    "ageTicks": 100,
+    "hunger": 68.00000000000011,
+    "happiness": 76.70000000000044,
+    "energy": 69.99999999999972,
+    "poop": 1,
+    "sick": false,
+    "health": 100,
+    "deathMeter": 0
+   },
+   {
+    "minute": 6,
+    "stage": "growing",
+    "ageTicks": 120,
+    "hunger": 63.600000000000136,
+    "happiness": 74.04000000000053,
+    "energy": 65.99999999999966,
+    "poop": 1,
+    "sick": false,
+    "health": 100,
+    "deathMeter": 0
+   },
+   {
+    "minute": 7,
+    "stage": "growing",
+    "ageTicks": 140,
+    "hunger": 59.20000000000016,
+    "happiness": 70.41100000000058,
+    "energy": 61.9999999999996,
+    "poop": 2,
+    "sick": false,
+    "health": 100,
+    "deathMeter": 0
+   },
+   {
+    "minute": 8,
+    "stage": "growing",
+    "ageTicks": 160,
+    "hunger": 54.80000000000018,
+    "happiness": 66.61100000000063,
+    "energy": 57.999999999999545,
+    "poop": 2,
+    "sick": false,
+    "health": 100,
+    "deathMeter": 0
+   },
+   {
+    "minute": 9,
+    "stage": "growing",
+    "ageTicks": 180,
+    "hunger": 50.400000000000205,
+    "happiness": 62.811000000000675,
+    "energy": 53.99999999999949,
+    "poop": 2,
+    "sick": false,
+    "health": 100,
+    "deathMeter": 0
+   },
+   {
+    "minute": 10,
+    "stage": "growing",
+    "ageTicks": 200,
+    "hunger": 46.00000000000023,
+    "happiness": 59.01100000000072,
+    "energy": 49.99999999999943,
+    "poop": 2,
+    "sick": false,
+    "health": 100,
+    "deathMeter": 0
+   },
+   {
+    "minute": 11,
+    "stage": "growing",
+    "ageTicks": 220,
+    "hunger": 41.60000000000025,
+    "happiness": 55.211000000000766,
+    "energy": 48.999999999999375,
+    "poop": 3,
+    "sick": false,
+    "health": 100,
+    "deathMeter": 0
+   },
+   {
+    "minute": 12,
+    "stage": "growing",
+    "ageTicks": 240,
+    "hunger": 37.20000000000027,
+    "happiness": 51.41100000000081,
+    "energy": 44.99999999999932,
+    "poop": 3,
+    "sick": false,
+    "health": 100,
+    "deathMeter": 0
+   }
+  ],
+  "notice": {
+   "alert": "",
+   "kind": "poop",
+   "message": "色づく小さな星になった!"
+  },
+  "wroteProductionSave": false,
+  "errors": []
+ },
+ {
+  "plan": "C",
+  "booted": {
+   "errors": [],
+   "plan": "C"
+  },
+  "start": {
+   "stage": "growing",
+   "ageTicks": 1,
+   "hunger": 89.857,
+   "happiness": 89.9259,
+   "energy": 89.86,
+   "poop": 0,
+   "sick": false,
+   "health": 100,
+   "deathMeter": 0
+  },
+  "timeline": [
+   {
+    "minute": 1,
+    "stage": "growing",
+    "ageTicks": 22,
+    "hunger": 86.85399999999998,
+    "happiness": 88.36979999999997,
+    "energy": 86.91999999999999,
+    "poop": 0,
+    "sick": false,
+    "health": 100,
+    "deathMeter": 0
+   },
+   {
+    "minute": 2,
+    "stage": "growing",
+    "ageTicks": 42,
+    "hunger": 83.99399999999997,
+    "happiness": 86.88779999999994,
+    "energy": 84.11999999999998,
+    "poop": 0,
+    "sick": false,
+    "health": 100,
+    "deathMeter": 0
+   },
+   {
+    "minute": 3,
+    "stage": "growing",
+    "ageTicks": 62,
+    "hunger": 81.13399999999996,
+    "happiness": 85.40579999999991,
+    "energy": 81.31999999999996,
+    "poop": 0,
+    "sick": false,
+    "health": 100,
+    "deathMeter": 0
+   },
+   {
+    "minute": 4,
+    "stage": "growing",
+    "ageTicks": 83,
+    "hunger": 78.13099999999994,
+    "happiness": 83.84969999999988,
+    "energy": 78.37999999999995,
+    "poop": 0,
+    "sick": false,
+    "health": 100,
+    "deathMeter": 0
+   },
+   {
+    "minute": 5,
+    "stage": "growing",
+    "ageTicks": 103,
+    "hunger": 75.27099999999993,
+    "happiness": 82.36769999999986,
+    "energy": 75.57999999999994,
+    "poop": 1,
+    "sick": false,
+    "health": 100,
+    "deathMeter": 0
+   },
+   {
+    "minute": 6,
+    "stage": "growing",
+    "ageTicks": 123,
+    "hunger": 72.41099999999992,
+    "happiness": 80.88569999999983,
+    "energy": 72.77999999999993,
+    "poop": 1,
+    "sick": false,
+    "health": 100,
+    "deathMeter": 0
+   },
+   {
+    "minute": 7,
+    "stage": "growing",
+    "ageTicks": 143,
+    "hunger": 69.5509999999999,
+    "happiness": 79.4036999999998,
+    "energy": 69.97999999999992,
+    "poop": 1,
+    "sick": false,
+    "health": 100,
+    "deathMeter": 0
+   },
+   {
+    "minute": 8,
+    "stage": "growing",
+    "ageTicks": 163,
+    "hunger": 66.69099999999989,
+    "happiness": 77.92169999999977,
+    "energy": 67.17999999999991,
+    "poop": 1,
+    "sick": false,
+    "health": 100,
+    "deathMeter": 0
+   },
+   {
+    "minute": 9,
+    "stage": "growing",
+    "ageTicks": 183,
+    "hunger": 63.830999999999875,
+    "happiness": 76.43969999999975,
+    "energy": 64.3799999999999,
+    "poop": 1,
+    "sick": false,
+    "health": 100,
+    "deathMeter": 0
+   },
+   {
+    "minute": 10,
+    "stage": "growing",
+    "ageTicks": 203,
+    "hunger": 60.97099999999986,
+    "happiness": 74.95769999999972,
+    "energy": 61.579999999999885,
+    "poop": 1,
+    "sick": false,
+    "health": 100,
+    "deathMeter": 0
+   },
+   {
+    "minute": 11,
+    "stage": "growing",
+    "ageTicks": 220,
+    "hunger": 58.53999999999985,
+    "happiness": 73.35219999999966,
+    "energy": 59.199999999999875,
+    "poop": 2,
+    "sick": false,
+    "health": 100,
+    "deathMeter": 0
+   },
+   {
+    "minute": 12,
+    "stage": "growing",
+    "ageTicks": 220,
+    "hunger": 58.53999999999985,
+    "happiness": 73.35219999999966,
+    "energy": 59.199999999999875,
+    "poop": 2,
+    "sick": false,
+    "health": 100,
+    "deathMeter": 0
+   }
+  ],
+  "notice": {
+   "alert": "",
+   "kind": "",
+   "message": ""
+  },
+  "wroteProductionSave": false,
+  "errors": []
+ }
+]
