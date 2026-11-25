@@ -212,3 +212,33 @@ jobs:
         with:
           name: home-viewport-v10-${{ matrix.engine }}
           path: test-results/home-viewport-v10/
+
+  pinch-zoom:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    strategy:
+      fail-fast: false
+      matrix:
+        engine: [chromium, webkit]
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm ci
+      - run: npm install --no-save --package-lock=false playwright@1.62.1
+      - run: npx playwright install --with-deps ${{ matrix.engine }}
+      - name: View-only pinch zoom leaves layout, movement inputs and 1.0x DOM unchanged
+        run: |
+          python tools/pages/package.py --out "${{ runner.temp }}/pinch-zoom" --report "${{ runner.temp }}/pinch-zoom-package.json"
+          node tests/home-pinch-zoom-browser.cjs
+        env:
+          HOME_LAYOUT_ENGINES: ${{ matrix.engine }}
+          HOME_ZOOM_ROOT: ${{ runner.temp }}/pinch-zoom
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: home-pinch-zoom-${{ matrix.engine }}
+          path: test-results/home-pinch-zoom/

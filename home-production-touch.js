@@ -288,7 +288,7 @@
  let presentation=null,fixedScrollTop=null;
  function unscalePoint(p,t=presentation){return t?{x:t.x+(p.x-t.x)/(t.scaleX||t.scale),y:t.y+(p.y-t.y)/(t.scaleY||t.scale)}:p;}
  function presentationRect(e){
-  const r=e.getBoundingClientRect();
+  const r=root.NaotocchiHomeZoom?.rect(e)||e.getBoundingClientRect();
   if(presentation?.world&&e.matches?.('.home-living-world'))return presentation.world;
   if(!presentation||!e.closest?.('.screen-frame,.home-living-world'))return r;
   const p=unscalePoint({x:r.left,y:r.top}),sx=presentation.scaleX||presentation.scale,sy=presentation.scaleY||presentation.scale;
@@ -303,7 +303,7 @@
  const screen=doc.getElementById('screen'),normal=doc.getElementById('screenNormal'),stage=doc.getElementById('castStage'),notice=doc.getElementById('homeEventSlot'),dock=doc.getElementById('homeCommentDock'),info=doc.getElementById('homeInformation'),controls=doc.getElementById('careActions');
  if(!screen||!normal||!stage||!notice||!dock||!info||!controls)return;
  const meters=normal.querySelector('.home-meters'),invite=doc.getElementById('companionInviteOverlay');
- const rect=e=>e.getBoundingClientRect(),saved=new Map();
+ const rect=e=>root.NaotocchiHomeZoom?.rect(e)||e.getBoundingClientRect(),saved=new Map();
  // Travel has its own lifetime: opening a modal intentionally disables Home's
  // fixed layout, so its viewport tracking must survive restore().
  if(v17){
