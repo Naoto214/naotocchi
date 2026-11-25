@@ -122,7 +122,10 @@ async function run(name,engine){
    if(cdp){await fingers([[frame.x-30,frame.y],[frame.x+30,frame.y+10]]);await page.waitForTimeout(40);await fingers([]);}
    else await page.evaluate(([a,b])=>new Promise(done=>{const fire=(type,i,p)=>(document.elementFromPoint(p[0],p[1])||document.body).dispatchEvent(new PointerEvent(type,{pointerId:100+i,pointerType:'touch',isPrimary:i===0,clientX:p[0],clientY:p[1],bubbles:true,cancelable:true,composed:true,button:0,buttons:type==='pointerup'?0:1}));
      fire('pointerdown',0,a);fire('pointerdown',1,b);setTimeout(()=>{fire('pointerup',1,b);fire('pointerup',0,a);done();},40);}),[[frame.x-30,frame.y],[frame.x+30,frame.y+10]]);
-   await page.waitForTimeout(420);
+   // The return is animated on animation frames; a loaded headless browser can
+   // go several hundred ms without one. Wait for the end state, not a fixed time.
+   await page.waitForFunction(()=>NaotocchiHomeZoom.state().zoom===1,null,{timeout:5000}).catch(()=>{});
+   await page.evaluate(()=>new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r))));
    const after=await page.evaluate(inspect);
    if(after.zoom!==1)fail('two-finger tap left zoom '+after.zoom);
    if(after.trace)fail('1.0x DOM keeps zoom styles: '+after.trace.slice(0,200));
