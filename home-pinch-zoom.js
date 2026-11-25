@@ -7,7 +7,7 @@
 (function(root){
   'use strict';
   const doc=root.document;
-  const MAX=4,MIN=1,SNAP=1.04,EPS=1e-4;   // MAX is a trial ceiling; the final limit is the owner's choice
+  const MAX=10,MIN=1,SNAP=1.04,EPS=1e-4;   // MAX is a trial ceiling; the final limit is the owner's choice
   let z=1,cx=0,cy=0;            // screen mapping: X' = z*X + c
   let layers=null;              // elements carrying the view transform
   let pinch=null,anim=0,regionKey='',suspended=false,resumeQueued=false,guard=null;
