@@ -40,7 +40,8 @@ async function run(name,engine){
   const page=await context.newPage(),errors=[];page.on('pageerror',e=>{errors.push(String(e));console.error('pageerror',String(e).slice(0,300));});
   const boot=async()=>{await page.goto(`http://127.0.0.1:${server.address().port}/qa-cast.html?count=5`,{waitUntil:'load'});   await page.waitForFunction(()=>window.__zoomQA&&window.NaotocchiHomeZoom&&__zoomQA.nav(),null,{timeout:60000});};
   await boot();
-  const cdp=name==='chromium'?await context.newCDPSession(page):null;
+  // HOME_ZOOM_SYNTHETIC=1 runs Chromium through the same synthetic pointers WebKit uses.
+  const cdp=name==='chromium'&&process.env.HOME_ZOOM_SYNTHETIC!=='1'?await context.newCDPSession(page):null;
   // fingers: [[x,y],...] currently down; diffed against the previous set.
   let held=[];
   const fingers=async next=>{
@@ -116,7 +117,12 @@ async function run(name,engine){
    await seen();
    // Two-finger tap returns to 1.0x and leaves no trace in the DOM.
    if(!((await page.evaluate(()=>NaotocchiHomeZoom.state().zoom))>1))await page.evaluate(([x,y])=>NaotocchiHomeZoom.zoomAt(x,y,2),[frame.x,frame.y]);
-   await fingers([[frame.x-30,frame.y],[frame.x+30,frame.y+10]]);await page.waitForTimeout(40);await fingers([]);await page.waitForTimeout(420);
+   // A tap is short. With synthetic pointers each step is a separate round trip
+   // to the page, so the whole tap is issued inside the page in one go.
+   if(cdp){await fingers([[frame.x-30,frame.y],[frame.x+30,frame.y+10]]);await page.waitForTimeout(40);await fingers([]);}
+   else await page.evaluate(([a,b])=>new Promise(done=>{const fire=(type,i,p)=>(document.elementFromPoint(p[0],p[1])||document.body).dispatchEvent(new PointerEvent(type,{pointerId:100+i,pointerType:'touch',isPrimary:i===0,clientX:p[0],clientY:p[1],bubbles:true,cancelable:true,composed:true,button:0,buttons:type==='pointerup'?0:1}));
+     fire('pointerdown',0,a);fire('pointerdown',1,b);setTimeout(()=>{fire('pointerup',1,b);fire('pointerup',0,a);done();},40);}),[[frame.x-30,frame.y],[frame.x+30,frame.y+10]]);
+   await page.waitForTimeout(420);
    const after=await page.evaluate(inspect);
    if(after.zoom!==1)fail('two-finger tap left zoom '+after.zoom);
    if(after.trace)fail('1.0x DOM keeps zoom styles: '+after.trace.slice(0,200));
