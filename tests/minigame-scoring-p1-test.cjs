@@ -69,12 +69,18 @@ function shFree(tiles) {
   const side = (t, dir) => tiles.some((o) => o !== t && o.layer === t.layer && o.x === t.x + dir * 2 && Math.abs(o.y - t.y) < 2);
   return tiles.filter((t) => !tiles.some((o) => covers(o, t)) && !(side(t, -1) && side(t, 1)));
 }
-// でたらめな 順に「とれる おなじ絵の 2まい」を とりつづける 人。のこりが 0 に なれば true
-function shRandomPlayer(seed, mode) {
+// でたらめな 順に「とれる おなじ絵の 2まい」を とりつづける 人。のこりが 0 に なれば true。
+// まぜた 回数を 種類ごとに かぞえる(ヒント欄の 文を 読んだら 消す: 同じ 文が 2回 つづいても かぞえられる ように)
+//   normal = ボタン・取れる牌が なくなった ときの 自動(減点あり) / rescued = 詰みの 救済(減点なし)
+function shRandomPlayer(seed, mode, {shuffleFirst = 0} = {}) {
   const r = start('shanghai-tiles', {random: lcg(seed), mode}), canvas = r.view.querySelector('#shCanvas'), shuffle = r.view.querySelector('#shShuffle');
+  const hint = r.view.querySelector('#shHint');
   let s = (seed * 2654435761) >>> 0; const rnd = () => ((s = (Math.imul(s, 1664525) + 1013904223) >>> 0) / 4294967296);
+  let normal = 0, rescued = 0;
+  const readHint = () => { const t = hint.textContent; if (/おろして/.test(t)) rescued++; else if (/まぜた/.test(t)) normal++; hint.textContent = ''; };
   r.h.advance(20);
-  let total = null, flattened = 0;
+  for (let i = 0; i < shuffleFirst; i++) { r.h.dispatch(shuffle, 'pointerdown', {}); readHint(); }
+  let total = null;
   for (let step = 0; step < 200; step++) {
     const tiles = shTiles(frame(r));
     if (total === null) total = tiles.length;
@@ -82,30 +88,47 @@ function shRandomPlayer(seed, mode) {
     const free = shFree(tiles), pairs = [];
     for (let i = 0; i < free.length; i++) for (let j = i + 1; j < free.length; j++) if (free[i].face === free[j].face) pairs.push([free[i], free[j]]);
     if (!pairs.length) { // とれる ペアが ない: まぜる(ゲームが じぶんで まぜる はずなので、ここに くるのは 詰んだ とき)
-      if (/おろして/.test(r.view.querySelector('#shHint').textContent)) flattened++;
-      r.h.dispatch(shuffle, 'pointerdown', {});
+      r.h.dispatch(shuffle, 'pointerdown', {}); readHint();
       const again = shTiles(frame(r)), f2 = shFree(again);
-      if (!f2.some((a, i) => f2.some((b, j) => j > i && a.face === b.face))) return {cleared: false, left: again.length, total, r};
+      if (!f2.some((a, i) => f2.some((b, j) => j > i && a.face === b.face))) return {cleared: false, left: again.length, total, normal, rescued, r};
       continue;
     }
     const [a, b] = pairs[Math.floor(rnd() * pairs.length)];
     for (const t of [a, b]) r.h.dispatch(canvas, 'pointerdown', {clientX: t.cx, clientY: t.cy - 1});
-    if (/おろして/.test(r.view.querySelector('#shHint').textContent)) flattened++;
+    readHint();
   }
-  return {cleared: shTiles(frame(r)).length === 0, total, flattened, r};
+  return {cleared: shTiles(frame(r)).length === 0, total, normal, rescued, r};
 }
+// 全部 とったときの 点 = 84 + min(16, 残り秒/6) − 2×(ふつうの まぜた 回数)。ハーネスでは 数秒で おわるので 残り時間の 分は 96 前後
+const shClearBase = (res) => res.r.scores[0] + 2 * res.normal;
 for (const [label, mode] of [['60まい', undefined], ['68まい', 'hard']]) {
-  test(`shanghai(${label}): でたらめな 順に とっても、40局 すべて さいごまで とりきれる`, () => {
-    const stuck = [];
+  test(`shanghai(${label}): でたらめな 順に とっても、40局 すべて さいごまで とりきれる。救済は 減点なし、ふつうの まぜるは 1回 2点`, () => {
+    const stuck = [], bases = new Set(); let rescues = 0, normals = 0;
     for (let seed = 1; seed <= 40; seed++) {
       const res = shRandomPlayer(seed * 104729 + (mode ? 7 : 0), mode);
       assert.equal(res.total, mode ? 68 : 60, 'board size');
-      if (!res.cleared) stuck.push(`seed ${seed}: のこり ${res.left}/${res.total}`);
-      else { res.r.h.advance(1000); assert.equal(res.r.scores.length, 1, `seed ${seed}: 全部とって 終わる`); }
+      if (!res.cleared) { stuck.push(`seed ${seed}: のこり ${res.left}/${res.total}`); continue; }
+      res.r.h.advance(1000); assert.equal(res.r.scores.length, 1, `seed ${seed}: 全部とって 終わる`);
+      rescues += res.rescued; normals += res.normal;
+      bases.add(shClearBase(res));
     }
     assert.deepEqual(stuck, []);
+    assert.ok(rescues >= 1, '救済が 少なくとも 1局で はたらいた(この シードの 組で 再現)');
+    // 救済が あった 局も なかった 局も、点 + 2×ふつうの回数 が おなじ(= 救済は 減点されていない)
+    assert.deepEqual([...bases], [[...bases][0]], `clear base ${[...bases]}`);
+    assert.ok([...bases][0] >= 95 && [...bases][0] <= 97, 'clear base ~96');
   });
 }
+test('shanghai: まだ とりきれる 盤で「まぜる」を おすと、救済ではなく ふつうの まぜる(1回 2点 減点)', () => {
+  for (const seed of [3, 5, 7]) {
+    const plain = shRandomPlayer(seed * 104729, undefined), pressed = shRandomPlayer(seed * 104729, undefined, {shuffleFirst: 2});
+    assert.ok(plain.cleared && pressed.cleared, 'both cleared');
+    plain.r.h.advance(1000); pressed.r.h.advance(1000);
+    assert.ok(pressed.normal >= 2, 'ボタンの 2回は ふつうの まぜる として かぞえる');
+    assert.equal(shClearBase(pressed), shClearBase(plain), `seed ${seed}: 減点の 計算が 一致`);
+    assert.equal(pressed.r.scores[0], shClearBase(pressed) - 2 * pressed.normal);
+  }
+});
 
 // ---------------- slide-puzzle ----------------
 // 描かれた ピース(drawImage の 切り出し位置 → ピース番号、描く位置 → マス)から 盤を もとに もどす

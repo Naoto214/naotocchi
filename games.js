@@ -9914,12 +9914,16 @@
           const alive = tiles.filter((t) => t.alive);
           if (alive.length < 2) return;
           let positions = alive.map((t) => ({ layer: t.layer, x: t.x, y: t.y }));
-          const stuck = !clearable(positions);
-          if (stuck) positions = flatten(positions);
+          // rescued: とりきれないと たしかめ、じっさいに 牌を おろせた ときだけ(おろせなければ ふつうの まぜると おなじ あつかい)
+          let rescued = false;
+          if (!clearable(positions)) { const lowered = flatten(positions); rescued = lowered !== positions; positions = lowered; }
           const dead = tiles.filter((t) => !t.alive);
           deal(positions); tiles = tiles.concat(dead);
-          sel = null; shuffles++;
-          say(stuck ? '🔀かさなった牌を下におろして、まぜた' : auto ? '🔀取れる牌がなくなったので、まぜた' : '🔀まぜた(解ききれるならび)', 1400);
+          sel = null;
+          // 減点(1回 2点)は ふつうの まぜる(ボタン・取れる牌が なくなった ときの 自動)だけ。
+          // 置き場所だけで とりきれないと たしかめた ときの 救済(おろして まぜる)は プレイヤーの せいでは ないので 減点しない(2026-11-25 承認)
+          if (!rescued) shuffles++;
+          say(rescued ? '🔀かさなった牌を下におろして、まぜた(減点なし)' : auto ? '🔀取れる牌がなくなったので、まぜた' : '🔀まぜた(解ききれるならび)', 1400);
         }
         container.querySelector('#shShuffle').addEventListener('pointerdown', (e) => { e.preventDefault(); if (running) reshuffle(false); });
         hintBtn.addEventListener('pointerdown', (e) => { e.preventDefault(); if (!running || hints <= 0) return; const p = matchable(); if (!p) { say('今取れるペアはない。まぜよう', 1000); return; } hints--; hintPair = p; hintUntil = performance.now() + 2500; hud(); });

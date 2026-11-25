@@ -1,7 +1,7 @@
 {
   "index.html": {
     "before": "c9432f2b62b2c95a36338f8166627abe8feb97d3",
-    "after": "85980de1c3caa52e859a60ca217a6f92d200d5bc",
+    "after": "beb868c0205d07b542ec541561ce1623454413c2",
     "size": 73040,
     "reverse": [
       [
@@ -38,7 +38,7 @@
   },
   "tools/pages/allowlist.json": {
     "before": "f1b1fb9cf575c6305fac17fb25dcf80a59d13c31",
-    "after": "7f511057f6315c407c7a3e6dc193865ff5acbe68",
+    "after": "4ed0f03fa36386d6b9c4564a4cdc3681843ee62b",
     "size": 296524,
     "reverse": [
       [
@@ -154,32 +154,32 @@
   },
   "games.js": {
     "before": "a93847e0d6ce254074270b01583caad8c54f1928",
-    "after": "0ba7c3b51f9fa6f05c6e1348b61515be99f84efd",
-    "size": 995819,
+    "after": "e22020f8528b080213ab3aec30d86003a385371a",
+    "size": 996426,
     "reverse": [
       [
-        959413,
-        959736,
+        960020,
+        960343,
         "        }\n        const isSolved = () => board.every((v, i) => v === i);\n        if (isSolved()) { const a = board[0]; board[0] = board[1]; board[1] = a; }\n"
       ],
       [
-        958852,
-        958987,
+        959459,
+        959594,
         "        for (let k = 0; k < SHUF; k++) {\n"
       ],
       [
-        958482,
-        958788,
+        959089,
+        959395,
         "        // ただしい てじゅんで シャッフル(かならず とける)\n"
       ],
       [
-        937078,
-        937274,
-        "          say(auto ? '🔀取れる牌がなくなったので、まぜた' : '🔀まぜた(解ききれるならび)', 1200);\n"
+        937286,
+        937881,
+        "          sel = null; shuffles++;\n          say(auto ? '🔀取れる牌がなくなったので、まぜた' : '🔀まぜた(解ききれるならび)', 1200);\n"
       ],
       [
         936753,
-        936935,
+        937177,
         "          const positions = alive.map((t) => ({ layer: t.layer, x: t.x, y: t.y }));\n"
       ],
       [
