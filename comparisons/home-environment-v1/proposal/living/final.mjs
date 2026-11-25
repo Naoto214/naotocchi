@@ -5,7 +5,7 @@
 //  - Fireflies and drifting lights each keep their own home, path, pace and rhythm.
 //  - Water keeps the gentle painters; a quiet glitter and a soft current are added on top.
 import {fireflies, nightSky, waterGlints, riverFlow, gustAt} from './maximum.mjs';
-import {separateFoliage} from './foliage.mjs';
+import {separateFoliage, separateFoliageSoft, rimWindow, SOFT_NODES} from './foliage.mjs';
 
 const TAU = 2 * Math.PI;
 // Leafy crowns, bough tips and grass tufts: centre x/y, radius x/y in the 1000 × 1500 painting,
@@ -81,11 +81,20 @@ export const FOLIAGE = Object.freeze({
 // 'tips'   leaves lifted off the painting; only leaf tips flutter, boughs do not swing
 // 'branch' leaves lifted off the painting; each bough bends from its root, leaves follow, tips flutter
 // 'still'  nothing moves; leaves catch the light as the wind passes
-export const TREE_SWAYS = Object.freeze(['bump','tips','branch','still']);
+// 'wide'   'branch' made seamless and spread over more of the canopy, the far trees and the grass
+// 'vivid'  'wide' with a stronger bend and livelier leaf tips
+export const TREE_SWAYS = Object.freeze(['bump','tips','branch','still','wide','vivid']);
+// More of the forest for the seamless modes: upper canopy, middle and far crowns, undergrowth
+// and foreground grass. Trunks and mossy bark are left out.
+const MORE_FOLIAGE = {forest:[[150,62,92,56,0.95,60,118],[530,52,78,48,0.9,452,90],[905,96,88,70,0.95,990,60],[335,520,58,56,0.5,335,574],[592,498,58,50,0.45,592,546],[772,512,54,56,0.45,775,566],[158,600,68,56,0.6,150,654],[92,805,78,44,0.7,92,847],[620,790,68,40,0.35,620,828],[282,802,68,40,0.4,282,840],[935,860,58,40,0.7,935,898],[610,1385,108,58,1,610,1440],[885,1425,98,58,1,885,1480],[62,1185,58,60,0.95,62,1242]]};
+export const FOLIAGE_WIDE = Object.freeze(Object.fromEntries(Object.entries(FOLIAGE).map(([region, spots]) =>
+  [region, Object.freeze([...spots, ...(MORE_FOLIAGE[region] || [])])])));
 
 // The wind at one bough: a slow personal sway plus the gust as it arrives there.
-export function boughWind(region, i, spot, seconds) {
-  const x = spot[0], gust = gustAt(region, seconds);
+export function boughWind(region, i, spot, seconds, boost = 0) {
+  const x = spot[0], gust = {...gustAt(region, seconds)};
+  // `boost` holds the wind up for the comparison's strong-wind view.
+  if (boost > gust.power) { gust.power = boost; gust.progress = .5; gust.direction = Math.sin(seconds * .21) > -.4 ? 1 : -1; }
   const reach = (gust.direction > 0 ? x : 1000 - x) / 1000;
   const arrive = gust.power * Math.max(0, Math.sin(Math.PI * Math.min(1, Math.max(0, gust.progress * 1.35 - .35 * reach))));
   // Every tree keeps its own period, so neighbours never swing together.
@@ -93,14 +102,59 @@ export function boughWind(region, i, spot, seconds) {
   return {bend:.34 * slow + 1.0 * arrive * gust.direction * (.8 + .2 * Math.sin(seconds * 3.1 + i)), stir:.35 + 1.1 * arrive};
 }
 const TILES = 4;
-export function paintFoliage(ctx, image, region, time, seconds, mode, doc) {
+// How far the leaves at (x, y) of a spot are carried, in painting units. The bough bends about
+// its root, so the shift grows with distance from the root; on top of that a ripple of leaf
+// flutter travels across the spot with the wind. Everything eases to zero at the spot's rim.
+export function leafShift(spot, wind, seconds, i, x, y, strength) {
+  const [cx, cy, rx, ry, near, px, py] = spot, win = rimWindow((x - cx) / rx, (y - cy) / ry);
+  if (!win) return {dx:0, dy:0};
+  const far = Math.hypot(rx, ry) + Math.hypot(cx - px, cy - py), tip = Math.min(1, Math.hypot(x - px, y - py) / far);
+  const swing = wind.bend * (.012 + .034 * near) * strength.bend * (.45 + .55 * tip);
+  const flutter = (.8 + 1.8 * near) * wind.stir * strength.flutter * tip ** 1.2;
+  // One long wave running downwind through the spot. It is longer than the spacing of the
+  // soft tiles, so neighbouring tiles move nearly together and the leaves stay crisp.
+  const phase = seconds * (2.2 + .25 * (i % 4)) - x / 68 + y / 110 + i * 1.3;
+  return {dx:win * (-(y - py) * swing + flutter * Math.sin(phase)),
+    dy:win * ((x - px) * swing + .5 * flutter * Math.cos(phase * 1.27 + .6))};
+}
+const STRENGTH = {wide:{bend:1, flutter:1}, vivid:{bend:1.5, flutter:1.6}};
+let scratch = null;
+function paintFoliageSoft(ctx, image, region, time, seconds, mode, doc, boost) {
+  const spots = FOLIAGE_WIDE[region];
+  if (!spots || !image) return;
+  const parts = separateFoliageSoft(image, spots, time, doc), strength = STRENGTH[mode], margin = 16;
+  const scale = (image.naturalWidth || image.width) / 1000, scaleY = (image.naturalHeight || image.height) / 1500;
+  spots.forEach((spot, i) => {
+    const part = parts[i];
+    if (!part || part.cover < .05) return;
+    const [cx, cy, rx, ry] = spot, wind = boughWind(region, i, spot, seconds, boost);
+    const W = part.width + 2 * margin, H = part.height + 2 * margin;
+    if (!scratch) scratch = typeof OffscreenCanvas === 'function' ? new OffscreenCanvas(W, H) : doc.createElement('canvas');
+    if (scratch.width < W || scratch.height < H) { scratch.width = Math.max(scratch.width, W); scratch.height = Math.max(scratch.height, H); }
+    const sc = scratch.getContext('2d');
+    sc.globalCompositeOperation = 'source-over'; sc.clearRect(0, 0, W, H);
+    // Adding the weighted tiles back together rebuilds the leaf layer, now smoothly stretched.
+    sc.globalCompositeOperation = 'lighter';
+    for (let b = 0; b < SOFT_NODES; b++) for (let a = 0; a < SOFT_NODES; a++) {
+      const tile = part.tiles[b * SOFT_NODES + a];
+      if (!tile) continue;
+      const x = cx - rx + 2 * rx * a / (SOFT_NODES - 1), y = cy - ry + 2 * ry * b / (SOFT_NODES - 1);
+      const shift = leafShift(spot, wind, seconds, i, x, y, strength);
+      sc.drawImage(tile.canvas, margin + tile.x + shift.dx * scale, margin + tile.y + shift.dy * scaleY);
+    }
+    ctx.drawImage(part.plate, cx - rx, cy - ry, 2 * rx, 2 * ry);
+    ctx.drawImage(scratch, 0, 0, W, H, cx - rx - margin / scale, cy - ry - margin / scaleY, W / scale, H / scaleY);
+  });
+}
+export function paintFoliage(ctx, image, region, time, seconds, mode, doc, boost = 0) {
+  if (STRENGTH[mode]) return paintFoliageSoft(ctx, image, region, time, seconds, mode, doc, boost);
   const spots = FOLIAGE[region];
   if (!spots || !image) return;
   const parts = separateFoliage(image, spots, time, doc);
   spots.forEach((spot, i) => {
     const part = parts[i];
     if (!part || part.cover < .05) return; // too few leaves here to be worth lifting
-    const [cx, cy, rx, ry, near, px, py] = spot, wind = boughWind(region, i, spot, seconds);
+    const [cx, cy, rx, ry, near, px, py] = spot, wind = boughWind(region, i, spot, seconds, boost);
     const left = cx - rx, top = cy - ry, tw = 2 * rx / TILES, th = 2 * ry / TILES;
     const far = Math.max(Math.hypot(left - px, top - py), Math.hypot(left + 2 * rx - px, top - py),
       Math.hypot(left - px, top + 2 * ry - py), Math.hypot(left + 2 * rx - px, top + 2 * ry - py));

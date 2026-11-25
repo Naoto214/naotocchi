@@ -11,12 +11,13 @@ const AXES = {
   tier:[['0','多い'],['1','ふつう'],['2','少ない']]
 };
 const SWAYS = [
-  ['bump','A 現在のE','原画そのものを、縁でゼロになるずらしで動かします。幹や空も一緒に引っぱられます。'],
-  ['tips','B 葉先だけ','葉を原画から分離し、枝は動かさずに葉先だけを細かく揺らします。幹・空・地面は一切動きません。'],
-  ['branch','C 枝葉を分離','葉を原画から分離し、枝の付け根を軸にしならせます。葉は枝に追従し、葉先は細かく揺れます。幹・空・地面は一切動きません。'],
-  ['still','D 木は静止','木は動かしません。風が通ると葉が光を受けて明るくなり、それが木から木へ伝わります。']
+  ['tips','B 葉先だけ','葉を分離し、枝は動かさず葉先だけを細かく揺らします。四角いタイルごとに別々に動かすため、境目や隙間が見えることがあります。'],
+  ['branch','C 枝葉を分離','葉を分離し、枝の付け根を軸にしならせます。16か所。タイルの方式はBと同じです。'],
+  ['wide','C2 範囲を拡張','Cと同じ揺れ幅で、継ぎ目の出ない方式に作り直し、樹冠の上部・中景と遠景の木・下草・手前の草まで30か所に広げました。'],
+  ['vivid','C3 分かりやすさを強化','C2のしなりを約1.5倍、葉先の揺れを約1.6倍に。風の波が木から木へ伝わります。']
 ];
-const ZOOMS = [['','全体'],['top','木の上部を拡大'],['edge','枝先と空の境目'],['grass','手前の草を拡大']];
+const ZOOMS = [['','全体'],['top','木の上部'],['edge','枝先と空の境目'],['mid','中景・遠景の木'],['grass','手前の草']];
+const WINDS = [['0','ふつうの風'],['1','強い風']];
 const PRESETS = [
   ['もり・夏・昼','forest','summer','sunny','day'],['もり・夏・朝','forest','summer','sunny','morning'],
   ['もり・夏・夕','forest','summer','sunny','evening'],['もり・夏・夜','forest','summer','sunny','night'],
@@ -25,7 +26,7 @@ const PRESETS = [
   ['きおくのみずうみ・夕','memory_lake','summer','sunny','evening'],['やま・夏・朝','mountain','summer','sunny','morning'],
   ['とかい・夜','city','summer','sunny','night'],['おうち・昼','home','summer','sunny','day']
 ];
-const state = {region:'forest', season:'summer', weather:'sunny', time:'day', tier:'1', left:'bump', right:'branch', zoom:''};
+const state = {region:'forest', season:'summer', weather:'sunny', time:'day', tier:'1', left:'branch', right:'wide', zoom:'', wind:'0'};
 const order = ['region','season','weather','time','tier'];
 function readHash() {
   const m = location.hash.match(/^#t(\d+)-(\d)-(\d)-(\d)-(\d)-(\d)-(\d)$/);
@@ -43,7 +44,7 @@ function mount(scene, side) {
   const stage = scene.querySelector('.stage');
   const body = {dataset:{homeViewportVersion:'12', homeTinyOverview:'true', homeDisplayVersion:'18'}, style:{setProperty() {}}};
   const doc = {body, createElement:tag => document.createElement(tag), getElementById:() => stage, querySelector:() => null};
-  return world.createHomeWorld({container:scene, document:doc, window, environmentFx:'final', treeSway:() => state[side]});
+  return world.createHomeWorld({container:scene, document:doc, window, environmentFx:'final', treeSway:() => state[side], wind:() => state.wind === '1' ? .95 : 0});
 }
 const scenes = [document.getElementById('sceneLeft'), document.getElementById('sceneRight')];
 const worlds = [mount(scenes[0], 'left'), mount(scenes[1], 'right')];
@@ -68,6 +69,7 @@ function apply() {
     document.getElementById('note' + name).textContent = SWAYS.find(([key]) => key === state[side])[2];
   }
   chips(document.getElementById('zoom'), ZOOMS, () => state.zoom, value => { state.zoom = value; });
+  chips(document.getElementById('wind'), WINDS, () => state.wind, value => { state.wind = value; });
   panes.dataset.zoom = state.zoom;
   for (const key of order) chips(document.getElementById(key), AXES[key], () => state[key], value => { state[key] = value; });
   const presets = document.getElementById('presets');

@@ -223,7 +223,7 @@ test('trees: leaves are told apart from sky, bark and the blue distance in every
 
 test('trees: boughs bend from their root, each on its own rhythm, and stay within a few degrees', async () => {
   const {FOLIAGE, boughWind, TREE_SWAYS} = await import('./proposal/living/final.mjs');
-  assert.deepEqual([...TREE_SWAYS], ['bump','tips','branch','still']);
+  assert.deepEqual([...TREE_SWAYS], ['bump','tips','branch','still','wide','vivid']);
   for (const [region, spots] of Object.entries(FOLIAGE)) for (const [cx, cy, rx, ry, near, px, py] of spots) {
     // The pivot is at or beside the spot's edge, never floating in the leaves' middle.
     assert.ok(Math.abs(px - cx) / rx > .55 || Math.abs(py - cy) / ry > .55, `${region} ${cx},${cy}`);
@@ -262,4 +262,63 @@ test('trees: only the lifted leaf layer moves; the root of each bough stays put'
   // In 'tips', the tile nearest each root barely moves while the farthest moves most.
   const draws = tips.filter(([name, , ...rest]) => name === 'drawImage' && rest.length === 8);
   assert.equal(draws.length, FOLIAGE.forest.length * 16);
+});
+
+test('trees (seamless): the shift is zero at every spot rim and grows smoothly from the bough root', async () => {
+  const {FOLIAGE, FOLIAGE_WIDE, leafShift, boughWind} = await import('./proposal/living/final.mjs');
+  const {rimWindow, SOFT_NODES} = await import('./proposal/living/foliage.mjs');
+  assert.equal(rimWindow(0, 0), 1); assert.equal(rimWindow(1, 0), 0); assert.equal(rimWindow(.75, .75), 0);
+  assert.ok(FOLIAGE_WIDE.forest.length >= FOLIAGE.forest.length + 12);
+  const area = spots => spots.reduce((n, s) => n + Math.PI * s[2] * s[3], 0) / 1.5e6;
+  assert.ok(area(FOLIAGE_WIDE.forest) > 1.7 * area(FOLIAGE.forest));
+  const strong = {bend:1.5, flutter:1.6};
+  for (const [region, spots] of Object.entries(FOLIAGE_WIDE)) spots.forEach((spot, i) => {
+    const [cx, cy, rx, ry, , px, py] = spot;
+    let worstStep = 0, peak = 0;
+    for (let s = 0; s < 60; s += .7) {
+      const wind = boughWind(region, i, spot, s, .95), grid = [];
+      for (let b = 0; b < SOFT_NODES; b++) for (let a = 0; a < SOFT_NODES; a++) {
+        const x = cx - rx + 2 * rx * a / (SOFT_NODES - 1), y = cy - ry + 2 * ry * b / (SOFT_NODES - 1);
+        const shift = leafShift(spot, wind, s, i, x, y, strong);
+        // Nodes on the edge of the spot never move: no square edge can appear.
+        if (a === 0 || b === 0 || a === SOFT_NODES - 1 || b === SOFT_NODES - 1) assert.deepEqual(shift, {dx:0, dy:0});
+        grid.push(shift); peak = Math.max(peak, Math.hypot(shift.dx, shift.dy));
+      }
+      for (let b = 0; b < SOFT_NODES; b++) for (let a = 0; a < SOFT_NODES - 1; a++) {
+        const p = grid[b * SOFT_NODES + a], q = grid[b * SOFT_NODES + a + 1];
+        worstStep = Math.max(worstStep, Math.hypot(p.dx - q.dx, p.dy - q.dy) / (2 * rx / (SOFT_NODES - 1)));
+      }
+    }
+    // Even in strong wind at the strongest setting, neighbouring tiles differ by about a third of their spacing at most: a stretch, not a tear.
+    assert.ok(worstStep < .36, `${region} ${i} step ${worstStep}`);
+    assert.ok(peak < Math.min(rx, ry) * .4, `${region} ${i} peak ${peak}`);
+    // The bough's own root does not move.
+    const root = leafShift(spot, boughWind(region, i, spot, 12, .95), 12, i, px, py, strong);
+    assert.ok(Math.hypot(root.dx, root.dy) < .01);
+  });
+});
+
+test('trees (seamless): the soft tiles rebuild the leaf layer exactly, and work is spread over frames', async () => {
+  const {separateFoliageSoft, SOFT_NODES} = await import('./proposal/living/foliage.mjs');
+  const written = [];
+  globalThis.OffscreenCanvas = class {
+    constructor(w, h) { this.width = w; this.height = h; }
+    getContext() { const r = withGradients(recorder()), canvas = this;
+      r.ctx.getImageData = (x, y, w, h) => { const data = new Uint8ClampedArray(w * h * 4); for (let i = 0; i < data.length; i += 4) { data[i] = 120; data[i + 1] = 200; data[i + 2] = 60; data[i + 3] = 255; } return {data, width:w, height:h}; };
+      r.ctx.createImageData = (w, h) => ({data:new Uint8ClampedArray(w * h * 4), width:w, height:h});
+      r.ctx.putImageData = image => { canvas.image = image; written.push(canvas); };
+      return r.ctx; }
+  };
+  const image = {naturalWidth:1000, naturalHeight:1500}, spots = [[200,200,40,30,1,200,230],[600,300,40,30,1,600,330],[800,900,40,30,1,800,930]];
+  const first = separateFoliageSoft(image, spots, 'day', {}, -1);
+  assert.equal(first.filter(Boolean).length, 1); // one spot per call when the budget is spent
+  separateFoliageSoft(image, spots, 'day', {}, -1);
+  const parts = separateFoliageSoft(image, spots, 'day', {}, -1);
+  assert.equal(parts.filter(Boolean).length, 3);
+  const part = parts[0], sum = new Float32Array(part.width * part.height);
+  assert.equal(part.tiles.length, SOFT_NODES * SOFT_NODES);
+  for (const tile of part.tiles) if (tile) { const {data, width, height} = tile.canvas.image;
+    for (let y = 0; y < height; y++) for (let x = 0; x < width; x++) sum[(tile.y + y) * part.width + tile.x + x] += data[4 * (y * width + x) + 3]; }
+  // An all-leaf spot: the tile weights add back to full opacity everywhere (within rounding).
+  for (const value of sum) assert.ok(Math.abs(value - 255) <= 3, String(value));
 });

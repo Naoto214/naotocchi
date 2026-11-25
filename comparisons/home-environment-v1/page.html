@@ -25,6 +25,7 @@ header p{margin:4px 0 0;color:var(--muted);max-width:60ch}
 .panes[data-zoom="top"] .scene canvas{transform:scale(2.4);transform-origin:50% 8%}
 .panes[data-zoom="edge"] .scene canvas{transform:scale(3);transform-origin:80% 20%}
 .panes[data-zoom="grass"] .scene canvas{transform:scale(2.4);transform-origin:30% 96%}
+.panes[data-zoom="mid"] .scene canvas{transform:scale(2.6);transform-origin:50% 42%}
 .chips.sway button{padding:7px 10px;font-size:12.5px}
 .zoomrow{max-width:760px;width:100%;margin:0 auto}
 .home-art-canvas{display:block;position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
@@ -58,9 +59,10 @@ button:focus-visible{outline:2px solid var(--ink);outline-offset:2px}
 <div class="wrap">
  <header>
   <h1>木の揺れくらべ</h1>
-  <p>木と草の揺れ方だけが違う4方式です。ほたる・星・水面・雨・雪など、ほかの演出はどれも最終候補Eのままです。左右それぞれで方式を選べます。</p>
+  <p>木と草の揺れ方だけが違う4方式です。ほたる・星・水面・雨・雪など、ほかの演出はどれも最終候補Eのままで、背景・時間帯・風は左右で同じです。左右それぞれで方式を選べます。</p>
  </header>
  <div class="row zoomrow"><span>見る場所</span><div class="chips" id="zoom"></div></div>
+ <div class="row zoomrow"><span>風</span><div class="chips" id="wind"></div></div>
  <div class="panes" id="panes">
   <section class="pane" data-side="left"><div class="chips sway" id="swayLeft"></div><div class="scene" id="sceneLeft"><div class="stage"></div></div><p id="noteLeft"></p></section>
   <section class="pane" data-side="right"><div class="chips sway" id="swayRight"></div><div class="scene" id="sceneRight"><div class="stage"></div></div><p id="noteRight"></p></section>

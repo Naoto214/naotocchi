@@ -115,3 +115,71 @@ export function separateFoliage(image, spots, time, doc) {
   cache.set(spots, parts);
   return parts;
 }
+
+// ---- Seamless version -----------------------------------------------------------------------
+// The leaf layer is cut into overlapping soft tiles whose weights add up to exactly one, so
+// tiles placed at slightly different offsets blend into a continuous stretch instead of
+// showing square edges or gaps. The offsets themselves fall to zero at the rim of each spot
+// (see `rimWindow`), so a spot always meets the still painting without a seam, and the plate
+// is only laid where leaves can actually move away.
+export const SOFT_NODES = 5;
+// 1 in the middle of a spot, easing to 0 at its elliptical rim. u, v run -1..1 across the spot.
+export function rimWindow(u, v) {
+  const d = Math.hypot(u, v);
+  return d <= .7 ? 1 : d >= 1 ? 0 : Math.cos(Math.PI / 2 * (d - .7) / .3) ** 2;
+}
+const softPrepared = new WeakMap();
+function separateSpot(image, spot, time, doc) {
+  const width = image.naturalWidth || image.width, height = image.naturalHeight || image.height;
+  const sx = width / 1000, sy = height / 1500, [cx, cy, rx, ry] = spot;
+  const w = Math.max(8, Math.round(2 * rx * sx)), h = Math.max(8, Math.round(2 * ry * sy));
+  const source = makeCanvas(doc, w, h), sc = source.getContext('2d', {willReadFrequently:true});
+  sc.drawImage(image, (cx - rx) * sx, (cy - ry) * sy, 2 * rx * sx, 2 * ry * sy, 0, 0, w, h);
+  let data;
+  try { data = sc.getImageData(0, 0, w, h); } catch { return null; }
+  const pixels = data.data, alpha = new Float32Array(w * h), original = new Uint8ClampedArray(pixels);
+  let cover = 0;
+  for (let i = 0; i < alpha.length; i++) {
+    // A crisp matte: a leaf is in the layer or it is not, with only a thin soft edge.
+    const t = Math.min(1, Math.max(0, (leafness(pixels[4 * i], pixels[4 * i + 1], pixels[4 * i + 2], time) - .2) / .4));
+    alpha[i] = t * t * (3 - 2 * t); cover += alpha[i];
+  }
+  paintOut(pixels, alpha, w, h);
+  for (let y = 0; y < h; y++) for (let x = 0; x < w; x++) {
+    const i = y * w + x, win = rimWindow((x + .5) / w * 2 - 1, (y + .5) / h * 2 - 1);
+    pixels[4 * i + 3] = Math.round(255 * alpha[i] * Math.min(1, win * 4));
+  }
+  const plate = makeCanvas(doc, w, h);
+  plate.getContext('2d').putImageData(data, 0, 0);
+  const cw = w / (SOFT_NODES - 1), ch = h / (SOFT_NODES - 1), tiles = [];
+  for (let b = 0; b < SOFT_NODES; b++) for (let a = 0; a < SOFT_NODES; a++) {
+    const x0 = Math.max(0, Math.floor((a - 1) * cw)), x1 = Math.min(w, Math.ceil((a + 1) * cw));
+    const y0 = Math.max(0, Math.floor((b - 1) * ch)), y1 = Math.min(h, Math.ceil((b + 1) * ch));
+    const tw = x1 - x0, th = y1 - y0, canvas = makeCanvas(doc, tw, th), tc = canvas.getContext('2d'), out = tc.createImageData(tw, th);
+    let any = false;
+    for (let y = y0; y < y1; y++) for (let x = x0; x < x1; x++) {
+      const weight = Math.max(0, 1 - Math.abs((x + .5) / cw - a)) * Math.max(0, 1 - Math.abs((y + .5) / ch - b));
+      const i = y * w + x, o = 4 * ((y - y0) * tw + (x - x0)), value = Math.round(255 * alpha[i] * weight);
+      if (!value) continue;
+      out.data[o] = original[4 * i]; out.data[o + 1] = original[4 * i + 1]; out.data[o + 2] = original[4 * i + 2]; out.data[o + 3] = value; any = true;
+    }
+    if (any) tc.putImageData(out, 0, 0);
+    tiles.push(any ? {canvas, x:x0, y:y0} : null);
+  }
+  return {plate, tiles, width:w, height:h, cover:cover / alpha.length};
+}
+// Prepares a few spots per call and returns what is ready so far (unfinished spots are
+// undefined). Spreading the work over frames avoids a visible pause when a painting changes.
+export function separateFoliageSoft(image, spots, time, doc, budget = 5) {
+  let cache = softPrepared.get(image);
+  if (!cache) softPrepared.set(image, cache = new Map());
+  let parts = cache.get(spots);
+  if (!parts) cache.set(spots, parts = {list:new Array(spots.length), next:0});
+  const now = () => globalThis.performance?.now?.() ?? 0, began = now();
+  while (parts.next < spots.length) {
+    parts.list[parts.next] = separateSpot(image, spots[parts.next], time, doc);
+    parts.next++;
+    if (now() - began > budget) break;
+  }
+  return parts.list;
+}

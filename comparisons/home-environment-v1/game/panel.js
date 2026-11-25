@@ -21,7 +21,7 @@
     panel.append(select);
   }
   field('fx', Object.entries(labels.fx));
-  if (s.fx === 'E') field('sway', [['bump','木：A 現在のE'],['tips','木：B 葉先だけ'],['branch','木：C 枝葉を分離'],['still','木：D 静止']]);
+  if (s.fx === 'E') field('sway', [['tips','木：B 葉先だけ'],['branch','木：C 枝葉を分離'],['wide','木：C2 範囲を拡張'],['vivid','木：C3 強化'],['still','木：静止'],['bump','木：前のE']]);
   field('count', Object.entries(labels.count));
   for (const key of ['region','season','weather','time']) field(key, s.lists[key].map((value, i) => [value, labels[key][i]]));
   panel.append(meter);
