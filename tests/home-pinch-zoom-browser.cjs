@@ -114,9 +114,8 @@ async function run(name,engine){
   await page.evaluate(()=>{__zoomQA.scene('forest','day',5);});await page.waitForTimeout(500);
   await page.evaluate(()=>{const r=document.querySelector('.screen-frame').getBoundingClientRect();NaotocchiHomeZoom.zoomAt(r.left+r.width/2,r.top+r.height/2,1.8);});
   assert.ok((await page.evaluate(()=>NaotocchiHomeZoom.state().zoom))>1.7,'programmatic zoom');
-  await page.evaluate(()=>{state=null;}).catch(()=>{});
-  await page.evaluate(()=>{document.body.classList.remove('region-forest');document.body.classList.add('region-sea');});await page.waitForTimeout(120);
-  if((await page.evaluate(()=>NaotocchiHomeZoom.state().zoom))!==1)failures.push(name+'/'+width+': region change kept zoom');
+  await page.evaluate(()=>{document.body.classList.remove('region-forest');document.body.classList.add('region-sea');});
+  await page.waitForFunction(()=>NaotocchiHomeZoom.state().zoom===1,null,{timeout:3000}).catch(()=>failures.push(name+'/'+width+': region change kept zoom'));
   if(errors.length)failures.push(name+'/'+width+' page errors: '+errors.slice(0,3).join(' | '));
   await context.close();
  }}finally{await browser.close();}

@@ -177,9 +177,13 @@
     e.preventDefault();zoomAt(e.clientX,e.clientY,z*Math.exp(-e.deltaY*.01));if(z<SNAP)reset(false);
   }
   // ---- keep the camera simple and safe around layout changes ----
-  function watch(){
+  // A new region is a new place: start it from the normal view.
+  function regionCheck(){
     const key=(doc.body?.className.match(/region-[\w-]+/)||[''])[0];
     if(key!==regionKey){regionKey=key;if(zoomed())reset(false);}
+  }
+  function watch(){
+    regionCheck();
     if(zoomed()&&!active())reset(false);
     // Safety net: if the layout ever changed under the view, return to 1.0x
     // and let the home lay itself out again from clean measurements.
@@ -196,6 +200,7 @@
     s.addEventListener('home-paint-envelope',suspend);
     new MutationObserver(suspend).observe(device,{attributes:true,attributeFilter:['class','data-home-fixed'],subtree:true});
     new MutationObserver(suspend).observe(doc.body,{attributes:true,attributeFilter:['data-home-production','data-home-terrain']});
+    new MutationObserver(regionCheck).observe(doc.body,{attributes:true,attributeFilter:['class']});
     if(info)new MutationObserver(suspend).observe(info,{childList:true,characterData:true,subtree:true});
     if(invite)new MutationObserver(suspend).observe(invite,{attributes:true,attributeFilter:['class','data-companion-id']});
   }
