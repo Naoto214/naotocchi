@@ -2,15 +2,15 @@
 (() => {
   const REGIONS = ['home','forest','river_lake','city','countryside','mountain','snow','sea','jungle','desert','deepsea','star_stop','memory_lake'];
   const SEASONS = ['spring','summer','autumn','winter'], WEATHER = ['sunny','cloudy','rain','snow'], TIMES = ['morning','day','evening','night'];
-  const m = location.hash.match(/^#g([ABC])-(\d+)-(\d+)-(\d)-(\d)-(\d)$/) || [];
+  const m = location.hash.match(/^#g([ABCD])-(\d+)-(\d+)-(\d)-(\d)-(\d)$/) || [];
   const pick = (list, index, fallback) => list[Number(index)] || fallback;
   const s = window.NaotocchiEnvCompare = {
-    fx:m[1] || 'C', count:[1,4,28].includes(Number(m[2])) ? Number(m[2]) : 4,
+    fx:m[1] || 'D', count:[1,4,28].includes(Number(m[2])) ? Number(m[2]) : 4,
     region:pick(REGIONS, m[3], 'forest'), season:pick(SEASONS, m[4], 'autumn'),
     weather:pick(WEATHER, m[5], 'sunny'), time:pick(TIMES, m[6], 'day'),
     lists:{region:REGIONS, season:SEASONS, weather:WEATHER, time:TIMES}
   };
-  window.NaotocchiEnvironmentFx = s.fx === 'B' ? 'falling' : 'living';
+  window.NaotocchiEnvironmentFx = s.fx === 'B' ? 'falling' : s.fx === 'D' ? 'maximum' : 'living';
   window.NaotocchiDaypartsQA = {region:s.region, time:s.time, season:s.season, weather:s.weather};
   const memory = new Map();
   Object.defineProperty(window, 'localStorage', {value:{

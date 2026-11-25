@@ -109,7 +109,7 @@ export function fallingCount(env, kind, tier = 0) {
   return Math.round(FX_COUNTS[kind][level] * (env.region === 'home' ? .25 : kind === 'petal' ? PETAL_SCALE[env.region] ?? 1 : 1));
 }
 
-function rings(ctx, rect, env, seconds, tier, tone) {
+function rings(ctx, rect, env, seconds, tier, tone, lively) {
   const spots = RAIN_WATER[env.region];
   if (!spots) return;
   const count = [spots.length, 40, 22][Math.min(2, Math.max(0, tier | 0))];
@@ -118,8 +118,8 @@ function rings(ctx, rect, env, seconds, tier, tone) {
   for (let i = 0; i < count; i++) {
     // Each spot has its own rhythm and rests between drops, so rings appear here and
     // there over the whole surface. Far rings are small and faint, near ones wider.
-    const period = 1.5 + 1.2 * hash(i + 4099), cycle = seconds / (period * 2.2) + hash(i + 4211);
-    const turn = Math.floor(cycle), p = unit(cycle) * 2.2;
+    const rest = lively ? 1.25 : 2.2, period = 1.5 + 1.2 * hash(i + 4099), cycle = seconds / (period * rest) + hash(i + 4211);
+    const turn = Math.floor(cycle), p = unit(cycle) * rest;
     if (p >= 1) continue;
     const [x, y] = spots[i], depth = (y - top) / span;
     const jx = (hash(i * 31 + turn) - .5) * .03, jy = (hash(i * 37 + turn) - .5) * .012;
@@ -129,11 +129,18 @@ function rings(ctx, rect, env, seconds, tier, tone) {
     ctx.beginPath();
     ctx.ellipse(rect.left + (x + jx) * W, rect.top + (y + jy) * H, radius, radius * .3, 0, 0, TAU);
     ctx.stroke();
+    if (lively && p > .25) {
+      // A second ring follows the first outward.
+      ctx.globalAlpha *= .6;
+      ctx.beginPath();
+      ctx.ellipse(rect.left + (x + jx) * W, rect.top + (y + jy) * H, radius * .55, radius * .165, 0, 0, TAU);
+      ctx.stroke();
+    }
   }
 }
 
 // Draws the falling layer over the finished backdrop. `seconds` is the scene clock.
-export function paintFalling(ctx, rect, env, mood, seconds, {tier = 0, document:doc} = {}) {
+export function paintFalling(ctx, rect, env, mood, seconds, {tier = 0, document:doc, lively = false} = {}) {
   const kind = fallingKind(mood);
   if (!kind) return;
   const indoor = env.region === 'home', tone = TONES[env.time] || TONES.day;
@@ -149,7 +156,7 @@ export function paintFalling(ctx, rect, env, mood, seconds, {tier = 0, document:
     ctx.closePath(); ctx.clip();
   }
   if (kind === 'rain') {
-    rings(ctx, rect, env, seconds, tier, tone);
+    rings(ctx, rect, env, seconds, tier, tone, lively);
     ctx.strokeStyle = `rgb(${tone.rain})`;
     ctx.lineCap = 'round';
     for (const d of list) {

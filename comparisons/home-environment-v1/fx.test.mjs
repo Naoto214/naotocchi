@@ -106,3 +106,45 @@ test('the proposal changes only how the backdrop is drawn', async () => {
     assert.equal(slice(proposal, from, to), slice(current, from, to), from);
   }
 });
+
+test('maximum: fireflies each keep their own path, pace and rhythm', async () => {
+  const {fireflyAt} = await import('./proposal/living/maximum.mjs');
+  // `vx` is the fly's own movement between samples; a shared drift would show up as correlation.
+  const track = i => Array.from({length:240}, (_, k) => {
+    const now = fireflyAt('forest', i, k * .25), next = fireflyAt('forest', i, k * .25 + .25);
+    return {...now, vx:next.x - now.x};
+  });
+  const flies = Array.from({length:16}, (_, i) => track(i));
+  const corr = (a, b, key) => {
+    const ma = a.reduce((n, p) => n + p[key], 0) / a.length, mb = b.reduce((n, p) => n + p[key], 0) / b.length;
+    let top = 0, da = 0, db = 0;
+    a.forEach((p, k) => { top += (p[key] - ma) * (b[k][key] - mb); da += (p[key] - ma) ** 2; db += (b[k][key] - mb) ** 2; });
+    return top / Math.sqrt(da * db);
+  };
+  let worst = 0;
+  for (let i = 0; i < 16; i++) for (let j = i + 1; j < 16; j++) worst = Math.max(worst, Math.abs(corr(flies[i], flies[j], 'vx')), Math.abs(corr(flies[i], flies[j], 'glow')));
+  assert.ok(worst < .75, 'no two fireflies move or blink together: ' + worst);
+  // They are never lit all at once and never all dark for long.
+  const lit = Array.from({length:240}, (_, k) => flies.filter(f => f[k].glow > .3).length);
+  assert.ok(Math.max(...lit) < 14 && lit.filter(n => n === 0).length < 12);
+  for (const fly of flies) for (const p of fly) assert.ok(p.x > -150 && p.x < 1150 && p.y > 480 && p.y < 1320);
+});
+
+test('maximum: gusts rise and rest, come from both sides, and stars sit in the sky', async () => {
+  const {gustAt, NIGHT_STARS} = await import('./proposal/living/maximum.mjs');
+  const samples = Array.from({length:2400}, (_, k) => gustAt('countryside', k * .25));
+  const calm = samples.filter(g => g.power === 0).length / samples.length;
+  assert.ok(calm > .25 && calm < .7, String(calm));
+  assert.ok(Math.max(...samples.map(g => g.power)) > .7);
+  const sides = new Set(samples.filter(g => g.power > .2).map(g => g.direction));
+  assert.deepEqual([...sides].sort(), [-1, 1]);
+  assert.equal(gustAt('deepsea', 5).power, 0);
+  assert.deepEqual(Object.keys(NIGHT_STARS), ['forest','river_lake','countryside','mountain','snow','sea','desert','memory_lake']);
+  for (const stars of Object.values(NIGHT_STARS)) for (const [x, y] of stars) assert.ok(x > 0 && x < 1 && y > 0 && y < .34);
+});
+
+test('maximum keeps the particle counts of the standard version', () => {
+  const env = {region:'sea', time:'day', weather:'rain', season:'summer'}, mood = atmosphere(env);
+  const drops = lively => { const r = recorder(); paintFalling(r.ctx, rect, env, mood, 7, {tier:0, lively}); return r.calls.filter(([name]) => name === 'moveTo').length; };
+  assert.equal(drops(true), drops(false));
+});

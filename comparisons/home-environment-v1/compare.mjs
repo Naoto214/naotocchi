@@ -40,7 +40,23 @@ const LIVING = {
   star_stop:'銀河の光の脈動、星のまたたき、ときどき流れ星。',
   memory_lake:'湖面のゆるやかな流れと映り込み、岸の枝の揺れ、ただよう光。'
 };
-const state = {region:'sea', season:'summer', weather:'rain', time:'evening', tier:'0'};
+// What the maximum version adds on top of C.
+const MAXIMUM = {
+  home:'C案の動きを最大強度に。',
+  forest:'枝葉・草の揺れを最大強度に。目に見える風の筋、草原を渡る風の波、夏はほたるが1匹ずつ別の道を飛び、夜は星がまたたき流れ星。',
+  river_lake:'川面いっぱいに下流へ走る流れの筋ときらめき。岸を渡る風、夏の夕・夜のほたる、夜空のまたたき。',
+  city:'灯りと映り込みを最大強度に。通りを抜ける風の筋。',
+  countryside:'田畑と道を渡る風の波、風の筋、夏のほたる、夜空のまたたきと流れ星。',
+  mountain:'尾根を越える強い風の筋、草地の風の波、夜空のまたたき。',
+  snow:'雪原を走る風、枝の揺れを最大に、夜空のまたたき。',
+  sea:'沖から寄せるうねりが11本、海面いっぱいのきらめき（太陽・月の道は特に強く）、波打ち際を最大に、潮風の筋。',
+  jungle:'葉の揺れと光の筋を最大に、池のきらめき、夏のほたる。',
+  desert:'砂丘を走る風の筋と砂の波、夜空のまたたきと流れ星。',
+  deepsea:'光の柱と浮遊物を最大強度に。',
+  star_stop:'銀河・星・流れ星を最大強度に。',
+  memory_lake:'ただよう光が1つずつ別の道を動き、夜は星がまたたく。湖面のゆらぎを最大に。'
+};
+const state = {region:'sea', season:'summer', weather:'sunny', time:'evening', tier:'1'};
 const order = ['region','season','weather','time','tier'];
 function readHash() {
   const m = location.hash.match(/^#v(\d+)-(\d)-(\d)-(\d)-(\d)$/);
@@ -57,8 +73,8 @@ function mount(scene, mod, environmentFx) {
   const doc = {body, createElement:tag => document.createElement(tag), getElementById:() => stage, querySelector:() => null};
   return mod.createHomeWorld({container:scene, document:doc, window, environmentFx});
 }
-const scenes = ['sceneA','sceneB','sceneC'].map(id => document.getElementById(id));
-const worlds = [mount(scenes[0], nowWorld), mount(scenes[1], nextWorld, 'falling'), mount(scenes[2], nextWorld, 'living')];
+const scenes = ['sceneA','sceneB','sceneC','sceneD'].map(id => document.getElementById(id));
+const worlds = [mount(scenes[0], nowWorld), mount(scenes[1], nextWorld, 'falling'), mount(scenes[2], nextWorld, 'living'), mount(scenes[3], nextWorld, 'maximum')];
 
 const OLD = [16,9,5];
 function falling(env, proposal) {
@@ -78,6 +94,7 @@ function apply() {
   document.getElementById('noteA').textContent = falling(env, false);
   document.getElementById('noteB').textContent = falling(env, true);
   document.getElementById('noteC').textContent = LIVING[env.region] + ' ＋ ' + falling(env, true).replace('ただよう光の点。', '');
+  document.getElementById('noteD').textContent = MAXIMUM[env.region];
   for (const key of order) for (const button of document.getElementById(key).children)
     button.setAttribute('aria-pressed', String(button.dataset.value === state[key]));
   for (const button of document.getElementById('presets').children) {
@@ -102,9 +119,11 @@ PRESETS.forEach(([label, ...values], index) => {
   document.getElementById('presets').append(button);
 });
 const panes = document.getElementById('panes');
-for (const side of ['a','b','c']) document.getElementById('show' + side.toUpperCase()).onclick = () => {
+// The left pane shows one of A, B or C; the maximum version stays beside it. A phone shows one at a time.
+for (const side of ['a','b','c','d']) document.getElementById('show' + side.toUpperCase()).onclick = () => {
+  if (side !== 'd') panes.dataset.left = side;
   panes.dataset.show = side;
-  for (const other of ['a','b','c']) document.getElementById('show' + other.toUpperCase()).setAttribute('aria-pressed', String(other === side));
+  for (const other of ['a','b','c','d']) document.getElementById('show' + other.toUpperCase()).setAttribute('aria-pressed', String(other === 'd' ? side === 'd' : other === panes.dataset.left));
 };
 readHash();
 addEventListener('hashchange', () => { readHash(); apply(); });
