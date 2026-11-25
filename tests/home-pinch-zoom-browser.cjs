@@ -26,7 +26,8 @@ const inspect=()=>{const m=__zoomQA.model(),st=document.getElementById('castStag
  return {zoom:NaotocchiHomeZoom.state().zoom,
   inputs:JSON.stringify({presentation:NaotocchiHomeViewport.residentPresentation(),stage:NaotocchiHomeViewport.presentationRect(st),scroll:[fr.scrollTop,fr.scrollLeft],bounds:m.snapshot().map(a=>[a.key,a.w,a.h,m.bounds(a)]),envelope:st.__homeResidentEnvelope||null,vars:['--home-center-scroll','--home-center-overflow','--home-v12-content-height'].map(k=>document.body.style.getPropertyValue(k))}),
   dom:JSON.stringify({stage:css(st),frame:css(fr),world:[...(w?.children||[])].map(css),label:css(st.querySelector('.diorama-selected-label')),flag:document.body.dataset.homeZoom||''}),
-  trace:[st,...(w?.children||[])].map(e=>e.style.translate+e.style.scale+e.style.willChange).join('')+fr.style.maskImage+(fr.style.webkitMaskImage||'')+(st.querySelector('.diorama-selected-label')?.style.translate||'')+(document.body.dataset.homeZoom||'')};};
+  clip:fr.style.getPropertyValue('overflow')+'/'+fr.style.getPropertyPriority('overflow')+'/'+fr.style.getPropertyValue('clip-path')+'/'+getComputedStyle(fr).overflow+'/'+getComputedStyle(fr).clipPath,
+  trace:[st,...(w?.children||[])].map(e=>e.style.translate+e.style.scale+e.style.willChange).join('')+(Object.hasOwn(fr,'scrollTop')||Object.hasOwn(fr,'scrollLeft')?'scroll-shim':'')+(fr.firstElementChild?.style.translate||'')+(st.querySelector('.diorama-selected-label')?.style.translate||'')+(document.body.dataset.homeZoom||'')};};
 const visible=()=>{const f=document.querySelector('.screen-frame').getBoundingClientRect();
  return __zoomQA.model().snapshot().map(a=>{const e=document.querySelector('[data-diorama-actor="'+a.key+'"]'),im=e?.querySelector('.character-asset')||e;if(!im)return null;const r=im.getBoundingClientRect(),x=r.left+r.width/2,y=r.top+r.height*.62;
   return x>f.left+16&&x<f.right-16&&y>f.top+16&&y<f.bottom-16?{key:a.key,x,y}:null;}).filter(Boolean);};
@@ -63,8 +64,10 @@ async function run(name,engine){
    const frame=await page.evaluate(()=>{const r=document.querySelector('.screen-frame').getBoundingClientRect();return {x:r.left+r.width/2,y:r.top+r.height/2};});
    const clean=await page.evaluate(inspect);
    await seen();await pinch(frame.x,frame.y,22,70);
+   await page.evaluate(()=>new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r))));
    let zoomed=await page.evaluate(inspect);
    if(!(zoomed.zoom>1.5))fail('pinch did not zoom: '+zoomed.zoom);
+   else if(!/visible\/none$/.test(zoomed.clip))fail('resident window still clips while zoomed: '+zoomed.clip);
    // The home may re-fit itself as residents walk. Compare the layout it
    // computes under zoom with the one it computes at 1.0x in the next frames.
    let same=false,sameNav=false;
@@ -106,6 +109,7 @@ async function run(name,engine){
    const after=await page.evaluate(inspect);
    if(after.zoom!==1)fail('two-finger tap left zoom '+after.zoom);
    if(after.trace)fail('1.0x DOM keeps zoom styles: '+after.trace.slice(0,200));
+   if(after.clip!==clean.clip)fail('resident window clipping not restored: '+after.clip+' (was '+clean.clip+')');
    if(clean.trace)fail('zoom styles before any zoom: '+clean.trace.slice(0,200));
    await seen();
    if(prompted){held=[];await boot();if(attempt<3)continue;rows.push({width,region,count,skipped:'home prompt'});break;}

@@ -46,7 +46,7 @@
     if(!layers)return;
     for(const e of layers.list)unstyle(e);
     releaseLabel();
-    const f=layers.frame;if(f){for(const k of ['mask-image','-webkit-mask-image','mask-composite','-webkit-mask-composite'])f.style.removeProperty(k);}
+    closeFrame();
     layers=null;
   }
   // The selected-name label is screen UI that happens to live in the stage:
@@ -81,13 +81,27 @@
     label.style.scale=(layers.labelScale[0]/z)+' '+(layers.labelScale[1]/z);
     layers.labelMine=label.style.scale;
   }
-  // Residents leave the resident window softly instead of at a hard edge.
-  function fadeFrame(){
-    const f=layers?.frame,r=layers?.frameRect;if(!f||!r||!f.offsetWidth||!f.offsetHeight)return;
-    const px=Math.min(14,40*(z-1)),ax=px/(r.width/f.offsetWidth),ay=px/(r.height/f.offsetHeight);
-    const img='linear-gradient(to right,transparent,#000 '+ax+'px,#000 calc(100% - '+ax+'px),transparent),linear-gradient(to bottom,transparent,#000 '+ay+'px,#000 calc(100% - '+ay+'px),transparent)';
-    f.style.setProperty('-webkit-mask-image',img);f.style.setProperty('mask-image',img);
-    f.style.setProperty('-webkit-mask-composite','source-in');f.style.setProperty('mask-composite','intersect');
+  // The resident window clips its content for the 1.0x layout. While zoomed,
+  // residents are drawn up to the real screen edge instead. The window keeps
+  // its box; only its clipping is lifted. Lifting it also drops its scroll
+  // offset, so the same offset is applied to its content and the window keeps
+  // answering with the offset it had (the home positions the backdrop by it).
+  function openFrame(){
+    const f=layers?.frame,inner=f?.firstElementChild;if(!f||!inner||layers.open)return;
+    const keep=k=>[k,f.style.getPropertyValue(k),f.style.getPropertyPriority(k)];
+    const open={top:f.scrollTop,left:f.scrollLeft,inner,styles:[keep('overflow'),keep('clip-path')],innerTranslate:inner.style.translate};
+    f.style.setProperty('overflow','visible','important');f.style.setProperty('clip-path','none','important');
+    inner.style.translate=(-open.left)+'px '+(-open.top)+'px';
+    for(const [name,value] of [['scrollTop',open.top],['scrollLeft',open.left]])Object.defineProperty(f,name,{configurable:true,get:()=>value,set(){}});
+    layers.open=open;
+  }
+  function closeFrame(){
+    const f=layers?.frame,open=layers?.open;if(!f||!open)return;
+    delete f.scrollTop;delete f.scrollLeft;
+    open.inner.style.translate=open.innerTranslate;
+    for(const [k,v,p] of open.styles){if(v)f.style.setProperty(k,v,p);else f.style.removeProperty(k);}
+    f.scrollTop=open.top;f.scrollLeft=open.left;
+    layers.open=null;
   }
   // The home layout pass reads scroll extents that a scaled stage would widen.
   // Lift the view for exactly that pass and restore it before the next paint.
@@ -116,8 +130,8 @@
     }
     if(layers)for(const e of layers.list)if(!list.includes(e)){base.delete(e);e.style.translate='';e.style.scale='';e.style.transformOrigin='';e.style.willChange='';}
     const f=frame();
-    layers={list,base,label:layers?.label||null,labelAt:layers?.labelAt||null,labelScale:layers?.labelScale||[1,1],labelOwn:layers?.labelOwn||'',labelMine:layers?.labelMine,labelText:layers?.labelText,frame:f,frameRect:layers?.frameRect||f?.getBoundingClientRect()};
-    pinLabel();fadeFrame();doc.body.dataset.homeZoom='true';if(guard===null)captureGuard();
+    layers={list,base,label:layers?.label||null,labelAt:layers?.labelAt||null,labelScale:layers?.labelScale||[1,1],labelOwn:layers?.labelOwn||'',labelMine:layers?.labelMine,labelText:layers?.labelText,frame:f,frameRect:layers?.frameRect||f?.getBoundingClientRect(),open:layers?.open||null};
+    openFrame();pinLabel();doc.body.dataset.homeZoom='true';if(guard===null)captureGuard();
   }
   function set(nz,nx,ny){cancelAnimationFrame(anim);anim=0;z=nz;cx=nx;cy=ny;clamp();apply();}
   function reset(animated){
@@ -198,8 +212,13 @@
     if(!s||!device||!root.MutationObserver)return;
     // Mirror every trigger of the home layout pass (home-production-touch.js).
     s.addEventListener('home-paint-envelope',suspend);
-    new MutationObserver(suspend).observe(device,{attributes:true,attributeFilter:['class','data-home-fixed'],subtree:true});
-    new MutationObserver(suspend).observe(doc.body,{attributes:true,attributeFilter:['data-home-production','data-home-terrain']});
+    // The home re-lays itself out on these two only when its own "home is
+    // showing" condition flips; residents change classes all the time.
+    const normal=doc.getElementById('screenNormal');
+    const showing=()=>doc.body.dataset.homeProduction==='true'&&doc.body.dataset.homeTerrain==='true'&&device.dataset.homeFixed==='true'&&device.classList.contains('ui-home-active')&&!normal?.classList.contains('hidden');
+    let shown=showing();const flipped=()=>{const now=showing();if(now!==shown){shown=now;suspend();}};
+    new MutationObserver(flipped).observe(device,{attributes:true,attributeFilter:['class','data-home-fixed'],subtree:true});
+    new MutationObserver(flipped).observe(doc.body,{attributes:true,attributeFilter:['data-home-production','data-home-terrain']});
     new MutationObserver(regionCheck).observe(doc.body,{attributes:true,attributeFilter:['class']});
     if(info)new MutationObserver(suspend).observe(info,{childList:true,characterData:true,subtree:true});
     if(invite)new MutationObserver(suspend).observe(invite,{attributes:true,attributeFilter:['class','data-companion-id']});
