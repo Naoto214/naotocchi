@@ -74,13 +74,14 @@ test('crown does not bypass normal two minute life warning or rescue life death'
   assert.equal(Object.hasOwn(s.itemLife,'crownUsed'),false);
 });
 
-test('retired crown snapshot cannot reduce failed-game life damage',()=>{
+// 2026-11-25 C案: しっぱいした ミニゲームは いのちを へらさない(引退した かんむりの スナップショットにも 左右されない)
+test('a failed game never raises the death meter, with or without the retired crown snapshot',()=>{
   const {h,s}=setup('crown');
   s.deathMeter=0;
   h.api.startMinigame(game('crown-snapshot'));
   s.lifetime.equippedItemId=null;
   h.api.finishMinigame(0);
-  assert.equal(s.deathMeter,2);
+  assert.equal(s.deathMeter,0);
 });
 
 test('star pays ordinary success immediately and never adds a delayed set reward',()=>{

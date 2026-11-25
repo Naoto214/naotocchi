@@ -11869,7 +11869,7 @@
         }
       }
 
-      // 「死亡」メーターは びょうき・ていけんこう・ミニゲーム大失敗・
+      // 「死亡」メーターは びょうき・ていけんこう・
       // たべすぎ など「なにか やらかした とき」に くわえて、としを とるほど
       // わずかに 自然にも あがる(raiseDeathMeter() を通すので、こいびと/
       // 夫婦の けいげん効果は ここにも かかる)。
@@ -17820,13 +17820,13 @@
     offerTransformIfReady();
 
     let itemMessage = '';
+    // 育成への効果は 成功したときだけ(2026-11-25 承認・C案)。実際に挑戦して 29点以下だった ときは、
+    // コイン・そだちが 0 に なるだけで、おとろえ・いのち(死亡メーター)には なにも 加えない
+    // (苦手な人や 小さい子が 安心して 挑戦できる ように。放置・途中終了は retireMinigame で べつに あつかう)
     if (isGreat) {
       applyGrowth(14); applyDecline(-8);
     } else if (!isBad) {
       applyGrowth(7); applyDecline(-3);
-    } else {
-      applyDecline(8);
-      raiseDeathMeter(2);
     }
     const result = isGreat ? 'great' : isBad ? 'failure' : 'success';
     const coins = ordinaryMinigameCoins(result, activeMinigameEquipment);
