@@ -133,6 +133,7 @@
     }
     if(layers)for(const e of layers.list)if(!list.includes(e)){base.delete(e);e.style.translate='';e.style.scale='';e.style.transformOrigin='';e.style.willChange='';}
     const f=frame();
+    startWatch();
     layers={list,base,label:layers?.label||null,labelAt:layers?.labelAt||null,labelScale:layers?.labelScale||[1,1],labelOwn:layers?.labelOwn||'',labelMine:layers?.labelMine,labelText:layers?.labelText,frame:f,frameRect:layers?.frameRect||f?.getBoundingClientRect(),open:layers?.open||null};
     openFrame();pinLabel();doc.body.dataset.homeZoom='true';if(guard===null)captureGuard();
   }
@@ -195,10 +196,14 @@
   }
   // ---- keep the camera simple and safe around layout changes ----
   // A new region is a new place: start it from the normal view.
+  const regionNow=()=>(doc.body?.className.match(/region-[\w-]+/)||[''])[0];
   function regionCheck(){
-    const key=(doc.body?.className.match(/region-[\w-]+/)||[''])[0];
+    const key=regionNow();
     if(key!==regionKey){regionKey=key;if(zoomed())reset(false);}
   }
+  // Runs only while zoomed. At 1.0x nothing here is scheduled at all, so the
+  // finished home keeps exactly the frame work it had before.
+  let watching=false;
   function watch(){
     regionCheck();
     if(zoomed()&&!active())reset(false);
@@ -208,8 +213,10 @@
     // New backdrop children (a rebuilt world) join the current view.
     if(zoomed()&&layers&&!suspended)pinLabel();
     if(zoomed()&&layers){const list=targets();if(list.length!==layers.list.length||list.some((e,i)=>e!==layers.list[i]))apply();}
-    root.requestAnimationFrame(watch);
+    if(zoomed())root.requestAnimationFrame(watch);else watching=false;
   }
+  // A view always starts in the region that is on screen when it begins.
+  function startWatch(){if(!watching){watching=true;regionKey=regionNow();root.requestAnimationFrame(watch);}}
   function observe(){
     const s=stage(),device=doc.getElementById('device'),info=doc.getElementById('homeInformation'),invite=doc.getElementById('companionInviteOverlay');
     if(!s||!device||!root.MutationObserver)return;
@@ -240,7 +247,6 @@
     root.addEventListener('blur',forget);
     root.addEventListener('resize',()=>reset(false));
     root.visualViewport?.addEventListener('resize',()=>reset(false));
-    root.requestAnimationFrame(watch);
   }
   root.NaotocchiHomeZoom={point,rect,reset,zoomAt,state:()=>({zoom:z,x:cx,y:cy,max:MAX,min:MIN,fingers:pointers.size,active:active()}),set};
 })(typeof window==='object'?window:globalThis);
