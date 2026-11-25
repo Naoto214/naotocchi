@@ -7363,10 +7363,10 @@
         function loop(now) { if (!running) return; render(now); rafId = requestAnimationFrame(loop); }
         function finish() {
           if (!running) return; running = false; cancelAnimationFrame(rafId); container.querySelectorAll('button').forEach((b) => { b.disabled = true; });
-          // Phase 2(2026-11-25 承認・軽い調整): 勝ち越し・イーブンは ほぼ これまでどおり、負け越しは 30点未満に。
-          // 4ハンド 全勝(+80) 89点・3勝1敗(+40) 67点・イーブン 45点・1勝3敗(−40) 25点・全敗(−80) 10点
+          // Phase 2(2026-11-25 承認・軽い調整): 運の 要素は そのまま。勝ち越しは これまでと おなじ か 少し 上、負け越しは 30点未満に。
+          // 4ハンド 全勝(+80) 97点(以前 90)・3勝1敗(+40) 71点(以前 70)・+20 58点(以前 60)・イーブン 45点(以前 50)・1勝3敗(−40) 25点(以前 30)・全敗 10点
           const net = chips - START;
-          const score = clamp(Math.round(45 + net * (net >= 0 ? 0.55 : 0.5)), 10, 100);
+          const score = clamp(Math.round(45 + net * (net >= 0 ? 0.65 : 0.5)), 10, 100);
           say(chips > START ? `🏆 🪙${chips}でおわり!+${chips - START}` : chips === START ? 'イーブンでおわり' : `🪙${chips}でおわり…${chips - START}`, 2600); render(performance.now());
           setTimeout(() => onComplete(score, null, meter.done()), 650);
         }
