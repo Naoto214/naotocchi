@@ -1,5 +1,7 @@
 // Comparison-only driver: the final candidate twice, differing only in how trees and grass move.
 import * as world from './proposal/home-production-world.mjs';
+import * as current from './baseline/home-production-world.mjs';
+import {FOLIAGE_B2} from './proposal/living/final.mjs';
 import {atmosphere} from './proposal/home-dayparts.mjs';
 
 const AXES = {
@@ -11,15 +13,20 @@ const AXES = {
   tier:[['0','多い'],['1','ふつう'],['2','少ない']]
 };
 const SWAYS = [
-  ['tips','B 葉先（従来）','葉先だけを細かく揺らします。葉のレイヤーを四角いタイルごとに別々に動かすため、境目や隙間が見えることがあります。16か所。'],
-  ['tips2','B2 継ぎ目を改善','Bと同じ速さ・揺れ幅・16か所のまま、継ぎ目の出ない方式に作り直しました。枝は動きません。'],
-  ['tips3','B3 範囲を拡張','B2を、樹冠の上部・中景と遠景の木・下草・手前の草まで30か所に広げました。枝は動きません。'],
-  ['rigid','B4 枝の形を保って回転','B3に加えて、細い小枝を葉と一緒に分離し、付け根を軸に枝ごとわずかに回します。枝の長さ・太さ・曲がりは変わりません。幹と太い枝は固定です。'],
-  ['wide','C2 しなり（前回の候補）','枝の付け根から先へ向かって曲がりが大きくなる「しなり」です。30か所。']
+  ['now','現行の本番','いまの本番のホームです。'],
+  ['tips2','最終統合版','環境演出Eと、承認済みの葉先の揺れ（B2）を全地域に適用した最終統合版です。'],
+  ['still','最終統合版（木は静止）','植物の揺れだけを止めた状態です。揺れの有無を見比べるためのものです。']
 ];
-const ZOOMS = [['','全体'],['top','木の上部'],['edge','枝先と空の境目'],['mid','中景・遠景の木'],['grass','手前の草']];
+// What moves in each region, for the note under the scene.
+const PLANTS = {
+  home:'窓の外の木と、室内の鉢植え（ごく弱く）', forest:'葉の茂みと下草・手前の草（承認時のまま）', river_lake:'岸の木、崖の上の木、川原の草',
+  city:'街路樹、植え込み、テラスの緑', countryside:'木々、稲と苗、あぜと道ばたの草', mountain:'高山の草地と足もとの草花',
+  snow:'なし（雪をかぶった木は動かしません）', sea:'なし（陸の植物が描かれていません）', jungle:'樹冠、ヤシ、シダ、下草',
+  desert:'砂丘の草', deepsea:'なし', star_stop:'アーチのつた、植え込み、足もとの草花', memory_lake:'柳、岸の草、すすき'
+};
+const ZOOMS = [['','全体'],['top','上部'],['mid','中央'],['left','左がわ'],['right','右がわ'],['grass','手前']];
 const WINDS = [['0','ふつうの風'],['1','強い風']];
-const PRESETS = [
+const PRESETS_OLD = [
   ['もり・夏・昼','forest','summer','sunny','day'],['もり・夏・朝','forest','summer','sunny','morning'],
   ['もり・夏・夕','forest','summer','sunny','evening'],['もり・夏・夜','forest','summer','sunny','night'],
   ['もり・秋・昼','forest','autumn','sunny','day'],['かわ・夏・昼','river_lake','summer','sunny','day'],
@@ -27,7 +34,18 @@ const PRESETS = [
   ['きおくのみずうみ・夕','memory_lake','summer','sunny','evening'],['やま・夏・朝','mountain','summer','sunny','morning'],
   ['とかい・夜','city','summer','sunny','night'],['おうち・昼','home','summer','sunny','day']
 ];
-const state = {region:'forest', season:'summer', weather:'sunny', time:'day', tier:'1', left:'wide', right:'rigid', zoom:'', wind:'0'};
+const PRESETS = [
+  ['いなか・夏・昼','countryside','summer','sunny','day'],['かわ・夏・昼','river_lake','summer','sunny','day'],
+  ['ジャングル・昼','jungle','summer','sunny','day'],['とかい・昼','city','summer','sunny','day'],
+  ['とかい・夜','city','summer','sunny','night'],['やま・夏・朝','mountain','summer','sunny','morning'],
+  ['きおくのみずうみ・夕','memory_lake','summer','sunny','evening'],['さばく・昼','desert','summer','sunny','day'],
+  ['ほしぞら・昼','star_stop','summer','sunny','day'],['おうち・昼','home','summer','sunny','day'],
+  ['もり・夏・昼','forest','summer','sunny','day'],['もり・夏・夜','forest','summer','sunny','night'],
+  ['うみ・雨・夕','sea','summer','rain','evening'],['ゆきぐに・雪・夜','snow','winter','snow','night'],
+  ['もり・秋・昼','forest','autumn','sunny','day'],['かわ・春・夕','river_lake','spring','sunny','evening']
+];
+void PRESETS_OLD;
+const state = {region:'countryside', season:'summer', weather:'sunny', time:'day', tier:'1', left:'now', right:'tips2', zoom:'', wind:'0'};
 const order = ['region','season','weather','time','tier'];
 function readHash() {
   const m = location.hash.match(/^#t(\d+)-(\d)-(\d)-(\d)-(\d)-(\d)-(\d)$/);
@@ -44,8 +62,20 @@ function writeHash() {
 function mount(scene, side) {
   const stage = scene.querySelector('.stage');
   const body = {dataset:{homeViewportVersion:'12', homeTinyOverview:'true', homeDisplayVersion:'18'}, style:{setProperty() {}}};
-  const doc = {body, createElement:tag => document.createElement(tag), getElementById:() => stage, querySelector:() => null};
-  return world.createHomeWorld({container:scene, document:doc, window, environmentFx:'final', treeSway:() => state[side], wind:() => state.wind === '1' ? .95 : 0});
+  const doc = {body, defaultView:window, createElement:tag => document.createElement(tag), getElementById:() => stage, querySelector:() => null};
+  const make = mod => mod.createHomeWorld({container:scene, document:doc, window, environmentFx:'final',
+    treeSway:() => state[side] === 'still' ? 'still' : 'tips2', wind:() => state.wind === '1' ? .95 : 0});
+  // Each pane holds the production renderer and the final one, and shows whichever is chosen.
+  const pair = {now:make(current), next:make(world)};
+  const canvases = [...scene.querySelectorAll('canvas.home-art-canvas')], layers = [...scene.querySelectorAll('.home-dayparts-fx')];
+  return {
+    setEnvironment(env) { pair.now.setEnvironment(env); pair.next.setEnvironment(env); },
+    draw(dt, flags) {
+      const now = state[side] === 'now';
+      canvases[0].hidden = !now; canvases[1].hidden = now; layers[0].hidden = !now; layers[1].hidden = now;
+      (now ? pair.now : pair.next).draw(dt, flags);
+    }
+  };
 }
 const scenes = [document.getElementById('sceneLeft'), document.getElementById('sceneRight')];
 const worlds = [mount(scenes[0], 'left'), mount(scenes[1], 'right')];
@@ -67,7 +97,9 @@ function apply() {
   for (const side of ['left','right']) {
     const name = side === 'left' ? 'Left' : 'Right';
     chips(document.getElementById('sway' + name), SWAYS, () => state[side], value => { state[side] = value; });
-    document.getElementById('note' + name).textContent = SWAYS.find(([key]) => key === state[side])[2];
+    const count = (FOLIAGE_B2[state.region] || []).length;
+    document.getElementById('note' + name).textContent = SWAYS.find(([key]) => key === state[side])[2] +
+      (state[side] === 'tips2' ? ` この地域で揺れる植物：${PLANTS[state.region]}（${count}か所）。` : '');
   }
   chips(document.getElementById('zoom'), ZOOMS, () => state.zoom, value => { state.zoom = value; });
   chips(document.getElementById('wind'), WINDS, () => state.wind, value => { state.wind = value; });

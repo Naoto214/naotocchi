@@ -12,6 +12,12 @@ export function leafness(r, g, b, time) {
   if (max < 18) return 0;
   const step = (lo, hi, v) => { const t = Math.min(1, Math.max(0, (v - lo) / (hi - lo))); return t * t * (3 - 2 * t); };
   const vivid = step(.10, .24, (max - min) / max);
+  if (time === 'dry') {
+    // Daylight on alpine meadow and dune grass: olive rather than green. Sand and gravel are
+    // paler and greyer, so they stay out.
+    const olive = step(.26, .36, (max - min) / max) * step(.86, .93, g / (r + 1)) * step(1.3, 1.5, g / (b + 1)) * step(60, 90, light);
+    return Math.max(olive, leafness(r, g, b, 'day'));
+  }
   if (time === 'night') {
     // Moonlit leaves are teal: green leads red clearly and nearly matches blue; the sky is far bluer.
     return vivid * step(1.10, 1.32, g / (r + 1)) * step(.74, .90, g / (b + 1)) * step(34, 62, light);
@@ -159,7 +165,10 @@ export function thinBark(bark, width, height, reach = 3) {
   return thin;
 }
 const softPrepared = new WeakMap();
-function separateSpot(image, spot, time, doc, twigs) {
+// `reference` is the same scene in daylight. Plants stand in the same place at every hour, and
+// daylight is where leaves are easiest to tell from everything else, so when it is given the
+// leaf shapes are read from it and the colours from the painting on screen.
+function separateSpot(image, spot, time, doc, twigs, reference, palette = 'day') {
   const width = image.naturalWidth || image.width, height = image.naturalHeight || image.height;
   const sx = width / 1000, sy = height / 1500, [cx, cy, rx, ry] = spot;
   const w = Math.max(8, Math.round(2 * rx * sx)), h = Math.max(8, Math.round(2 * ry * sy));
@@ -168,10 +177,17 @@ function separateSpot(image, spot, time, doc, twigs) {
   let data;
   try { data = sc.getImageData(0, 0, w, h); } catch { return null; }
   const pixels = data.data, alpha = new Float32Array(w * h), original = new Uint8ClampedArray(pixels);
+  let guide = pixels, guideTime = time;
+  if (reference && reference !== image) {
+    const rw = reference.naturalWidth || reference.width, rh = reference.naturalHeight || reference.height;
+    const rc = makeCanvas(doc, w, h).getContext('2d', {willReadFrequently:true});
+    rc.drawImage(reference, (cx - rx) * rw / 1000, (cy - ry) * rh / 1500, 2 * rx * rw / 1000, 2 * ry * rh / 1500, 0, 0, w, h);
+    try { guide = rc.getImageData(0, 0, w, h).data; guideTime = palette; } catch { return null; }
+  } else if (reference) guideTime = palette === 'dry' && time === 'day' ? 'dry' : time;
   let cover = 0;
   for (let i = 0; i < alpha.length; i++) {
     // A crisp matte: a leaf is in the layer or it is not, with only a thin soft edge.
-    const t = Math.min(1, Math.max(0, (leafness(pixels[4 * i], pixels[4 * i + 1], pixels[4 * i + 2], time) - .2) / .4));
+    const t = Math.min(1, Math.max(0, (leafness(guide[4 * i], guide[4 * i + 1], guide[4 * i + 2], guideTime) - .2) / .4));
     alpha[i] = t * t * (3 - 2 * t); cover += alpha[i];
   }
   if (twigs) {
@@ -207,7 +223,7 @@ function separateSpot(image, spot, time, doc, twigs) {
 }
 // Prepares a few spots per call and returns what is ready so far (unfinished spots are
 // undefined). Spreading the work over frames avoids a visible pause when a painting changes.
-export function separateFoliageSoft(image, spots, time, doc, budget = 5, twigs = false) {
+export function separateFoliageSoft(image, spots, time, doc, budget = 5, twigs = false, reference = null, palette = 'day') {
   let byKind = softPrepared.get(image);
   if (!byKind) softPrepared.set(image, byKind = [new Map(), new Map()]);
   const cache = byKind[twigs ? 1 : 0];
@@ -215,7 +231,7 @@ export function separateFoliageSoft(image, spots, time, doc, budget = 5, twigs =
   if (!parts) cache.set(spots, parts = {list:new Array(spots.length), next:0});
   const now = () => globalThis.performance?.now?.() ?? 0, began = now();
   while (parts.next < spots.length) {
-    parts.list[parts.next] = separateSpot(image, spots[parts.next], time, doc, twigs);
+    parts.list[parts.next] = separateSpot(image, spots[parts.next], time, doc, twigs, reference, palette);
     parts.next++;
     if (now() - began > budget) break;
   }

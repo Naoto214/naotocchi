@@ -9,7 +9,7 @@
     fx:m[1] || 'E', count:[1,4,28].includes(Number(m[2])) ? Number(m[2]) : 4,
     region:pick(REGIONS, m[3], 'forest'), season:pick(SEASONS, m[4], 'autumn'),
     weather:pick(WEATHER, m[5], 'sunny'), time:pick(TIMES, m[6], 'day'),
-    sway:pick(SWAYS, m[7], 'rigid'),
+    sway:pick(SWAYS, m[7], 'tips2'),
     lists:{region:REGIONS, season:SEASONS, weather:WEATHER, time:TIMES, sway:SWAYS}
   };
   window.NaotocchiEnvironmentFx = s.fx === 'B' ? 'falling' : s.fx === 'D' ? 'maximum' : s.fx === 'E' ? 'final' : 'living';

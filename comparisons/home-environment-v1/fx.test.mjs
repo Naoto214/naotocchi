@@ -365,3 +365,47 @@ test('trees (B4): twigs travel with their leaves, trunks and thick boughs never 
   assert.equal(twig, 18 * 3);
   assert.equal(trunk, 0);
 });
+
+test('final (B2 everywhere): the forest is exactly as approved, other regions gain plants, still regions stay still', async () => {
+  const {FOLIAGE, FOLIAGE_B2, b2Air, B2_AIR} = await import('./proposal/living/final.mjs');
+  assert.deepEqual(FOLIAGE_B2.forest, FOLIAGE.forest);
+  for (const time of ['morning','day','evening','night']) assert.equal(b2Air('forest', time), 1);
+  assert.deepEqual(Object.fromEntries(Object.entries(FOLIAGE_B2).map(([region, spots]) => [region, spots.length])),
+    {forest:16, river_lake:16, countryside:21, mountain:11, jungle:18, city:14, home:6, memory_lake:11, desert:2, star_stop:8});
+  // Snow-laden trees, the sea and the deep sea have nothing that moves this way.
+  for (const region of ['snow','sea','deepsea']) assert.equal(FOLIAGE_B2[region], undefined);
+  // No spot is listed twice, every spot lies on the painting, and the mossy rock is gone.
+  for (const [region, spots] of Object.entries(FOLIAGE_B2)) {
+    assert.equal(new Set(spots.map(s => s[0] + ',' + s[1])).size, spots.length, region);
+    for (const [cx, cy, rx, ry, near] of spots) assert.ok(cx > 0 && cx < 1000 && cy > 0 && cy < 1500 && rx >= 25 && ry >= 25 && near > 0 && near <= 1, region);
+  }
+  assert.ok(!FOLIAGE_B2.memory_lake.some(s => s[0] === 90 && s[1] === 1280));
+  // Calmer air indoors, by the still lake and among the stars; livelier on the ridge and the dunes; quieter at night.
+  assert.ok(B2_AIR.home < B2_AIR.star_stop && B2_AIR.star_stop < B2_AIR.memory_lake && B2_AIR.memory_lake < B2_AIR.city && B2_AIR.city < 1 && B2_AIR.mountain > 1 && B2_AIR.desert > 1);
+  for (const region of ['countryside','city','jungle']) assert.ok(b2Air(region, 'night') < b2Air(region, 'evening') && b2Air(region, 'evening') < b2Air(region, 'day'));
+});
+
+test('final (B2 everywhere): leaf shapes come from the daylight painting; olive grass is told from sand and gravel', async () => {
+  const {leafness} = await import('./proposal/living/foliage.mjs');
+  const {daylightOf} = await import('./proposal/living/final.mjs');
+  // Measured colours from the paintings: alpine meadow and dune grass move; sand, gravel and paving do not.
+  assert.ok(leafness(108, 107, 59, 'dry') > .6 && leafness(163, 152, 97, 'dry') > .6);
+  // The olive palette would also catch the countryside's brown path, so it is used only on the
+  // mountain and in the desert; the ordinary palette leaves that path alone.
+  assert.ok(leafness(155, 138, 83, 'day') < .12);
+  for (const [r, g, b] of [[222,199,178],[227,200,162],[139,141,152]]) assert.ok(leafness(r, g, b, 'dry') < .12, `${r},${g},${b}`);
+  // River and pond water read as leaf-green, which is why no spot may cover water.
+  assert.ok(leafness(135, 192, 152, 'day') > .6);
+  const {FOLIAGE_B2} = await import('./proposal/living/final.mjs');
+  const overWater = (spot, box) => spot[0] + spot[2] > box[0] && spot[0] - spot[2] < box[1] && spot[1] + spot[3] > box[2] && spot[1] - spot[3] < box[3];
+  for (const spot of FOLIAGE_B2.jungle) assert.ok(!overWater(spot, [330, 860, 640, 800]), 'jungle pond ' + spot);
+  for (const spot of FOLIAGE_B2.river_lake) assert.ok(!overWater(spot, [330, 800, 420, 760]), 'river ' + spot);
+  // The forest reads its own painting; a day painting is its own reference; others wait for daylight to load.
+  const day = {src:'x/city-day.webp'}, night = {src:'x/city-night.webp'};
+  assert.equal(daylightOf('forest', night, {}, 'x/forest-day.webp'), night);
+  assert.equal(daylightOf('city', day, {}, 'x/city-day.webp'), day);
+  class Picture { set src(value) { this.address = value; } }
+  const doc = {defaultView:{Image:Picture}};
+  assert.equal(daylightOf('city', night, doc, 'x/city-day.webp'), null);
+  assert.equal(daylightOf('city', night, doc, 'x/city-day.webp'), null); // asked once, still loading
+});

@@ -23,6 +23,8 @@ header p{margin:4px 0 0;color:var(--muted);max-width:60ch}
 /* Zoom is a view of the same canvas, so both methods are magnified identically. */
 .scene canvas{transition:transform .35s ease}
 .panes[data-zoom="top"] .scene canvas{transform:scale(2.4);transform-origin:50% 8%}
+.panes[data-zoom="left"] .scene canvas{transform:scale(2.4);transform-origin:4% 50%}
+.panes[data-zoom="right"] .scene canvas{transform:scale(2.4);transform-origin:96% 50%}
 .panes[data-zoom="edge"] .scene canvas{transform:scale(3);transform-origin:80% 20%}
 .panes[data-zoom="grass"] .scene canvas{transform:scale(2.4);transform-origin:30% 96%}
 .panes[data-zoom="mid"] .scene canvas{transform:scale(2.6);transform-origin:50% 42%}
@@ -58,8 +60,8 @@ button:focus-visible{outline:2px solid var(--ink);outline-offset:2px}
 <!--INLINE_CSS-->
 <div class="wrap">
  <header>
-  <h1>木の揺れくらべ</h1>
-  <p>木と草の揺れ方だけが違う5方式です。ほたる・星・水面・雨・雪など、ほかの演出はどれも最終候補Eのままで、背景・時間帯・風は左右で同じです。左右それぞれで方式を選べます。</p>
+  <h1>環境演出 最終統合版</h1>
+  <p>左がいまの本番、右が最終統合版です。雨・雪・花びら・落ち葉・ほたる・星・川・海・水面・光の演出に、承認済みの葉先の揺れ（B2）を全地域へ広げて組み合わせています。左右とも表示する版を選べます。</p>
  </header>
  <div class="row zoomrow"><span>見る場所</span><div class="chips" id="zoom"></div></div>
  <div class="row zoomrow"><span>風</span><div class="chips" id="wind"></div></div>

@@ -2,7 +2,7 @@
 (() => {
   const s = window.NaotocchiEnvCompare;
   const labels = {
-    fx:{A:'A 現行', B:'B 雨雪花葉', C:'C 総合演出', D:'D 最大演出', E:'E 最終候補'}, count:{1:'1体', 4:'4体', 28:'28体'},
+    fx:{A:'現行の本番', E:'最終統合版'}, count:{1:'1体', 4:'4体', 28:'28体'},
     region:['おうち','もり','かわ','とかい','いなか','やま','ゆきぐに','うみ','ジャングル','さばく','しんかい','ほしぞら','きおくのみずうみ'],
     season:['はる','なつ','あき','ふゆ'], weather:['晴れ','曇り','雨','雪'], time:['朝','昼','夕','夜']
   };
@@ -21,7 +21,7 @@
     panel.append(select);
   }
   field('fx', Object.entries(labels.fx));
-  if (s.fx === 'E') field('sway', [['tips','木：B 葉先（従来）'],['tips2','木：B2 継ぎ目を改善'],['tips3','木：B3 範囲を拡張'],['rigid','木：B4 枝の形を保って回転'],['wide','木：C2 しなり'],['still','木：静止']]);
+  if (s.fx === 'E') field('sway', [['tips2','植物：揺れる（B2）'],['still','植物：静止']]);
   field('count', Object.entries(labels.count));
   for (const key of ['region','season','weather','time']) field(key, s.lists[key].map((value, i) => [value, labels[key][i]]));
   panel.append(meter);

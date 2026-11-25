@@ -77,6 +77,35 @@ export const FOLIAGE = Object.freeze({
   home:[[50,1380,60,60,1,50,1434],[340,290,40,40,0.3,340,326]],
   memory_lake:[[110,150,90,90,0.9,110,69],[220,230,70,80,0.9,220,158],[130,380,60,70,0.9,130,317],[950,700,45,50,0.7,950,745],[90,1280,90,60,1,90,1334]]
 });
+// ---- The adopted sway (B2) across all regions -------------------------------------------
+// Leaf-tip flutter was adopted with the forest exactly as it stands. Every other painting was
+// read for plants that can move the same way; these spots are added to the earlier ones.
+// Water, rock, bark, buildings, ground and sky are kept out, and so are snow-laden trees.
+const B2_MORE = {
+  river_lake:[[50,930,55,50,0.85,50,975],[90,1110,70,50,0.9,90,1155],[330,1440,80,45,1,330,1480],[960,1430,45,50,1,960,1475],[60,480,60,50,0.8,60,525],[40,620,45,50,0.8,40,665],[850,130,60,70,0.4,850,193],[940,150,55,80,0.4,940,222]],
+  countryside:[[950,250,50,80,0.6,950,322],[800,190,70,60,0.4,800,244],[330,440,60,40,0.5,330,476],[560,400,50,40,0.45,560,436],[880,470,110,40,0.5,880,506],[910,585,85,40,0.6,910,621],[150,530,130,35,0.5,150,562],[300,820,70,45,0.8,300,860],[200,930,80,45,0.85,200,970],[800,720,70,40,0.7,800,756],[760,880,60,40,0.8,760,916],[930,960,60,45,0.85,930,1000],[60,1220,60,50,0.95,60,1265],[200,620,70,35,0.6,200,652]],
+  mountain:[[120,480,110,50,0.4,120,525],[800,640,120,35,0.5,800,672],[850,750,100,40,0.6,850,786],[930,1000,60,50,0.8,930,1045],[880,1150,70,45,0.85,880,1190],[150,900,90,45,0.75,150,940],[200,1180,90,50,0.9,200,1225],[250,1400,110,50,1,250,1445],[700,1430,120,50,1,700,1475]],
+  jungle:[[330,330,70,60,0.5,330,384],[700,400,60,50,0.45,700,445],[60,560,60,70,0.8,60,623],[870,560,70,60,0.7,870,614],[880,90,100,70,0.9,880,27],[120,120,80,80,0.8,120,48],[60,1130,60,70,0.95,60,1193],[900,1160,80,70,0.95,900,1223],[410,1400,45,35,1,410,1432],[500,150,120,80,0.3,500,222]],
+  city:[[70,130,80,100,0.9,-2,150],[100,330,60,60,0.8,46,342],[400,400,50,60,0.5,400,454],[660,700,40,60,0.55,660,754],[170,700,60,50,0.7,170,745],[600,580,50,35,0.5,600,612],[250,1180,90,60,0.95,250,1234],[300,1430,90,50,1,300,1475],[40,960,40,60,0.9,40,1014],[960,720,40,50,0.7,960,765]],
+  home:[[300,280,45,100,0.3,300,370],[60,400,55,60,0.4,60,454],[640,430,50,50,0.4,640,475],[870,230,40,50,0.4,870,185]],
+  memory_lake:[[60,300,60,80,0.9,60,228],[300,120,70,80,0.85,300,48],[860,400,80,40,0.2,860,436],[60,640,60,40,0.8,60,676],[880,720,60,35,0.7,880,752],[950,870,45,40,0.85,950,906],[280,1400,60,50,1,280,1445],[900,1130,50,40,0.9,900,1166],[170,1370,50,45,1,170,1410]],
+  desert:[[40,470,60,60,0.6,40,524],[940,440,60,50,0.55,940,485],[880,520,70,35,0.5,880,552]],
+  star_stop:[[60,200,60,120,0.7,6,224],[240,180,30,80,0.6,240,252],[30,480,35,90,0.7,-2,498],[60,640,60,40,0.6,60,676],[690,640,40,30,0.4,690,667],[130,1380,120,80,1,130,1452],[930,1200,60,60,0.9,930,1254],[940,1400,60,60,1,940,1454]]
+};
+// Left still: the mossy rock by the lake, which the colour test took for foliage, and spots
+// whose daylight painting holds too few leaves to be worth lifting (under 5% of the spot).
+const B2_LESS = {countryside:new Set(["760,880", "900,1350"]), mountain:new Set(["700,1430", "880,1150"]), memory_lake:new Set(["860,400", "90,1280", "900,1130"]), desert:new Set(["880,520"])};
+export const FOLIAGE_B2 = Object.freeze(Object.fromEntries([...new Set([...Object.keys(FOLIAGE), ...Object.keys(B2_MORE)])].map(region =>
+  [region, Object.freeze([...(FOLIAGE[region] || []).filter(spot => !B2_LESS[region]?.has(spot[0] + ',' + spot[1])), ...(region === 'forest' ? [] : (B2_MORE[region] || []).filter(spot => !B2_LESS[region]?.has(spot[0] + ',' + spot[1])))])])));
+// How lively the air is where the plants stand, and at what hour. The forest is the reference
+// and keeps full strength at every hour, as approved.
+export const B2_AIR = Object.freeze({forest:1, river_lake:1, countryside:1, mountain:1.1, desert:1.15, jungle:.7, city:.75,
+  memory_lake:.6, star_stop:.5, home:.35});
+// Where the plants are olive grass rather than green leaves.
+const DRY_GRASS = new Set(['mountain','desert']);
+const B2_HOUR = {morning:.85, day:1, evening:.9, night:.7};
+export const b2Air = (region, time) => (B2_AIR[region] ?? 1) * (region === 'forest' ? 1 : B2_HOUR[time] ?? 1);
+// ---- end adopted sway
 // 'bump'   the earlier E: a smooth local shift of the painting itself
 // 'tips'   leaves lifted off the painting; only leaf tips flutter, boughs do not swing
 // 'branch' leaves lifted off the painting; each bough bends from its root, leaves follow, tips flutter
@@ -129,14 +158,36 @@ export function leafShift(spot, wind, seconds, i, x, y, strength) {
 const STRENGTH = {
   wide:{bend:1, flutter:1, wide:true}, vivid:{bend:1.5, flutter:1.6, wide:true},
   // 1.8 × the gentle flutter equals the amplitude of the original 'tips'.
-  tips2:{bend:0, flutter:1.8, quick:true}, tips3:{bend:0, flutter:1.8, quick:true, wide:true},
+  tips2:{bend:0, flutter:1.8, quick:true, b2:true}, tips3:{bend:0, flutter:1.8, quick:true, wide:true},
   rigid:{bend:1, flutter:1.8, quick:true, wide:true, rigid:true, twigs:true}
 };
 let scratch = null;
-function paintFoliageSoft(ctx, image, region, time, seconds, mode, doc, boost) {
-  const strength = STRENGTH[mode], spots = (strength.wide ? FOLIAGE_WIDE : FOLIAGE)[region];
+// The daylight painting of a region, loaded once, to read leaf shapes from (see foliage.mjs).
+// Returns null until it has loaded; the forest reads each of its own paintings, as approved.
+const daylight = new Map();
+// `source` is the address of that painting, supplied by the renderer that owns the list.
+export function daylightOf(region, image, doc, source) {
+  if (region === 'forest' || !source) return image;
+  if (/-day\.webp(?:\?|$)/.test(image.src || '')) return image;
+  let entry = daylight.get(region);
+  if (!entry) {
+    const Picture = doc?.defaultView?.Image || globalThis.Image;
+    if (!Picture) return null;
+    entry = {image:new Picture(), ready:false};
+    entry.image.decoding = 'async';
+    entry.image.onload = () => { entry.ready = true; };
+    entry.image.src = source;
+    daylight.set(region, entry);
+  }
+  return entry.ready ? entry.image : null;
+}
+function paintFoliageSoft(ctx, image, region, time, seconds, mode, doc, boost, daySource) {
+  const base = STRENGTH[mode], spots = (base.b2 ? FOLIAGE_B2 : base.wide ? FOLIAGE_WIDE : FOLIAGE)[region];
+  const strength = base.b2 ? {...base, flutter:base.flutter * b2Air(region, time)} : base;
   if (!spots || !image) return;
-  const parts = separateFoliageSoft(image, spots, time, doc, 5, !!strength.twigs), margin = 16;
+  const reference = base.b2 ? daylightOf(region, image, doc, daySource) : image;
+  if (!reference) return; // still loading: the plants simply wait
+  const parts = separateFoliageSoft(image, spots, time, doc, 5, !!strength.twigs, reference, base.b2 && DRY_GRASS.has(region) ? 'dry' : 'day'), margin = 16;
   const scale = (image.naturalWidth || image.width) / 1000, scaleY = (image.naturalHeight || image.height) / 1500;
   spots.forEach((spot, i) => {
     const part = parts[i];
@@ -160,8 +211,8 @@ function paintFoliageSoft(ctx, image, region, time, seconds, mode, doc, boost) {
     ctx.drawImage(scratch, 0, 0, W, H, cx - rx - margin / scale, cy - ry - margin / scaleY, W / scale, H / scaleY);
   });
 }
-export function paintFoliage(ctx, image, region, time, seconds, mode, doc, boost = 0) {
-  if (STRENGTH[mode]) return paintFoliageSoft(ctx, image, region, time, seconds, mode, doc, boost);
+export function paintFoliage(ctx, image, region, time, seconds, mode, doc, boost = 0, daySource = null) {
+  if (STRENGTH[mode]) return paintFoliageSoft(ctx, image, region, time, seconds, mode, doc, boost, daySource);
   const spots = FOLIAGE[region];
   if (!spots || !image) return;
   const parts = separateFoliage(image, spots, time, doc);
