@@ -4014,7 +4014,7 @@
         const TOWER_TYPES = { arrow: { name: 'ゆみ', emoji: '🏹', cost: 40, range: 1.9, rate: 0.55, dmg: 3, splash: 0 }, bomb: { name: 'ばくだん', emoji: '💣', cost: 70, range: 1.6, rate: 1.4, dmg: 6, splash: 0.9 }, ice: { name: 'こおり', emoji: '❄️', cost: 55, range: 1.7, rate: 0.9, dmg: 1.5, splash: 0, slow: 0.5 } };
         const WAVES = 4;
         let gold = 90, lives = 10, wave = 0, running = true, rafId = null, last = null, msg = '', msgUntil = 0, selType = 'arrow', selected = null;
-        let towers = [], enemies = [], shots = [], booms = [], spawnQueue = [], spawnTimer = 0, waveActive = false, nextWaveAt = 0, kills = 0, cleared = 0;
+        let towers = [], enemies = [], shots = [], booms = [], spawnQueue = [], spawnTimer = 0, waveActive = false, nextWaveAt = 0, kills = 0, cleared = 0, waveKills = 0, waveLeaks = 0;
         // Phase 2: 参加判定は 考える ゲーム用(建てる・強化・つぎのウェーブ を 2回 いじょう)。ためらう 時間は 放置と みなさない
         const meter = mgThinkMeter(2);
         const startTime = performance.now(), TIME_LIMIT_MS = mgDuration(90000);
@@ -4050,7 +4050,7 @@
         const upgradeCost = (t) => 30 + t.level * 25;
         function upgrade(t) { const c = upgradeCost(t); if (t.level >= 3) { say('もう最強!', 700); return; } if (gold < c) { say('お金が足りない…', 800); return; } gold -= c; t.level++; meter.act(); sfx('levelup'); hud(); say(`⬆️ Lv${t.level}に強化!`, 800); }
         function startWave(early) {
-          wave++; waveActive = true; hud();
+          wave++; waveActive = true; waveKills = 0; waveLeaks = 0; hud();
           if (early && wave > 1) { gold += 15; say(`早めのウェーブ!ボーナス💰15`, 1000); }
           const count = 6 + wave * 3, boss = wave === WAVES;
           spawnQueue = [];
@@ -4066,12 +4066,13 @@
           if (waveActive) {
             spawnTimer -= dt;
             if (spawnQueue.length && spawnTimer <= 0) { const e = spawnQueue.shift(); enemies.push({ ...e, maxHp: e.hp, d: 0, slow: 0 }); spawnTimer = e.boss ? 1.2 : 0.75; }
-            if (!spawnQueue.length && !enemies.length) { waveActive = false; cleared++; if (wave >= WAVES) { finish('clear'); return; } gold += 25; hud(); say(`ウェーブ${wave}クリア!💰+25`, 1400); nextWaveAt = now + 5000; }
+            // Phase 2: たおした ウェーブ = 通りぬけた 敵より たおした 敵が 多い ウェーブ(放置で 全部 通りぬけた ウェーブは かぞえない)
+            if (!spawnQueue.length && !enemies.length) { waveActive = false; if (waveKills > waveLeaks) cleared++; if (wave >= WAVES) { finish('clear'); return; } gold += 25; hud(); say(`ウェーブ${wave}クリア!💰+25`, 1400); nextWaveAt = now + 5000; }
           } else if (wave < WAVES && now > nextWaveAt) startWave(false);
           for (const e of enemies) {
             const sp = e.speed * (e.slow > 0 ? 0.5 : 1); if (e.slow > 0) e.slow -= dt;
             e.d += sp * dt;
-            if (e.d >= PATH.length - 1) { e.dead = true; lives -= e.boss ? 3 : 1; hud(); sfx('bad'); say('敵が通りぬけた!❤️-1', 900); if (lives <= 0) { finish('fall'); return; } }
+            if (e.d >= PATH.length - 1) { e.dead = true; waveLeaks++; lives -= e.boss ? 3 : 1; hud(); sfx('bad'); say('敵が通りぬけた!❤️-1', 900); if (lives <= 0) { finish('fall'); return; } }
           }
           enemies = enemies.filter((e) => !e.dead);
           for (const t of towers) {
@@ -4086,7 +4087,7 @@
             const dmg = tt.dmg * (1 + (t.level - 1) * 0.6);
             const hitList = tt.splash ? enemies.filter((e) => { const q = posAlong(e.d); return Math.hypot(q.x - p.x, q.y - p.y) <= tt.splash * CELL; }) : [target];
             if (tt.splash) booms.push({ x: p.x, y: p.y, born: now });
-            for (const e of hitList) { e.hp -= dmg; if (tt.slow) e.slow = 1.2; if (e.hp <= 0 && !e.dead) { e.dead = true; kills++; gold += e.gold; hud(); sfx('tick'); } }
+            for (const e of hitList) { e.hp -= dmg; if (tt.slow) e.slow = 1.2; if (e.hp <= 0 && !e.dead) { e.dead = true; kills++; waveKills++; gold += e.gold; hud(); sfx('tick'); } }
             enemies = enemies.filter((e) => !e.dead);
           }
           shots = shots.filter((s) => now - s.born < 120); booms = booms.filter((b) => now - b.born < 300);
@@ -4133,12 +4134,13 @@
           container.querySelectorAll('button').forEach((b) => { b.disabled = true; });
           // Phase 2(2026-11-25 承認): 全ウェーブを たおした(clear)・時間まで 持ちこたえた(hold)・お城が 落ちた(fall) を 区別する。
           //  clear: これまでどおり 62 + のこりライフ×3.8(60〜100)
-          //  hold : 持ちこたえた ことも 達成として、たおした ウェーブ・敵・のこりライフで 30〜69(大成功は 全ウェーブ撃破だけ)
-          //  fall : たおした 敵と ウェーブで 10〜55(タワーを 建てずに 負けると 30点未満)
+          //  hold : 時間まで 持ちこたえた ことも 達成として、たおした ウェーブと のこりライフで 30〜90
+          //         (自然な ペースだと 90びょうで 3ウェーブ+とちゅう に なることが ある。❤️10・3ウェーブなら 82点。全ウェーブ撃破より 下)
+          //  fall : ウェーブを 1つ いじょう たおしていれば 30〜55(これまでと ほぼ おなじ)。1つも たおせずに 落ちたら 10〜25
           const kind = win === true ? 'clear' : win === false ? 'fall' : win;
           const score = kind === 'clear' ? clamp(Math.round(62 + lives * 3.8), 60, 100)
-            : kind === 'hold' ? clamp(Math.round(30 + cleared * 7 + kills * 0.3 + lives * 1.2), 30, 69)
-            : clamp(Math.round(10 + kills * 0.6 + cleared * 6), 10, 55);
+            : kind === 'hold' ? clamp(Math.round(30 + cleared * 9 + lives * 2.5), 30, 90)
+            : cleared > 0 ? clamp(Math.round(26 + cleared * 8 + kills * 0.3), 30, 55) : clamp(Math.round(10 + kills * 0.6), 10, 25);
           say(kind === 'clear' ? `🏆ぜんぶのウェーブをたおした!❤️${lives}のこし` : kind === 'hold' ? `⏰守りきった!ウェーブ${cleared}/${WAVES}をたおした` : `お城が落ちた…ウェーブ${wave}まで`, 2400);
           render(performance.now());
           setTimeout(() => onComplete(score, null, meter.done({ achieved: kills > 0 })), 650);
@@ -6127,8 +6129,8 @@
         function finish() {
           if (!running) return; running = false; cancelAnimationFrame(rafId);
           container.querySelectorAll('button').forEach((b) => { b.disabled = true; });
-          // Phase 2: でたらめに スワイプしても 64〜128 は できるので、128 を「最初の 目標」(30点台)に する。256 いじょうは これまでと おなじ
-          const tierScore = best >= 1024 ? 100 : best >= 512 ? 86 : best >= 256 ? 70 : best >= 128 ? 34 : best >= 64 ? 22 : best >= 32 ? 16 : 12;
+          // Phase 2 で 検討した 結果、点数は 変えない(45びょうでは 上手な 人も 128 が 現実的な 上限で、128 を さげると 上手な 人の 点も さがるため)
+          const tierScore = best >= 1024 ? 100 : best >= 512 ? 86 : best >= 256 ? 70 : best >= 128 ? 54 : best >= 64 ? 40 : best >= 32 ? 28 : 16;
           const finalScore = clamp(Math.round(tierScore + Math.min(10, score / 300)), 10, 100);
           say(`おわり!最大${best}、得点：${score}`, 2600);
           render(performance.now());
@@ -6304,8 +6306,10 @@
         const hillY = (px) => { const d = px - RAMP_END; return d <= 0 ? 0 : -(0.62 * d + 2 * (1 - Math.exp(-d / 2))); };
         const groundY = (px) => (px <= RAMP_END ? rampY(px) : hillY(px));
         function startRun() { phase = 'run'; x = 0; y = rampY(0); vx = 0; vy = 0; lean = 0; telemark = false; crashed = false; flightT = 0; wind = (Math.random() - 0.5) * lerp(0.3, 0.8, difficulty); leanTarget = 0.5 + wind * 0.4; say('台のはしでタップ!', 1500); }
-        function takeoff() {
-          if (phase !== 'run') return; const late = x - RAMP_END; // >0 は はしを こえてから
+        // Phase 2: じぶんで 飛び出して(自動の おそい 飛び出し では なく)転ばずに 着地できた 本数。1本 いじょうが「最初の 目標」
+        let ownTakeoff = false, goodJumps = 0;
+        function takeoff(own = true) {
+          if (phase !== 'run') return; ownTakeoff = own; const late = x - RAMP_END; // >0 は はしを こえてから
           const err = Math.abs(late); const q = clamp(1 - err / 4, 0, 1);
           phase = 'fly'; sfx('jump'); vy = 2.2 + q * 4.2; vx = vx * (0.98 + q * 0.08); btn.textContent = 'まえかがみ(ながおし)'; say(q > 0.85 ? '🔥完ぺきな飛び出し!' : q > 0.5 ? 'いいタイミング' : 'すこしずれた…', 900);
           if (x < RAMP_END) { x = RAMP_END; y = 0; }
@@ -6319,7 +6323,7 @@
         function update(dt, now) {
           if (phase === 'run') {
             const slope = (rampY(x + 0.1) - rampY(x)) / 0.1; vx += (G * -slope * 0.9 - vx * 0.02) * dt; vx = Math.max(vx, 0); x += vx * dt; y = rampY(x);
-            if (x > RAMP_END + 2.5) { takeoff(); vy = 0.5; say('飛び出しがおそい!', 900); }
+            if (x > RAMP_END + 2.5) { takeoff(false); vy = 0.5; say('飛び出しがおそい!', 900); }
           } else if (phase === 'fly') {
             flightT += dt; windT += dt; if (windT > 0.6) { windT = 0; leanTarget = clamp(0.5 + wind * 0.4 + (Math.random() - 0.5) * lerp(0.1, 0.3, difficulty), 0.1, 0.95); }
             lean += ((held ? 1 : 0) - lean) * Math.min(1, dt * 3.2);
@@ -6329,7 +6333,7 @@
             if (y <= hillY(x) + 0.01 && x > RAMP_END + 0.5) {
               phase = 'land'; landedAt = now; y = hillY(x); dist = Math.max(0, x - RAMP_END); telemark = now - tapAt < 260 && now - tapAt >= 0;
               crashed = Math.abs(lean - leanTarget) > 0.5 || flightT < 0.6;
-              sfx(crashed ? 'bad' : telemark ? 'coin' : 'hit'); if (crashed) dist *= 0.55;
+              sfx(crashed ? 'bad' : telemark ? 'coin' : 'hit'); if (crashed) dist *= 0.55; if (ownTakeoff && !crashed) goodJumps++;
               const gain = dist + (telemark && !crashed ? 3 : 0); total += gain; bestDist = Math.max(bestDist, gain); results.push(gain);
               say(crashed ? `💫転倒…${gain.toFixed(1)}m` : telemark ? `🏅テレマーク!${gain.toFixed(1)}m` : `${gain.toFixed(1)}m!`, 2000); hud();
               setTimeout(() => { if (!running) return; jump++; if (jump >= JUMPS) { finish(); return; } phase = 'ready'; hud(); btn.textContent = 'スタート'; say('つぎのジャンプ!ボタンでスタート', 1500); }, 2000);
@@ -6376,9 +6380,10 @@
         }
         function finish() {
           if (!running) return; running = false; cancelAnimationFrame(rafId); btn.disabled = true;
-          // Phase 2: 何も しなくても 1本 約46m 飛ぶ。合計が 230m に とどかない ときだけ、とどかない ぶん × 0.2 を 引く
-          // (自動で 飛んだ だけ ≒ 28点。1本でも うまく 飛べば 30点いじょう。230m いじょうは これまでと おなじ)
-          const score = clamp(Math.round(10 + total * 0.26 - Math.max(0, 230 - total) * 0.2), 10, 100);
+          // Phase 2: スタートを 押すだけでも 自動で 飛び出して 合計 100〜190m(以前は 35〜60点)。
+          // じぶんで 飛び出して 転ばずに 着地できた 本が 1本 いじょう あれば、これまでと おなじ 式。1本も ないときは 25点まで(30点未満)
+          const raw = Math.round(10 + total * 0.26);
+          const score = clamp(goodJumps > 0 ? raw : Math.min(25, raw), 10, 100);
           say(`おわり!合計${total.toFixed(1)}m(最長${bestDist.toFixed(1)}m)`, 2600);
           render(performance.now());
           setTimeout(() => onComplete(score, null, meter.done()), 650);
@@ -7715,6 +7720,7 @@
         const DURATION_MS = mgDuration(24000);
         const MENU = ['🍣', '🍤', '🍙', '🍮', '🥚', '🍵', '🐟', '🦑'];
         let running = true, rafId = null, last = null, plates = [], order = [], served = 0, wrong = 0, score = 0, combo = 0, spawnCd = 0.3, msg = '', msgUntil = 0, speed = lerp(70, 95, difficulty), popups = [], orderNo = 0, orderStart = 0;
+        // Phase 2: 参加判定(アクション用 mgPlayMeter)。お皿を とった 操作だけ かぞえる。採点式は そのまま
         const startTime = performance.now() + MG_ACTION_START_GRACE_MS, meter = mgPlayMeter();
         container.innerHTML = `
           <div class="mg-header"><span id="sbTimer">残り：${Math.round(DURATION_MS / 1000)}秒</span><span id="sbScore">0点</span></div>
@@ -7737,7 +7743,7 @@
           if (best.item === '🌶') { score = Math.max(0, score - 15); combo = 0; sfx('bad'); say('🌶わさび!からい〜', 900); popups.push({ x: best.x, y: LANES[best.lane].y - 20, t: 'からい!', born: performance.now(), color: '#ff6b6b' }); hud(); return; }
           const o = order.find((q) => !q.done && q.item === best.item);
           if (o) { o.done = true; meter.act(); combo++; sfx('coin'); const gain = 10 + combo * 2; score += gain; popups.push({ x: best.x, y: LANES[best.lane].y - 20, t: `+${gain}`, born: performance.now(), color: '#fff' }); if (order.every((q) => q.done)) { served++; const fast = performance.now() - orderStart < 6000; const bonus = fast ? 25 : 10; score += bonus; say(fast ? `⚡はやい!注文完了+${bonus}` : `✅注文完了+${bonus}`, 1000); newOrder(); } hud(); }
-          else { wrong++; combo = 0; meter.act(); score = Math.max(0, score - 14); sfx('bad'); say('❌ちがうお皿', 700); popups.push({ x: best.x, y: LANES[best.lane].y - 20, t: '-14', born: performance.now(), color: '#ff6b6b' }); hud(); }
+          else { wrong++; combo = 0; meter.act(); score = Math.max(0, score - 8); sfx('bad'); say('❌ちがうお皿', 700); popups.push({ x: best.x, y: LANES[best.lane].y - 20, t: '-8', born: performance.now(), color: '#ff6b6b' }); hud(); }
         });
         function update(dt, now) {
           spawnCd -= dt; if (spawnCd <= 0) { spawn(); spawnCd = lerp(1.1, 0.8, difficulty) + Math.random() * 0.4; }
