@@ -36,6 +36,8 @@ export function createHomeWorld(options){
  // 'maximum' drives the living layer at full strength with wind, flow, glitter and fireflies;
  // 'final' is the calm living layer with seamless plant sway and independent lights.
  const fxMode=options.environmentFx||win.NaotocchiEnvironmentFx||'final',wantLiving=fxMode!=='falling',maximum=fxMode==='maximum',final=fxMode==='final';
+ // How trees move in the final mode. A function lets the comparison switch it while running.
+ const treeSway=()=>(typeof options.treeSway==='function'?options.treeSway():options.treeSway)||win.NaotocchiTreeSway||'branch';
  // Repaint interval of the living layer. It follows the frame pacing the whole home achieves:
  // slow frames step it down and finally off, sustained smooth frames step it back up.
  const PACES=[33,66,100,160];let level=1,pace=34,slowFor=0,fastFor=0,holdUp=8,clock=0,raised=-99;
@@ -124,7 +126,7 @@ export function createHomeWorld(options){
   // A representative painting is retained. This restrained overlay is not a
   // claim that baked sunset/sunbeams have become a completed night artwork.
   if(!fade.image&&(env.time==='night'||env.weather==='rain')){ctx.fillStyle=env.time==='night'?'rgba(21,30,73,.24)':'rgba(38,57,78,.15)';if(contain&&v15)ctx.fillRect(t.left,t.top,t.width,t.height);else ctx.fillRect(0,0,host.width,host.height);}
-  if(living&&fade.image)paintLiving(ctx,t,fade,time/1000,env,flags.reducedMotion,{maximum,final,document:doc});
+  if(living&&fade.image)paintLiving(ctx,t,fade,time/1000,env,flags.reducedMotion,{maximum,final,treeSway:treeSway(),document:doc});
   else if(!flags.reducedMotion){ctx.save();ctx.globalCompositeOperation='screen';for(let i=0;i<7;i++){const u=.18+(i*.117)% .65,v=spec.accent==='water'?.28+(i%3)*.035:.16+(i%4)*.13,x=(contain?t.left:0)+u*t.width,y=t.top+v*t.height+Math.sin(time/2400+i)*3;ctx.globalAlpha=.08+.12*(.5+.5*Math.sin(time/1500+i));ctx.fillStyle=spec.accent==='glow'?'#ffdb9b':'#fffad4';ctx.beginPath();ctx.ellipse(x,y,spec.accent==='water'?7:1.4,spec.accent==='water'?1:1.4,0,0,Math.PI*2);ctx.fill();}ctx.restore();}
   }}
   lastFrame=frame;screen.setTransform(1,0,0,1,0,0);screen.drawImage(backdrop,0,0);

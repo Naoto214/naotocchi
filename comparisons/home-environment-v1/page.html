@@ -11,8 +11,6 @@ body{color:var(--ink);font:400 14px/1.7 var(--body)}
 h1{font:700 22px/1.3 var(--display);margin:0;text-wrap:balance}
 header p{margin:4px 0 0;color:var(--muted);max-width:60ch}
 .panes{display:grid;grid-template-columns:1fr 1fr;gap:14px;max-width:760px;width:100%;margin:0 auto}
-.panes .pane{display:none}
-.panes .pane[data-side="e"],.panes[data-left="a"] .pane[data-side="a"],.panes[data-left="b"] .pane[data-side="b"],.panes[data-left="c"] .pane[data-side="c"],.panes[data-left="d"] .pane[data-side="d"]{display:flex}
 .pane{display:flex;flex-direction:column;gap:6px;min-width:0}
 .pane h2{font:700 15px/1.2 var(--display);margin:0;display:flex;align-items:center;gap:8px}
 .pane h2 i{width:10px;height:10px;border-radius:50%;background:var(--now)}
@@ -22,6 +20,13 @@ header p{margin:4px 0 0;color:var(--muted);max-width:60ch}
 .pane[data-side="e"] h2 i{background:var(--final)}
 .scene{position:relative;overflow:hidden;aspect-ratio:9/16;max-width:100%;border-radius:18px;background:#0c1018;outline:1px solid var(--line)}
 .scene .stage{position:absolute;inset:0}
+/* Zoom is a view of the same canvas, so both methods are magnified identically. */
+.scene canvas{transition:transform .35s ease}
+.panes[data-zoom="top"] .scene canvas{transform:scale(2.4);transform-origin:50% 8%}
+.panes[data-zoom="edge"] .scene canvas{transform:scale(3);transform-origin:80% 20%}
+.panes[data-zoom="grass"] .scene canvas{transform:scale(2.4);transform-origin:30% 96%}
+.chips.sway button{padding:7px 10px;font-size:12.5px}
+.zoomrow{max-width:760px;width:100%;margin:0 auto}
 .home-art-canvas{display:block;position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
 .pane p{margin:0;color:var(--muted);font-size:12.5px;line-height:1.55;min-height:4.7em}
 .gallery{display:flex;flex-direction:column;gap:10px}
@@ -45,26 +50,20 @@ button:focus-visible{outline:2px solid var(--ink);outline-offset:2px}
 .presets button{border-style:dashed}
 @media(max-width:700px){
  .panes{grid-template-columns:1fr;max-width:340px}
- .panes .pane[data-side],.panes[data-left] .pane[data-side]{display:none}
- .panes[data-show="a"] .pane[data-side="a"],.panes[data-show="b"] .pane[data-side="b"],.panes[data-show="c"] .pane[data-side="c"],.panes[data-show="d"] .pane[data-side="d"],.panes[data-show="e"] .pane[data-side="e"]{display:flex}
+ .pane[data-side="left"]{display:none}
  .row{grid-template-columns:1fr}.row>span{padding-top:0}
 }
 </style>
 <!--INLINE_CSS-->
 <div class="wrap">
  <header>
-  <h1>環境演出くらべ</h1>
-  <p>右が今回の最終候補（E）です。左は A（いまの本番）・B（雨雪花葉の改善）・C（総合演出）・D（最大演出）から選べます。同じ原画の上で、季節・天気・時間帯を切り替えて見比べられます。</p>
+  <h1>木の揺れくらべ</h1>
+  <p>木と草の揺れ方だけが違う4方式です。ほたる・星・水面・雨・雪など、ほかの演出はどれも最終候補Eのままです。左右それぞれで方式を選べます。</p>
  </header>
- <div class="swap" role="group" aria-label="表示する案">
-  <button id="showA" aria-pressed="false">A 現行</button><button id="showB" aria-pressed="false">B 改善</button><button id="showC" aria-pressed="true">C 総合</button><button id="showD" aria-pressed="false">D 最大</button><button id="showE" aria-pressed="true">E 最終候補</button>
- </div>
- <div class="panes" id="panes" data-show="e" data-left="c">
-  <section class="pane" data-side="a"><h2><i></i>A 現行（本番）</h2><div class="scene" id="sceneA"><div class="stage"></div></div><p id="noteA"></p></section>
-  <section class="pane" data-side="b"><h2><i></i>B 雨・雪・花びら・落ち葉</h2><div class="scene" id="sceneB"><div class="stage"></div></div><p id="noteB"></p></section>
-  <section class="pane" data-side="c"><h2><i></i>C 総合演出</h2><div class="scene" id="sceneC"><div class="stage"></div></div><p id="noteC"></p></section>
-  <section class="pane" data-side="d"><h2><i></i>D 最大演出</h2><div class="scene" id="sceneD"><div class="stage"></div></div><p id="noteD"></p></section>
-  <section class="pane" data-side="e"><h2><i></i>E 最終候補</h2><div class="scene" id="sceneE"><div class="stage"></div></div><p id="noteE"></p></section>
+ <div class="row zoomrow"><span>見る場所</span><div class="chips" id="zoom"></div></div>
+ <div class="panes" id="panes">
+  <section class="pane" data-side="left"><div class="chips sway" id="swayLeft"></div><div class="scene" id="sceneLeft"><div class="stage"></div></div><p id="noteLeft"></p></section>
+  <section class="pane" data-side="right"><div class="chips sway" id="swayRight"></div><div class="scene" id="sceneRight"><div class="stage"></div></div><p id="noteRight"></p></section>
  </div>
  <div class="controls">
   <div class="row presets"><span>見どころ</span><div class="chips" id="presets"></div></div>

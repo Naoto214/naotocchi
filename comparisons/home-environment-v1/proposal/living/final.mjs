@@ -5,6 +5,7 @@
 //  - Fireflies and drifting lights each keep their own home, path, pace and rhythm.
 //  - Water keeps the gentle painters; a quiet glitter and a soft current are added on top.
 import {fireflies, nightSky, waterGlints, riverFlow, gustAt} from './maximum.mjs';
+import {separateFoliage} from './foliage.mjs';
 
 const TAU = 2 * Math.PI;
 // Leafy crowns, bough tips and grass tufts: centre x/y, radius x/y in the 1000 × 1500 painting,
@@ -61,6 +62,74 @@ export function paintSway(ctx, image, region, seconds) {
   if (!spots || !width || !height) return;
   const scale = {x:width / 1000, y:height / 1500};
   spots.forEach((spot, i) => { const o = swayOffset(region, i, spot, seconds); swaySpot(ctx, image, scale, spot, o.dx, o.dy); });
+}
+
+// ---- Trees that move as trees -------------------------------------------------------------
+// Leafy spots with the point their bough grows from: centre x/y, radius x/y, nearness, pivot x/y.
+// The forest pivots are the branch roots mapped for the earlier E3 work.
+export const FOLIAGE = Object.freeze({
+  forest:[[382,108,96,63,0.97,313,70],[664,88,89,54,0.95,728,51],[776,233,94,77,0.93,849,170],[269,230,73,58,0.77,205,242],[485,323,68,52,0.8,437,344],[256,452,64,53,0.72,207,483],[692,398,64,54,0.58,743,435],[846,565,80,64,0.68,921,598],[490,570,60,46,0.31,512,607],[379,638,62,54,0.38,370,684],[689,679,62,60,0.26,708,734],[540,732,56,38,0.19,542,768],[139,981,70,46,0.91,129,1021],[842,1159,96,38,0.93,846,1194],[358,1291,88,54,0.99,354,1340],[183,1413,100,58,1,173,1465]],
+  river_lake:[[130,90,110,70,0.9,31,104],[270,150,90,60,0.8,189,162],[60,230,60,70,0.8,6,244],[880,270,80,70,0.5,880,333],[940,380,60,60,0.5,940,434],[70,1250,80,60,1,70,1304],[200,1380,110,60,1,200,1434],[40,690,40,50,0.8,40,735]],
+  countryside:[[70,110,80,80,0.9,-2,126],[40,300,50,70,0.9,-5,314],[640,440,50,45,0.5,640,480],[930,640,70,35,0.6,930,672],[100,1050,90,50,0.9,100,1095],[870,1130,90,50,0.9,870,1175],[900,1350,90,60,1,900,1404],[150,1330,100,60,1,150,1384],[130,700,60,45,0.7,130,740]],
+  mountain:[[70,1080,60,50,0.9,70,1125],[100,1290,70,50,1,100,1335],[60,1430,60,45,1,60,1470],[900,830,60,35,0.6,900,862]],
+  jungle:[[300,120,110,80,0.9,300,48],[140,300,90,80,0.8,59,316],[860,380,90,80,0.8,941,396],[600,450,70,60,0.5,600,504],[80,1280,80,70,1,80,1343],[920,1320,80,70,1,920,1383],[90,900,70,70,0.9,90,963],[910,930,70,70,0.9,910,993]],
+  city:[[330,420,45,45,0.5,330,460],[60,1130,60,60,1,60,1184],[120,1350,90,70,1,120,1413],[840,790,60,40,0.7,840,826]],
+  home:[[50,1380,60,60,1,50,1434],[340,290,40,40,0.3,340,326]],
+  memory_lake:[[110,150,90,90,0.9,110,69],[220,230,70,80,0.9,220,158],[130,380,60,70,0.9,130,317],[950,700,45,50,0.7,950,745],[90,1280,90,60,1,90,1334]]
+});
+// 'bump'   the earlier E: a smooth local shift of the painting itself
+// 'tips'   leaves lifted off the painting; only leaf tips flutter, boughs do not swing
+// 'branch' leaves lifted off the painting; each bough bends from its root, leaves follow, tips flutter
+// 'still'  nothing moves; leaves catch the light as the wind passes
+export const TREE_SWAYS = Object.freeze(['bump','tips','branch','still']);
+
+// The wind at one bough: a slow personal sway plus the gust as it arrives there.
+export function boughWind(region, i, spot, seconds) {
+  const x = spot[0], gust = gustAt(region, seconds);
+  const reach = (gust.direction > 0 ? x : 1000 - x) / 1000;
+  const arrive = gust.power * Math.max(0, Math.sin(Math.PI * Math.min(1, Math.max(0, gust.progress * 1.35 - .35 * reach))));
+  // Every tree keeps its own period, so neighbours never swing together.
+  const own = .5 + .23 * ((i * 7) % 5), slow = Math.sin(seconds * own + i * 1.9) * .6 + Math.sin(seconds * own * .43 + i) * .4;
+  return {bend:.34 * slow + 1.0 * arrive * gust.direction * (.8 + .2 * Math.sin(seconds * 3.1 + i)), stir:.35 + 1.1 * arrive};
+}
+const TILES = 4;
+export function paintFoliage(ctx, image, region, time, seconds, mode, doc) {
+  const spots = FOLIAGE[region];
+  if (!spots || !image) return;
+  const parts = separateFoliage(image, spots, time, doc);
+  spots.forEach((spot, i) => {
+    const part = parts[i];
+    if (!part || part.cover < .05) return; // too few leaves here to be worth lifting
+    const [cx, cy, rx, ry, near, px, py] = spot, wind = boughWind(region, i, spot, seconds);
+    const left = cx - rx, top = cy - ry, tw = 2 * rx / TILES, th = 2 * ry / TILES;
+    const far = Math.max(Math.hypot(left - px, top - py), Math.hypot(left + 2 * rx - px, top - py),
+      Math.hypot(left - px, top + 2 * ry - py), Math.hypot(left + 2 * rx - px, top + 2 * ry - py));
+    const shimmer = alpha => {
+      // Leaves turning in the wind catch the light: a brightening that travels with the gust.
+      const wave = Math.max(0, Math.sin(seconds * 1.7 - cx * .012 + i)) * (.35 + .65 * Math.min(1, wind.stir));
+      if (wave < .03) return;
+      ctx.save(); ctx.globalCompositeOperation = 'lighter'; ctx.globalAlpha = alpha * wave * (time === 'night' ? .5 : 1);
+      ctx.drawImage(part.leaves, left, top, 2 * rx, 2 * ry); ctx.restore();
+    };
+    if (mode === 'still') { shimmer(.2); return; }
+    ctx.drawImage(part.plate, left, top, 2 * rx, 2 * ry);
+    const lw = part.leaves.width / TILES, lh = part.leaves.height / TILES;
+    // A bough bends by up to ~3 degrees in the foreground and ~1 degree far away.
+    const swing = mode === 'branch' ? wind.bend * (.012 + .034 * near) : 0;
+    const flutter = (mode === 'tips' ? 1.5 + 3.2 * near : .8 + 1.8 * near) * wind.stir;
+    for (let row = 0; row < TILES; row++) for (let col = 0; col < TILES; col++) {
+      const x = left + col * tw, y = top + row * th;
+      // 0 at the bough's root, 1 at its farthest leaves: motion grows smoothly outward.
+      const tip = Math.min(1, Math.hypot(x + tw / 2 - px, y + th / 2 - py) / far);
+      const phase = seconds * (2.3 + .5 * ((i + col * 3 + row * 5) % 4)) + col * 1.7 + row * 2.9 + i - x * .01;
+      const fx = flutter * tip ** 1.3 * Math.sin(phase), fy = flutter * tip ** 1.3 * .55 * Math.cos(phase * 1.31);
+      ctx.save();
+      ctx.translate(px, py); ctx.rotate(swing * (.45 + .55 * tip)); ctx.translate(-px, -py);
+      ctx.drawImage(part.leaves, col * lw, row * lh, lw, lh, x + fx - .4, y + fy - .4, tw + .8, th + .8);
+      ctx.restore();
+    }
+    shimmer(.07);
+  });
 }
 
 const BUGS = new Set(['forest','countryside','river_lake','jungle']);

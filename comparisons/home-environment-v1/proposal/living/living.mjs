@@ -8,7 +8,7 @@ import {drawRiverHomeCountry} from './river-home-country.mjs';
 import {drawMountainJungleDesert} from './mountain-jungle-desert.mjs';
 import {drawDeepseaStars} from './deepsea-stars.mjs';
 import {paintMaximum, MAXIMUM_STRENGTH} from './maximum.mjs';
-import {paintFinal, paintSway, FINAL_EFFECTS} from './final.mjs';
+import {paintFinal, paintSway, paintFoliage, FINAL_EFFECTS} from './final.mjs';
 
 const painters = {
   sea:drawSeaE, forest:drawForestE,
@@ -26,7 +26,7 @@ export const livingRegions = Object.freeze(Object.keys(painters));
 
 // `maximum` drives the reused painters at full strength and adds the maximum layer on top.
 // `final` keeps them at their calm strength, without cut-out deformation, and adds the final layer.
-export function paintLiving(ctx, rect, fade, seconds, env, reduced, {maximum = false, final = false, document:doc} = {}) {
+export function paintLiving(ctx, rect, fade, seconds, env, reduced, {maximum = false, final = false, treeSway = 'branch', document:doc} = {}) {
   function layer(image, opacity) {
     const scene = picture(image), paint = painters[scene?.region];
     if (!paint || opacity <= 0) return;
@@ -51,6 +51,10 @@ export function paintLiving(ctx, rect, fade, seconds, env, reduced, {maximum = f
   ctx.beginPath(); ctx.rect(0, 0, rect.width, rect.height); ctx.clip();
   ctx.scale(rect.width / 1000, rect.height / 1500);
   if (maximum) paintMaximum(ctx, scene, env, seconds, doc);
-  else { paintSway(ctx, shown, scene.region, seconds); paintFinal(ctx, scene, env, seconds, doc); }
+  else {
+    if (treeSway === 'bump') paintSway(ctx, shown, scene.region, seconds);
+    else paintFoliage(ctx, shown, scene.region, scene.time, seconds, treeSway, doc);
+    paintFinal(ctx, scene, env, seconds, doc);
+  }
   ctx.restore();
 }

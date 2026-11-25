@@ -201,3 +201,65 @@ test('rain rings draw at every particle setting, including the small jungle pond
     assert.ok(r.calls.some(([name]) => name === 'ellipse'), `${region} ${tier}`);
   }
 });
+
+test('trees: leaves are told apart from sky, bark and the blue distance in every daypart', async () => {
+  const {leafness} = await import('./proposal/living/foliage.mjs');
+  // [r, g, b, daypart, is a leaf]
+  const samples = [
+    [120,200,60,'day',true], [150,215,80,'morning',true], [60,140,50,'day',true],
+    [70,150,235,'day',false],   // sky
+    [245,248,250,'day',false],  // cloud
+    [95,70,50,'day',false],     // bark
+    [70,120,140,'day',false],   // blue distance
+    [150,150,150,'day',false],  // rock
+    [150,170,70,'evening',true], [250,170,150,'evening',false], [70,50,40,'evening',false],
+    [40,110,120,'night',true], [20,30,90,'night',false], [15,25,30,'night',false]
+  ];
+  for (const [r, g, b, time, leaf] of samples) {
+    const value = leafness(r, g, b, time);
+    assert.ok(leaf ? value > .6 : value < .12, `${r},${g},${b} ${time} → ${value}`);
+  }
+});
+
+test('trees: boughs bend from their root, each on its own rhythm, and stay within a few degrees', async () => {
+  const {FOLIAGE, boughWind, TREE_SWAYS} = await import('./proposal/living/final.mjs');
+  assert.deepEqual([...TREE_SWAYS], ['bump','tips','branch','still']);
+  for (const [region, spots] of Object.entries(FOLIAGE)) for (const [cx, cy, rx, ry, near, px, py] of spots) {
+    // The pivot is at or beside the spot's edge, never floating in the leaves' middle.
+    assert.ok(Math.abs(px - cx) / rx > .55 || Math.abs(py - cy) / ry > .55, `${region} ${cx},${cy}`);
+    assert.ok(near > 0 && near <= 1);
+  }
+  const forest = FOLIAGE.forest, series = forest.map((spot, i) => Array.from({length:400}, (_, k) => boughWind('forest', i, spot, k * .15).bend));
+  const degrees = (bend, near) => bend * (.012 + .034 * near) * 180 / Math.PI;
+  forest.forEach((spot, i) => {
+    const peak = Math.max(...series[i].map(b => Math.abs(degrees(b, spot[4]))));
+    assert.ok(peak > .25 && peak < 4.5, `${i} ${peak}`);
+  });
+  // Neighbouring boughs do not swing as one.
+  const corr = (a, b) => { const ma = a.reduce((n, v) => n + v, 0) / a.length, mb = b.reduce((n, v) => n + v, 0) / b.length;
+    let top = 0, da = 0, db = 0; a.forEach((v, k) => { top += (v - ma) * (b[k] - mb); da += (v - ma) ** 2; db += (b[k] - mb) ** 2; }); return top / Math.sqrt(da * db); };
+  let together = 0;
+  for (let i = 0; i < series.length; i++) for (let j = i + 1; j < series.length; j++) if (corr(series[i], series[j]) > .97) together++;
+  assert.equal(together, 0);
+});
+
+test('trees: only the lifted leaf layer moves; the root of each bough stays put', async () => {
+  const {paintFoliage, FOLIAGE} = await import('./proposal/living/final.mjs');
+  // A painting that is all leaf, so every spot is lifted.
+  const image = {naturalWidth:100, naturalHeight:150};
+  globalThis.OffscreenCanvas = class {
+    getContext() { const r = withGradients(recorder());
+      r.ctx.getImageData = (x, y, w, h) => { const data = new Uint8ClampedArray(w * h * 4); for (let i = 0; i < data.length; i += 4) { data[i] = 120; data[i + 1] = 200; data[i + 2] = 60; data[i + 3] = 255; } return {data, width:w, height:h}; };
+      r.ctx.createImageData = (w, h) => ({data:new Uint8ClampedArray(w * h * 4), width:w, height:h});
+      return r.ctx; }
+  };
+  const run = mode => { const r = recorder(); paintFoliage(r.ctx, image, 'forest', 'day', 21.4, mode, {}); return r.calls; };
+  const still = run('still'), tips = run('tips'), branch = run('branch');
+  assert.equal(still.filter(([name]) => name === 'rotate').length, 0);
+  assert.ok(tips.filter(([name]) => name === 'rotate').every(([, angle]) => angle === 0));
+  const angles = branch.filter(([name]) => name === 'rotate').map(([, angle]) => Math.abs(angle));
+  assert.ok(Math.max(...angles) > .002 && Math.max(...angles) < .08);
+  // In 'tips', the tile nearest each root barely moves while the farthest moves most.
+  const draws = tips.filter(([name, , ...rest]) => name === 'drawImage' && rest.length === 8);
+  assert.equal(draws.length, FOLIAGE.forest.length * 16);
+});

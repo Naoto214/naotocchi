@@ -11,7 +11,7 @@
   const summary = document.createElement('summary');
   panel.append(summary);
   const meter = document.createElement('div');
-  const go = () => { location.hash = '#g' + [s.fx, s.count, s.lists.region.indexOf(s.region), s.lists.season.indexOf(s.season), s.lists.weather.indexOf(s.weather), s.lists.time.indexOf(s.time)].join('-'); location.reload(); };
+  const go = () => { location.hash = '#g' + [s.fx, s.count, s.lists.region.indexOf(s.region), s.lists.season.indexOf(s.season), s.lists.weather.indexOf(s.weather), s.lists.time.indexOf(s.time), s.lists.sway.indexOf(s.sway)].join('-'); location.reload(); };
   function field(key, options) {
     const select = document.createElement('select');
     select.id = 'env-' + key; select.style.cssText = 'display:block;width:100%;margin:3px 0;font:inherit';
@@ -21,6 +21,7 @@
     panel.append(select);
   }
   field('fx', Object.entries(labels.fx));
+  if (s.fx === 'E') field('sway', [['bump','木：A 現在のE'],['tips','木：B 葉先だけ'],['branch','木：C 枝葉を分離'],['still','木：D 静止']]);
   field('count', Object.entries(labels.count));
   for (const key of ['region','season','weather','time']) field(key, s.lists[key].map((value, i) => [value, labels[key][i]]));
   panel.append(meter);
