@@ -1957,12 +1957,14 @@
       const timer=container.querySelector('#pbTimer'),scoreEl=container.querySelector('#pbScore'),hint=container.querySelector('#pbHint');
       const launchBtn=container.querySelector('#pbLaunch');
       const say=(msg,ms=900)=>{flashMsg=msg;flashUntil=performance.now()+ms;hint.textContent=msg;};
-      bindHeldButton(container.querySelector('#pbLeft'),(v)=>{flippers[0].held=v;if(v)meter.act();});
-      bindHeldButton(container.querySelector('#pbRight'),(v)=>{flippers[1].held=v;if(v)meter.act();});
+      // Phase 2: フリッパーを おした 時こくを おぼえる(上げっぱなしの フリッパーに 当たっただけ では「打った」に しない)
+      const setFlip=(i,v)=>{if(v&&!flippers[i].held)flippers[i].pressAt=performance.now();flippers[i].held=v;};
+      bindHeldButton(container.querySelector('#pbLeft'),(v)=>{setFlip(0,v);if(v)meter.act();});
+      bindHeldButton(container.querySelector('#pbRight'),(v)=>{setFlip(1,v);if(v)meter.act();});
       bindHeldButton(launchBtn,(v)=>{if(!running)return;if(v){if(inLane&&!launched){charging=true;charge=0;chargeDir=1;}}else if(charging){charging=false;meter.act();launch();}});
       // フィールドを タッチ: 左はんぶん=左フリッパー、右はんぶん=右フリッパー(おしている あいだ)
       const touches=new Map();
-      canvas.addEventListener('pointerdown',(e)=>{e.preventDefault();const p=mgPointerPos(canvas,e);const side=p.nx<0.5?0:1;touches.set(e.pointerId,side);flippers[side].held=true;meter.act();try{canvas.setPointerCapture(e.pointerId);}catch(err){}});
+      canvas.addEventListener('pointerdown',(e)=>{e.preventDefault();const p=mgPointerPos(canvas,e);const side=p.nx<0.5?0:1;touches.set(e.pointerId,side);setFlip(side,true);meter.act();try{canvas.setPointerCapture(e.pointerId);}catch(err){}});
       const endTouch=(e)=>{const side=touches.get(e.pointerId);if(side===undefined)return;touches.delete(e.pointerId);if(![...touches.values()].includes(side))flippers[side].held=false;};
       canvas.addEventListener('pointerup',endTouch);canvas.addEventListener('pointercancel',endTouch);
       function launch(){
@@ -1995,7 +1997,7 @@
         let t=((bx-f.px)*dx+(by-f.py)*dy)/len2;t=clamp(t,0,1);
         const cx=f.px+dx*t,cy=f.py+dy*t;let nx=bx-cx,ny=by-cy;const d=Math.hypot(nx,ny);
         const R=BR+1.5;if(d>=R||d===0)return;
-        if(f.held){const t=performance.now();if(t-lastFlipHit>200){flipHits++;lastFlipHit=t;}}
+        if(f.held){const t=performance.now();if(t-(f.pressAt||0)<600&&t-lastFlipHit>200){flipHits++;lastFlipHit=t;}}
         nx/=d;ny/=d;bx=cx+nx*R;by=cy+ny*R;
         // フリッパー表面の そくど(かいてん × はんけい)
         const rx=cx-f.px,ry=cy-f.py,wz=f.left?f.w:-f.w;
