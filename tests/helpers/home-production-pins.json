@@ -1,7 +1,7 @@
 {
   "index.html": {
     "before": "c9432f2b62b2c95a36338f8166627abe8feb97d3",
-    "after": "a317bc5f50960b1f759f3ee267234d9fc4a7fc9d",
+    "after": "cfc9aeb7e15bdcff607abbfefae9166e784bca7a",
     "size": 73100,
     "reverse": [
       [
@@ -13,6 +13,11 @@
         72359,
         72427,
         "  <script src=\"home-production-diorama.js?v=ed73883c63e1\"></script>\n"
+      ],
+      [
+        70755,
+        70805,
+        "  <script src=\"games.js?v=24bd3bc4f701\"></script>\n"
       ],
       [
         6970,
@@ -43,13 +48,13 @@
   },
   "tools/pages/allowlist.json": {
     "before": "f1b1fb9cf575c6305fac17fb25dcf80a59d13c31",
-    "after": "d67d5fb8093ecaa7f900cf62e334b7a50f7d9817",
+    "after": "8c1eb4814bcf9223f6479ef83a21c37c9e11ae13",
     "size": 296644,
     "reverse": [
       [
         267630,
         267716,
-        "    \"index.html\": \"d9f9284c4eee19c3964f01fbd0c074ca7c4588eb428a38eb8a0b069b40591140\",\n"
+        "    \"index.html\": \"13ec7f523eb4ab208394df764543d4cca41819bdc34d7b7afa52f7d8df6dffc2\",\n"
       ],
       [
         266568,
@@ -65,6 +70,16 @@
         175007,
         175033,
         ""
+      ],
+      [
+        267510,
+        267596,
+        "    \"index.html\": \"d9f9284c4eee19c3964f01fbd0c074ca7c4588eb428a38eb8a0b069b40591140\",\n"
+      ],
+      [
+        265200,
+        265284,
+        "    \"games.js\": \"24bd3bc4f701498ed342584dc6219c5947b55e303b18e87d6097f4fcc94bccd1\",\n"
       ],
       [
         266177,
@@ -169,9 +184,49 @@
   },
   "games.js": {
     "before": "a93847e0d6ce254074270b01583caad8c54f1928",
-    "after": "66fe58747d88f6a38da2c6531c97997acdfa95ec",
-    "size": 991957,
+    "after": "e22020f8528b080213ab3aec30d86003a385371a",
+    "size": 996426,
     "reverse": [
+      [
+        960020,
+        960343,
+        "        }\n        const isSolved = () => board.every((v, i) => v === i);\n        if (isSolved()) { const a = board[0]; board[0] = board[1]; board[1] = a; }\n"
+      ],
+      [
+        959459,
+        959594,
+        "        for (let k = 0; k < SHUF; k++) {\n"
+      ],
+      [
+        959089,
+        959395,
+        "        // ただしい てじゅんで シャッフル(かならず とける)\n"
+      ],
+      [
+        937286,
+        937881,
+        "          sel = null; shuffles++;\n          say(auto ? '🔀取れる牌がなくなったので、まぜた' : '🔀まぜた(解ききれるならび)', 1200);\n"
+      ],
+      [
+        936753,
+        937177,
+        "          const positions = alive.map((t) => ({ layer: t.layer, x: t.x, y: t.y }));\n"
+      ],
+      [
+        933772,
+        936624,
+        ""
+      ],
+      [
+        210286,
+        210373,
+        "          if (!isWall(cx, cy) && d0[cy][cx] >= 0) bestD = Math.min(bestD, Math.abs(cx - goal.x) + Math.abs(cy - goal.y));\n"
+      ],
+      [
+        204603,
+        204995,
+        ""
+      ],
       [
         409376,
         409396,
