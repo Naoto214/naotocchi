@@ -14,27 +14,31 @@ const fs = require('node:fs');
 const path = require('node:path');
 const http = require('node:http');
 const ROOT = path.resolve(__dirname, '..', '..');
-const { scriptPatches, careStatusPatches, applyPatches, PLANS } = require('./plans.cjs');
-const PLAN = 'B2';
-const SAVE_KEY = 'naotocchi-carepace-trial-v1';
+const { scriptPatches, careStatusPatches, itemSystemPatches, applyPatches, baseSource, PLANS } = require('./plans.cjs');
+// 試遊できる 案(VERSION 3 で B2 と V3 を くらべられる ように した)。それぞれ game-<案>.html と セーブを もつ
+const TRIAL_PLANS = ['V3', 'B2'];
+const DEFAULT_PLAN = 'V3';
+const saveKey = plan => `naotocchi-carepace-trial-${plan.toLowerCase()}-v1`;
+const SAVE_KEY = saveKey(DEFAULT_PLAN);
 const REGIONS = ['forest', 'home', 'sea', 'city'];
 
 function read(rel) { return fs.readFileSync(path.join(ROOT, rel), 'utf8'); }
 function write(out, rel, text) { const f = path.join(out, rel); fs.mkdirSync(path.dirname(f), { recursive: true }); fs.writeFileSync(f, text); }
 
-function patchedScript() {
-  let src = applyPatches(read('script.js'), scriptPatches(PLAN), PLAN);
-  src = src.split("'naotocchi-save-v1").join("'" + SAVE_KEY);
+// 差し替えは 基準(main 24c64450)の 写しに 当てる(V3 を 本体に 組みこんだ あとも 両方を つくれる)
+function patchedScript(plan) {
+  let src = applyPatches(baseSource('script.js'), scriptPatches(plan), plan);
+  src = src.split("'naotocchi-save-v1").join("'" + saveKey(plan));
   const once = (find, replace) => { if (src.split(find).length !== 2) throw new Error('試遊用の差し替えが当たりません: ' + find); src = src.replace(find, replace); };
   once('const TICK_MS = 3000;', 'const TICK_MS = 3000 / (window.__carePaceSpeed || 1);');
   once('state.speciesLine = reservedLine || pickRandomLine();', "state.speciesLine = reservedLine || 'dog'; // 試遊用: 同梱する 絵を へらすため いぬに 固定");
   return src;
 }
 
-// 開始セーブ: 本物の script.js(B2)を VM で うごかして つくる
+// 開始セーブ: 本物の script.js(V3)を VM で うごかして つくる(B2 と V3 で 同じ 出発点)
 function fixtures() {
   const realRead = fs.readFileSync;
-  const patched = applyPatches(realRead.call(fs, path.join(ROOT, 'script.js'), 'utf8'), scriptPatches(PLAN), PLAN);
+  const patched = applyPatches(baseSource('script.js'), scriptPatches(DEFAULT_PLAN), DEFAULT_PLAN);
   fs.readFileSync = function (file, ...rest) { return file === 'script.js' ? patched : realRead.call(fs, file, ...rest); };
   const modPath = require.resolve(path.join(ROOT, 'tests/helpers/runtime-harness.cjs'));
   delete require.cache[modPath];
@@ -68,29 +72,32 @@ function fixtures() {
   return out;
 }
 
-function gameHtml() {
-  let html = read('index.html');
+function gameHtml(plan) {
+  let html = baseSource('index.html');
+  const p = plan.toLowerCase();
   const once = (find, replace, label) => { if (html.split(find).length !== 2) throw new Error(label + ' が見つかりません'); html = html.replace(find, replace); };
-  once("var KEY = 'naotocchi-save-v1',", `var KEY = '${SAVE_KEY}',`, 'rescue key');
-  html = html.replace(/<title>なおとっち<\/title>/, '<title>なおとっち B2試遊</title>');
+  once("var KEY = 'naotocchi-save-v1',", `var KEY = '${saveKey(plan)}',`, 'rescue key');
+  html = html.replace(/<title>なおとっち<\/title>/, `<title>なおとっち ${plan}試遊</title>`);
   // 起動前: 時間の速さ・開始セーブ(セーブが まだ ないときだけ)
-  once('<head>\n', `<head>\n<!-- 生成物: tools/care-pace/build-artifact.cjs(お世話の頻度 監査 VERSION 2)。直接 編集しない -->\n<script src="care-pace/fixtures.js"></script>\n<script src="care-pace/boot.js"></script>\n`, 'head');
+  once('<head>\n', `<head>\n<!-- 生成物: tools/care-pace/build-artifact.cjs(お世話の頻度 監査 VERSION 3)。直接 編集しない -->\n<script src="care-pace/fixtures.js"></script>\n<script src="care-pace/boot-${p}.js"></script>\n`, 'head');
+  const is = html.match(/<script src="item-system\.js\?v=[^"]*"><\/script>/);
+  html = html.replace(is[0], `<script src="care-pace/item-system.${p}.js"></script>`);
   const cs = html.match(/<script src="care-status\.js\?v=[^"]*"><\/script>/);
-  html = html.replace(cs[0], '<script src="care-pace/care-status.B2.js"></script>');
+  html = html.replace(cs[0], `<script src="care-pace/care-status.${p}.js"></script>`);
   const sj = html.match(/<script src="script\.js\?v=[^"]*"><\/script>/);
-  html = html.replace(sj[0], '<script src="care-pace/script.B2.js"></script>\n  <script src="care-pace/hud.js"></script>');
+  html = html.replace(sj[0], `<script src="care-pace/script.${p}.js"></script>\n  <script src="care-pace/hud.js"></script>`);
   return html;
 }
 
-const BOOT = `/* 試遊ページの 起動前処理(お世話の頻度 監査 VERSION 2) */
+const boot = plan => `/* 試遊ページの 起動前処理(お世話の頻度 監査 VERSION 3・${plan}) */
 (function () {
-  var KEY = '${SAVE_KEY}';
+  var KEY = '${saveKey(plan)}';
   var hash = (location.hash || '').replace('#', '');
   var parts = hash.split('-');
   var region = /^(forest|home|sea|city)$/.test(parts[0]) ? parts[0] : 'forest';
   window.__carePaceSpeed = parts.indexOf('x4') >= 0 ? 4 : 1;
-  window.__carePace = { plan: '${PLAN}', speed: window.__carePaceSpeed, saveKey: KEY, hudCollapsed: true, hudHidden: window.parent !== window,
-    plans: { PLANS: { ${PLAN}: { short: 'B2', poopNotice: ${PLANS[PLAN].poopNotice} } } } };
+  window.__carePace = { plan: '${plan}', speed: window.__carePaceSpeed, saveKey: KEY, hudCollapsed: true, hudHidden: window.parent !== window,
+    plans: { PLANS: { ${plan}: { short: '${plan}', poopNotice: ${PLANS[plan].poopNotice} } } } };
   try {
     var want = parts.indexOf('reset') >= 0;
     if (want) Object.keys(localStorage).forEach(function (k) { if (k.indexOf(KEY) === 0) localStorage.removeItem(k); });
@@ -106,11 +113,17 @@ const BOOT = `/* 試遊ページの 起動前処理(お世話の頻度 監査 VE
 
 function build(out) {
   fs.mkdirSync(out, { recursive: true });
-  write(out, 'game.html', gameHtml());
-  write(out, 'care-pace/script.B2.js', patchedScript());
-  write(out, 'care-pace/care-status.B2.js', applyPatches(read('care-status.js'), careStatusPatches(PLAN), PLAN));
+  for (const plan of TRIAL_PLANS) {
+    const p = plan.toLowerCase();
+    write(out, `game-${p}.html`, gameHtml(plan));
+    write(out, `care-pace/script.${p}.js`, patchedScript(plan));
+    write(out, `care-pace/care-status.${p}.js`, applyPatches(baseSource('care-status.js'), careStatusPatches(plan), plan));
+    write(out, `care-pace/item-system.${p}.js`, applyPatches(baseSource('item-system.js'), itemSystemPatches(plan), plan));
+    write(out, `care-pace/boot-${p}.js`, boot(plan));
+  }
+  // 記録(record)は 既定の 案の ページで まわす
+  write(out, 'game.html', gameHtml(DEFAULT_PLAN));
   write(out, 'care-pace/fixtures.js', 'window.__carePaceFixtures = ' + JSON.stringify(fixtures()) + ';\n');
-  write(out, 'care-pace/boot.js', BOOT);
   let hud = read('comparisons/care-pace-20261125/care-pace-hud.js');
   hud = hud.replace("var box, body, open = true;", "var box, body, open = !api.hudCollapsed;");
   hud = hud.replace("if (params.get('hud') !== '0') build();", "if (params.get('hud') !== '0' && !api.hudHidden) build();");

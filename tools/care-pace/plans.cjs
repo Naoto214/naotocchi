@@ -10,7 +10,7 @@
 // 本番の script.js は書きかえない。どの差し替えも「元の文字列が ちょうど1回 ある」ことを
 // たしかめてから当てる(本体が変わって 差し替えが 外れたら、黙って 現行の まま 動かさない)。
 
-const PLAN_IDS = ['current', 'A', 'B', 'C', 'B2'];
+const PLAN_IDS = ['current', 'A', 'B', 'C', 'B2', 'V3'];
 
 // 各案の「つまみ」。current は 現行の script.js の値そのもの(差し替えなし)。
 const PLANS = {
@@ -79,6 +79,38 @@ PLANS.B2 = Object.assign({}, PLANS.B, {
   dyingGraceTicks: 60,         // まえぶれの 猶予 3分(現行 2分)
   offlineDecay: 0.14,          // 閉じている間の おなか・ごきげん(/tick)。ひらいている時(0.20)より おだやかに(現行 0.25 > 0.20 で 逆転していた)
   sleepingFeedNotice: true,    // ねている時の「おなかがすいている」: おすすめを「ごはん」に(押せば 起きて 食べる)
+});
+
+// V3 = 最終調整(2026-11-25 VERSION 3)。B2 を そのまま 土台に、
+//   睡眠中の すべての 操作で 起きる / ミニゲームの げんき消費 / なかま・こいびとの きずなを「一緒に くらす」ことで たもつ /
+//   実績・フェニックス・アイテムの 調整 を 足す。比較の ための つまみは --override で かえられる。
+PLANS.V3 = Object.assign({}, PLANS.B2, {
+  id: 'V3', label: 'VERSION 3(最終候補)', short: 'V3',
+  summary: 'B2案に、寝ている間のすべての操作で起きる、ミニゲームのげんき消費 8、暮らしが落ちついている間は きずなが 50 より下がらない・訪れている なかまとは 一緒に すごすだけで きずなが 育つ、実績・フェニックス・アイテムの調整 を加えた最終候補。',
+  wakeOnAllActions: true,      // デート・現在地への移動・なかまの さそい・たびの 開始判定も 起きて 応じる
+  minigameEnergy: 8,           // ミニゲーム1回の げんき(現行 12)
+  relationFloor: 50,           // 暮らしが 落ちついている(びょうきでなく おなか・ごきげん・けんこう 40いじょう)間は、きずな・なかよし度が これより 下がらない
+  visitBondPerTick: 0.2,       // いま 家に 来ている なかま・こいびとの きずなが 1tickごとに ふえる
+  fullPoopHappyPenalty: 0.25,  // うんち満杯の ごきげん低下(B2 0.5)
+  poopSickGraceTicks: 80,      // うんち満杯から 4分は 病気の 抽選に 入れない(B2 2分)
+  achievementsV3: true,        // ごはん12・そうじ15・病気を なおす 通算3/8・かんびょうのきろく→ねがおの見守り(通算10)
+  phoenixRebirth: true,        // フェニックス: 生まれかわり(過去の人生 3回いじょう、そだち60なら 2回)・40さい いこうの 抽選
+  neglectGraceTicks: 60,       // 「おこたり」が 3分 続いて から 病気の 抽選に 入る
+  healthDrainScale: 0.6,       // 体調を くずした ときの けんこうの へり(現行の 0.6倍)
+  itemsV3: { autoThreshold: 40, scarfAid: true, scarfNoCount: true, pillowRest: true, relationItemFloor: 60 },
+  // アイテムの 値段・説明(item-system.js)。説明は 画面に 出る 文、guard は 開発用の 決まり
+  itemCatalog: {
+    sleepboost1: { price: 2000, desc: 'ねると、すぐにげんきが満タン。ねている間は、おなか・ごきげんが減らず、うんちも出ない。',
+      guard: '睡眠後の時間限定バフは付けない。ねている間の自然減とうんちを止めるだけで、睡眠回数・十分に寝た時の成長判定は維持する。' },
+    bowtie: { price: 1500, guard: 'おなか40以下で100。手動の食事回数・実績等を増やさない。' },
+    ribbon: { price: 1000, guard: 'ごきげん40以下で100。専用リアクションは維持し、手動のじゃれる回数・実績等を増やさない。' },
+    scarf: { price: 2000, desc: '病気になると、自動で治してくれる。様子がおかしいときは、1回だけ手当てもする。',
+      guard: '発病後の自動治療と、おわかれのまえぶれ1回につき1回の手当て(けんこう+30)。まえぶれ・猶予は消さない。治療回数・病気の実績・フェニックスには数えない。' },
+    partner1: { desc: 'こいびとのなかよし度が60より下がらず、いつでも家に来てくれる。',
+      guard: 'なかよし度の下限を60にする。すれちがい中は下限なし。交際成立・仲直り・結婚は自動化しない。手紙の思い出表示は残す。' },
+    bond1: { desc: 'なかまのきずなが60より下がらず、いつでも家にあそびに来る。',
+      guard: 'きずなの下限を60にする。じゃれる回数・加入・シール・実績は増やさない。' },
+  },
 });
 
 function num(v) { return String(Math.round(v * 100000) / 100000); }
@@ -231,6 +263,128 @@ function scriptPatches(plan) {
       `      state.poopFullTicks = state.poopCount >= MAX_POOP ? (state.poopFullTicks || 0) + 1 : 0;\n` +
       `      const neglected = (state.poopCount >= ${P.neglectPoop} && state.poopFullTicks >= ${P.poopSickGraceTicks}) ||`);
   }
+  if (P.wakeOnAllActions) {
+    add('デートの さそい: ねていても 起きて 出かける(さそえない理由から 「ねている」を はずす)',
+      "    if (state.isSleeping) return 'ねている…おきてからさそおう';\n", '');
+    add('デートの 開始で 起きる',
+      'plan = datePlanForRegion(plan);\n    const blocked = dateBlockReason();',
+      'plan = datePlanForRegion(plan);\n    if (state.isSleeping) wakeForAction();\n    const blocked = dateBlockReason();');
+    add('現在地への 移動: 起きて 出かける',
+      "if (state.isSleeping) { setActionComment(randomBlockedMessage('sleepingTravel')); render(); return; }",
+      'if (state.isSleeping) wakeForAction();');
+    add('なかまの さそい: 起きて あそぶ',
+      'const stillOk = !gameActive && state.stage === STAGE.GROWING && !state.isSleeping && !state.transformOptions;',
+      'if (state.isSleeping && state.stage === STAGE.GROWING) wakeForAction();\n    const stillOk = !gameActive && state.stage === STAGE.GROWING && !state.isSleeping && !state.transformOptions;');
+    add('たびの 開始判定から 「ねている」を はずす(出発時に 起きる)',
+      '      && !state.isSleeping && !gameActive && !state.transformOptions\n      && (!region.special || hasPerk(70));',
+      '      && !gameActive && !state.transformOptions\n      && (!region.special || hasPerk(70));');
+  }
+  if (P.minigameEnergy && P.minigameEnergy !== 12) {
+    add('ミニゲーム1回の げんき',
+      'const energyCost = Math.max(1, Math.round(12 * envModifiers().play));',
+      `const energyCost = Math.max(1, Math.round(${num(P.minigameEnergy)} * envModifiers().play));`);
+    add('ゲームパスの げんき(ミニゲームと 同じ)',
+      'state.energy = clamp(state.energy - Math.max(1, Math.round(12 * envModifiers().play)), 0, 100);',
+      `state.energy = clamp(state.energy - Math.max(1, Math.round(${num(P.minigameEnergy)} * envModifiers().play)), 0, 100);`);
+  }
+  if (P.relationFloor) {
+    const itemFloor = P.itemsV3 && P.itemsV3.relationItemFloor;
+    add('なかま・こいびと: 暮らしが 落ちついている 間は きずなが 下がりきらない(共通の 手つづき)',
+      '  function relationshipStage() {',
+      '  // お世話頻度 監査 V3: なかま・こいびとの きずなは、暮らしが 落ちついている(びょうきでも まえぶれでもなく、\n' +
+      '  // けんこう40いじょう)間は floor より 下がらない。ほんとうに 放っておかれた ときだけ 冷えていき、0で はなれる。\n' +
+      `  // おともだちバッジ・らぶれたーを そうびしていると floor は ${itemFloor || P.relationFloor}(いつでも 家に 来る)。すれちがい中の こいびとは floor なし\n` +
+      '  function relationFloor(itemId, mismatched) {\n' +
+      '    if (mismatched) return 0;\n' +
+      (itemFloor ? `    if (isEquipped(itemId)) return ${itemFloor};\n` : '') +
+      `    return (!state.isSick && !state.dying && state.health >= 40) ? ${P.relationFloor} : 0;\n  }\n` +
+      '  function decayTowardFloor(value, amount, floor) {\n' +
+      '    if (value > floor) return Math.max(floor, value - amount);\n' +
+      '    return floor ? value : value - amount;\n  }\n\n' +
+      '  function relationshipStage() {');
+    add('こいびと: なかよし度の 減りに floor を つかう',
+      'p.affection = clamp((p.affection ?? 100) - PARTNER_AFFECTION_DECAY_PER_TICK * mismatchFactor, 0, 100);',
+      "p.affection = clamp(decayTowardFloor(p.affection ?? 100, PARTNER_AFFECTION_DECAY_PER_TICK * mismatchFactor, relationFloor('partner1', p.mismatched)), 0, 100);");
+    add('なかま: きずなの 減りに floor を つかう',
+      'c.bond = clamp((c.bond ?? 100) - COMPANION_BOND_DECAY_PER_TICK * bondDecayFactor, 0, 100);',
+      "c.bond = clamp(decayTowardFloor(c.bond ?? 100, COMPANION_BOND_DECAY_PER_TICK * bondDecayFactor, relationFloor('bond1', false)), 0, 100);");
+  }
+  if (P.visitBondPerTick) add('家に 来ている なかま・こいびとは、一緒に すごすだけで きずなが 育つ',
+    '      decayCompanionBonds();\n',
+    '      decayCompanionBonds();\n' +
+    `      { const k = homeVisits && homeVisits.current && homeVisits.current.key; if (k) { // お世話頻度 監査 V3\n` +
+    `        if (state.partner && k === 'partner:' + state.partner.id) state.partner.affection = clamp((state.partner.affection ?? 100) + ${num(P.visitBondPerTick)}, 0, 100);\n` +
+    `        else for (const c of state.companions) if ('companion:' + canonicalCompanionId(c.id) === k) c.bond = clamp((c.bond ?? 100) + ${num(P.visitBondPerTick)}, 0, 100);\n      } }\n`);
+  if (P.achievementsV3) {
+    const ach = (find, replace, why) => add('実績: ' + why, find, replace);
+    ach("desc: 'ひとつの人生で、ごはんを30回あげた', tier: 'easy2', condition: (l, s) => s.actionCounts.feed >= 30 }",
+      "desc: 'ひとつの人生で、ごはんを12回あげた', tier: 'easy2', condition: (l, s) => s.actionCounts.feed >= 12 }", 'ごはん 12回');
+    ach("desc: 'ひとつの人生で、そうじを20回した', tier: 'normal', condition: (l, s) => s.actionCounts.clean >= 20 }",
+      "desc: 'ひとつの人生で、そうじを15回した', tier: 'normal', condition: (l, s) => s.actionCounts.clean >= 15 }", 'そうじ 15回');
+    ach("label: 'ピカピカ20かい', desc:", "label: 'ピカピカ15かい', desc:", 'そうじの 名まえ');
+    ach("desc: 'びょうきを5かいなおした', tier: 'easy2', condition: (l) => l.sicknessCured >= 5 }",
+      "desc: 'びょうきを3かいなおした', tier: 'easy2', condition: (l) => l.sicknessCured >= 3 }", '病気を なおす 通算3');
+    ach("desc: 'びょうきを15かいなおした', tier: 'hard1', condition: (l) => l.sicknessCured >= 15 }",
+      "desc: 'びょうきを8かいなおした', tier: 'hard1', condition: (l) => l.sicknessCured >= 8 }", '病気を なおす 通算8');
+    ach("{ id: 'medicine-30', emoji: '🩹', label: 'かんびょうのきろく', desc: 'ひとつの人生で、くすりを10回あげた', tier: 'hard1', condition: (l, s) => s.actionCounts.medicine >= 10 }",
+      "{ id: 'medicine-30', emoji: '🌙', label: 'ねがおの見守り', desc: 'ねてから、ひとりで起きるまで見守った(通算10回)', tier: 'hard1', condition: (l) => (l.sleepWatched || 0) >= 10 }", 'かんびょうのきろく→ねがおの見守り');
+    // 交流(やさしいこころ)は じゃれるの 後だけの まま。ごはん・そうじの 後にも 出すと、交流の ダイアログが
+    // お世話の 途中で 何十回も 開いて しまう(VERSION 3 の 実ブラウザ検証で 確認)ため、加えない
+  }
+  if (P.phoenixRebirth) add('フェニックス: 生まれかわりを 条件に(病気の 回数を 条件に しない)',
+    "if (line === 'phoenix') return (state.sicknessCuredThisLife || 0) >= (eased ? 3 : 5);",
+    "if (line === 'phoenix') return (state.lifetime.pastLives || []).length >= (eased ? 2 : 3) && currentAge() >= 40;");
+  if (P.itemsV3) {
+    const it = P.itemsV3;
+    add('おべんとうばこ: 発動する おなか',
+      "if (isEquipped('bowtie') && state.hunger <= ITEM_AUTO_CARE_DANGER) {",
+      `if (isEquipped('bowtie') && state.hunger <= ${it.autoThreshold}) {`);
+    add('おもちゃばこ: 発動する ごきげん',
+      "if (isEquipped('ribbon') && state.happiness <= ITEM_AUTO_CARE_DANGER) {",
+      `if (isEquipped('ribbon') && state.happiness <= ${it.autoThreshold}) {`);
+    if (it.scarfNoCount) add('救急箱: 自動の 治療は 実績・フェニックスに 数えない(アイテムの 方針どおり)',
+      "        applyDecline(-12);\n        recordSicknessCure();\n        checkStoryEvents('medicine-cure');\n        itemContextReaction('scarf',",
+      "        applyDecline(-12);\n        checkStoryEvents('medicine-cure');\n        itemContextReaction('scarf',");
+    if (it.scarfAid) add('救急箱: おわかれの まえぶれが 出たら 1回だけ 手当て(けんこう+30。まえぶれ・猶予は そのまま)',
+      '      // as long a losing streak to be fatal\n',
+      "      if (isEquipped('scarf') && state.dying && !state.scarfAidUsed) {\n        state.scarfAidUsed = true;\n        state.health = clamp(state.health + 30, 0, 100);\n" +
+      "        itemContextReaction('scarf', '様子がおかしいのに気づいて、救急箱で手当てした。');\n      }\n      if (!state.dying) state.scarfAidUsed = false;\n\n      // as long a losing streak to be fatal\n");
+    if (it.pillowRest) {
+      add('ふかふかまくら: ねている 間は おなか・ごきげんが へらない',
+        `const sleepFactor = state.isSleeping ? ${num(P.sleepDecayFactor)} : 1;`,
+        `const sleepFactor = state.isSleeping ? (isEquipped('sleepboost1') ? 0 : ${num(P.sleepDecayFactor)}) : 1;`);
+      add('ふかふかまくら: ねている 間は うんちも 出ない',
+        `      state.poopTimer -= state.isSleeping ? ${num(P.poop.sleepFactor)} : 1;\n`,
+        `      state.poopTimer -= state.isSleeping ? (isEquipped('sleepboost1') ? 0 : ${num(P.poop.sleepFactor)}) : 1;\n`);
+    }
+  }
+  if (P.neglectGraceTicks) {
+    add('「おこたり」が 続いて から 病気の 抽選に 入る(少し 目を はなした くらいでは 病気に ならない)',
+      '      const infantGrace = currentAge() < 3 && state.poopCount < MAX_POOP;',
+      `      state.neglectTicks = neglected ? (state.neglectTicks || 0) + 1 : 0;\n      const infantGrace = (currentAge() < 3 && state.poopCount < MAX_POOP) || state.neglectTicks < ${P.neglectGraceTicks};`);
+  }
+  if (P.healthDrainScale && P.healthDrainScale !== 1) {
+    add('体調を くずした ときの けんこうの へりを ゆるやかに',
+      '      state.health = clamp(state.health + healthDelta, 0, 100);',
+      `      state.health = clamp(state.health + (healthDelta < 0 ? healthDelta * ${num(P.healthDrainScale)} : healthDelta), 0, 100);`);
+  }
+  if (P.id === 'V3') {
+    // 本体に 組みこむ 版では、古く なった 説明の コメントも いまの 値に そろえる
+    add('説明: 満腹・機嫌の へりかた',
+      '      // 満腹・機嫌の 基本の げんしょうスピード(0.6/tick)は、なにも せずに\n      // 基本がめんで しばらく ながめていても あわてなくて いい よう、\n      // 余裕を もたせた 大きさに おさえてある(以前は 1/tick で、放置3分\n      // ほどで お世話ぎれの 状態に なってしまっていた)\n',
+      '      // お世話頻度 監査 VERSION 3(2026-11-25): 満腹・機嫌・元気は 0.20/tick(100→30 が やく 17分)。\n' +
+      '      // ホームを 5〜10分 ながめていても サインが 出ない はやさ(以前 1 → 0.6 → 0.35/tick)。\n' +
+      '      // 満腹で うんちも 少ない あいだは、機嫌の へりが さらに 0.7倍に なる\n');
+    add('説明: 古い 0.35/tick の 行を けす',
+      '      // 0.35/tick: 100→30 が やく 10分。「つねに お世話しないと」に ならず、\n      // ほのぼの ながめて いられる はやさ(以前 0.6 = やく 6分)\n', '');
+    add('説明: 元気の へりかた',
+      '        // おきている あいだの 基本の げんしょうスピード(0.32/tick)\n',
+      '        // おきている あいだの 基本の げんしょうスピード(0.20/tick)\n');
+    add('説明: うんちの 出かた',
+      '      // 3.5%/tick = やく 1.5分に 1こ(以前 8% = 40秒に 1こ で そうじが おいつかなかった)\n',
+      '      // 2.5〜4.5分ごとに 1こ(間隔を そろえて、かたまって 出ない ように する)。ねている あいだは 0.3倍。\n' +
+      '      // 以前は 毎tick 3.5% の 抽選(やく 1.5分に 1こ・かたまりやすい)、その前は 8%\n');
+  }
   if (P.autoWakeTicks > 0) {
     // げんきが まんたんに なって しばらく たつと、じぶんで おきる(起こすのも 今まで通りできる)。
     add('げんきが まんたんに なったら じぶんで おきる',
@@ -239,7 +393,7 @@ function scriptPatches(plan) {
       `          state.isSleeping = false;\n          stopSleepRecovery();\n` +
       `          applyGrowth(3); applyDecline(-3);\n          state.sleptTicks = 0;\n` +
       `          if (typeof audio !== 'undefined' && audio && audio.play) audio.play('wake');\n` +
-      `          setActionComment(randomActionMessage('wake'));\n          speakEvent('wake');\n        }`);
+      `          setActionComment(randomActionMessage('wake'));\n          speakEvent('wake');\n` + (P.achievementsV3 ? `          state.lifetime.sleepWatched = (state.lifetime.sleepWatched || 0) + 1;\n` : '') + `        }`);
   }
   return out;
 }
@@ -283,6 +437,25 @@ function careStatusPatches(plan) {
   return out;
 }
 
+// item-system.js(アイテムの 値段・説明)への 差し替え
+function itemSystemPatches(plan) {
+  const P = PLANS[plan] || plan;
+  if (!P.itemCatalog) return [];
+  const src = baseSource('item-system.js');
+  const out = [];
+  for (const [id, change] of Object.entries(P.itemCatalog)) {
+    const start = src.indexOf(`  "${id}": {\n`);
+    if (start < 0) throw new Error(`item-system.js に ${id} が ありません`);
+    const block = src.slice(start, src.indexOf('\n  }', start) + 4);
+    let next = block;
+    if (change.price != null) next = next.replace(/"price": \d+/, `"price": ${change.price}`);
+    if (change.desc != null) next = next.replace(/"desc": "[^"]*"/, `"desc": ${JSON.stringify(change.desc)}`);
+    if (change.guard != null) next = next.replace(/"guard": "[^"]*"/, `"guard": ${JSON.stringify(change.guard)}`);
+    out.push({ why: `${id} の 値段・説明`, find: block, replace: next });
+  }
+  return out;
+}
+
 function applyPatches(source, patches, label) {
   let out = source;
   for (const p of patches) {
@@ -294,4 +467,13 @@ function applyPatches(source, patches, label) {
   return out;
 }
 
-module.exports = { PLAN_IDS, PLANS, scriptPatches, careStatusPatches, applyPatches };
+// 差し替えの 基準(main 24c64450 = お世話頻度 監査を はじめた 時点)。V3 を 本体に 組みこんだ あとも、
+// 比較ツールは この 写しに 差し替えを 当てて うごく(comparisons/care-pace-20261125/baseline/)。
+const BASELINE_DIR = 'comparisons/care-pace-20261125/baseline';
+function baseSource(file) {
+  const fs = require('node:fs');
+  const path = require('node:path');
+  return fs.readFileSync(path.join(__dirname, '..', '..', BASELINE_DIR, file), 'utf8');
+}
+
+module.exports = { PLAN_IDS, PLANS, scriptPatches, careStatusPatches, itemSystemPatches, applyPatches, baseSource, BASELINE_DIR };

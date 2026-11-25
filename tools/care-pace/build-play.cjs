@@ -24,9 +24,12 @@ function build() {
   };
   once('<head>\n', '<head>\n<base href="../../">\n<!-- 生成物: tools/care-pace/build-play.cjs(お世話の頻度 監査 2026-11-25)。直接 編集しない -->\n', 'head');
   once("var KEY = 'naotocchi-save-v1',",
-    "var KEY = 'naotocchi-carepace-' + (/^(current|A|B|C|B2)$/.test(new URLSearchParams(location.search).get('plan') || '') ? new URLSearchParams(location.search).get('plan') : 'current') + '-v1',",
+    "var KEY = 'naotocchi-carepace-' + (/^(current|A|B|C|B2|V3)$/.test(new URLSearchParams(location.search).get('plan') || '') ? new URLSearchParams(location.search).get('plan') : 'current') + '-v1',",
     'rescue key');
   html = html.replace(/<title>なおとっち<\/title>/, '<title>なおとっち お世話ペース試遊</title>');
+  const is = html.match(/<script src="item-system\.js\?v=[^"]*"><\/script>/);
+  if (!is) throw new Error('item-system.js の script が見つかりません');
+  html = html.replace(is[0], `<script src="${LOADER}" data-file="item-system.js"></script>`);
   const cs = html.match(/<script src="care-status\.js\?v=[^"]*"><\/script>/);
   if (!cs) throw new Error('care-status.js の script が見つかりません');
   html = html.replace(cs[0], `<script src="${LOADER}" data-file="care-status.js"></script>`);

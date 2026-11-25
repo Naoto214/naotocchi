@@ -101,14 +101,14 @@ test('environment callbacks ignore a latent money field while preserving noncoin
   h.api.REGION_MOMENTS.star_stop[0].money=999;
   runMoment(h,0);
   assert.equal(s.lifetime.envMoments,1);
-  assert.equal(s.happiness,56);
+  assert.equal(s.happiness,59); // VERSION 3: 自然の できごとの ごきげんは 1.5倍
   assert.equal(s.lifetime.money,BALANCE);
 });
 test('memory lake still recalls life memories and recovers happiness without coins', () => {
   const {h,s}=setup(); s.regionId='memory_lake'; s.happiness=50;
   s.lifeLog=[{emoji:'🏠',text:'おうちでおやつを食べた',age:2}];
   runMoment(h,0);
-  assert.equal(s.happiness,56);
+  assert.equal(s.happiness,59); // VERSION 3: 自然の できごとの ごきげんは 1.5倍
   assert.match(h.get('storyFlashText').textContent,/おうちでおやつを食べた/);
   assert.equal(s.lifetime.money,BALANCE);
 });
@@ -132,7 +132,8 @@ for(const minutes of [10,60,600]) test(`offline ${minutes} minutes preserves rec
   const logs=s.lifeLog.length;
   const result=h.api.applyOfflineProgress(1000,1000-minutes*60000);
   assert.equal(result.ticks,minutes===10?200:600);
-  assert.equal(s.hunger,50); assert.equal(s.happiness,50);
+  // VERSION 3: 閉じていた 間の 減りは 0.14/tick(10分で −28)。長い るすは いままでどおり −30 まで
+  assert.equal(s.hunger,minutes===10?52:50); assert.equal(s.happiness,minutes===10?52:50);
   assert.equal(s.energy,minutes===10?40:60);
   assert.equal(s.lifeLog.length,logs+1);
   assert.match(s.lifeLog.at(-1).text,/るすばん/);

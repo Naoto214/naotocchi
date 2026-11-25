@@ -23,7 +23,7 @@ module.exports=async(browser,engine,fixtures,baseURL,output)=>{
    const before=await readSave(page);
    await page.locator('#feedBtn').click();
    const fed=await readSave(page);
-   assert.ok(Math.abs(fed.growth-before.growth-4.4)<1e-9);
+   assert.ok(Math.abs(fed.growth-before.growth-5.5)<1e-9) /* VERSION 3: ごはんの せいちょう 5 × 1.1 */;
    assert.equal(fed.sodachi,before.sodachi);
    assert.equal(fed.actionCounts.feed,before.actionCounts.feed+1);
    await page.locator('#menuBtn').click();await page.locator('#itemBtn').click();
@@ -43,7 +43,7 @@ module.exports=async(browser,engine,fixtures,baseURL,output)=>{
    for(const id of ['naoto_lantern','naoto_ring'])assert.ok(restored.lifetime.ownedNaotoItems.includes(id));
    assert.equal(restored.growth,fed.growth);assert.equal(restored.lifetime.equippedItemId,null);
    assert.ok(await page.evaluate(()=>document.documentElement.scrollHeight<=innerHeight+1));
-   assert.deepEqual(errors,[]);results.push({width,growth:4.4,feedCount:1,reload:true,description:true,errors});
+   assert.deepEqual(errors,[]);results.push({width,growth:5.5,feedCount:1,reload:true,description:true,errors});
    console.log('PASS '+label);
   }catch(error){await page.screenshot({path:path.join(output,label+'-failure.png')}).catch(()=>{});throw error;}
   finally{await context.close();}

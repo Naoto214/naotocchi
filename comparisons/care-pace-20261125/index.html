@@ -53,6 +53,7 @@ thead th { color:var(--muted); font-weight:600; }
       <button type="button" data-plan="B" aria-pressed="false">B ゆったり</button>
       <button type="button" data-plan="C" aria-pressed="false">C 鑑賞</button>
       <button type="button" data-plan="B2" aria-pressed="false">B2(VERSION 2)</button>
+      <button type="button" data-plan="V3" aria-pressed="false">V3(最終候補)</button>
     </div>
     <div class="seg" id="speedSeg" role="group" aria-label="時間の速さ">
       <button type="button" data-speed="1" aria-pressed="true">ふつうの速さ</button>
@@ -84,7 +85,8 @@ thead th { color:var(--muted); font-weight:600; }
     A: 'A案: 今の手ざわりのまま、ごきげん・うんちを2〜3割ゆるめる。',
     B: 'B案: 必要なお世話は3〜4分に1回ほど。うんちは間隔をそろえ、寝ている間はあまり出ない。満ち足りていればごきげんはゆっくり減る。げんきが戻ると自分で起きる。',
     C: 'C案: 10分以上ながめていても困らない。お世話は「したいとき」が中心。',
-    B2: 'B2: B案に、寝ていても押せばそっと起きる・夜は少し長く眠る・じゃれるの「しつこい」が時間で戻る・死亡の前にかならず予告と猶予、を加えたもの。'
+    B2: 'B2: B案に、寝ていても押せばそっと起きる・夜は少し長く眠る・じゃれるの「しつこい」が時間で戻る・死亡の前にかならず予告と猶予、を加えたもの。',
+    V3: 'V3(最終候補): B2に、寝ている間のすべての操作で起きる・ミニゲームのげんき消費を軽く・暮らしが落ちついていれば なかま・こいびとが離れない・実績とフェニックスとアイテムの調整、を加えたもの。'
   };
   function load() {
     frame.src = 'play.html?plan=' + plan + (speed !== 1 ? '&speed=' + speed : '');

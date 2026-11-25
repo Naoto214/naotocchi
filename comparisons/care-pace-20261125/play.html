@@ -11,7 +11,7 @@
    script.js が 起動の さいごに window.__naotocchiBooted = true を 立てる。立たない まま 6 秒 たつか、起動中に error が 出たら パネルを 出す。
    ボタンは 危なくない ものから: 1 もういちど よみこむ / 2 セーブコードを うつす / 3 じどうバックアップから もどす */
 (function () {
-  var KEY = 'naotocchi-carepace-' + (/^(current|A|B|C|B2)$/.test(new URLSearchParams(location.search).get('plan') || '') ? new URLSearchParams(location.search).get('plan') : 'current') + '-v1', BACKUP = KEY + '-backup', SNAPS = KEY + '-snaps', RESCUED = KEY + '-rescued';
+  var KEY = 'naotocchi-carepace-' + (/^(current|A|B|C|B2|V3)$/.test(new URLSearchParams(location.search).get('plan') || '') ? new URLSearchParams(location.search).get('plan') : 'current') + '-v1', BACKUP = KEY + '-backup', SNAPS = KEY + '-snaps', RESCUED = KEY + '-rescued';
   var panel = null;
   function booted() { return window.__naotocchiBooted === true; }
   function read(k) { try { return localStorage.getItem(k); } catch (e) { return null; } }
@@ -923,7 +923,7 @@
   <script src="resident-expression.js?v=57387bc14fff"></script>
   <script src="expression-presentation.js?v=ab8510eb808f"></script>
   <script src="item-memories.js?v=252a43fba4fc"></script>
-  <script src="item-system.js?v=faff6498c4c9"></script>
+  <script src="comparisons/care-pace-20261125/care-pace-loader.js" data-file="item-system.js"></script>
   <script src="movie-dialogue.js?v=d02d262c0899"></script>
   <script src="conversation-director.js?v=2047b0df7bde"></script>
   <script src="conversation-banter.js?v=8421d4b21aae"></script>

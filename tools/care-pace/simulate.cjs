@@ -14,7 +14,7 @@ const path = require('node:path');
 const vm = require('node:vm');
 const ROOT = path.resolve(__dirname, '..', '..');
 process.chdir(ROOT);
-const { PLANS, scriptPatches, careStatusPatches, applyPatches } = require('./plans.cjs');
+const { PLANS, scriptPatches, careStatusPatches, itemSystemPatches, applyPatches, baseSource } = require('./plans.cjs');
 
 const TICKS_PER_MIN = 20;
 const LIFE_TICKS = 2000;
@@ -27,9 +27,11 @@ function arg(name, fallback) {
 // ---------- 本体の 読みこみ(案の 差し替えを 当てた script.js で harness を つくる) ----------
 function loadHarnessModule(planId) {
   const realRead = fs.readFileSync;
-  const patched = applyPatches(realRead.call(fs, 'script.js', 'utf8'), scriptPatches(planId), planId);
+  const patched = applyPatches(baseSource('script.js'), scriptPatches(planId), planId);
+  const items = applyPatches(baseSource('item-system.js'), itemSystemPatches(planId), planId);
   fs.readFileSync = function (file, ...rest) {
     if (file === 'script.js') return patched;
+    if (file === 'item-system.js') return items;
     return realRead.call(fs, file, ...rest);
   };
   const modPath = require.resolve(path.join(ROOT, 'tests/helpers/runtime-harness.cjs'));
@@ -37,7 +39,7 @@ function loadHarnessModule(planId) {
   try { return require(modPath); } finally { fs.readFileSync = realRead; }
 }
 function loadCareStatus(planId) {
-  const src = applyPatches(fs.readFileSync('care-status.js', 'utf8'), careStatusPatches(planId), planId);
+  const src = applyPatches(baseSource('care-status.js'), careStatusPatches(planId), planId);
   const sandbox = { module: { exports: {} } };
   sandbox.window = null;
   vm.runInNewContext(src, sandbox);

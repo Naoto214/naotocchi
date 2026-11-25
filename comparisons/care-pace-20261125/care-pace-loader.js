@@ -13,7 +13,7 @@
   'use strict';
   var params = new URLSearchParams(location.search);
   var plan = params.get('plan') || 'current';
-  if (!/^(current|A|B|C|B2)$/.test(plan)) plan = 'current';
+  if (!/^(current|A|B|C|B2|V3)$/.test(plan)) plan = 'current';
   var speed = Number(params.get('speed')) || 1;
   if (!(speed >= 1 && speed <= 10)) speed = 1;
 
@@ -39,11 +39,15 @@
 
   var which = document.currentScript && document.currentScript.dataset.file;
   try {
-    if (which === 'care-status.js') {
-      var cs = fetchText('care-status.js');
+    // 差し替えは 基準(main 24c64450)の 写しに 当てる。V3 を 本体に 組みこんだ あとも 比べられる ように
+    var base = 'comparisons/care-pace-20261125/baseline/';
+    if (which === 'item-system.js') {
+      run(api.plans.applyPatches(fetchText(base + 'item-system.js'), api.plans.itemSystemPatches(plan), plan), 'item-system.js?carepace=' + plan);
+    } else if (which === 'care-status.js') {
+      var cs = fetchText(base + 'care-status.js');
       run(api.plans.applyPatches(cs, api.plans.careStatusPatches(plan), plan), 'care-status.js?carepace=' + plan);
     } else if (which === 'script.js') {
-      var src = fetchText('script.js');
+      var src = fetchText(base + 'script.js');
       src = api.plans.applyPatches(src, api.plans.scriptPatches(plan), plan);
       // 案ごとに セーブを わける(本番の セーブには さわらない)
       src = src.split("'naotocchi-save-v1").join("'" + api.saveKey);

@@ -16,7 +16,8 @@ const fs = require('node:fs');
 const path = require('node:path');
 const V1 = require('./simulate.cjs');
 const { PLANS } = require('./plans.cjs');
-const { step, rng, minigameScore, needCount, BUTTONS, NOTICE_ACTION } = V1;
+const { step, rng, minigameScore, needCount, NOTICE_ACTION } = V1;
+const BUTTONS = { ...V1.BUTTONS, court: 'courtBtn' };
 
 const LIFE_TICKS = 2000;
 function arg(name, fallback) { const i = process.argv.indexOf('--' + name); return i >= 0 ? process.argv[i + 1] : fallback; }
@@ -102,6 +103,16 @@ const PERSONAS = {
       if (p.r() < 0.1 && s.energy >= 40) p.want('game');
     },
   },
+  keeper: {
+    label: 'ときどき+関係も気にかける', gap: r => 30 + Math.floor(r() * 31), reactsToWarnings: true,
+    act(p) {
+      PERSONAS.casual.act(p);
+      const s = p.s;
+      // データ画面で きずなを 見て、40を きった 人が いれば じゃれる・こいびとなら きゅうあい
+      if (s.companions.some(c => (c.bond ?? 100) < 40) && s.affectionStreak < p.plan.spamThreshold) { p.want('pet'); p.relTaps++; }
+      if (s.partner && (s.partner.affection ?? 100) < 40) { p.want('court'); p.relTaps++; }
+    },
+  },
   viewer: {
     label: '眺める(10分ごと)', gap: r => 180 + Math.floor(r() * 41), reactsToCritical: true,
     act(p) {
@@ -136,11 +147,11 @@ function followNotice(p, delay, blind) {
 // ---------- 1生涯 ----------
 function newPlayer(h, s, plan, r, CS) {
   const fixtureGame = { id: 'care-pace-probe', start(container) { container.innerHTML = '<div></div>'; } };
-  const taps = { feed: 0, clean: 0, pet: 0, sleep: 0, wake: 0, medicine: 0, game: 0 };
+  const taps = { feed: 0, clean: 0, pet: 0, sleep: 0, wake: 0, medicine: 0, game: 0, court: 0 };
   const p = {
     s, r, plan, t: 0, lastGameT: -999, noticeSince: -1, taps, tapTicks: [], session: null,
     sleep: { blockedWants: 0, extraWakeTaps: 0, wokenByAction: 0, playerWakes: 0 },
-    annoyed: 0,
+    annoyed: 0, relTaps: 0,
     count(kind) { taps[kind]++; p.tapTicks.push(p.t); if (p.session) { p.session.n++; p.session.kinds.add(kind); } },
     tap(kind) {
       if (kind === 'clean' && s.poopCount === 0) return;
@@ -180,7 +191,32 @@ function newPlayer(h, s, plan, r, CS) {
   return p;
 }
 
-function runLife(H, CS, planId, personaId, seed) {
+// opts: { companions: 人数, partner: true/false, equip: アイテムid }
+function setupRelations(h, s, opts) {
+  if (!opts) return;
+  const a = h.api;
+  if (opts.companions) s.companions = a.normalCompanions.slice(0, opts.companions).map(c => ({ id: c.id, bond: 100 }));
+  if (opts.partner) {
+    const cand = a.REGIONS.find(r => r.id === 'forest').candidates.find(c => c.attractedTo && c.attractedTo.length >= 2);
+    Object.assign(s, { gender: 'female', orientationId: 'bi', attractedTo: ['female', 'male', 'nonbinary'] });
+    s.partner = { id: cand.id, label: cand.label, emoji: cand.emoji, gender: cand.gender, orientationId: cand.orientationId,
+      attractedTo: [...cand.attractedTo], affinityHeart: cand.affinityHeart, affection: 100, married: false, bondCount: 0 };
+  }
+  if (opts.equip) { s.lifetime.equippedItemId = opts.equip; }
+}
+const OPT_PRESETS = {
+  base: {}, c4p: { companions: 4, partner: true }, c12p: { companions: 12, partner: true },
+};
+function presetOpts(key) {
+  const out = {};
+  for (const part of String(key || 'base').split('+')) {
+    if (OPT_PRESETS[part]) Object.assign(out, OPT_PRESETS[part]);
+    else if (part.startsWith('item-')) out.equip = part.slice(5);
+  }
+  return out;
+}
+
+function runLife(H, CS, planId, personaId, seed, opts) {
   const plan = PLANS[planId];
   const persona = PERSONAS[personaId];
   const h = H.harness({ deterministic: true, seed, environment: { time: 'day', weather: 'cloudy' } });
@@ -191,10 +227,14 @@ function runLife(H, CS, planId, personaId, seed) {
     hunger: 90, happiness: 90, energy: 90, health: 100, poopCount: 0,
     isSick: false, isSleeping: false, companions: [], partner: null,
   });
+  setupRelations(h, s, opts);
   h.api.scheduleEnvironmentMoment();
   const r = rng(seed * 7919 + 17);
   const p = newPlayer(h, s, plan, r, CS);
+  const startCompanions = s.companions.length, hadPartner = !!s.partner;
   const sessions = [];
+  let lastNoticeKind = null;
+  const notices = { appear: 0, warnAppear: 0, ticks: 0, kinds: {} };
   const m = { ticks: 0, free: 0, stretches: [], overlap2: 0, sick: 0, sicknesses: 0, sleepTicks: 0,
     sleeps: 0, sleepLens: [], awakeLens: [], autoWakes: 0, dyingEpisodes: 0, dyingSurvived: 0,
     firstCriticalT: null, dyingT: null, deathLeadCritical: null, deathLeadDying: null };
@@ -224,6 +264,9 @@ function runLife(H, CS, planId, personaId, seed) {
     if (sleepingBefore && !s.isSleeping) m.autoWakes++;
     // ---- 計測 ----
     m.ticks++;
+    { const nn = p.notice(); const kind = nn && nn.kind !== 'sleep' ? nn.kind + ':' + nn.severity : null;
+      if (kind) { notices.ticks++; if (kind !== lastNoticeKind) { notices.appear++; notices.kinds[nn.kind] = (notices.kinds[nn.kind] || 0) + 1; if (nn.severity !== 'info') notices.warnAppear++; } }
+      lastNoticeKind = kind; }
     const needs = needCount(s, plan);
     if (needs === 0) { m.free++; stretch++; } else { if (stretch) m.stretches.push(stretch); stretch = 0; }
     if (needs >= 2) m.overlap2++;
@@ -247,7 +290,9 @@ function runLife(H, CS, planId, personaId, seed) {
   }
   if (stretch) m.stretches.push(stretch);
   const reachedEnd = s.stage === 'farewell' || Math.floor(s.ageTicks / 20) >= 100;
-  return { taps: p.taps, tapTicks: p.tapTicks, sessions, m, sleep: { ...p.sleep, wakes }, annoyed: p.annoyed,
+  const rel = { departures: startCompanions - s.companions.length, breakup: hadPartner && !s.partner ? 1 : 0, relTaps: p.relTaps, companionsLeft: s.companions.length,
+    minBond: s.companions.length ? Math.min(...s.companions.map(c => c.bond ?? 100)) : null, partnerAffection: s.partner ? s.partner.affection : null, married: !!(s.partner && s.partner.married) };
+  return { taps: p.taps, tapTicks: p.tapTicks, sessions, m, notices, rel, sleep: { ...p.sleep, wakes }, annoyed: p.annoyed,
     died, deathAge: died ? Math.floor(s.ageTicks / 20) : null, maxSodachi: s.maxSodachi, clear: reachedEnd && s.maxSodachi >= 70 };
 }
 
@@ -289,6 +334,16 @@ function summarize(lives) {
       autoWakesPerLife: +mean(lives.map(l => l.m.autoWakes)).toFixed(1),
     },
     annoyedPerLife: +mean(lives.map(l => l.annoyed)).toFixed(1),
+    noticesPer10: dist(lives.map(l => +(l.notices.appear / (l.m.ticks / 200)).toFixed(2))),
+    warnNoticesPer10: dist(lives.map(l => +(l.notices.warnAppear / (l.m.ticks / 200)).toFixed(2))),
+    noticeShare: dist(lives.map(l => Math.round(100 * l.notices.ticks / l.m.ticks))),
+    noticeKinds: (() => { const o = {}; for (const l of lives) for (const [k, v] of Object.entries(l.notices.kinds)) o[k] = (o[k] || 0) + v; for (const k in o) o[k] = +(o[k] / lives.length).toFixed(1); return o; })(),
+    relation: {
+      departures: dist(lives.map(l => l.rel.departures)), breakupRate: +mean(lives.map(l => l.rel.breakup)).toFixed(2),
+      relTaps: +mean(lives.map(l => l.rel.relTaps)).toFixed(1), courtPerLife: +mean(lives.map(l => l.taps.court || 0)).toFixed(1),
+      marriedRate: +mean(lives.map(l => l.rel.married ? 1 : 0)).toFixed(2),
+    },
+    tapsPerLifeAll: +mean(lives.map(l => Object.values(l.taps).reduce((a, b) => a + b, 0) * 2000 / l.m.ticks)).toFixed(1),
     deathRate: +(deaths.length / lives.length).toFixed(3),
     deathLeadDyingSec: dist(deaths.map(l => l.m.deathLeadDying)),
     deathLeadCriticalSec: dist(deaths.filter(l => l.m.deathLeadCritical != null).map(l => l.m.deathLeadCritical)),
@@ -308,20 +363,20 @@ function runIdleSnapshots(H, CS, planId, seed, start) {
     isSick: false, isSleeping: false, companions: [], partner: null, health: 100, ...start });
   h.api.scheduleEnvironmentMoment();
   const snaps = {};
-  for (let t = 1; t <= 300; t++) {
+  for (let t = 1; t <= 400; t++) {
     step(h, s);
     if (t % 100 === 0) {
       const n = CS.assess(s, {});
       snaps[t / 20] = { hunger: s.hunger, happiness: s.happiness, energy: s.energy, poop: s.poopCount, sick: s.isSick ? 1 : 0, health: s.health,
         signals: needCount(s, plan), warning: n && (n.severity === 'warning' || n.severity === 'critical') ? 1 : 0, dead: s.stage === 'dead' ? 1 : 0 };
     }
-    if (s.stage !== 'growing') { for (const k of [5, 10, 15]) if (!snaps[k]) snaps[k] = { hunger: 0, happiness: 0, energy: 0, poop: 4, sick: 1, health: 0, signals: 5, warning: 1, dead: 1 }; break; }
+    if (s.stage !== 'growing') { for (const k of [5, 10, 15, 20]) if (!snaps[k]) snaps[k] = { hunger: 0, happiness: 0, energy: 0, poop: 4, sick: 1, health: 0, signals: 5, warning: 1, dead: 1 }; break; }
   }
   return snaps;
 }
 function summarizeIdle(rows) {
   const out = {};
-  for (const k of [5, 10, 15]) {
+  for (const k of [5, 10, 15, 20]) {
     const g = f => rows.map(r => r[k][f]);
     out[k] = {
       hunger: dist(g('hunger')), happiness: dist(g('happiness')), energy: dist(g('energy')), health: dist(g('health')),
@@ -365,23 +420,31 @@ function runRescue(H, CS, planId, seed, delay) {
 
 // 仮想環境(harness)を たくさん つくると メモリが ふくらむ ので、仕事を 小分けにして 子プロセスで 順に うごかす。
 //   --job life:<persona>:<from>:<count> / idle:<full|typical>:<from>:<count> / rescue:<delay>:<from>:<count>
+// 放置の 出発点(VERSION 3 で 定義を 明確に した)
+const IDLE_STATES = {
+  full: { hunger: 100, happiness: 100, energy: 100, poopCount: 0, health: 100 },
+  healthy: { hunger: 90, happiness: 90, energy: 90, poopCount: 0, health: 100 },   // 健康: お世話した 直後
+  normal: { hunger: 70, happiness: 70, energy: 70, poopCount: 1, health: 100 },    // 普通: 少し 間が あいた ところ
+  typical: { hunger: 70, happiness: 70, energy: 70, poopCount: 1, health: 100 },
+  bad: { hunger: 45, happiness: 45, energy: 45, poopCount: 2, health: 80 },        // やや悪い: 黄色の サインが 出ている ところ
+};
 function runJob(planId, job) {
   const H = V1.loadHarnessModule(planId);
   const CS = V1.loadCareStatus(planId);
-  const [kind, a, from, count] = job.split(':');
+  const [kind, a, from, count, optKey] = job.split(':');
   const rows = [];
   for (let i = Number(from); i < Number(from) + Number(count); i++) {
-    if (kind === 'life') rows.push(runLife(H, CS, planId, a, 1000 + i));
-    else if (kind === 'idle') rows.push(runIdleSnapshots(H, CS, planId, 7000 + i, a === 'full' ? { hunger: 100, happiness: 100, energy: 100, poopCount: 0 } : { hunger: 70, happiness: 70, energy: 70, poopCount: 1 }));
+    if (kind === 'life') rows.push(runLife(H, CS, planId, a, 1000 + i, presetOpts(optKey)));
+    else if (kind === 'idle') rows.push(runIdleSnapshots(H, CS, planId, 7000 + i, IDLE_STATES[a]));
     else if (kind === 'rescue') rows.push(runRescue(H, CS, planId, 9000 + i, Number(a)));
   }
   return rows;
 }
-function spawnJob(planId, job) {
+function spawnJob(planId, job, override) {
   const { execFileSync } = require('node:child_process');
   const os = require('node:os');
   const file = path.join(fs.mkdtempSync(path.join(os.tmpdir(), 'care-pace-')), 'job.json');
-  execFileSync(process.execPath, ['--max-old-space-size=2500', __filename, '--plan', planId, '--job', job, '--jobout', file], { stdio: ['ignore', 'ignore', 'inherit'] });
+  execFileSync(process.execPath, ['--max-old-space-size=2500', __filename, '--plan', planId, '--job', job, '--jobout', file, ...(override ? ['--override', JSON.stringify(override)] : [])], { stdio: ['ignore', 'ignore', 'inherit'] });
   const rows = JSON.parse(fs.readFileSync(file, 'utf8'));
   fs.rmSync(path.dirname(file), { recursive: true, force: true });
   return rows;
@@ -389,6 +452,7 @@ function spawnJob(planId, job) {
 
 if (require.main === module) {
   const planId = arg('plan', 'B2');
+  if (arg('override', null)) Object.assign(PLANS[planId], JSON.parse(arg('override')));
   if (arg('job', null)) { fs.writeFileSync(arg('jobout'), JSON.stringify(runJob(planId, arg('job')))); return; }
   const lives = Number(arg('lives', 50));
   const outFile = arg('out', null);
@@ -414,4 +478,4 @@ if (require.main === module) {
   if (outFile) fs.writeFileSync(outFile, json); else console.log(json);
 }
 
-module.exports = { PERSONAS, runLife, summarize, runIdleSnapshots, runRescue };
+module.exports = { PERSONAS, runLife, summarize, summarizeIdle, runIdleSnapshots, runRescue, spawnJob, IDLE_STATES };

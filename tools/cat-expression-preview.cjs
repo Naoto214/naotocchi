@@ -9,7 +9,7 @@ const PRESETS = Object.freeze({
   hungry: Object.freeze({hunger:40}),
   sick: Object.freeze({isSick:true,sicknessType:'かぜ'}),
   tired: Object.freeze({energy:40}),
-  sulky: Object.freeze({happiness:40,affectionStreak:3}),
+  sulky: Object.freeze({happiness:40,affectionStreak:4}), // お世話頻度 監査 V3: じゃれすぎの 上限は 4
   weak: Object.freeze({deathMeter:60}),
   critical: Object.freeze({deathMeter:80}),
   wantsPlay: Object.freeze({happiness:40}),

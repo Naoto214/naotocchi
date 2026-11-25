@@ -6,8 +6,10 @@ const { test } = require('node:test');
 const fs = require('node:fs');
 const { PLAN_IDS, PLANS, scriptPatches, careStatusPatches, applyPatches } = require('../tools/care-pace/plans.cjs');
 
-const script = fs.readFileSync('script.js', 'utf8');
-const careStatus = fs.readFileSync('care-status.js', 'utf8');
+const { baseSource } = require('../tools/care-pace/plans.cjs');
+// 差し替えは 基準(main 24c64450)の 写しに 当てる
+const script = baseSource('script.js');
+const careStatus = baseSource('care-status.js');
 
 test('every plan patches script.js and care-status.js exactly once per anchor', () => {
   for (const id of PLAN_IDS) {
@@ -36,10 +38,10 @@ test('the recommended care switches away from じゃれる once it would annoy t
   assert.equal(cs.assess({ ...base, affectionStreak: PLANS.B.spamThreshold }).action, 'playBtn');
 });
 
-test('the generated play page is in sync with index.html', () => {
-  const { build } = require('../tools/care-pace/build-play.cjs');
-  assert.equal(fs.readFileSync('comparisons/care-pace-20261125/play.html', 'utf8'), build());
-});
+// 比較ページ(play.html)と index.html の 一致、本体と「基準 + V3」の 一致は、ほかの 開発で 本体が かわるたびに
+// ずれるので npm test では みない。採用作業の ときに たしかめる:
+//   node tools/care-pace/build-play.cjs --check
+//   node tools/care-pace/adopt-v3.cjs --check
 
 // ---- VERSION 2(B2案)の ふるまい: 本物の script.js に B2 の 差し替えを 当てて たしかめる ----
 function b2Harness() {
