@@ -70,17 +70,18 @@ async function run(name,engine){
    else if(!/visible\/none$/.test(zoomed.clip))fail('resident window still clips while zoomed: '+zoomed.clip);
    // The home may re-fit itself as residents walk. Compare the layout it
    // computes under zoom with the one it computes at 1.0x in the next frames.
-   let same=false,sameNav=false;
+   let same=false,sameNav=false,lastDiff='';
    for(let attempt=0;attempt<3&&!(same&&sameNav);attempt++){
     const view=await page.evaluate(()=>NaotocchiHomeZoom.state());
     if(!(view.zoom>1))await page.evaluate(([x,y])=>NaotocchiHomeZoom.zoomAt(x,y,2),[frame.x,frame.y]);
     await relayout();const under=await page.evaluate(inspect),nav=await page.evaluateHandle(()=>__zoomQA.nav());
     const keep=await page.evaluate(()=>NaotocchiHomeZoom.state());
     await page.evaluate(()=>NaotocchiHomeZoom.reset(false));await relayout();const plain=await page.evaluate(inspect);
-    same=under.inputs===plain.inputs;sameNav=await page.evaluate(n=>n===__zoomQA.nav(),nav);await nav.dispose();
+    same=under.inputs===plain.inputs;
+    if(!same){const u=JSON.parse(under.inputs),q=JSON.parse(plain.inputs);lastDiff=Object.keys(u).filter(k=>JSON.stringify(u[k])!==JSON.stringify(q[k])).map(k=>k+' zoomed='+JSON.stringify(u[k]).slice(0,160)+' 1.0x='+JSON.stringify(q[k]).slice(0,160)).join(' | ');}sameNav=await page.evaluate(n=>n===__zoomQA.nav(),nav);await nav.dispose();
     await page.evaluate(v=>NaotocchiHomeZoom.set(v.zoom,v.x,v.y),keep);await page.waitForTimeout(60);
    }
-   if(!same)fail('layout/movement inputs differ between zoomed and 1.0x');
+   if(!same)fail('layout/movement inputs differ between zoomed and 1.0x: '+lastDiff);
    if(!sameNav)fail('navigation was rebuilt by zoom');
    // Every zoomed tap must choose exactly what the same world point chooses at
    // 1.0x (the existing front-most rule). The selected resident is drawn in

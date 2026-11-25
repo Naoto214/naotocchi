@@ -100,7 +100,10 @@
     delete f.scrollTop;delete f.scrollLeft;
     open.inner.style.translate=open.innerTranslate;
     for(const [k,v,p] of open.styles){if(v)f.style.setProperty(k,v,p);else f.style.removeProperty(k);}
-    f.scrollTop=open.top;f.scrollLeft=open.left;
+    // The window is a scroll container again only after layout. Flush it,
+    // restore the offset, and make sure the engine really took it.
+    const put=()=>{void f.scrollHeight;f.scrollTop=open.top;f.scrollLeft=open.left;return Math.abs(f.scrollTop-open.top)<.5&&Math.abs(f.scrollLeft-open.left)<.5;};
+    if(!put())root.requestAnimationFrame(()=>{if(!layers?.open&&!Object.prototype.hasOwnProperty.call(f,'scrollTop')&&!put())stage()?.dispatchEvent(new root.CustomEvent('home-paint-envelope'));});
     layers.open=null;
   }
   // The home layout pass reads scroll extents that a scaled stage would widen.
