@@ -155,14 +155,16 @@ function seaSwell(ctx, time, weather, seconds) {
     ctx.lineWidth = 1 + 4.6 * d;
     for (const [rgb, shift, gain] of [['8,40,74', 5 + 9 * d, .26], [tone.glint, 0, .55]]) {
       ctx.strokeStyle = `rgb(${rgb})`;
-      ctx.globalAlpha = gain * overcast * smooth(d / .12) * smooth((1 - d) / .1) * (time === 'night' ? .75 : 1);
-      ctx.beginPath();
-      for (let x = -20; x <= 1020; x += 40) {
-        const y = z * 1500 + shift + amplitude * Math.sin(x / reach + seconds * (.7 + .5 * d) + k * 1.9)
-          + .4 * amplitude * Math.sin(x / (reach * .37) - seconds * 1.3 + k);
-        x < 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y);
+      const level = gain * overcast * smooth(d / .12) * smooth((1 - d) / .1) * (time === 'night' ? .75 : 1);
+      const height = x => z * 1500 + shift + amplitude * Math.sin(x / reach + seconds * (.7 + .5 * d) + k * 1.9)
+        + .4 * amplitude * Math.sin(x / (reach * .37) - seconds * 1.3 + k);
+      // A crest is not one unbroken line: it catches the light in runs that drift along it.
+      for (let x = -20; x < 1020; x += 34) {
+        const run = Math.sin(x / (150 + 90 * d) + k * 2.1 + seconds * .35) + .6 * Math.sin(x / 57 - k * 1.3 - seconds * .5);
+        if (run < .15) continue;
+        ctx.globalAlpha = level * Math.min(1, run);
+        ctx.beginPath(); ctx.moveTo(x, height(x)); ctx.lineTo(x + 17, height(x + 17)); ctx.lineTo(x + 34, height(x + 34)); ctx.stroke();
       }
-      ctx.stroke();
     }
   }
   ctx.restore();

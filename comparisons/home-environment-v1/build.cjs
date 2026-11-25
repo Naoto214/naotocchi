@@ -35,8 +35,19 @@ function gallery() {
   const perf = JSON.parse(fs.readFileSync(path.join(evidence, 'perf.json'), 'utf8'));
   const cell = v => v ? `${v.fps}${v.living === undefined ? '' : v.living ? `（層${Math.round(1000 / v.living)}fps）` : '（層は停止）'}` : '—';
   const rows = perf.rows.map(r => `<tr><td>${sceneName(r.scene)}</td><td>${r.rate === 1 ? '通常' : r.rate + '倍低速'}</td><td>${cell(r.A)}</td><td>${cell(r.B)}</td><td>${cell(r.C)}</td></tr>`).join('');
-  return `<section class="gallery"><h2>実際のホーム画面で（住民・UIつき）</h2>
-<p>住民とホームUIを表示した本物のホームです。使い捨てのセーブで動き、本人のセーブには触れません。開いた先の上部のパネルで A・B・C、住民数、地域や天気を切り替えられます。</p>
+  const max = JSON.parse(fs.readFileSync(path.join(evidence, 'max.json'), 'utf8'));
+  const maxPerf = JSON.parse(fs.readFileSync(path.join(evidence, 'perfmax.json'), 'utf8'));
+  const maxRows = maxPerf.rows.map(r => `<tr><td>${sceneName(r.scene)}</td><td>${r.rate === 1 ? '通常' : r.rate + '倍低速'}</td><td>${cell(r.C)}</td><td>${cell(r.D)}</td></tr>`).join('');
+  return `<section class="gallery"><h2>最大演出版を実際のホーム画面で</h2>
+<p>住民とホームUIを表示した本物のホームです。開いた先の上部のパネルで C と最大演出（D）を切り替えられます。使い捨てのセーブで動き、本人のセーブには触れません。</p>
+<div class="chips">${max.map(([, tail]) => `<a href="home.html#gD-${tail}"><button type="button">${sceneName(tail)}</button></a>`).join('')}</div>
+<p>下は同じ場面の静止画です（左が C、右が最大演出）。動きは上のボタンから実ホームでご覧ください。</p>
+${max.map(([name, tail]) => `<p>${sceneName(tail)}</p><div class="strip"><img src="evidence/${name}.jpg" width="786" height="844" alt="${sceneName(tail)} の C と最大演出" loading="lazy"></div>`).join('')}
+<h2>最大演出版の滑らかさ（ブラウザの毎秒コマ数）</h2>
+<p>条件は下の表と同じです。括弧は草木・水面・光の層の更新頻度で、重いときは自動で下がります。</p>
+<div class="strip"><table><thead><tr><th>場面</th><th>CPU</th><th>C</th><th>最大演出</th></tr></thead><tbody>${maxRows}</tbody></table></div>
+<h2>A・B・C を実際のホーム画面で</h2>
+<p>前回までの3案です。開いた先のパネルで A・B・C・D、住民数、地域や天気を切り替えられます。</p>
 <div class="chips">${scenes.map(([, tail]) => `<a href="home.html#gC-${tail}"><button type="button">${sceneName(tail)}</button></a>`).join('')}</div>
 <p>下は同じ場面を A・B・C の順に並べた静止画です（左から現行、改善、総合）。</p>
 ${scenes.map(([name, tail]) => `<p>${sceneName(tail)}</p><div class="strip"><img src="evidence/${name}.jpg" width="1182" height="844" alt="${sceneName(tail)} の A・B・C" loading="lazy"></div>`).join('')}
