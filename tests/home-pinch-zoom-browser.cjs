@@ -36,8 +36,8 @@ async function run(name,engine){
  try{for(const width of WIDTHS){
   const context=await browser.newContext({viewport:{width,height:width===320?568:width===375?667:width===390?844:932},deviceScaleFactor:2,hasTouch:true,isMobile:name!=='firefox'});
   const page=await context.newPage(),errors=[];page.on('pageerror',e=>{errors.push(String(e));console.error('pageerror',String(e).slice(0,300));});
-  await page.goto(`http://127.0.0.1:${server.address().port}/qa-cast.html?count=5`,{waitUntil:'load'});
-  await page.waitForFunction(()=>window.__zoomQA&&window.NaotocchiHomeZoom&&__zoomQA.nav(),null,{timeout:60000});
+  const boot=async()=>{await page.goto(`http://127.0.0.1:${server.address().port}/qa-cast.html?count=5`,{waitUntil:'load'});   await page.waitForFunction(()=>window.__zoomQA&&window.NaotocchiHomeZoom&&__zoomQA.nav(),null,{timeout:60000});};
+  await boot();
   const cdp=name==='chromium'?await context.newCDPSession(page):null;
   // fingers: [[x,y],...] currently down; diffed against the previous set.
   let held=[];
@@ -50,14 +50,18 @@ async function run(name,engine){
   const pinch=async(cx,cy,from,to)=>{await fingers([[cx-from,cy]]);await fingers([[cx-from,cy],[cx+from,cy]]);for(let i=1;i<=8;i++){const d=from+(to-from)*i/8;await fingers([[cx-d,cy],[cx+d,cy]]);}await fingers([]);await page.waitForTimeout(120);};
   const relayout=()=>page.evaluate(()=>new Promise(r=>{document.getElementById('castStage').dispatchEvent(new CustomEvent('home-paint-envelope'));requestAnimationFrame(()=>requestAnimationFrame(()=>requestAnimationFrame(r)));}));
   let shots=0;
-  for(const region of ONLY)for(const count of COUNTS){
-   const label=[name,width,region,count].join('/'),fail=m=>{failures.push(label+': '+m);if(shots++<3)page.screenshot({path:path.join(output,label.replace(/\//g,'-')+'-'+shots+'.png')}).catch(()=>{});console.error(label+': '+m.slice(0,160));page.evaluate(()=>JSON.stringify({zoom:NaotocchiHomeZoom.state(),fixed:document.getElementById('device').dataset.homeFixed,asking:!!document.querySelector('.is-asking'),dialogs:[...document.querySelectorAll('[role=dialog]:not(.hidden),.home-choice-popup:not(.hidden)')].map(e=>e.id||e.className).slice(0,4)})).then(v=>console.error('  state',v)).catch(()=>{});};
+  // The home may raise its own full-screen prompt (an invitation, a question).
+  // Nothing behind it can be touched then, so that attempt is repeated.
+  const prompt=()=>page.evaluate(()=>[...document.querySelectorAll('[role=dialog]:not(.hidden),.home-choice-popup:not(.hidden)')].some(e=>e.getClientRects().length)||!!document.querySelector('.is-asking'));
+  for(const region of ONLY)for(const count of COUNTS)for(let attempt=1;attempt<=3;attempt++){
+   const mine=[];let prompted=false;const seen=async()=>{if(await prompt())prompted=true;};
+   const label=[name,width,region,count].join('/'),fail=m=>{mine.push(label+': '+m);if(shots++<3)page.screenshot({path:path.join(output,label.replace(/\//g,'-')+'-'+shots+'.png')}).catch(()=>{});console.error(label+': '+m.slice(0,160));page.evaluate(()=>JSON.stringify({zoom:NaotocchiHomeZoom.state(),fixed:document.getElementById('device').dataset.homeFixed,asking:!!document.querySelector('.is-asking'),dialogs:[...document.querySelectorAll('[role=dialog]:not(.hidden),.home-choice-popup:not(.hidden)')].map(e=>e.id||e.className).slice(0,4)})).then(v=>console.error('  state',v)).catch(()=>{});};
    await page.evaluate(([r,c])=>{NaotocchiHomeZoom.reset(false);__zoomQA.scene(r,r==='city'?'night':'day',c);},[region,count]);
    await page.waitForFunction(c=>__zoomQA.nav()&&__zoomQA.model().snapshot().length===c&&document.querySelectorAll('[data-diorama-actor]').length>=c,count,{timeout:30000});
    await page.waitForTimeout(450);await relayout();
    const frame=await page.evaluate(()=>{const r=document.querySelector('.screen-frame').getBoundingClientRect();return {x:r.left+r.width/2,y:r.top+r.height/2};});
    const clean=await page.evaluate(inspect);
-   await pinch(frame.x,frame.y,22,70);
+   await seen();await pinch(frame.x,frame.y,22,70);
    let zoomed=await page.evaluate(inspect);
    if(!(zoomed.zoom>1.5))fail('pinch did not zoom: '+zoomed.zoom);
    // The home may re-fit itself as residents walk. Compare the layout it
@@ -88,11 +92,13 @@ async function run(name,engine){
    for(const q of probes){if(!await settle())continue;await tap(q.wx,q.wy);const want=await page.evaluate(()=>({key:__zoomQA.model().selected(),still:!__zoomQA.model().snapshot().some(b=>b.target)}));if(!q.still||!want.still)continue;taps++;if(q.got===want.key)hits++;else fail('zoomed tap on '+q.key+' selected '+q.got+', same point at 1.0x selects '+want.key);}
    await page.evaluate(v=>NaotocchiHomeZoom.set(v.zoom,v.x,v.y),view);await page.waitForTimeout(60);
    // A second finger on a held resident must never start a manual move.
+   await seen();
    const manualMoves=()=>page.evaluate(()=>__zoomQA.model().snapshot().filter(a=>a.target&&a.source!=='ambient').map(a=>a.key+':'+a.source+':'+a.target.x.toFixed(2)+','+a.target.y.toFixed(2)));
    const held1=(await page.evaluate(visible))[0];
    if(held1){const earlier=new Set(await manualMoves());
     await fingers([[held1.x,held1.y]]);await fingers([[held1.x,held1.y],[held1.x+50,held1.y+30]]);for(let i=1;i<=5;i++)await fingers([[held1.x-i*5,held1.y],[held1.x+50+i*5,held1.y+30]]);await fingers([]);await page.waitForTimeout(80);
     const started=(await manualMoves()).filter(m=>!earlier.has(m));if(started.length)fail('two-finger gesture moved '+started);}
+   await seen();
    // Two-finger tap returns to 1.0x and leaves no trace in the DOM.
    if(!((await page.evaluate(()=>NaotocchiHomeZoom.state().zoom))>1))await page.evaluate(([x,y])=>NaotocchiHomeZoom.zoomAt(x,y,2),[frame.x,frame.y]);
    await fingers([[frame.x-30,frame.y],[frame.x+30,frame.y+10]]);await page.waitForTimeout(40);await fingers([]);await page.waitForTimeout(420);
@@ -100,7 +106,9 @@ async function run(name,engine){
    if(after.zoom!==1)fail('two-finger tap left zoom '+after.zoom);
    if(after.trace)fail('1.0x DOM keeps zoom styles: '+after.trace.slice(0,200));
    if(clean.trace)fail('zoom styles before any zoom: '+clean.trace.slice(0,200));
-   rows.push({width,region,count,zoom:zoomed.zoom,taps,hits});
+   await seen();
+   if(prompted){held=[];await boot();if(attempt<3)continue;rows.push({width,region,count,skipped:'home prompt'});break;}
+   failures.push(...mine);rows.push({width,region,count,zoom:zoomed.zoom,taps,hits});break;
   }
   // Region change returns to the normal view.
   await page.evaluate(()=>{__zoomQA.scene('forest','day',5);});await page.waitForTimeout(500);
@@ -113,8 +121,10 @@ async function run(name,engine){
   await context.close();
  }}finally{await browser.close();}
  fs.writeFileSync(path.join(output,name+'.json'),JSON.stringify({rows,failures},null,1));
- const taps=rows.reduce((n,r)=>n+r.taps,0),hits=rows.reduce((n,r)=>n+r.hits,0);
- console.log(`${name}: ${rows.length} conditions, zoomed taps ${hits}/${taps}, failures ${failures.length}`);
+ const done=rows.filter(r=>!r.skipped),skipped=rows.length-done.length;
+ const taps=done.reduce((n,r)=>n+r.taps,0),hits=done.reduce((n,r)=>n+r.hits,0);
+ if(skipped>Math.max(2,rows.length*.05))failures.push(name+': '+skipped+' conditions could not be checked because the home kept prompting');
+ console.log(`${name}: ${done.length} conditions checked, ${skipped} skipped, zoomed taps ${hits}/${taps}, failures ${failures.length}`);
  return failures;
 }
 (async()=>{await new Promise(r=>server.listen(0,'127.0.0.1',r));const pw=require('playwright');let failures=[];
