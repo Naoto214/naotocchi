@@ -1,7 +1,7 @@
 {
   "index.html": {
     "before": "c9432f2b62b2c95a36338f8166627abe8feb97d3",
-    "after": "13c14d228fde94dc451a298d4d243fd3999695fb",
+    "after": "6268e4be41f5cf2483acc1823dfbce6e90e12705",
     "size": 73040,
     "reverse": [
       [
@@ -43,7 +43,7 @@
   },
   "tools/pages/allowlist.json": {
     "before": "f1b1fb9cf575c6305fac17fb25dcf80a59d13c31",
-    "after": "c796cfb0763234b93160849c275a9af368795d80",
+    "after": "f9404b7dbf3b3bd95f78c7c7296832dd26970e3e",
     "size": 296524,
     "reverse": [
       [
@@ -169,92 +169,92 @@
   },
   "games.js": {
     "before": "a93847e0d6ce254074270b01583caad8c54f1928",
-    "after": "bddd02a9055ba10fd9209dfc1a1086100fde591e",
-    "size": 1006849,
+    "after": "aca59860948d84eedddd3bad73cd01a02e32c7b5",
+    "size": 1006795,
     "reverse": [
       [
-        987147,
-        987219,
+        987093,
+        987165,
         "          setTimeout(() => onComplete(score), 650);\n"
       ],
       [
-        986673,
-        987004,
+        986619,
+        986950,
         "          const score = clamp(Math.round((rank === 1 ? 72 : rank === 2 ? 46 : 26) + coins * 1.5 + players[0].pos / LEN * 6), 5, 100);\n"
       ],
       [
-        980072,
-        980251,
+        980018,
+        980197,
         "        rollBtn.addEventListener('pointerdown', (e) => { e.preventDefault(); if (!running || phase !== 'rolling' || players[turn].cpu) return; stopRoll(dieFace); });\n"
       ],
       [
-        979626,
-        979795,
+        979572,
+        979741,
         ""
       ],
       [
-        925173,
-        925265,
+        925119,
+        925211,
         "          setTimeout(() => onComplete(score), 650);\n"
       ],
       [
-        924735,
-        925136,
+        924681,
+        925082,
         "          const last = guesses[guesses.length - 1];\n          const score = clamp(Math.round(solved ? 100 - Math.max(0, guesses.length - 3) * 9 : 18 + (last ? last.hit * 6 + last.blow * 2 : 0)), 5, 100);\n"
       ],
       [
-        920410,
-        920541,
+        920356,
+        920487,
         "          const r = judge(cur); guesses.push({ g: cur.slice(), ...r }); cur = []; sfx(r.hit ? 'hit' : 'tick'); hud();\n"
       ],
       [
-        917299,
-        917491,
+        917245,
+        917437,
         ""
       ],
       [
-        786536,
-        786608,
+        786482,
+        786554,
         "          setTimeout(() => onComplete(score), 650);\n"
       ],
       [
-        786085,
-        786399,
+        786031,
+        786345,
         "          const score = clamp(Math.round(10 + pulled * 8 + (collapsing ? 0 : 12)), 10, 100);\n"
       ],
       [
-        780642,
-        780707,
+        780588,
+        780653,
         "          rows[r][i] = false; pulled++; sfx('pop');\n"
       ],
       [
-        777466,
-        777638,
+        777412,
+        777584,
         ""
       ],
       [
-        728551,
-        728623,
+        728497,
+        728569,
         "          setTimeout(() => onComplete(final), 650);\n"
       ],
       [
-        722926,
-        723643,
+        722872,
+        723589,
         "          if (o) { o.done = true; combo++; sfx('coin'); const gain = 10 + combo * 2; score += gain; popups.push({ x: best.x, y: LANES[best.lane].y - 20, t: `+${gain}`, born: performance.now(), color: '#fff' }); if (order.every((q) => q.done)) { served++; const fast = performance.now() - orderStart < 6000; const bonus = fast ? 25 : 10; score += bonus; say(fast ? `⚡はやい!注文完了+${bonus}` : `✅注文完了+${bonus}`, 1000); newOrder(); } hud(); }\n          else { wrong++; combo = 0; score = Math.max(0, score - 8); sfx('bad'); say('❌ちがうお皿', 700); popups.push({ x: best.x, y: LANES[best.lane].y - 20, t: '-8', born: performance.now(), color: '#ff6b6b' }); hud(); }\n"
       ],
       [
-        719908,
-        720144,
+        719854,
+        720090,
         "        const startTime = performance.now() + MG_ACTION_START_GRACE_MS;\n"
       ],
       [
-        678532,
-        678604,
+        678478,
+        678550,
         "          setTimeout(() => onComplete(score), 650);\n"
       ],
       [
         677825,
-        678322,
+        678268,
         "          const score = clamp(Math.round(50 + (chips - START) * 0.5), 15, 100);\n"
       ],
       [
