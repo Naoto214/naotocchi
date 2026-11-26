@@ -181,9 +181,11 @@ export function daylightOf(region, image, doc, source) {
   }
   return entry.ready ? entry.image : null;
 }
-function paintFoliageSoft(ctx, image, region, time, seconds, mode, doc, boost, daySource) {
+function paintFoliageSoft(ctx, image, region, time, seconds, mode, doc, boost, daySource, level = 1) {
   const base = STRENGTH[mode], spots = (base.b2 ? FOLIAGE_B2 : base.wide ? FOLIAGE_WIDE : FOLIAGE)[region];
-  const strength = base.b2 ? {...base, flutter:base.flutter * b2Air(region, time)} : base;
+  // `level` is the wind of the moment (1 = the approved strength): it scales how far the leaves
+  // travel, never how they move.
+  const strength = base.b2 ? {...base, flutter:base.flutter * b2Air(region, time) * level} : base;
   if (!spots || !image) return;
   const reference = base.b2 ? daylightOf(region, image, doc, daySource) : image;
   if (!reference) return; // still loading: the plants simply wait
@@ -193,6 +195,7 @@ function paintFoliageSoft(ctx, image, region, time, seconds, mode, doc, boost, d
     const part = parts[i];
     if (!part || part.cover < .05) return;
     const [cx, cy, rx, ry] = spot, wind = boughWind(region, i, spot, seconds, boost);
+    if (base.b2) wind.stir = .35 + (wind.stir - .35) * Math.min(1.5, level);
     const W = part.width + 2 * margin, H = part.height + 2 * margin;
     if (!scratch) scratch = typeof OffscreenCanvas === 'function' ? new OffscreenCanvas(W, H) : doc.createElement('canvas');
     if (scratch.width < W || scratch.height < H) { scratch.width = Math.max(scratch.width, W); scratch.height = Math.max(scratch.height, H); }
@@ -211,8 +214,8 @@ function paintFoliageSoft(ctx, image, region, time, seconds, mode, doc, boost, d
     ctx.drawImage(scratch, 0, 0, W, H, cx - rx - margin / scale, cy - ry - margin / scaleY, W / scale, H / scaleY);
   });
 }
-export function paintFoliage(ctx, image, region, time, seconds, mode, doc, boost = 0, daySource = null) {
-  if (STRENGTH[mode]) return paintFoliageSoft(ctx, image, region, time, seconds, mode, doc, boost, daySource);
+export function paintFoliage(ctx, image, region, time, seconds, mode, doc, boost = 0, daySource = null, level = 1) {
+  if (STRENGTH[mode]) return paintFoliageSoft(ctx, image, region, time, seconds, mode, doc, boost, daySource, level);
   const spots = FOLIAGE[region];
   if (!spots || !image) return;
   const parts = separateFoliage(image, spots, time, doc);
@@ -253,13 +256,15 @@ export function paintFoliage(ctx, image, region, time, seconds, mode, doc, boost
 
 const BUGS = new Set(['forest','countryside','river_lake','jungle']);
 // Drawn over the calmed painters. `scene` is the painting on screen.
-export function paintFinal(ctx, scene, env, seconds, doc) {
+export function paintFinal(ctx, scene, env, seconds, doc, layers = null) {
   const {region, time} = scene, clear = env.weather === 'sunny' || env.weather === 'cloudy';
   const layer = draw => { ctx.save(); draw(); ctx.restore(); };
   if (region === 'river_lake') layer(() => riverFlow(ctx, time, env.weather, seconds, {gain:.5, every:2}));
   layer(() => waterGlints(ctx, region, time, env.weather, seconds, {gain:.55, size:.7}));
-  if (time === 'night' && env.weather === 'sunny') layer(() => nightSky(ctx, region, seconds, {gain:.6, size:.6, meteorEvery:41}));
+  // With `layers`, stars dim under thin cloud and vanish in rain or snow, and so do shooting stars.
+  const twinkle = layers ? layers.twinkle : time === 'night' && env.weather === 'sunny' ? 1 : 0, meteors = layers ? layers.meteors : twinkle;
+  if (twinkle > 0 || meteors > 0) layer(() => nightSky(ctx, region, seconds, {gain:.6 * twinkle, size:.6, meteors}));
   const dusk = time === 'evening' || time === 'night';
-  if (clear && (region === 'memory_lake' || dusk && BUGS.has(region) && env.season === 'summer'))
+  if (layers ? layers.fireflies : clear && (region === 'memory_lake' || dusk && BUGS.has(region) && env.season === 'summer'))
     layer(() => fireflies(ctx, region, time, seconds, doc, {gain:region === 'memory_lake' && !dusk ? .55 : 1, size:.8}));
 }

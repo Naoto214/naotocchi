@@ -84,7 +84,7 @@ function sampleLeaf(i, seconds, region, seed, sourceX, front) {
   const rotation = track.rotation + track.chirality * (pitch + .82 * slow) + .44 * flow.bend;
   const lift = track.susceptible ? smooth((flow.gust - .25) / .77) : 0;
   const y = phase + Math.sin(phase * Math.PI) * (.008 * arc - lift * .12);
-  return {x, y, phase, radius, depth:z, rotation, face:Math.cos(rotation * .83 + .72 * arc),
+  return {x, y, phase, birth, radius, depth:z, rotation, face:Math.cos(rotation * .83 + .72 * arc),
     alpha:alpha * smooth((x + .01) / .045) * smooth((1.01 - x) / .045), gust:flow.gust, bend:flow.bend};
 }
 
@@ -297,10 +297,14 @@ export function usesAutumnLeaves(region, time, env) {
     ['forest','countryside','river_lake','mountain'].includes(region);
 }
 
-export function paintAutumnLeaves(ctx, rect, region, time, seconds, opacity) {
+// `amount(seconds)` is the share of the approved number of leaves in the air; a leaf joins or
+// leaves only between falls, by the share at the moment it let go.
+export function paintAutumnLeaves(ctx, rect, region, time, seconds, opacity, amount = null) {
   const forest = region === 'forest', dusk = time === 'evening', night = time === 'night';
   const drift = drifting[region];
-  const count = forest ? 20 : drift ? drift.count : dusk ? 6 : night ? 8 : 14;
+  const approved = forest ? 20 : drift ? drift.count : dusk ? 6 : night ? 8 : 14;
+  const count = amount ? Math.ceil(approved * 1.75) : approved;
+  const absent = (i, p) => amount != null && i >= approved * amount(p.birth);
   const state = {region, t:seconds, night};
   ctx.save();
   ctx.translate(rect.left,rect.top);
@@ -314,18 +318,21 @@ export function paintAutumnLeaves(ctx, rect, region, time, seconds, opacity) {
       const origin = u + (noise(i+14)-.5)*.092;
       const start = v + (noise(i+67)-.5)*61;
       const p = sampleLeaf(i,seconds,region,0,origin,forestFront);
+      if (absent(i,p)) continue;
       drawAutumnLeaf(ctx,i,p,p.x*1000,start+(913+119*p.depth-start)*p.y,4.4,opacity,state);
     } else if (drift) {
       const [u,v] = drift.sources[i % drift.sources.length];
       const p = sampleLeaf(i,seconds,region,drift.seed,u/1000,fieldFront);
       const x = u+70*(fieldNoise(i+11)-.5)+(p.x-u/1000)*drift.reach;
       const y = v+(drift.fall[0]+drift.fall[1]*p.depth)*p.y;
+      if (absent(i,p)) continue;
       drawAutumnLeaf(ctx,i,p,x,y,drift.size,opacity,state);
     } else {
       const [u,v] = i===5 ? orchardCrown : fieldSources[i % fieldSources.length];
       const p = sampleLeaf(i,seconds,region,83,u/1000,fieldFront);
       const x = u+(i===5 ? 0 : 54*(fieldNoise(i+11)-.5))+(p.x-u/1000)*810;
       const y = v+(54+72*p.depth)*p.y;
+      if (absent(i,p)) continue;
       drawAutumnLeaf(ctx,i,p,x,y,dusk ? 4.6+5.6*p.depth : 4.3,opacity*.93,state);
     }
   }

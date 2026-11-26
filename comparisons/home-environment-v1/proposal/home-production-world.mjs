@@ -3,6 +3,7 @@ import {extendVisibleGroundNavigation} from './home-visible-ground-navigation.mj
 import {createDayparts,atmosphere,DAYPARTS} from './home-dayparts.mjs';
 import {fallingKind,paintFalling,paintWeatherVeil} from './home-atmosphere-fx.mjs';
 import {paintLiving} from './living/living.mjs';
+import {layersFor,createClimate} from './home-climate.mjs';
 import {ART_CANDIDATES,selectRecoveredScene} from './home-production-manifest.mjs';
 import {artTransform,paintBackdrop,backdropComposition} from './home-production-transform.mjs';
 import {createRecoveredNavigation} from './home-recovered-navigation.mjs?v=57267701d610';
@@ -38,6 +39,10 @@ export function createHomeWorld(options){
  const fxMode=options.environmentFx||win.NaotocchiEnvironmentFx||'final',wantLiving=fxMode!=='falling',maximum=fxMode==='maximum',final=fxMode==='final';
  // How trees move in the final mode. A function lets the comparison switch it while running.
  const treeSway=()=>(typeof options.treeSway==='function'?options.treeSway():options.treeSway)||win.NaotocchiTreeSway||'tips2';
+ // Wind and particle amounts drift over time, differently on every visit. `options.climate()`
+ // lets the trial page pin a level, speed time up, or supply measured weather.
+ const climate=createClimate((Math.random()*2147483647)|0),pinned=()=>(typeof options.climate==='function'?options.climate():options.climate)||win.NaotocchiClimate||{};
+ let air={wind:1};
  const windBoost=()=>Number(typeof options.wind==='function'?options.wind():options.wind)||0;
  // Repaint interval of the living layer. It follows the frame pacing the whole home achieves:
  // slow frames step it down and finally off, sustained smooth frames step it back up.
@@ -95,7 +100,10 @@ export function createHomeWorld(options){
   fade=dayparts.frame(dt,flags.reducedMotion);if(fade.image){img=fade.image;loaded=true;onStatus('art-25d');}error=fade.error;
   if(!flags.reducedMotion)time+=Math.max(0,Math.min(1,Number(dt)||0))*1000;
   const mood=atmosphere(env),night=env.time==='night';
-  const leafScene=!flags.reducedMotion&&usesAutumnLeaves(env.region,env.time,env),falls=!flags.reducedMotion&&(leafScene||!!fallingKind(mood));
+  const layers=layersFor(env),held={measured:env.conditions,...pinned()},clock=time/1000;
+  const amount=(kind,at)=>climate.density(kind,at,env,held);
+  air={wind:climate.wind(clock,env,held),rain:amount('rain',clock),snow:amount('snow',clock),petal:amount('petal',clock),leaf:amount('leaf',clock),layers};options.onClimate?.(air);
+  const leafScene=!flags.reducedMotion&&layers.leaves>0,falls=!flags.reducedMotion&&(leafScene||!!layers.precipitation||layers.petals>0);
   if(wantLiving&&!flags.reducedMotion)follow(Number(dt)||0,flags.tier>=2?66:33);
   const living=wantLiving&&level<PACES.length;
   const fullBackdrop=doc.body.dataset.homeViewportVersion==='12'&&doc.body.dataset.homeTinyOverview==='true';
@@ -127,7 +135,7 @@ export function createHomeWorld(options){
   // A representative painting is retained. This restrained overlay is not a
   // claim that baked sunset/sunbeams have become a completed night artwork.
   if(!fade.image&&(env.time==='night'||env.weather==='rain')){ctx.fillStyle=env.time==='night'?'rgba(21,30,73,.24)':'rgba(38,57,78,.15)';if(contain&&v15)ctx.fillRect(t.left,t.top,t.width,t.height);else ctx.fillRect(0,0,host.width,host.height);}
-  if(living&&fade.image)paintLiving(ctx,t,fade,time/1000,env,flags.reducedMotion,{maximum,final,treeSway:treeSway(),wind:windBoost(),daySource:region=>DAYPARTS[region]?.day,document:doc});
+  if(living&&fade.image)paintLiving(ctx,t,fade,time/1000,env,flags.reducedMotion,{maximum,final,treeSway:treeSway(),wind:windBoost(),daySource:region=>DAYPARTS[region]?.day,layers,level:air.wind,document:doc});
   else if(!flags.reducedMotion){ctx.save();ctx.globalCompositeOperation='screen';for(let i=0;i<7;i++){const u=.18+(i*.117)% .65,v=spec.accent==='water'?.28+(i%3)*.035:.16+(i%4)*.13,x=(contain?t.left:0)+u*t.width,y=t.top+v*t.height+Math.sin(time/2400+i)*3;ctx.globalAlpha=.08+.12*(.5+.5*Math.sin(time/1500+i));ctx.fillStyle=spec.accent==='glow'?'#ffdb9b':'#fffad4';ctx.beginPath();ctx.ellipse(x,y,spec.accent==='water'?7:1.4,spec.accent==='water'?1:1.4,0,0,Math.PI*2);ctx.fill();}ctx.restore();}
   }}
   lastFrame=frame;screen.setTransform(1,0,0,1,0,0);screen.drawImage(backdrop,0,0);
@@ -136,13 +144,14 @@ export function createHomeWorld(options){
   if(leafScene){
    const layer=(picture,opacity)=>{
     const scene=picture?.src?.match(/\/([a-z_]+)-(morning|day|evening|night)\.webp(?:\?|$)/);
-    if(opacity>0 && scene && usesAutumnLeaves(scene[1],scene[2],env))
-     paintAutumnLeaves(screen,t,scene[1],scene[2],time/1000,opacity);
+    const share=scene?layersFor({...env,region:scene[1],time:scene[2]}).leaves:0;
+    if(opacity>0 && share>0)
+     paintAutumnLeaves(screen,t,scene[1],scene[2],time/1000,opacity,at=>share*amount('leaf',at));
    };
    if(fade.previous)layer(fade.previous,1-fade.alpha);
    layer(fade.image,fade.alpha);
   }
-  paintFalling(screen,t,env,mood,time/1000,{tier:flags.tier,document:doc,lively:maximum});
+  paintFalling(screen,t,env,mood,time/1000,{tier:flags.tier,document:doc,lively:maximum,layers,amount});
  }
  return {pointIndependentOcclusion:true,setEnvironment,navigation,draw,observationPoints(n){return spec.points.map(([x,z,action,tag])=>({...n.project({x,z}),activity:action,id:'art-'+env.region+'-'+tag,tag,target:n.project({x:x+.02,z:z-.04})})).filter(p=>n.valid(p));},
   occlusion(p){if(!spec||!nav)return [];const {host,stage}=geometry();

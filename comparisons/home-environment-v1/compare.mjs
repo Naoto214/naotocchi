@@ -2,6 +2,7 @@
 import * as world from './proposal/home-production-world.mjs';
 import * as current from './baseline/home-production-world.mjs';
 import {FOLIAGE_B2} from './proposal/living/final.mjs';
+import {WIND_LEVELS, DENSITY_LEVELS, levelName} from './proposal/home-climate.mjs';
 import {atmosphere} from './proposal/home-dayparts.mjs';
 
 const AXES = {
@@ -25,7 +26,20 @@ const PLANTS = {
   desert:'砂丘の草', deepsea:'なし', star_stop:'アーチのつた、植え込み、足もとの草花', memory_lake:'柳、岸の草、すすき'
 };
 const ZOOMS = [['','全体'],['top','上部'],['mid','中央'],['left','左がわ'],['right','右がわ'],['grass','手前']];
-const WINDS = [['0','ふつうの風'],['1','強い風']];
+const WINDS = [['auto','自動で変化'],['calm','無風に近い'],['light','弱い'],['normal','普通'],['strong','強い']];
+const AMOUNTS = [['auto','自動で変化'],['small','小'],['medium','中（承認済みの量）'],['large','大']];
+const SPEEDS = [['1','ふつう'],['12','12倍速（変化を早く見る）']];
+// Example measurements, as the weather service would report them (mm/h, cm/h, m/s).
+const MEASURED = [
+  ['none','連携なし（ゲーム内で変化）',null],
+  ['still','晴れ・ほぼ無風（風0.5m/s）',{windSpeed:.5, windGusts:1}],
+  ['drizzle','小雨・そよ風（0.4mm/h・風1.5m/s）',{precipitation:.4, windSpeed:1.5, windGusts:3}],
+  ['downpour','大雨・強風（8mm/h・風9m/s）',{precipitation:8, windSpeed:9, windGusts:16}],
+  ['flurry','小雪（0.3cm/h・風2m/s）',{snowfall:.3, windSpeed:2, windGusts:4}],
+  ['blizzard','大雪・強風（3cm/h・風7m/s）',{snowfall:3, windSpeed:7, windGusts:13}]
+];
+const WIND_NAMES = {calm:'無風に近い', light:'弱い', normal:'普通', strong:'強い'}, AMOUNT_NAMES = {small:'小', medium:'中', large:'大'};
+const KIND_NAMES = {rain:'雨', snow:'雪', petal:'花びら', leaf:'落ち葉'};
 const PRESETS_OLD = [
   ['もり・夏・昼','forest','summer','sunny','day'],['もり・夏・朝','forest','summer','sunny','morning'],
   ['もり・夏・夕','forest','summer','sunny','evening'],['もり・夏・夜','forest','summer','sunny','night'],
@@ -35,17 +49,17 @@ const PRESETS_OLD = [
   ['とかい・夜','city','summer','sunny','night'],['おうち・昼','home','summer','sunny','day']
 ];
 const PRESETS = [
-  ['いなか・夏・昼','countryside','summer','sunny','day'],['かわ・夏・昼','river_lake','summer','sunny','day'],
-  ['ジャングル・昼','jungle','summer','sunny','day'],['とかい・昼','city','summer','sunny','day'],
-  ['とかい・夜','city','summer','sunny','night'],['やま・夏・朝','mountain','summer','sunny','morning'],
-  ['きおくのみずうみ・夕','memory_lake','summer','sunny','evening'],['さばく・昼','desert','summer','sunny','day'],
-  ['ほしぞら・昼','star_stop','summer','sunny','day'],['おうち・昼','home','summer','sunny','day'],
-  ['もり・夏・昼','forest','summer','sunny','day'],['もり・夏・夜','forest','summer','sunny','night'],
-  ['うみ・雨・夕','sea','summer','rain','evening'],['ゆきぐに・雪・夜','snow','winter','snow','night'],
-  ['もり・秋・昼','forest','autumn','sunny','day'],['かわ・春・夕','river_lake','spring','sunny','evening']
+  ['春×雨（もり）','forest','spring','rain','day'],['秋×雨（かわ）','river_lake','autumn','rain','day'],
+  ['秋×雪（いなか）','countryside','autumn','snow','evening'],['春×雪（やま）','mountain','spring','snow','morning'],
+  ['夜×晴れ（いなか・流れ星）','countryside','summer','sunny','night'],['夜×曇り（うみ）','sea','summer','cloudy','night'],
+  ['夜×雨（もり）','forest','summer','rain','night'],['夜×雪（ゆきぐに）','snow','winter','snow','night'],
+  ['夜×晴れ（さばく・流れ星）','desert','summer','sunny','night'],['夜×晴れ（とかい・流れ星）','city','summer','sunny','night'],
+  ['夜×晴れ（やま・流れ星）','mountain','summer','sunny','night'],['夜×晴れ（きおくのみずうみ）','memory_lake','summer','sunny','night'],
+  ['雨×水面（うみ）','sea','summer','rain','evening'],['秋・晴れ（もり）','forest','autumn','sunny','day'],
+  ['春・晴れ（かわ）','river_lake','spring','sunny','evening'],['夏・昼（いなか）','countryside','summer','sunny','day']
 ];
 void PRESETS_OLD;
-const state = {region:'countryside', season:'summer', weather:'sunny', time:'day', tier:'1', left:'now', right:'tips2', zoom:'', wind:'0'};
+const state = {region:'countryside', season:'summer', weather:'sunny', time:'day', tier:'1', left:'now', right:'tips2', zoom:'', wind:'auto', amount:'auto', speed:'1', measured:'none'};
 const order = ['region','season','weather','time','tier'];
 function readHash() {
   const m = location.hash.match(/^#t(\d+)-(\d)-(\d)-(\d)-(\d)-(\d)-(\d)$/);
@@ -63,8 +77,13 @@ function mount(scene, side) {
   const stage = scene.querySelector('.stage');
   const body = {dataset:{homeViewportVersion:'12', homeTinyOverview:'true', homeDisplayVersion:'18'}, style:{setProperty() {}}};
   const doc = {body, defaultView:window, createElement:tag => document.createElement(tag), getElementById:() => stage, querySelector:() => null};
+  const override = () => {
+    const measured = MEASURED.find(([key]) => key === state.measured)[2];
+    return {speed:Number(state.speed), ...(measured ? {measured} : {}),
+      ...(state.wind === 'auto' ? {} : {wind:WIND_LEVELS[state.wind]}), ...(state.amount === 'auto' ? {} : {density:DENSITY_LEVELS[state.amount]})};
+  };
   const make = mod => mod.createHomeWorld({container:scene, document:doc, window, environmentFx:'final',
-    treeSway:() => state[side] === 'still' ? 'still' : 'tips2', wind:() => state.wind === '1' ? .95 : 0});
+    treeSway:() => state[side] === 'still' ? 'still' : 'tips2', climate:override, onClimate:air => { latest[side] = air; }});
   // Each pane holds the production renderer and the final one, and shows whichever is chosen.
   const pair = {now:make(current), next:make(world)};
   const canvases = [...scene.querySelectorAll('canvas.home-art-canvas')], layers = [...scene.querySelectorAll('.home-dayparts-fx')];
@@ -77,6 +96,7 @@ function mount(scene, side) {
     }
   };
 }
+const latest = {};
 const scenes = [document.getElementById('sceneLeft'), document.getElementById('sceneRight')];
 const worlds = [mount(scenes[0], 'left'), mount(scenes[1], 'right')];
 const panes = document.getElementById('panes');
@@ -103,6 +123,9 @@ function apply() {
   }
   chips(document.getElementById('zoom'), ZOOMS, () => state.zoom, value => { state.zoom = value; });
   chips(document.getElementById('wind'), WINDS, () => state.wind, value => { state.wind = value; });
+  chips(document.getElementById('amount'), AMOUNTS, () => state.amount, value => { state.amount = value; });
+  chips(document.getElementById('speed'), SPEEDS, () => state.speed, value => { state.speed = value; });
+  chips(document.getElementById('measured'), MEASURED.map(([key, label]) => [key, label]), () => state.measured, value => { state.measured = value; if (value !== 'none') { state.wind = 'auto'; state.amount = 'auto'; } });
   panes.dataset.zoom = state.zoom;
   for (const key of order) chips(document.getElementById(key), AXES[key], () => state[key], value => { state[key] = value; });
   const presets = document.getElementById('presets');
@@ -119,6 +142,23 @@ function apply() {
 readHash();
 addEventListener('hashchange', () => { readHash(); apply(); });
 apply();
+// What the final version is doing right now, refreshed twice a second.
+function readout() {
+  const side = state.right === 'now' ? (state.left === 'now' ? null : 'left') : 'right', air = side && latest[side];
+  const el = document.getElementById('readout');
+  if (!air) { el.textContent = '現行の本番には、風と量の変化はありません。'; return; }
+  const parts = [`風：${WIND_NAMES[levelName(air.wind, WIND_LEVELS)]}（${air.wind.toFixed(2)}）`], l = air.layers;
+  const amount = (kind, share) => parts.push(`${KIND_NAMES[kind]}：${AMOUNT_NAMES[levelName(air[kind], DENSITY_LEVELS)]}（${(air[kind] * share).toFixed(2)}）`);
+  if (l.precipitation) amount(l.precipitation, 1);
+  if (l.petals > 0) amount('petal', l.petals);
+  if (l.leaves > 0) amount('leaf', l.leaves);
+  if (l.rings) parts.push('水面の波紋');
+  if (l.twinkle > 0) parts.push(l.twinkle < 1 ? '星のまたたき（薄雲ごし）' : '星のまたたき');
+  if (l.meteors > 0) parts.push(l.meteors < 1 ? '流れ星（まれ）' : '流れ星（ときどき）');
+  if (l.fireflies) parts.push('ほたる・ただよう光');
+  el.textContent = 'いま：' + parts.join('　／　');
+}
+setInterval(readout, 500);
 const reduced = matchMedia('(prefers-reduced-motion: reduce)');
 // The home itself steps at 30 fps; the comparison keeps the same cadence.
 let last = performance.now();

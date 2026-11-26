@@ -30,6 +30,7 @@ header p{margin:4px 0 0;color:var(--muted);max-width:60ch}
 .panes[data-zoom="mid"] .scene canvas{transform:scale(2.6);transform-origin:50% 42%}
 .chips.sway button{padding:7px 10px;font-size:12.5px}
 .zoomrow{max-width:760px;width:100%;margin:0 auto}
+.readout{max-width:760px;width:100%;margin:0 auto;padding:10px 12px;border:1px solid var(--line);border-radius:12px;color:var(--ink);font-variant-numeric:tabular-nums;min-height:3.2em}
 .home-art-canvas{display:block;position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
 .pane p{margin:0;color:var(--muted);font-size:12.5px;line-height:1.55;min-height:4.7em}
 .gallery{display:flex;flex-direction:column;gap:10px}
@@ -61,10 +62,14 @@ button:focus-visible{outline:2px solid var(--ink);outline-offset:2px}
 <div class="wrap">
  <header>
   <h1>環境演出 最終統合版</h1>
-  <p>左がいまの本番、右が最終統合版です。雨・雪・花びら・落ち葉・ほたる・星・川・海・水面・光の演出に、承認済みの葉先の揺れ（B2）を全地域へ広げて組み合わせています。左右とも表示する版を選べます。</p>
+  <p>左がいまの本番、右が最終統合版です。風の強さと、雨・雪・花びら・落ち葉の量が時間とともに自然に変わり、季節と天気の演出が重なります。下のボタンで強さを固定したり、変化を早送りしたりできます。</p>
  </header>
  <div class="row zoomrow"><span>見る場所</span><div class="chips" id="zoom"></div></div>
- <div class="row zoomrow"><span>風</span><div class="chips" id="wind"></div></div>
+ <div class="row zoomrow"><span>風の強さ</span><div class="chips" id="wind"></div></div>
+ <div class="row zoomrow"><span>粒子の量</span><div class="chips" id="amount"></div></div>
+ <div class="row zoomrow"><span>実際の天気の例</span><div class="chips" id="measured"></div></div>
+ <div class="row zoomrow"><span>時間の進み</span><div class="chips" id="speed"></div></div>
+ <p class="readout" id="readout" aria-live="off"></p>
  <div class="panes" id="panes">
   <section class="pane" data-side="left"><div class="chips sway" id="swayLeft"></div><div class="scene" id="sceneLeft"><div class="stage"></div></div><p id="noteLeft"></p></section>
   <section class="pane" data-side="right"><div class="chips sway" id="swayRight"></div><div class="scene" id="sceneRight"><div class="stage"></div></div><p id="noteRight"></p></section>
@@ -75,7 +80,7 @@ button:focus-visible{outline:2px solid var(--ink);outline-offset:2px}
   <div class="row"><span>季節</span><div class="chips" id="season"></div></div>
   <div class="row"><span>天気</span><div class="chips" id="weather"></div></div>
   <div class="row"><span>時間帯</span><div class="chips" id="time"></div></div>
-  <div class="row"><span>粒子の量</span><div class="chips" id="tier"></div></div>
+  <div class="row"><span>端末の負荷段階</span><div class="chips" id="tier"></div></div>
  </div>
  <!--GALLERY-->
 </div>

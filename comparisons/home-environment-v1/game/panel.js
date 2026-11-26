@@ -24,6 +24,21 @@
   if (s.fx === 'E') field('sway', [['tips2','植物：揺れる（B2）'],['still','植物：静止']]);
   field('count', Object.entries(labels.count));
   for (const key of ['region','season','weather','time']) field(key, s.lists[key].map((value, i) => [value, labels[key][i]]));
+  // Wind and particle amount can be pinned without reloading; "自動" lets them drift on their own.
+  if (s.fx === 'E') {
+    const pin = {};
+    window.NaotocchiClimate = pin;
+    const live = (key, options) => {
+      const select = document.createElement('select');
+      select.id = 'env-' + key; select.style.cssText = 'display:block;width:100%;margin:3px 0;font:inherit';
+      for (const [value, text] of options) { const o = document.createElement('option'); o.value = value; o.textContent = text; select.append(o); }
+      select.onchange = () => { if (select.value === '') delete pin[key]; else pin[key] = Number(select.value); };
+      panel.append(select);
+    };
+    live('wind', [['','風：自動で変化'],['0.22','風：無風に近い'],['0.6','風：弱い'],['1','風：普通'],['1.45','風：強い']]);
+    live('density', [['','量：自動で変化'],['0.55','量：小'],['1','量：中'],['1.45','量：大']]);
+    live('speed', [['','時間：ふつう'],['12','時間：12倍速']]);
+  }
   panel.append(meter);
   const back = document.createElement('button');
   back.type = 'button'; back.textContent = '← 比較ページへ'; back.style.cssText = 'font:inherit;margin-top:4px;width:100%';

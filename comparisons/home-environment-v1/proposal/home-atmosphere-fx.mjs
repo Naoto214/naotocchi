@@ -109,7 +109,7 @@ export function fallingCount(env, kind, tier = 0) {
   return Math.round(FX_COUNTS[kind][level] * (env.region === 'home' ? .25 : kind === 'petal' ? PETAL_SCALE[env.region] ?? 1 : 1));
 }
 
-function rings(ctx, rect, env, seconds, tier, tone, lively) {
+function rings(ctx, rect, env, seconds, tier, tone, lively, share) {
   const spots = RAIN_WATER[env.region];
   if (!spots) return;
   const count = Math.min(spots.length, [spots.length, 40, 22][Math.min(2, Math.max(0, tier | 0))]);
@@ -121,6 +121,8 @@ function rings(ctx, rect, env, seconds, tier, tone, lively) {
     const rest = lively ? 1.25 : 2.2, period = 1.5 + 1.2 * hash(i + 4099), cycle = seconds / (period * rest) + hash(i + 4211);
     const turn = Math.floor(cycle), p = unit(cycle) * rest;
     if (p >= 1) continue;
+    // Fewer drops, fewer rings: a spot joins in only while the rain is heavy enough for it.
+    if (share && (i + .5) / count > share(seconds - p * period) / FALL_HEADROOM * 1.2) continue;
     const [x, y] = spots[i], depth = (y - top) / span;
     const jx = (hash(i * 31 + turn) - .5) * .03, jy = (hash(i * 37 + turn) - .5) * .012;
     const radius = H * (.011 + .034 * depth * (.8 + .4 * hash(i + 4153))) * (.12 + 1.08 * p) * .5;
@@ -140,11 +142,23 @@ function rings(ctx, rect, env, seconds, tier, tone, lively) {
 }
 
 // Draws the falling layer over the finished backdrop. `seconds` is the scene clock.
-export function paintFalling(ctx, rect, env, mood, seconds, {tier = 0, document:doc, lively = false} = {}) {
-  const kind = fallingKind(mood);
-  if (!kind) return;
-  const indoor = env.region === 'home', tone = TONES[env.time] || TONES.day;
-  const W = rect.width, H = rect.height, list = getTracks(kind, fallingCount(env, kind, tier), indoor);
+// The most a kind can ever show, as a share of the approved amount.
+export const FALL_HEADROOM = 1.75;
+// Draws the falling layers over the finished backdrop. `seconds` is the scene clock.
+// With `layers` (see home-climate.mjs) rain or snow and spring petals can fall together;
+// `amount(kind, seconds)` is the share of the approved count falling at that moment.
+export function paintFalling(ctx, rect, env, mood, seconds, options = {}) {
+  const {layers, amount} = options;
+  if (!layers) { const kind = fallingKind(mood); if (kind) paintKind(ctx, rect, env, kind, seconds, options, null); return; }
+  if (layers.petals > 0) paintKind(ctx, rect, env, 'petal', seconds, options, amount ? t => layers.petals * amount('petal', t) : () => layers.petals);
+  if (layers.precipitation) paintKind(ctx, rect, env, layers.precipitation, seconds, options, amount ? t => amount(layers.precipitation, t) : null, layers.rings);
+}
+function paintKind(ctx, rect, env, kind, seconds, {tier = 0, document:doc, lively = false} = {}, share, withRings = true) {
+  const indoor = env.region === 'home', tone = TONES[env.time] || TONES.day, base = fallingCount(env, kind, tier);
+  // A particle joins or leaves only between falls: whether it is present was decided by the
+  // share at the moment it set out, so the amount swells and thins without anything popping.
+  const W = rect.width, H = rect.height, list = getTracks(kind, share ? Math.ceil(base * FALL_HEADROOM) : base, indoor);
+  const absent = (i, born) => share != null && i >= base * share(born);
   // Sizes follow the painting, so a larger crop shows proportionally larger flakes.
   const px = Math.min(1.5, H / 720);
   ctx.save();
@@ -156,11 +170,13 @@ export function paintFalling(ctx, rect, env, mood, seconds, {tier = 0, document:
     ctx.closePath(); ctx.clip();
   }
   if (kind === 'rain') {
-    rings(ctx, rect, env, seconds, tier, tone, lively);
+    if (withRings) rings(ctx, rect, env, seconds, tier, tone, lively, share);
     ctx.strokeStyle = `rgb(${tone.rain})`;
     ctx.lineCap = 'round';
-    for (const d of list) {
+    for (let i = 0; i < list.length; i++) {
+      const d = list[i];
       const p = unit(seconds / d.duration + d.phase), fall = d.y0 + (d.y1 - d.y0) * p;
+      if (absent(i, seconds - p * d.duration)) continue;
       const x = rect.left + d.x * W + (fall - d.y0) * d.slope * H, y = rect.top + (fall + d.length) * H;
       const dx = d.slope * d.length * H, dy = d.length * H, alpha = d.alpha * envelope(p);
       ctx.lineWidth = d.width * px;
@@ -170,16 +186,20 @@ export function paintFalling(ctx, rect, env, mood, seconds, {tier = 0, document:
     }
   } else if (kind === 'snow') {
     const image = flake(doc, tone.snow);
-    for (const d of list) {
+    for (let i = 0; i < list.length; i++) {
+      const d = list[i];
       const p = unit(seconds / d.duration + d.phase), size = d.size * px * 1.4;
+      if (absent(i, seconds - p * d.duration)) continue;
       const x = rect.left + d.x * W + (d.drift * (p - .5) + d.sway * Math.sin(TAU * (seconds / d.swayPeriod + d.swayPhase))) * H;
       const y = rect.top + (d.y0 + (d.y1 - d.y0) * p) * H;
       ctx.globalAlpha = d.alpha * envelope(p);
       if (image) ctx.drawImage(image, x - size / 2, y - size / 2, size, size);
     }
   } else {
-    for (const d of list) {
+    for (let i = 0; i < list.length; i++) {
+      const d = list[i];
       const p = unit(seconds / d.duration + d.phase), swing = Math.sin(TAU * (seconds / d.swayPeriod + d.swayPhase));
+      if (absent(i, seconds - p * d.duration)) continue;
       const x = rect.left + d.x * W + (d.drift * (p - .5) + d.sway * swing) * H, y = rect.top + (d.y0 + (d.y1 - d.y0) * p) * H;
       // The petal tips over its long axis: full face, edge-on, then the reverse.
       const flip = Math.cos(TAU * (seconds / d.flipPeriod + d.flipPhase));

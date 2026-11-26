@@ -243,26 +243,64 @@ export function fireflies(ctx, region, time, seconds, doc, {gain = 1, size = 1} 
 }
 
 // Stars twinkle one by one on their own beats, and once in a while one falls.
-export function nightSky(ctx, region, seconds, {gain = 1, size = 1, meteorEvery = 17} = {}) {
+// Open night sky where no star was detected automatically: the gap between the towers.
+const MORE_SKY = {city:[[.44,.03],[.52,.08],[.6,.02],[.66,.08]]};
+// A shooting star runs from one point of open sky to another, and only where a third point
+// of sky lies near the middle of its path, so it never crosses a ridge, a roof or a tree.
+const lanes = new Map();
+export function meteorLanes(region) {
+  if (lanes.has(region)) return lanes.get(region);
+  const sky = (NIGHT_STARS[region] || MORE_SKY[region] || []).map(([u, v]) => [u * 1000, v * 1500]), list = [];
+  for (let a = 0; a < sky.length; a++) for (let b = 0; b < sky.length; b++) {
+    if (a === b || sky[b][1] < sky[a][1] + 12) continue; // they fall, never climb
+    const length = Math.hypot(sky[b][0] - sky[a][0], sky[b][1] - sky[a][1]);
+    if (length < 90 || length > 330) continue;
+    const mx = (sky[a][0] + sky[b][0]) / 2, my = (sky[a][1] + sky[b][1]) / 2;
+    if (length > 150 && !sky.some((p, k) => k !== a && k !== b && Math.hypot(p[0] - mx, p[1] - my) < 60)) continue;
+    list.push([sky[a], sky[b], length]);
+  }
+  lanes.set(region, list);
+  return list;
+}
+// The shooting stars in flight at a moment. Time is cut into 13-second slots; a slot holds one
+// only now and then, at a random moment within it, so they never keep a beat.
+export function meteorsAt(region, seconds, rate = 1) {
+  const list = meteorLanes(region), out = [];
+  if (!list.length || rate <= 0) return out;
+  const slot = Math.floor(seconds / 13);
+  for (const k of [slot - 1, slot]) {
+    if (hash(k * 29 + 3) >= .2 * rate) continue;
+    const long = .6 + .7 * hash(k * 29 + 11), start = k * 13 + hash(k * 29 + 5) * (13 - long), p = (seconds - start) / long;
+    if (p <= 0 || p >= 1) continue;
+    const [from, to, length] = list[Math.floor(hash(k * 29 + 7) * list.length)];
+    out.push({from, to, length, p, bright:.55 + .45 * hash(k * 29 + 13), width:1.6 + 1.4 * hash(k * 29 + 17)});
+  }
+  return out;
+}
+// Stars twinkle one by one on their own beats, and once in a while one falls.
+export function nightSky(ctx, region, seconds, {gain = 1, size = 1, meteors = 1.5} = {}) {
   const stars = NIGHT_STARS[region];
-  if (!stars) return;
-  ctx.fillStyle = '#f4f7ff';
-  stars.forEach(([u, v], i) => {
-    const period = 1.6 + 4.2 * hash(i + 3001), cycle = seconds / period + hash(i + 3011);
-    if (hash(i * 41 + Math.floor(cycle)) < .45) return;
-    const beat = Math.sin(Math.PI * unit(cycle)) ** 2;
-    ctx.globalAlpha = .85 * beat * gain;
-    sparkle(ctx, u * 1000, v * 1500, size * (5 + 9 * hash(i + 3023) * beat));
-  });
-  const every = meteorEvery, turn = Math.floor(seconds / every), p = (seconds - turn * every) / 1.1;
-  if (p < 1 && hash(turn * 29 + 3) < .7) {
-    const x = 180 + 640 * hash(turn * 29 + 5), y = 40 + 150 * hash(turn * 29 + 7), side = hash(turn * 29 + 9) < .5 ? -1 : 1;
-    const hx = x + side * 260 * p, hy = y + 110 * p, tail = 150 * Math.sin(Math.PI * p);
-    const g = ctx.createLinearGradient(hx, hy, hx - side * tail * .92, hy - tail * .39);
+  if (stars && gain > 0) {
+    ctx.fillStyle = '#f4f7ff';
+    stars.forEach(([u, v], i) => {
+      const period = 1.6 + 4.2 * hash(i + 3001), cycle = seconds / period + hash(i + 3011);
+      if (hash(i * 41 + Math.floor(cycle)) < .45) return;
+      const beat = Math.sin(Math.PI * unit(cycle)) ** 2;
+      ctx.globalAlpha = .85 * beat * gain;
+      sparkle(ctx, u * 1000, v * 1500, size * (5 + 9 * hash(i + 3023) * beat));
+    });
+  }
+  for (const m of meteorsAt(region, seconds, meteors)) {
+    const hx = m.from[0] + (m.to[0] - m.from[0]) * m.p, hy = m.from[1] + (m.to[1] - m.from[1]) * m.p;
+    // The tail is the stretch already travelled, at most 45% of the path.
+    const tail = Math.min(m.p, .45) * Math.sin(Math.PI * m.p) / .45 * .45;
+    const tx = hx - (m.to[0] - m.from[0]) * tail, ty = hy - (m.to[1] - m.from[1]) * tail;
+    const g = ctx.createLinearGradient(hx, hy, tx, ty);
     g.addColorStop(0, 'rgba(255,255,255,.95)'); g.addColorStop(1, 'rgba(200,220,255,0)');
-    ctx.globalAlpha = Math.sin(Math.PI * p);
-    ctx.strokeStyle = g; ctx.lineWidth = 2.6; ctx.lineCap = 'round';
-    ctx.beginPath(); ctx.moveTo(hx, hy); ctx.lineTo(hx - side * tail * .92, hy - tail * .39); ctx.stroke();
+    // Under thin cloud they are rarer and fainter.
+    ctx.globalAlpha = Math.sin(Math.PI * m.p) * m.bright * Math.min(1, .5 + .5 * meteors);
+    ctx.strokeStyle = g; ctx.lineWidth = m.width; ctx.lineCap = 'round';
+    ctx.beginPath(); ctx.moveTo(hx, hy); ctx.lineTo(tx, ty); ctx.stroke();
   }
 }
 

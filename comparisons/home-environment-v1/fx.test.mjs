@@ -409,3 +409,140 @@ test('final (B2 everywhere): leaf shapes come from the daylight painting; olive 
   assert.equal(daylightOf('city', night, doc, 'x/city-day.webp'), null);
   assert.equal(daylightOf('city', night, doc, 'x/city-day.webp'), null); // asked once, still loading
 });
+
+const REGIONS = Object.keys(DAYPARTS), TIMES = ['morning','day','evening','night'], WEATHERS = ['sunny','cloudy','rain','snow'], SEASONS = ['spring','summer','autumn','winter'];
+
+test('layers: every one of the 832 scenes combines its effects by the stated rules', async () => {
+  const {layersFor, STARRY} = await import('./proposal/home-climate.mjs');
+  const seasonal = new Set(['forest','countryside','river_lake','mountain']), sealed = new Set(['deepsea','star_stop','memory_lake']);
+  let both = 0;
+  for (const region of REGIONS) for (const time of TIMES) for (const weather of WEATHERS) for (const season of SEASONS) {
+    const env = {region, time, weather, season}, l = layersFor(env), where = JSON.stringify(env);
+    // Rain and snow never fall together, and the ground's weather never reaches the sealed regions.
+    assert.ok([null, 'rain', 'snow'].includes(l.precipitation), where);
+    if (sealed.has(region)) assert.equal(l.precipitation, null, where);
+    if (weather === 'snow' && (region === 'desert' || region === 'jungle')) assert.equal(l.precipitation, null, where);
+    if (weather === 'rain' && !sealed.has(region)) assert.equal(l.precipitation, 'rain', where);
+    // Petals in spring and leaves in autumn keep falling in rain or snow, as a small share.
+    assert.equal(l.petals > 0, seasonal.has(region) && season === 'spring', where);
+    assert.equal(l.leaves > 0, seasonal.has(region) && season === 'autumn', where);
+    assert.ok(!(l.petals > 0 && l.leaves > 0), where);
+    for (const share of [l.petals, l.leaves]) if (share > 0) assert.equal(share, l.precipitation === 'rain' ? .35 : l.precipitation === 'snow' ? .25 : 1, where);
+    if (l.precipitation && (l.petals > 0 || l.leaves > 0)) both++;
+    assert.equal(l.rings, l.precipitation === 'rain' && ['sea','river_lake','jungle'].includes(region), where);
+    // Stars and shooting stars: only at night, only under open sky, dimmer through cloud, gone in rain or snow.
+    const open = time === 'night' && STARRY.has(region), sky = sealed.has(region) ? 'sunny' : weather;
+    assert.equal(l.meteors, open ? (sky === 'sunny' ? 1 : sky === 'cloudy' ? .3 : 0) : 0, where);
+    assert.equal(l.twinkle > 0, open && (sky === 'sunny' || sky === 'cloudy'), where);
+    if (l.precipitation) assert.equal(l.fireflies && !sealed.has(region), false, where);
+  }
+  assert.equal(both, 4 * 4 * 2 * 2); // 4 seasonal regions × 4 hours × rain/snow × spring/autumn
+});
+
+test('climate: wind and amounts hold, change smoothly, cover every level, and differ between visits', async () => {
+  const {createClimate, WIND_LEVELS, DENSITY_LEVELS, levelName} = await import('./proposal/home-climate.mjs');
+  const env = {region:'forest', time:'day', weather:'sunny', season:'autumn'}, climate = createClimate(1234);
+  const wind = Array.from({length:36000}, (_, k) => climate.wind(k * .1, env)); // one hour, ten samples a second
+  assert.ok(Math.min(...wind) > .15 && Math.max(...wind) < 1.7);
+  // Never a jump: under 2% of full strength between samples a tenth of a second apart.
+  for (let k = 1; k < wind.length; k++) assert.ok(Math.abs(wind[k] - wind[k - 1]) < .03, String(k));
+  const seen = new Set(wind.map(v => levelName(v, WIND_LEVELS)));
+  assert.deepEqual([...seen].sort(), ['calm','light','normal','strong']);
+  // It keeps a tendency for a while: the level changes a few times a minute at most.
+  let changes = 0;
+  for (let k = 1; k < wind.length; k++) if (levelName(wind[k], WIND_LEVELS) !== levelName(wind[k - 1], WIND_LEVELS)) changes++;
+  assert.ok(changes > 20 && changes < 420, String(changes));
+  // A strong wind arrives faster than it leaves.
+  let rise = 0, fall = 0;
+  for (let k = 1; k < wind.length; k++) { const d = wind[k] - wind[k - 1]; if (d > .0015) rise++; else if (d < -.0015) fall++; }
+  assert.ok(fall > 1.3 * rise, `${rise} ${fall}`);
+  for (const kind of ['rain','snow','petal','leaf']) {
+    const amount = Array.from({length:18000}, (_, k) => climate.density(kind, k * .2, env));
+    for (let k = 1; k < amount.length; k++) assert.ok(Math.abs(amount[k] - amount[k - 1]) < .05, kind + k);
+    assert.deepEqual([...new Set(amount.map(v => levelName(v, DENSITY_LEVELS)))].sort(), ['large','medium','small'], kind);
+    assert.ok(Math.min(...amount) >= .38 && Math.max(...amount) <= 1.75, kind);
+  }
+  // Petals and leaves come loose in wind: more of them at a strong wind than in still air.
+  const at = (w, kind) => { let sum = 0; for (let s = 0; s < 600; s += 3) sum += climate.density(kind, s, env, {wind:w}); return sum; };
+  assert.ok(at(1.45, 'leaf') > 1.3 * at(.22, 'leaf') && at(1.45, 'petal') > 1.3 * at(.22, 'petal'));
+  assert.equal(at(1.45, 'rain'), at(.22, 'rain'));
+  // Another visit, another sequence; the same visit replays exactly.
+  const other = createClimate(987), same = createClimate(1234);
+  assert.ok(Array.from({length:600}, (_, k) => Math.abs(other.wind(k, env) - climate.wind(k, env))).reduce((a, b) => a + b) / 600 > .15);
+  assert.equal(same.wind(321.5, env), climate.wind(321.5, env));
+  // Pinned levels are honoured exactly.
+  assert.equal(climate.wind(50, env, {wind:WIND_LEVELS.calm}), .22);
+  assert.equal(climate.density('rain', 50, env, {density:DENSITY_LEVELS.large}), 1.45);
+});
+
+test('climate: measured weather sets rain, snow and wind; missing fields fall back instead of being invented', async () => {
+  const {createClimate, fromMeasured} = await import('./proposal/home-climate.mjs');
+  const env = {region:'sea', time:'day', weather:'rain', season:'summer'}, climate = createClimate(7);
+  const mean = (f) => { let sum = 0; for (let s = 0; s < 900; s += 3) sum += f(s); return sum / 300; };
+  const rain = mm => mean(s => climate.density('rain', s, env, {measured:{precipitation:mm}}));
+  assert.ok(rain(.3) < .62 && rain(2.5) > .8 && rain(2.5) < 1.15 && rain(9) > 1.35);
+  assert.ok(rain(.3) < rain(1) && rain(1) < rain(3) && rain(3) < rain(6));
+  const snow = cm => mean(s => climate.density('snow', s, env, {measured:{snowfall:cm}}));
+  assert.ok(snow(.2) < .65 && snow(3) > 1.35);
+  const wind = (ms, gusts) => mean(s => climate.wind(s, env, {measured:{windSpeed:ms, windGusts:gusts}}));
+  assert.ok(wind(.5) < .35 && wind(3) > .4 && wind(3) < .8 && wind(6) > .8 && wind(6) < 1.2 && wind(11) > 1.3);
+  // Gusty air swings more widely around the same mean speed.
+  const spread = gusts => { const v = Array.from({length:400}, (_, k) => climate.wind(k * 2, env, {measured:{windSpeed:5, windGusts:gusts}})); return Math.max(...v) - Math.min(...v); };
+  assert.ok(spread(13) > 1.5 * spread(5));
+  // Only what was measured is used: a wind reading leaves the rain to vary on its own, and nonsense is ignored.
+  assert.equal(fromMeasured({windSpeed:4}).rain, null);
+  assert.equal(fromMeasured({precipitation:-1, snowfall:NaN, windSpeed:'5'}).wind, null);
+  assert.equal(fromMeasured(undefined), null);
+  assert.equal(climate.density('rain', 40, env, {measured:{windSpeed:4}}), climate.density('rain', 40, env));
+});
+
+test('amounts: medium is exactly the approved count, and particles join or leave only between falls', async () => {
+  const {layersFor} = await import('./proposal/home-climate.mjs');
+  const env = {region:'forest', time:'day', weather:'rain', season:'summer'}, mood = atmosphere(env), layers = layersFor(env);
+  const drops = share => { const r = recorder(); paintFalling(r.ctx, rect, env, mood, 40, {tier:0, layers, amount:() => share}); return r.calls.filter(([name]) => name === 'moveTo').length / 2; };
+  assert.equal(drops(1), FX_COUNTS.rain[0]);
+  assert.equal(drops(.55), Math.ceil(FX_COUNTS.rain[0] * .55));
+  assert.equal(drops(1.45), Math.ceil(FX_COUNTS.rain[0] * 1.45));
+  // When the amount drops suddenly, flakes already falling finish their fall.
+  const snowEnv = {region:'snow', time:'day', weather:'snow', season:'winter'}, snowLayers = layersFor(snowEnv);
+  const flakes = seconds => { const r = withGradients(recorder()); paintFalling(r.ctx, rect, snowEnv, atmosphere(snowEnv), seconds, {tier:0, layers:snowLayers, amount:(kind, born) => born < 100 ? 1.45 : .55}); return r.calls.filter(([name]) => name === 'drawImage').length; };
+  const counts = [100.1, 103, 108, 115, 125].map(flakes);
+  for (let k = 1; k < counts.length; k++) assert.ok(counts[k] <= counts[k - 1], counts.join());
+  assert.ok(counts[0] > .9 * FX_COUNTS.snow[0] * 1.45 && counts[4] < FX_COUNTS.snow[0] * .7, counts.join());
+  // Spring rain shows both rain and a few petals; neither appears where it should not.
+  const spring = {region:'forest', time:'day', weather:'rain', season:'spring'}, r = withGradients(recorder());
+  paintFalling(r.ctx, rect, spring, atmosphere(spring), 40, {tier:0, layers:layersFor(spring), amount:() => 1});
+  const petals = r.calls.filter(([name]) => name === 'drawImage').length;
+  assert.ok(petals >= 1 && petals <= Math.ceil(FX_COUNTS.petal[0] * .35));
+  assert.equal(r.calls.filter(([name]) => name === 'moveTo').length / 2, FX_COUNTS.rain[0]);
+});
+
+test('shooting stars: under every open night sky, irregular, inside the sky, and never in the jungle or indoors', async () => {
+  const {meteorLanes, meteorsAt, NIGHT_STARS} = await import('./proposal/living/maximum.mjs');
+  const {STARRY} = await import('./proposal/home-climate.mjs');
+  for (const region of STARRY) {
+    const lanes = meteorLanes(region);
+    assert.ok(lanes.length >= 4, region);
+    const sky = NIGHT_STARS[region];
+    for (const [from, to, length] of lanes) {
+      assert.ok(to[1] > from[1] && length >= 90 && length <= 330, region); // they fall, and stay short
+      // Both ends are points of open sky; a long one also passes close to a third.
+      if (sky && length > 150) { const mx = (from[0] + to[0]) / 2, my = (from[1] + to[1]) / 2;
+        assert.ok(sky.some(([u, v]) => { const d = Math.hypot(u * 1000 - mx, v * 1500 - my); return d < 60 && d > 0; }), region); }
+    }
+    const starts = [], seen = new Set();
+    let visible = 0, was = false;
+    for (let s = 0; s < 7200; s += .1) { const now = meteorsAt(region, s, 1); if (now.length) { visible++; if (!was) { starts.push(s); seen.add(now[0].from.join() + '>' + now[0].to.join()); } } was = now.length > 0; }
+    // Now and then: 20 to 60 an hour, on screen for a small part of the time, from many places.
+    assert.ok(starts.length >= 40 && starts.length <= 160, region + starts.length);
+    assert.ok(visible / 72000 < .04, region);
+    assert.ok(seen.size >= Math.min(4, lanes.length), region);
+    const gaps = starts.slice(1).map((s, k) => s - starts[k]);
+    assert.ok(Math.max(...gaps) > 3 * Math.min(...gaps), region); // no steady beat
+    assert.ok(meteorsAt(region, 500, 0).length === 0);
+  }
+  for (const region of ['jungle','home','deepsea']) assert.equal(meteorLanes(region).length, 0, region);
+  // Thin cloud lets far fewer through.
+  const count = rate => { let n = 0, was = false; for (let s = 0; s < 7200; s += .2) { const on = meteorsAt('sea', s, rate).length > 0; if (on && !was) n++; was = on; } return n; };
+  assert.ok(count(.3) < .5 * count(1));
+});
