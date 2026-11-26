@@ -134,7 +134,7 @@ const fieldNoise = i => mod(Math.sin(i*73.169+49)*31743.31,1);
 const drifting = {
   river_lake:{count:18, seed:131, reach:520, fall:[330,330], size:4.6,
     sources:[[840,230],[230,110],[880,300],[770,190],[310,90],[850,380],[150,160]]},
-  mountain:{count:5, seed:197, reach:690, fall:[210,250], size:4.1,
+  mountain:{count:8, seed:197, reach:690, fall:[210,250], size:4.1,
     sources:[[110,540],[900,470],[330,440],[700,590],[520,480]]},
   // Street trees and planters, the willow by the lake, and the garden tree outside the window.
   city:{count:9, seed:233, reach:420, fall:[330,420], size:4.3,

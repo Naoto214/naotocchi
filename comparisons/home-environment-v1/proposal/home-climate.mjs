@@ -15,7 +15,7 @@ const NO_SNOW = new Set(['desert','jungle']);
 // Where petals fall in spring and leaves in autumn, and how many of the approved amount.
 // The jungle is evergreen; the desert, the snow country, the sea, the deep sea and the stars
 // have no trees that shed. The lake is spared the weather but its willow still keeps the seasons.
-export const SEASONAL = Object.freeze({forest:1, countryside:1, river_lake:1, mountain:1, city:.6, memory_lake:.5, home:1});
+export const SEASONAL = Object.freeze({forest:1, countryside:1, river_lake:1, mountain:1, city:.85, memory_lake:.7, home:1});
 const RAIN_RINGS = new Set(['sea','river_lake','jungle']);
 const FIREFLIES = new Set(['forest','countryside','river_lake','jungle']);
 // Night skies with open, painted stars, including the one seen through the window at home.

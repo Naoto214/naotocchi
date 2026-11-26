@@ -415,7 +415,7 @@ const REGIONS = Object.keys(DAYPARTS), TIMES = ['morning','day','evening','night
 
 test('layers: every one of the 832 scenes combines its effects by the stated rules', async () => {
   const {layersFor, STARRY, SEASONAL} = await import('./proposal/home-climate.mjs');
-  assert.deepEqual(SEASONAL, {forest:1, countryside:1, river_lake:1, mountain:1, city:.6, memory_lake:.5, home:1});
+  assert.deepEqual(SEASONAL, {forest:1, countryside:1, river_lake:1, mountain:1, city:.85, memory_lake:.7, home:1});
   const seasonal = new Set(Object.keys(SEASONAL)), sealed = new Set(['deepsea','star_stop','memory_lake']);
   let both = 0;
   for (const region of REGIONS) for (const time of TIMES) for (const weather of WEATHERS) for (const season of SEASONS) {
@@ -628,4 +628,28 @@ test('seasons: only leaves change colour, conifers stay green, and untouched reg
   assert.equal(seasonalPainting(image, {region:'jungle', time:'day', season:'autumn', strength:1, doc:{}}), image);
   // At home only the window opening is considered.
   assert.deepEqual(SEASON_PLANTS.home.box, [.27, .57, .115, .31]);
+});
+
+test('seasons (far): distant hills turn, water and sky never do, and evergreen regions change only slightly', async () => {
+  const {seasonTone, farFoliage, SEASON_PLANTS, SUBTLE_PLANTS, TINT_CHOICES} = await import('./proposal/living/seasons.mjs');
+  assert.deepEqual(TINT_CHOICES.wide, {strength:1, far:true});
+  // Hazy far woods count as foliage; sky, cloud, snow and grey rock do not.
+  assert.ok(farFoliage(70, 120, 140) > .4 && farFoliage(60, 130, 120) > .8);
+  for (const [r, g, b] of [[70,150,235],[245,248,250],[150,150,150],[20,120,190],[95,70,50]]) assert.ok(farFoliage(r, g, b) < .1, `${r},${g},${b}`);
+  // The far zone always ends above the painted water.
+  for (const [region, top] of [['river_lake', Math.min(...RAIN_WATER.river_lake.map(p => p[1]))], ['memory_lake', .31], ['countryside', .33]])
+    assert.ok(SEASON_PLANTS[region].far + .03 <= top + .02, region);
+  assert.equal(SEASON_PLANTS.city.far, undefined);
+  // A bluish far hillside stays green up close (conifer) but turns in the distance.
+  const hill = [60, 120, 110], plants = SEASON_PLANTS.river_lake;
+  let near = 0, far = 0;
+  for (let x = .05; x < 1; x += .1) { near += seasonTone('autumn', ...hill, hill, x, .15, plants, 1, 'day', 5, 0)[3]; far += seasonTone('autumn', ...hill, hill, x, .15, plants, 1, 'day', 5, 1)[3]; }
+  assert.ok(far > 3 * near && far / 10 > .3, `${near} ${far}`);
+  // Jungle, snow country and desert: never red, and only a slight shift.
+  assert.deepEqual(Object.keys(SUBTLE_PLANTS), ['jungle','snow','desert']);
+  for (const [region, plantsOf] of Object.entries(SUBTLE_PLANTS)) for (const season of ['spring','summer','autumn','winter']) {
+    const t = seasonTone(season, 60, 150, 70, [60, 150, 70], .5, .5, plantsOf, 1, 'day', 3);
+    assert.ok(t[3] <= .46, region + season);
+    assert.ok(t[0] < t[1] * 1.12, region + season); // still green or straw, never orange or red
+  }
 });

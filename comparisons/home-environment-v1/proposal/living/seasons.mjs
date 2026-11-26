@@ -20,18 +20,29 @@ function variety(x, y, seed) {
 }
 
 export const TINT_LEVELS = Object.freeze({none:0, gentle:.45, clear:1});
+// 'wide' is 'clear' carried into the distance: far hills and the woods behind turn as well.
+export const TINT_CHOICES = Object.freeze({none:{strength:0}, gentle:{strength:.45}, clear:{strength:1}, wide:{strength:1, far:true}});
 // Where seasons show, and how. `ground` is the height (0–1) below which green is grass rather
 // than tree; `box` limits the change to part of the painting; `turn` scales the autumn reds.
 export const SEASON_PLANTS = Object.freeze({
-  forest:{ground:.535, turn:1},
-  countryside:{ground:.44, turn:1},
-  river_lake:{ground:.47, turn:1},
-  mountain:{ground:0, turn:.5, palette:'dry'},        // alpine meadow: gold and straw, little red
-  city:{ground:2, turn:.85},                          // street trees and planters
-  memory_lake:{ground:.55, turn:.35},                 // the willow yellows; it does not redden
-  home:{ground:2, turn:1, box:[.27, .57, .115, .31]}  // only the garden seen through the window
+  // `far` is the height above which everything green is distant hillside or far woods. It is
+  // always above the water, so rivers, ponds and lakes are never taken for foliage.
+  forest:{ground:.535, turn:1, far:.34},
+  countryside:{ground:.44, turn:1, far:.3},
+  river_lake:{ground:.47, turn:1, far:.225},
+  mountain:{ground:0, turn:.5, palette:'dry', far:.42}, // alpine meadow: gold and straw, little red
+  city:{ground:2, turn:.85},                          // street trees and planters (glass towers can look green, so no far zone)
+  memory_lake:{ground:.55, turn:.35, far:.3},         // the willow yellows; it does not redden
+  home:{ground:2, turn:1, far:.31, box:[.27, .57, .115, .31]}  // only the garden and hills seen through the window
   // The jungle is evergreen, the desert and snow country have no leaves that turn, and the sea,
   // the deep sea and the stars have no seasons: all are left exactly as painted.
+});
+// Optional, and slight: places that keep their colour all year can still lean with the months.
+// No autumn reds here — only lighter, deeper or duller greens.
+export const SUBTLE_PLANTS = Object.freeze({
+  jungle:{ground:2, subtle:1},                   // fresh in spring, deep in the rains, a little dull in the dry months
+  snow:{ground:2, subtle:.8},                    // the firs: deeper and cooler in midwinter
+  desert:{ground:0, subtle:1, palette:'dry'}     // dune grass: greener in spring, straw by winter
 });
 const HOUR = {morning:.92, day:1, evening:.8, night:.55};
 const AUTUMN = [[226,188,62],[236,150,44],[214,84,42],[190,58,48],[176,172,66]];   // yellow, orange, vermilion, crimson, late green
@@ -40,8 +51,19 @@ const carry = (tone, light, ref) => { const k = light / ref; return [Math.min(25
 
 // The seasonal colour of one leaf pixel. `day` is the same pixel in the daylight painting,
 // which tells conifers (bluish, dark) from broadleaf trees. Returns [r, g, b, amount 0..1].
-export function seasonTone(season, r, g, b, day, x, y, plants, strength, time, seed = 1) {
-  const light = lum(r, g, b), evergreen = smooth((day[2] / (day[1] + 1) - .5) / .22), hour = HOUR[time] ?? 1;
+export function seasonTone(season, r, g, b, day, x, y, plants, strength, time, seed = 1, far = 0) {
+  const light = lum(r, g, b), hour = HOUR[time] ?? 1;
+  if (plants.subtle) {
+    const k = .32 * strength * plants.subtle;
+    if (season === 'spring') return [Math.min(255, r * 1.06 + 8), Math.min(255, g * 1.06 + 8), b * .9, k];
+    if (season === 'summer') return [r * .88, g * .97, b * .92, k];
+    const grey = light * .9;
+    if (season === 'autumn') return [r * .7 + grey * .34, g * .7 + grey * .28, b * .7 + grey * .2, k];
+    return plants.palette === 'dry' ? [...carry([196, 180, 136], light, 150), k * 1.4] : [r * .82, g * .9, b * 1.02 + 4, k];
+  }
+  // In the distance a bluish green is haze over mixed woods, not a stand of firs, so far
+  // hillsides are allowed to turn; near at hand it still marks the conifers, which stay green.
+  const evergreen = smooth((day[2] / (day[1] + 1) - .5) / .22) * (1 - .8 * far);
   const v = variety(x * 9, y * 13, seed);
   if (season === 'spring') {
     // Young leaves: lighter and yellower, a little softer.
@@ -54,7 +76,8 @@ export function seasonTone(season, r, g, b, day, x, y, plants, strength, time, s
   let tree, turf;
   if (season === 'autumn') {
     // Each tree takes one colour of the range; some stay green later than others.
-    const pick = v < .22 ? 4 : v < .45 ? 0 : v < .7 ? 1 : v < .88 ? 2 : 3, red = pick === 2 || pick === 3;
+    // Far hills keep more green among the colour, as mixed mountain woods do.
+    const green = .22 + .06 * far, pick = v < green ? 4 : v < .45 + .06 * far ? 0 : v < .7 ? 1 : v < .88 ? 2 : 3, red = pick === 2 || pick === 3;
     const tone = red && plants.turn < 1 && v > .7 + .3 * plants.turn ? AUTUMN[1] : AUTUMN[pick];
     tree = [...carry(tone, light, 138), (pick === 4 ? .45 : .92) * strength * hour * (1 - evergreen) * (red ? .55 + .45 * plants.turn : 1)];
     turf = [...carry([206, 178, 92], light, 150), .6 * strength * hour * (.6 + .4 * v)];
@@ -65,7 +88,9 @@ export function seasonTone(season, r, g, b, day, x, y, plants, strength, time, s
   }
   // Trees give way to grass gradually around the ground line, never along a visible edge.
   const low = smooth((y - plants.ground) / .09 + .5);
-  return [tree[0] + (turf[0] - tree[0]) * low, tree[1] + (turf[1] - tree[1]) * low, tree[2] + (turf[2] - tree[2]) * low, tree[3] + (turf[3] - tree[3]) * low];
+  // Distance thins every colour a little.
+  const air = 1 - .14 * far;
+  return [tree[0] + (turf[0] - tree[0]) * low, tree[1] + (turf[1] - tree[1]) * low, tree[2] + (turf[2] - tree[2]) * low, (tree[3] + (turf[3] - tree[3]) * low) * air];
 }
 
 const made = new WeakMap();
@@ -76,12 +101,18 @@ function canvasOf(doc, width, height) {
 }
 // The painting as it looks in a season. Returns the painting itself where nothing changes.
 // `reference` is the daylight painting of the scene (leaf shapes are read from it).
-export function seasonalPainting(image, {region, time, season, strength = 0, reference = image, doc} = {}) {
-  const plants = SEASON_PLANTS[region];
+// Hazy, bluish green that is vegetation seen from far away. Sky is far bluer, cloud and snow
+// have no colour, bare rock is greyer.
+export function farFoliage(r, g, b) {
+  const max = Math.max(r, g, b), min = Math.min(r, g, b);
+  return smooth(((max - min) / (max + 1) - .1) / .1) * smooth((g / (r + 1) - 1.0) / .08) * smooth((g / (b + 1) - .8) / .1) * (1 - smooth((.3 * r + .59 * g + .11 * b - 190) / 40));
+}
+export function seasonalPainting(image, {region, time, season, strength = 0, far = false, subtle = false, reference = image, doc} = {}) {
+  const plants = SEASON_PLANTS[region] || (subtle ? SUBTLE_PLANTS[region] : null);
   if (!plants || !(strength > 0) || !image || !reference) return image;
   let cache = made.get(image);
   if (!cache) made.set(image, cache = new Map());
-  const key = season + strength;
+  const key = season + strength + (far ? 'f' : '') + (subtle ? 's' : '');
   if (cache.has(key)) return cache.get(key);
   const W = image.naturalWidth || image.width, H = image.naturalHeight || image.height;
   // Half resolution is enough for colour and keeps the pass short; the painting's own detail
@@ -97,8 +128,11 @@ export function seasonalPainting(image, {region, time, season, strength = 0, ref
     const k = 4 * (j * w + i), x = i / w, y = j / h;
     let amount = 0, tone = null;
     if (x >= x0 && x <= x1 && y >= y0 && y <= y1) {
-      const leaf = smooth((leafness(d[k], d[k + 1], d[k + 2], guideTime) - .2) / .4);
-      if (leaf > .02) { tone = seasonTone(season, p[k], p[k + 1], p[k + 2], [d[k], d[k + 1], d[k + 2]], x, y, plants, strength, time, seed); amount = leaf * tone[3]; }
+      let leaf = smooth((leafness(d[k], d[k + 1], d[k + 2], guideTime) - .2) / .4);
+      // How far away this height is: 1 well above the line, easing to 0 just below it.
+      const distant = far && plants.far ? smooth((plants.far - y) / .05 + .5) : 0;
+      if (distant > 0 && reference !== image || distant > 0 && time === 'day') leaf = Math.max(leaf, distant * farFoliage(d[k], d[k + 1], d[k + 2]));
+      if (leaf > .02) { tone = seasonTone(season, p[k], p[k + 1], p[k + 2], [d[k], d[k + 1], d[k + 2]], x, y, plants, strength, time, seed, distant); amount = leaf * tone[3]; }
     }
     if (amount > .004) { p[k] = tone[0]; p[k + 1] = tone[1]; p[k + 2] = tone[2]; p[k + 3] = Math.round(255 * Math.min(1, amount)); }
     else p[k + 3] = 0;

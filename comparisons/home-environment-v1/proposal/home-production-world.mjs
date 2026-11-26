@@ -46,11 +46,13 @@ export function createHomeWorld(options){
  const climate=createClimate((Math.random()*2147483647)|0),pinned=()=>(typeof options.climate==='function'?options.climate():options.climate)||win.NaotocchiClimate||{};
  let air={wind:1};
  // How far plants take the season's colour: 0 leaves the paintings as they are.
- const tintOf=()=>Number(typeof options.seasonTint==='function'?options.seasonTint():options.seasonTint??win.NaotocchiSeasonTint??0)||0;
- const seasoned=(picture,tint)=>{if(!picture||!tint)return picture;const scene=picture.src?.match(/\/([a-z_]+)-(morning|day|evening|night)\.webp(?:\?|$)/);if(!scene)return picture;
+ // Either a strength, or {strength, far, subtle}: `far` carries the colour to distant hills,
+ // `subtle` lets the evergreen regions lean slightly with the months.
+ const tintOf=()=>{const v=typeof options.seasonTint==='function'?options.seasonTint():options.seasonTint??win.NaotocchiSeasonTint??0;return typeof v==='object'&&v?{strength:Number(v.strength)||0,far:!!v.far,subtle:!!v.subtle}:{strength:Number(v)||0,far:false,subtle:false};};
+ const seasoned=(picture,tint)=>{if(!picture||!tint.strength)return picture;const scene=picture.src?.match(/\/([a-z_]+)-(morning|day|evening|night)\.webp(?:\?|$)/);if(!scene)return picture;
   // The forest's night painting differs in outline from its day one, so it reads its own leaves.
   const reference=scene[1]==='forest'&&scene[2]==='night'?picture:scene[2]==='day'?picture:(()=>{const day=daylightOf(scene[1]+'#tint',picture,doc,DAYPARTS[scene[1]]?.day);return day===picture?null:day;})();
-  return reference?seasonalPainting(picture,{region:scene[1],time:scene[2],season:env.season,strength:tint,reference,doc}):picture;};
+  return reference?seasonalPainting(picture,{region:scene[1],time:scene[2],season:env.season,strength:tint.strength,far:tint.far,subtle:tint.subtle,reference,doc}):picture;};
  const windBoost=()=>Number(typeof options.wind==='function'?options.wind():options.wind)||0;
  // Repaint interval of the living layer. It follows the frame pacing the whole home achieves:
  // slow frames step it down and finally off, sustained smooth frames step it back up.
@@ -105,7 +107,7 @@ export function createHomeWorld(options){
   return nav;
  }
  function draw(dt,flags={}){if(dead||flags.paused)return;if(!spec)return;
-  fade=dayparts.frame(dt,flags.reducedMotion);const tint=tintOf();if(tint)fade={...fade,image:seasoned(fade.image,tint),previous:seasoned(fade.previous,tint)};if(fade.image){img=fade.image;loaded=true;onStatus('art-25d');}error=fade.error;
+  fade=dayparts.frame(dt,flags.reducedMotion);const tintNow=tintOf(),tint=tintNow.strength?tintNow.strength+(tintNow.far?10:0)+(tintNow.subtle?100:0):0;if(tint)fade={...fade,image:seasoned(fade.image,tintNow),previous:seasoned(fade.previous,tintNow)};if(fade.image){img=fade.image;loaded=true;onStatus('art-25d');}error=fade.error;
   if(!flags.reducedMotion)time+=Math.max(0,Math.min(1,Number(dt)||0))*1000;
   const mood=atmosphere(env),night=env.time==='night';
   const held={measured:env.conditions,...pinned()},clock=time/1000;

@@ -3,7 +3,7 @@ import * as world from './proposal/home-production-world.mjs';
 import * as current from './baseline/home-production-world.mjs';
 import {FOLIAGE_B2} from './proposal/living/final.mjs';
 import {WIND_LEVELS, DENSITY_LEVELS, levelName} from './proposal/home-climate.mjs';
-import {seasonalPainting, TINT_LEVELS, SEASON_PLANTS} from './proposal/living/seasons.mjs';
+import {seasonalPainting, TINT_CHOICES, SEASON_PLANTS, SUBTLE_PLANTS} from './proposal/living/seasons.mjs';
 import {DAYPARTS} from './proposal/home-dayparts.mjs';
 import {atmosphere} from './proposal/home-dayparts.mjs';
 
@@ -30,7 +30,8 @@ const PLANTS = {
 const ZOOMS = [['','全体'],['top','上部'],['mid','中央'],['left','左がわ'],['right','右がわ'],['grass','手前']];
 const WINDS = [['auto','自動で変化'],['calm','無風に近い'],['light','弱い'],['normal','普通'],['strong','強い']];
 const AMOUNTS = [['auto','自動で変化'],['small','小'],['medium','中（承認済みの量）'],['large','大']];
-const TINTS = [['none','A 現在の色'],['gentle','B 控えめな季節の色'],['clear','C はっきりした季節の色']];
+const TINTS = [['none','A 原画の色'],['gentle','B 控えめ'],['clear','C はっきり（前回）'],['wide','D 遠景の山や奥の木まで']];
+const SUBTLES = [['off','変えない（原画のまま）'],['on','ごく控えめに変える']];
 const SPEEDS = [['1','ふつう'],['12','12倍速（変化を早く見る）']];
 // Example measurements, as the weather service would report them (mm/h, cm/h, m/s).
 const MEASURED = [
@@ -52,17 +53,17 @@ const PRESETS_OLD = [
   ['とかい・夜','city','summer','sunny','night'],['おうち・昼','home','summer','sunny','day']
 ];
 const PRESETS = [
-  ['秋の森','forest','autumn','sunny','day'],['秋のいなか','countryside','autumn','sunny','day'],
-  ['秋のかわ','river_lake','autumn','sunny','day'],['秋のやま','mountain','autumn','sunny','day'],
-  ['秋のとかい','city','autumn','sunny','day'],['秋のおうち（窓の外）','home','autumn','sunny','day'],
-  ['春の森','forest','spring','sunny','morning'],['冬のいなか','countryside','winter','sunny','day'],
-  ['おうち・春の雨','home','spring','rain','day'],['おうち・夜（星と流れ星）','home','summer','sunny','night'],
-  ['おうち・冬の雪','home','winter','snow','evening'],['とかい・春（花びら）','city','spring','sunny','day'],
-  ['きおくのみずうみ・秋','memory_lake','autumn','sunny','evening'],['春×雨（もり）','forest','spring','rain','day'],
-  ['秋×雨（かわ）','river_lake','autumn','rain','day'],['夜×晴れ（いなか・流れ星）','countryside','summer','sunny','night']
+  ['秋のかわ（遠くの山）','river_lake','autumn','sunny','day'],['秋のいなか','countryside','autumn','sunny','day'],
+  ['秋の森','forest','autumn','sunny','day'],['秋のとかい','city','autumn','sunny','day'],
+  ['秋のおうち（窓の外）','home','autumn','sunny','day'],['秋のきおくのみずうみ','memory_lake','autumn','sunny','day'],
+  ['秋のやま','mountain','autumn','sunny','day'],['春のいなか','countryside','spring','sunny','day'],
+  ['冬のかわ','river_lake','winter','sunny','day'],['冬の森','forest','winter','sunny','day'],
+  ['ジャングル（微差）','jungle','autumn','sunny','day'],['ゆきぐに（微差）','snow','winter','sunny','day'],
+  ['さばく（微差）','desert','spring','sunny','day'],['おうち・春の雨','home','spring','rain','day'],
+  ['おうち・夜（星と流れ星）','home','summer','sunny','night'],['秋×雨（かわ）','river_lake','autumn','rain','day']
 ];
 void PRESETS_OLD;
-const state = {region:'forest', season:'autumn', weather:'sunny', time:'day', tier:'1', left:'now', right:'tips2', zoom:'', wind:'auto', amount:'auto', speed:'1', measured:'none', tint:'clear'};
+const state = {region:'river_lake', season:'autumn', weather:'sunny', time:'day', tier:'1', left:'now', right:'tips2', zoom:'', wind:'auto', amount:'auto', speed:'1', measured:'none', tint:'wide', subtle:'off'};
 const order = ['region','season','weather','time','tier'];
 function readHash() {
   const m = location.hash.match(/^#t(\d+)-(\d)-(\d)-(\d)-(\d)-(\d)-(\d)$/);
@@ -86,7 +87,7 @@ function mount(scene, side) {
       ...(state.wind === 'auto' ? {} : {wind:WIND_LEVELS[state.wind]}), ...(state.amount === 'auto' ? {} : {density:DENSITY_LEVELS[state.amount]})};
   };
   const make = mod => mod.createHomeWorld({container:scene, document:doc, window, environmentFx:'final',
-    treeSway:() => state[side] === 'still' ? 'still' : 'tips2', climate:override, seasonTint:() => TINT_LEVELS[state.tint], onClimate:air => { latest[side] = air; }});
+    treeSway:() => state[side] === 'still' ? 'still' : 'tips2', climate:override, seasonTint:() => ({...TINT_CHOICES[state.tint], subtle:state.subtle === 'on'}), onClimate:air => { latest[side] = air; }});
   // Each pane holds the production renderer and the final one, and shows whichever is chosen.
   const pair = {now:make(current), next:make(world)};
   const canvases = [...scene.querySelectorAll('canvas.home-art-canvas')], layers = [...scene.querySelectorAll('.home-dayparts-fx')];
@@ -128,6 +129,7 @@ function apply() {
   chips(document.getElementById('zoom'), ZOOMS, () => state.zoom, value => { state.zoom = value; });
   chips(document.getElementById('wind'), WINDS, () => state.wind, value => { state.wind = value; });
   chips(document.getElementById('tint'), TINTS, () => state.tint, value => { state.tint = value; });
+  chips(document.getElementById('subtle'), SUBTLES, () => state.subtle, value => { state.subtle = value; });
   drawSeasons();
   chips(document.getElementById('amount'), AMOUNTS, () => state.amount, value => { state.amount = value; });
   chips(document.getElementById('speed'), SPEEDS, () => state.speed, value => { state.speed = value; });
@@ -154,15 +156,15 @@ function picture(src) {
   return pictures.get(src);
 }
 async function drawSeasons() {
-  const job = ++seasonsJob, {region, time} = state, strength = TINT_LEVELS[state.tint];
+  const job = ++seasonsJob, {region, time} = state, choice = TINT_CHOICES[state.tint], strength = choice.strength, subtle = state.subtle === 'on';
   const note = document.getElementById('seasonsNote');
-  note.textContent = SEASON_PLANTS[region] ? (strength ? '' : '「A 現在の色」では4つとも原画のままです。B か C を選ぶと季節の色になります。') : 'この地域の植物は季節で色を変えません（原画のまま）。';
+  note.textContent = SEASON_PLANTS[region] ? (strength ? '' : '「A 原画の色」では4つとも原画のままです。') : SUBTLE_PLANTS[region] ? (subtle && strength ? 'この地域は紅葉させず、緑の明るさ・深さだけをごくわずかに変えています。' : 'この地域は原画のままです。「変えない地域」を「ごく控えめに変える」にすると、わずかな差がつきます。') : 'この地域は季節で色を変えません（原画のまま）。';
   const [image, day] = await Promise.all([picture(DAYPARTS[region][time]), picture(DAYPARTS[region].day)]).catch(() => []);
   if (!image || job !== seasonsJob) return;
   for (const season of ['spring','summer','autumn','winter']) {
     const canvas = document.getElementById('season-' + season), c = canvas.getContext('2d');
     const reference = region === 'forest' && time === 'night' ? image : day;
-    c.drawImage(seasonalPainting(image, {region, time, season, strength, reference, doc:document}), 0, 0, canvas.width, canvas.height);
+    c.drawImage(seasonalPainting(image, {region, time, season, strength, far:!!choice.far, subtle, reference, doc:document}), 0, 0, canvas.width, canvas.height);
   }
 }
 // What the final version is doing right now, refreshed twice a second.

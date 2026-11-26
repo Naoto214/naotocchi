@@ -21,7 +21,7 @@ export const RAIN_WATER = Object.freeze({
   jungle:[[0.585,0.446],[0.648,0.507],[0.731,0.5],[0.595,0.482],[0.648,0.484],[0.633,0.443],[0.682,0.493],[0.425,0.451],[0.768,0.488],[0.557,0.472],[0.697,0.517],[0.769,0.512],[0.61,0.507]]
 });
 // Few trees stand on the alpine path, so its petals arrive on the valley wind.
-const PETAL_SCALE = Object.freeze({mountain:.4});
+const PETAL_SCALE = Object.freeze({mountain:.6});
 
 const TONES = {
   morning:{rain:'241,246,248', ripple:'251,253,255', rippleGain:.75, snow:'255,255,255', petals:[['#fff6f2','#ffc9d8'],['#ffc9d8','#f7a9c0'],['#fff6f2','#f7a9c0']]},
