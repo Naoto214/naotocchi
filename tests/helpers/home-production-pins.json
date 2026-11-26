@@ -1,9 +1,19 @@
 {
   "index.html": {
     "before": "c9432f2b62b2c95a36338f8166627abe8feb97d3",
-    "after": "5b9b1b8b17a0435b0240cfa547bd2a4345a142ad",
-    "size": 73040,
+    "after": "b8e11f4cc2ea261406a148d09a92c640278879b0",
+    "size": 73100,
     "reverse": [
+      [
+        72478,
+        72604,
+        "  <script src=\"home-production-touch.js?v=df9353d84de4\"></script>\n"
+      ],
+      [
+        72359,
+        72427,
+        "  <script src=\"home-production-diorama.js?v=ed73883c63e1\"></script>\n"
+      ],
       [
         70755,
         70805,
@@ -48,9 +58,29 @@
   },
   "tools/pages/allowlist.json": {
     "before": "f1b1fb9cf575c6305fac17fb25dcf80a59d13c31",
-    "after": "4d11c0e001f56eba72fc231050fb86fb2034e1de",
-    "size": 296524,
+    "after": "dd79a255d1365dede1f42d951ae6015942517194",
+    "size": 296644,
     "reverse": [
+      [
+        267630,
+        267716,
+        "    \"index.html\": \"8da367a53956e26875b8b8532e59d7ef4458f017760785747b9306fdc741e2c8\",\n"
+      ],
+      [
+        266568,
+        266668,
+        "    \"home-production-touch.js\": \"df9353d84de426e6f71fdd3b9230d31eac2bc8107d801e13ed5eac7d398d8f42\",\n"
+      ],
+      [
+        265967,
+        266163,
+        "    \"home-production-diorama.js\": \"ed73883c63e1b31b42da57260d1a89736a0e35d9863c3be6015ea0e38fe7cf4f\",\n"
+      ],
+      [
+        175007,
+        175033,
+        ""
+      ],
       [
         267510,
         267596,
