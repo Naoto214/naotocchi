@@ -8,16 +8,32 @@ const hash = value => createHash('sha256').update(value).digest('hex');
 // receive its own review even if every individual source digest is current.
 const priorFiles = 'd3bfa21b6eeb6910d11f047eb2a6c37b71aa10809a28183afbf8ad18e7edbc82';
 const archivedLeaves = '059657479bfee0d2732a67f2b6dc5874df65a718a2468dea5bb3fe5138be0b15';
+// Second reviewed addition (Draft, awaiting the owner's approval): the
+// view-only pinch zoom camera. Its exact bytes are pinned here as well.
+const pinchZoom = 'home-pinch-zoom.js';
+const pinchZoomDigest = '21e721f028b09c84c6375fbd53398e0a540857f353b4b6a1c24a7614072986da';
 
 test('the seasonal renderer adds the reviewed archived source to the pinned package', () => {
   const file = 'home-autumn-leaves.mjs';
   const manifest = JSON.parse(readFileSync('tools/pages/allowlist.json'));
   assert.equal(manifest.files.filter(entry => entry === file).length, 1);
-  const existing = manifest.files.filter(entry => entry !== file).sort();
+  const existing = manifest.files.filter(entry => entry !== file && entry !== pinchZoom).sort();
   assert.equal(hash(existing.join('\n') + '\n'), priorFiles);
   assert.equal(hash(readFileSync(file)), archivedLeaves);
   assert.equal(manifest.reviewed_runtime_sources[file], archivedLeaves);
   assert.ok(readFileSync('home-production-world.mjs', 'utf8').includes(file + '?v=' + archivedLeaves.slice(0,12)));
+});
+
+test('the pinch zoom camera is the only other addition and is pinned byte for byte', () => {
+  const manifest = JSON.parse(readFileSync('tools/pages/allowlist.json'));
+  assert.equal(manifest.files.filter(entry => entry === pinchZoom).length, 1);
+  assert.equal(hash(readFileSync(pinchZoom)), pinchZoomDigest);
+  assert.equal(manifest.reviewed_runtime_sources[pinchZoom], pinchZoomDigest);
+  assert.ok(readFileSync('index.html', 'utf8').includes(pinchZoom + '?v=' + pinchZoomDigest.slice(0, 12)));
+  // The camera never names the movement model, navigation or saved state.
+  const source = readFileSync(pinchZoom, 'utf8');
+  for (const word of ['localStorage', 'sessionStorage', 'NaotocchiHomeDiorama', '.move(', '.sync(', 'navigation', 'saveState'])
+    assert.ok(!source.includes(word), 'camera must not touch ' + word);
 });
 
 for (const file of ['home-recovered-navigation.mjs', 'tests/home-production-test.cjs']) {
