@@ -53,6 +53,8 @@ button[aria-pressed="true"]{background:var(--next);border-color:var(--next);colo
 button:focus-visible{outline:2px solid var(--ink);outline-offset:2px}
 .presets button{border-style:dashed}
 @media(max-width:700px){
+ /* On a phone the scene comes first; the switches follow it. */
+ .wrap>header{order:0}.wrap>.panes{order:1}.wrap>.readout{order:2}.wrap>.zoomrow{order:3}.wrap>.controls{order:4}.wrap>.gallery{order:5}
  .panes{grid-template-columns:1fr;max-width:340px}
  .pane[data-side="left"]{display:none}
  .row{grid-template-columns:1fr}.row>span{padding-top:0}

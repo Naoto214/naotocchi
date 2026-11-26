@@ -100,8 +100,12 @@ export function createHomeWorld(options){
   fade=dayparts.frame(dt,flags.reducedMotion);if(fade.image){img=fade.image;loaded=true;onStatus('art-25d');}error=fade.error;
   if(!flags.reducedMotion)time+=Math.max(0,Math.min(1,Number(dt)||0))*1000;
   const mood=atmosphere(env),night=env.time==='night';
-  const layers=layersFor(env),held={measured:env.conditions,...pinned()},clock=time/1000;
-  const amount=(kind,at)=>climate.density(kind,at,env,held);
+  const held={measured:env.conditions,...pinned()},clock=time/1000;
+  // A device that already had to stop the living layer gets the lightest falling layer too:
+  // amounts stay at "small" and petals or leaves no longer join rain and snow.
+  const strained=wantLiving&&level>=PACES.length,layers=layersFor(env);
+  if(strained&&layers.precipitation){layers.petals=0;layers.leaves=0;}
+  const amount=(kind,at)=>{const share=climate.density(kind,at,env,held);return strained?Math.min(share,.6):share;};
   air={wind:climate.wind(clock,env,held),rain:amount('rain',clock),snow:amount('snow',clock),petal:amount('petal',clock),leaf:amount('leaf',clock),layers};options.onClimate?.(air);
   const leafScene=!flags.reducedMotion&&layers.leaves>0,falls=!flags.reducedMotion&&(leafScene||!!layers.precipitation||layers.petals>0);
   if(wantLiving&&!flags.reducedMotion)follow(Number(dt)||0,flags.tier>=2?66:33);
@@ -111,7 +115,7 @@ export function createHomeWorld(options){
   const v15=['15','16','17','18'].includes(doc.body.dataset.homeDisplayVersion),v14=v15||doc.body.dataset.homeDisplayVersion==='14';
   const contain=fullBackdrop&&['13','14','15','16','17','18'].includes(doc.body.dataset.homeDisplayVersion)&&win.NaotocchiHomeViewport?.residentPresentation?.()?.landscape;
   const cover=(fullBackdrop&&!contain&&portraitCrop)||backdropComposition(host,stage).cover,cw=v14?host.height/1.5:Math.min(host.width,host.height/1.5);
-  const t=contain?{width:cw,height:cw*1.5,left:(host.width-cw)/2,top:(host.height-cw*1.5)/2}:fullBackdrop?cover:artTransform(host,stage),stamp=JSON.stringify([fullBackdrop,contain,host.width,host.height,t.top,t.footer,env.time,env.weather,env.season,loaded,img?.src,fade.alpha,flags.reducedMotion,living,Math.floor(time/(living&&!flags.reducedMotion?PACES[level]:120))]),frame=falls?String(Math.floor(time/33)):'';if(stamp===lastPaint&&frame===lastFrame)return;
+  const t=contain?{width:cw,height:cw*1.5,left:(host.width-cw)/2,top:(host.height-cw*1.5)/2}:fullBackdrop?cover:artTransform(host,stage),stamp=JSON.stringify([fullBackdrop,contain,host.width,host.height,t.top,t.footer,env.time,env.weather,env.season,loaded,img?.src,fade.alpha,flags.reducedMotion,living,Math.floor(time/(living&&!flags.reducedMotion?PACES[level]:120))]),frame=falls?String(Math.floor(time/(strained?66:33))):'';if(stamp===lastPaint&&frame===lastFrame)return;
   const dpr=Math.min(2,win.devicePixelRatio||1),W=Math.round(host.width*dpr),H=Math.round(host.height*dpr);if(canvas.width!==W||canvas.height!==H){canvas.width=W;canvas.height=H;lastPaint='';}
   if(stamp!==lastPaint){lastPaint=stamp;if(backdrop.width!==W||backdrop.height!==H){backdrop.width=W;backdrop.height=H;}
   ctx.setTransform(dpr,0,0,dpr,0,0);ctx.fillStyle=contain&&v15?'#ffffff':contain&&v14?'#eee8dc':env.region==='city'?'#ac8c90':env.region==='forest'?'#173d35':'#b5d4d9';ctx.fillRect(0,0,host.width,host.height);

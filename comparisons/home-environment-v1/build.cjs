@@ -30,15 +30,15 @@ const REGION = ['おうち','もり','かわ','とかい','いなか','やま','
 const SEASON = ['はる','なつ','あき','ふゆ'], WEATHER = ['晴れ','曇り','雨','雪'], TIME = ['朝','昼','夕','夜'];
 const sceneName = tail => { const [count, r, s, w, t] = tail.split('-').map(Number); return `${REGION[r]}・${SEASON[s]}・${WEATHER[w]}・${TIME[t]}・${count}体`; };
 function gallery() {
-  if (!fs.existsSync(path.join(evidence, 'final-all.json'))) return '';
-  const all = JSON.parse(fs.readFileSync(path.join(evidence, 'final-all.json'), 'utf8'));
-  const rows = all.perf.map(r => `<tr><td>${sceneName(r.scene)}</td><td>${r.rate === 1 ? '通常' : r.rate + '倍低速'}</td><td>${r.A ?? '—'}</td><td>${r.E ?? '—'}</td></tr>`).join('');
+  if (!fs.existsSync(path.join(evidence, 'climate.json'))) return '';
+  const all = JSON.parse(fs.readFileSync(path.join(evidence, 'climate.json'), 'utf8'));
+  const rows = all.rows.map(r => `<tr>${r.map(c => `<td>${c}</td>`).join('')}</tr>`).join('');
   return `<section class="gallery"><h2>実際のホーム画面で試す（住民・UIつき）</h2>
-<p>住民とホームUIを表示した本物のホームです。開いた先の上部のパネルで、現行の本番と最終統合版、住民数、地域や天気を切り替えられます。使い捨てのセーブで動き、本人のセーブには触れません。</p>
+<p>住民とホームUIを表示した本物のホームです。開いた先の上部のパネルで、現行の本番と最終統合版、住民数、地域や天気のほか、風の強さ・粒子の量・時間の進みを切り替えられます。使い捨てのセーブで動き、本人のセーブには触れません。</p>
 <div class="chips">${all.scenes.map(tail => `<a href="home.html#gE-${tail}-6"><button type="button">${sceneName(tail)}</button></a>`).join('')}</div>
 <h2>滑らかさ（ブラウザの毎秒コマ数、28体）</h2>
 <p>${all.note}</p>
-<div class="strip"><table><thead><tr><th>場面</th><th>CPU</th><th>現行の本番</th><th>最終統合版</th></tr></thead><tbody>${rows}</tbody></table></div></section>`;
+<div class="strip"><table><thead><tr><th>場面</th><th>通常：現行</th><th>通常：最終統合版</th><th>4倍低速：現行</th><th>4倍低速：最終統合版</th></tr></thead><tbody>${rows}</tbody></table></div></section>`;
 }
 const page = fs.readFileSync(path.join(__dirname, 'page.html'), 'utf8').replace('<!--INLINE_CSS-->', `<style>\n${css}\n</style>`).replace('<!--GALLERY-->', gallery());
 write('page.html', page);
