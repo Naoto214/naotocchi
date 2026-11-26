@@ -35,6 +35,13 @@
       select.onchange = () => { if (select.value === '') delete pin[key]; else pin[key] = Number(select.value); };
       panel.append(select);
     };
+    // Plant colours by season: C by default in this trial, switchable without reloading.
+    window.NaotocchiSeasonTint = 1;
+    const tint = document.createElement('select');
+    tint.id = 'env-tint'; tint.style.cssText = 'display:block;width:100%;margin:3px 0;font:inherit';
+    for (const [value, text] of [['1','植物の色：C はっきり'],['0.45','植物の色：B 控えめ'],['0','植物の色：A 現在の色']]) { const o = document.createElement('option'); o.value = value; o.textContent = text; tint.append(o); }
+    tint.onchange = () => { window.NaotocchiSeasonTint = Number(tint.value); };
+    panel.append(tint);
     live('wind', [['','風：自動で変化'],['0.22','風：無風に近い'],['0.6','風：弱い'],['1','風：普通'],['1.45','風：強い']]);
     live('density', [['','量：自動で変化'],['0.55','量：小'],['1','量：中'],['1.45','量：大']]);
     live('speed', [['','時間：ふつう'],['12','時間：12倍速']]);

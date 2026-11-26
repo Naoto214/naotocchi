@@ -30,6 +30,14 @@ header p{margin:4px 0 0;color:var(--muted);max-width:60ch}
 .panes[data-zoom="mid"] .scene canvas{transform:scale(2.6);transform-origin:50% 42%}
 .chips.sway button{padding:7px 10px;font-size:12.5px}
 .zoomrow{max-width:760px;width:100%;margin:0 auto}
+.seasons{display:flex;flex-direction:column;gap:8px;max-width:980px;width:100%;margin:0 auto}
+.seasons h2{font:700 16px/1.3 var(--display);margin:0}
+.seasons p{margin:0;color:var(--muted)}
+.seasons .strip{overflow-x:auto}
+.four{display:grid;grid-template-columns:repeat(4,minmax(150px,1fr));gap:8px;min-width:640px}
+.four figure{margin:0;display:flex;flex-direction:column;gap:4px}
+.four canvas{width:100%;height:auto;border-radius:12px;display:block}
+.four figcaption{font:700 13px/1.2 var(--display);text-align:center}
 .readout{max-width:760px;width:100%;margin:0 auto;padding:10px 12px;border:1px solid var(--line);border-radius:12px;color:var(--ink);font-variant-numeric:tabular-nums;min-height:3.2em}
 .home-art-canvas{display:block;position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
 .pane p{margin:0;color:var(--muted);font-size:12.5px;line-height:1.55;min-height:4.7em}
@@ -54,7 +62,7 @@ button:focus-visible{outline:2px solid var(--ink);outline-offset:2px}
 .presets button{border-style:dashed}
 @media(max-width:700px){
  /* On a phone the scene comes first; the switches follow it. */
- .wrap>header{order:0}.wrap>.panes{order:1}.wrap>.readout{order:2}.wrap>.zoomrow{order:3}.wrap>.controls{order:4}.wrap>.gallery{order:5}
+ .wrap>header{order:0}.wrap>.panes{order:1}.wrap>.readout{order:2}.wrap>.zoomrow{order:3}.wrap>.seasons{order:4}.wrap>.controls{order:5}.wrap>.gallery{order:6}
  .panes{grid-template-columns:1fr;max-width:340px}
  .pane[data-side="left"]{display:none}
  .row{grid-template-columns:1fr}.row>span{padding-top:0}
@@ -67,6 +75,7 @@ button:focus-visible{outline:2px solid var(--ink);outline-offset:2px}
   <p>左がいまの本番、右が最終統合版です。風の強さと、雨・雪・花びら・落ち葉の量が時間とともに自然に変わり、季節と天気の演出が重なります。下のボタンで強さを固定したり、変化を早送りしたりできます。</p>
  </header>
  <div class="row zoomrow"><span>見る場所</span><div class="chips" id="zoom"></div></div>
+ <div class="row zoomrow"><span>植物の色</span><div class="chips" id="tint"></div></div>
  <div class="row zoomrow"><span>風の強さ</span><div class="chips" id="wind"></div></div>
  <div class="row zoomrow"><span>粒子の量</span><div class="chips" id="amount"></div></div>
  <div class="row zoomrow"><span>実際の天気の例</span><div class="chips" id="measured"></div></div>
@@ -76,6 +85,17 @@ button:focus-visible{outline:2px solid var(--ink);outline-offset:2px}
   <section class="pane" data-side="left"><div class="chips sway" id="swayLeft"></div><div class="scene" id="sceneLeft"><div class="stage"></div></div><p id="noteLeft"></p></section>
   <section class="pane" data-side="right"><div class="chips sway" id="swayRight"></div><div class="scene" id="sceneRight"><div class="stage"></div></div><p id="noteRight"></p></section>
  </div>
+ <section class="seasons">
+  <h2>四季をならべて見る</h2>
+  <p>いま選んでいる地域・時間帯の原画を、春・夏・秋・冬の色で並べています（静止画）。上の「植物の色」で強さを変えられます。</p>
+  <div class="strip"><div class="four">
+   <figure><canvas id="season-spring" width="300" height="450"></canvas><figcaption>春</figcaption></figure>
+   <figure><canvas id="season-summer" width="300" height="450"></canvas><figcaption>夏</figcaption></figure>
+   <figure><canvas id="season-autumn" width="300" height="450"></canvas><figcaption>秋</figcaption></figure>
+   <figure><canvas id="season-winter" width="300" height="450"></canvas><figcaption>冬</figcaption></figure>
+  </div></div>
+  <p id="seasonsNote"></p>
+ </section>
  <div class="controls">
   <div class="row presets"><span>見どころ</span><div class="chips" id="presets"></div></div>
   <div class="row"><span>地域</span><div class="chips" id="region"></div></div>

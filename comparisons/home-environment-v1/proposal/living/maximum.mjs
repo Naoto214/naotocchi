@@ -18,6 +18,7 @@ export const MAXIMUM_STRENGTH = 2;
 
 // Painted stars found in each night sky; the twinkle sits exactly on them.
 export const NIGHT_STARS = Object.freeze({
+  home:[[0.477,0.135],[0.512,0.133],[0.457,0.158],[0.533,0.141],[0.416,0.145],[0.42,0.163],[0.488,0.147],[0.441,0.126],[0.432,0.151],[0.4,0.154],[0.375,0.15],[0.348,0.165],[0.51,0.152],[0.557,0.16]],
   forest:[[0.465,0.147],[0.535,0.133],[0.674,0.141],[0.225,0.069],[0.516,0.1],[0.604,0.206],[0.26,0.18],[0.059,0.048],[0.531,0.018],[0.717,0.165],[0.303,0.137],[0.271,0.014],[0.209,0.156],[0.127,0.025],[0.492,0.12],[0.459,0.082],[0.113,0.201],[0.193,0.077],[0.252,0.113],[0.51,0.148],[0.182,0.174],[0.027,0.03],[0.568,0.161],[0.713,0.141],[0.297,0.025],[0.311,0.178],[0.268,0.035],[0.756,0.116],[0.422,0.007],[0.006,0.154],[0.791,0.178],[0.873,0.283],[0.566,0.133],[0.475,0.029],[0.379,0.035],[0.588,0.036]],
   river_lake:[[0.48,0.027],[0.834,0.008],[0.738,0.033],[0.582,0.005],[0.77,0.027],[0.363,0.042],[0.43,0.029],[0.297,0.06],[0.43,0.004],[0.529,0.009],[0.75,0.008],[0.619,0.008],[0.402,0.009],[0.707,0.03],[0.5,0.009],[0.934,0.013],[0.912,0.031],[0.338,0.065],[0.66,0.021],[0.262,0.048],[0.396,0.038],[0.715,0.012],[0.902,0.005],[0.457,0.008],[0.469,0.046],[0.309,0.029],[0.684,0.008],[0.965,0.007],[0.193,0.069],[0.334,0.038],[0.49,0.255],[0.807,0.324],[0.525,0.027],[0.799,0.297],[0.793,0.009],[0.527,0.296]],
   countryside:[[0.865,0.031],[0.461,0.014],[0.836,0.029],[0.672,0.012],[0.367,0.048],[0.482,0.051],[0.973,0.008],[0.645,0.027],[0.801,0.039],[0.561,0.022],[0.34,0.029],[0.434,0.036],[0.588,0.043],[0.775,0.052],[0.852,0.009],[0.189,0.036],[0.398,0.027],[0.643,0.063],[0.521,0.039],[0.496,0.016],[0.164,0.013],[0.707,0.065],[0.59,0.004],[0.533,0.068],[0.334,0.09],[0.373,0.016],[0.707,0.005],[0.4,0.051],[0.443,0.07],[0.91,0.018],[0.307,0.085],[0.605,0.059],[0.379,0.09],[0.621,0.01],[0.893,0.143],[0.402,0.005]],
@@ -245,6 +246,8 @@ export function fireflies(ctx, region, time, seconds, doc, {gain = 1, size = 1} 
 // Stars twinkle one by one on their own beats, and once in a while one falls.
 // Open night sky where no star was detected automatically: the gap between the towers.
 const MORE_SKY = {city:[[.44,.03],[.52,.08],[.6,.02],[.66,.08]]};
+// Seen through the window at home: a small patch of sky, so shooting stars are short and fine.
+const SMALL_SKY = new Set(['home']);
 // A shooting star runs from one point of open sky to another, and only where a third point
 // of sky lies near the middle of its path, so it never crosses a ridge, a roof or a tree.
 const lanes = new Map();
@@ -254,7 +257,7 @@ export function meteorLanes(region) {
   for (let a = 0; a < sky.length; a++) for (let b = 0; b < sky.length; b++) {
     if (a === b || sky[b][1] < sky[a][1] + 12) continue; // they fall, never climb
     const length = Math.hypot(sky[b][0] - sky[a][0], sky[b][1] - sky[a][1]);
-    if (length < 90 || length > 330) continue;
+    if (length < (SMALL_SKY.has(region) ? 45 : 90) || length > 330) continue;
     const mx = (sky[a][0] + sky[b][0]) / 2, my = (sky[a][1] + sky[b][1]) / 2;
     if (length > 150 && !sky.some((p, k) => k !== a && k !== b && Math.hypot(p[0] - mx, p[1] - my) < 60)) continue;
     list.push([sky[a], sky[b], length]);
@@ -273,7 +276,7 @@ export function meteorsAt(region, seconds, rate = 1) {
     const long = .6 + .7 * hash(k * 29 + 11), start = k * 13 + hash(k * 29 + 5) * (13 - long), p = (seconds - start) / long;
     if (p <= 0 || p >= 1) continue;
     const [from, to, length] = list[Math.floor(hash(k * 29 + 7) * list.length)];
-    out.push({from, to, length, p, bright:.55 + .45 * hash(k * 29 + 13), width:1.6 + 1.4 * hash(k * 29 + 17)});
+    out.push({from, to, length, p, bright:.55 + .45 * hash(k * 29 + 13), width:(1.6 + 1.4 * hash(k * 29 + 17)) * (SMALL_SKY.has(region) ? .5 : 1)});
   }
   return out;
 }
@@ -287,7 +290,7 @@ export function nightSky(ctx, region, seconds, {gain = 1, size = 1, meteors = 1.
       if (hash(i * 41 + Math.floor(cycle)) < .45) return;
       const beat = Math.sin(Math.PI * unit(cycle)) ** 2;
       ctx.globalAlpha = .85 * beat * gain;
-      sparkle(ctx, u * 1000, v * 1500, size * (5 + 9 * hash(i + 3023) * beat));
+      sparkle(ctx, u * 1000, v * 1500, size * (5 + 9 * hash(i + 3023) * beat) * (SMALL_SKY.has(region) ? .55 : 1));
     });
   }
   for (const m of meteorsAt(region, seconds, meteors)) {

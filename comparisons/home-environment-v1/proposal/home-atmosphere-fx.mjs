@@ -60,11 +60,12 @@ function getTracks(kind, count, indoor) {
     } else {
       const r = n => hash(1009 * 6 + i * 89 + n);
       // Petals leave the canopy at different heights and settle on the ground.
-      const y0 = mix(-.04, .30, r(2)), y1 = far ? mix(.58,.72,r(3)) : near ? mix(.96,1.02,r(3)) : mix(.74,.94,r(3));
-      list.push({x:mix(.02,.98,r(7)), y0, y1, tone:i % 3,
-        size:far ? mix(6,7.5,r(1)) : near ? mix(11.5,14,r(1)) : mix(8.5,10.5,r(1)),
+      // Outdoors they cross the whole painting; at home they fall past the window, small and far.
+      const y0 = indoor ? box.y0 - .01 : mix(-.04, .30, r(2)), y1 = indoor ? box.y1 : far ? mix(.58,.72,r(3)) : near ? mix(.96,1.02,r(3)) : mix(.74,.94,r(3));
+      list.push({x:indoor ? mix(box.x0, box.x1, r(7)) : mix(.02,.98,r(7)), y0, y1, tone:i % 3,
+        size:(far ? mix(6,7.5,r(1)) : near ? mix(11.5,14,r(1)) : mix(8.5,10.5,r(1))) * (indoor ? .5 : 1),
         duration:(y1 - y0) * (far ? mix(30,36,r(4)) : near ? mix(17,21,r(4)) : mix(22,27,r(4))),
-        drift:mix(.07, .22, r(5)) * (r(6) < .22 ? -.5 : 1), sway:mix(.014,.034,r(9)), swayPeriod:mix(5.6,9.2,r(10)), swayPhase:r(11),
+        drift:mix(.07, .22, r(5)) * (r(6) < .22 ? -.5 : 1) * (indoor ? .25 : 1), sway:mix(.014,.034,r(9)) * (indoor ? .3 : 1), swayPeriod:mix(5.6,9.2,r(10)), swayPhase:r(11),
         lean:mix(14,34,r(12)) * Math.PI / 180, flipPeriod:mix(2.6,5.4,r(13)), flipPhase:r(14), phase:r(8), alpha:far ? .72 : .92});
     }
   }
@@ -106,7 +107,7 @@ export const fallingKind = mood => FX_COUNTS[mood.particle] ? mood.particle : nu
 
 export function fallingCount(env, kind, tier = 0) {
   const level = Math.min(2, Math.max(0, tier | 0));
-  return Math.round(FX_COUNTS[kind][level] * (env.region === 'home' ? .25 : kind === 'petal' ? PETAL_SCALE[env.region] ?? 1 : 1));
+  return Math.round(FX_COUNTS[kind][level] * (env.region === 'home' ? (kind === 'petal' ? .4 : .25) : kind === 'petal' ? PETAL_SCALE[env.region] ?? 1 : 1));
 }
 
 function rings(ctx, rect, env, seconds, tier, tone, lively, share) {

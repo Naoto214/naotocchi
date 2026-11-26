@@ -4,6 +4,8 @@ import {createDayparts,atmosphere,DAYPARTS} from './home-dayparts.mjs';
 import {fallingKind,paintFalling,paintWeatherVeil} from './home-atmosphere-fx.mjs';
 import {paintLiving} from './living/living.mjs';
 import {layersFor,createClimate} from './home-climate.mjs';
+import {seasonalPainting} from './living/seasons.mjs';
+import {daylightOf} from './living/final.mjs';
 import {ART_CANDIDATES,selectRecoveredScene} from './home-production-manifest.mjs';
 import {artTransform,paintBackdrop,backdropComposition} from './home-production-transform.mjs';
 import {createRecoveredNavigation} from './home-recovered-navigation.mjs?v=57267701d610';
@@ -43,6 +45,12 @@ export function createHomeWorld(options){
  // lets the trial page pin a level, speed time up, or supply measured weather.
  const climate=createClimate((Math.random()*2147483647)|0),pinned=()=>(typeof options.climate==='function'?options.climate():options.climate)||win.NaotocchiClimate||{};
  let air={wind:1};
+ // How far plants take the season's colour: 0 leaves the paintings as they are.
+ const tintOf=()=>Number(typeof options.seasonTint==='function'?options.seasonTint():options.seasonTint??win.NaotocchiSeasonTint??0)||0;
+ const seasoned=(picture,tint)=>{if(!picture||!tint)return picture;const scene=picture.src?.match(/\/([a-z_]+)-(morning|day|evening|night)\.webp(?:\?|$)/);if(!scene)return picture;
+  // The forest's night painting differs in outline from its day one, so it reads its own leaves.
+  const reference=scene[1]==='forest'&&scene[2]==='night'?picture:scene[2]==='day'?picture:(()=>{const day=daylightOf(scene[1]+'#tint',picture,doc,DAYPARTS[scene[1]]?.day);return day===picture?null:day;})();
+  return reference?seasonalPainting(picture,{region:scene[1],time:scene[2],season:env.season,strength:tint,reference,doc}):picture;};
  const windBoost=()=>Number(typeof options.wind==='function'?options.wind():options.wind)||0;
  // Repaint interval of the living layer. It follows the frame pacing the whole home achieves:
  // slow frames step it down and finally off, sustained smooth frames step it back up.
@@ -97,7 +105,7 @@ export function createHomeWorld(options){
   return nav;
  }
  function draw(dt,flags={}){if(dead||flags.paused)return;if(!spec)return;
-  fade=dayparts.frame(dt,flags.reducedMotion);if(fade.image){img=fade.image;loaded=true;onStatus('art-25d');}error=fade.error;
+  fade=dayparts.frame(dt,flags.reducedMotion);const tint=tintOf();if(tint)fade={...fade,image:seasoned(fade.image,tint),previous:seasoned(fade.previous,tint)};if(fade.image){img=fade.image;loaded=true;onStatus('art-25d');}error=fade.error;
   if(!flags.reducedMotion)time+=Math.max(0,Math.min(1,Number(dt)||0))*1000;
   const mood=atmosphere(env),night=env.time==='night';
   const held={measured:env.conditions,...pinned()},clock=time/1000;
@@ -106,7 +114,9 @@ export function createHomeWorld(options){
   const strained=wantLiving&&level>=PACES.length,layers=layersFor(env);
   if(strained&&layers.precipitation){layers.petals=0;layers.leaves=0;}
   const amount=(kind,at)=>{const share=climate.density(kind,at,env,held);return strained?Math.min(share,.6):share;};
-  air={wind:climate.wind(clock,env,held),rain:amount('rain',clock),snow:amount('snow',clock),petal:amount('petal',clock),leaf:amount('leaf',clock),layers};options.onClimate?.(air);
+  // The wind never steps, even when a new measurement arrives: it eases over a few seconds.
+  const gale=climate.wind(clock,env,held),eased=air.at===undefined?gale:air.wind+(gale-air.wind)*Math.min(1,Math.max(0,clock-air.at)*.45);
+  air={at:clock,wind:eased,rain:amount('rain',clock),snow:amount('snow',clock),petal:amount('petal',clock),leaf:amount('leaf',clock),layers};options.onClimate?.(air);
   const leafScene=!flags.reducedMotion&&layers.leaves>0,falls=!flags.reducedMotion&&(leafScene||!!layers.precipitation||layers.petals>0);
   if(wantLiving&&!flags.reducedMotion)follow(Number(dt)||0,flags.tier>=2?66:33);
   const living=wantLiving&&level<PACES.length;
@@ -115,12 +125,12 @@ export function createHomeWorld(options){
   const v15=['15','16','17','18'].includes(doc.body.dataset.homeDisplayVersion),v14=v15||doc.body.dataset.homeDisplayVersion==='14';
   const contain=fullBackdrop&&['13','14','15','16','17','18'].includes(doc.body.dataset.homeDisplayVersion)&&win.NaotocchiHomeViewport?.residentPresentation?.()?.landscape;
   const cover=(fullBackdrop&&!contain&&portraitCrop)||backdropComposition(host,stage).cover,cw=v14?host.height/1.5:Math.min(host.width,host.height/1.5);
-  const t=contain?{width:cw,height:cw*1.5,left:(host.width-cw)/2,top:(host.height-cw*1.5)/2}:fullBackdrop?cover:artTransform(host,stage),stamp=JSON.stringify([fullBackdrop,contain,host.width,host.height,t.top,t.footer,env.time,env.weather,env.season,loaded,img?.src,fade.alpha,flags.reducedMotion,living,Math.floor(time/(living&&!flags.reducedMotion?PACES[level]:120))]),frame=falls?String(Math.floor(time/(strained?66:33))):'';if(stamp===lastPaint&&frame===lastFrame)return;
+  const t=contain?{width:cw,height:cw*1.5,left:(host.width-cw)/2,top:(host.height-cw*1.5)/2}:fullBackdrop?cover:artTransform(host,stage),stamp=JSON.stringify([fullBackdrop,contain,host.width,host.height,t.top,t.footer,env.time,env.weather,env.season,loaded,img?.src,tint,img?.tagName===undefined,fade.alpha,flags.reducedMotion,living,Math.floor(time/(living&&!flags.reducedMotion?PACES[level]:120))]),frame=falls?String(Math.floor(time/(strained?66:33))):'';if(stamp===lastPaint&&frame===lastFrame)return;
   const dpr=Math.min(2,win.devicePixelRatio||1),W=Math.round(host.width*dpr),H=Math.round(host.height*dpr);if(canvas.width!==W||canvas.height!==H){canvas.width=W;canvas.height=H;lastPaint='';}
   if(stamp!==lastPaint){lastPaint=stamp;if(backdrop.width!==W||backdrop.height!==H){backdrop.width=W;backdrop.height=H;}
   ctx.setTransform(dpr,0,0,dpr,0,0);ctx.fillStyle=contain&&v15?'#ffffff':contain&&v14?'#eee8dc':env.region==='city'?'#ac8c90':env.region==='forest'?'#173d35':'#b5d4d9';ctx.fillRect(0,0,host.width,host.height);
   if(loaded&&img){
-  const key=JSON.stringify([fullBackdrop,contain,generation,W,H,t.left,t.top,t.width,t.height,t.footer,stage.top,stage.height,img?.src]);
+  const key=JSON.stringify([fullBackdrop,contain,generation,W,H,t.left,t.top,t.width,t.height,t.footer,stage.top,stage.height,img?.src,tint,env.season,img?.tagName===undefined]);
   if(key!==paintingKey){paintingKey=key;painting.width=W;painting.height=H;const pc=painting.getContext('2d');pc.setTransform(dpr,0,0,dpr,0,0);if(contain){
     // Same image supplies edge colours; the complete original remains sharp.
     if(!v14){pc.save();pc.filter='blur(18px)';pc.drawImage(img,cover.left-20,cover.top-20,cover.width+40,cover.height+40);pc.restore();}

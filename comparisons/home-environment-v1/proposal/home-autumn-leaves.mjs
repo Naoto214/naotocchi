@@ -135,7 +135,14 @@ const drifting = {
   river_lake:{count:18, seed:131, reach:520, fall:[330,330], size:4.6,
     sources:[[840,230],[230,110],[880,300],[770,190],[310,90],[850,380],[150,160]]},
   mountain:{count:5, seed:197, reach:690, fall:[210,250], size:4.1,
-    sources:[[110,540],[900,470],[330,440],[700,590],[520,480]]}
+    sources:[[110,540],[900,470],[330,440],[700,590],[520,480]]},
+  // Street trees and planters, the willow by the lake, and the garden tree outside the window.
+  city:{count:9, seed:233, reach:420, fall:[330,420], size:4.3,
+    sources:[[70,130],[110,320],[400,390],[660,690],[170,690],[840,780]]},
+  memory_lake:{count:6, seed:271, reach:380, fall:[380,420], size:4.2,
+    sources:[[110,150],[220,230],[300,120],[60,300]]},
+  home:{count:3, seed:311, reach:150, fall:[150,60], size:2.1, window:[270,570,180,465],
+    sources:[[300,215],[320,270],[310,330]]}
 };
 
 const clamp01 = x => Math.min(1, Math.max(0, x));
@@ -294,7 +301,7 @@ function drawAutumnLeaf(ctx, i, p, x, y, baseSize, alpha, state) {
 
 export function usesAutumnLeaves(region, time, env) {
   return env.season === 'autumn' && ['sunny','cloudy'].includes(env.weather) &&
-    ['forest','countryside','river_lake','mountain'].includes(region);
+    ['forest','countryside','river_lake','mountain','city','memory_lake','home'].includes(region);
 }
 
 // `amount(seconds)` is the share of the approved number of leaves in the air; a leaf joins or
@@ -310,7 +317,9 @@ export function paintAutumnLeaves(ctx, rect, region, time, seconds, opacity, amo
   ctx.translate(rect.left,rect.top);
   ctx.scale(rect.width/1000,rect.height/1500);
   ctx.beginPath();
-  ctx.rect(0,0,1000,1500);
+  // At home the leaves fall outside: they are clipped to the window opening.
+  if (drift?.window) ctx.rect(drift.window[0],drift.window[2],drift.window[1]-drift.window[0],drift.window[3]-drift.window[2]);
+  else ctx.rect(0,0,1000,1500);
   ctx.clip();
   for (let i=0; i<count; i++) {
     if (forest) {

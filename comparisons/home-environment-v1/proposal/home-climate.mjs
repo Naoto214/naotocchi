@@ -12,11 +12,15 @@ const smooth = value => { const t = clamp(value); return t * t * (3 - 2 * t); };
 // ---- Which layers a scene shows -------------------------------------------------------------
 const SEALED = new Set(['deepsea','star_stop','memory_lake']);   // weather on the ground does not reach them
 const NO_SNOW = new Set(['desert','jungle']);
-const SEASONAL = new Set(['forest','countryside','river_lake','mountain']);
+// Where petals fall in spring and leaves in autumn, and how many of the approved amount.
+// The jungle is evergreen; the desert, the snow country, the sea, the deep sea and the stars
+// have no trees that shed. The lake is spared the weather but its willow still keeps the seasons.
+export const SEASONAL = Object.freeze({forest:1, countryside:1, river_lake:1, mountain:1, city:.6, memory_lake:.5, home:1});
 const RAIN_RINGS = new Set(['sea','river_lake','jungle']);
 const FIREFLIES = new Set(['forest','countryside','river_lake','jungle']);
-// Night skies with open, painted stars. The jungle canopy, the room and the deep sea have none.
-export const STARRY = new Set(['forest','river_lake','countryside','mountain','snow','sea','desert','memory_lake','city']);
+// Night skies with open, painted stars, including the one seen through the window at home.
+// The jungle canopy and the deep sea have none.
+export const STARRY = new Set(['forest','river_lake','countryside','mountain','snow','sea','desert','memory_lake','city','home']);
 
 // Everything that is present for a scene, with the share of its usual amount (1 = as approved).
 // Layers coexist wherever that is natural; a layer is reduced or dropped only on a real conflict.
@@ -24,15 +28,15 @@ export function layersFor(env) {
   const {region, season, weather, time} = env, sealed = SEALED.has(region);
   const precipitation = sealed ? null : weather === 'rain' ? 'rain' : weather === 'snow' && !NO_SNOW.has(region) ? 'snow' : null;
   const clear = weather === 'sunny' || weather === 'cloudy' || sealed, night = time === 'night', dusk = night || time === 'evening';
-  const seasonal = SEASONAL.has(region);
+  const seasonal = SEASONAL[region] || 0;
   // Petals and leaves keep falling in rain or snow, but only a few: wet ones mostly stay put.
   const wet = precipitation === 'rain' ? .35 : precipitation === 'snow' ? .25 : 1;
   const sky = sealed ? 'sunny' : weather;
   return {
     precipitation,                                       // rain or snow, never both
     rings:precipitation === 'rain' && RAIN_RINGS.has(region),
-    petals:seasonal && season === 'spring' ? wet : 0,
-    leaves:seasonal && season === 'autumn' ? wet : 0,
+    petals:season === 'spring' ? seasonal * wet : 0,
+    leaves:season === 'autumn' ? seasonal * wet : 0,
     veil:!sealed && weather !== 'sunny',
     // Stars show through thin cloud faintly and not at all through rain or snow.
     twinkle:night && STARRY.has(region) ? (sky === 'sunny' ? 1 : sky === 'cloudy' ? .35 : 0) : 0,

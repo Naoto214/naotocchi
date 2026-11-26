@@ -31,6 +31,7 @@ test('every autumn leaf condition uses the approved leaf B', () => {
     covered++;
   });
   assert.equal(covered, 32);
+  for (const region of ['city','memory_lake','home']) assert.ok(usesAutumnLeaves(region, 'day', {season:'autumn', weather:'sunny'}), region);
   assert.equal(stale, 18); // river, mountain and the countryside night still show the old leaf in production
 });
 
@@ -139,7 +140,7 @@ test('maximum: gusts rise and rest, come from both sides, and stars sit in the s
   const sides = new Set(samples.filter(g => g.power > .2).map(g => g.direction));
   assert.deepEqual([...sides].sort(), [-1, 1]);
   assert.equal(gustAt('deepsea', 5).power, 0);
-  assert.deepEqual(Object.keys(NIGHT_STARS), ['forest','river_lake','countryside','mountain','snow','sea','desert','memory_lake']);
+  assert.deepEqual(Object.keys(NIGHT_STARS), ['home','forest','river_lake','countryside','mountain','snow','sea','desert','memory_lake']);
   for (const stars of Object.values(NIGHT_STARS)) for (const [x, y] of stars) assert.ok(x > 0 && x < 1 && y > 0 && y < .34);
 });
 
@@ -413,8 +414,9 @@ test('final (B2 everywhere): leaf shapes come from the daylight painting; olive 
 const REGIONS = Object.keys(DAYPARTS), TIMES = ['morning','day','evening','night'], WEATHERS = ['sunny','cloudy','rain','snow'], SEASONS = ['spring','summer','autumn','winter'];
 
 test('layers: every one of the 832 scenes combines its effects by the stated rules', async () => {
-  const {layersFor, STARRY} = await import('./proposal/home-climate.mjs');
-  const seasonal = new Set(['forest','countryside','river_lake','mountain']), sealed = new Set(['deepsea','star_stop','memory_lake']);
+  const {layersFor, STARRY, SEASONAL} = await import('./proposal/home-climate.mjs');
+  assert.deepEqual(SEASONAL, {forest:1, countryside:1, river_lake:1, mountain:1, city:.6, memory_lake:.5, home:1});
+  const seasonal = new Set(Object.keys(SEASONAL)), sealed = new Set(['deepsea','star_stop','memory_lake']);
   let both = 0;
   for (const region of REGIONS) for (const time of TIMES) for (const weather of WEATHERS) for (const season of SEASONS) {
     const env = {region, time, weather, season}, l = layersFor(env), where = JSON.stringify(env);
@@ -427,7 +429,7 @@ test('layers: every one of the 832 scenes combines its effects by the stated rul
     assert.equal(l.petals > 0, seasonal.has(region) && season === 'spring', where);
     assert.equal(l.leaves > 0, seasonal.has(region) && season === 'autumn', where);
     assert.ok(!(l.petals > 0 && l.leaves > 0), where);
-    for (const share of [l.petals, l.leaves]) if (share > 0) assert.equal(share, l.precipitation === 'rain' ? .35 : l.precipitation === 'snow' ? .25 : 1, where);
+    for (const share of [l.petals, l.leaves]) if (share > 0) assert.equal(share, SEASONAL[region] * (l.precipitation === 'rain' ? .35 : l.precipitation === 'snow' ? .25 : 1), where);
     if (l.precipitation && (l.petals > 0 || l.leaves > 0)) both++;
     assert.equal(l.rings, l.precipitation === 'rain' && ['sea','river_lake','jungle'].includes(region), where);
     // Stars and shooting stars: only at night, only under open sky, dimmer through cloud, gone in rain or snow.
@@ -436,7 +438,7 @@ test('layers: every one of the 832 scenes combines its effects by the stated rul
     assert.equal(l.twinkle > 0, open && (sky === 'sunny' || sky === 'cloudy'), where);
     if (l.precipitation) assert.equal(l.fireflies && !sealed.has(region), false, where);
   }
-  assert.equal(both, 4 * 4 * 2 * 2); // 4 seasonal regions × 4 hours × rain/snow × spring/autumn
+  assert.equal(both, 6 * 4 * 2 * 2); // 6 regions with weather and seasons × 4 hours × rain/snow × spring/autumn
 });
 
 test('climate: wind and amounts hold, change smoothly, cover every level, and differ between visits', async () => {
@@ -525,7 +527,9 @@ test('shooting stars: under every open night sky, irregular, inside the sky, and
     assert.ok(lanes.length >= 4, region);
     const sky = NIGHT_STARS[region];
     for (const [from, to, length] of lanes) {
-      assert.ok(to[1] > from[1] && length >= 90 && length <= 330, region); // they fall, and stay short
+      assert.ok(to[1] > from[1] && length >= (region === 'home' ? 45 : 90) && length <= 330, region);
+      // Through the window at home, both ends stay inside the window opening.
+      if (region === 'home') for (const [x, y] of [from, to]) assert.ok(x > 280 && x < 565 && y > 180 && y < 260, 'home ' + x + ',' + y); // they fall, and stay short
       // Both ends are points of open sky; a long one also passes close to a third.
       if (sky && length > 150) { const mx = (from[0] + to[0]) / 2, my = (from[1] + to[1]) / 2;
         assert.ok(sky.some(([u, v]) => { const d = Math.hypot(u * 1000 - mx, v * 1500 - my); return d < 60 && d > 0; }), region); }
@@ -541,8 +545,87 @@ test('shooting stars: under every open night sky, irregular, inside the sky, and
     assert.ok(Math.max(...gaps) > 3 * Math.min(...gaps), region); // no steady beat
     assert.ok(meteorsAt(region, 500, 0).length === 0);
   }
-  for (const region of ['jungle','home','deepsea']) assert.equal(meteorLanes(region).length, 0, region);
+  for (const region of ['jungle','deepsea','star_stop']) assert.equal(meteorLanes(region).length, 0, region);
   // Thin cloud lets far fewer through.
   const count = rate => { let n = 0, was = false; for (let s = 0; s < 7200; s += .2) { const on = meteorsAt('sea', s, rate).length > 0; if (on && !was) n++; was = on; } return n; };
   assert.ok(count(.3) < .5 * count(1));
+});
+
+test('measured weather: units, intervals, gaps and bad values from the weather service are handled', async () => {
+  const {createRequire} = await import('node:module');
+  const require = createRequire(import.meta.url), fs = require('node:fs'), link = require('./weather-link.cjs');
+  const production = fs.readFileSync(new URL('../../world-environment.js', import.meta.url), 'utf8');
+  const holder = {exports:{}};
+  new Function('module', 'globalThis', link.environment(production))(holder, {});
+  const {weatherFromResponse, measuredFromResponse} = holder.exports, now = 1700000000;
+  // One request, more fields, wind asked for in m/s.
+  assert.ok(link.environment(production).includes("current: 'weather_code,precipitation,snowfall,wind_speed_10m,wind_gusts_10m,wind_direction_10m', wind_speed_unit: 'ms'"));
+  assert.equal(link.environment(production).split('api.open-meteo.com').length, production.split('api.open-meteo.com').length);
+  const read = (current, units = {}) => weatherFromResponse({current:{time:now, weather_code:61, ...current}, current_units:units}, new Date(now * 1000));
+  // 0.5 mm in a 15-minute interval is 2 mm/h; snow likewise; wind passes through.
+  assert.deepEqual(read({interval:900, precipitation:.5, snowfall:.1, wind_speed_10m:4.2, wind_gusts_10m:9, wind_direction_10m:200}, {precipitation:'mm', snowfall:'cm', wind_speed_10m:'m/s', wind_gusts_10m:'m/s'}).measured,
+    {precipitation:2, snowfall:.4, windSpeed:4.2, windGusts:9, windDirection:200});
+  // No interval reported: the value is taken as an hourly total.
+  assert.equal(read({precipitation:3}).measured.precipitation, 3);
+  // Other units are converted; an unknown unit is not trusted.
+  assert.ok(Math.abs(read({wind_speed_10m:36}, {wind_speed_10m:'km/h'}).measured.windSpeed - 10) < 1e-9);
+  assert.ok(Math.abs(read({precipitation:.1, interval:3600}, {precipitation:'inch'}).measured.precipitation - 2.54) < 1e-9);
+  assert.equal(read({wind_speed_10m:5, precipitation:1}, {wind_speed_10m:'furlongs'}).measured.windSpeed, null);
+  // Missing, negative, non-numeric and absurd readings become null, field by field.
+  const odd = read({precipitation:-1, snowfall:'2', wind_speed_10m:900, wind_gusts_10m:3, wind_direction_10m:720, interval:900});
+  assert.equal(odd.measured, null);
+  const part = read({wind_speed_10m:6, wind_gusts_10m:2, precipitation:null});
+  assert.deepEqual(part.measured, {precipitation:null, snowfall:null, windSpeed:6, windGusts:null, windDirection:null});
+  assert.equal(read({}).measured, null);
+  assert.equal(read({}).mode, 'rain'); // the sky itself is still reported as before
+  assert.equal(measuredFromResponse(null), null);
+  // The home receives the values only with observed weather.
+  const script = link.script(fs.readFileSync(new URL('../../script.js', import.meta.url), 'utf8'));
+  assert.ok(script.includes("source: 'observed', conditions: observed.measured || null") && script.includes('if (w.conditions) environment.conditions = w.conditions;'));
+});
+
+test('seasons: only leaves change colour, conifers stay green, and untouched regions get the painting back', async () => {
+  const {seasonTone, seasonalPainting, SEASON_PLANTS, TINT_LEVELS} = await import('./proposal/living/seasons.mjs');
+  assert.deepEqual(Object.keys(SEASON_PLANTS).sort(), ['city','countryside','forest','home','memory_lake','mountain','river_lake']);
+  assert.deepEqual(TINT_LEVELS, {none:0, gentle:.45, clear:1});
+  const plants = SEASON_PLANTS.forest, leaf = [120, 200, 60], fir = [40, 92, 66];
+  const lum = ([r, g, b]) => .3 * r + .59 * g + .11 * b;
+  // Autumn: broadleaf trees turn warm (red leads green or nearly), across several different hues.
+  const hues = new Set();
+  for (let x = .05; x < 1; x += .05) for (let y = .05; y < .4; y += .07) {
+    const t = seasonTone('autumn', ...leaf, leaf, x, y, plants, 1, 'day', 7);
+    assert.ok(t[3] > .3 && t[3] <= 1);
+    hues.add(t[0] > t[1] * 1.5 ? 'red' : t[0] > t[1] * 1.15 ? 'orange' : t[0] > t[1] ? 'yellow' : 'green');
+    // Shade is kept: a darker pixel of the same leaf stays darker by the same ratio.
+    const dark = seasonTone('autumn', 60, 100, 30, leaf, x, y, plants, 1, 'day', 7);
+    assert.ok(Math.abs(lum(dark) / lum(t) - .5) < .06);
+  }
+  assert.ok(hues.size >= 3, [...hues].join());
+  // Conifers keep their green in autumn and winter.
+  for (const season of ['autumn','winter']) assert.ok(seasonTone(season, ...fir, fir, .5, .2, plants, 1, 'day', 7)[3] < .12, season);
+  // Winter grass goes to straw; spring is lighter, summer deeper; gentle is under half of clear; night is quieter than day.
+  const straw = seasonTone('winter', ...leaf, leaf, .5, .9, plants, 1, 'day', 7);
+  assert.ok(straw[0] > straw[2] * 1.2 && Math.abs(straw[0] - straw[1]) < 40 && straw[3] > .5);
+  assert.ok(lum(seasonTone('spring', ...leaf, leaf, .5, .2, plants, 1, 'day', 7)) > lum(leaf) && lum(seasonTone('summer', ...leaf, leaf, .5, .2, plants, 1, 'day', 7)) < lum(leaf));
+  assert.ok(seasonTone('autumn', ...leaf, leaf, .5, .9, plants, .45, 'day', 7)[3] < .5 * seasonTone('autumn', ...leaf, leaf, .5, .9, plants, 1, 'day', 7)[3] + .01);
+  assert.ok(seasonTone('autumn', ...leaf, leaf, .5, .2, plants, 1, 'night', 7)[3] < seasonTone('autumn', ...leaf, leaf, .5, .2, plants, 1, 'day', 7)[3]);
+  // A painting of sky, water, bark, rock and one leaf: only the leaf pixel is recoloured.
+  const colours = [[70,150,235],[20,120,190],[95,70,50],[150,150,150],[245,248,250],[120,200,60]];
+  const image = {naturalWidth:12, naturalHeight:2, src:'x/forest-day.webp'};
+  let veil = null;
+  globalThis.OffscreenCanvas = class { constructor(w, h) { this.width = w; this.height = h; }
+    getContext() { const r = withGradients(recorder()), canvas = this;
+      r.ctx.getImageData = (x, y, w, h) => { const data = new Uint8ClampedArray(w * h * 4); for (let i = 0; i < w * h; i++) { const c = colours[i % colours.length]; data.set([...c, 255], 4 * i); } return {data, width:w, height:h}; };
+      r.ctx.putImageData = picture => { veil = picture; canvas.veil = picture; };
+      return r.ctx; } };
+  const out = seasonalPainting(image, {region:'forest', time:'day', season:'autumn', strength:1, doc:{}});
+  assert.notEqual(out, image);
+  assert.equal(out.src, image.src);
+  for (let i = 0; i < 6; i++) assert.equal(veil.data[4 * i + 3] > 0, i === 5, 'pixel ' + i);
+  // Strength 0 and regions without turning plants return the very same painting.
+  assert.equal(seasonalPainting(image, {region:'forest', time:'day', season:'autumn', strength:0, doc:{}}), image);
+  for (const region of ['jungle','desert','snow','sea','deepsea','star_stop']) assert.equal(seasonalPainting({...image}, {region, time:'day', season:'autumn', strength:1, doc:{}}).src, image.src);
+  assert.equal(seasonalPainting(image, {region:'jungle', time:'day', season:'autumn', strength:1, doc:{}}), image);
+  // At home only the window opening is considered.
+  assert.deepEqual(SEASON_PLANTS.home.box, [.27, .57, .115, .31]);
 });

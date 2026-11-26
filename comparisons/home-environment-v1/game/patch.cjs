@@ -7,6 +7,7 @@ function replace(text, anchor, change) {
   return text.replace(anchor, () => change);
 }
 const read = name => fs.readFileSync(path.join(root, name), 'utf8');
+const weatherLink = require('../weather-link.cjs');
 const KEY = 'naotocchi-save-v1', FIXTURE = 'naotocchi-environment-fixture';
 const patched = {
   'index.html'() {
@@ -14,7 +15,8 @@ const patched = {
     const html = read('index.html').replaceAll(KEY, FIXTURE);
     return replace(html, '<script src="cast-bounds.js', `<script id="env-seed" type="application/json">${seed}</script><script src="env/fixture.js"></script><script src="env/panel.js"></script>\n  <script src="cast-bounds.js`);
   },
-  'script.js': () => read('script.js').replaceAll(KEY, FIXTURE),
+  'script.js': () => weatherLink.script(read('script.js')).replaceAll(KEY, FIXTURE),
+  'world-environment.js': () => weatherLink.environment(read('world-environment.js')),
   'home-production-diorama.js'() {
     const source = read('home-production-diorama.js');
     const anchor = source.match(/import\('\.\/home-production-world\.mjs\?v=[0-9a-f]+'\)/);
