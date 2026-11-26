@@ -164,7 +164,7 @@
 
   // 関係の 減衰は「なおとっちの 何年ぶん ほうっておいたら おわるか」で きめる。
   // こうすると AGE_TICKS_PER_YEAR を かえても ひりつが くずれない
-  const RELATION_DECAY_YEARS = 28;
+  const RELATION_DECAY_YEARS = 40;
 
   // へんしんで れんあいタイプが かわった あと、「すれちがい」から
   // なかなおりする のに ひつような きゅうあいの かいすう
@@ -981,7 +981,7 @@
       if (line === 'god') return avgCare >= (eased ? 82 : 90);
       // ★ 「なった かいすう」では なく「なおした かいすう」。
       //   ちゃんと くすりを あげた 人が むくわれる じょうけんに する
-      if (line === 'phoenix') return (state.sicknessCuredThisLife || 0) >= (eased ? 3 : 5);
+      if (line === 'phoenix') return (state.lifetime.pastLives || []).length >= (eased ? 2 : 3) && currentAge() >= 40;
       return false;
     });
     if (rarePool.length > 0 && Math.random() < rareMixChance) {
@@ -2242,10 +2242,10 @@
     { id: 'evolve-10', emoji: '🌿', label: 'ぐんぐんそだつ', desc: 'そだちが合計で10あがった', tier: 'easy2', condition: (l) => l.evolutions >= 10 },
     { id: 'devolve-5', emoji: '🍼', label: 'かえりみち', desc: 'そだちが合計で3さがった', tier: 'easy2', condition: (l) => l.devolutions >= 3 },
     { id: 'transform-10', emoji: '🌟', label: 'へんしんざんまい', desc: '5かいへんしんした', tier: 'easy2', condition: (l) => l.transforms >= 5 },
-    { id: 'sick-cured-10', emoji: '💊', label: 'めいいのたまご', desc: 'びょうきを5かいなおした', tier: 'easy2', condition: (l) => l.sicknessCured >= 5 },
+    { id: 'sick-cured-10', emoji: '💊', label: 'めいいのたまご', desc: 'びょうきを3かいなおした', tier: 'easy2', condition: (l) => l.sicknessCured >= 3 },
     { id: 'age-25', emoji: '🌼', label: 'すくすくせいちょう', desc: '25さいになった', tier: 'easy2', condition: (l) => l.maxAgeReached >= 25 },
     { id: 'dex-25', emoji: '📗', label: 'ずかんのはじまり', desc: 'ずかんを25しゅるいうめた', tier: 'easy2', condition: (l, s) => dexFoundCount(s) >= 25 },
-    { id: 'feed-100', emoji: '🍚', label: 'ごはんだいすき', desc: 'ひとつの人生で、ごはんを30回あげた', tier: 'easy2', condition: (l, s) => s.actionCounts.feed >= 30 },
+    { id: 'feed-100', emoji: '🍚', label: 'ごはんだいすき', desc: 'ひとつの人生で、ごはんを12回あげた', tier: 'easy2', condition: (l, s) => s.actionCounts.feed >= 12 },
     { id: 'play-100', emoji: '🎯', label: 'あそびっぱなし', desc: 'ひとつの人生で、30回あそんだ', tier: 'easy2', condition: (l, s) => s.actionCounts.play >= 30 },
     { id: 'pet-100', emoji: '🤲', label: 'なでなでまめ', desc: 'ひとつの人生で「じゃれる」を30かいした', tier: 'easy2', condition: (l, s) => s.actionCounts.pet >= 30 },
     { id: 'companion-1', emoji: '🐾', label: 'はじめてのなかま', desc: 'はじめてなかまができた', tier: 'easy2', condition: (l) => companionsRecruitedCount(l) >= 1 },
@@ -2265,7 +2265,7 @@
     { id: 'age-50', emoji: '🎂', label: 'はんせいき', desc: '50さいになった', tier: 'normal', condition: (l) => l.maxAgeReached >= 50 },
     { id: 'dex-50', emoji: '📘', label: 'ずかんなかば', desc: 'ずかんを50しゅるいうめた', tier: 'normal', condition: (l, s) => dexFoundCount(s) >= 50 },
     { id: 'rare-line-1', emoji: '🌈', label: 'レアなであい', desc: 'レアなしゅぞくにはじめてであった', tier: 'normal', condition: (l, s) => s.discoveredStages.some((e) => RARE_LINES.includes(e.split(':')[0])) },
-    { id: 'clean-50', emoji: '🧹', label: 'ピカピカ20かい', desc: 'ひとつの人生で、そうじを20回した', tier: 'normal', condition: (l, s) => s.actionCounts.clean >= 20 },
+    { id: 'clean-50', emoji: '🧹', label: 'ピカピカ15かい', desc: 'ひとつの人生で、そうじを15回した', tier: 'normal', condition: (l, s) => s.actionCounts.clean >= 15 },
     { id: 'reset-5', emoji: '🔄', label: 'なんどもちょうせん', desc: 'あたらしいたまごを5かいむかえた', tier: 'normal', condition: (l) => (l.resets || 0) >= 5 },
     { id: 'companion-5', emoji: '🐕', label: 'にぎやかななかよしグループ', desc: 'なかまが5にんできた', tier: 'normal', condition: (l) => companionsRecruitedCount(l) >= 5 },
     { id: 'sticker-tasks-5', crown: { kind: 'sticker', tasks: true }, emoji: '📒', label: 'シールちょうのたつじん', desc: 'シールちょうのおだいを5つたっせいした', tier: 'normal', condition: (l) => stickerTasksDoneCount(l) >= 5 },
@@ -2291,9 +2291,9 @@
     { id: 'devolve-20', emoji: '😵‍💫', label: 'おとろえのぬし', desc: 'そだちが合計で10さがった', tier: 'hard1', condition: (l) => l.devolutions >= 10 },
     { id: 'transform-25', emoji: '💫', label: 'へんしん15かい', desc: '15かいへんしんした', tier: 'hard1', condition: (l) => l.transforms >= 15 },
     { id: 'death-10', emoji: '⚰️', label: 'てんごくのじょうれんきゃく', desc: '5かいてんごくにいった', tier: 'hard1', condition: (l) => l.deaths >= 5 },
-    { id: 'sick-cured-30', emoji: '🏥', label: 'めいいのたまご(じょうきゅう)', desc: 'びょうきを15かいなおした', tier: 'hard1', condition: (l) => l.sicknessCured >= 15 },
+    { id: 'sick-cured-30', emoji: '🏥', label: 'めいいのたまご(じょうきゅう)', desc: 'びょうきを8かいなおした', tier: 'hard1', condition: (l) => l.sicknessCured >= 8 },
     { id: 'age-100', emoji: '🎊', label: 'ひゃくさいばんざい', desc: '100さいになった', tier: 'hard1', condition: (l) => l.maxAgeReached >= 100 },
-    { id: 'medicine-30', emoji: '🩹', label: 'かんびょうのきろく', desc: 'ひとつの人生で、くすりを10回あげた', tier: 'hard1', condition: (l, s) => s.actionCounts.medicine >= 10 },
+    { id: 'medicine-30', emoji: '🌙', label: 'ねがおの見守り', desc: 'ねてから、ひとりで起きるまで見守った(通算10回)', tier: 'hard1', condition: (l) => (l.sleepWatched || 0) >= 10 },
     { id: 'region-all', emoji: '🌍', label: 'せかいいっしゅう', desc: 'おうちをふくむ、すべての通常地域を訪れた', tier: 'hard1', condition: (l) => regionsVisitedCount(l) >= progressRegistry().regions.size },
     { id: 'consumable-30', emoji: '🫧', label: 'つかいきりいっぱい', desc: '使い切りのあいてむを15かいつかった', tier: 'hard1', condition: (l) => (l.consumablesUsed || 0) >= 15 },
     { id: 'sticker-100', crown: { kind: 'sticker', unowned: true }, emoji: '🗂️', label: 'シールコレクター', desc: 'シールを100種類集めた', tier: 'hard1', condition: (l) => ownedStickerKinds(l) >= 100 },
@@ -7534,7 +7534,7 @@
   // beyond this many なでる/はなしかける in a row (with no real care action
   // in between), the action flips from its normal small positive into an
   // annoyed negative instead - spamming either stops being free stats
-  const AFFECTION_SPAM_THRESHOLD = 3;
+  const AFFECTION_SPAM_THRESHOLD = 4;
 
   // おなじように、たびを 連続で おしすぎた ときも「たびづかれ」で 機嫌の
   // ボーナスが きえて 逆に すこし へる - 元気/満腹の コストと あわせて、
@@ -8792,6 +8792,19 @@
   const BREAKUP_DEATH_PENALTY = { dating: 10, married: 20 };
   const DEATH_METER_MULTIPLIER = { none: 1, dating: 0.75, married: 0.5 };
 
+  // お世話頻度 監査 V3: なかま・こいびとの きずなは、暮らしが 落ちついている(びょうきでも まえぶれでもなく、
+  // けんこう40いじょう)間は floor より 下がらない。ほんとうに 放っておかれた ときだけ 冷えていき、0で はなれる。
+  // おともだちバッジ・らぶれたーを そうびしていると floor は 60(いつでも 家に 来る)。すれちがい中の こいびとは floor なし
+  function relationFloor(itemId, mismatched) {
+    if (mismatched) return 0;
+    if (isEquipped(itemId)) return 60;
+    return (!state.isSick && !state.dying && state.health >= 40) ? 50 : 0;
+  }
+  function decayTowardFloor(value, amount, floor) {
+    if (value > floor) return Math.max(floor, value - amount);
+    return floor ? value : value - amount;
+  }
+
   function relationshipStage() {
     if (!state.partner) return 'none';
     return state.partner.married ? 'married' : 'dating';
@@ -8861,7 +8874,7 @@
     // すれちがい中は きもちが はなれるのが はやい。ほうっておくと
     // ふつうより ずっと はやく わかれに ちかづく
     const mismatchFactor = p.mismatched ? 2.5 : 1;
-    p.affection = clamp((p.affection ?? 100) - PARTNER_AFFECTION_DECAY_PER_TICK * mismatchFactor, 0, 100);
+    p.affection = clamp(decayTowardFloor(p.affection ?? 100, PARTNER_AFFECTION_DECAY_PER_TICK * mismatchFactor, relationFloor('partner1', p.mismatched)), 0, 100);
     if (isEquipped('partner1') && p.affection <= ITEM_AUTO_CARE_DANGER) {
       p.affection = 100;
       itemContextReaction('partner1', 'なかよし度が危なくなる前に、らぶれたーを読み返して100にもどった。');
@@ -8892,7 +8905,7 @@
     const left = [];
     const bondDecayFactor = hasPerk(40) ? 0.5 : 1;
     state.companions = state.companions.filter((c) => {
-      c.bond = clamp((c.bond ?? 100) - COMPANION_BOND_DECAY_PER_TICK * bondDecayFactor, 0, 100);
+      c.bond = clamp(decayTowardFloor(c.bond ?? 100, COMPANION_BOND_DECAY_PER_TICK * bondDecayFactor, relationFloor('bond1', false)), 0, 100);
       if (isEquipped('bond1') && c.bond <= ITEM_AUTO_CARE_DANGER) {
         c.bond = 100;
         itemContextReaction('bond1', 'きずなが危なくなる前に、おともだちバッジが合図して100にもどった。');
@@ -9789,7 +9802,6 @@
     if (!hasPerk(50)) return 'まだデートにはさそえない';
     if (!isLiveLife() || state.stage !== STAGE.GROWING) return 'いまはデートにいけない';
     if (!state.partner) return 'いまこいびとがいない';
-    if (state.isSleeping) return 'ねている…おきてからさそおう';
     if (state.dateCooldownTicks > 0) return 'さっきデートしたばかり…少し時間をおこう';
     return null;
   }
@@ -10138,6 +10150,7 @@
   function goOnDate(plan) {
     if (!plan || !DATE_PLANS.some(p => p.id === plan.id)) return false;
     plan = datePlanForRegion(plan);
+    if (state.isSleeping) wakeForAction();
     const blocked = dateBlockReason();
     if (blocked) {
       closeDateOverlay();
@@ -10750,8 +10763,8 @@
     return state.boostTicks;
   }
 
-  const RECENT_ACTION_TICKS = 20; // 60秒
-  function markCared() { state.recentActionTicks = RECENT_ACTION_TICKS; }
+  const RECENT_ACTION_TICKS = 100; // 300秒(お世話頻度 監査 V3案)
+  function markCared() { state.recentActionTicks = RECENT_ACTION_TICKS; state.rescueTicks = 10; }
 
   function applyGrowth(amount, opts) {
     // ♾️ の せかいでは そだちも とまる(アイテムで 節目報酬を 二重取り
@@ -11400,17 +11413,19 @@
   // ================================================================
   // おわかれの まえぶれ - 予告なく 死なせない ための しくみ
   // ================================================================
-  const DYING_GRACE_TICKS = 40; // 2分
+  const DYING_GRACE_TICKS = 60; // 3分(お世話頻度 監査 V3)
   function updateDyingWarning() {
+    const caring = state.rescueTicks > 0 && currentAge() < 70; // お世話頻度 監査 B2: 老衰には かけない
+    if (state.rescueTicks > 0) state.rescueTicks -= 1;
     if (isImmortal()) { state.dying = false; state.dyingTicks = 0; return; }
     if (state.deathMeter >= 80) {
       if (!state.dying) {
         state.dying = true;
-        state.dyingTicks = DYING_GRACE_TICKS;
+        state.dyingTicks = currentAge() >= 70 ? 40 : DYING_GRACE_TICKS; // ろうねんは 現行と 同じ 2分(老衰に 影響させない)
         setMessage('なおとっちの様子がおかしい…早くおせわをしてあげて!');
         emotePet('sad');
-      } else if (state.dyingTicks > 0) {
-        state.dyingTicks -= 1;
+      } else if (!caring && state.dyingTicks > 0) {
+        state.dyingTicks -= 1; // 看病中は 猶予が へらない
       }
     } else if (state.dying) {
       state.dying = false;
@@ -11738,62 +11753,76 @@
     // せいちょう2ばいの ブーストは tick が すすんでいる あいだ だけ へる
     // (ずかんや あいてむを ながめて いる あいだに とけない)
     if (state.boostTicks > 0) state.boostTicks -= 1;
+    if (state.petGrowthWait > 0) state.petGrowthWait -= 1;
     if (state.recentActionTicks > 0) state.recentActionTicks -= 1;
+    state.affectionCalmTicks = (state.affectionCalmTicks || 0) + 1;
+    if (state.affectionCalmTicks >= 5) { state.affectionCalmTicks = 0; if (state.affectionStreak > 0) state.affectionStreak -= 1; }
     // そだち50の デートの クールダウン。ずかんなどを ひらいて tick が
     // とまっている あいだは これも すすまない(おいかぜと おなじ かんがえかた)
     if (state.dateCooldownTicks > 0) state.dateCooldownTicks -= 1;
 
     {
-      const sleepFactor = state.isSleeping ? 0.4 : 1;
+      const sleepFactor = state.isSleeping ? (isEquipped('sleepboost1') ? 0 : 0.25) : 1;
       // そだち90(でんせつ)に とうたつしていると、ステータスの 自然減が 15% ゆるやかに なる
       const legendFactor = hasPerk(90) ? 0.85 : 1;
       // ちょうネクタイ/リボンけいを そうびしていると、それぞれ 満腹/機嫌の
       // 時間経過による げんしょうが ゆるやかに なる(上位アイテムほど
       // さらに ゆるやかに)
-      // 満腹・機嫌の 基本の げんしょうスピード(0.6/tick)は、なにも せずに
-      // 基本がめんで しばらく ながめていても あわてなくて いい よう、
-      // 余裕を もたせた 大きさに おさえてある(以前は 1/tick で、放置3分
-      // ほどで お世話ぎれの 状態に なってしまっていた)
+      // お世話頻度 監査 VERSION 3(2026-11-25): 満腹・機嫌・元気は 0.20/tick(100→30 が やく 17分)。
+      // ホームを 5〜10分 ながめていても サインが 出ない はやさ(以前 1 → 0.6 → 0.35/tick)。
+      // 満腹で うんちも 少ない あいだは、機嫌の へりが さらに 0.7倍に なる
       // てんき・じかんたい・きせつ・地域の こうか(envModifiers)
       const envMod = envModifiers();
       { const envNow = currentEnvironment(); noteEnvironmentSeen(envNow.time, envNow.weather, envNow.weatherSource); }
-      // 0.35/tick: 100→30 が やく 10分。「つねに お世話しないと」に ならず、
-      // ほのぼの ながめて いられる はやさ(以前 0.6 = やく 6分)
-      state.hunger = clamp(state.hunger - 0.35 * sleepFactor * legendFactor * envMod.hunger, 0, 100);
-      state.happiness = clamp(state.happiness - 0.35 * sleepFactor * legendFactor * envMod.happy, 0, 100);
-      if (isEquipped('bowtie') && state.hunger <= ITEM_AUTO_CARE_DANGER) {
+      state.hunger = clamp(state.hunger - 0.2 * sleepFactor * legendFactor * envMod.hunger, 0, 100);
+      state.happiness = clamp(state.happiness - 0.2 * sleepFactor * legendFactor * envMod.happy * ((!state.isSick && state.hunger >= 50 && state.poopCount < 2) ? 0.7 : 1), 0, 100);
+      if (isEquipped('bowtie') && state.hunger <= 40) {
         state.hunger = 100;
         itemContextReaction('bowtie', 'おなかが危なくなる前に、自動でごはんを食べてまんたんになった。');
       }
-      if (isEquipped('ribbon') && state.happiness <= ITEM_AUTO_CARE_DANGER) {
+      if (isEquipped('ribbon') && state.happiness <= 40) {
         state.happiness = 100;
         itemContextReaction('ribbon', 'リボンを揺らして気分転換。ごきげんがまんたんになった。');
       }
 
       if (state.isSleeping) {
         state.sleptTicks += 1;
+        if (state.energy >= 100 && state.sleptTicks >= (currentEnvironment().time === 'night' ? 60 : 30)) {
+          state.isSleeping = false;
+          stopSleepRecovery();
+          applyGrowth(3); applyDecline(-3);
+          state.sleptTicks = 0;
+          if (typeof audio !== 'undefined' && audio && audio.play) audio.play('wake');
+          setActionComment(randomActionMessage('wake'));
+          speakEvent('wake');
+          state.lifetime.sleepWatched = (state.lifetime.sleepWatched || 0) + 1;
+        }
         // 元気回復は startSleepRecovery() の100msタイマーで滑らかに行う。
         // tick側では回復しないので、起こした後に遅れて回復することもない。
       } else {
-        // おきている あいだの 基本の げんしょうスピード(0.32/tick)
+        // おきている あいだの 基本の げんしょうスピード(0.20/tick)
         // は、「あそぶ」でミニゲームを たくさん あそべる ように、満腹・機嫌
         // よりも すこし ゆっくりめに おさえてある
-        state.energy = clamp(state.energy - 0.32 * energyDecayMultiplier() * legendFactor, 0, 100);
+        state.energy = clamp(state.energy - 0.2 * energyDecayMultiplier() * legendFactor, 0, 100);
       }
 
       // なおとの ひみつは日常のお世話そのものを無効化しない。
 
       // 紙は発生を減らさず、3個たまったとき1個だけ手伝う。
-      // 3.5%/tick = やく 1.5分に 1こ(以前 8% = 40秒に 1こ で そうじが おいつかなかった)
-      if (Math.random() < 0.035 && state.poopCount < MAX_POOP) {
-        state.poopCount += 1;
+      // 2.5〜4.5分ごとに 1こ(間隔を そろえて、かたまって 出ない ように する)。ねている あいだは 0.3倍。
+      // 以前は 毎tick 3.5% の 抽選(やく 1.5分に 1こ・かたまりやすい)、その前は 8%
+      if (!(state.poopTimer > 0)) state.poopTimer = 50 + Math.random() * 40;
+      state.poopTimer -= state.isSleeping ? (isEquipped('sleepboost1') ? 0 : 0.3) : 1;
+      if (state.poopTimer <= 0) {
+        if (state.poopCount < MAX_POOP) state.poopCount += 1;
+        state.poopTimer = 50 + Math.random() * 40;
       }
       if (isEquipped('poop1') && state.poopCount >= 3) {
         state.poopCount = 0;
         itemContextReaction('poop1', 'たまったうんちを、まとめて全部おそうじした。');
       }
       if (state.poopCount >= MAX_POOP) {
-        state.happiness = clamp(state.happiness - 2, 0, 100);
+        state.happiness = clamp(state.happiness - 0.25, 0, 100);
       }
 
       // sickness risk - neglect (dirt, hunger, unhappiness, low health) raises
@@ -11802,13 +11831,15 @@
       // 以前は うんち2こ・30未満で 9%/tick だったので、そうじを 2分 わすれる
       // だけで びょうきに なっていた。3さいまでは うんちが いっぱいの とき いがい
       // びょうきに ならない(うまれて すぐ びょうきに なる かなしさを なくす)
-      const neglected = state.poopCount >= 3 || state.health < 40 || state.hunger < 20 || state.happiness < 20;
-      const infantGrace = currentAge() < 3 && state.poopCount < MAX_POOP;
+      state.poopFullTicks = state.poopCount >= MAX_POOP ? (state.poopFullTicks || 0) + 1 : 0;
+      const neglected = (state.poopCount >= 4 && state.poopFullTicks >= 80) || state.health < 40 || state.hunger < 20 || state.happiness < 20;
+      state.neglectTicks = neglected ? (state.neglectTicks || 0) + 1 : 0;
+      const infantGrace = (currentAge() < 3 && state.poopCount < MAX_POOP) || state.neglectTicks < 60;
       // なおとの おまもりを もっていると、びょうきに ぜったいに ならない
       if (!state.isSick && neglected && !infantGrace) {
         // マフラーけいを そうびしていると、びょうきに なる かくりつが へる
         // (上位アイテムほど さらに)
-        const sicknessChance = 0.03;
+        const sicknessChance = 0.015;
         if (Math.random() < sicknessChance) {
           const sickness = SICKNESS_TYPES[Math.floor(Math.random() * SICKNESS_TYPES.length)];
           state.isSick = true;
@@ -11829,10 +11860,16 @@
         state.energy = clamp(state.energy - 10, 0, 100);
         applyGrowth(8);
         applyDecline(-12);
-        recordSicknessCure();
         checkStoryEvents('medicine-cure');
         itemContextReaction('scarf', '病気に気づいて、自動でくすりを使って治した。');
       }
+
+      if (isEquipped('scarf') && state.dying && !state.scarfAidUsed) {
+        state.scarfAidUsed = true;
+        state.health = clamp(state.health + 30, 0, 100);
+        itemContextReaction('scarf', '様子がおかしいのに気づいて、救急箱で手当てした。');
+      }
+      if (!state.dying) state.scarfAidUsed = false;
 
       // as long a losing streak to be fatal
       let healthDelta = 0;
@@ -11842,7 +11879,7 @@
       if (state.isSick) healthDelta -= 1 + Math.min(2, Math.floor(state.totalSicknessCount / 4));
       // よく お世話できていれば けんこうは じぶんで もどる(70いじょうなら はやく)
       if (healthDelta === 0 && state.hunger > 50 && state.happiness > 50) healthDelta += (state.hunger > 70 && state.happiness > 70) ? 2 : 1;
-      state.health = clamp(state.health + healthDelta, 0, 100);
+      state.health = clamp(state.health + (healthDelta < 0 ? healthDelta * 0.6 : healthDelta), 0, 100);
 
 
       // track care quality for evolution
@@ -11864,7 +11901,11 @@
           state.lowHealthStreak = 0;
           state.health = 40;
           setMessage('きせきのふんばり!もうすこしがんばる…!');
-        } else {
+        } else if (!state.dying) {
+          // お世話頻度 監査 B2: 予告なしに 死なせない。まえぶれ(猶予つき)を 先に 出す
+          state.deathMeter = Math.max(state.deathMeter, 80);
+          updateDyingWarning();
+        } else if (state.dyingTicks <= 0) {
           triggerDeath();
         }
       }
@@ -11931,7 +11972,7 @@
       // かんむり(4ステータス常時MAX)を もっていても ほうっておくだけでは
       // そだたない - じかんでは なく お世話で そだつ、という きほんを まもる
       if (wellCared && state.recentActionTicks > 0) {
-        applyGrowth(0.1, { silent: true });
+        applyGrowth(0.17, { silent: true });
         applyDecline(-0.3);
       }
 
@@ -11956,6 +11997,10 @@
       // なかまも おなじく、じゃれるを おさぼると bond が へっていき、0の
       // なかまから じゅんに はなれて いってしまう
       decayCompanionBonds();
+      { const k = homeVisits && homeVisits.current && homeVisits.current.key; if (k) { // お世話頻度 監査 V3
+        if (state.partner && k === 'partner:' + state.partner.id) state.partner.affection = clamp((state.partner.affection ?? 100) + 0.2, 0, 100);
+        else for (const c of state.companions) if ('companion:' + canonicalCompanionId(c.id) === k) c.bond = clamp((c.bond ?? 100) + 0.2, 0, 100);
+      } }
 
       // そだち90の「でんせつの であい」を、この tick で おこすか どうか。
       // ていかくりつ なので いつ おきるか わからず、1つの 人生で 1かいだけ
@@ -14200,7 +14245,7 @@
   function travelStartAllowed(region) {
     return !!region && [...REGIONS,...SPECIAL_REGIONS].includes(region)
       && state.stage === STAGE.GROWING && !state.dying
-      && !state.isSleeping && !gameActive && !state.transformOptions
+      && !gameActive && !state.transformOptions
       && (!region.special || hasPerk(70));
   }
 
@@ -15095,7 +15140,7 @@
   }
 
   function scheduleEnvironmentMoment() {
-    const delay = 150000 + Math.random() * 150000;
+    const delay = 90000 + Math.random() * 90000;
     setTimeout(() => {
       try {
         const idleOk = !gameActive && pageVisible()
@@ -15109,7 +15154,7 @@
           const m = drawEnvironmentMoment(pool);
           if (m) {
             individualScenery(m);
-            if (m.happiness) state.happiness = clamp(state.happiness + m.happiness, 0, 100);
+            if (m.happiness) state.happiness = clamp(state.happiness + (m.happiness > 0 ? Math.round(m.happiness * 1.5) : m.happiness), 0, 100);
             if (m.energy) state.energy = clamp(state.energy + m.energy, 0, 100);
             state.lifetime.envMoments = (state.lifetime.envMoments || 0) + 1;
             const memories = m.memory ? (state.lifeLog || []).filter((entry) => typeof entry.text === 'string' && entry.text.trim()) : [];
@@ -16050,7 +16095,7 @@
   }
   function startMeguru() {
     if (!meguruMod || gameActive || meguruActive || !el.meguruOverlay) return false;
-    if (state.isSleeping) { setActionComment(randomBlockedMessage('sleepingTravel')); saveState(); render(); return false; }
+    if (state.isSleeping) wakeForAction();
     closeAllMenuOverlays();
     clearConversationTimers();
     hideSpeechBubble();
@@ -17814,7 +17859,7 @@
     minigameResultSpeechHold = [];
     const fromCompanion = !!pendingCompanionId;
     state.happiness = clamp(state.happiness + Math.round(5 + (clampedScore / 100) * 20), 0, 100);
-    const energyCost = Math.max(1, Math.round(12 * envModifiers().play));
+    const energyCost = Math.max(1, Math.round(8 * envModifiers().play));
     state.energy = clamp(state.energy - energyCost, 0, 100);
     state.transformMeter = clamp(state.transformMeter + 25 * (hasPerk(60) ? 1.2 : 1), 0, 100);
     offerTransformIfReady();
@@ -18415,6 +18460,16 @@
     audio.play('tap');
   }, true);
 
+  // お世話頻度 監査 B2: ねている間に ごはん・あそぶ・じゃれる などを 押したら、そっと 起きて そのまま する
+  function wakeForAction() {
+    if (!state.isSleeping) return;
+    state.isSleeping = false;
+    stopSleepRecovery();
+    if (state.sleptTicks >= 20) { applyGrowth(3); applyDecline(-3); }
+    state.sleptTicks = 0;
+    if (audio && audio.play) audio.play('wake');
+  }
+
   function withFeedback(fn, afterRender) {
     return () => {
       homeDiorama?.interrupt();
@@ -18433,12 +18488,9 @@
   }
 
   el.feedBtn.addEventListener('click', withFeedback(() => {
-    if (state.isSleeping) {
-      setActionComment(randomBlockedMessage('sleepingFeed'));
-      return;
-    }
+    if (state.isSleeping) wakeForAction();
     const overfed = state.hunger >= 80;
-    state.hunger = clamp(state.hunger + 25, 0, 100);
+    state.hunger = clamp(state.hunger + 30, 0, 100);
     state.actionCounts.feed += 1;
     state.affectionStreak = 0;
     state.travelStreak = 0;
@@ -18465,7 +18517,7 @@
     }
     if (isEquipped('bowtie')) itemContextReaction('bowtie','ちょうネクタイを直して、いただきます。食べ終えたら小さくおじぎ。');
     state.happiness = clamp(state.happiness + 3, 0, 100);
-    applyGrowth(4); applyDecline(-4);
+    applyGrowth(5); applyDecline(-4);
     if (!checkMeters()) {
       setActionComment(randomActionMessage('feed'));
       speakEvent('feed');
@@ -18539,7 +18591,7 @@
     state.affectionStreak = 0;
     state.travelStreak = 0;
     state.happiness = clamp(state.happiness + 15, 0, 100);
-    state.energy = clamp(state.energy - Math.max(1, Math.round(12 * envModifiers().play)), 0, 100);
+    state.energy = clamp(state.energy - Math.max(1, Math.round(8 * envModifiers().play)), 0, 100);
     state.transformMeter = clamp(state.transformMeter + 25 * (hasPerk(60) ? 1.2 : 1), 0, 100);
     offerTransformIfReady();
     applyGrowth(7);
@@ -18568,6 +18620,7 @@
 
   function tryStartPlay(chosenGame) {
     if (gameActive) return false;
+    if (state.isSleeping && state.energy >= 30) wakeForAction();
     if (state.isSleeping) {
       setActionComment(randomBlockedMessage('sleepingPlay'));
       saveState();
@@ -18618,7 +18671,7 @@
     state.actionCounts.clean += 1;
     state.affectionStreak = 0;
     state.travelStreak = 0;
-    applyGrowth(4); applyDecline(-5);
+    applyGrowth(6); applyDecline(-5);
     checkStoryEvents('poop-clean');
     if (!checkMeters()) {
       setActionComment(randomActionMessage('clean'));
@@ -18719,10 +18772,7 @@
   el.playWithBtn.addEventListener('click', withFeedback(() => {
     // たまごの あいだは「あたためる」あつかい。せいちょうが たまると かえる
     if (warmEgg()) return;
-    if (state.isSleeping) {
-      setActionComment(randomBlockedMessage('sleepingPet'));
-      return;
-    }
+    if (state.isSleeping) wakeForAction();
     state.affectionStreak += 1;
     state.travelStreak = 0;
     state.actionCounts.pet += 1;
@@ -18730,11 +18780,10 @@
     const spammed = state.affectionStreak > affectionSpamThreshold();
     let reply;
     if (spammed) {
-      state.happiness = clamp(state.happiness - 5, 0, 100);
-      applyDecline(6);
+      // お世話頻度 監査 B2: いやがる 反応だけ。ごきげん・おとろえは かえない
     } else {
-      state.happiness = clamp(state.happiness + 5, 0, 100);
-      applyGrowth(1.5); applyDecline(-2);
+      state.happiness = clamp(state.happiness + 7, 0, 100);
+      if (!(state.petGrowthWait > 0)) { applyGrowth(1.5); applyDecline(-2); state.petGrowthWait = 10; }
       // じゃれるは、そばに いる なかま ぜんいんの bond も まとめて かいふく
       // する(なかまが はなれて いかないよう、ここで つなぎとめる)
       const beforeBonds = state.companions.map(c => ({id:c.id,bond:c.bond}));
@@ -18803,10 +18852,7 @@
   // 今の こいびとと いちゃつく だけ(せいこう/しっぱいの 抽選なし) -
   // 一生のあいだ 1にん だけの、じみに おだやかな 恋愛システム
   el.courtBtn.addEventListener('click', withFeedback(() => {
-    if (state.isSleeping) {
-      setActionComment(randomBlockedMessage('sleepingCourt'));
-      return;
-    }
+    if (state.isSleeping) wakeForAction();
     state.affectionStreak = 0;
     state.travelStreak = 0;
     // きゅうあい・いちゃつきは からだを つかう ので、けっかに かかわらず
@@ -19087,7 +19133,7 @@
     const info = await requestEnvironment();
     const locality = window.NaotocchiLocalScenery?.resolveLocality?.(info?.municipality);
     if (intent !== currentLocationIntent || !overlayIs('travel') || !locality) return;
-    if (state.isSleeping) { setActionComment(randomBlockedMessage('sleepingTravel')); render(); return; }
+    if (state.isSleeping) wakeForAction();
     if (state.stage === STAGE.EGG || state.stage === STAGE.DEAD || state.transformOptions || gameActive) return;
     // The real municipality labels the home region; it is never invented as a
     // new biome or allowed to unlock special regions/region achievements.
@@ -19128,7 +19174,7 @@
   // ランダム移動時と まったく おなじ ロジックで、行き先だけが
   // 「ランダムに えらばれた もの」から「タップで えらんだ もの」に かわった
   function travelToRegion(region, choice) {
-    if (state.isSleeping) { setActionComment(randomBlockedMessage('sleepingTravel'));saveState();render();return false; }
+    if (state.isSleeping) wakeForAction();
     if (region?.special && !hasPerk(70)) { setMessage('そのばしょへつづく道はまだ見つからない');render();return false; }
     if (!travelStartAllowed(region)) return false;
     const sameLocalHome = region.id === 'home' && currentRegionId() === 'home' && state.lifetime.currentLocationSelected;
@@ -19264,6 +19310,7 @@
     const companion = allCompanionsById(pendingCompanionId);
     closeCompanionInvite();
     if (!companion) { pendingCompanionId = null; render(); return; }
+    if (state.isSleeping && state.stage === STAGE.GROWING) wakeForAction();
     const stillOk = !gameActive && state.stage === STAGE.GROWING && !state.isSleeping && !state.transformOptions;
     if (!stillOk) {
       pendingCompanionId = null;
@@ -20278,8 +20325,8 @@
     // ひらいている ときより ずっと おだやか。1かいの るすで さがるのは さいだい 30 まで。
     // げんきは るすの あいだ やすんでいる あつかいで、さがらず すこし かいふくする
     const cap = (v, per) => Math.max(drop(v, per), v - 30);
-    state.hunger = clamp(cap(state.hunger, 0.25 * factor), 0, 100);
-    state.happiness = clamp(cap(state.happiness, 0.25 * factor), 0, 100);
+    state.hunger = clamp(cap(state.hunger, 0.14 * factor), 0, 100);
+    state.happiness = clamp(cap(state.happiness, 0.14 * factor), 0, 100);
     if (sleeping) state.energy = clamp(state.energy + 2.2 * Math.min(ticks, 40), 0, 100);
     else state.energy = clamp(state.energy + 0.05 * ticks, 0, 100);
     let poop = 0;

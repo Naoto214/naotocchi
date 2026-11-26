@@ -70,7 +70,7 @@ test('home emotion follows canonical priority and pet availability', () => {
     [{isSick:true,hunger:10},['sick','strong']],
     [{energy:40,hunger:10},['tired','mild']],
     [{happiness:40,affectionStreak:0},['wantsPlay','mild']],
-    [{happiness:40,affectionStreak:3},['unhappy','mild']],
+    [{happiness:40,affectionStreak:4},['unhappy','mild']], // VERSION 3: じゃれすぎの 上限は 4
     [{deathMeter:80},['weak','critical']],
   ];
   for(const [values,want] of cases) {
@@ -96,7 +96,7 @@ test('persistent cue moves only the main pet and its accessory', () => {
 
 for (const [name,values,reaction] of [
   ['hungry',{hunger:20},'hungry'],
-  ['sulk',{happiness:40,affectionStreak:3},'sulk'],
+  ['sulk',{happiness:40,affectionStreak:4},'sulk'], // VERSION 3: じゃれすぎの 上限は 4
 ]) test(`26 companions stay still during the main pet ${name} cue`, () => {
   const h=harness(),s=h.api.state();
   const ids=allCompanionIds(h);
@@ -177,7 +177,7 @@ test('real wrong medicine starts with shake', () => {
 
 test('real annoyed play starts with settle', () => {
   const h=harness();
-  renderEmotion(h,{affectionStreak:3});
+  renderEmotion(h,{affectionStreak:4}); // VERSION 3: じゃれすぎの 上限は 4
   h.dispatch(h.get('playWithBtn'),'click');
   h.advance(1);
   assert.equal(h.get('petSprite').dataset.reaction,'settle');
@@ -378,7 +378,7 @@ test('critical life suppresses cured medicine afterglow', () => {
 test('other semantic care reactions finish without an added happy afterglow', () => {
   const cases=[
     ['play',{},'playWithBtn'],
-    ['annoyed play',{affectionStreak:3},'playWithBtn'],
+    ['annoyed play',{affectionStreak:4},'playWithBtn'],
     ['wrong medicine',{},'medicineBtn'],
     ['sleep',{},'sleepBtn'],
     ['wake',{isSleeping:true,sleptTicks:20},'sleepBtn'],

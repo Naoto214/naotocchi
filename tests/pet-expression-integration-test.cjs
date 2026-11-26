@@ -52,7 +52,7 @@ test('real home emotion profiles select only the adult cat portrait', () => {
     [{hunger:40},['hungry',variant('hungry')]],
     [{energy:40},['tired',variant('tired')]],
     [{isSick:true},['sick',variant('sick')]],
-    [{happiness:40,affectionStreak:3},['sulky',SULKY]],
+    [{happiness:40,affectionStreak:4},['sulky',SULKY]],
     [{health:25},['weak',variant('weak')]],
     [{deathMeter:60},['weak',variant('weak')]],
     [{deathMeter:80},['critical',variant('critical')]],
@@ -72,7 +72,7 @@ test('real home emotion profiles select only the adult cat portrait', () => {
 test('adult-cat expressions append unique static accents inside the existing visual', () => {
   const cases = [
     [{hunger:40},'hungry'],[{isSick:true},'sick'],[{energy:40},'tired'],
-    [{happiness:40,affectionStreak:3},'sulky'],[{health:25},'weak'],
+    [{happiness:40,affectionStreak:4},'sulky'],[{health:25},'weak'],
     [{deathMeter:80},'critical'],[{happiness:40},'wantsPlay'],[{isSleeping:true},'sleeping'],
   ];
   for (const [values,name] of cases) {
@@ -93,7 +93,7 @@ test('real play and medicine outcomes use semantic temporary faces', () => {
   playful.dispatch(playful.get('playWithBtn'),'click'); playful.advance(1);
   assert.deepEqual(face(playful),['happy',HAPPY]);
 
-  const spam=harness(); adultCat(spam,{affectionStreak:3});
+  const spam=harness(); adultCat(spam,{affectionStreak:4});
   avoidRoutineStories(spam); spam.get('storyFlash').classList.add('hidden');
   spam.dispatch(spam.get('playWithBtn'),'click'); spam.advance(1);
   assert.deepEqual(face(spam),['sulky',SULKY]);
@@ -109,9 +109,11 @@ test('real play and medicine outcomes use semantic temporary faces', () => {
   overfed.dispatch(overfed.get('feedBtn'),'click'); overfed.advance(1);
   assert.deepEqual(face(overfed),['strained',STRAINED]);
 
+  // VERSION 3: ねていても ごはんを 押すと 起きて 食べる(断られて 寝顔の まま、には ならない)
   const blocked=harness(); adultCat(blocked,{isSleeping:true}); avoidRoutineStories(blocked);
   blocked.dispatch(blocked.get('feedBtn'),'click'); blocked.advance(1);
-  assert.deepEqual(face(blocked),['sleeping',variant('sleeping')]);
+  assert.equal(blocked.api.state().isSleeping,false);
+  assert.notEqual(face(blocked)[0],'sleeping');
 });
 
 test('feed afterglow starts happy only after the validated result and expires to latest state', () => {
@@ -160,7 +162,7 @@ test('reduced motion keeps the static happy afterglow for one second without ani
 });
 
 test('only pet semantic speech starts a temporary face', () => {
-  const h=harness(); const s=adultCat(h,{happiness:40,affectionStreak:3});
+  const h=harness(); const s=adultCat(h,{happiness:40,affectionStreak:4});
   s.partner={id:'cat_ceo',label:'しゃちょうねこ',emoji:'🐈‍⬛',affection:20,married:false};
   s.companions=[{id:'snail',bond:100}]; h.api.render();
   h.api.setSpeechBubble('いっしょにあそぼう',{kind:'partner',id:'cat_ceo',label:'しゃちょうねこ'},{event:'play_with'});
@@ -281,7 +283,7 @@ test('home care colors follow existing mood and fatigue boundaries and reset aft
   check({happiness:25,energy:50},'#76d9ef','#8c56ce');
   check({isSleeping:true},'#76d9ef','#347de3');
   check({isSleeping:false,happiness:80,energy:80},'#f58a19','#347de3');
-  check({happiness:40,affectionStreak:3},'#76d9ef','#347de3');
+  check({happiness:40,affectionStreak:4},'#76d9ef','#347de3');
 });
 
 test('progress meter colors vary with fill without altering game state or life direction', () => {
@@ -405,7 +407,7 @@ test('baby home uses its own portraits, care reactions and sleeping face without
 
 test('adult dog shows all ten state and reaction faces without changing saved state', () => {
   const cases=[['hungry',{hunger:40}],['sick',{isSick:true}],['tired',{energy:40}],
-    ['sulky',{happiness:40,affectionStreak:3}],['weak',{deathMeter:60}],
+    ['sulky',{happiness:40,affectionStreak:4}],['weak',{deathMeter:60}],
     ['critical',{deathMeter:80}],['wantsPlay',{happiness:40}],['sleeping',{isSleeping:true}],
     ['happy',{},'play_with'],['strained',{},'medicine_wrong']];
   for (const [name,values,event] of cases) {
@@ -424,7 +426,7 @@ test('adult dog shows all ten state and reaction faces without changing saved st
 
 test('puppy shows all ten state and reaction faces without changing saved state', () => {
   const cases=[['hungry',{hunger:40}],['sick',{isSick:true}],['tired',{energy:40}],
-    ['sulky',{happiness:40,affectionStreak:3}],['weak',{deathMeter:60}],
+    ['sulky',{happiness:40,affectionStreak:4}],['weak',{deathMeter:60}],
     ['critical',{deathMeter:80}],['wantsPlay',{happiness:40}],['sleeping',{isSleeping:true}],
     ['happy',{},'play_with'],['strained',{},'medicine_wrong']];
   for (const [name,values,event] of cases) {
@@ -443,7 +445,7 @@ test('puppy shows all ten state and reaction faces without changing saved state'
 
 test('wanpaku shows all ten state and reaction faces without changing saved state', () => {
   const cases=[['hungry',{hunger:40}],['sick',{isSick:true}],['tired',{energy:40}],
-    ['sulky',{happiness:40,affectionStreak:3}],['weak',{deathMeter:60}],
+    ['sulky',{happiness:40,affectionStreak:4}],['weak',{deathMeter:60}],
     ['critical',{deathMeter:80}],['wantsPlay',{happiness:40}],['sleeping',{isSleeping:true}],
     ['happy',{},'play_with'],['strained',{},'medicine_wrong']];
   for (const [name,values,event] of cases) {
@@ -462,7 +464,7 @@ test('wanpaku shows all ten state and reaction faces without changing saved stat
 
 test('young dog shows all ten state and reaction faces without changing saved state', () => {
   const cases=[['hungry',{hunger:40}],['sick',{isSick:true}],['tired',{energy:40}],
-    ['sulky',{happiness:40,affectionStreak:3}],['weak',{deathMeter:60}],
+    ['sulky',{happiness:40,affectionStreak:4}],['weak',{deathMeter:60}],
     ['critical',{deathMeter:80}],['wantsPlay',{happiness:40}],['sleeping',{isSleeping:true}],
     ['happy',{},'play_with'],['strained',{},'medicine_wrong']];
   for (const [name,values,event] of cases) {
@@ -489,7 +491,7 @@ test('young dog routing is limited to ages sixteen through twenty-one', () => {
 
 test('calm dog shows all ten state and reaction faces without changing saved state', () => {
   const cases=[['hungry',{hunger:40}],['sick',{isSick:true}],['tired',{energy:40}],
-    ['sulky',{happiness:40,affectionStreak:3}],['weak',{deathMeter:60}],
+    ['sulky',{happiness:40,affectionStreak:4}],['weak',{deathMeter:60}],
     ['critical',{deathMeter:80}],['wantsPlay',{happiness:40}],['sleeping',{isSleeping:true}],
     ['happy',{},'play_with'],['strained',{},'medicine_wrong']];
   for (const [name,values,event] of cases) {
@@ -519,7 +521,7 @@ test('calm dog routing is limited to ages forty through sixty-nine', () => {
 
 test('baby dog shows all ten state and reaction faces without changing saved state', () => {
   const cases=[['hungry',{hunger:40}],['sick',{isSick:true}],['tired',{energy:40}],
-    ['sulky',{happiness:40,affectionStreak:3}],['weak',{deathMeter:60}],
+    ['sulky',{happiness:40,affectionStreak:4}],['weak',{deathMeter:60}],
     ['critical',{deathMeter:80}],['wantsPlay',{happiness:40}],['sleeping',{isSleeping:true}],
     ['happy',{},'play_with'],['strained',{},'medicine_wrong']];
   for (const [name,values,event] of cases) {
@@ -538,7 +540,7 @@ test('baby dog shows all ten state and reaction faces without changing saved sta
 
 test('toddler dog shows all ten state and reaction faces without changing saved state', () => {
   const cases=[['hungry',{hunger:40}],['sick',{isSick:true}],['tired',{energy:40}],
-    ['sulky',{happiness:40,affectionStreak:3}],['weak',{deathMeter:60}],
+    ['sulky',{happiness:40,affectionStreak:4}],['weak',{deathMeter:60}],
     ['critical',{deathMeter:80}],['wantsPlay',{happiness:40}],['sleeping',{isSleeping:true}],
     ['happy',{},'play_with'],['strained',{},'medicine_wrong']];
   for (const [name,values,event] of cases) {
@@ -557,7 +559,7 @@ test('toddler dog shows all ten state and reaction faces without changing saved 
 
 test('elder dog shows all ten state and reaction faces without changing saved state', () => {
   const cases=[['hungry',{hunger:40}],['sick',{isSick:true}],['tired',{energy:40}],
-    ['sulky',{happiness:40,affectionStreak:3}],['weak',{deathMeter:60}],
+    ['sulky',{happiness:40,affectionStreak:4}],['weak',{deathMeter:60}],
     ['critical',{deathMeter:80}],['wantsPlay',{happiness:40}],['sleeping',{isSleeping:true}],
     ['happy',{},'play_with'],['strained',{},'medicine_wrong']];
   for (const [name,values,event] of cases) {
@@ -588,7 +590,7 @@ for (const species of ['man','woman','penguin','turtle','frog','clownfish','salm
     const stage=String(index+1).padStart(2,'0');
     test(`${species}/${stage} renders all ten states and reactions without mutating saved state`, () => {
       const cases=[['hungry',{hunger:40}],['sick',{isSick:true}],['tired',{energy:40}],
-        ['sulky',{happiness:40,affectionStreak:3}],['weak',{deathMeter:60}],
+        ['sulky',{happiness:40,affectionStreak:4}],['weak',{deathMeter:60}],
         ['critical',{deathMeter:80}],['wantsPlay',{happiness:40}],['sleeping',{isSleeping:true}],
         ['happy',{},'play_with'],['strained',{},'medicine_wrong']];
       for (const [name,values,event] of cases) {

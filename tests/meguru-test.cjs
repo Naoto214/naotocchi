@@ -110,7 +110,7 @@ function enterAndReturn(h, s) {
   assert.equal(s.lifetime.meguru.visits, 1);
 }
 
-test('げんざいち keeps the home world and only changes its flavour; sleeping blocks entry', () => {
+test('げんざいち keeps the home world and only changes its flavour; sleeping pets wake up to explore', () => {
   const h = harness(); const s = populated(h);
   const M = h.api.meguruMod;
   s.regionId = 'home'; s.lifetime.currentLocationSelected = true; s.lifetime.currentLocation = { name: '函館市', display: '函館市', prefecture: '北海道', profileId: 'harbor' };
@@ -118,8 +118,10 @@ test('げんざいち keeps the home world and only changes its flavour; sleepin
   assert.match(h.get('meguruEntry').innerHTML, /げんざいち（函館市）をめぐる/);
   const w = M.buildWorld('home', M.buildRegistry(), { locality: { profileId: 'harbor' } });
   assert.equal(w.regionId, 'home'); assert.ok(w.local && w.local.label === '港のまち');
+  // お世話頻度 監査 VERSION 3: ねていても めぐるを 押せば、そっと 起きて 出かける
   s.isSleeping = true;
-  assert.equal(h.api.startMeguru(), false, 'no exploring while asleep');
+  h.api.startMeguru();
+  assert.equal(s.isSleeping, false, 'the pet wakes up to explore');
 });
 
 test('the simulation runs with no renderer or DOM: world coordinates, movement, obstacles, meeting and talking', () => {

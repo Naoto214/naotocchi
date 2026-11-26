@@ -17,7 +17,8 @@ test('ten minutes away lowers stats gently without changing coins', () => {
   const money = state.lifetime.money, log = state.lifeLog.length;
   const r = h.api.applyOfflineProgress(1000);
   assert.equal(r.ticks, 200);
-  assert.ok(Math.abs(state.hunger - 70) < 0.01, 'hunger drops 0.25 per tick but at most 30 per absence: ' + state.hunger);
+  // お世話頻度 監査 VERSION 3: 閉じていた 間は 0.14/tick(ひらいている時の 0.20 より おだやか)、1回の るすで さいだい 30
+  assert.ok(Math.abs(state.hunger - 72) < 0.01, 'hunger drops 0.14 per tick but at most 30 per absence: ' + state.hunger);
   assert.equal(state.energy, 100, 'energy never drops while away');
   assert.equal(state.lifetime.money, money, 'offline visits do not generate coins');
   assert.equal(state.lifeLog.length, log + 1);

@@ -65,6 +65,7 @@ test('V2 ribbon automatically fills happiness when the normal danger band is rea
   assert.equal(s.happiness, 100);
 });
 
+// VERSION 3: 救急箱の 自動治療は、アイテムの 決まり(手動治療回数・実績等を 増やさない)どおり、病気を なおした 回数にも 数えない
 test('V2 disease equipment automatically cures sickness without pretending it was a manual medicine tap', () => {
   const {h, s} = setup('scarf');
   s.isSick = true;
@@ -75,7 +76,7 @@ test('V2 disease equipment automatically cures sickness without pretending it wa
   assert.equal(s.isSick, false);
   assert.equal(s.sicknessType, null);
   assert.equal(s.actionCounts.medicine, manualMedicine);
-  assert.equal(s.lifetime.sicknessCured, cured + 1);
+  assert.equal(s.lifetime.sicknessCured, cured);
 });
 
 test('V2 automation equipment no longer keeps the old passive percentage reductions', () => {
