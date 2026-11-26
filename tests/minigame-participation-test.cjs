@@ -3,7 +3,7 @@
 //  - 共通の 判定(script.js mgParticipated): 4びょう区切り 1つで おわった アクションの 回は、最初の 目標を 達成した(achieved)ときだけ 参加。
 //    すぐ やられて しまう ゲーム(minSpans 3)は 3区切り。考える ゲーム・盤上の 対戦は これまでどおり
 //  - 参加なしは「途中で やめた」と おなじ(げんき −6・きげん +2。記録・コイン・へんしんメーター なし)。みじかい 回は やさしい ことば
-//  - 全100本が 参加度メーターを わたす(Phase 3 の #597 で 入れる 16本を のぞく)
+//  - 全100本が 参加度メーターを わたす(Phase 3 の #597 の 16本も ふくむ)
 //  - スネークなど: 放置・1回だけ・すぐ 失敗する 連打は 記録しない。ふつうに 長く 遊べば 記録する
 const assert = require('node:assert/strict');
 const {test} = require('node:test');
@@ -50,15 +50,12 @@ test('参加なしの ことば: みじかく おわった 回は「すぐにお
   assert.match(b, /そうさがなかったので、今回は記録しないよ/);
 });
 
-test('全100本: 参加度メーターを わたす(#597 の 16本を のぞく)', () => {
+test('全100本: 参加度メーターを わたす(#597 Phase 3 の 16本も ふくめて すべて)', () => {
   const t = table();
   assert.equal(t.length, 100);
-  const P3 = new Set(['stack-themed', 'stack-snowman', 'stack-harvest', 'stack-acorn', 'stack-sakura', 'stack-leaves', 'darts-board', 'rhythm-highway-3d', 'asteroids-classic', 'fruit-slice', 'archery-3d', 'halfpipe-skate', 'street-fight', 'grand-prix-3d', 'dragDecorate-cake', 'domino-run']);
-  const none = t.filter((r) => r.kind === 'なし' || r.kind === '入力').map((r) => r.id);
-  assert.deepEqual(none.filter((id) => !P3.has(id)), [], 'メーターの ない ゲーム');
+  assert.deepEqual(t.filter((r) => r.kind === 'なし' || r.kind === '入力').map((r) => r.id), [], 'メーターの ない ゲーム');
 });
 
-// フロッガーの 連打(前へ とびこむ)は 前へ 3マス 進むので 参加に なる(初心者を 不利に しない ための 抜け道として 許容)
 test('スネーク・フロッガー・ボンバー: 放置・1回だけ(スネーク・ボンバーは 連打も)で すぐ 失敗する 回は 記録しない', () => {
   const tap1 = (r, t) => { if (t === 1000) { const n = r.box.children.find((c) => c.listeners && c.listeners.length) || r.box; r.tap(n); } };
   const mash = (r, t) => { if (t >= 1000 && t % 150 === 0) for (const n of [...globalThis.__mgListened]) { if (!n.isConnected || n.disabled || /^mg(Quit|Help)/.test(n.id || '')) continue; if (n.listeners.some((l) => l.type === 'pointerdown')) r.tap(n); } };

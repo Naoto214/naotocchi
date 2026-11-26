@@ -46,9 +46,9 @@
   },
   "after": {
    "idle": "××",
-   "tap1": "○○",
+   "tap1": "××",
    "random": "○○",
-   "mash": "○○",
+   "mash": "××",
    "farm": 53
   },
   "quickSec": 20
@@ -82,12 +82,12 @@
   },
   "after": {
    "idle": "××",
-   "tap1": "○○",
+   "tap1": "××",
    "random": "○○",
    "mash": "○○",
-   "farm": 58
+   "farm": 63
   },
-  "quickSec": 15
+  "quickSec": 16
  },
  {
   "id": "baseball-batting",
@@ -391,7 +391,7 @@
    "tap1": "――",
    "random": "○○",
    "mash": "○○",
-   "farm": 56
+   "farm": 0
   },
   "quickSec": 6
  },
@@ -406,9 +406,9 @@
   },
   "after": {
    "idle": "××",
-   "tap1": "○○",
-   "random": "○○",
-   "mash": "○○",
+   "tap1": "××",
+   "random": "××",
+   "mash": "○×",
    "farm": 111
   },
   "quickSec": 6
@@ -514,10 +514,10 @@
   },
   "after": {
    "idle": "××",
-   "tap1": "○○",
-   "random": "○○",
-   "mash": "○○",
-   "farm": 63
+   "tap1": "××",
+   "random": "××",
+   "mash": "××",
+   "farm": 0
   },
   "quickSec": 16
  },
@@ -658,7 +658,7 @@
   },
   "after": {
    "idle": "××",
-   "tap1": "○○",
+   "tap1": "××",
    "random": "○○",
    "mash": "○○",
    "farm": 45
@@ -694,7 +694,7 @@
   },
   "after": {
    "idle": "××",
-   "tap1": "○○",
+   "tap1": "××",
    "random": "○○",
    "mash": "○○",
    "farm": 37
@@ -712,7 +712,7 @@
   },
   "after": {
    "idle": "××",
-   "tap1": "○○",
+   "tap1": "××",
    "random": "○○",
    "mash": "○○",
    "farm": 43
@@ -1198,7 +1198,7 @@
   },
   "after": {
    "idle": "××",
-   "tap1": "○○",
+   "tap1": "××",
    "random": "○○",
    "mash": "○○",
    "farm": 48
@@ -1468,12 +1468,12 @@
   },
   "after": {
    "idle": "××",
-   "tap1": "○○",
+   "tap1": "××",
    "random": "○○",
-   "mash": "○○",
-   "farm": 99
+   "mash": "××",
+   "farm": 0
   },
-  "quickSec": 7
+  "quickSec": 5
  },
  {
   "id": "stack-harvest",
@@ -1486,12 +1486,12 @@
   },
   "after": {
    "idle": "××",
-   "tap1": "○○",
+   "tap1": "××",
    "random": "○○",
-   "mash": "○○",
-   "farm": 99
+   "mash": "××",
+   "farm": 0
   },
-  "quickSec": 7
+  "quickSec": 5
  },
  {
   "id": "stack-leaves",
@@ -1504,12 +1504,12 @@
   },
   "after": {
    "idle": "××",
-   "tap1": "○○",
+   "tap1": "××",
    "random": "○○",
-   "mash": "○○",
-   "farm": 99
+   "mash": "××",
+   "farm": 0
   },
-  "quickSec": 7
+  "quickSec": 5
  },
  {
   "id": "stack-sakura",
@@ -1522,12 +1522,12 @@
   },
   "after": {
    "idle": "××",
-   "tap1": "○○",
+   "tap1": "××",
    "random": "○○",
-   "mash": "○○",
-   "farm": 99
+   "mash": "××",
+   "farm": 0
   },
-  "quickSec": 7
+  "quickSec": 5
  },
  {
   "id": "stack-snowman",
@@ -1540,12 +1540,12 @@
   },
   "after": {
    "idle": "××",
-   "tap1": "○○",
+   "tap1": "××",
    "random": "○○",
-   "mash": "○○",
-   "farm": 99
+   "mash": "××",
+   "farm": 0
   },
-  "quickSec": 7
+  "quickSec": 5
  },
  {
   "id": "stack-themed",
@@ -1558,12 +1558,12 @@
   },
   "after": {
    "idle": "××",
-   "tap1": "○○",
+   "tap1": "××",
    "random": "○○",
-   "mash": "○○",
-   "farm": 105
+   "mash": "××",
+   "farm": 0
   },
-  "quickSec": 6
+  "quickSec": 5
  },
  {
   "id": "street-fight",
@@ -1576,7 +1576,7 @@
   },
   "after": {
    "idle": "××",
-   "tap1": "○○",
+   "tap1": "××",
    "random": "○○",
    "mash": "○○",
    "farm": 50

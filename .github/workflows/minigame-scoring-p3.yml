@@ -1,0 +1,56 @@
+name: Minigame scoring P3
+
+# ミニゲーム採点監査 Phase 3(連打・押しっぱなし・放置に近い 操作で 高得点に ならない・上手な 人の 点は そのまま)。
+# 本物の ページを スマホ幅・タッチで ひらき、Chromium と WebKit(iPhone の Safari と おなじ エンジン)で たしかめる。
+# 採点の 回帰テスト(13種18本)は npm test(Runtime smoke test)の tests/minigame-scoring-p3-test.cjs。
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'games.js'
+      - 'tools/minigame-audit/p3/**'
+      - 'script.js'
+      - 'index.html'
+      - 'tests/minigame-scoring-p3-*.cjs'
+      - 'tests/helpers/**'
+      - 'package*.json'
+      - '.github/workflows/minigame-scoring-p3.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'games.js'
+      - 'tools/minigame-audit/p3/**'
+      - 'script.js'
+      - 'index.html'
+      - 'tests/minigame-scoring-p3-*.cjs'
+      - 'tests/helpers/**'
+      - 'package*.json'
+      - '.github/workflows/minigame-scoring-p3.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  minigame-scoring-p3-browser:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm ci
+      - run: npm install --no-save --package-lock=false playwright@1.62.1
+      - run: npx playwright install --with-deps chromium webkit
+      - name: Scoring regressions (harness)
+        run: node --test tests/minigame-scoring-p3-test.cjs
+      - name: Real page, phone size, touch (Chromium and WebKit)
+        run: |
+          mkdir -p test-results/minigame-scoring-p3
+          node tests/minigame-scoring-p3-browser.cjs --engines chromium,webkit --shots test-results/minigame-scoring-p3
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: minigame-scoring-p3
+          path: test-results/minigame-scoring-p3
+          retention-days: 14

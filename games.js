@@ -362,7 +362,7 @@
         const DURATION_MS = mgDuration(25000), BLOCK_H = 22;
         const colors = palette || ['#f6a5c0', '#a5d8f6', '#c8f6a5', '#f6e2a5', '#d3a5f6', '#a5f6d8', '#f6c8a5'];
         let running = true, rafId = null, last = null, blocks = [], swing = { x: 0, w: 0, dir: 1, speed: lerp(120, 170, difficulty) }, falling = null, camY = 0, perfects = 0, combo = 0, msg = '', msgUntil = 0, parts = [], scraps = [], over = false, bestH = 0, shake = 0;
-        const startTime = performance.now() + MG_ACTION_START_GRACE_MS;
+        const startTime = performance.now() + MG_ACTION_START_GRACE_MS, meter = mgPlayMeter();
         container.innerHTML = `
           <div class="mg-header"><span id="stTimer">残り：${Math.round(DURATION_MS / 1000)}秒</span><span id="stScore">だん0／✨ 0</span></div>
           <div class="mg-title">${title}</div>
@@ -378,9 +378,18 @@
         blocks.push({ x: (W - BASE_W) / 2, w: BASE_W, y: GROUND - BLOCK_H, color: colors[0], wob: 0 });
         // ゆれの はじめの いちと むきは 毎回 らんすう。ただし まんなか(ぴったり)から MIN_OFF 以上 はなして、
         // 開始 ちょくごに おすだけで パーフェクトに ならないように する
-        swing.w = BASE_W; { const lo = 4, hi = W - 4 - BASE_W, mid = (W - BASE_W) / 2, MIN_OFF = Math.min(16, (hi - lo) / 2); const side = Math.random() < 0.5 ? -1 : 1, off = MIN_OFF + Math.random() * Math.max(0, (hi - lo) / 2 - MIN_OFF); swing.x = clamp(mid + side * off, lo, hi); swing.dir = Math.random() < 0.5 ? -1 : 1; }
+        // Phase 3(2026-11-26): 1だんごとに ゆれを はしから やりなおす(つまれた ブロックの 真上から はじめない)。
+        // まえは 着地した 位置から ゆれが つづいたので、着地 ちょくごに 押すだけで ほぼ 真上に 重なり、連打で パーフェクトが つづいて 100点に なった
+        function resetSwing() {
+          const top = blocks[blocks.length - 1], w = swing.w, lo = 4, hi = Math.max(lo, W - 4 - w), mid = clamp(top.x + (top.w - w) / 2, lo, hi);
+          const room = Math.max(mid - lo, hi - mid), MIN_OFF = Math.min(Math.max(16, (hi - lo) * 0.3), room);
+          const sides = [-1, 1].filter((d) => (d < 0 ? mid - lo : hi - mid) >= MIN_OFF); const side = sides.length ? sides[Math.floor(Math.random() * sides.length)] : (mid - lo > hi - mid ? -1 : 1);
+          const far = side < 0 ? mid - lo : hi - mid; const off = MIN_OFF + Math.random() * Math.max(0, far - MIN_OFF);
+          swing.x = clamp(mid + side * off, lo, hi); swing.dir = Math.random() < 0.5 ? -1 : 1;
+        }
+        swing.w = BASE_W; resetSwing();
         const topY = () => blocks[blocks.length - 1].y;
-        function drop() { if (!running || falling || over || performance.now() < startTime) return; falling = { x: swing.x, w: swing.w, y: topY() - BLOCK_H * 3.2 - camY * 0 - 60, vy: 0, color: colors[blocks.length % colors.length] }; falling.y = camTop() + 26; }
+        function drop() { if (!running || falling || over || performance.now() < startTime) return; meter.act(); falling = { x: swing.x, w: swing.w, y: topY() - BLOCK_H * 3.2 - camY * 0 - 60, vy: 0, color: colors[blocks.length % colors.length] }; falling.y = camTop() + 26; }
         const camTop = () => topY() - H * 0.62 + 40; // カメラの うえはし(ワールド座標)
         container.querySelector('#stDrop').addEventListener('pointerdown', (e) => { e.preventDefault(); drop(); });
         canvas.addEventListener('pointerdown', (e) => { e.preventDefault(); drop(); });
@@ -390,7 +399,7 @@
           const off = Math.abs((falling.x + falling.w / 2) - (top.x + top.w / 2));
           if (off < 5) { sfx('coin'); perfects++; combo++; const nw = Math.min(BASE_W, top.w + 6); blocks.push({ x: top.x + (top.w - nw) / 2, w: nw, y: top.y - BLOCK_H, color: falling.color, wob: 0, perfect: true }); say(combo > 1 ? `✨パーフェクト×${combo}!` : '✨パーフェクト!', 700); for (let i = 0; i < 10; i++) parts.push({ x: top.x + top.w / 2 + (Math.random() - 0.5) * nw, y: top.y - BLOCK_H, vx: (Math.random() - 0.5) * 120, vy: -40 - Math.random() * 80, life: 0.6, color: '#fff' }); }
           else { sfx('pop'); combo = 0; if (falling.x < L) scraps.push({ x: falling.x, w: L - falling.x, y: top.y - BLOCK_H, vy: 20, vx: -40, rot: 0, color: falling.color }); if (falling.x + falling.w > R) scraps.push({ x: R, w: falling.x + falling.w - R, y: top.y - BLOCK_H, vy: 20, vx: 40, rot: 0, color: falling.color }); blocks.push({ x: L, w: overlap, y: top.y - BLOCK_H, color: falling.color, wob: 0 }); if (overlap < 22) say('ほそい…!', 600); }
-          falling = null; hud(); swing.w = blocks[blocks.length - 1].w; swing.speed = lerp(120, 170, difficulty) + blocks.length * 4; bestH = Math.max(bestH, blocks.length - 1);
+          falling = null; hud(); swing.w = blocks[blocks.length - 1].w; swing.speed = lerp(120, 170, difficulty) + blocks.length * 4; bestH = Math.max(bestH, blocks.length - 1); resetSwing();
         }
         function update(dt, now) {
           const tw = topY(); camY += ((camTop()) - camY) * Math.min(1, dt * 5);
@@ -434,7 +443,8 @@
           if (!running) return; running = false; cancelAnimationFrame(rafId); container.querySelectorAll('button').forEach((b) => { b.disabled = true; });
           const n = blocks.length - 1; const score = clamp(Math.round(8 + n * 7 + perfects * 4), 8, 100);
           say(over ? `${n}だんつんだ!` : `⏰ ${n}だんつんだ!✨${perfects}`, 2600); render(performance.now());
-          setTimeout(() => onComplete(score), 650);
+          const play = meter.done();
+          setTimeout(() => onComplete(score, null, play), 650);
         }
         hud();
         rafId = requestAnimationFrame(frame);
@@ -659,6 +669,7 @@
         const ARROWS = 5;
         let arrowNo = 0, total = 0, running = true, rafId = null, last = null, msg = '', msgUntil = 0, holdSince = 0;
         let wind = 0, dist = 1, aim = null, flying = null, hits = [], results = [];
+        const meter = mgThinkMeter(2);
         const GIVE_UP_MS = 55000;
         const startTime = performance.now();
         container.innerHTML = `
@@ -677,6 +688,9 @@
           hits = [];
         }
         const targetR = () => W * 0.3 / dist;
+        // Phase 3(2026-11-26): 風で ながされる はば 26→AR_WIND_PX。照準の まるは 風の ぶんも 入れて 見せて いる ので、照準を 的に あわせれば これまでどおり 当たる。
+        // まえは 風が よわく、まっすぐ いっぱいに 引いて はなす だけで(ねらわず・風を 見ずに)平均97点に なった
+        const AR_WIND_PX = 150;
         canvas.addEventListener('pointerdown', (e) => { e.preventDefault(); if (flying || !running || arrowNo >= ARROWS) return; const p = mgPointerPos(canvas, e); aim = { id: e.pointerId, ox: p.x, oy: p.y, x: p.x, y: p.y }; holdSince = performance.now(); try { canvas.setPointerCapture(e.pointerId); } catch (err) {} });
         canvas.addEventListener('pointermove', (e) => { if (!aim || e.pointerId !== aim.id) return; const p = mgPointerPos(canvas, e); aim.x = p.x; aim.y = p.y; });
         const release = (e) => {
@@ -686,10 +700,10 @@
           const draw = clamp(len / 110, 0.2, 1);
           const { sx, sy } = sightPoint(dx, dy, len, draw);
           const shake = shakeAmount();
-          const landX = sx + wind * 26 * (1 / draw) + (Math.random() - 0.5) * shake;
+          const landX = sx + wind * AR_WIND_PX * (1 / draw) + (Math.random() - 0.5) * shake;
           const landY = sy + (Math.random() - 0.5) * shake;
           sfx('whoosh'); flying = { t: 0, fromX: W / 2, fromY: H + 10, toX: landX, toY: landY };
-          arrowNo++;
+          arrowNo++; meter.act();
         };
         canvas.addEventListener('pointerup', release); canvas.addEventListener('pointercancel', release);
         function shakeAmount() { const held = (performance.now() - holdSince) / 1000; return lerp(3, 6, difficulty) + Math.max(0, held - 2.5) * 5; }
@@ -716,7 +730,7 @@
             const dx = aim.ox - aim.x, dy = aim.oy - aim.y, len = Math.hypot(dx, dy), draw = clamp(len / 110, 0, 1);
             if (len > 4) {
               const { sx: bx, sy } = sightPoint(dx, dy, len, Math.max(0.2, draw));
-              const sx = bx + wind * 26 / Math.max(0.2, draw); // かぜで ながされる ぶんも 見せる
+              const sx = bx + wind * AR_WIND_PX / Math.max(0.2, draw); // かぜで ながされる ぶんも 見せる
               const sh = shakeAmount() * 0.4; const jx = Math.sin(now / 90) * sh, jy = Math.cos(now / 70) * sh;
               ctx.strokeStyle = 'rgba(255,255,255,.9)'; ctx.lineWidth = 2; ctx.beginPath(); ctx.arc(sx + jx, sy + jy, 10, 0, Math.PI * 2); ctx.stroke();
               ctx.beginPath(); ctx.moveTo(sx + jx - 16, sy + jy); ctx.lineTo(sx + jx + 16, sy + jy); ctx.moveTo(sx + jx, sy + jy - 16); ctx.lineTo(sx + jx, sy + jy + 16); ctx.stroke();
@@ -762,7 +776,8 @@
           const score = clamp(Math.round(total / (ARROWS * 10) * 100), 8, 100);
           say(`結果：${total}点／${ARROWS * 10}`, 2000);
           render(performance.now());
-          setTimeout(() => onComplete(score), 650);
+          const play = meter.done();
+          setTimeout(() => onComplete(score, null, play), 650);
         }
         newRound();
         rafId = requestAnimationFrame(loop);
@@ -944,6 +959,13 @@
     return x >= r.left && x <= r.right && y >= r.top && y <= r.bottom;
   }
 
+  // Phase 3(2026-11-26・ご判断ずみ): つくる ゲーム(ケーキ・ドミノ)の 完成の 点。完成すれば 76点いじょう(60コイン)、
+  // はやさ(使った 時間)と ていねいさで 100点まで。はやさは 時間の 35% いないで 満点、85% いじょう かかっても 76点。
+  // used: 使った 時間の わりあい(0〜1)、neat: ていねいさ(0〜1。はかれない ゲームは null で はやさ だけ)
+  function mgCraftScore(used, neat = null) {
+    const speed = clamp((0.85 - used) / 0.5, 0, 1), q = neat === null ? speed : speed * 0.6 + clamp(neat, 0, 1) * 0.4;
+    return clamp(Math.round(76 + 24 * q), 76, 100);
+  }
   // --- 1. ケーキデコレーション(しじされた いちへ ドラッグして おく) ---
   // トッピングを ゆびで つまんで、ケーキ上の しじされた いちへ ドラッグする
   // はじめての「ほんものの ドラッグ&ドロップ」ミニゲーム。1かいに 1しゅるい
@@ -962,6 +984,8 @@
         let placedCount = 0;
         let finished = false;
         let timer;
+        const neat = []; // おいた 位置の ていねいさ(まんなか 1 〜 はし 0)
+        const meter = mgThinkMeter(1); // 1こ おけば 参加(ドラッグしても おけなかった ときは 数えない)
         container.innerHTML = `
           <div class="mg-header"><span id="mgScore">${placedCount}/${ROUNDS_DEF.length}</span>${mgTimerSpan(TIME_LIMIT_MS)}</div>
           <div class="mg-title">${title}</div>
@@ -992,7 +1016,7 @@
           if (finished) return;
           finished = true;
           clearTimeout(timer);
-          onComplete(score);
+          onComplete(score, null, meter.done({ achieved: placedCount > 0 }));
         }
 
         items.forEach((itemEl) => {
@@ -1002,6 +1026,7 @@
             if (!round || itemEl.dataset.key !== round.key) return false;
             const target = targets.find((t) => t.dataset.key === round.key);
             if (!target || !isPointInsideEl(target, x, y)) return false;
+            meter.act(); { const r = target.getBoundingClientRect(), rad = Math.max(1, Math.min(r.width, r.height) / 2); neat.push(clamp(1 - Math.hypot(x - (r.left + r.width / 2), y - (r.top + r.height / 2)) / rad, 0, 1)); }
             itemEl.classList.add('placed');
             itemEl.style.opacity = '0';
             itemEl.style.pointerEvents = 'none';
@@ -1013,7 +1038,7 @@
             roundIndex += 1;
             if (placedCount >= ROUNDS_DEF.length) {
               hintEl.innerHTML = '最後の1つを置いて、ケーキができた!'+foodIconHTML('cake','🎂');
-              finish(100);
+              finish(mgCraftScore((performance.now() - startTime) / TIME_LIMIT_MS, neat.reduce((a, b) => a + b, 0) / neat.length));
             } else {
               updateHint();
             }
@@ -2565,7 +2590,7 @@
           if (onBeat && Math.random() < lerp(0.04, 0.22, difficulty)) notes.push({ t, lane: (lane + 1 + Math.floor(Math.random() * 2)) % 3, hit: false, missed: false, emoji: noteEmojis[(lane + 1) % 3] });
         }
         const total = notes.length;
-        let perfect = 0, good = 0, miss = 0, combo = 0, maxCombo = 0, running = true, rafId = null;
+        let perfect = 0, good = 0, miss = 0, blank = 0, combo = 0, maxCombo = 0, running = true, rafId = null; const meter = mgPlayMeter();
         let judge = '', judgeUntil = 0, judgeColor = '#fff';
         const laneFlash = [0, 0, 0];
         const startTime = performance.now() + MG_ACTION_START_GRACE_MS;
@@ -2589,8 +2614,8 @@
           laneFlash[lane] = 1;
           let best = null;
           for (const n of notes) { if (n.hit || n.missed || n.lane !== lane) continue; const d = Math.abs(n.t - now); if (d <= 170 && (!best || d < best.d)) best = { n, d }; }
-          if (!best) { setJudge('…', '#aab'); sfx('tick'); return; }
-          best.n.hit = true; combo++; maxCombo = Math.max(maxCombo, combo);
+          if (!best) { blank++; setJudge('おてつき', '#aab'); sfx('tick'); return; }
+          best.n.hit = true; meter.act(); combo++; maxCombo = Math.max(maxCombo, combo);
           if (best.d <= 60) { perfect++; sfx('coin'); setJudge('PERFECT!', '#ffe36e'); effects.push({ lane, born: now, color: '#ffe36e' }); }
           else { good++; sfx('pop'); setJudge('GOOD', '#8ef0ff'); effects.push({ lane, born: now, color: '#8ef0ff' }); }
           updateHud();
@@ -2646,10 +2671,15 @@
         function finish() {
           if (!running) return; running = false; cancelAnimationFrame(rafId);
           container.querySelectorAll('button').forEach((b) => { b.disabled = true; });
-          const pts = perfect * 3 + good * 2;
+          // Phase 3(2026-11-26): ノーツが ない ところを 押した「おてつき」が ノーツの 数の 半分を こえたら、こえた 1回ごとに 0.5点 ひく。
+          // まえは 3レーンを 同時に 連打すると、判定の はば(±170ms)で ほぼ すべての ノーツに あたって 70〜80点に なった。
+          // ふつうに 遊んで ときどき 早押し・空振り する くらいは ひかない
+          const extra = Math.max(0, blank - Math.ceil(total * 0.5));
+          const pts = Math.max(0, perfect * 3 + good * 2 - extra * 0.5);
           const score = clamp(Math.round(pts / Math.max(1, total * 3) * 100), 8, 100);
-          hint.textContent = `結果：PERFECT ${perfect}／GOOD ${good}／MISS ${miss}／最大コンボ${maxCombo}`;
-          setTimeout(() => onComplete(score), 650);
+          hint.textContent = `結果：PERFECT ${perfect}／GOOD ${good}／MISS ${miss}${blank ? `／おてつき ${blank}` : ''}／最大コンボ${maxCombo}`;
+          const play = meter.done();
+          setTimeout(() => onComplete(score, null, play), 650);
         }
         updateHud();
         rafId = requestAnimationFrame(frame);
@@ -3747,10 +3777,11 @@
         const { ctx, W, H } = createMgCanvas(canvas, 230, { grow: true, maxGrow: 1.6 });
         const timerEl = container.querySelector('#sfTimer'), hint = container.querySelector('#sfHint');
         const say = (t, ms = 1000) => { msg = t; msgUntil = performance.now() + ms; hint.textContent = t; };
-        bindHeldButton(container.querySelector('#sfGuard'), (v) => { me.guard = v; });
+        bindHeldButton(container.querySelector('#sfGuard'), (v) => { me.guard = v; if (v) { me.same = 0; me.readable = false; meter.act(); } });
         container.querySelector('#sfPunch').addEventListener('pointerdown', (e) => { e.preventDefault(); attack(me, ai, 'punch'); });
         container.querySelector('#sfKick').addEventListener('pointerdown', (e) => { e.preventDefault(); attack(me, ai, 'kick'); });
         canvas.addEventListener('pointerdown', (e) => { e.preventDefault(); const p = mgPointerPos(canvas, e); attack(me, ai, p.ny < 0.5 ? 'punch' : 'kick'); });
+        const SF_READ_N = 6, meter = mgPlayMeter();
         const MOVES = { punch: { windup: 120, active: 110, recover: 180, range: 0.17, dmg: 7, push: 0.02 }, kick: { windup: 260, active: 140, recover: 320, range: 0.23, dmg: 13, push: 0.07 } };
         function attack(f, target, kind) {
           const now = performance.now();
@@ -3758,7 +3789,13 @@
           // れんだ たいさく: まえの こうげきの すぐあと(350ms いない)に つぎを 出すと
           // 「あせり」で いりょくが おち、すきも 大きく なる
           f.rushed = now - (f.lastAttackEnd || 0) < 350;
-          f.state = 'windup'; f.move = kind; f.stateUntil = now + MOVES[kind].windup; f.hitDone = false; if (f === me) sfx('whoosh');
+          // Phase 3(2026-11-26): うごかず・ガードせずに おなじ わざだけを SF_READ_N 回 つづけると、AI が「ワンパターン」を 見切る
+          // (わざの 前は とどかない ところで まち、出したら ガード、すかったら 反撃)。いどう・ガード・ちがう わざで もとに もどる。
+          // まえは キックを 0.75〜0.9秒ごとに 押す だけで 勝てた(平均70〜86点)
+          if (f === me) { if (me.lastKind !== kind) me.same = 0; me.lastKind = kind; me.same = (me.same || 0) + 1;
+            me.readable = me.same >= SF_READ_N;
+            if (me.readable && !me.wasRead) say('👀 ワンパターンを見切られた!', 900); me.wasRead = me.readable; }
+          f.state = 'windup'; f.move = kind; f.stateUntil = now + MOVES[kind].windup; f.hitDone = false; if (f === me) { sfx('whoosh'); meter.act(); }
         }
         function updateFighter(f, target, dt, now) {
           if (f.stun > 0) { f.stun -= dt; if (f.stun <= 0) f.state = 'idle'; return; }
@@ -3790,12 +3827,20 @@
         }
         function aiThink(dt, now) {
           if (ai.stun > 0 || ai.state !== 'idle') return;
+          // 見切った リズムの わざは、考える 間を おかず すぐ ガード(この あと justBlocked で 反撃)。
+          // 出す 前は わざの とどかない ところで まち、すかった あと(もどりの すき)に ふみこんで 反撃する
+          if (me.readable) {
+            const d = Math.abs(me.x - ai.x), toward = me.x < ai.x ? -1 : 1; ai.face = toward;
+            if (me.state === 'windup' && d < 0.34) { ai.guard = true; ai.guardUntil = now + 420; return; }
+            if (me.state === 'recover') { if (d > 0.2) ai.x = clamp(ai.x + toward * 1.6 * dt * 4, 0.08, 0.92); else attack(ai, me, 'punch'); return; }
+            if (d < 0.32) { ai.x = clamp(ai.x - toward * 0.9 * dt * 4, 0.08, 0.92); return; }
+          }
           ai.think -= dt; if (ai.think > 0) return;
           ai.think = 0.12 + Math.random() * 0.2;
           const dist = Math.abs(me.x - ai.x);
           ai.face = me.x < ai.x ? -1 : 1;
           const threatened = me.state === 'windup' && dist < 0.3;
-          if (threatened && Math.random() < lerp(0.55, 0.85, difficulty)) { ai.guard = true; ai.guardUntil = now + 420; return; }
+          if (threatened && (me.readable || Math.random() < lerp(0.55, 0.85, difficulty))) { ai.guard = true; ai.guardUntil = now + 420; return; }
           ai.guard = false;
           // ガードした 直後は はんげき(あいての すきに あわせる)
           if (ai.justBlocked && dist < 0.3) { ai.justBlocked = false; attack(ai, me, Math.random() < 0.5 ? 'punch' : 'kick'); return; }
@@ -3860,7 +3905,7 @@
           if (last === null) last = now;
           const dt = Math.min(0.05, (now - last) / 1000); last = now;
           if (now >= startTime && !ko) {
-            if (me.state === 'idle' && me.stun <= 0 && !me.guard) { const mv = (rightHeld ? 1 : 0) - (leftHeld ? 1 : 0); if (mv) { me.x = clamp(me.x + mv * 0.42 * dt, 0.08, 0.92); } }
+            if (me.state === 'idle' && me.stun <= 0 && !me.guard) { const mv = (rightHeld ? 1 : 0) - (leftHeld ? 1 : 0); if (mv) { me.x = clamp(me.x + mv * 0.42 * dt, 0.08, 0.92); me.same = 0; me.readable = false; if (!me.movedAt || now - me.movedAt > 500) { me.movedAt = now; meter.act(); } } }
             me.face = ai.x >= me.x ? 1 : -1;
             if (ai.guard && now > (ai.guardUntil || 0)) ai.guard = false;
             aiThink(dt, now);
@@ -3880,7 +3925,8 @@
           const score = clamp(Math.round((win ? 50 : 16) + me.hp * 0.3 + Math.min(12, hits) - Math.min(15, taken)), 10, 100);
           say(win ? `🏆勝った!残りHP：${me.hp}` : `負けた…相手の残りHP：${ai.hp}`, 2200);
           render(performance.now());
-          setTimeout(() => onComplete(score), 650);
+          const play = meter.done();
+          setTimeout(() => onComplete(score, null, play), 650);
         }
         rafId = requestAnimationFrame(frame);
       },
@@ -4313,7 +4359,8 @@
         const rivalColors = ['#3a86ff', '#ffbe0b', '#8338ec', '#06d6a0', '#f4f1de'];
         let position = 0, speed = 0, playerX = 0, steer = 0, steerTarget = 0, accelHeld = false, touchAccel = false, touchSteer = null, lap = 1, boostUntil = 0, slipUntil = 0;
         let running = true, rafId = null, last = null, flash = 0, msg = '', msgUntil = 0, leftHeld = false, rightHeld = false, finished = false, finalRank = 0, hits = 0, lastHit = -1e9;
-        const startTime = performance.now() + MG_ACTION_START_GRACE_MS + 1500;
+        const startTime = performance.now() + MG_ACTION_START_GRACE_MS + 1500, meter = mgPlayMeter();
+        let steerActAt = 0; const steerAct = () => { const t = performance.now(); if (t - steerActAt > 400) { steerActAt = t; meter.act(); } };
         container.innerHTML = `
           <div class="mg-header"><span id="gpLap">LAP 1/${LAPS}</span><span id="gpPos">6位／6</span>${mgTimerSpan(TIME_LIMIT_MS)}</div>
           <div class="mg-title">${title}</div>
@@ -4322,13 +4369,16 @@
           `;
         mgTimerHud(container, TIME_LIMIT_MS, () => TIME_LIMIT_MS - (performance.now() - startTime), () => running);
         const canvas = container.querySelector('#gpCanvas');
-        const { pad } = mgPad(container, { mode: 'vector', axis: 'x', holdMs: 150, onVector: (x) => { leftHeld = x < -0.4; rightHeld = x > 0.4; } }, `<button class="mg-tap-btn mg-hold-btn primary" id="gpAccel" data-key="action">アクセル</button>`);
+        const { pad } = mgPad(container, { mode: 'vector', axis: 'x', holdMs: 150, onVector: (x) => { leftHeld = x < -0.4; rightHeld = x > 0.4; if (leftHeld || rightHeld) steerAct(); } }, `<button class="mg-tap-btn mg-hold-btn primary" id="gpAccel" data-key="action">アクセル</button>`);
         const { ctx, W, H } = createMgCanvas(canvas, 215, { grow: true, maxGrow: 1.8 });
         const road = createPseudoRoad(ctx, W, H, { roadWidth: 1300, colors: (dark) => (dark ? { grass: '#4f9f4a', rumble: '#f3f3f3', road: '#5c5c66', lane: '#fff8c8' } : { grass: '#5aae52', rumble: '#d8383c', road: '#63636d' }) });
         const { SEG_LEN, PLAYER_Z, segments } = road;
         const MAX_SPEED = SEG_LEN * 34, ACCEL = MAX_SPEED / 2.6, COAST = -MAX_SPEED / 4, OFF_DECEL = -MAX_SPEED / 1.4, OFF_LIMIT = MAX_SPEED / 3;
         road.addRoad(10, 20, 10, 0, 0);
-        for (let i = 0; i < 6; i++) { const dir = i % 2 ? -1 : 1; road.addRoad(10, 14 + Math.floor(Math.random() * 8), 10, dir * (2 + Math.random() * 2), (Math.random() - 0.5) * 50); if (i % 2) road.addRoad(6, 8, 6, 0, (Math.random() - 0.5) * 30); }
+        // Phase 3(2026-11-26): カーブの 向きは 毎回 ランダム(同じ 向きが 3つ つづかない)。まえは 右・左・右… と 交互で、
+        // カーブの 強さと 長さが 近い コースでは ハンドルを きらず アクセルだけでも 道から ほぼ 出ずに 優勝できた(12回に 3回 68〜94点)
+        let gpPrev = 0, gpRun = 0;
+        for (let i = 0; i < 6; i++) { let dir = Math.random() < 0.5 ? -1 : 1; if (dir === gpPrev && gpRun >= 2) dir = -dir; gpRun = dir === gpPrev ? gpRun + 1 : 1; gpPrev = dir; road.addRoad(10, 14 + Math.floor(Math.random() * 8), 10, dir * (2 + Math.random() * 2), (Math.random() - 0.5) * 50); if (i % 2) road.addRoad(6, 8, 6, 0, (Math.random() - 0.5) * 30); }
         road.addRoad(10, 16, 10, 0, -road.lastY() / SEG_LEN);
         const TRACK_LEN = road.trackLength();
         for (let n = 0; n < segments.length; n += 3) { if (Math.random() < 0.6) segments[n].sprites.push({ emoji: ['🌳', '🏁', '🌲', '📣'][Math.floor(Math.random() * 4)], offset: -1.5 - Math.random() * 1.4, size: 0.5 }); if (Math.random() < 0.6) segments[n].sprites.push({ emoji: ['🌳', '🎪', '🌲', '🏢'][Math.floor(Math.random() * 4)], offset: 1.5 + Math.random() * 1.4, size: 0.5 }); }
@@ -4339,9 +4389,9 @@
         for (const r of rivals) r.draw = (c, sx, sy, px) => drawRearCar(c, sx, sy, px, r.color, 0, false);
         const lapEl = container.querySelector('#gpLap'), posEl = container.querySelector('#gpPos'), hint = container.querySelector('#gpHint');
         const say = (t, ms = 1200) => { msg = t; msgUntil = performance.now() + ms; hint.textContent = t; };
-        bindHeldButton(container.querySelector('#gpAccel'), (v) => { accelHeld = v; });
-        canvas.addEventListener('pointerdown', (e) => { e.preventDefault(); try { canvas.setPointerCapture(e.pointerId); } catch (err) {} touchAccel = true; touchSteer = clamp((mgPointerPos(canvas, e).nx - 0.5) * 2.6, -1, 1); });
-        canvas.addEventListener('pointermove', (e) => { if (!touchAccel) return; touchSteer = clamp((mgPointerPos(canvas, e).nx - 0.5) * 2.6, -1, 1); });
+        bindHeldButton(container.querySelector('#gpAccel'), (v) => { accelHeld = v; if (v) meter.act(); });
+        canvas.addEventListener('pointerdown', (e) => { e.preventDefault(); try { canvas.setPointerCapture(e.pointerId); } catch (err) {} touchAccel = true; touchSteer = clamp((mgPointerPos(canvas, e).nx - 0.5) * 2.6, -1, 1); meter.act(); });
+        canvas.addEventListener('pointermove', (e) => { if (!touchAccel) return; const ns = clamp((mgPointerPos(canvas, e).nx - 0.5) * 2.6, -1, 1); if (Math.abs(ns - (touchSteer || 0)) > 0.05) steerAct(); touchSteer = ns; });
         const endTouch = () => { touchAccel = false; touchSteer = null; };
         canvas.addEventListener('pointerup', endTouch); canvas.addEventListener('pointercancel', endTouch);
         const progress = (z, l) => (l - 1) * TRACK_LEN + z;
@@ -4408,7 +4458,8 @@
           const score = clamp((finished ? table[finalRank - 1] : table[finalRank - 1] - 25) - Math.min(10, hits), 12, 100);
           say(finished ? (finalRank === 1 ? '🏆優勝!!' : `🏁 ${finalRank}位でゴール!`) : `タイムアップ…${finalRank}位`, 2400);
           render(performance.now());
-          setTimeout(() => onComplete(score), 650);
+          const play = meter.done();
+          setTimeout(() => onComplete(score, null, play), 650);
         }
         rafId = requestAnimationFrame(frame);
       },
@@ -7073,13 +7124,14 @@
       start(container, onComplete) {
         const difficulty = ageDifficulty();
         const DARTS = 6;
+        const meter = mgThinkMeter(2);
         let running = true, rafId = null, last = null, thrown = 0, total = 0, aim = null, holdT = 0, amp = 0, darts = [], flying = null, msg = '', msgUntil = 0, best = 0, wob = { x: 0, y: 0 }, drift = { x: 0, y: 0 };
         const startTime = performance.now();
         container.innerHTML = `
           <div class="mg-header"><span id="dtLeft">残り${DARTS}本</span><span id="dtScore">0点</span></div>
           <div class="mg-title">${title}</div>
           <div class="mg-canvas-wrap"><canvas class="mg-canvas" id="dtCanvas"></canvas></div>
-          <div class="mg-hint" id="dtHint">画面をおさえてねらいを動かし、はなすと投げる。おさえている間は手がゆれるので、早めにはなすのがコツ。真ん中のブルは50点!</div>`;
+          <div class="mg-hint" id="dtHint">画面をおさえてねらいを動かし、はなすと投げる。おさえたすぐあとは手がふるえるので、「おちつき」ゲージがたまったらはなそう。ながくおさえすぎると、またゆれるよ。真ん中のブルは50点!</div>`;
         const canvas = container.querySelector('#dtCanvas');
         const { ctx, W, H } = createMgCanvas(canvas, (w) => Math.round(w * 1.05));
         const CX = W / 2, CY = H * 0.47, R = Math.min(W, H) * 0.42;
@@ -7087,9 +7139,9 @@
         const leftEl = container.querySelector('#dtLeft'), scoreEl = container.querySelector('#dtScore'), hint = container.querySelector('#dtHint');
         const say = (t, ms = 1200) => { msg = t; msgUntil = performance.now() + ms; hint.textContent = t; };
         const hud = () => { leftEl.textContent = `残り${DARTS - thrown}本`; scoreEl.textContent = `${total}点`; };
-        canvas.addEventListener('pointerdown', (e) => { e.preventDefault(); if (!running || flying || thrown >= DARTS) return; try { canvas.setPointerCapture(e.pointerId); } catch (err) {} const p = mgPointerPos(canvas, e); aim = { id: e.pointerId, x: p.x, y: p.y, ox: p.x, oy: p.y }; holdT = 0; amp = 0; drift = { x: 0, y: 0 }; });
+        canvas.addEventListener('pointerdown', (e) => { e.preventDefault(); if (!running || flying || thrown >= DARTS) return; try { canvas.setPointerCapture(e.pointerId); } catch (err) {} const p = mgPointerPos(canvas, e); aim = { id: e.pointerId, x: p.x, y: p.y, ox: p.x, oy: p.y, at: performance.now() }; holdT = 0; drift = { x: 0, y: 0 }; wobPhase = Math.random() * 5000; shake(performance.now()); });
         canvas.addEventListener('pointermove', (e) => { if (!aim || e.pointerId !== aim.id) return; const p = mgPointerPos(canvas, e); aim.x = p.x; aim.y = p.y; });
-        canvas.addEventListener('pointerup', (e) => { if (!aim || e.pointerId !== aim.id) return; const tx = aim.x + wob.x + drift.x, ty = aim.y + wob.y + drift.y; aim = null; throwDart(tx, ty); });
+        canvas.addEventListener('pointerup', (e) => { if (!aim || e.pointerId !== aim.id) return; holdT = Math.max(holdT, (performance.now() - aim.at) / 1000); shake(performance.now()); const tx = aim.x + wob.x + drift.x, ty = aim.y + wob.y + drift.y; aim = null; throwDart(tx, ty); });
         canvas.addEventListener('pointercancel', () => { aim = null; });
         function scoreAt(x, y) {
           const dx = x - CX, dy = y - CY; const d = Math.hypot(dx, dy) / R; if (d > 1) return { pts: 0, label: 'はずれ' };
@@ -7097,9 +7149,13 @@
           let ang = Math.atan2(dx, -dy); if (ang < 0) ang += Math.PI * 2; const idx = Math.round(ang / (Math.PI * 2 / 20)) % 20; const n = SECTORS[idx];
           if (d > 0.92) return { pts: n * 2, label: `ダブル${n}! ${n * 2}` }; if (d > 0.56 && d < 0.64) return { pts: n * 3, label: `トリプル${n}!! ${n * 3}` }; return { pts: n, label: `${n}点` };
         }
-        function throwDart(tx, ty) { const spread = lerp(3, 6, difficulty); const fx = tx + (Math.random() - 0.5) * spread, fy = ty + (Math.random() - 0.5) * spread; flying = { fx, fy, born: performance.now() }; sfx('whoosh'); setTimeout(() => { if (!running) return; const r = scoreAt(fx, fy); sfx(r.pts >= 50 ? 'coin' : r.pts > 0 ? 'hit' : 'bad'); darts.push({ x: fx, y: fy, pts: r.pts }); total += r.pts; best = Math.max(best, r.pts); thrown++; flying = null; say(r.label, 1100); hud(); if (thrown >= DARTS) setTimeout(finish, 1300); }, 320); }
+        function throwDart(tx, ty) { const spread = lerp(3, 6, difficulty); const fx = tx + (Math.random() - 0.5) * spread, fy = ty + (Math.random() - 0.5) * spread; flying = { fx, fy, born: performance.now() }; sfx('whoosh'); setTimeout(() => { if (!running) return; const r = scoreAt(fx, fy); sfx(r.pts >= 50 ? 'coin' : r.pts > 0 ? 'hit' : 'bad'); darts.push({ x: fx, y: fy, pts: r.pts }); if (r.pts > 0) meter.act(); total += r.pts; /* 的に 当たった 投げだけ 数える(わざと 外へ 投げて すぐ おわらせる 回は 参加なし) */ best = Math.max(best, r.pts); thrown++; flying = null; say(r.label, 1100); hud(); if (thrown >= DARTS) setTimeout(finish, 1300); }, 320); }
         // amp は じっさいの ゆれ。「おちつき」ゲージと 照準円も この値を そのまま 読む(式を 2か所に 書かない)
-        function update(dt, now) { if (aim) { holdT += dt; amp = Math.min(26, holdT * holdT * lerp(9, 14, difficulty)); wob.x = Math.sin(now / 90) * amp * 0.6 + Math.sin(now / 37) * amp * 0.25; wob.y = Math.cos(now / 73) * amp * 0.6 + Math.sin(now / 51) * amp * 0.25; drift.x += (Math.random() - 0.5) * dt * 40 * holdT; drift.y += (Math.random() - 0.5) * dt * 40 * holdT; } else { wob.x *= 0.8; wob.y *= 0.8; } }
+        // Phase 3(2026-11-26): おさえた 直後は 手が ふるえて(DT_SETTLE_AMP)、DT_SETTLE_S 秒で おちつく。そのあと ながく おさえると また ゆれる。
+        // まえは 押して すぐ はなすと ゆれ 0 で、まんなかを たたく だけで 6本とも ブル(100点)に なった
+        const DT_SETTLE_AMP = R * 0.42, DT_SETTLE_S = 0.7; let wobPhase = 0; // ふるえの 大きさは 的の 大きさに あわせる。ゆれの 位相は なげる たびに ランダム
+        function shake(now) { amp = DT_SETTLE_AMP * Math.max(0, 1 - holdT / DT_SETTLE_S) + Math.min(26, holdT * holdT * lerp(9, 14, difficulty)); const k = now + wobPhase; wob.x = Math.sin(k / 90) * amp * 0.6 + Math.sin(k / 37) * amp * 0.25; wob.y = Math.cos(k / 73) * amp * 0.6 + Math.sin(k / 51) * amp * 0.25; }
+        function update(dt, now) { if (aim) { holdT += dt; shake(now); drift.x += (Math.random() - 0.5) * dt * 40 * holdT; drift.y += (Math.random() - 0.5) * dt * 40 * holdT; } else { wob.x *= 0.8; wob.y *= 0.8; } }
         function drawBoard() {
           ctx.fillStyle = '#3a2418'; ctx.beginPath(); ctx.arc(CX, CY, R * 1.12, 0, Math.PI * 2); ctx.fill();
           for (let i = 0; i < 20; i++) { const a0 = (i - 0.5) * Math.PI * 2 / 20 - Math.PI / 2, a1 = a0 + Math.PI * 2 / 20; const dark = i % 2 === 0;
@@ -7125,7 +7181,8 @@
           if (!running) return; running = false; cancelAnimationFrame(rafId);
           const score = clamp(Math.round(10 + total / 2.1), 10, 100);
           say(`おわり!合計${total}点(最高${best})`, 2600); render(performance.now());
-          setTimeout(() => onComplete(score), 650);
+          const play = meter.done();
+          setTimeout(() => onComplete(score, null, play), 650);
         }
         hud();
         rafId = requestAnimationFrame(frame);
@@ -7161,8 +7218,12 @@
         // カメラは グライダーの うしろ うえ。alt 0..1 で 地面との たかさ
         const HORIZON = H * 0.38;
         const proj = (x, y, z) => { const s = 1.0 / (z + 0.5); return { sx: W / 2 + x * W * 0.45 * s, sy: HORIZON + (0.9 - y) * H * 0.55 * s, s }; };
+        // Phase 3(2026-11-26): 上昇気流と 風船は、出てきた ときの 機体の 真正面(よこ HG_AWAY いない)には 置かない。
+        // まえは 半分の 気流が 正面に くるので、ハンドルを うごかさなくても(少し ゆらす だけでも)とびつづけて 平均62点に なった
+        const HG_AWAY = { thermal: 0.62, balloon: 0.4 };
+        function awayX(k) { for (let i = 0; i < 12; i++) { const x = (Math.random() - 0.5) * 2.2; if (Math.abs(x - px) >= HG_AWAY[k]) return x; } return px > 0 ? -1.05 : 1.05; }
         function spawn() {
-          const r = Math.random(); const x = (Math.random() - 0.5) * 2.2;
+          const r = Math.random(); const x = r < 0.62 ? awayX(r < 0.36 ? 'thermal' : 'balloon') : (Math.random() - 0.5) * 2.2;
           if (r < 0.36) objs.push({ kind: 'thermal', x, z: spawnZ, r: 0.55, hit: false });
           else if (r < 0.62) objs.push({ kind: 'balloon', x, y: 0.3 + Math.random() * 0.6, z: spawnZ, r: 0.16, hit: false });
           else if (r < 0.8) objs.push({ kind: 'tree', x: x * 1.4, z: spawnZ, r: 0.2 });
@@ -7495,6 +7556,7 @@
       start(container, onComplete) {
         const difficulty = ageDifficulty();
         const DURATION_MS = mgDuration(24000), G = 520;
+        const FS_COMBO_MS = 450, meter = mgPlayMeter();
         let running = true, rafId = null, last = null, objs = [], halves = [], splashes = [], trail = [], sliced = 0, missed = 0, lives = 3, combo = 0, comboAt = 0, spawnCd = 0.6, msg = '', msgUntil = 0, ptr = null, score = 0;
         const startTime = performance.now() + MG_ACTION_START_GRACE_MS;
         const FRUITS = ['🍎', '🍊', '🍉', '🍌', '🍓', '🥝', '🍍'];
@@ -7508,14 +7570,17 @@
         const timerEl = container.querySelector('#fsTimer'), scoreEl = container.querySelector('#fsScore'), hint = container.querySelector('#fsHint');
         const say = (t, ms = 800) => { msg = t; msgUntil = performance.now() + ms; hint.textContent = t; };
         const hud = () => { scoreEl.textContent = `${'❤️'.repeat(Math.max(0, lives))}／${score}点`; };
-        canvas.addEventListener('pointerdown', (e) => { e.preventDefault(); try { canvas.setPointerCapture(e.pointerId); } catch (err) {} const p = mgPointerPos(canvas, e); ptr = { id: e.pointerId, x: p.x, y: p.y }; trail = [{ x: p.x, y: p.y, t: performance.now() }]; combo = 0; });
+        canvas.addEventListener('pointerdown', (e) => { e.preventDefault(); try { canvas.setPointerCapture(e.pointerId); } catch (err) {} const p = mgPointerPos(canvas, e); ptr = { id: e.pointerId, x: p.x, y: p.y }; trail = [{ x: p.x, y: p.y, t: performance.now() }]; combo = 0; if (running) meter.act(); });
         canvas.addEventListener('pointermove', (e) => { if (!ptr || e.pointerId !== ptr.id) return; const p = mgPointerPos(canvas, e); const now = performance.now(); const speed = Math.hypot(p.x - ptr.x, p.y - ptr.y); if (speed > 3) cut(ptr.x, ptr.y, p.x, p.y, now); ptr.x = p.x; ptr.y = p.y; trail.push({ x: p.x, y: p.y, t: now }); if (trail.length > 14) trail.shift(); });
         const endPtr = () => { ptr = null; }; canvas.addEventListener('pointerup', endPtr); canvas.addEventListener('pointercancel', endPtr);
         function segCircle(ax, ay, bx, by, cx, cy, r) { const dx = bx - ax, dy = by - ay; const l2 = dx * dx + dy * dy || 1; let t = ((cx - ax) * dx + (cy - ay) * dy) / l2; t = clamp(t, 0, 1); const px = ax + dx * t, py = ay + dy * t; return Math.hypot(px - cx, py - cy) < r; }
         function cut(ax, ay, bx, by, now) {
           for (const o of objs) { if (o.dead || !segCircle(ax, ay, bx, by, o.x, o.y, o.r)) continue; o.dead = true;
             if (o.bomb) { lives--; combo = 0; say('💥ばくだんを切った!', 1000); hud(); for (let i = 0; i < 16; i++) splashes.push({ x: o.x, y: o.y, vx: (Math.random() - 0.5) * 400, vy: (Math.random() - 0.5) * 400, life: 0.6, color: '#333' }); if (lives <= 0) { finish(); return; } continue; }
-            sfx('whoosh'); sliced++; combo++; comboAt = now; const gain = 10 * combo; score += gain; const ang = Math.atan2(by - ay, bx - ax);
+            // Phase 3(2026-11-26): コンボは「ひとふりで まとめて 斬った」ときだけ(前に 斬ってから FS_COMBO_MS いない)。
+            // まえは 指を はなさず なぞりつづけると コンボが おわらず、1こ +10・+20・+30… と ふえつづけた
+            if (now - comboAt > FS_COMBO_MS) combo = 0;
+            sfx('whoosh'); sliced++; combo++; comboAt = now; meter.act(); const gain = 10 * combo; score += gain; const ang = Math.atan2(by - ay, bx - ax);
             halves.push({ x: o.x, y: o.y, vx: o.vx + Math.cos(ang + Math.PI / 2) * 90, vy: o.vy - 40, emoji: o.emoji, ang, side: 1, rot: 0 }, { x: o.x, y: o.y, vx: o.vx - Math.cos(ang + Math.PI / 2) * 90, vy: o.vy - 40, emoji: o.emoji, ang, side: -1, rot: 0 });
             for (let i = 0; i < 10; i++) splashes.push({ x: o.x, y: o.y, vx: (Math.random() - 0.5) * 300, vy: (Math.random() - 0.7) * 300, life: 0.5, color: o.color });
             if (combo >= 2) say(`✨ ${combo}コンボ!+${gain}`, 700); hud(); }
@@ -7559,7 +7624,8 @@
           if (!running) return; running = false; cancelAnimationFrame(rafId);
           const final = clamp(Math.round(10 + score / 6 + lives * 4), 10, 100);
           say(lives <= 0 ? `💥ライフがなくなった…${sliced}こ切った` : `おわり!${sliced}こ切った／${score}点`, 2600); render(performance.now());
-          setTimeout(() => onComplete(final), 650);
+          const play = meter.done();
+          setTimeout(() => onComplete(final, null, play), 650);
         }
         hud();
         rafId = requestAnimationFrame(frame);
@@ -7851,6 +7917,7 @@
       start(container, onComplete) {
         const difficulty = ageDifficulty();
         const DURATION_MS = mgDuration(28000);
+        const meter = mgPlayMeter();
         let running = true, rafId = null, last = null, held = { left: false, right: false, thrust: false }, ship = { x: 0, y: 0, vx: 0, vy: 0, a: -Math.PI / 2 }, rocks = [], bullets = [], parts = [], lives = 3, score = 0, destroyed = 0, msg = '', msgUntil = 0, fireCd = 0, invuln = 2, wave = 1;
         const startTime = performance.now() + MG_ACTION_START_GRACE_MS;
         container.innerHTML = `
@@ -7860,7 +7927,7 @@
           <div class="mg-hint" id="asHint">画面下のパッドを左右になぞって回り、上になぞると進む。🔥か画面のタップで打つ。岩をわると、小さく速くなる。画面のはしはつながっている。</div>
           `;
         const canvas = container.querySelector('#asCanvas');
-        const { pad } = mgPad(container, { mode: 'vector', sticky: true, onDelta: (dx) => { ship.a += dx * 0.014; }, onVector: (x, y) => { held.thrust = y < -0.4; } }, `<button class="mg-tap-btn primary" id="asFire" data-key="action">🔥</button>`);
+        const { pad } = mgPad(container, { mode: 'vector', sticky: true, onDelta: (dx) => { ship.a += dx * 0.014; if (Math.abs(dx) > 2) meter.act(); }, onVector: (x, y) => { held.thrust = y < -0.4; if (held.thrust) meter.act(); } }, `<button class="mg-tap-btn primary" id="asFire" data-key="action">🔥</button>`);
         const { ctx, W, H } = createMgCanvas(canvas, (w) => w);
         ship.x = W / 2; ship.y = H / 2;
         const timerEl = container.querySelector('#asTimer'), scoreEl = container.querySelector('#asScore'), hint = container.querySelector('#asHint');
@@ -7872,7 +7939,7 @@
         function spawnRock(size, x, y) { const r = size === 3 ? 26 : size === 2 ? 16 : 9; const a = Math.random() * Math.PI * 2; const sp = lerp(30, 45, difficulty) * (4 - size) * 0.8 + 20; const pts = []; const n = 9; for (let i = 0; i < n; i++) pts.push(0.7 + Math.random() * 0.4); rocks.push({ x, y, vx: Math.cos(a) * sp, vy: Math.sin(a) * sp, r, size, pts, rot: 0, rs: (Math.random() - 0.5) * 2 }); }
         function spawnWave() { const n = 2 + wave; for (let i = 0; i < n; i++) { let x, y; do { x = Math.random() * W; y = Math.random() * H; } while (Math.hypot(x - ship.x, y - ship.y) < 90); spawnRock(3, x, y); } }
         spawnWave();
-        function fire() { if (!running || fireCd > 0 || performance.now() < startTime) return; fireCd = 0.28; bullets.push({ x: ship.x + Math.cos(ship.a) * 12, y: ship.y + Math.sin(ship.a) * 12, vx: Math.cos(ship.a) * 330 + ship.vx * 0.3, vy: Math.sin(ship.a) * 330 + ship.vy * 0.3, life: 0.9 }); }
+        function fire() { if (!running || fireCd > 0 || performance.now() < startTime) return; meter.act(); fireCd = 0.28; bullets.push({ x: ship.x + Math.cos(ship.a) * 12, y: ship.y + Math.sin(ship.a) * 12, vx: Math.cos(ship.a) * 330 + ship.vx * 0.3, vy: Math.sin(ship.a) * 330 + ship.vy * 0.3, life: 0.9 }); }
         function burst(x, y, n, color) { for (let i = 0; i < n; i++) { const a = Math.random() * Math.PI * 2, s = 40 + Math.random() * 120; parts.push({ x, y, vx: Math.cos(a) * s, vy: Math.sin(a) * s, life: 0.6, color }); } }
         function update(dt, now) {
           if (fireCd > 0) fireCd -= dt; if (invuln > 0) invuln -= dt;
@@ -7881,8 +7948,10 @@
           const sp = Math.hypot(ship.vx, ship.vy); if (sp > 230) { ship.vx *= 230 / sp; ship.vy *= 230 / sp; } ship.vx *= Math.pow(0.5, dt); ship.vy *= Math.pow(0.5, dt);
           ship.x += ship.vx * dt; ship.y += ship.vy * dt; wrap(ship);
           for (const r of rocks) { r.x += r.vx * dt; r.y += r.vy * dt; r.rot += r.rs * dt; wrap(r); }
-          for (const b of bullets) { b.x += b.vx * dt; b.y += b.vy * dt; b.life -= dt; wrap(b); }
-          for (const b of bullets) { if (b.life <= 0) continue; for (const r of rocks) { if (r.dead || Math.hypot(r.x - b.x, r.y - b.y) > r.r) continue; b.life = 0; r.dead = true; destroyed++; sfx('hit'); score += r.size === 3 ? 20 : r.size === 2 ? 50 : 100; burst(r.x, r.y, 8, '#bbb'); if (r.size > 1) { spawnRock(r.size - 1, r.x, r.y); spawnRock(r.size - 1, r.x, r.y); } hud(); break; } }
+          // Phase 3(2026-11-26): 弾は 画面の はしで きえる(反対がわから 出てこない)。小さい 岩は 100→70点、中くらいは 50→45点。
+          // まえは その場で 撃ちつづける だけで、画面を 1周する 弾の 線に 岩が 入って 平均70点・運が よいと 100点に なった(ねらう 人は ほぼ かわらない)
+          for (const b of bullets) { b.x += b.vx * dt; b.y += b.vy * dt; b.life -= dt; if (b.x < -4 || b.x > W + 4 || b.y < -4 || b.y > H + 4) b.life = 0; }
+          for (const b of bullets) { if (b.life <= 0) continue; for (const r of rocks) { if (r.dead || Math.hypot(r.x - b.x, r.y - b.y) > r.r) continue; b.life = 0; r.dead = true; destroyed++; sfx('hit'); score += r.size === 3 ? 20 : r.size === 2 ? 45 : 70; burst(r.x, r.y, 8, '#bbb'); if (r.size > 1) { spawnRock(r.size - 1, r.x, r.y); spawnRock(r.size - 1, r.x, r.y); } hud(); break; } }
           bullets = bullets.filter((b) => b.life > 0); rocks = rocks.filter((r) => !r.dead);
           if (!rocks.length) { wave++; say(`🌊ウェーブ${wave}!`, 1200); spawnWave(); }
           if (invuln <= 0) for (const r of rocks) { if (Math.hypot(r.x - ship.x, r.y - ship.y) < r.r + 9) { lives--; invuln = 2; burst(ship.x, ship.y, 16, '#ff6b6b'); ship.x = W / 2; ship.y = H / 2; ship.vx = ship.vy = 0; say('💥ぶつかった!', 1000); hud(); if (lives <= 0) { finish(); return; } break; } }
@@ -7914,7 +7983,8 @@
           container.querySelectorAll('button').forEach((b) => { b.disabled = true; });
           const final = clamp(Math.round(8 + score / 11 + lives * 4), 8, 100);
           say(lives <= 0 ? `💥機体がこわれた…${score}点` : `おわり!${score}点／岩${destroyed}こ`, 2600); render(performance.now());
-          setTimeout(() => onComplete(final), 650);
+          const play = meter.done();
+          setTimeout(() => onComplete(final, null, play), 650);
         }
         hud();
         rafId = requestAnimationFrame(frame);
@@ -8290,7 +8360,12 @@
         const BW = 34, BH = 16, CX = W / 2, BASE_Y = H - 30;
         const pulledEl = container.querySelector('#jgPulled'), riskEl = container.querySelector('#jgRisk'), hint = container.querySelector('#jgHint');
         const say = (t, ms = 1100) => { msg = t; msgUntil = performance.now() + ms; hint.textContent = t; };
-        for (let r = 0; r < ROWS; r++) rows.push([true, true, true]);
+        // Phase 3(2026-11-26): ほんものの ジェンガと おなじく「かたくて ぬけない」ブロックが ある(見た目では わからない。ためすと わかる)。
+        // まんなかは JG_TIGHT_MID、はしは JG_TIGHT_SIDE の わりあい。かたい ブロックを ためしても くずれないし 点も へらない(ぬけない だけ)。
+        // まえは 下から まんなかだけを じゅんに ぬけば かならず 100点に なり、どれを ぬくか 考える 場面が なかった
+        const JG_TIGHT_MID = 0.45, JG_TIGHT_SIDE = 0.12, tight = [], tried = [];
+        const tightRow = () => { const t = [Math.random() < JG_TIGHT_SIDE, Math.random() < JG_TIGHT_MID, Math.random() < JG_TIGHT_SIDE]; if (t.every(Boolean)) t[0] = false; return t; };
+        for (let r = 0; r < ROWS; r++) { rows.push([true, true, true]); tight.push(tightRow()); tried.push([false, false, false]); }
         topRow = [];
         // あんていど: それぞれの だんで、うえの おもさの ちゅうしんが ささえの はんいに あるか
         function stability() {
@@ -8304,11 +8379,12 @@
           e.preventDefault(); if (!running || collapsing || anim) return; const p = mgPointerPos(canvas, e); const b = blockAt(p.x, p.y); if (!b) return; const [r, i] = b;
           if (rows[r].filter(Boolean).length === 1) { say('その段は1つしか残っていない', 900); return; }
           if (r === rows.length - 1 && topRow.length && topRow.length < 3) { say('一番上の段はぬけない', 900); return; }
+          if (tight[r][i]) { tried[r][i] = true; wobble = Math.max(wobble, 1.5); sfx('tick'); say('かたい!びくともしない…ほかをさがそう', 1000); return; }
           rows[r][i] = false; pulled++; meter.act(); sfx('pop');
           // 20こ ぬけたら じょうずに おわり(それいじょう ぬいても てんすうは ふえない)
           if (pulled >= 20) { say('🎉20こぬけた!', 1500); setTimeout(() => { if (running) finish(); }, 900); }
           // うえに のせる(3つ そろったら あたらしい だん)
-          if (topRow.length >= 3) { rows.push(topRow); topRow = []; }
+          if (topRow.length >= 3) { rows.push(topRow); topRow = []; tight.push(tightRow()); tried.push([false, false, false]); }
           topRow.push(true);
           anim = { from: [CX + (i - 1) * BW, BASE_Y - (r + 1) * BH], to: [CX + (topRow.length - 2) * BW, BASE_Y - (rows.length + 1) * BH], at: performance.now() };
           const s = stability(); hud();
@@ -8325,7 +8401,7 @@
           if (collapsing) { const dt = 1 / 60; for (const p of pieces) { p.vy += 500 * dt; p.x += p.vx * dt; p.y += p.vy * dt; p.rot += p.rs * dt; if (p.y > BASE_Y - BH) { p.y = BASE_Y - BH; p.vy *= -0.3; p.vx *= 0.8; p.rs *= 0.6; } drawBlock(p.x, p.y, p.rot); } }
           else {
             const sway = Math.sin(now / 90) * wobble;
-            for (let r = 0; r < rows.length; r++) { const y = BASE_Y - (r + 1) * BH; const sx = sway * (r / rows.length); rows[r].forEach((v, i) => { if (!v) return; if (anim && anim.from[0] === CX + (i - 1) * BW && anim.from[1] === y) return; drawBlock(CX + (i - 1) * BW + sx, y); }); }
+            for (let r = 0; r < rows.length; r++) { const y = BASE_Y - (r + 1) * BH; const sx = sway * (r / rows.length); rows[r].forEach((v, i) => { if (!v) return; if (anim && anim.from[0] === CX + (i - 1) * BW && anim.from[1] === y) return; drawBlock(CX + (i - 1) * BW + sx, y); if (tried[r] && tried[r][i]) { ctx.fillStyle = 'rgba(90,50,20,.38)'; ctx.fillRect(CX + (i - 1) * BW + sx - BW / 2 + 1, y + 1, BW - 2, BH - 2); } }); }
             topRow.forEach((v, i) => { const y = BASE_Y - (rows.length + 1) * BH; if (anim && anim.to[0] === CX + (i - 1) * BW && anim.to[1] === y && now - anim.at < 500) return; drawBlock(CX + (i - 1) * BW + sway, y); });
             if (anim) { const t = clamp((now - anim.at) / 500, 0, 1); const e = t < 0.5 ? t * 2 : 1; const x = t < 0.5 ? anim.from[0] + (anim.from[0] < CX ? -60 : 60) * Math.sin(t * Math.PI) : lerp(anim.from[0], anim.to[0], (t - 0.5) * 2); const y = t < 0.5 ? anim.from[1] : lerp(anim.from[1], anim.to[1], (t - 0.5) * 2); drawBlock(t < 0.5 ? x : x, t < 0.5 ? y : y - Math.sin((t - 0.5) * 2 * Math.PI) * 30); if (t >= 1) anim = null; }
             const s = stability(); ctx.fillStyle = 'rgba(0,0,0,.35)'; mgRoundRect(ctx, W - 20, 20, 12, 100, 5); ctx.fillStyle = s > 0.6 ? '#7fe0a0' : s > 0.3 ? '#ffd23f' : '#ff6b6b'; mgRoundRect(ctx, W - 19, 21 + 98 * (1 - s), 10, 98 * s, 4); ctx.fillStyle = '#5a3a1e'; ctx.font = '9px sans-serif'; ctx.textAlign = 'center'; ctx.textBaseline = 'top'; ctx.fillText('安定度', W - 14, 122);
@@ -8578,7 +8654,11 @@
         const difficulty = ageDifficulty();
         const DURATION_MS = mgDuration(26000), G = 14;
         // ランプ: s(-1..1) で いち、たかさ h(s) = s^2 * 2.2 (m)。くうちゅうは じゆう らっか
-        let running = true, rafId = null, last = null, s = -0.6, v = 0, pump = false, air = null, score = 0, tricks = 0, bails = 0, msg = '', msgUntil = 0, combo = 0, trickBtn, lastLand = '';
+        // Phase 3(2026-11-26): のぼり(中央から はなれる 向き)で ポンプを 押すと 少し へる(HP_PUMP_UP)。くだりで 押す タイミングが 大事に なる。
+        // コンボの 倍率(最大×3)は「前と ちがう 回転数」を きめた ときだけ 上がる(おなじ 技の くりかえしは ×1)。
+        // まえは ポンプ 押しっぱなし+空中で 1回 タップ だけで 1回転が ×3 で つづき、100点に なった
+        const HP_PUMP_UP = 2.6, HP_SCORE_DIV = 7, meter = mgPlayMeter();
+        let running = true, rafId = null, last = null, s = -0.6, v = 0, pump = false, air = null, score = 0, tricks = 0, bails = 0, msg = '', msgUntil = 0, combo = 0, lastSpins = 0, trickBtn, lastLand = '';
         const startTime = performance.now() + MG_ACTION_START_GRACE_MS;
         container.innerHTML = `
           <div class="mg-header"><span id="hpTimer">残り：${Math.round(DURATION_MS / 1000)}秒</span><span id="hpScore">0点</span></div>
@@ -8591,21 +8671,21 @@
         const timerEl = container.querySelector('#hpTimer'), scoreEl = container.querySelector('#hpScore'), hint = container.querySelector('#hpHint'); trickBtn = container.querySelector('#hpTrick');
         const say = (t, ms = 900) => { msg = t; msgUntil = performance.now() + ms; hint.textContent = t; };
         const hud = () => { scoreEl.textContent = `${score}点`; };
-        bindHeldButton(container.querySelector('#hpPump'), (vv) => { pump = vv; });
+        bindHeldButton(container.querySelector('#hpPump'), (vv) => { pump = vv; if (vv) meter.act(); });
         trickBtn.addEventListener('pointerdown', (e) => { e.preventDefault(); trick(); });
         canvas.addEventListener('pointerdown', (e) => { e.preventDefault(); trick(); });
         const RAMP_H = 2.2, hOf = (q) => q * q * RAMP_H; const px = (q) => W / 2 + q * W * 0.42, py = (h) => H - 30 - h * 60;
-        function trick() { if (!running || !air) return; air.spins++; sfx('whoosh'); air.spinTarget += Math.PI * 2 * (air.dir > 0 ? 1 : -1); say(`🌀 ${air.spins}回転!`, 500); }
+        function trick() { if (!running || !air) return; meter.act(); air.spins++; sfx('whoosh'); air.spinTarget += Math.PI * 2 * (air.dir > 0 ? 1 : -1); say(`🌀 ${air.spins}回転!`, 500); }
         function update(dt, now) {
           if (air) { air.vy -= G * dt; air.x += air.vx * dt; air.y += air.vy * dt; air.rot += (air.spinTarget - air.rot) * Math.min(1, dt * 6); air.t += dt;
             if (air.y <= RAMP_H && air.t > 0.15) { // ちゃくち
               const rem = Math.abs(air.spinTarget - air.rot); const spins = air.spins, dir = air.dir, v0 = air.v0; const ok = rem < 1.25 || spins === 0; air = null;
-              s = dir > 0 ? 1 : -1; if (ok) { const gain = spins * spins * 20 + (spins ? 10 : 0); if (spins) { tricks++; combo++; sfx('coin'); score += gain * Math.min(3, combo); say(`✨ ${spins}回転成功!+${gain * Math.min(3, combo)}`, 900); hud(); } v = -dir * Math.max(3.2, Math.abs(v0) * 0.95); }
-              else { bails++; combo = 0; v = 0; s = dir * 0.95; say('💫転倒…', 1000); }
+              s = dir > 0 ? 1 : -1; if (ok) { const gain = spins * spins * 20 + (spins ? 10 : 0); if (spins) { tricks++; combo = spins === lastSpins ? 1 : combo + 1; lastSpins = spins; sfx('coin'); score += gain * Math.min(3, combo); say(`✨ ${spins}回転成功!+${gain * Math.min(3, combo)}`, 900); hud(); } v = -dir * Math.max(3.2, Math.abs(v0) * 0.95); }
+              else { bails++; combo = 0; lastSpins = 0; v = 0; s = dir * 0.95; say('💫転倒…', 1000); }
             } return; }
           // ランプ上: ちからは かたむき ぶん。ポンプは くだりで かそく
           const slope = 2 * s * RAMP_H; const down = (s > 0 && v < 0) || (s < 0 && v > 0);
-          let acc = -slope * G * 0.45; if (pump && down) acc += -Math.sign(s) * 4.6; acc -= v * 0.09; v += acc * dt; s += v * dt * 0.42;
+          let acc = -slope * G * 0.45; if (pump) acc += -Math.sign(s) * (down ? 4.6 : HP_PUMP_UP); acc -= v * 0.09; v += acc * dt; s += v * dt * 0.42;
           if (Math.abs(s) >= 1) { const dir = Math.sign(s); const speed = Math.abs(v); s = dir * 1; if (speed > 2.4) { sfx('jump'); air = { x: dir, y: RAMP_H, vx: dir * speed * 0.12, vy: speed * 0.9, rot: 0, spinTarget: 0, spins: 0, dir, t: 0, v0: v }; say('🛹エア!', 500); } else v = -v * 0.6; }
         }
         function drawSkater(x, y, rot, lean) { ctx.save(); ctx.translate(x, y); ctx.rotate(rot); ctx.fillStyle = 'rgba(0,0,0,.2)'; ctx.beginPath(); ctx.ellipse(0, 14, 16, 4, 0, 0, Math.PI * 2); ctx.fill(); ctx.fillStyle = '#e63946'; mgRoundRect(ctx, -16, 6, 32, 5, 2); ctx.fillStyle = '#333'; ctx.beginPath(); ctx.arc(-10, 12, 3, 0, Math.PI * 2); ctx.arc(10, 12, 3, 0, Math.PI * 2); ctx.fill(); ctx.rotate(lean); ctx.font = '24px sans-serif'; ctx.textAlign = 'center'; ctx.textBaseline = 'bottom'; ctx.fillText(currentSprite(), 0, 8); ctx.restore(); }
@@ -8638,9 +8718,10 @@
         function finish() {
           if (!running) return; running = false; cancelAnimationFrame(rafId);
           container.querySelectorAll('button').forEach((b) => { b.disabled = true; });
-          const final = clamp(Math.round(10 + score / 4 - bails * 3), 10, 100);
+          const final = clamp(Math.round(10 + score / HP_SCORE_DIV - bails * 3), 10, 100);
           say(`おわり!トリック${tricks}回／${score}点`, 2600); render(performance.now());
-          setTimeout(() => onComplete(final), 650);
+          const play = meter.done();
+          setTimeout(() => onComplete(final, null, play), 650);
         }
         hud();
         rafId = requestAnimationFrame(frame);
@@ -8656,7 +8737,8 @@
       start(container, onComplete) {
         const difficulty = ageDifficulty();
         const ROUNDS = 2, TIME_LIMIT_MS = mgDuration(45000);
-        let running = true, rafId = null, last = null, round = 0, path = [], slots = [], spare = 0, phase = 'build', fallen = 0, msg = '', msgUntil = 0, cleared = 0, pushAt = 0;
+        let running = true, rafId = null, last = null, round = 0, path = [], slots = [], spare = 0, phase = 'build', fallen = 0, msg = '', msgUntil = 0, cleared = 0, pushAt = 0, lastClearAt = 0;
+        const meter = mgThinkMeter(2);
         const startTime = performance.now();
         container.innerHTML = `
           <div class="mg-header"><span id="dmRound">1/${ROUNDS}問目</span><span id="dmSpare">手持ち0</span>${mgTimerSpan(TIME_LIMIT_MS)}</div>
@@ -8679,11 +8761,11 @@
           for (const k of idx) path[k].present = false; slots = idx; spare = gaps + 1; phase = 'build'; fallen = 0; hud();
         }
         gen();
-        canvas.addEventListener('pointerdown', (e) => { e.preventDefault(); if (!running || phase !== 'build') return; const p = mgPointerPos(canvas, e); let best = -1, bd = 22; path.forEach((d, i) => { const dist = Math.hypot(d.x - p.x, d.y - p.y); if (dist < bd) { bd = dist; best = i; } }); if (best < 0) return; const d = path[best]; if (d.present) { if (d.placed) { d.present = false; d.placed = false; spare++; hud(); } else say('そこにはもうある', 600); return; } if (spare <= 0) { say('手持ちがない!', 800); return; } d.present = true; d.placed = true; spare--; sfx('pop'); hud(); });
-        pushBtn.addEventListener('pointerdown', (e) => { e.preventDefault(); if (!running || phase !== 'build') return; phase = 'run'; sfx('whoosh'); pushAt = performance.now(); path[0].fallen = performance.now(); fallen = 1; hud(); say('👉パタパタ…', 1000); });
+        canvas.addEventListener('pointerdown', (e) => { e.preventDefault(); if (!running || phase !== 'build') return; const p = mgPointerPos(canvas, e); let best = -1, bd = 22; path.forEach((d, i) => { const dist = Math.hypot(d.x - p.x, d.y - p.y); if (dist < bd) { bd = dist; best = i; } }); if (best < 0) return; const d = path[best]; if (d.present) { if (d.placed) { d.present = false; d.placed = false; spare++; hud(); } else say('そこにはもうある', 600); return; } if (spare <= 0) { say('手持ちがない!', 800); return; } d.present = true; d.placed = true; spare--; meter.act(); sfx('pop'); hud(); });
+        pushBtn.addEventListener('pointerdown', (e) => { e.preventDefault(); if (!running || phase !== 'build') return; phase = 'run'; if (path.some((d) => d.placed)) meter.act(); sfx('whoosh'); pushAt = performance.now(); path[0].fallen = performance.now(); fallen = 1; hud(); say('👉パタパタ…', 1000); });
         function update(dt, now) {
           if (phase !== 'run') return;
-          for (let i = 0; i < path.length; i++) { const d = path[i]; if (!d.fallen || !d.present) continue; d.tilt = Math.min(1, d.tilt + dt * 6); const nxt = path[i + 1]; if (d.tilt > 0.55 && nxt && !nxt.fallen) { if (nxt.present) { sfx('tick'); nxt.fallen = now; fallen++; if (i + 1 === path.length - 1) { phase = 'done'; cleared++; say('🔔ゴール!ぜんぶたおれた!', 1500); setTimeout(next, 1700); return; } } else { phase = 'done'; say('💦途中で止まった…', 1500); setTimeout(next, 1700); return; } } }
+          for (let i = 0; i < path.length; i++) { const d = path[i]; if (!d.fallen || !d.present) continue; d.tilt = Math.min(1, d.tilt + dt * 6); const nxt = path[i + 1]; if (d.tilt > 0.55 && nxt && !nxt.fallen) { if (nxt.present) { sfx('tick'); nxt.fallen = now; fallen++; if (i + 1 === path.length - 1) { phase = 'done'; cleared++; lastClearAt = now; say('🔔ゴール!ぜんぶたおれた!', 1500); setTimeout(next, 1700); return; } } else { phase = 'done'; say('💦途中で止まった…', 1500); setTimeout(next, 1700); return; } } }
         }
         function next() { if (!running) return; round++; if (round >= ROUNDS) { finish(); return; } gen(); say('次の道!', 900); }
         function render(now) {
@@ -8701,9 +8783,11 @@
         function frame(now) { if (!running) return; if (last === null) last = now; const dt = Math.min(0.05, (now - last) / 1000); last = now; update(dt, now); if (!running) return; render(now); if (now - startTime > TIME_LIMIT_MS) { finish(); return; } rafId = requestAnimationFrame(frame); }
         function finish() {
           if (!running) return; running = false; cancelAnimationFrame(rafId); pushBtn.disabled = true;
-          const score = clamp(Math.round(10 + cleared * 42 + (cleared >= ROUNDS ? 6 : 0)), 10, 100);
+          // 2問とも クリアは mgCraftScore(はやさ。76〜100)。まえは 2問 クリアで かならず 100点(1問 52点・0問 10点は かわらず)
+          const score = cleared >= ROUNDS ? mgCraftScore(Math.min(1, (lastClearAt - startTime) / TIME_LIMIT_MS)) : clamp(Math.round(10 + cleared * 42), 10, 100);
           say(cleared >= ROUNDS ? '🏆ぜんぶ🔔までとどいた!' : `おわり!${cleared}問クリア`, 2600); render(performance.now());
-          setTimeout(() => onComplete(score), 650);
+          const play = meter.done({ achieved: cleared > 0 });
+          setTimeout(() => onComplete(score, null, play), 650);
         }
         rafId = requestAnimationFrame(frame);
       },
