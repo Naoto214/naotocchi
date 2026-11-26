@@ -128,7 +128,8 @@ async function jengaMiddle(page) {
     const {ctx, page, errors} = await openPage(browser, engine);
     const check = async (name, fn, ok) => { const r = await fn(); row[name] = r; assert.ok(ok(r), `${engine} ${name}: ${JSON.stringify(r)}`); await page.clock.runFor(4000); };
     await check('stackMash', () => stackMash(page), (r) => r.score < 30);
-    await check('dartsQuick', () => darts(page, 0), (r) => r.recorded && r.score < 75); // 1回ごとに ばらつく(自動プレイ 8回の 平均は 50点)
+    // すぐ はなす 投げは 手の ふるえで 1回ごとに ばらつく(ブラウザ 8回で 35〜65点、まれに 80点台)ので 3回の 平均で 見る
+    await check('dartsQuick', async () => { const rs = []; for (let k = 0; k < 3; k++) { rs.push(await darts(page, 0)); await page.clock.runFor(4000); } return {scores: rs.map((r) => r.score), recorded: rs.every((r) => r.recorded)}; }, (r) => r.recorded && r.scores.reduce((a, b) => a + b, 0) / r.scores.length < 70 && r.scores.every((x) => x < 90));
     await check('dartsSteady', () => darts(page, 800), (r) => r.recorded && r.score >= 90 && r.coins === 60);
     await check('rhythmMash', () => rhythmMash(page), (r) => r.score <= 15);
     await check('halfpipeHold', () => halfpipeHold(page), (r) => r.score <= 40);
