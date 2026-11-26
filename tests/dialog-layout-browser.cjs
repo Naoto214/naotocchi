@@ -96,8 +96,10 @@ module.exports=async function(browser,engine,fixtures,baseURL,output,onlyNames) 
         // Participate on the actual canvas after the start grace, then run
         // every animation frame. A 90s jump can pass the six-second result
         // lifetime before the assertion observes it.
+        // 参加度(2026-11-26): 1回だけ さわって 放置した 回は 記録しない(結果カードも 出ない)ので、
+        // ふつうに 遊ぶ ように 1びょうごとに たこやきを ひっくり返す(4びょうの 区切り 2つ いじょう)
         await page.clock.runFor(2000);
-        await page.locator('#tkCanvas').click();
+        for(let i=0;i<10;i++){await page.locator('#tkCanvas').click();await page.clock.runFor(1000);}
         // Exercise the post-game exchange deterministically, including its
         // 300ms reading pause after the result card. Production also randomly
         // chooses the immediate cheer; that made the old timing assertion flaky.
