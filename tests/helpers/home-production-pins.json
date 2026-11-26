@@ -1,9 +1,14 @@
 {
   "index.html": {
     "before": "c9432f2b62b2c95a36338f8166627abe8feb97d3",
-    "after": "b8e11f4cc2ea261406a148d09a92c640278879b0",
+    "after": "bd21dec4ca993e00f03a30d71486beadc189e4bb",
     "size": 73100,
     "reverse": [
+      [
+        70755,
+        70805,
+        "  <script src=\"games.js?v=869382e6aae9\"></script>\n"
+      ],
       [
         72478,
         72604,
@@ -58,9 +63,19 @@
   },
   "tools/pages/allowlist.json": {
     "before": "f1b1fb9cf575c6305fac17fb25dcf80a59d13c31",
-    "after": "dd79a255d1365dede1f42d951ae6015942517194",
+    "after": "adba841180938250173b9737aed7b331ca344bbb",
     "size": 296644,
     "reverse": [
+      [
+        267630,
+        267716,
+        "    \"index.html\": \"44f5a51e3bc7835d056f9e57676fe2104dd13bcb0d0ea957800eccaccee40a10\",\n"
+      ],
+      [
+        265226,
+        265310,
+        "    \"games.js\": \"869382e6aae990325663d2d000f0d1a26d047cb378f211220d89d8f69a94d5b6\",\n"
+      ],
       [
         267630,
         267716,
@@ -214,9 +229,339 @@
   },
   "games.js": {
     "before": "a93847e0d6ce254074270b01583caad8c54f1928",
-    "after": "aca59860948d84eedddd3bad73cd01a02e32c7b5",
-    "size": 1006795,
+    "after": "5aedc476aa03d9d5a7462d9fb2897cfef3553d58",
+    "size": 1018153,
     "reverse": [
+      [
+        841223,
+        841349,
+        "          setTimeout(() => onComplete(score), 650);\n"
+      ],
+      [
+        840753,
+        841078,
+        "          const score = clamp(Math.round(10 + cleared * 42 + (cleared >= ROUNDS ? 6 : 0)), 10, 100);\n"
+      ],
+      [
+        837537,
+        838082,
+        "          for (let i = 0; i < path.length; i++) { const d = path[i]; if (!d.fallen || !d.present) continue; d.tilt = Math.min(1, d.tilt + dt * 6); const nxt = path[i + 1]; if (d.tilt > 0.55 && nxt && !nxt.fallen) { if (nxt.present) { sfx('tick'); nxt.fallen = now; fallen++; if (i + 1 === path.length - 1) { phase = 'done'; cleared++; say('🔔ゴール!ぜんぶたおれた!', 1500); setTimeout(next, 1700); return; } } else { phase = 'done'; say('💦途中で止まった…', 1500); setTimeout(next, 1700); return; } } }\n"
+      ],
+      [
+        836527,
+        837463,
+        "        canvas.addEventListener('pointerdown', (e) => { e.preventDefault(); if (!running || phase !== 'build') return; const p = mgPointerPos(canvas, e); let best = -1, bd = 22; path.forEach((d, i) => { const dist = Math.hypot(d.x - p.x, d.y - p.y); if (dist < bd) { bd = dist; best = i; } }); if (best < 0) return; const d = path[best]; if (d.present) { if (d.placed) { d.present = false; d.placed = false; spare++; hud(); } else say('そこにはもうある', 600); return; } if (spare <= 0) { say('手持ちがない!', 800); return; } d.present = true; d.placed = true; spare--; sfx('pop'); hud(); });\n        pushBtn.addEventListener('pointerdown', (e) => { e.preventDefault(); if (!running || phase !== 'build') return; phase = 'run'; sfx('whoosh'); pushAt = performance.now(); path[0].fallen = performance.now(); fallen = 1; hud(); say('👉パタパタ…', 1000); });\n"
+      ],
+      [
+        833448,
+        833682,
+        "        let running = true, rafId = null, last = null, round = 0, path = [], slots = [], spare = 0, phase = 'build', fallen = 0, msg = '', msgUntil = 0, cleared = 0, pushAt = 0;\n"
+      ],
+      [
+        832685,
+        832786,
+        "          setTimeout(() => onComplete(final), 650);\n"
+      ],
+      [
+        832494,
+        832585,
+        "          const final = clamp(Math.round(10 + score / 4 - bails * 3), 10, 100);\n"
+      ],
+      [
+        828062,
+        828213,
+        "          let acc = -slope * G * 0.45; if (pump && down) acc += -Math.sign(s) * 4.6; acc -= v * 0.09; v += acc * dt; s += v * dt * 0.42;\n"
+      ],
+      [
+        827380,
+        827849,
+        "              s = dir > 0 ? 1 : -1; if (ok) { const gain = spins * spins * 20 + (spins ? 10 : 0); if (spins) { tricks++; combo++; sfx('coin'); score += gain * Math.min(3, combo); say(`✨ ${spins}回転成功!+${gain * Math.min(3, combo)}`, 900); hud(); } v = -dir * Math.max(3.2, Math.abs(v0) * 0.95); }\n              else { bails++; combo = 0; v = 0; s = dir * 0.95; say('💫転倒…', 1000); }\n"
+      ],
+      [
+        826762,
+        826956,
+        "        function trick() { if (!running || !air) return; air.spins++; sfx('whoosh'); air.spinTarget += Math.PI * 2 * (air.dir > 0 ? 1 : -1); say(`🌀 ${air.spins}回転!`, 500); }\n"
+      ],
+      [
+        826351,
+        826456,
+        "        bindHeldButton(container.querySelector('#hpPump'), (vv) => { pump = vv; });\n"
+      ],
+      [
+        824198,
+        824960,
+        "        let running = true, rafId = null, last = null, s = -0.6, v = 0, pump = false, air = null, score = 0, tricks = 0, bails = 0, msg = '', msgUntil = 0, combo = 0, trickBtn, lastLand = '';\n"
+      ],
+      [
+        793593,
+        794026,
+        "            for (let r = 0; r < rows.length; r++) { const y = BASE_Y - (r + 1) * BH; const sx = sway * (r / rows.length); rows[r].forEach((v, i) => { if (!v) return; if (anim && anim.from[0] === CX + (i - 1) * BW && anim.from[1] === y) return; drawBlock(CX + (i - 1) * BW + sx, y); }); }\n"
+      ],
+      [
+        790943,
+        791072,
+        "          if (topRow.length >= 3) { rows.push(topRow); topRow = []; }\n"
+      ],
+      [
+        790389,
+        790563,
+        ""
+      ],
+      [
+        787689,
+        788631,
+        "        for (let r = 0; r < ROWS; r++) rows.push([true, true, true]);\n"
+      ],
+      [
+        746757,
+        746858,
+        "          setTimeout(() => onComplete(final), 650);\n"
+      ],
+      [
+        742072,
+        743000,
+        "          for (const b of bullets) { b.x += b.vx * dt; b.y += b.vy * dt; b.life -= dt; wrap(b); }\n          for (const b of bullets) { if (b.life <= 0) continue; for (const r of rocks) { if (r.dead || Math.hypot(r.x - b.x, r.y - b.y) > r.r) continue; b.life = 0; r.dead = true; destroyed++; sfx('hit'); score += r.size === 3 ? 20 : r.size === 2 ? 50 : 100; burst(r.x, r.y, 8, '#bbb'); if (r.size > 1) { spawnRock(r.size - 1, r.x, r.y); spawnRock(r.size - 1, r.x, r.y); } hud(); break; } }\n"
+      ],
+      [
+        740640,
+        740952,
+        "        function fire() { if (!running || fireCd > 0 || performance.now() < startTime) return; fireCd = 0.28; bullets.push({ x: ship.x + Math.cos(ship.a) * 12, y: ship.y + Math.sin(ship.a) * 12, vx: Math.cos(ship.a) * 330 + ship.vx * 0.3, vy: Math.sin(ship.a) * 330 + ship.vy * 0.3, life: 0.9 }); }\n"
+      ],
+      [
+        738846,
+        739162,
+        "        const { pad } = mgPad(container, { mode: 'vector', sticky: true, onDelta: (dx) => { ship.a += dx * 0.014; }, onVector: (x, y) => { held.thrust = y < -0.4; } }, `<button class=\"mg-tap-btn primary\" id=\"asFire\" data-key=\"action\">🔥</button>`);\n"
+      ],
+      [
+        737781,
+        737818,
+        ""
+      ],
+      [
+        704511,
+        704612,
+        "          setTimeout(() => onComplete(final), 650);\n"
+      ],
+      [
+        698456,
+        698967,
+        "            sfx('whoosh'); sliced++; combo++; comboAt = now; const gain = 10 * combo; score += gain; const ang = Math.atan2(by - ay, bx - ax);\n"
+      ],
+      [
+        696889,
+        697198,
+        "        canvas.addEventListener('pointerdown', (e) => { e.preventDefault(); try { canvas.setPointerCapture(e.pointerId); } catch (err) {} const p = mgPointerPos(canvas, e); ptr = { id: e.pointerId, x: p.x, y: p.y }; trail = [{ x: p.x, y: p.y, t: performance.now() }]; combo = 0; });\n"
+      ],
+      [
+        695387,
+        695443,
+        ""
+      ],
+      [
+        657122,
+        657249,
+        "          const r = Math.random(); const x = (Math.random() - 0.5) * 2.2;\n"
+      ],
+      [
+        656528,
+        657095,
+        ""
+      ],
+      [
+        653097,
+        653198,
+        "          setTimeout(() => onComplete(score), 650);\n"
+      ],
+      [
+        647998,
+        649048,
+        "        function update(dt, now) { if (aim) { holdT += dt; amp = Math.min(26, holdT * holdT * lerp(9, 14, difficulty)); wob.x = Math.sin(now / 90) * amp * 0.6 + Math.sin(now / 37) * amp * 0.25; wob.y = Math.cos(now / 73) * amp * 0.6 + Math.sin(now / 51) * amp * 0.25; drift.x += (Math.random() - 0.5) * dt * 40 * holdT; drift.y += (Math.random() - 0.5) * dt * 40 * holdT; } else { wob.x *= 0.8; wob.y *= 0.8; } }\n"
+      ],
+      [
+        647149,
+        647845,
+        "        function throwDart(tx, ty) { const spread = lerp(3, 6, difficulty); const fx = tx + (Math.random() - 0.5) * spread, fy = ty + (Math.random() - 0.5) * spread; flying = { fx, fy, born: performance.now() }; sfx('whoosh'); setTimeout(() => { if (!running) return; const r = scoreAt(fx, fy); sfx(r.pts >= 50 ? 'coin' : r.pts > 0 ? 'hit' : 'bad'); darts.push({ x: fx, y: fy, pts: r.pts }); total += r.pts; best = Math.max(best, r.pts); thrown++; flying = null; say(r.label, 1100); hud(); if (thrown >= DARTS) setTimeout(finish, 1300); }, 320); }\n"
+      ],
+      [
+        646129,
+        646416,
+        "        canvas.addEventListener('pointerup', (e) => { if (!aim || e.pointerId !== aim.id) return; const tx = aim.x + wob.x + drift.x, ty = aim.y + wob.y + drift.y; aim = null; throwDart(tx, ty); });\n"
+      ],
+      [
+        645558,
+        645964,
+        "        canvas.addEventListener('pointerdown', (e) => { e.preventDefault(); if (!running || flying || thrown >= DARTS) return; try { canvas.setPointerCapture(e.pointerId); } catch (err) {} const p = mgPointerPos(canvas, e); aim = { id: e.pointerId, x: p.x, y: p.y, ox: p.x, oy: p.y }; holdT = 0; amp = 0; drift = { x: 0, y: 0 }; });\n"
+      ],
+      [
+        644556,
+        644872,
+        "          <div class=\"mg-hint\" id=\"dtHint\">画面をおさえてねらいを動かし、はなすと投げる。おさえている間は手がゆれるので、早めにはなすのがコツ。真ん中のブルは50点!</div>`;\n"
+      ],
+      [
+        643970,
+        644009,
+        ""
+      ],
+      [
+        372745,
+        372846,
+        "          setTimeout(() => onComplete(score), 650);\n"
+      ],
+      [
+        366214,
+        366791,
+        "        bindHeldButton(container.querySelector('#gpAccel'), (v) => { accelHeld = v; });\n        canvas.addEventListener('pointerdown', (e) => { e.preventDefault(); try { canvas.setPointerCapture(e.pointerId); } catch (err) {} touchAccel = true; touchSteer = clamp((mgPointerPos(canvas, e).nx - 0.5) * 2.6, -1, 1); });\n        canvas.addEventListener('pointermove', (e) => { if (!touchAccel) return; touchSteer = clamp((mgPointerPos(canvas, e).nx - 0.5) * 2.6, -1, 1); });\n"
+      ],
+      [
+        363455,
+        364201,
+        "        for (let i = 0; i < 6; i++) { const dir = i % 2 ? -1 : 1; road.addRoad(10, 14 + Math.floor(Math.random() * 8), 10, dir * (2 + Math.random() * 2), (Math.random() - 0.5) * 50); if (i % 2) road.addRoad(6, 8, 6, 0, (Math.random() - 0.5) * 30); }\n"
+      ],
+      [
+        362602,
+        362894,
+        "        const { pad } = mgPad(container, { mode: 'vector', axis: 'x', holdMs: 150, onVector: (x) => { leftHeld = x < -0.4; rightHeld = x > 0.4; } }, `<button class=\"mg-tap-btn mg-hold-btn primary\" id=\"gpAccel\" data-key=\"action\">アクセル</button>`);\n"
+      ],
+      [
+        361614,
+        361860,
+        "        const startTime = performance.now() + MG_ACTION_START_GRACE_MS + 1500;\n"
+      ],
+      [
+        320236,
+        320337,
+        "          setTimeout(() => onComplete(score), 650);\n"
+      ],
+      [
+        318682,
+        318978,
+        "            if (me.state === 'idle' && me.stun <= 0 && !me.guard) { const mv = (rightHeld ? 1 : 0) - (leftHeld ? 1 : 0); if (mv) { me.x = clamp(me.x + mv * 0.42 * dt, 0.08, 0.92); } }\n"
+      ],
+      [
+        312519,
+        312666,
+        "          if (threatened && Math.random() < lerp(0.55, 0.85, difficulty)) { ai.guard = true; ai.guardUntil = now + 420; return; }\n"
+      ],
+      [
+        311493,
+        312264,
+        ""
+      ],
+      [
+        307976,
+        308879,
+        "          f.state = 'windup'; f.move = kind; f.stateUntil = now + MOVES[kind].windup; f.hitDone = false; if (f === me) sfx('whoosh');\n"
+      ],
+      [
+        307291,
+        307343,
+        ""
+      ],
+      [
+        306718,
+        306863,
+        "        bindHeldButton(container.querySelector('#sfGuard'), (v) => { me.guard = v; });\n"
+      ],
+      [
+        209098,
+        209360,
+        "          hint.textContent = `結果：PERFECT ${perfect}／GOOD ${good}／MISS ${miss}／最大コンボ${maxCombo}`;\n          setTimeout(() => onComplete(score), 650);\n"
+      ],
+      [
+        208414,
+        209011,
+        "          const pts = perfect * 3 + good * 2;\n"
+      ],
+      [
+        203190,
+        203368,
+        "          if (!best) { setJudge('…', '#aab'); sfx('tick'); return; }\n          best.n.hit = true; combo++; maxCombo = Math.max(maxCombo, combo);\n"
+      ],
+      [
+        201097,
+        201237,
+        "        let perfect = 0, good = 0, miss = 0, combo = 0, maxCombo = 0, running = true, rafId = null;\n"
+      ],
+      [
+        87065,
+        87197,
+        "              finish(100);\n"
+      ],
+      [
+        86237,
+        86462,
+        ""
+      ],
+      [
+        85762,
+        85840,
+        "          onComplete(score);\n"
+      ],
+      [
+        83917,
+        84139,
+        ""
+      ],
+      [
+        82148,
+        82824,
+        ""
+      ],
+      [
+        66712,
+        66813,
+        "          setTimeout(() => onComplete(score), 650);\n"
+      ],
+      [
+        62540,
+        62660,
+        "              const sx = bx + wind * 26 / Math.max(0.2, draw); // かぜで ながされる ぶんも 見せる\n"
+      ],
+      [
+        59778,
+        59812,
+        "          arrowNo++;\n"
+      ],
+      [
+        59528,
+        59621,
+        "          const landX = sx + wind * 26 * (1 / draw) + (Math.random() - 0.5) * shake;\n"
+      ],
+      [
+        58221,
+        58630,
+        ""
+      ],
+      [
+        56939,
+        56978,
+        ""
+      ],
+      [
+        40491,
+        40592,
+        "          setTimeout(() => onComplete(score), 650);\n"
+      ],
+      [
+        34735,
+        34927,
+        "          falling = null; hud(); swing.w = blocks[blocks.length - 1].w; swing.speed = lerp(120, 170, difficulty) + blocks.length * 4; bestH = Math.max(bestH, blocks.length - 1);\n"
+      ],
+      [
+        32621,
+        32897,
+        "        function drop() { if (!running || falling || over || performance.now() < startTime) return; falling = { x: swing.x, w: swing.w, y: topY() - BLOCK_H * 3.2 - camY * 0 - 60, vy: 0, color: colors[blocks.length % colors.length] }; falling.y = camTop() + 26; }\n"
+      ],
+      [
+        31452,
+        32565,
+        "        swing.w = BASE_W; { const lo = 4, hi = W - 4 - BASE_W, mid = (W - BASE_W) / 2, MIN_OFF = Math.min(16, (hi - lo) / 2); const side = Math.random() < 0.5 ? -1 : 1, off = MIN_OFF + Math.random() * Math.max(0, (hi - lo) / 2 - MIN_OFF); swing.x = clamp(mid + side * off, lo, hi); swing.dir = Math.random() < 0.5 ? -1 : 1; }\n"
+      ],
+      [
+        29696,
+        29791,
+        "        const startTime = performance.now() + MG_ACTION_START_GRACE_MS;\n"
+      ],
       [
         987093,
         987165,

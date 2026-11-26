@@ -1,0 +1,279 @@
+<!doctype html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>ミニゲーム採点 Phase 3</title>
+<link rel="stylesheet" href="style.css">
+<style>
+/* Layout: 説明 → 一覧表 → ゲームと版の切りかえ+式の比較 → スマホ枠の中で本物のゲーム → 結果の記録表。1カラム、最大 760px */
+:root {
+  --p-bg: #f3f6f4; --p-panel: #ffffff; --p-ink: #1f2a27; --p-muted: #5b6a64; --p-line: #d7e1dc;
+  --p-before: #b4472f; --p-before-bg: #fbe9e4; --p-after: #23795d; --p-after-bg: #e2f3ea; --p-accent: #2f6f8f;
+  --p-down: #b4472f; --p-same: #5b6a64; --p-up: #23795d;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --p-bg: #131917; --p-panel: #1c2421; --p-ink: #e4ede9; --p-muted: #9db0a8; --p-line: #2e3a35;
+  --p-before: #ff9a82; --p-before-bg: #3a201a; --p-after: #79d6ae; --p-after-bg: #173126; --p-accent: #8cc8e6;
+  --p-down: #ff9a82; --p-same: #9db0a8; --p-up: #79d6ae; color-scheme: dark; } }
+:root[data-theme="dark"] {
+  --p-bg: #131917; --p-panel: #1c2421; --p-ink: #e4ede9; --p-muted: #9db0a8; --p-line: #2e3a35;
+  --p-before: #ff9a82; --p-before-bg: #3a201a; --p-after: #79d6ae; --p-after-bg: #173126; --p-accent: #8cc8e6;
+  --p-down: #ff9a82; --p-same: #9db0a8; --p-up: #79d6ae; color-scheme: dark; }
+html, body { background: var(--p-bg) !important; color: var(--p-ink); }
+body { font: 15px/1.7 "Hiragino Sans", "Noto Sans JP", system-ui, sans-serif; margin: 0; display: block !important; min-height: 0 !important; height: auto !important; overflow: auto !important; }
+.p-wrap { max-width: 760px; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); padding-block: 20px 48px; display: grid; gap: 16px; }
+.p-wrap h1 { font-size: 1.35rem; margin: 0; text-wrap: balance; line-height: 1.35; }
+.p-wrap h2 { font-size: 1.02rem; margin: 0; }
+.p-wrap h3 { font-size: .95rem; margin: 0; }
+.p-lead { color: var(--p-muted); margin: 4px 0 0; }
+.p-panel { background: var(--p-panel); border: 1px solid var(--p-line); border-radius: 14px; padding: 14px; display: grid; gap: 10px; min-width: 0; }
+.p-panel p, .p-panel ul { margin: 0; }
+.p-panel ul { padding-left: 1.2em; }
+.p-seg { display: flex; flex-wrap: wrap; gap: 6px; }
+.p-seg button, .p-btn { font: inherit; font-size: .88rem; border: 1px solid var(--p-line); background: var(--p-panel); color: var(--p-ink); border-radius: 999px; padding: 6px 12px; cursor: pointer; min-height: 40px; }
+.p-seg button[aria-pressed="true"] { background: var(--p-accent); border-color: var(--p-accent); color: var(--p-panel); font-weight: 700; }
+.p-seg button.v-before[aria-pressed="true"] { background: var(--p-before); border-color: var(--p-before); }
+.p-seg button.v-after[aria-pressed="true"] { background: var(--p-after); border-color: var(--p-after); }
+.p-btn.primary { background: var(--p-ink); color: var(--p-panel); border-color: var(--p-ink); font-weight: 700; }
+:focus-visible { outline: 2px solid var(--p-accent); outline-offset: 2px; }
+.p-tag { font-size: .72rem; font-weight: 700; border-radius: 999px; padding: 1px 9px; white-space: nowrap; }
+.p-tag.before { color: var(--p-before); background: var(--p-before-bg); } .p-tag.after { color: var(--p-after); background: var(--p-after-bg); }
+.p-phone { width: 100%; max-width: 390px; height: 640px; margin: 0 auto; border-radius: 22px; overflow: hidden; border: 1px solid var(--p-line); background: #fffaf2; display: flex; flex-direction: column; position: relative; }
+.p-phone .minigame-overlay { flex: 1; min-height: 0; padding: 8px; }
+.p-phone-empty { margin: auto; color: #6b6255; text-align: center; padding: 24px; font-size: .9rem; }
+.p-status { font-size: .88rem; min-height: 1.6em; font-weight: 700; }
+.p-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+table.p-t { border-collapse: collapse; width: 100%; font-size: .8rem; font-variant-numeric: tabular-nums; }
+table.p-t th, table.p-t td { border-top: 1px solid var(--p-line); padding: 6px 8px; text-align: left; vertical-align: top; }
+table.p-t th { color: var(--p-muted); font-weight: 600; white-space: nowrap; }
+table.p-t.wide { min-width: 640px; }
+.p-note { font-size: .8rem; color: var(--p-muted); }
+.p-row { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.p-formula { display: grid; gap: 6px; }
+.p-formula div { border-left: 4px solid var(--p-line); padding: 4px 10px; font-size: .86rem; }
+.p-formula .b { border-color: var(--p-before); } .p-formula .a { border-color: var(--p-after); }
+.d-down { color: var(--p-down); font-weight: 700; } .d-same { color: var(--p-same); } .d-up { color: var(--p-up); font-weight: 700; }
+details summary { cursor: pointer; font-weight: 700; }
+.p-pt td.num { text-align: right; white-space: nowrap; }
+.p-pt td.lbl { white-space: nowrap; }
+</style>
+
+<div class="p-wrap">
+  <header>
+    <div class="p-note">なおとっち・ミニゲーム採点監査 Phase 3(2026-11-26)</div>
+    <h1>連打や押しっぱなしでは高得点にならない。上手な人の点はそのまま</h1>
+    <p class="p-lead">13種(18本)の操作と採点を見直しました。本物の games.js を2つ(変更前 = Phase 2 まで、変更後 = このブランチ)読みこんで、遊んで比べられます。点数とコインの帯は本体と同じ計算で表示します(記録・コインは実際には増えません)。</p>
+  </header>
+
+  <section class="p-panel" aria-label="きまり">
+    <h2>変更のきまり</h2>
+    <ul>
+      <li>ゲーム本来の目的(ねらう・タイミング・考える)を果たさない連打・押しっぱなし・放置に近い操作では、高得点にならないようにする。</li>
+      <li>連打そのものが遊びのゲーム(りくじょう・ピンボールのフリッパー)は変えない。運の要素もそのまま。</li>
+      <li>上手な人の点は下げない(ボットで変更前と同じか確認)。初心者でも30点以上がとれるようにする。</li>
+      <li>直したゲームには参加度メーターも入れる(放置・1回だけ・意味のない操作は記録しない)。</li>
+      <li>コインの帯・げんき・育成(C案)・クイックゲームは変えていません。過去の自己ベスト・実績もそのまま。</li>
+    </ul>
+  </section>
+
+  <section class="p-panel" aria-label="一覧">
+    <h2>13種の一覧(目安)</h2>
+    <div class="p-scroll"><table class="p-t wide" id="summary"><thead><tr><th>ゲーム</th><th>連打・放置に近い操作</th><th>ふつうに遊ぶ</th><th>上手に遊ぶ</th><th>コインへの影響</th></tr></thead><tbody></tbody></table></div>
+    <p class="p-note">「変更前 → 変更後」。自動プレイ(ハーネス)6〜8回の平均。70点以上=大成功(60コイン)、30〜69点=ふつう(30コイン)、29点以下=しっぱい(0コイン)。</p>
+  </section>
+
+  <section class="p-panel" aria-label="プレイヤー像">
+    <h2>7つのプレイヤー像と 1分あたりの報酬</h2>
+    <div class="p-seg" id="pGameSeg" role="group" aria-label="ゲーム"></div>
+    <div class="p-scroll"><table class="p-t p-pt" style="min-width:600px" id="personaTable"><thead><tr><th>プレイヤー</th><th>点(平均)</th><th>記録</th><th>へんしん/分</th><th>コイン/分</th><th>きげん/分</th><th>そだち/分</th></tr></thead><tbody></tbody></table></div>
+    <p class="p-note">1回の時間 = プレイ時間 + 画面の行き来 8秒 で計算。記録される回: へんしん +25・きげん +5+点/5・コインとそだちは点の帯。記録されない回: きげん +2 だけ。ボットの操作なので、人のプレイとは違います。</p>
+  </section>
+
+  <section class="p-panel" aria-label="ゲーム">
+    <h2>遊んで比べる</h2>
+    <div class="p-seg" id="gameSeg" role="group" aria-label="ゲーム"></div>
+    <div class="p-seg" id="verSeg" role="group" aria-label="版">
+      <button type="button" class="v-before" data-ver="before" aria-pressed="false">変更前</button>
+      <button type="button" class="v-after" data-ver="after" aria-pressed="true">変更後</button>
+    </div>
+    <div id="gameInfo" class="p-formula"></div>
+    <div class="p-row">
+      <button type="button" class="p-btn primary" id="playBtn">▶ あそぶ</button>
+      <button type="button" class="p-btn" id="stopBtn">やめる</button>
+    </div>
+    <div class="p-status" id="status" role="status"></div>
+  </section>
+
+  <div class="p-phone" id="phone"><div class="p-phone-empty">ゲームと版をえらんで「あそぶ」を押してください。</div></div>
+
+  <section class="p-panel">
+    <h2>結果の記録(このページを開いている間だけ)</h2>
+    <div class="p-scroll"><table class="p-t" style="min-width:480px"><thead><tr><th>#</th><th>ゲーム</th><th>版</th><th>点</th><th>本体での扱い</th></tr></thead><tbody id="log"><tr><td colspan="5" class="p-note">まだありません。</td></tr></tbody></table></div>
+  </section>
+
+  <section class="p-panel">
+    <details><summary>見送ったもの・そのままのもの</summary>
+      <ul style="margin-top:8px">
+        <li><b>ボクセルマイニング</b>: まっすぐ下に掘る(連打)も、宝石をねらって掘るボットも、初心者ふうのボットも全員100点。下へ掘るのはゲームのヒントどおりの作戦で、式を変えると上手な人も下がるので見送り(Phase 4 の満点の調整で扱う案)。</li>
+        <li><b>ピンボール・タワーディフェンス</b>: Phase 2 で対応ずみ。<b>りくじょう</b>: 連打が遊びそのものなので変えない。<b>おべんとう</b>: 見本をおぼえるゲームで、点は正しく置いた数(連打で高得点にならない)。</li>
+      </ul>
+    </details>
+  </section>
+</div>
+
+<script src="helpers.js"></script>
+<script src="games-before.js"></script>
+<script src="games-after.js"></script>
+<script>
+(() => {
+  'use strict';
+  const $ = (id) => document.getElementById(id);
+  const GAMES = [
+    {id: 'stack-themed', name: 'つみあげタワー(6本)', diff: 0.3,
+      before: '8 + だん×7 + パーフェクト×4。着地した位置からゆれが続くので、着地直後に押すだけで真上に重なり、連打でパーフェクトが続いた',
+      after: '式は同じ。1だんごとに、ゆれをはし(真上から30%以上はなれた所)からやりなおす',
+      levels: [['0.15秒の連打', '60〜73', '22〜29', 'down'], ['ゆれを見て(ずれ12px)', '100', '100', 'same'], ['ぴったり(ずれ3px)', '100', '100', 'same']],
+      coins: '連打: 60→0コイン。ゆれを見ておとす人は変わらない', example: '「おとす!」を0.15秒ごとに連打: 100点 → 29点'},
+    {id: 'darts-board', name: 'ダーツ', diff: 0.3,
+      before: '10 + 合計/2.1。おさえてすぐはなすとゆれが0で、真ん中をたたくだけで6本ともブル(100点)',
+      after: '式は同じ。おさえた直後は手がふるえ(的の半径の42%)、0.7秒でおちつく。ながくおさえるとまたゆれる。的に当たった投げだけ参加に数える',
+      levels: [['真ん中をたたくだけ', '100', '29〜65(平均50)', 'down'], ['少し待って(0.4秒)', '100', '72〜99', 'down'], ['ゲージがたまって(0.75秒)', '100', '100', 'same']],
+      coins: 'すぐはなす: 60→30コイン前後', example: '真ん中を押してすぐはなす×6本: 100点 → 50点前後'},
+    {id: 'rhythm-highway-3d', name: 'リズムハイウェイ', diff: 0.3,
+      before: '(PERFECT×3 + GOOD×2)/(ノーツ×3)。判定のはば±170msで、3レーン同時連打でほぼ全部に当たった',
+      after: 'ノーツのない所を押す「おてつき」がノーツの半分をこえたら、こえた1回ごとに0.5点ひく。ふつうに遊ぶ人は減点なし',
+      levels: [['3レーン連打', '67〜85', '8', 'down'], ['ふつう(ずれ70ms)', '79', '79', 'same'], ['上手(ずれ15ms)', '78', '78', 'same']],
+      coins: '連打: 60→0コイン', example: '0.15秒ごとに3レーン連打: 78点 → 8点'},
+    {id: 'asteroids-classic', name: 'アステロイド', diff: 0.3,
+      before: '8 + 点/11 + ライフ×4。弾が画面を1周するので、その場で撃つだけで岩が線に入った',
+      after: '弾は画面のはしで消える。小さい岩 100→70点、中 50→45点',
+      levels: [['その場で撃つだけ', '70', '49〜57', 'down'], ['ねらって撃つ', '89〜93', '94〜95', 'same'], ['すばやくねらう', '100', '98', 'same']],
+      coins: '撃つだけ: 60→30コインになる回が増える。雑にねらう人は少し下がる(77→62)', example: ''},
+    {id: 'fruit-slice', name: 'フルーツ斬り', diff: 0.3,
+      before: '10 + 点/6 + ライフ×4。指をはなさずなぞり続けると、コンボがおわらず +10・+20・+30… と増えた',
+      after: 'コンボは前に斬ってから0.45秒以内(ひとふりでまとめて斬った)のときだけ',
+      levels: [['なぞり続ける', '38〜49', '26〜35', 'down'], ['ねらって斬る', '61', '61', 'same'], ['すばやく', '61', '61', 'same']],
+      coins: 'ほぼ変わらない', example: ''},
+    {id: 'archery-3d', name: 'アーチェリー', diff: 0.3,
+      before: '的に当てた点の合計。風で流されるはばが小さく、まっすぐいっぱいに引くだけで97点',
+      after: '風で流されるはば 26→150。照準のまるは風の分も入れて見せるので、照準を的にあわせれば同じように当たる',
+      levels: [['まっすぐ引くだけ', '97', '65', 'down'], ['照準をあわせる(ずれ12px)', '98', '98', 'same'], ['照準をあわせる(ずれ2px)', '100', '100', 'same']],
+      coins: 'まっすぐ引くだけ: 60→30コイン', example: '風を見ずにまっすぐ引く: 97点 → 65点'},
+    {id: 'halfpipe-skate', name: 'ハーフパイプ', diff: 0.3,
+      before: '10 + 点/4。ポンプはくだりでだけ効くので押しっぱなしでよく、1回転の技をくり返してもコンボ×3が続いた',
+      after: 'のぼりでポンプを押すと少しへる。コンボの倍率は「前とちがう回転数」のときだけ上がる。点の割り算 4→7',
+      levels: [['ポンプ押しっぱなし+一定間隔タップ', '100', '10〜36', 'down'], ['くだりでポンプ+1回転', '100', '70', 'down'], ['回転数を変えて技を組む', '100', '100', 'same']],
+      coins: '押しっぱなし+タップ: 60→0コイン', example: 'ポンプ押しっぱなし+空中で1回タップ: 100点 → 44点'},
+    {id: 'street-fight', name: 'かくとうバトル', diff: 0.3,
+      before: '勝ち50/負け16 + HP×0.3 + ヒット − 被弾。キックは相手より遠くまでとどくので、0.75秒ごとのキックで勝てた',
+      after: '式は同じ。移動・ガードせずに同じわざを6回つづけると、AIが「ワンパターン」を見切る(とどかない所でまち、出したらガード、すかったら反撃)。移動・ガード・ちがうわざでもとにもどる',
+      levels: [['キック連打', '70〜86', '10〜23', 'down'], ['わざをまぜる', '35〜46', '35〜46', 'same'], ['キック多め(8割)', '64', '53', 'down']],
+      coins: 'キック連打: 60→0コイン', example: ''},
+    {id: 'grand-prix-3d', name: 'グランプリ', diff: 0.3,
+      before: '順位の点 − ぶつかり。カーブが右・左・右…と交互なので、強さと長さが近いコースではアクセルだけで道から出ず優勝できた(12回に3回)',
+      after: 'カーブの向きを毎回ランダムに(同じ向きは3つまで)',
+      levels: [['アクセルだけ', '31(12回中3回が68〜94)', '21(12回中1回)', 'down'], ['おそめにハンドル', '91', '98', 'same'], ['ハンドルで道の中央', '95', '94〜96', 'same']],
+      coins: 'アクセルだけ: 60コインの回が 3/12 → 1/12', example: ''},
+    {id: 'hang-glider-3d', name: 'ハンググライダー', diff: 0.3,
+      before: '8 + きょり/30 + 風船×9 + 気流 + (とび続ければ8)。気流の半分が機体の正面にくるので、ゆらすだけでとび続けた',
+      after: '気流と風船は、出てきたときの機体の真正面(よこ0.62/0.4以内)には置かない',
+      levels: [['少しゆらすだけ', '62', '17', 'down'], ['気流をねらう', '60', '57', 'same'], ['気流と風船をねらう', '59〜61', '63〜68', 'same']],
+      coins: 'ゆらすだけ: 30〜60→0コイン', example: ''},
+    {id: 'jenga-tower', name: 'ジェンガ', diff: 0.3,
+      before: '10 + 抜いた数×8 + くずさなければ12。下から真ん中だけを順に抜けば必ず100点',
+      after: '本物と同じく「かたくて抜けない」ブロックがある(真ん中45%・はし12%。見た目ではわからず、ためすと色がかわる)。ためしても崩れず点もへらない',
+      levels: [['真ん中だけ', '100', '46〜100(平均73)', 'down'], ['安定度を見て', '100', '100', 'same'], ['ゆっくり考える', '100', '100', 'same']],
+      coins: '真ん中だけ: 60→30コインになる回がある', example: ''},
+    {id: 'dragDecorate-cake', name: 'ケーキデコレーション', diff: 0.3,
+      before: '3つ置いて完成で100点(時間切れは置いた数×33)',
+      after: '完成: 76 + 24×(はやさ6割・ていねいさ4割)。時間の35%以内で満点、85%以上かかっても76点。真ん中に置くほどていねい',
+      levels: [['ゆっくり・はしっこ', '100', '76〜85', 'down'], ['ふつう', '100', '90前後', 'down'], ['すばやく真ん中', '100', '100', 'same']],
+      coins: '完成すれば60コインのまま', example: 'ご判断(完成で75〜90点、上手なら100点)どおり'},
+    {id: 'domino-run', name: 'ドミノたおし', diff: 0.3,
+      before: '10 + クリア×42 + (2問なら6)。2問クリアで必ず100点',
+      after: '2問クリア: 76〜100(はやさ。ケーキと同じ式でていねいさなし)。1問52・0問10は同じ。何も置かずに「おす!」だけは参加に数えない',
+      levels: [['すぐ押す', '10(記録)', '10(記録なし)', 'down'], ['ゆっくり(2秒に1こ)', '100', '86', 'down'], ['ふつう〜はやい', '100', '99〜100', 'same']],
+      coins: '完成すれば60コインのまま', example: 'ご判断どおり'},
+  ];
+  const PERSONA_LABEL = {idle: '完全放置', tap1: '一度だけ操作', mash: '単純な連打', quick: '意図的な即時失敗', beginner: '初心者', average: '平均的', expert: '上級者'};
+  // [id, persona, 前の点, 前の記録, 後の点, 後の記録, 回数, へんしん/分 前・後, コイン/分 前・後, きげん/分 前・後, そだち/分 前・後]
+  const PERSONA = [["stack-themed","idle",8,0,8,0,6,0,0,0,0,3.5,3.5,0,0],["stack-themed","tap1",16,6,16,0,6,44,0,0,0,14,3.5,0,0],["stack-themed","mash",67,6,24,0,6,84,0,118,0,60.7,9.2,27.5,0],["stack-themed","quick",67,6,24,0,6,84,0,118,0,60.7,9.2,27.5,0],["stack-themed","beginner",82,6,61,6,6,70,78,125,94,58.5,51.7,29.2,21.9],["stack-themed","average",100,6,100,6,6,56,53,135,128,56.1,53.2,31.4,29.8],["stack-themed","expert",100,6,100,6,6,44,44,105,105,43.8,43.8,24.5,24.5],["darts-board","idle",0,0,0,0,6,0,0,0,0,0.3,0.3,0,0],["darts-board","tap1",0,0,0,0,6,0,0,0,0,0.3,0.3,0,0],["darts-board","mash",100,6,45,6,6,67,67,162,81,67.4,36.4,37.8,18.9],["darts-board","quick",10,6,10,0,6,108,0,0,0,30.3,8.7,0,0],["darts-board","beginner",74,6,53,6,6,59,59,141,71,44.7,35.7,32.9,16.5],["darts-board","average",100,6,82,6,6,58,58,140,140,58.5,49.1,32.7,32.7],["darts-board","expert",100,6,100,6,6,58,58,138,138,57.7,57.7,32.3,32.3],["rhythm-highway-3d","idle",8,0,8,0,6,0,0,0,0,3.8,3.8,0,0],["rhythm-highway-3d","tap1",8,6,8,0,6,48,0,0,0,11.5,3.8,0,0],["rhythm-highway-3d","mash",77,6,8,6,6,48,48,115,0,38.4,11.5,26.9,0],["rhythm-highway-3d","quick",8,6,8,0,6,48,0,0,0,11.5,3.8,0,0],["rhythm-highway-3d","beginner",57,6,57,6,6,48,48,58,58,30.7,30.7,13.4,13.4],["rhythm-highway-3d","average",79,6,79,6,6,48,48,115,115,39,39,26.9,26.9],["rhythm-highway-3d","expert",78,6,78,6,6,48,48,115,115,39,39,26.9,26.9],["asteroids-classic","idle",11,0,11,0,6,0,0,0,0,3.5,3.5,0,0],["asteroids-classic","tap1",11,6,11,0,6,44,0,0,0,11.6,3.5,0,0],["asteroids-classic","mash",72,6,57,6,6,58,45,104,63,44.5,29.3,24.4,14.8],["asteroids-classic","quick",72,6,57,6,6,58,45,104,63,44.5,29.3,24.4,14.8],["asteroids-classic","beginner",67,6,60,6,6,53,49,85,78,38.4,32.5,19.7,18.2],["asteroids-classic","average",89,6,95,6,6,45,41,100,99,41.1,39.3,23.3,23.1],["asteroids-classic","expert",100,6,98,6,6,40,40,97,97,40.3,39.7,22.6,22.6],["fruit-slice","idle",22,0,22,0,6,0,0,0,0,3.6,3.6,0,0],["fruit-slice","tap1",22,6,22,0,6,45,0,0,0,16.2,3.6,0,0],["fruit-slice","mash",49,6,35,6,6,62,62,74,50,35.5,28.9,17.4,11.6],["fruit-slice","quick",22,6,22,0,6,45,0,0,0,16.2,3.6,0,0],["fruit-slice","beginner",59,6,59,6,6,45,45,63,63,29.5,29.5,14.7,14.7],["fruit-slice","average",61,6,61,6,6,45,45,72,72,30.4,30.4,16.8,16.8],["fruit-slice","expert",61,6,61,6,6,45,45,72,72,30.4,30.4,16.8,16.8],["archery-3d","idle",8,0,8,0,6,0,0,0,0,1.9,1.9,0,0],["archery-3d","tap1",8,6,8,0,6,24,0,0,0,5.7,1.9,0,0],["archery-3d","mash",97,6,65,6,6,59,59,142,94,56.7,41.3,33.1,22],["archery-3d","quick",97,6,65,6,6,84,84,202,134,80.7,58.8,47.1,31.4],["archery-3d","beginner",92,6,91,6,6,61,61,148,148,56.6,55.7,34.4,34.4],["archery-3d","average",98,6,98,6,6,61,61,148,148,60.2,59.8,34.4,34.4],["archery-3d","expert",100,6,100,6,6,61,61,148,148,61.5,61.1,34.4,34.4],["halfpipe-skate","idle",10,0,10,0,6,0,0,0,0,3.4,3.4,0,0],["halfpipe-skate","tap1",10,6,10,0,6,43,0,0,0,11.9,3.4,0,0],["halfpipe-skate","mash",100,6,10,6,6,43,43,102,0,42.6,11.9,23.8,0],["halfpipe-skate","quick",10,6,10,0,6,43,0,0,0,11.9,3.4,0,0],["halfpipe-skate","beginner",100,6,44,6,6,43,43,102,51,42.6,22.1,23.8,11.9],["halfpipe-skate","average",100,6,70,6,6,43,43,102,102,42.6,32.3,23.8,23.8],["halfpipe-skate","expert",100,6,100,6,6,43,43,102,102,42.6,42.6,23.8,23.8],["street-fight","idle",10,0,10,0,6,0,0,0,0,3.8,3.8,0,0],["street-fight","tap1",10,6,10,0,6,47,0,0,0,13.1,3.8,0,0],["street-fight","mash",77,6,10,6,6,56,44,123,0,44.8,12.3,28.7,0],["street-fight","quick",11,6,15,6,6,46,44,0,0,12.9,13.2,0,0],["street-fight","beginner",35,6,35,6,6,43,43,17,17,19.9,19.9,4,4],["street-fight","average",46,6,46,6,6,44,44,35,35,24.2,24.2,8.2,8.2],["street-fight","expert",64,6,53,6,6,48,44,67,44,32.9,26.6,15.7,10.3],["grand-prix-3d","idle",15,0,15,0,6,0,0,0,0,2.9,2.9,0,0],["grand-prix-3d","tap1",15,6,15,0,6,37,0,0,0,11.8,2.9,0,0],["grand-prix-3d","mash",35,6,14,0,6,38,0,23,0,17.7,2.9,5.3,0],["grand-prix-3d","quick",15,6,15,0,6,37,0,0,0,11.8,2.9,0,0],["grand-prix-3d","beginner",91,6,98,6,6,42,43,101,103,38,41.3,23.5,24.1],["grand-prix-3d","average",95,6,96,6,6,43,44,104,105,40.8,41.8,24.2,24.6],["grand-prix-3d","expert",95,6,94,6,6,44,44,105,105,41.5,40.7,24.5,24.4],["hang-glider-3d","idle",63,0,17,0,6,0,0,0,0,3.5,6,0,0],["hang-glider-3d","tap1",63,0,17,0,6,0,0,0,0,3.5,6,0,0],["hang-glider-3d","mash",63,6,17,6,6,44,75,79,0,30.1,24,18.4,0],["hang-glider-3d","quick",63,0,17,0,6,0,0,0,0,3.5,6,0,0],["hang-glider-3d","beginner",61,6,63,6,6,44,44,61,70,29.5,30.1,14.3,16.4],["hang-glider-3d","average",60,6,57,6,6,44,44,61,61,28.9,28.4,14.3,14.3],["hang-glider-3d","expert",59,6,68,6,6,48,47,57,75,31.6,34.3,13.4,17.6],["jenga-tower","idle",10,0,10,0,6,0,0,0,0,2.2,2.2,0,0],["jenga-tower","tap1",10,0,10,0,6,0,0,0,0,2.2,2.2,0,0],["jenga-tower","mash",100,6,74,6,6,28,28,67,56,28,21.8,15.7,13],["jenga-tower","quick",10,0,10,0,6,0,0,0,0,2.2,2.2,0,0],["jenga-tower","beginner",100,6,100,6,6,28,28,67,67,28,28,15.7,15.7],["jenga-tower","average",100,6,100,6,6,28,30,67,72,28,30.2,15.7,16.9],["jenga-tower","expert",100,6,100,6,6,28,34,67,81,28,33.8,15.7,19],["domino-run","idle",10,0,10,0,6,0,0,0,0,2.2,2.2,0,0],["domino-run","tap1",10,6,10,0,6,28,0,0,0,7.8,2.2,0,0],["domino-run","mash",10,6,10,0,6,98,0,0,0,27.5,7.9,0,0],["domino-run","quick",10,6,10,0,6,98,0,0,0,27.5,7.9,0,0],["domino-run","beginner",100,6,86,6,6,39,39,93,93,38.6,33.9,21.6,21.6],["domino-run","average",100,6,99,6,6,56,56,134,134,55.9,54.4,31.3,31.3],["domino-run","expert",100,6,100,6,6,75,75,181,181,75.2,75.2,42.1,42.1]];
+  const cls = (d) => d === 'down' ? 'd-down' : d === 'up' ? 'd-up' : 'd-same';
+  const cell = ([label, b, a, d]) => `<td><span class="p-note">${label}</span><br>${b} → <span class="${cls(d)}">${a}</span></td>`;
+  $('summary').querySelector('tbody').innerHTML = GAMES.map((g) => `<tr><th scope="row">${g.name}</th>${g.levels.map(cell).join('')}<td>${g.coins}</td></tr>`).join('');
+  $('gameSeg').innerHTML = GAMES.map((g, i) => `<button type="button" data-i="${i}" aria-pressed="${i === 0}">${g.name}</button>`).join('');
+  const pIds = [...new Set(PERSONA.map((r) => r[0]))];
+  let pg = pIds[0];
+  const nameOf = (id) => (GAMES.find((g) => g.id === id) || {}).name || id;
+  $('pGameSeg').innerHTML = pIds.map((id) => `<button type="button" data-id="${id}" aria-pressed="${id === pg}">${nameOf(id)}</button>`).join('');
+  function renderPersona() {
+    for (const b of document.querySelectorAll('#pGameSeg button')) b.setAttribute('aria-pressed', String(b.dataset.id === pg));
+    $('personaTable').querySelector('tbody').innerHTML = PERSONA.filter((r) => r[0] === pg).map((r) => `<tr><td class="lbl">${PERSONA_LABEL[r[1]]}</td><td class="num">${r[2]} → ${r[4]}</td><td class="num">${r[3]}/${r[6]} → ${r[5]}/${r[6]}</td><td class="num">${r[7]} → ${r[8]}</td><td class="num">${r[9]} → ${r[10]}</td><td class="num">${r[11]} → ${r[12]}</td><td class="num">${r[13]} → ${r[14]}</td></tr>`).join('');
+  }
+  $('pGameSeg').addEventListener('click', (e) => { const b = e.target.closest('button'); if (!b) return; pg = b.dataset.id; renderPersona(); });
+  renderPersona();
+  let gi = 0, ver = 'after', session = 0, logN = 0;
+  const reg = {};
+  function registry(v) {
+    if (reg[v]) return reg[v];
+    const H = window.P3Helpers;
+    const S = {
+      sfx() {}, perfLow: () => false, perfScale: () => 1, foodIconHTML: (_k, e) => e, canvasIllustrations: null, drawProp: () => false,
+      MG_ACTION_START_GRACE_MS: H.MG_ACTION_START_GRACE_MS, MG_SWIPE_MIN: H.MG_SWIPE_MIN, SEASON: {SPRING: 'spring', SUMMER: 'summer', AUTUMN: 'autumn', WINTER: 'winter'},
+      ageDifficulty: () => GAMES[gi].diff, bindHeldButton: H.bindHeldButton, createTouchPad: H.createTouchPad, createPadRow: H.createPadRow, clamp: H.clamp,
+      createMgCanvas: H.createMgCanvas, currentSprite: () => '🐶', generateMaze: H.generateMaze, lerp: H.lerp, mazeBfs: H.mazeBfs,
+      mgDuration: (ms) => ms, mgPointerPos: H.mgPointerPos, minigameEase: () => 0.5,
+    };
+    const r = (v === 'before' ? window.P3InstallBefore : window.P3InstallAfter)(S);
+    // 地域・季節の ゲーム(スキーダウンヒル(雪) など)も ふくめて あつめる
+    const all = new Map(), walk = (x) => { if (!x || typeof x !== 'object') return; if (Array.isArray(x)) return x.forEach(walk); if (x.id && typeof x.start === 'function') { all.set(x.id, x); return; } Object.values(x).forEach(walk); };
+    walk([r.MINIGAMES, r.REGION_MINIGAMES, r.SEASONAL_MINIGAMES]);
+    reg[v] = all;
+    return reg[v];
+  }
+  // 本体の T7 と おなじ 判定(script.js mgParticipated)。メーターを わたさない ゲームは 1回でも さわれば 記録
+  function participated(play) {
+    if (play && Number.isFinite(play.maxGap)) return play.acts > 0 && (play.decided === true || play.maxGap <= 30000);
+    if (play && Number.isFinite(play.acts)) return play.acts > 0 && (!Number.isFinite(play.cover) || (play.cover >= 0.2 && (play.cover >= 1 || !(play.spans < 2))));
+    if (play && Number.isFinite(play.inputs)) return play.inputs > 0;
+    return true;
+  }
+  const band = (s) => s >= 70 ? '大成功・60コイン' : s >= 30 ? 'ふつう・30コイン' : 'しっぱい・0コイン';
+  function render() {
+    for (const b of document.querySelectorAll('#gameSeg button')) b.setAttribute('aria-pressed', String(+b.dataset.i === gi));
+    for (const b of document.querySelectorAll('#verSeg button')) b.setAttribute('aria-pressed', String(b.dataset.ver === ver));
+    const g = GAMES[gi];
+    $('gameInfo').innerHTML = `<h3>${g.name}</h3><div class="b"><span class="p-tag before">変更前</span> ${g.before}</div><div class="a"><span class="p-tag after">変更後</span> ${g.after}</div>${g.example ? `<p class="p-note">例: ${g.example}</p>` : ''}`;
+  }
+  function stop(msg) {
+    session++;
+    if (window.P3Helpers.resetMinigameInput) window.P3Helpers.resetMinigameInput();
+    $('phone').innerHTML = `<div class="p-phone-empty">${msg ?? 'ゲームと版をえらんで「あそぶ」を押してください。'}</div>`;
+  }
+  function addLog(row) {
+    const tb = $('log'); if (!logN) tb.innerHTML = '';
+    logN++;
+    const tr = document.createElement('tr');
+    tr.innerHTML = `<td>${logN}</td><td>${row.name}</td><td><span class="p-tag ${row.ver}">${row.ver === 'before' ? '変更前' : '変更後'}</span></td><td>${row.score}</td><td>${row.treat}</td>`;
+    tb.prepend(tr);
+  }
+  function play() {
+    stop('');
+    const my = ++session, g = GAMES[gi], v = ver;
+    $('phone').innerHTML = '<div class="minigame-overlay" id="minigameOverlay"></div>';
+    $('status').textContent = '';
+    const game = registry(v).get(g.id);
+    game.start($('minigameOverlay'), (score, _msg, detail) => {
+      if (my !== session) return;
+      const s = Math.max(0, Math.min(100, Math.round(score))), treat = participated(detail) ? band(s) : '記録しない(参加なし)';
+      $('status').textContent = `${g.name}(${v === 'before' ? '変更前' : '変更後'}): ${s}点 → ${treat}`;
+      addLog({name: g.name, ver: v, score: s, treat});
+    });
+  }
+  $('gameSeg').addEventListener('click', (e) => { const b = e.target.closest('button'); if (!b) return; gi = +b.dataset.i; stop(); render(); });
+  $('verSeg').addEventListener('click', (e) => { const b = e.target.closest('button'); if (!b) return; ver = b.dataset.ver; stop(); render(); });
+  $('playBtn').addEventListener('click', play);
+  $('stopBtn').addEventListener('click', () => { stop(); $('status').textContent = ''; });
+  window.p3Trial = {select: (id) => { gi = GAMES.findIndex((g) => g.id === id); render(); }, setVer: (v) => { ver = v; render(); }, play, status: () => $('status').textContent};
+  render();
+})();
+</script>

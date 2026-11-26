@@ -1,0 +1,2858 @@
+[
+ {
+  "id": "stack-themed",
+  "name": "つみあげタワー",
+  "persona": "idle",
+  "label": "完全放置",
+  "scores": [
+   8,
+   8,
+   8,
+   8,
+   8,
+   8
+  ],
+  "recorded": 0,
+  "n": 6,
+  "avgScore": 8,
+  "sec": 26.2,
+  "perMin": {
+   "coins": 0,
+   "growth": 0,
+   "happy": 3.5,
+   "transform": 0
+  }
+ },
+ {
+  "id": "stack-themed",
+  "name": "つみあげタワー",
+  "persona": "tap1",
+  "label": "一度だけ操作",
+  "scores": [
+   19,
+   15,
+   15,
+   15,
+   15,
+   19
+  ],
+  "recorded": 6,
+  "n": 6,
+  "avgScore": 16,
+  "sec": 26.2,
+  "perMin": {
+   "coins": 0,
+   "growth": 0,
+   "happy": 14,
+   "transform": 44
+  }
+ },
+ {
+  "id": "stack-themed",
+  "name": "つみあげタワー",
+  "persona": "mash",
+  "label": "単純な連打",
+  "scores": [
+   43,
+   100,
+   100,
+   29,
+   29,
+   100
+  ],
+  "recorded": 6,
+  "n": 6,
+  "avgScore": 67,
+  "sec": 9.8,
+  "perMin": {
+   "coins": 118,
+   "growth": 27.5,
+   "happy": 60.7,
+   "transform": 84
+  }
+ },
+ {
+  "id": "stack-themed",
+  "name": "つみあげタワー",
+  "persona": "quick",
+  "label": "意図的な即時失敗",
+  "scores": [
+   43,
+   100,
+   100,
+   29,
+   29,
+   100
+  ],
+  "recorded": 6,
+  "n": 6,
+  "avgScore": 67,
+  "sec": 9.8,
+  "perMin": {
+   "coins": 118,
+   "growth": 27.5,
+   "happy": 60.7,
+   "transform": 84
+  }
+ },
+ {
+  "id": "stack-themed",
+  "name": "つみあげタワー",
+  "persona": "beginner",
+  "label": "初心者",
+  "scores": [
+   64,
+   100,
+   100,
+   64,
+   64,
+   100
+  ],
+  "recorded": 6,
+  "n": 6,
+  "avgScore": 82,
+  "sec": 13.5,
+  "perMin": {
+   "coins": 125,
+   "growth": 29.2,
+   "happy": 58.5,
+   "transform": 70
+  }
+ },
+ {
+  "id": "stack-themed",
+  "name": "つみあげタワー",
+  "persona": "average",
+  "label": "平均的",
+  "scores": [
+   100,
+   100,
+   100,
+   100,
+   100,
+   100
+  ],
+  "recorded": 6,
+  "n": 6,
+  "avgScore": 100,
+  "sec": 18.7,
+  "perMin": {
+   "coins": 135,
+   "growth": 31.4,
+   "happy": 56.1,
+   "transform": 56
+  }
+ },
+ {
+  "id": "stack-themed",
+  "name": "つみあげタワー",
+  "persona": "expert",
+  "label": "上級者",
+  "scores": [
+   100,
+   100,
+   100,
+   100,
+   100,
+   100
+  ],
+  "recorded": 6,
+  "n": 6,
+  "avgScore": 100,
+  "sec": 26.2,
+  "perMin": {
+   "coins": 105,
+   "growth": 24.5,
+   "happy": 43.8,
+   "transform": 44
+  }
+ },
+ {
+  "id": "stack-snowman",
+  "name": "つみあげタワー",
+  "persona": "idle",
+  "label": "完全放置",
+  "scores": [
+   8,
+   8,
+   8,
+   8,
+   8,
+   8
+  ],
+  "recorded": 0,
+  "n": 6,
+  "avgScore": 8,
+  "sec": 26.2,
+  "perMin": {
+   "coins": 0,
+   "growth": 0,
+   "happy": 3.5,
+   "transform": 0
+  }
+ },
+ {
+  "id": "stack-snowman",
+  "name": "つみあげタワー",
+  "persona": "tap1",
+  "label": "一度だけ操作",
+  "scores": [
+   15,
+   15,
+   15,
+   15,
+   15,
+   15
+  ],
+  "recorded": 6,
+  "n": 6,
+  "avgScore": 15,
+  "sec": 26.2,
+  "perMin": {
+   "coins": 0,
+   "growth": 0,
+   "happy": 14,
+   "transform": 44
+  }
+ },
+ {
+  "id": "stack-snowman",
+  "name": "つみあげタワー",
+  "persona": "mash",
+  "label": "単純な連打",
+  "scores": [
+   100,
+   100,
+   100,
+   29,
+   36,
+   36
+  ],
+  "recorded": 6,
+  "n": 6,
+  "avgScore": 67,
+  "sec": 11.3,
+  "perMin": {
+   "coins": 124,
+   "growth": 29,
+   "happy": 56.5,
+   "transform": 78
+  }
+ },
+ {
+  "id": "stack-snowman",
+  "name": "つみあげタワー",
+  "persona": "quick",
+  "label": "意図的な即時失敗",
+  "scores": [
+   100,
+   100,
+   100,
+   29,
+   36,
+   36
+  ],
+  "recorded": 6,
+  "n": 6,
+  "avgScore": 67,
+  "sec": 11.3,
+  "perMin": {
+   "coins": 124,
+   "growth": 29,
+   "happy": 56.5,
+   "transform": 78
+  }
+ },
+ {
+  "id": "stack-snowman",
+  "name": "つみあげタワー",
+  "persona": "beginner",
+  "label": "初心者",
+  "scores": [
+   100,
+   100,
+   100,
+   57,
+   64,
+   85
+  ],
+  "recorded": 6,
+  "n": 6,
+  "avgScore": 84,
+  "sec": 15.2,
+  "perMin": {
+   "coins": 129,
+   "growth": 30.2,
+   "happy": 56.1,
+   "transform": 65
+  }
+ },
+ {
+  "id": "stack-snowman",
+  "name": "つみあげタワー",
+  "persona": "average",
+  "label": "平均的",
+  "scores": [
+   100,
+   100,
+   100,
+   100,
+   100,
+   100
+  ],
+  "recorded": 6,
+  "n": 6,
+  "avgScore": 100,
+  "sec": 18.8,
+  "perMin": {
+   "coins": 134,
+   "growth": 31.4,
+   "happy": 56,
+   "transform": 56
+  }
+ },
+ {
+  "id": "stack-snowman",
+  "name": "つみあげタワー",
+  "persona": "expert",
+  "label": "上級者",
+  "scores": [
+   100,
+   100,
+   100,
+   100,
+   100,
+   100
+  ],
+  "recorded": 6,
+  "n": 6,
+  "avgScore": 100,
+  "sec": 26.2,
+  "perMin": {
+   "coins": 105,
+   "growth": 24.5,
+   "happy": 43.8,
+   "transform": 44
+  }
+ },
+ {
+  "id": "stack-harvest",
+  "name": "つみあげタワー",
+  "persona": "idle",
+  "label": "完全放置",
+  "scores": [
+   8,
+   8,
+   8,
+   8,
+   8,
+   8
+  ],
+  "recorded": 0,
+  "n": 6,
+  "avgScore": 8,
+  "sec": 26.2,
+  "perMin": {
+   "coins": 0,
+   "growth": 0,
+   "happy": 3.5,
+   "transform": 0
+  }
+ },
+ {
+  "id": "stack-harvest",
+  "name": "つみあげタワー",
+  "persona": "tap1",
+  "label": "一度だけ操作",
+  "scores": [
+   15,
+   15,
+   15,
+   15,
+   15,
+   15
+  ],
+  "recorded": 6,
+  "n": 6,
+  "avgScore": 15,
+  "sec": 26.2,
+  "perMin": {
+   "coins": 0,
+   "growth": 0,
+   "happy": 14,
+   "transform": 44
+  }
+ },
+ {
+  "id": "stack-harvest",
+  "name": "つみあげタワー",
+  "persona": "mash",
+  "label": "単純な連打",
+  "scores": [
+   100,
+   100,
+   100,
+   29,
+   36,
+   36
+  ],
+  "recorded": 6,
+  "n": 6,
+  "avgScore": 67,
+  "sec": 11.3,
+  "perMin": {
+   "coins": 124,
+   "growth": 29,
+   "happy": 56.5,
+   "transform": 78
+  }
+ },
+ {
+  "id": "stack-harvest",
+  "name": "つみあげタワー",
+  "persona": "quick",
+  "label": "意図的な即時失敗",
+  "scores": [
+   100,
+   100,
+   100,
+   29,
+   36,
+   36
+  ],
+  "recorded": 6,
+  "n": 6,
+  "avgScore": 67,
+  "sec": 11.3,
+  "perMin": {
+   "coins": 124,
+   "growth": 29,
+   "happy": 56.5,
+   "transform": 78
+  }
+ },
+ {
+  "id": "stack-harvest",
+  "name": "つみあげタワー",
+  "persona": "beginner",
+  "label": "初心者",
+  "scores": [
+   100,
+   100,
+   100,
+   57,
+   64,
+   85
+  ],
+  "recorded": 6,
+  "n": 6,
+  "avgScore": 84,
+  "sec": 15.2,
+  "perMin": {
+   "coins": 129,
+   "growth": 30.2,
+   "happy": 56.1,
+   "transform": 65
+  }
+ },
+ {
+  "id": "stack-harvest",
+  "name": "つみあげタワー",
+  "persona": "average",
+  "label": "平均的",
+  "scores": [
+   100,
+   100,
+   100,
+   100,
+   100,
+   100
+  ],
+  "recorded": 6,
+  "n": 6,
+  "avgScore": 100,
+  "sec": 18.8,
+  "perMin": {
+   "coins": 134,
+   "growth": 31.4,
+   "happy": 56,
+   "transform": 56
+  }
+ },
+ {
+  "id": "stack-harvest",
+  "name": "つみあげタワー",
+  "persona": "expert",
+  "label": "上級者",
+  "scores": [
+   100,
+   100,
+   100,
+   100,
+   100,
+   100
+  ],
+  "recorded": 6,
+  "n": 6,
+  "avgScore": 100,
+  "sec": 26.2,
+  "perMin": {
+   "coins": 105,
+   "growth": 24.5,
+   "happy": 43.8,
+   "transform": 44
+  }
+ },
+ {
+  "id": "stack-acorn",
+  "name": "つみあげタワー",
+  "persona": "idle",
+  "label": "完全放置",
+  "scores": [
+   8,
+   8,
+   8,
+   8,
+   8,
+   8
+  ],
+  "recorded": 0,
+  "n": 6,
+  "avgScore": 8,
+  "sec": 26.2,
+  "perMin": {
+   "coins": 0,
+   "growth": 0,
+   "happy": 3.5,
+   "transform": 0
+  }
+ },
+ {
+  "id": "stack-acorn",
+  "name": "つみあげタワー",
+  "persona": "tap1",
+  "label": "一度だけ操作",
+  "scores": [
+   15,
+   15,
+   15,
+   15,
+   15,
+   15
+  ],
+  "recorded": 6,
+  "n": 6,
+  "avgScore": 15,
+  "sec": 26.2,
+  "perMin": {
+   "coins": 0,
+   "growth": 0,
+   "happy": 14,
+   "transform": 44
+  }
+ },
+ {
+  "id": "stack-acorn",
+  "name": "つみあげタワー",
+  "persona": "mash",
+  "label": "単純な連打",
+  "scores": [
+   100,
+   100,
+   100,
+   29,
+   36,
+   36
+  ],
+  "recorded": 6,
+  "n": 6,
+  "avgScore": 67,
+  "sec": 11.3,
+  "perMin": {
+   "coins": 124,
+   "growth": 29,
+   "happy": 56.5,
+   "transform": 78
+  }
+ },
+ {
+  "id": "stack-acorn",
+  "name": "つみあげタワー",
+  "persona": "quick",
+  "label": "意図的な即時失敗",
+  "scores": [
+   100,
+   100,
+   100,
+   29,
+   36,
+   36
+  ],
+  "recorded": 6,
+  "n": 6,
+  "avgScore": 67,
+  "sec": 11.3,
+  "perMin": {
+   "coins": 124,
+   "growth": 29,
+   "happy": 56.5,
+   "transform": 78
+  }
+ },
+ {
+  "id": "stack-acorn",
+  "name": "つみあげタワー",
+  "persona": "beginner",
+  "label": "初心者",
+  "scores": [
+   100,
+   100,
+   100,
+   57,
+   64,
+   85
+  ],
+  "recorded": 6,
+  "n": 6,
+  "avgScore": 84,
+  "sec": 15.2,
+  "perMin": {
+   "coins": 129,
+   "growth": 30.2,
+   "happy": 56.1,
+   "transform": 65
+  }
+ },
+ {
+  "id": "stack-acorn",
+  "name": "つみあげタワー",
+  "persona": "average",
+  "label": "平均的",
+  "scores": [
+   100,
+   100,
+   100,
+   100,
+   100,
+   100
+  ],
+  "recorded": 6,
+  "n": 6,
+  "avgScore": 100,
+  "sec": 18.8,
+  "perMin": {
+   "coins": 134,
+   "growth": 31.4,
+   "happy": 56,
+   "transform": 56
+  }
+ },
+ {
+  "id": "stack-acorn",
+  "name": "つみあげタワー",
+  "persona": "expert",
+  "label": "上級者",
+  "scores": [
+   100,
+   100,
+   100,
+   100,
+   100,
+   100
+  ],
+  "recorded": 6,
+  "n": 6,
+  "avgScore": 100,
+  "sec": 26.2,
+  "perMin": {
+   "coins": 105,
+   "growth": 24.5,
+   "happy": 43.8,
+   "transform": 44
+  }
+ },
+ {
+  "id": "stack-sakura",
+  "name": "つみあげタワー",
+  "persona": "idle",
+  "label": "完全放置",
+  "scores": [
+   8,
+   8,
+   8,
+   8,
+   8,
+   8
+  ],
+  "recorded": 0,
+  "n": 6,
+  "avgScore": 8,
+  "sec": 26.2,
+  "perMin": {
+   "coins": 0,
+   "growth": 0,
+   "happy": 3.5,
+   "transform": 0
+  }
+ },
+ {
+  "id": "stack-sakura",
+  "name": "つみあげタワー",
+  "persona": "tap1",
+  "label": "一度だけ操作",
+  "scores": [
+   15,
+   15,
+   15,
+   15,
+   15,
+   15
+  ],
+  "recorded": 6,
+  "n": 6,
+  "avgScore": 15,
+  "sec": 26.2,
+  "perMin": {
+   "coins": 0,
+   "growth": 0,
+   "happy": 14,
+   "transform": 44
+  }
+ },
+ {
+  "id": "stack-sakura",
+  "name": "つみあげタワー",
+  "persona": "mash",
+  "label": "単純な連打",
+  "scores": [
+   100,
+   100,
+   100,
+   29,
+   36,
+   36
+  ],
+  "recorded": 6,
+  "n": 6,
+  "avgScore": 67,
+  "sec": 11.3,
+  "perMin": {
+   "coins": 124,
+   "growth": 29,
+   "happy": 56.5,
+   "transform": 78
+  }
+ },
+ {
+  "id": "stack-sakura",
+  "name": "つみあげタワー",
+  "persona": "quick",
+  "label": "意図的な即時失敗",
+  "scores": [
+   100,
+   100,
+   100,
+   29,
+   36,
+   36
+  ],
+  "recorded": 6,
+  "n": 6,
+  "avgScore": 67,
+  "sec": 11.3,
+  "perMin": {
+   "coins": 124,
+   "growth": 29,
+   "happy": 56.5,
+   "transform": 78
+  }
+ },
+ {
+  "id": "stack-sakura",
+  "name": "つみあげタワー",
+  "persona": "beginner",
+  "label": "初心者",
+  "scores": [
+   100,
+   100,
+   100,
+   57,
+   64,
+   85
+  ],
+  "recorded": 6,
+  "n": 6,
+  "avgScore": 84,
+  "sec": 15.2,
+  "perMin": {
+   "coins": 129,
+   "growth": 30.2,
+   "happy": 56.1,
+   "transform": 65
+  }
+ },
+ {
+  "id": "stack-sakura",
+  "name": "つみあげタワー",
+  "persona": "average",
+  "label": "平均的",
+  "scores": [
+   100,
+   100,
+   100,
+   100,
+   100,
+   100
+  ],
+  "recorded": 6,
+  "n": 6,
+  "avgScore": 100,
+  "sec": 18.8,
+  "perMin": {
+   "coins": 134,
+   "growth": 31.4,
+   "happy": 56,
+   "transform": 56
+  }
+ },
+ {
+  "id": "stack-sakura",
+  "name": "つみあげタワー",
+  "persona": "expert",
+  "label": "上級者",
+  "scores": [
+   100,
+   100,
+   100,
+   100,
+   100,
+   100
+  ],
+  "recorded": 6,
+  "n": 6,
+  "avgScore": 100,
+  "sec": 26.2,
+  "perMin": {
+   "coins": 105,
+   "growth": 24.5,
+   "happy": 43.8,
+   "transform": 44
+  }
+ },
+ {
+  "id": "stack-leaves",
+  "name": "つみあげタワー",
+  "persona": "idle",
+  "label": "完全放置",
+  "scores": [
+   8,
+   8,
+   8,
+   8,
+   8,
+   8
+  ],
+  "recorded": 0,
+  "n": 6,
+  "avgScore": 8,
+  "sec": 26.2,
+  "perMin": {
+   "coins": 0,
+   "growth": 0,
+   "happy": 3.5,
+   "transform": 0
+  }
+ },
+ {
+  "id": "stack-leaves",
+  "name": "つみあげタワー",
+  "persona": "tap1",
+  "label": "一度だけ操作",
+  "scores": [
+   15,
+   15,
+   15,
+   15,
+   15,
+   15
+  ],
+  "recorded": 6,
+  "n": 6,
+  "avgScore": 15,
+  "sec": 26.2,
+  "perMin": {
+   "coins": 0,
+   "growth": 0,
+   "happy": 14,
+   "transform": 44
+  }
+ },
+ {
+  "id": "stack-leaves",
+  "name": "つみあげタワー",
+  "persona": "mash",
+  "label": "単純な連打",
+  "scores": [
+   100,
+   100,
+   100,
+   29,
+   36,
+   36
+  ],
+  "recorded": 6,
+  "n": 6,
+  "avgScore": 67,
+  "sec": 11.3,
+  "perMin": {
+   "coins": 124,
+   "growth": 29,
+   "happy": 56.5,
+   "transform": 78
+  }
+ },
+ {
+  "id": "stack-leaves",
+  "name": "つみあげタワー",
+  "persona": "quick",
+  "label": "意図的な即時失敗",
+  "scores": [
+   100,
+   100,
+   100,
+   29,
+   36,
+   36
+  ],
+  "recorded": 6,
+  "n": 6,
+  "avgScore": 67,
+  "sec": 11.3,
+  "perMin": {
+   "coins": 124,
+   "growth": 29,
+   "happy": 56.5,
+   "transform": 78
+  }
+ },
+ {
+  "id": "stack-leaves",
+  "name": "つみあげタワー",
+  "persona": "beginner",
+  "label": "初心者",
+  "scores": [
+   100,
+   100,
+   100,
+   57,
+   64,
+   85
+  ],
+  "recorded": 6,
+  "n": 6,
+  "avgScore": 84,
+  "sec": 15.2,
+  "perMin": {
+   "coins": 129,
+   "growth": 30.2,
+   "happy": 56.1,
+   "transform": 65
+  }
+ },
+ {
+  "id": "stack-leaves",
+  "name": "つみあげタワー",
+  "persona": "average",
+  "label": "平均的",
+  "scores": [
+   100,
+   100,
+   100,
+   100,
+   100,
+   100
+  ],
+  "recorded": 6,
+  "n": 6,
+  "avgScore": 100,
+  "sec": 18.8,
+  "perMin": {
+   "coins": 134,
+   "growth": 31.4,
+   "happy": 56,
+   "transform": 56
+  }
+ },
+ {
+  "id": "stack-leaves",
+  "name": "つみあげタワー",
+  "persona": "expert",
+  "label": "上級者",
+  "scores": [
+   100,
+   100,
+   100,
+   100,
+   100,
+   100
+  ],
+  "recorded": 6,
+  "n": 6,
+  "avgScore": 100,
+  "sec": 26.2,
+  "perMin": {
+   "coins": 105,
+   "growth": 24.5,
+   "happy": 43.8,
+   "transform": 44
+  }
+ },
+ {
+  "id": "darts-board",
+  "name": "ダーツ",
+  "persona": "idle",
+  "label": "完全放置",
+  "scores": [
+   null,
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "recorded": 0,
+  "n": 6,
+  "avgScore": 0,
+  "sec": 400,
+  "perMin": {
+   "coins": 0,
+   "growth": 0,
+   "happy": 0.3,
+   "transform": 0
+  }
+ },
+ {
+  "id": "darts-board",
+  "name": "ダーツ",
+  "persona": "tap1",
+  "label": "一度だけ操作",
+  "scores": [
+   null,
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "recorded": 0,
+  "n": 6,
+  "avgScore": 0,
+  "sec": 400,
+  "perMin": {
+   "coins": 0,
+   "growth": 0,
+   "happy": 0.3,
+   "transform": 0
+  }
+ },
+ {
+  "id": "darts-board",
+  "name": "ダーツ",
+  "persona": "mash",
+  "label": "単純な連打",
+  "scores": [
+   100,
+   100,
+   100,
+   100,
+   100,
+   100
+  ],
+  "recorded": 6,
+  "n": 6,
+  "avgScore": 100,
+  "sec": 14.3,
+  "perMin": {
+   "coins": 162,
+   "growth": 37.8,
+   "happy": 67.4,
+   "transform": 67
+  }
+ },
+ {
+  "id": "darts-board",
+  "name": "ダーツ",
+  "persona": "quick",
+  "label": "意図的な即時失敗",
+  "scores": [
+   10,
+   10,
+   10,
+   10,
+   10,
+   10
+  ],
+  "recorded": 6,
+  "n": 6,
+  "avgScore": 10,
+  "sec": 5.9,
+  "perMin": {
+   "coins": 0,
+   "growth": 0,
+   "happy": 30.3,
+   "transform": 108
+  }
+ },
+ {
+  "id": "darts-board",
+  "name": "ダーツ",
+  "persona": "beginner",
+  "label": "初心者",
+  "scores": [
+   74,
+   74,
+   74,
+   74,
+   74,
+   74
+  ],
+  "recorded": 6,
+  "n": 6,
+  "avgScore": 74,
+  "sec": 17.5,
+  "perMin": {
+   "coins": 141,
+   "growth": 32.9,
+   "happy": 44.7,
+   "transform": 59
+  }
+ },
+ {
+  "id": "darts-board",
+  "name": "ダーツ",
+  "persona": "average",
+  "label": "平均的",
+  "scores": [
+   100,
+   100,
+   100,
+   100,
+   100,
+   100
+  ],
+  "recorded": 6,
+  "n": 6,
+  "avgScore": 100,
+  "sec": 17.7,
+  "perMin": {
+   "coins": 140,
+   "growth": 32.7,
+   "happy": 58.5,
+   "transform": 58
+  }
+ },
+ {
+  "id": "darts-board",
+  "name": "ダーツ",
+  "persona": "expert",
+  "label": "上級者",
+  "scores": [
+   100,
+   100,
+   100,
+   100,
+   100,
+   100
+  ],
+  "recorded": 6,
+  "n": 6,
+  "avgScore": 100,
+  "sec": 18,
+  "perMin": {
+   "coins": 138,
+   "growth": 32.3,
+   "happy": 57.7,
+   "transform": 58
+  }
+ },
+ {
+  "id": "rhythm-highway-3d",
+  "name": "リズムハイウェイ",
+  "persona": "idle",
+  "label": "完全放置",
+  "scores": [
+   8,
+   8,
+   8,
+   8,
+   8,
+   8
+  ],
+  "recorded": 0,
+  "n": 6,
+  "avgScore": 8,
+  "sec": 23.3,
+  "perMin": {
+   "coins": 0,
+   "growth": 0,
+   "happy": 3.8,
+   "transform": 0
+  }
+ },
+ {
+  "id": "rhythm-highway-3d",
+  "name": "リズムハイウェイ",
+  "persona": "tap1",
+  "label": "一度だけ操作",
+  "scores": [
+   8,
+   8,
+   8,
+   8,
+   8,
+   8
+  ],
+  "recorded": 6,
+  "n": 6,
+  "avgScore": 8,
+  "sec": 23.3,
+  "perMin": {
+   "coins": 0,
+   "growth": 0,
+   "happy": 11.5,
+   "transform": 48
+  }
+ },
+ {
+  "id": "rhythm-highway-3d",
+  "name": "リズムハイウェイ",
+  "persona": "mash",
+  "label": "単純な連打",
+  "scores": [
+   76,
+   78,
+   83,
+   77,
+   77,
+   72
+  ],
+  "recorded": 6,
+  "n": 6,
+  "avgScore": 77,
+  "sec": 23.3,
+  "perMin": {
+   "coins": 115,
+   "growth": 26.9,
+   "happy": 38.4,
+   "transform": 48
+  }
+ },
+ {
+  "id": "rhythm-highway-3d",
+  "name": "リズムハイウェイ",
+  "persona": "quick",
+  "label": "意図的な即時失敗",
+  "scores": [
+   8,
+   8,
+   8,
+   8,
+   8,
+   8
+  ],
+  "recorded": 6,
+  "n": 6,
+  "avgScore": 8,
+  "sec": 23.3,
+  "perMin": {
+   "coins": 0,
+   "growth": 0,
+   "happy": 11.5,
+   "transform": 48
+  }
+ },
+ {
+  "id": "rhythm-highway-3d",
+  "name": "リズムハイウェイ",
+  "persona": "beginner",
+  "label": "初心者",
+  "scores": [
+   64,
+   53,
+   67,
+   61,
+   46,
+   51
+  ],
+  "recorded": 6,
+  "n": 6,
+  "avgScore": 57,
+  "sec": 23.3,
+  "perMin": {
+   "coins": 58,
+   "growth": 13.4,
+   "happy": 30.7,
+   "transform": 48
+  }
+ },
+ {
+  "id": "rhythm-highway-3d",
+  "name": "リズムハイウェイ",
+  "persona": "average",
+  "label": "平均的",
+  "scores": [
+   76,
+   83,
+   75,
+   82,
+   78,
+   78
+  ],
+  "recorded": 6,
+  "n": 6,
+  "avgScore": 79,
+  "sec": 23.3,
+  "perMin": {
+   "coins": 115,
+   "growth": 26.9,
+   "happy": 39,
+   "transform": 48
+  }
+ },
+ {
+  "id": "rhythm-highway-3d",
+  "name": "リズムハイウェイ",
+  "persona": "expert",
+  "label": "上級者",
+  "scores": [
+   82,
+   76,
+   75,
+   76,
+   77,
+   83
+  ],
+  "recorded": 6,
+  "n": 6,
+  "avgScore": 78,
+  "sec": 23.3,
+  "perMin": {
+   "coins": 115,
+   "growth": 26.9,
+   "happy": 39,
+   "transform": 48
+  }
+ },
+ {
+  "id": "asteroids-classic",
+  "name": "アステロイド",
+  "persona": "idle",
+  "label": "完全放置",
+  "scores": [
+   12,
+   12,
+   12,
+   12,
+   8,
+   8
+  ],
+  "recorded": 0,
+  "n": 6,
+  "avgScore": 11,
+  "sec": 26.4,
+  "perMin": {
+   "coins": 0,
+   "growth": 0,
+   "happy": 3.5,
+   "transform": 0
+  }
+ },
+ {
+  "id": "asteroids-classic",
+  "name": "アステロイド",
+  "persona": "tap1",
+  "label": "一度だけ操作",
+  "scores": [
+   12,
+   12,
+   12,
+   12,
+   8,
+   8
+  ],
+  "recorded": 6,
+  "n": 6,
+  "avgScore": 11,
+  "sec": 26.4,
+  "perMin": {
+   "coins": 0,
+   "growth": 0,
+   "happy": 11.6,
+   "transform": 44
+  }
+ },
+ {
+  "id": "asteroids-classic",
+  "name": "アステロイド",
+  "persona": "mash",
+  "label": "単純な連打",
+  "scores": [
+   100,
+   100,
+   57,
+   53,
+   50,
+   73
+  ],
+  "recorded": 6,
+  "n": 6,
+  "avgScore": 72,
+  "sec": 17.8,
+  "perMin": {
+   "coins": 104,
+   "growth": 24.4,
+   "happy": 44.5,
+   "transform": 58
+  }
+ },
+ {
+  "id": "asteroids-classic",
+  "name": "アステロイド",
+  "persona": "quick",
+  "label": "意図的な即時失敗",
+  "scores": [
+   100,
+   100,
+   57,
+   53,
+   50,
+   73
+  ],
+  "recorded": 6,
+  "n": 6,
+  "avgScore": 72,
+  "sec": 17.8,
+  "perMin": {
+   "coins": 104,
+   "growth": 24.4,
+   "happy": 44.5,
+   "transform": 58
+  }
+ },
+ {
+  "id": "asteroids-classic",
+  "name": "アステロイド",
+  "persona": "beginner",
+  "label": "初心者",
+  "scores": [
+   13,
+   95,
+   50,
+   68,
+   86,
+   91
+  ],
+  "recorded": 6,
+  "n": 6,
+  "avgScore": 67,
+  "sec": 20.4,
+  "perMin": {
+   "coins": 85,
+   "growth": 19.7,
+   "happy": 38.4,
+   "transform": 53
+  }
+ },
+ {
+  "id": "asteroids-classic",
+  "name": "アステロイド",
+  "persona": "average",
+  "label": "平均的",
+  "scores": [
+   100,
+   100,
+   86,
+   100,
+   45,
+   100
+  ],
+  "recorded": 6,
+  "n": 6,
+  "avgScore": 89,
+  "sec": 25.1,
+  "perMin": {
+   "coins": 100,
+   "growth": 23.3,
+   "happy": 41.1,
+   "transform": 45
+  }
+ },
+ {
+  "id": "asteroids-classic",
+  "name": "アステロイド",
+  "persona": "expert",
+  "label": "上級者",
+  "scores": [
+   100,
+   100,
+   100,
+   100,
+   100,
+   100
+  ],
+  "recorded": 6,
+  "n": 6,
+  "avgScore": 100,
+  "sec": 29.3,
+  "perMin": {
+   "coins": 97,
+   "growth": 22.6,
+   "happy": 40.3,
+   "transform": 40
+  }
+ },
+ {
+  "id": "fruit-slice",
+  "name": "フルーツ斬り",
+  "persona": "idle",
+  "label": "完全放置",
+  "scores": [
+   22,
+   22,
+   22,
+   22,
+   22,
+   22
+  ],
+  "recorded": 0,
+  "n": 6,
+  "avgScore": 22,
+  "sec": 25.3,
+  "perMin": {
+   "coins": 0,
+   "growth": 0,
+   "happy": 3.6,
+   "transform": 0
+  }
+ },
+ {
+  "id": "fruit-slice",
+  "name": "フルーツ斬り",
+  "persona": "tap1",
+  "label": "一度だけ操作",
+  "scores": [
+   22,
+   22,
+   22,
+   22,
+   22,
+   22
+  ],
+  "recorded": 6,
+  "n": 6,
+  "avgScore": 22,
+  "sec": 25.3,
+  "perMin": {
+   "coins": 0,
+   "growth": 0,
+   "happy": 16.2,
+   "transform": 45
+  }
+ },
+ {
+  "id": "fruit-slice",
+  "name": "フルーツ斬り",
+  "persona": "mash",
+  "label": "単純な連打",
+  "scores": [
+   20,
+   13,
+   43,
+   78,
+   37,
+   100
+  ],
+  "recorded": 6,
+  "n": 6,
+  "avgScore": 49,
+  "sec": 16.2,
+  "perMin": {
+   "coins": 74,
+   "growth": 17.4,
+   "happy": 35.5,
+   "transform": 62
+  }
+ },
+ {
+  "id": "fruit-slice",
+  "name": "フルーツ斬り",
+  "persona": "quick",
+  "label": "意図的な即時失敗",
+  "scores": [
+   22,
+   22,
+   22,
+   22,
+   22,
+   22
+  ],
+  "recorded": 6,
+  "n": 6,
+  "avgScore": 22,
+  "sec": 25.3,
+  "perMin": {
+   "coins": 0,
+   "growth": 0,
+   "happy": 16.2,
+   "transform": 45
+  }
+ },
+ {
+  "id": "fruit-slice",
+  "name": "フルーツ斬り",
+  "persona": "beginner",
+  "label": "初心者",
+  "scores": [
+   53,
+   62,
+   50,
+   64,
+   47,
+   77
+  ],
+  "recorded": 6,
+  "n": 6,
+  "avgScore": 59,
+  "sec": 25.3,
+  "perMin": {
+   "coins": 63,
+   "growth": 14.7,
+   "happy": 29.5,
+   "transform": 45
+  }
+ },
+ {
+  "id": "fruit-slice",
+  "name": "フルーツ斬り",
+  "persona": "average",
+  "label": "平均的",
+  "scores": [
+   53,
+   70,
+   51,
+   64,
+   47,
+   80
+  ],
+  "recorded": 6,
+  "n": 6,
+  "avgScore": 61,
+  "sec": 25.3,
+  "perMin": {
+   "coins": 72,
+   "growth": 16.8,
+   "happy": 30.4,
+   "transform": 45
+  }
+ },
+ {
+  "id": "fruit-slice",
+  "name": "フルーツ斬り",
+  "persona": "expert",
+  "label": "上級者",
+  "scores": [
+   53,
+   70,
+   51,
+   64,
+   47,
+   80
+  ],
+  "recorded": 6,
+  "n": 6,
+  "avgScore": 61,
+  "sec": 25.3,
+  "perMin": {
+   "coins": 72,
+   "growth": 16.8,
+   "happy": 30.4,
+   "transform": 45
+  }
+ },
+ {
+  "id": "archery-3d",
+  "name": "アーチェリー",
+  "persona": "idle",
+  "label": "完全放置",
+  "scores": [
+   8,
+   8,
+   8,
+   8,
+   8,
+   8
+  ],
+  "recorded": 0,
+  "n": 6,
+  "avgScore": 8,
+  "sec": 55.7,
+  "perMin": {
+   "coins": 0,
+   "growth": 0,
+   "happy": 1.9,
+   "transform": 0
+  }
+ },
+ {
+  "id": "archery-3d",
+  "name": "アーチェリー",
+  "persona": "tap1",
+  "label": "一度だけ操作",
+  "scores": [
+   8,
+   8,
+   8,
+   8,
+   8,
+   8
+  ],
+  "recorded": 6,
+  "n": 6,
+  "avgScore": 8,
+  "sec": 55.7,
+  "perMin": {
+   "coins": 0,
+   "growth": 0,
+   "happy": 5.7,
+   "transform": 24
+  }
+ },
+ {
+  "id": "archery-3d",
+  "name": "アーチェリー",
+  "persona": "mash",
+  "label": "単純な連打",
+  "scores": [
+   98,
+   100,
+   100,
+   94,
+   94,
+   96
+  ],
+  "recorded": 6,
+  "n": 6,
+  "avgScore": 97,
+  "sec": 17.4,
+  "perMin": {
+   "coins": 142,
+   "growth": 33.1,
+   "happy": 56.7,
+   "transform": 59
+  }
+ },
+ {
+  "id": "archery-3d",
+  "name": "アーチェリー",
+  "persona": "quick",
+  "label": "意図的な即時失敗",
+  "scores": [
+   98,
+   100,
+   100,
+   94,
+   94,
+   96
+  ],
+  "recorded": 6,
+  "n": 6,
+  "avgScore": 97,
+  "sec": 9.9,
+  "perMin": {
+   "coins": 202,
+   "growth": 47.1,
+   "happy": 80.7,
+   "transform": 84
+  }
+ },
+ {
+  "id": "archery-3d",
+  "name": "アーチェリー",
+  "persona": "beginner",
+  "label": "初心者",
+  "scores": [
+   88,
+   96,
+   88,
+   90,
+   92,
+   98
+  ],
+  "recorded": 6,
+  "n": 6,
+  "avgScore": 92,
+  "sec": 16.4,
+  "perMin": {
+   "coins": 148,
+   "growth": 34.4,
+   "happy": 56.6,
+   "transform": 61
+  }
+ },
+ {
+  "id": "archery-3d",
+  "name": "アーチェリー",
+  "persona": "average",
+  "label": "平均的",
+  "scores": [
+   98,
+   100,
+   96,
+   96,
+   100,
+   100
+  ],
+  "recorded": 6,
+  "n": 6,
+  "avgScore": 98,
+  "sec": 16.4,
+  "perMin": {
+   "coins": 148,
+   "growth": 34.4,
+   "happy": 60.2,
+   "transform": 61
+  }
+ },
+ {
+  "id": "archery-3d",
+  "name": "アーチェリー",
+  "persona": "expert",
+  "label": "上級者",
+  "scores": [
+   100,
+   100,
+   100,
+   100,
+   100,
+   100
+  ],
+  "recorded": 6,
+  "n": 6,
+  "avgScore": 100,
+  "sec": 16.4,
+  "perMin": {
+   "coins": 148,
+   "growth": 34.4,
+   "happy": 61.5,
+   "transform": 61
+  }
+ },
+ {
+  "id": "halfpipe-skate",
+  "name": "ハーフパイプ",
+  "persona": "idle",
+  "label": "完全放置",
+  "scores": [
+   10,
+   10,
+   10,
+   10,
+   10,
+   10
+  ],
+  "recorded": 0,
+  "n": 6,
+  "avgScore": 10,
+  "sec": 27.3,
+  "perMin": {
+   "coins": 0,
+   "growth": 0,
+   "happy": 3.4,
+   "transform": 0
+  }
+ },
+ {
+  "id": "halfpipe-skate",
+  "name": "ハーフパイプ",
+  "persona": "tap1",
+  "label": "一度だけ操作",
+  "scores": [
+   10,
+   10,
+   10,
+   10,
+   10,
+   10
+  ],
+  "recorded": 6,
+  "n": 6,
+  "avgScore": 10,
+  "sec": 27.3,
+  "perMin": {
+   "coins": 0,
+   "growth": 0,
+   "happy": 11.9,
+   "transform": 43
+  }
+ },
+ {
+  "id": "halfpipe-skate",
+  "name": "ハーフパイプ",
+  "persona": "mash",
+  "label": "単純な連打",
+  "scores": [
+   100,
+   100,
+   100,
+   100,
+   100,
+   100
+  ],
+  "recorded": 6,
+  "n": 6,
+  "avgScore": 100,
+  "sec": 27.3,
+  "perMin": {
+   "coins": 102,
+   "growth": 23.8,
+   "happy": 42.6,
+   "transform": 43
+  }
+ },
+ {
+  "id": "halfpipe-skate",
+  "name": "ハーフパイプ",
+  "persona": "quick",
+  "label": "意図的な即時失敗",
+  "scores": [
+   10,
+   10,
+   10,
+   10,
+   10,
+   10
+  ],
+  "recorded": 6,
+  "n": 6,
+  "avgScore": 10,
+  "sec": 27.3,
+  "perMin": {
+   "coins": 0,
+   "growth": 0,
+   "happy": 11.9,
+   "transform": 43
+  }
+ },
+ {
+  "id": "halfpipe-skate",
+  "name": "ハーフパイプ",
+  "persona": "beginner",
+  "label": "初心者",
+  "scores": [
+   100,
+   100,
+   100,
+   100,
+   100,
+   100
+  ],
+  "recorded": 6,
+  "n": 6,
+  "avgScore": 100,
+  "sec": 27.3,
+  "perMin": {
+   "coins": 102,
+   "growth": 23.8,
+   "happy": 42.6,
+   "transform": 43
+  }
+ },
+ {
+  "id": "halfpipe-skate",
+  "name": "ハーフパイプ",
+  "persona": "average",
+  "label": "平均的",
+  "scores": [
+   100,
+   100,
+   100,
+   100,
+   100,
+   100
+  ],
+  "recorded": 6,
+  "n": 6,
+  "avgScore": 100,
+  "sec": 27.3,
+  "perMin": {
+   "coins": 102,
+   "growth": 23.8,
+   "happy": 42.6,
+   "transform": 43
+  }
+ },
+ {
+  "id": "halfpipe-skate",
+  "name": "ハーフパイプ",
+  "persona": "expert",
+  "label": "上級者",
+  "scores": [
+   100,
+   100,
+   100,
+   100,
+   100,
+   100
+  ],
+  "recorded": 6,
+  "n": 6,
+  "avgScore": 100,
+  "sec": 27.3,
+  "perMin": {
+   "coins": 102,
+   "growth": 23.8,
+   "happy": 42.6,
+   "transform": 43
+  }
+ },
+ {
+  "id": "street-fight",
+  "name": "かくとうバトル",
+  "persona": "idle",
+  "label": "完全放置",
+  "scores": [
+   10,
+   10,
+   10,
+   10,
+   10,
+   10
+  ],
+  "recorded": 0,
+  "n": 6,
+  "avgScore": 10,
+  "sec": 24,
+  "perMin": {
+   "coins": 0,
+   "growth": 0,
+   "happy": 3.8,
+   "transform": 0
+  }
+ },
+ {
+  "id": "street-fight",
+  "name": "かくとうバトル",
+  "persona": "tap1",
+  "label": "一度だけ操作",
+  "scores": [
+   10,
+   10,
+   10,
+   10,
+   10,
+   10
+  ],
+  "recorded": 6,
+  "n": 6,
+  "avgScore": 10,
+  "sec": 24,
+  "perMin": {
+   "coins": 0,
+   "growth": 0,
+   "happy": 13.1,
+   "transform": 47
+  }
+ },
+ {
+  "id": "street-fight",
+  "name": "かくとうバトル",
+  "persona": "mash",
+  "label": "単純な連打",
+  "scores": [
+   72,
+   58,
+   80,
+   85,
+   77,
+   87
+  ],
+  "recorded": 6,
+  "n": 6,
+  "avgScore": 77,
+  "sec": 18.8,
+  "perMin": {
+   "coins": 123,
+   "growth": 28.7,
+   "happy": 44.8,
+   "transform": 56
+  }
+ },
+ {
+  "id": "street-fight",
+  "name": "かくとうバトル",
+  "persona": "quick",
+  "label": "意図的な即時失敗",
+  "scores": [
+   14,
+   14,
+   10,
+   10,
+   10,
+   10
+  ],
+  "recorded": 6,
+  "n": 6,
+  "avgScore": 11,
+  "sec": 24.4,
+  "perMin": {
+   "coins": 0,
+   "growth": 0,
+   "happy": 12.9,
+   "transform": 46
+  }
+ },
+ {
+  "id": "street-fight",
+  "name": "かくとうバトル",
+  "persona": "beginner",
+  "label": "初心者",
+  "scores": [
+   26,
+   18,
+   27,
+   16,
+   61,
+   63
+  ],
+  "recorded": 6,
+  "n": 6,
+  "avgScore": 35,
+  "sec": 27.1,
+  "perMin": {
+   "coins": 17,
+   "growth": 4,
+   "happy": 19.9,
+   "transform": 43
+  }
+ },
+ {
+  "id": "street-fight",
+  "name": "かくとうバトル",
+  "persona": "average",
+  "label": "平均的",
+  "scores": [
+   68,
+   27,
+   82,
+   22,
+   11,
+   63
+  ],
+  "recorded": 6,
+  "n": 6,
+  "avgScore": 46,
+  "sec": 26,
+  "perMin": {
+   "coins": 35,
+   "growth": 8.2,
+   "happy": 24.2,
+   "transform": 44
+  }
+ },
+ {
+  "id": "street-fight",
+  "name": "かくとうバトル",
+  "persona": "expert",
+  "label": "上級者",
+  "scores": [
+   77,
+   69,
+   63,
+   28,
+   63,
+   82
+  ],
+  "recorded": 6,
+  "n": 6,
+  "avgScore": 64,
+  "sec": 23.3,
+  "perMin": {
+   "coins": 67,
+   "growth": 15.7,
+   "happy": 32.9,
+   "transform": 48
+  }
+ },
+ {
+  "id": "grand-prix-3d",
+  "name": "グランプリ",
+  "persona": "idle",
+  "label": "完全放置",
+  "scores": [
+   15,
+   15,
+   15,
+   15,
+   15,
+   15
+  ],
+  "recorded": 0,
+  "n": 6,
+  "avgScore": 15,
+  "sec": 32.8,
+  "perMin": {
+   "coins": 0,
+   "growth": 0,
+   "happy": 2.9,
+   "transform": 0
+  }
+ },
+ {
+  "id": "grand-prix-3d",
+  "name": "グランプリ",
+  "persona": "tap1",
+  "label": "一度だけ操作",
+  "scores": [
+   15,
+   15,
+   15,
+   15,
+   15,
+   15
+  ],
+  "recorded": 6,
+  "n": 6,
+  "avgScore": 15,
+  "sec": 32.8,
+  "perMin": {
+   "coins": 0,
+   "growth": 0,
+   "happy": 11.8,
+   "transform": 37
+  }
+ },
+ {
+  "id": "grand-prix-3d",
+  "name": "グランプリ",
+  "persona": "mash",
+  "label": "単純な連打",
+  "scores": [
+   12,
+   12,
+   90,
+   15,
+   14,
+   68
+  ],
+  "recorded": 6,
+  "n": 6,
+  "avgScore": 35,
+  "sec": 31.6,
+  "perMin": {
+   "coins": 23,
+   "growth": 5.3,
+   "happy": 17.7,
+   "transform": 38
+  }
+ },
+ {
+  "id": "grand-prix-3d",
+  "name": "グランプリ",
+  "persona": "quick",
+  "label": "意図的な即時失敗",
+  "scores": [
+   15,
+   15,
+   15,
+   15,
+   15,
+   15
+  ],
+  "recorded": 6,
+  "n": 6,
+  "avgScore": 15,
+  "sec": 32.8,
+  "perMin": {
+   "coins": 0,
+   "growth": 0,
+   "happy": 11.8,
+   "transform": 37
+  }
+ },
+ {
+  "id": "grand-prix-3d",
+  "name": "グランプリ",
+  "persona": "beginner",
+  "label": "初心者",
+  "scores": [
+   97,
+   90,
+   79,
+   99,
+   80,
+   98
+  ],
+  "recorded": 6,
+  "n": 6,
+  "avgScore": 91,
+  "sec": 27.8,
+  "perMin": {
+   "coins": 101,
+   "growth": 23.5,
+   "happy": 38,
+   "transform": 42
+  }
+ },
+ {
+  "id": "grand-prix-3d",
+  "name": "グランプリ",
+  "persona": "average",
+  "label": "平均的",
+  "scores": [
+   94,
+   95,
+   93,
+   100,
+   93,
+   95
+  ],
+  "recorded": 6,
+  "n": 6,
+  "avgScore": 95,
+  "sec": 26.8,
+  "perMin": {
+   "coins": 104,
+   "growth": 24.2,
+   "happy": 40.8,
+   "transform": 43
+  }
+ },
+ {
+  "id": "grand-prix-3d",
+  "name": "グランプリ",
+  "persona": "expert",
+  "label": "上級者",
+  "scores": [
+   96,
+   90,
+   97,
+   90,
+   96,
+   98
+  ],
+  "recorded": 6,
+  "n": 6,
+  "avgScore": 95,
+  "sec": 26.2,
+  "perMin": {
+   "coins": 105,
+   "growth": 24.5,
+   "happy": 41.5,
+   "transform": 44
+  }
+ },
+ {
+  "id": "hang-glider-3d",
+  "name": "ハンググライダー",
+  "persona": "idle",
+  "label": "完全放置",
+  "scores": [
+   54,
+   70,
+   49,
+   55,
+   76,
+   74
+  ],
+  "recorded": 0,
+  "n": 6,
+  "avgScore": 63,
+  "sec": 26.2,
+  "perMin": {
+   "coins": 0,
+   "growth": 0,
+   "happy": 3.5,
+   "transform": 0
+  }
+ },
+ {
+  "id": "hang-glider-3d",
+  "name": "ハンググライダー",
+  "persona": "tap1",
+  "label": "一度だけ操作",
+  "scores": [
+   54,
+   70,
+   49,
+   55,
+   76,
+   74
+  ],
+  "recorded": 0,
+  "n": 6,
+  "avgScore": 63,
+  "sec": 26.2,
+  "perMin": {
+   "coins": 0,
+   "growth": 0,
+   "happy": 3.5,
+   "transform": 0
+  }
+ },
+ {
+  "id": "hang-glider-3d",
+  "name": "ハンググライダー",
+  "persona": "mash",
+  "label": "単純な連打",
+  "scores": [
+   54,
+   70,
+   49,
+   55,
+   76,
+   74
+  ],
+  "recorded": 6,
+  "n": 6,
+  "avgScore": 63,
+  "sec": 26.2,
+  "perMin": {
+   "coins": 79,
+   "growth": 18.4,
+   "happy": 30.1,
+   "transform": 44
+  }
+ },
+ {
+  "id": "hang-glider-3d",
+  "name": "ハンググライダー",
+  "persona": "quick",
+  "label": "意図的な即時失敗",
+  "scores": [
+   54,
+   70,
+   49,
+   55,
+   76,
+   74
+  ],
+  "recorded": 0,
+  "n": 6,
+  "avgScore": 63,
+  "sec": 26.2,
+  "perMin": {
+   "coins": 0,
+   "growth": 0,
+   "happy": 3.5,
+   "transform": 0
+  }
+ },
+ {
+  "id": "hang-glider-3d",
+  "name": "ハンググライダー",
+  "persona": "beginner",
+  "label": "初心者",
+  "scores": [
+   57,
+   53,
+   66,
+   72,
+   62,
+   56
+  ],
+  "recorded": 6,
+  "n": 6,
+  "avgScore": 61,
+  "sec": 26.2,
+  "perMin": {
+   "coins": 61,
+   "growth": 14.3,
+   "happy": 29.5,
+   "transform": 44
+  }
+ },
+ {
+  "id": "hang-glider-3d",
+  "name": "ハンググライダー",
+  "persona": "average",
+  "label": "平均的",
+  "scores": [
+   58,
+   53,
+   57,
+   72,
+   63,
+   56
+  ],
+  "recorded": 6,
+  "n": 6,
+  "avgScore": 60,
+  "sec": 26.2,
+  "perMin": {
+   "coins": 61,
+   "growth": 14.3,
+   "happy": 28.9,
+   "transform": 44
+  }
+ },
+ {
+  "id": "hang-glider-3d",
+  "name": "ハンググライダー",
+  "persona": "expert",
+  "label": "上級者",
+  "scores": [
+   65,
+   52,
+   63,
+   44,
+   66,
+   66
+  ],
+  "recorded": 6,
+  "n": 6,
+  "avgScore": 59,
+  "sec": 23.3,
+  "perMin": {
+   "coins": 57,
+   "growth": 13.4,
+   "happy": 31.6,
+   "transform": 48
+  }
+ },
+ {
+  "id": "jenga-tower",
+  "name": "ジェンガ",
+  "persona": "idle",
+  "label": "完全放置",
+  "scores": [
+   10,
+   10,
+   10,
+   10,
+   10,
+   10
+  ],
+  "recorded": 0,
+  "n": 6,
+  "avgScore": 10,
+  "sec": 45.7,
+  "perMin": {
+   "coins": 0,
+   "growth": 0,
+   "happy": 2.2,
+   "transform": 0
+  }
+ },
+ {
+  "id": "jenga-tower",
+  "name": "ジェンガ",
+  "persona": "tap1",
+  "label": "一度だけ操作",
+  "scores": [
+   10,
+   10,
+   10,
+   10,
+   10,
+   10
+  ],
+  "recorded": 0,
+  "n": 6,
+  "avgScore": 10,
+  "sec": 45.7,
+  "perMin": {
+   "coins": 0,
+   "growth": 0,
+   "happy": 2.2,
+   "transform": 0
+  }
+ },
+ {
+  "id": "jenga-tower",
+  "name": "ジェンガ",
+  "persona": "mash",
+  "label": "単純な連打",
+  "scores": [
+   100,
+   100,
+   100,
+   100,
+   100,
+   100
+  ],
+  "recorded": 6,
+  "n": 6,
+  "avgScore": 100,
+  "sec": 45.7,
+  "perMin": {
+   "coins": 67,
+   "growth": 15.7,
+   "happy": 28,
+   "transform": 28
+  }
+ },
+ {
+  "id": "jenga-tower",
+  "name": "ジェンガ",
+  "persona": "quick",
+  "label": "意図的な即時失敗",
+  "scores": [
+   10,
+   10,
+   10,
+   10,
+   10,
+   10
+  ],
+  "recorded": 0,
+  "n": 6,
+  "avgScore": 10,
+  "sec": 45.7,
+  "perMin": {
+   "coins": 0,
+   "growth": 0,
+   "happy": 2.2,
+   "transform": 0
+  }
+ },
+ {
+  "id": "jenga-tower",
+  "name": "ジェンガ",
+  "persona": "beginner",
+  "label": "初心者",
+  "scores": [
+   100,
+   100,
+   100,
+   100,
+   100,
+   100
+  ],
+  "recorded": 6,
+  "n": 6,
+  "avgScore": 100,
+  "sec": 45.7,
+  "perMin": {
+   "coins": 67,
+   "growth": 15.7,
+   "happy": 28,
+   "transform": 28
+  }
+ },
+ {
+  "id": "jenga-tower",
+  "name": "ジェンガ",
+  "persona": "average",
+  "label": "平均的",
+  "scores": [
+   100,
+   100,
+   100,
+   100,
+   100,
+   100
+  ],
+  "recorded": 6,
+  "n": 6,
+  "avgScore": 100,
+  "sec": 45.7,
+  "perMin": {
+   "coins": 67,
+   "growth": 15.7,
+   "happy": 28,
+   "transform": 28
+  }
+ },
+ {
+  "id": "jenga-tower",
+  "name": "ジェンガ",
+  "persona": "expert",
+  "label": "上級者",
+  "scores": [
+   100,
+   100,
+   100,
+   100,
+   100,
+   100
+  ],
+  "recorded": 6,
+  "n": 6,
+  "avgScore": 100,
+  "sec": 45.7,
+  "perMin": {
+   "coins": 67,
+   "growth": 15.7,
+   "happy": 28,
+   "transform": 28
+  }
+ },
+ {
+  "id": "domino-run",
+  "name": "ドミノたおし",
+  "persona": "idle",
+  "label": "完全放置",
+  "scores": [
+   10,
+   10,
+   10,
+   10,
+   10,
+   10
+  ],
+  "recorded": 0,
+  "n": 6,
+  "avgScore": 10,
+  "sec": 45.7,
+  "perMin": {
+   "coins": 0,
+   "growth": 0,
+   "happy": 2.2,
+   "transform": 0
+  }
+ },
+ {
+  "id": "domino-run",
+  "name": "ドミノたおし",
+  "persona": "tap1",
+  "label": "一度だけ操作",
+  "scores": [
+   10,
+   10,
+   10,
+   10,
+   10,
+   10
+  ],
+  "recorded": 6,
+  "n": 6,
+  "avgScore": 10,
+  "sec": 45.7,
+  "perMin": {
+   "coins": 0,
+   "growth": 0,
+   "happy": 7.8,
+   "transform": 28
+  }
+ },
+ {
+  "id": "domino-run",
+  "name": "ドミノたおし",
+  "persona": "mash",
+  "label": "単純な連打",
+  "scores": [
+   10,
+   10,
+   10,
+   10,
+   10,
+   10
+  ],
+  "recorded": 6,
+  "n": 6,
+  "avgScore": 10,
+  "sec": 7.3,
+  "perMin": {
+   "coins": 0,
+   "growth": 0,
+   "happy": 27.5,
+   "transform": 98
+  }
+ },
+ {
+  "id": "domino-run",
+  "name": "ドミノたおし",
+  "persona": "quick",
+  "label": "意図的な即時失敗",
+  "scores": [
+   10,
+   10,
+   10,
+   10,
+   10,
+   10
+  ],
+  "recorded": 6,
+  "n": 6,
+  "avgScore": 10,
+  "sec": 7.3,
+  "perMin": {
+   "coins": 0,
+   "growth": 0,
+   "happy": 27.5,
+   "transform": 98
+  }
+ },
+ {
+  "id": "domino-run",
+  "name": "ドミノたおし",
+  "persona": "beginner",
+  "label": "初心者",
+  "scores": [
+   100,
+   100,
+   100,
+   100,
+   100,
+   100
+  ],
+  "recorded": 6,
+  "n": 6,
+  "avgScore": 100,
+  "sec": 30.9,
+  "perMin": {
+   "coins": 93,
+   "growth": 21.6,
+   "happy": 38.6,
+   "transform": 39
+  }
+ },
+ {
+  "id": "domino-run",
+  "name": "ドミノたおし",
+  "persona": "average",
+  "label": "平均的",
+  "scores": [
+   100,
+   100,
+   100,
+   100,
+   100,
+   100
+  ],
+  "recorded": 6,
+  "n": 6,
+  "avgScore": 100,
+  "sec": 18.8,
+  "perMin": {
+   "coins": 134,
+   "growth": 31.3,
+   "happy": 55.9,
+   "transform": 56
+  }
+ },
+ {
+  "id": "domino-run",
+  "name": "ドミノたおし",
+  "persona": "expert",
+  "label": "上級者",
+  "scores": [
+   100,
+   100,
+   100,
+   100,
+   100,
+   100
+  ],
+  "recorded": 6,
+  "n": 6,
+  "avgScore": 100,
+  "sec": 11.9,
+  "perMin": {
+   "coins": 181,
+   "growth": 42.1,
+   "happy": 75.2,
+   "transform": 75
+  }
+ }
+]
