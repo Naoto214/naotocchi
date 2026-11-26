@@ -36,16 +36,17 @@
       panel.append(select);
     };
     // Plant colours by season: C by default in this trial, switchable without reloading.
-    window.NaotocchiSeasonTint = {strength:1, far:true, subtle:false};
+    window.NaotocchiSeasonTint = {strength:1, far:true, rich:true, subtle:true};
     const tint = document.createElement('select');
     tint.id = 'env-tint'; tint.style.cssText = 'display:block;width:100%;margin:3px 0;font:inherit';
-    for (const [value, text] of [['1f','植物の色：D 遠景まで'],['1','植物の色：C はっきり'],['0.45','植物の色：B 控えめ'],['0','植物の色：A 原画の色']]) { const o = document.createElement('option'); o.value = value; o.textContent = text; tint.append(o); }
+    for (const [value, text] of [['1r','景色：B 遠景まで強化＋花・霜'],['1f','景色：A 現在のD案'],['0','景色：原画の色']]) { const o = document.createElement('option'); o.value = value; o.textContent = text; tint.append(o); }
     const subtle = document.createElement('select');
     subtle.id = 'env-subtle'; subtle.style.cssText = tint.style.cssText;
-    for (const [value, text] of [['','ジャングル等：変えない'],['1','ジャングル等：ごく控えめ']]) { const o = document.createElement('option'); o.value = value; o.textContent = text; subtle.append(o); }
-    tint.onchange = subtle.onchange = () => { window.NaotocchiSeasonTint = {strength:parseFloat(tint.value), far:tint.value.endsWith('f'), subtle:subtle.value === '1'}; };
+    for (const [value, text] of [['1','ジャングル等：ごく控えめ'],['','ジャングル等：変えない']]) { const o = document.createElement('option'); o.value = value; o.textContent = text; subtle.append(o); }
+    tint.onchange = subtle.onchange = () => { window.NaotocchiSeasonTint = {strength:parseFloat(tint.value), far:/[fr]$/.test(tint.value), rich:tint.value.endsWith('r'), subtle:subtle.value === '1'}; };
     panel.append(tint, subtle);
     live('wind', [['','風：自動で変化'],['0.22','風：無風に近い'],['0.6','風：弱い'],['1','風：普通'],['1.45','風：強い']]);
+    live('cloud', [['','雲：天気に合わせて自動'],['0','雲：なし'],['0.25','雲：少ない'],['0.6','雲：多い'],['1','雲：空を覆う']]);
     live('density', [['','量：自動で変化'],['0.55','量：小'],['1','量：中'],['1.45','量：大']]);
     live('speed', [['','時間：ふつう'],['12','時間：12倍速']]);
   }

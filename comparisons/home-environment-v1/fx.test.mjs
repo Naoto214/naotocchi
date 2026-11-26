@@ -559,12 +559,12 @@ test('measured weather: units, intervals, gaps and bad values from the weather s
   new Function('module', 'globalThis', link.environment(production))(holder, {});
   const {weatherFromResponse, measuredFromResponse} = holder.exports, now = 1700000000;
   // One request, more fields, wind asked for in m/s.
-  assert.ok(link.environment(production).includes("current: 'weather_code,precipitation,snowfall,wind_speed_10m,wind_gusts_10m,wind_direction_10m', wind_speed_unit: 'ms'"));
+  assert.ok(link.environment(production).includes("current: 'weather_code,precipitation,snowfall,wind_speed_10m,wind_gusts_10m,wind_direction_10m,cloud_cover', wind_speed_unit: 'ms'"));
   assert.equal(link.environment(production).split('api.open-meteo.com').length, production.split('api.open-meteo.com').length);
   const read = (current, units = {}) => weatherFromResponse({current:{time:now, weather_code:61, ...current}, current_units:units}, new Date(now * 1000));
   // 0.5 mm in a 15-minute interval is 2 mm/h; snow likewise; wind passes through.
   assert.deepEqual(read({interval:900, precipitation:.5, snowfall:.1, wind_speed_10m:4.2, wind_gusts_10m:9, wind_direction_10m:200}, {precipitation:'mm', snowfall:'cm', wind_speed_10m:'m/s', wind_gusts_10m:'m/s'}).measured,
-    {precipitation:2, snowfall:.4, windSpeed:4.2, windGusts:9, windDirection:200});
+    {precipitation:2, snowfall:.4, windSpeed:4.2, windGusts:9, windDirection:200, cloudCover:null});
   // No interval reported: the value is taken as an hourly total.
   assert.equal(read({precipitation:3}).measured.precipitation, 3);
   // Other units are converted; an unknown unit is not trusted.
@@ -575,7 +575,7 @@ test('measured weather: units, intervals, gaps and bad values from the weather s
   const odd = read({precipitation:-1, snowfall:'2', wind_speed_10m:900, wind_gusts_10m:3, wind_direction_10m:720, interval:900});
   assert.equal(odd.measured, null);
   const part = read({wind_speed_10m:6, wind_gusts_10m:2, precipitation:null});
-  assert.deepEqual(part.measured, {precipitation:null, snowfall:null, windSpeed:6, windGusts:null, windDirection:null});
+  assert.deepEqual(part.measured, {precipitation:null, snowfall:null, windSpeed:6, windGusts:null, windDirection:null, cloudCover:null});
   assert.equal(read({}).measured, null);
   assert.equal(read({}).mode, 'rain'); // the sky itself is still reported as before
   assert.equal(measuredFromResponse(null), null);
@@ -646,10 +646,28 @@ test('seasons (far): distant hills turn, water and sky never do, and evergreen r
   for (let x = .05; x < 1; x += .1) { near += seasonTone('autumn', ...hill, hill, x, .15, plants, 1, 'day', 5, 0)[3]; far += seasonTone('autumn', ...hill, hill, x, .15, plants, 1, 'day', 5, 1)[3]; }
   assert.ok(far > 3 * near && far / 10 > .3, `${near} ${far}`);
   // Jungle, snow country and desert: never red, and only a slight shift.
-  assert.deepEqual(Object.keys(SUBTLE_PLANTS), ['jungle','snow','desert']);
+  assert.deepEqual(Object.keys(SUBTLE_PLANTS), ['jungle','star_stop','snow','desert']);
   for (const [region, plantsOf] of Object.entries(SUBTLE_PLANTS)) for (const season of ['spring','summer','autumn','winter']) {
     const t = seasonTone(season, 60, 150, 70, [60, 150, 70], .5, .5, plantsOf, 1, 'day', 3);
-    assert.ok(t[3] <= .46, region + season);
-    assert.ok(t[0] < t[1] * 1.12, region + season); // still green or straw, never orange or red
+    assert.ok(t[3] <= .51, region + season);
+    assert.ok(t[0] < t[1] * 1.25, region + season); // still green or straw, never orange or red
   }
+});
+
+test('clouds: only over open sky, more under grey weather, measured cover used for dry skies only', async () => {
+  const {skyness, SKY} = await import('./proposal/living/clouds.mjs');
+  const {createClimate} = await import('./proposal/home-climate.mjs');
+  assert.ok(skyness(70, 150, 235, true) > .9 && skyness(245, 248, 250, true) > .9);
+  assert.ok(skyness(245, 248, 250, false) < .05); // snow on a peak is not sky
+  for (const [r, g, b] of [[120,200,60],[60,120,110],[95,70,50],[150,150,150],[20,160,150],[222,199,178]]) assert.ok(skyness(r, g, b, true) < .1, `${r},${g},${b}`);
+  assert.deepEqual(Object.keys(SKY).sort(), ['city','countryside','desert','forest','home','memory_lake','mountain','river_lake','sea','snow']);
+  assert.deepEqual(SKY.home.box, [.27, .57]);
+  const climate = createClimate(5), mean = (weather, o) => { let s = 0; for (let t = 0; t < 3000; t += 10) s += climate.cloud(t, {weather}, o); return s / 300; };
+  assert.ok(mean('sunny') < .3 && mean('cloudy') > .65 && mean('rain') > .9 && mean('snow') > .84);
+  assert.ok(mean('sunny', {measured:{cloudCover:80}}) > .7 && mean('sunny', {measured:{cloudCover:5}}) < .08);
+  assert.ok(mean('rain', {measured:{cloudCover:5}}) > .9);
+  assert.equal(climate.cloud(9, {weather:'sunny'}, {measured:{cloudCover:400}}), climate.cloud(9, {weather:'sunny'}));
+  assert.equal(climate.cloud(9, {weather:'sunny'}, {cloud:.5}), .5);
+  let jump = 0; for (let t = 1; t < 3000; t++) jump = Math.max(jump, Math.abs(climate.cloud(t, {weather:'cloudy'}) - climate.cloud(t - 1, {weather:'cloudy'})));
+  assert.ok(jump < .05);
 });

@@ -31,12 +31,14 @@ const MEASURED = `
       windSpeed: wind,
       // A gust below the mean speed is a faulty reading.
       windGusts: gusts !== null && wind !== null && gusts >= wind ? gusts : null,
-      windDirection: typeof direction === 'number' && Number.isFinite(direction) && direction >= 0 && direction <= 360 ? direction : null
+      windDirection: typeof direction === 'number' && Number.isFinite(direction) && direction >= 0 && direction <= 360 ? direction : null,
+      // Share of the sky under cloud, 0–100.
+      cloudCover: typeof current.cloud_cover === 'number' && Number.isFinite(current.cloud_cover) && current.cloud_cover >= 0 && current.cloud_cover <= 100 ? current.cloud_cover : null
     };
-    return measured.precipitation === null && measured.snowfall === null && measured.windSpeed === null ? null : measured;
+    return measured.precipitation === null && measured.snowfall === null && measured.windSpeed === null && measured.cloudCover === null ? null : measured;
   }
 `;
-exports.FIELDS = 'weather_code,precipitation,snowfall,wind_speed_10m,wind_gusts_10m,wind_direction_10m';
+exports.FIELDS = 'weather_code,precipitation,snowfall,wind_speed_10m,wind_gusts_10m,wind_direction_10m,cloud_cover';
 exports.environment = source => {
   let s = replace(source, "current: 'weather_code', timeformat: 'unixtime' }", `current: '${exports.FIELDS}', wind_speed_unit: 'ms', timeformat: 'unixtime' }`);
   s = replace(s, "  function weatherFromResponse(data, now) {", MEASURED + "\n  function weatherFromResponse(data, now) {");

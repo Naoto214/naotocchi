@@ -95,6 +95,18 @@ export function createClimate(seed = 1) {
       }
       return drifting(base + 11, t, 31, windPick(stormy)) * (.92 + .16 * drifting(base + 13, t, 7, r => r));
     },
+    // How much of the sky is under cloud, 0 clear to 1 overcast. A fine day has a few passing
+    // clouds, sometimes more; grey days vary between broken and solid cover.
+    cloud(seconds, env, override = {}) {
+      if (typeof override.cloud === 'number') return override.cloud;
+      const t = seconds * (override.speed || 1), cover = override.measured?.cloudCover;
+      const drift = drifting(base + 71, t, 83, r => r);
+      if (env.weather === 'rain') return .9 + .1 * drift;
+      if (env.weather === 'snow') return .84 + .14 * drift;
+      // Measured cover applies to dry skies only: rain and snow are always under cloud.
+      if (typeof cover === 'number' && Number.isFinite(cover) && cover >= 0 && cover <= 100) return clamp(cover / 100 * (.94 + .12 * drift));
+      return env.weather === 'cloudy' ? .62 + .3 * drift : .08 + .3 * drift * drift;
+    },
     // How many particles of a kind fall, as a share of the approved amount, at a moment.
     density(kind, seconds, env, override = {}) {
       if (typeof override.density === 'number') return override.density;

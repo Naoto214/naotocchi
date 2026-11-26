@@ -48,11 +48,11 @@ export function createHomeWorld(options){
  // How far plants take the season's colour: 0 leaves the paintings as they are.
  // Either a strength, or {strength, far, subtle}: `far` carries the colour to distant hills,
  // `subtle` lets the evergreen regions lean slightly with the months.
- const tintOf=()=>{const v=typeof options.seasonTint==='function'?options.seasonTint():options.seasonTint??win.NaotocchiSeasonTint??0;return typeof v==='object'&&v?{strength:Number(v.strength)||0,far:!!v.far,subtle:!!v.subtle}:{strength:Number(v)||0,far:false,subtle:false};};
+ const tintOf=()=>{const v=typeof options.seasonTint==='function'?options.seasonTint():options.seasonTint??win.NaotocchiSeasonTint??0;return typeof v==='object'&&v?{strength:Number(v.strength)||0,far:!!v.far,rich:!!v.rich,subtle:!!v.subtle}:{strength:Number(v)||0,far:false,rich:false,subtle:false};};
  const seasoned=(picture,tint)=>{if(!picture||!tint.strength)return picture;const scene=picture.src?.match(/\/([a-z_]+)-(morning|day|evening|night)\.webp(?:\?|$)/);if(!scene)return picture;
   // The forest's night painting differs in outline from its day one, so it reads its own leaves.
   const reference=scene[1]==='forest'&&scene[2]==='night'?picture:scene[2]==='day'?picture:(()=>{const day=daylightOf(scene[1]+'#tint',picture,doc,DAYPARTS[scene[1]]?.day);return day===picture?null:day;})();
-  return reference?seasonalPainting(picture,{region:scene[1],time:scene[2],season:env.season,strength:tint.strength,far:tint.far,subtle:tint.subtle,reference,doc}):picture;};
+  return reference?seasonalPainting(picture,{region:scene[1],time:scene[2],season:env.season,strength:tint.strength,far:tint.far,rich:tint.rich,subtle:tint.subtle,reference,doc}):picture;};
  const windBoost=()=>Number(typeof options.wind==='function'?options.wind():options.wind)||0;
  // Repaint interval of the living layer. It follows the frame pacing the whole home achieves:
  // slow frames step it down and finally off, sustained smooth frames step it back up.
@@ -107,7 +107,7 @@ export function createHomeWorld(options){
   return nav;
  }
  function draw(dt,flags={}){if(dead||flags.paused)return;if(!spec)return;
-  fade=dayparts.frame(dt,flags.reducedMotion);const tintNow=tintOf(),tint=tintNow.strength?tintNow.strength+(tintNow.far?10:0)+(tintNow.subtle?100:0):0;if(tint)fade={...fade,image:seasoned(fade.image,tintNow),previous:seasoned(fade.previous,tintNow)};if(fade.image){img=fade.image;loaded=true;onStatus('art-25d');}error=fade.error;
+  fade=dayparts.frame(dt,flags.reducedMotion);const tintNow=tintOf(),tint=tintNow.strength?tintNow.strength+(tintNow.far?10:0)+(tintNow.subtle?100:0)+(tintNow.rich?1000:0):0;if(tint)fade={...fade,image:seasoned(fade.image,tintNow),previous:seasoned(fade.previous,tintNow)};if(fade.image){img=fade.image;loaded=true;onStatus('art-25d');}error=fade.error;
   if(!flags.reducedMotion)time+=Math.max(0,Math.min(1,Number(dt)||0))*1000;
   const mood=atmosphere(env),night=env.time==='night';
   const held={measured:env.conditions,...pinned()},clock=time/1000;
@@ -118,7 +118,8 @@ export function createHomeWorld(options){
   const amount=(kind,at)=>{const share=climate.density(kind,at,env,held);return strained?Math.min(share,.6):share;};
   // The wind never steps, even when a new measurement arrives: it eases over a few seconds.
   const gale=climate.wind(clock,env,held),eased=air.at===undefined?gale:air.wind+(gale-air.wind)*Math.min(1,Math.max(0,clock-air.at)*.45);
-  air={at:clock,wind:eased,rain:amount('rain',clock),snow:amount('snow',clock),petal:amount('petal',clock),leaf:amount('leaf',clock),layers};options.onClimate?.(air);
+  const cloud=climate.cloud(clock,env,held);
+  air={at:clock,cloud,wind:eased,rain:amount('rain',clock),snow:amount('snow',clock),petal:amount('petal',clock),leaf:amount('leaf',clock),layers};options.onClimate?.(air);
   const leafScene=!flags.reducedMotion&&layers.leaves>0,falls=!flags.reducedMotion&&(leafScene||!!layers.precipitation||layers.petals>0);
   if(wantLiving&&!flags.reducedMotion)follow(Number(dt)||0,flags.tier>=2?66:33);
   const living=wantLiving&&level<PACES.length;
@@ -151,7 +152,7 @@ export function createHomeWorld(options){
   // A representative painting is retained. This restrained overlay is not a
   // claim that baked sunset/sunbeams have become a completed night artwork.
   if(!fade.image&&(env.time==='night'||env.weather==='rain')){ctx.fillStyle=env.time==='night'?'rgba(21,30,73,.24)':'rgba(38,57,78,.15)';if(contain&&v15)ctx.fillRect(t.left,t.top,t.width,t.height);else ctx.fillRect(0,0,host.width,host.height);}
-  if(living&&fade.image)paintLiving(ctx,t,fade,time/1000,env,flags.reducedMotion,{maximum,final,treeSway:treeSway(),wind:windBoost(),daySource:region=>DAYPARTS[region]?.day,layers,level:air.wind,document:doc});
+  if(living&&fade.image)paintLiving(ctx,t,fade,time/1000,env,flags.reducedMotion,{maximum,final,treeSway:treeSway(),wind:windBoost(),daySource:region=>DAYPARTS[region]?.day,layers,level:air.wind,cloud:air.cloud,document:doc});
   else if(!flags.reducedMotion){ctx.save();ctx.globalCompositeOperation='screen';for(let i=0;i<7;i++){const u=.18+(i*.117)% .65,v=spec.accent==='water'?.28+(i%3)*.035:.16+(i%4)*.13,x=(contain?t.left:0)+u*t.width,y=t.top+v*t.height+Math.sin(time/2400+i)*3;ctx.globalAlpha=.08+.12*(.5+.5*Math.sin(time/1500+i));ctx.fillStyle=spec.accent==='glow'?'#ffdb9b':'#fffad4';ctx.beginPath();ctx.ellipse(x,y,spec.accent==='water'?7:1.4,spec.accent==='water'?1:1.4,0,0,Math.PI*2);ctx.fill();}ctx.restore();}
   }}
   lastFrame=frame;screen.setTransform(1,0,0,1,0,0);screen.drawImage(backdrop,0,0);

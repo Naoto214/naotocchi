@@ -8,7 +8,8 @@ import {drawRiverHomeCountry} from './river-home-country.mjs';
 import {drawMountainJungleDesert} from './mountain-jungle-desert.mjs';
 import {drawDeepseaStars} from './deepsea-stars.mjs';
 import {paintMaximum, MAXIMUM_STRENGTH} from './maximum.mjs';
-import {paintFinal, paintSway, paintFoliage, FINAL_EFFECTS} from './final.mjs';
+import {paintFinal, paintSway, paintFoliage, FINAL_EFFECTS, daylightOf} from './final.mjs';
+import {paintClouds, SKY} from './clouds.mjs';
 
 const painters = {
   sea:drawSeaE, forest:drawForestE,
@@ -26,7 +27,7 @@ export const livingRegions = Object.freeze(Object.keys(painters));
 
 // `maximum` drives the reused painters at full strength and adds the maximum layer on top.
 // `final` keeps them at their calm strength, without cut-out deformation, and adds the final layer.
-export function paintLiving(ctx, rect, fade, seconds, env, reduced, {maximum = false, final = false, treeSway = 'tips2', wind = 0, daySource = null, layers = null, level = 1, document:doc} = {}) {
+export function paintLiving(ctx, rect, fade, seconds, env, reduced, {maximum = false, final = false, treeSway = 'tips2', wind = 0, daySource = null, layers = null, level = 1, cloud = 0, document:doc} = {}) {
   function layer(image, opacity) {
     const scene = picture(image), paint = painters[scene?.region];
     if (!paint || opacity <= 0) return;
@@ -52,6 +53,12 @@ export function paintLiving(ctx, rect, fade, seconds, env, reduced, {maximum = f
   ctx.scale(rect.width / 1000, rect.height / 1500);
   if (maximum) paintMaximum(ctx, scene, env, seconds, doc);
   else {
+    // Clouds go on first, so trees, hills and roofs stay in front of them.
+    if (cloud > 0 && SKY[scene.region]) {
+      const source = typeof daySource === 'function' ? daySource(scene.region) : daySource;
+      const day = /-day\.webp(?:\?|$)/.test(shown.src || '') ? shown : source ? daylightOf(scene.region + '#sky', shown, doc, source) : null;
+      if (day && day !== shown || day && /-day\.webp/.test(shown.src || '')) paintClouds(ctx, day, scene.region, scene.time, env.weather === 'unknown' ? 'sunny' : env.weather, seconds, cloud, doc);
+    }
     if (treeSway === 'bump') paintSway(ctx, shown, scene.region, seconds);
     else paintFoliage(ctx, shown, scene.region, scene.time, seconds, treeSway, doc, wind, typeof daySource === 'function' ? daySource(scene.region) : daySource, level);
     paintFinal(ctx, scene, env, seconds, doc, layers);

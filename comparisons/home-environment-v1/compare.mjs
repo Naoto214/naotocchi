@@ -30,7 +30,8 @@ const PLANTS = {
 const ZOOMS = [['','全体'],['top','上部'],['mid','中央'],['left','左がわ'],['right','右がわ'],['grass','手前']];
 const WINDS = [['auto','自動で変化'],['calm','無風に近い'],['light','弱い'],['normal','普通'],['strong','強い']];
 const AMOUNTS = [['auto','自動で変化'],['small','小'],['medium','中（承認済みの量）'],['large','大']];
-const TINTS = [['none','A 原画の色'],['gentle','B 控えめ'],['clear','C はっきり（前回）'],['wide','D 遠景の山や奥の木まで']];
+const TINTS = [['none','原画の色'],['wide','A 現在のD案'],['full','B 遠景まで強化＋春の花・冬の霜']];
+const CLOUDS = [['auto','天気に合わせて自動'],['0','雲なし'],['0.25','少ない'],['0.6','多い'],['1','空を覆う']];
 const SUBTLES = [['off','変えない（原画のまま）'],['on','ごく控えめに変える']];
 const SPEEDS = [['1','ふつう'],['12','12倍速（変化を早く見る）']];
 // Example measurements, as the weather service would report them (mm/h, cm/h, m/s).
@@ -53,17 +54,17 @@ const PRESETS_OLD = [
   ['とかい・夜','city','summer','sunny','night'],['おうち・昼','home','summer','sunny','day']
 ];
 const PRESETS = [
-  ['秋のかわ（遠くの山）','river_lake','autumn','sunny','day'],['秋のいなか','countryside','autumn','sunny','day'],
-  ['秋の森','forest','autumn','sunny','day'],['秋のとかい','city','autumn','sunny','day'],
-  ['秋のおうち（窓の外）','home','autumn','sunny','day'],['秋のきおくのみずうみ','memory_lake','autumn','sunny','day'],
-  ['秋のやま','mountain','autumn','sunny','day'],['春のいなか','countryside','spring','sunny','day'],
-  ['冬のかわ','river_lake','winter','sunny','day'],['冬の森','forest','winter','sunny','day'],
-  ['ジャングル（微差）','jungle','autumn','sunny','day'],['ゆきぐに（微差）','snow','winter','sunny','day'],
-  ['さばく（微差）','desert','spring','sunny','day'],['おうち・春の雨','home','spring','rain','day'],
-  ['おうち・夜（星と流れ星）','home','summer','sunny','night'],['秋×雨（かわ）','river_lake','autumn','rain','day']
+  ['秋のかわ','river_lake','autumn','sunny','day'],['秋のいなか','countryside','autumn','sunny','day'],
+  ['秋の森','forest','autumn','sunny','day'],['春の森（花）','forest','spring','sunny','day'],
+  ['春のいなか（花）','countryside','spring','sunny','day'],['冬のいなか（霜）','countryside','winter','sunny','morning'],
+  ['冬の森＋雪','forest','winter','snow','day'],['おうち・秋','home','autumn','sunny','day'],
+  ['おうち・冬の雪','home','winter','snow','day'],['いなか・曇り','countryside','summer','cloudy','day'],
+  ['うみ・雨雲','sea','summer','rain','day'],['さばく・夜の雲','desert','summer','cloudy','night'],
+  ['ジャングル（春）','jungle','spring','sunny','day'],['ほしぞら（秋）','star_stop','autumn','sunny','day'],
+  ['ゆきぐに（冬）','snow','winter','snow','day'],['さばく（春）','desert','spring','sunny','day']
 ];
 void PRESETS_OLD;
-const state = {region:'river_lake', season:'autumn', weather:'sunny', time:'day', tier:'1', left:'now', right:'tips2', zoom:'', wind:'auto', amount:'auto', speed:'1', measured:'none', tint:'wide', subtle:'off'};
+const state = {region:'river_lake', season:'autumn', weather:'sunny', time:'day', tier:'1', left:'now', right:'tips2', zoom:'', wind:'auto', amount:'auto', speed:'1', measured:'none', tint:'full', subtle:'on', cloud:'auto'};
 const order = ['region','season','weather','time','tier'];
 function readHash() {
   const m = location.hash.match(/^#t(\d+)-(\d)-(\d)-(\d)-(\d)-(\d)-(\d)$/);
@@ -84,7 +85,7 @@ function mount(scene, side) {
   const override = () => {
     const measured = MEASURED.find(([key]) => key === state.measured)[2];
     return {speed:Number(state.speed), ...(measured ? {measured} : {}),
-      ...(state.wind === 'auto' ? {} : {wind:WIND_LEVELS[state.wind]}), ...(state.amount === 'auto' ? {} : {density:DENSITY_LEVELS[state.amount]})};
+      ...(state.wind === 'auto' ? {} : {wind:WIND_LEVELS[state.wind]}), ...(state.amount === 'auto' ? {} : {density:DENSITY_LEVELS[state.amount]}), ...(state.cloud === 'auto' ? {} : {cloud:Number(state.cloud)})};
   };
   const make = mod => mod.createHomeWorld({container:scene, document:doc, window, environmentFx:'final',
     treeSway:() => state[side] === 'still' ? 'still' : 'tips2', climate:override, seasonTint:() => ({...TINT_CHOICES[state.tint], subtle:state.subtle === 'on'}), onClimate:air => { latest[side] = air; }});
@@ -129,6 +130,7 @@ function apply() {
   chips(document.getElementById('zoom'), ZOOMS, () => state.zoom, value => { state.zoom = value; });
   chips(document.getElementById('wind'), WINDS, () => state.wind, value => { state.wind = value; });
   chips(document.getElementById('tint'), TINTS, () => state.tint, value => { state.tint = value; });
+  chips(document.getElementById('cloud'), CLOUDS, () => state.cloud, value => { state.cloud = value; });
   chips(document.getElementById('subtle'), SUBTLES, () => state.subtle, value => { state.subtle = value; });
   drawSeasons();
   chips(document.getElementById('amount'), AMOUNTS, () => state.amount, value => { state.amount = value; });
@@ -164,7 +166,7 @@ async function drawSeasons() {
   for (const season of ['spring','summer','autumn','winter']) {
     const canvas = document.getElementById('season-' + season), c = canvas.getContext('2d');
     const reference = region === 'forest' && time === 'night' ? image : day;
-    c.drawImage(seasonalPainting(image, {region, time, season, strength, far:!!choice.far, subtle, reference, doc:document}), 0, 0, canvas.width, canvas.height);
+    c.drawImage(seasonalPainting(image, {region, time, season, strength, far:!!choice.far, rich:!!choice.rich, subtle, reference, doc:document}), 0, 0, canvas.width, canvas.height);
   }
 }
 // What the final version is doing right now, refreshed twice a second.
@@ -178,6 +180,7 @@ function readout() {
   if (l.petals > 0) amount('petal', l.petals);
   if (l.leaves > 0) amount('leaf', l.leaves);
   if (l.rings) parts.push('水面の波紋');
+  if (air.cloud > .02) parts.push(`雲：${Math.round(air.cloud * 100)}%`);
   if (l.twinkle > 0) parts.push(l.twinkle < 1 ? '星のまたたき（薄雲ごし）' : '星のまたたき');
   if (l.meteors > 0) parts.push(l.meteors < 1 ? '流れ星（まれ）' : '流れ星（ときどき）');
   if (l.fireflies) parts.push('ほたる・ただよう光');
