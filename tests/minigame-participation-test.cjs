@@ -58,12 +58,27 @@ test('全100本: 参加度メーターを わたす(#597 の 16本を のぞく)
   assert.deepEqual(none.filter((id) => !P3.has(id)), [], 'メーターの ない ゲーム');
 });
 
-test('スネーク・フロッガー・ボンバー: 放置・1回だけ・連打で すぐ 失敗する 回は 記録しない', () => {
+// フロッガーの 連打(前へ とびこむ)は 前へ 3マス 進むので 参加に なる(初心者を 不利に しない ための 抜け道として 許容)
+test('スネーク・フロッガー・ボンバー: 放置・1回だけ(スネーク・ボンバーは 連打も)で すぐ 失敗する 回は 記録しない', () => {
   const tap1 = (r, t) => { if (t === 1000) { const n = r.box.children.find((c) => c.listeners && c.listeners.length) || r.box; r.tap(n); } };
   const mash = (r, t) => { if (t >= 1000 && t % 150 === 0) for (const n of [...globalThis.__mgListened]) { if (!n.isConnected || n.disabled || /^mg(Quit|Help)/.test(n.id || '')) continue; if (n.listeners.some((l) => l.type === 'pointerdown')) r.tap(n); } };
   for (const id of ['snake-classic', 'frogger-road', 'bomber-maze']) for (const [name, bot] of [['放置', null], ['1回', tap1], ['連打', mash]]) {
+    if (id === 'frogger-road' && name === '連打') continue;
     const r = play(id, {seed: 1, bot});
     assert.equal(r.recorded, false, `${id} ${name}: ${JSON.stringify(r)}`);
+  }
+});
+
+test('ボンバー: まじめな 初心者(動いて ばくだんを 置く)は 8びょう未満で やられても 記録する(2026-11-26 ご判断)', () => {
+  const beginner = (escape) => { let k = 0; return (r, t) => { if (t < 1500) return; const pad = r.pad(); if (!pad) return; const ph = (t - 1500) % 2400, dirs = [[1, 0], [0, 1], [-1, 0], [0, -1]], d = dirs[k % 4];
+    if (ph === 0) { r.down(pad, 150, 150, 9); r.move(pad, 150 + d[0] * 40, 150 + d[1] * 40, 9); }
+    if (ph === 600) { r.up(pad, 150, 150, 9); r.tap(r.q('#bmBomb')); }
+    if (ph === 700 && escape) { const e = dirs[(k + 2) % 4]; r.down(pad, 150, 150, 9); r.move(pad, 150 + e[0] * 40, 150 + e[1] * 40, 9); }
+    if (ph === 1500) { r.up(pad, 150, 150, 9); k++; } }; };
+  for (const escape of [false, true]) for (const seed of [1, 2, 3, 4]) {
+    const r = play('bomber-maze', {seed, bot: beginner(escape)});
+    assert.ok(r.endedMs < 9000, `${seed} ${r.endedMs}`);
+    assert.equal(r.recorded, true, `にげる=${escape} seed ${seed}: ${JSON.stringify(r.meter)}`);
   }
 });
 

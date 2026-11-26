@@ -1,9 +1,14 @@
 {
   "index.html": {
     "before": "c9432f2b62b2c95a36338f8166627abe8feb97d3",
-    "after": "ec42077e2a8e930143136502c80629ddf8e93af7",
+    "after": "f67987a97eac0ea512883e87d6621dfa6ab1869e",
     "size": 73100,
     "reverse": [
+      [
+        70755,
+        70805,
+        "  <script src=\"games.js?v=97be645d4e0e\"></script>\n"
+      ],
       [
         70755,
         70805,
@@ -73,9 +78,19 @@
   },
   "tools/pages/allowlist.json": {
     "before": "f1b1fb9cf575c6305fac17fb25dcf80a59d13c31",
-    "after": "acc248815e5d2d5e4b2db74d7b4b00324bd04bb6",
+    "after": "86ed16e8d12340489320c2c64a2892c6fff18a58",
     "size": 296644,
     "reverse": [
+      [
+        267630,
+        267716,
+        "    \"index.html\": \"36ba29a2c03c227b9e31e6f5a67bd948ebc6c3da405286fde6a6c0095e42df66\",\n"
+      ],
+      [
+        265226,
+        265310,
+        "    \"games.js\": \"97be645d4e0e5ed105c161a28af041975bec8fd363d3fc0a069ad292df3fa9ba\",\n"
+      ],
       [
         267630,
         267716,
@@ -254,9 +269,59 @@
   },
   "games.js": {
     "before": "a93847e0d6ce254074270b01583caad8c54f1928",
-    "after": "1ea16fd6e035c43c815c7e3b10aedc73ab2db0b8",
-    "size": 1013959,
+    "after": "f786095ec0e7edea59017c4562334119c614ecb1",
+    "size": 1014643,
     "reverse": [
+      [
+        675223,
+        675323,
+        "          const play = meter.done({ achieved: killed > 0 });\n"
+      ],
+      [
+        669542,
+        669725,
+        "            const cx = Math.floor(player.x), cy = Math.floor(player.y); for (const b of bombs) if (b.walk && (b.cx !== cx || b.cy !== cy)) b.walk = false;\n"
+      ],
+      [
+        667894,
+        668277,
+        "        function placeBomb() { if (!running || !player.alive || performance.now() < startTime) return; meter.act(); const cx = Math.floor(player.x), cy = Math.floor(player.y); if (bombs.filter((b) => b.mine).length >= player.maxBombs || bombs.some((b) => b.cx === cx && b.cy === cy)) return; bombs.push({ cx, cy, t: 2.0, range: player.range, mine: true, walk: true }); }\n"
+      ],
+      [
+        664151,
+        664436,
+        ""
+      ],
+      [
+        555622,
+        555698,
+        "          const play = meter.done({ achieved: goals > 0 });\n"
+      ],
+      [
+        546972,
+        547060,
+        "          if (fy < maxRow) { maxRow = fy; }\n"
+      ],
+      [
+        544135,
+        544249,
+        ""
+      ],
+      [
+        473099,
+        473171,
+        "          const play = meter.done({ achieved: ate > 0 });\n"
+      ],
+      [
+        467491,
+        467685,
+        "        function turnTo(dx, dy) { if (nextDir[0] === -dx && nextDir[1] === -dy) return; if (nextDir[0] === dx && nextDir[1] === dy && !queued) return; queued = [dx, dy]; meter.act(); }\n"
+      ],
+      [
+        466165,
+        466288,
+        ""
+      ],
       [
         280518,
         280655,

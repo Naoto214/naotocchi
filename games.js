@@ -5416,6 +5416,7 @@
         const N = 15, DURATION_MS = mgDuration(28000);
         let running = true, rafId = null, last = null, acc = 0, dir = [1, 0], nextDir = [1, 0], queued = null, snake = [[7, 7], [6, 7], [5, 7]], food = null, star = null, ate = 0, alive = true, msg = '', msgUntil = 0, tick = lerp(230, 190, difficulty), grow = 0, swipe = null, deathAt = 0;
         const startTime = performance.now() + MG_ACTION_START_GRACE_MS, meter = mgPlayMeter({ minSpans: 3 });
+        let turns = 0; // 参加度: 8びょう未満でも、リンゴを 食べるか 向きを 3回 かえたら 参加
         container.innerHTML = `
           <div class="mg-header"><span id="snTimer">残り：${Math.round(DURATION_MS / 1000)}秒</span><span id="snScore">🍎 0／長さ3</span></div>
           <div class="mg-title">${title}</div>
@@ -5429,7 +5430,7 @@
         const timerEl = container.querySelector('#snTimer'), scoreEl = container.querySelector('#snScore'), hint = container.querySelector('#snHint');
         const say = (t, ms = 1000) => { msg = t; msgUntil = performance.now() + ms; hint.textContent = t; };
         const hud = () => { scoreEl.textContent = `🍎 ${ate}／長さ${snake.length}`; };
-        function turnTo(dx, dy) { if (nextDir[0] === -dx && nextDir[1] === -dy) return; if (nextDir[0] === dx && nextDir[1] === dy && !queued) return; queued = [dx, dy]; meter.act(); }
+        function turnTo(dx, dy) { if (nextDir[0] === -dx && nextDir[1] === -dy) return; if (nextDir[0] === dx && nextDir[1] === dy && !queued) return; queued = [dx, dy]; turns++; meter.act(); }
         canvas.addEventListener('pointerdown', (e) => { e.preventDefault(); swipe = { x: e.clientX, y: e.clientY, id: e.pointerId }; try { canvas.setPointerCapture(e.pointerId); } catch (err) {} });
         canvas.addEventListener('pointermove', (e) => { if (!swipe || e.pointerId !== swipe.id) return; const dx = e.clientX - swipe.x, dy = e.clientY - swipe.y; if (Math.hypot(dx, dy) < MG_SWIPE_MIN) return; if (Math.abs(dx) > Math.abs(dy)) turnTo(Math.sign(dx), 0); else turnTo(0, Math.sign(dy)); swipe = null; });
         const endSwipe = () => { swipe = null; }; canvas.addEventListener('pointerup', endSwipe); canvas.addEventListener('pointercancel', endSwipe);
@@ -5477,7 +5478,7 @@
           const score = clamp(Math.round(10 + ate * 11 + (alive ? 12 : 0)), 10, 100);
           say(alive ? `🎉タイムアップ!${ate}こ食べた` : `${ate}こ食べた!`, 2500);
           render(performance.now());
-          const play = meter.done({ achieved: ate > 0 });
+          const play = meter.done({ achieved: ate > 0 || turns >= 3 });
           setTimeout(() => onComplete(score, null, play), 650);
         }
         hud();
@@ -6182,6 +6183,7 @@
         const COLS = 9, ROWS = 12, DURATION_MS = mgDuration(28000), GOAL_N = 3;
         let running = true, rafId = null, last = null, fx = 4, fy = ROWS - 1, fxf = 4, fyf = ROWS - 1, lives = 3, goals = 0, dead = 0, msg = '', msgUntil = 0, swipe = null, homes = [1, 4, 7], filled = [], ride = 0, hopAt = 0, maxRow = ROWS - 1, bestReached = 0;
         const startTime = performance.now() + MG_ACTION_START_GRACE_MS, meter = mgPlayMeter({ minSpans: 3 });
+        let bestAdv = 0; // 参加度: 8びょう未満でも、1匹 帰すか 前へ 3マス 進んだら 参加
         container.innerHTML = `
           <div class="mg-header"><span id="frTimer">残り：${Math.round(DURATION_MS / 1000)}秒</span><span id="frScore">❤️❤️❤️／🏠 0/${GOAL_N}</span></div>
           <div class="mg-title">${title}</div>
@@ -6207,7 +6209,7 @@
           const nx = clamp(fx + dx, 0, COLS - 1), ny = clamp(fy + dy, 0, ROWS - 1); if (nx === fx && ny === fy) return;
           fx = nx; fy = ny; hopAt = performance.now(); sfx('jump');
           if (fy === 0) { const slot = homes.find((h) => Math.abs(h - fx) <= 0.6 && !filled.includes(h)); if (slot != null) { filled.push(slot); goals++; sfx('coin'); say('🏠ゴール!', 1000); hud(); if (goals >= GOAL_N) { finish(); return; } reset(); } else { die('そこはおうちじゃない'); } }
-          if (fy < maxRow) { maxRow = fy; }
+          if (fy < maxRow) { maxRow = fy; } bestAdv = Math.max(bestAdv, ROWS - 1 - fy);
         }
         function reset() { fx = 4; fy = ROWS - 1; fxf = fx; fyf = fy; maxRow = ROWS - 1; }
         function die(reason) { if (dead) return; dead = performance.now(); lives--; say(`💫 ${reason}`, 1100); hud(); setTimeout(() => { if (!running) return; dead = 0; if (lives <= 0) { finish(); return; } reset(); }, 900); }
@@ -6294,7 +6296,7 @@
           const score = goals >= GOAL_N ? clamp(80 + lives * 7, 80, 100) : clamp(Math.round(12 + goals * 22 + prog * 12), 12, 75);
           say(goals >= GOAL_N ? '🏆全員おうちに帰った!' : lives <= 0 ? `ライフがなくなった…🏠 ${goals}` : `タイムアップ!🏠 ${goals}`, 2600);
           render(performance.now());
-          const play = meter.done({ achieved: goals > 0 });
+          const play = meter.done({ achieved: goals > 0 || bestAdv >= 3 });
           setTimeout(() => onComplete(score, null, play), 650);
         }
         hud();
@@ -7255,6 +7257,8 @@
         const N = 11, DURATION_MS = mgDuration(30000), ENEMIES = Math.round(lerp(2, 3, difficulty));
         let running = true, rafId = null, last = null, held = { up: false, down: false, left: false, right: false }, map = [], items = [], bombs = [], fires = [], enemies = [], player = { x: 1.5, y: 1.5, spd: 3.2, range: 2, maxBombs: 1, alive: true }, lives = 2, killed = 0, msg = '', msgUntil = 0, invuln = 0, parts = [];
         const startTime = performance.now() + MG_ACTION_START_GRACE_MS, meter = mgPlayMeter({ minSpans: 3 }), stroke = mgActEvery(meter);
+        // 参加度(2026-11-26 ご判断): 8びょう未満で 終わっても、ばくだんを 置いて 1マスいじょう 動いた 回は まじめな 挑戦として 参加(初心者を 不利に しない ことを 優先)
+        let bombsSet = 0; const visited = new Set();
         container.innerHTML = `
           <div class="mg-header"><span id="bmTimer">残り：${Math.round(DURATION_MS / 1000)}秒</span><span id="bmScore">❤️❤️／👾 0/${ENEMIES}</span></div>
           <div class="mg-title">${title}</div>
@@ -7279,7 +7283,7 @@
         function canStand(x, y, r = 0.36) { for (const [dx, dy] of [[-r, -r], [r, -r], [-r, r], [r, r]]) if (solidAt(Math.floor(x + dx), Math.floor(y + dy))) return false; return true; }
         function move(t, dx, dy, dt) { const spd = t.spd; let nx = t.x + dx * spd * dt, ny = t.y + dy * spd * dt; if (canStand(nx, ny)) { t.x = nx; t.y = ny; return true; } // かどで ひっかからない ように マスの まんなかへ よせる
           const ax = Math.floor(t.x) + 0.5, ay = Math.floor(t.y) + 0.5; if (dx) { const ty2 = t.y + clamp(ay - t.y, -spd * dt, spd * dt); if (canStand(t.x, ty2)) t.y = ty2; } else { const tx2 = t.x + clamp(ax - t.x, -spd * dt, spd * dt); if (canStand(tx2, t.y)) t.x = tx2; } return false; }
-        function placeBomb() { if (!running || !player.alive || performance.now() < startTime) return; meter.act(); const cx = Math.floor(player.x), cy = Math.floor(player.y); if (bombs.filter((b) => b.mine).length >= player.maxBombs || bombs.some((b) => b.cx === cx && b.cy === cy)) return; bombs.push({ cx, cy, t: 2.0, range: player.range, mine: true, walk: true }); }
+        function placeBomb() { if (!running || !player.alive || performance.now() < startTime) return; meter.act(); const cx = Math.floor(player.x), cy = Math.floor(player.y); if (bombs.filter((b) => b.mine).length >= player.maxBombs || bombs.some((b) => b.cx === cx && b.cy === cy)) return; bombs.push({ cx, cy, t: 2.0, range: player.range, mine: true, walk: true }); bombsSet++; }
         function explode(b) {
           sfx('hit');
           const cells = [[b.cx, b.cy]];
@@ -7291,7 +7295,7 @@
         function update(dt, now) {
           if (invuln > 0) invuln -= dt;
           if (player.alive) { let dx = 0, dy = 0; if (held.up) dy = -1; else if (held.down) dy = 1; else if (held.left) dx = -1; else if (held.right) dx = 1; if (dx || dy) move(player, dx, dy, dt);
-            const cx = Math.floor(player.x), cy = Math.floor(player.y); for (const b of bombs) if (b.walk && (b.cx !== cx || b.cy !== cy)) b.walk = false;
+            const cx = Math.floor(player.x), cy = Math.floor(player.y); visited.add(cx + ',' + cy); for (const b of bombs) if (b.walk && (b.cx !== cx || b.cy !== cy)) b.walk = false;
             const it = items.findIndex((i) => i.x === cx && i.y === cy); if (it >= 0) { const k = items.splice(it, 1)[0].kind; if (k === 'range') { player.range = Math.min(5, player.range + 1); say('🔥範囲アップ!', 800); } else { player.spd = Math.min(5, player.spd + 0.6); say('👟スピードアップ!', 800); } } }
           for (const b of bombs) { b.t -= dt; if (b.t <= 0) { explode(b); b.dead = true; } } bombs = bombs.filter((b) => !b.dead);
           for (const f of fires) f.t -= dt; fires = fires.filter((f) => f.t > 0);
@@ -7330,7 +7334,7 @@
           const score = cleared ? clamp(80 + lives * 10, 80, 100) : clamp(Math.round(12 + killed * 14), 12, 70);
           say(cleared ? '🏆ぜんぶたおした!' : lives <= 0 ? `やられた…👾 ${killed}` : `タイムアップ!👾 ${killed}`, 2600);
           render(performance.now());
-          const play = meter.done({ achieved: killed > 0 });
+          const play = meter.done({ achieved: killed > 0 || (bombsSet > 0 && visited.size >= 2) });
           setTimeout(() => onComplete(score, null, play), 650);
         }
         hud();

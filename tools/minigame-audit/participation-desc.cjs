@@ -3,7 +3,7 @@
 // pr: どの PR で メーターを 入れたか(P1 = Phase 1 より前・P2 = Phase 2・P3 = #597・本PR = このPR)
 module.exports = {
   // ---- アクション(4秒区切り)----
-  'snake-classic': {acts: '向きを変える', goal: 'リンゴを1こ食べる', pr: '本PR'},
+  'snake-classic': {acts: '向きを変える', goal: 'リンゴを1こ食べる・向きを3回変える', pr: '本PR'},
   'beach-volley': {acts: '移動・アタック', goal: '1点とる', pr: '本PR'},
   'lunar-lander': {acts: '噴射・左右', goal: '1回着陸する', pr: '本PR'},
   'breakout-classic': {acts: 'パドルを動かす', goal: 'ブロックを1こ割る', pr: '本PR'},
@@ -11,8 +11,8 @@ module.exports = {
   'haunted-house-3d': {acts: '歩く・向きを変える', goal: 'カギをとる', pr: '本PR'},
   'fp-dungeon': {acts: '歩く・向きを変える', goal: '宝箱を1つとる', pr: '本PR'},
   'chain-puzzle': {acts: '動かす・回す・落とす', goal: 'ぷよを消す', pr: '本PR'},
-  'frogger-road': {acts: '1マス進む', goal: '1匹おうちに帰す', pr: '本PR'},
-  'bomber-maze': {acts: '移動・ばくだん', goal: '1体たおす', pr: '本PR'},
+  'frogger-road': {acts: '1マス進む', goal: '1匹おうちに帰す・前へ3マス進む', pr: '本PR'},
+  'bomber-maze': {acts: '移動・ばくだん', goal: '1体たおす・ばくだんを置いて1マス以上動く', pr: '本PR'},
   'tank-battle': {acts: '移動・撃つ', goal: '1台たおす', pr: '本PR'},
   'missile-command': {acts: 'ミサイルを撃つ', goal: '1発うちおとす', pr: '本PR'},
   'dot-eater': {acts: '向きを変える', goal: 'ドットを食べる', pr: '本PR'},

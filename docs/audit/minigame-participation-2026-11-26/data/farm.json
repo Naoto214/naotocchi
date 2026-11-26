@@ -191,9 +191,9 @@
   "after": {
    "idle": "××",
    "tap1": "××",
-   "random": "××",
+   "random": "○○",
    "mash": "××",
-   "farm": 0
+   "farm": 97
   },
   "quickSec": 6
  },
@@ -642,8 +642,8 @@
    "idle": "××",
    "tap1": "××",
    "random": "○○",
-   "mash": "××",
-   "farm": 40
+   "mash": "○○",
+   "farm": 115
   },
   "quickSec": 5
  },
