@@ -1,0 +1,946 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<base href="../../">
+<!-- 生成物: tools/care-pace/build-play.cjs(お世話の頻度 監査 2026-11-25)。直接 編集しない -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>なおとっち お世話ペース試遊</title>
+<script>
+/* RH-9 起動の 救済(Roadmap §8.3)。外の ファイルに たよらない(script.js が こわれて いても・古い cache でも うごく)。
+   script.js が 起動の さいごに window.__naotocchiBooted = true を 立てる。立たない まま 6 秒 たつか、起動中に error が 出たら パネルを 出す。
+   ボタンは 危なくない ものから: 1 もういちど よみこむ / 2 セーブコードを うつす / 3 じどうバックアップから もどす */
+(function () {
+  var KEY = 'naotocchi-carepace-' + (/^(current|A|B|C|B2|V3)$/.test(new URLSearchParams(location.search).get('plan') || '') ? new URLSearchParams(location.search).get('plan') : 'current') + '-v1', BACKUP = KEY + '-backup', SNAPS = KEY + '-snaps', RESCUED = KEY + '-rescued';
+  var panel = null;
+  function booted() { return window.__naotocchiBooted === true; }
+  function read(k) { try { return localStorage.getItem(k); } catch (e) { return null; } }
+  // script.js の encodeSaveCode と 同じ 手順(NTS1. + base64url)
+  function encode(json) {
+    var bytes = new TextEncoder().encode(json), bin = '';
+    for (var i = 0; i < bytes.length; i++) bin += String.fromCharCode(bytes[i]);
+    return 'NTS1.' + btoa(bin).replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '');
+  }
+  function el(tag, text, style) { var n = document.createElement(tag); if (text) n.textContent = text; if (style) n.style.cssText = style; return n; }
+  var BTN = 'display:block;width:100%;margin:10px 0;padding:12px;font:inherit;font-size:16px;border-radius:12px;border:2px solid #555;background:#fff;color:#222;';
+  function show() {
+    if (panel || booted() || !document.body) return;
+    panel = el('div', '', 'position:fixed;inset:0;z-index:2147483647;overflow:auto;padding:24px 16px;background:#fffdf6;color:#222;font:16px/1.6 system-ui,sans-serif;');
+    panel.id = 'bootRescue'; panel.setAttribute('role', 'alertdialog'); panel.setAttribute('aria-labelledby', 'bootRescueTitle');
+    var box = el('div', '', 'max-width:420px;margin:0 auto;');
+    var title = el('h1', 'うまく ひらけませんでした', 'font-size:20px;margin:0 0 8px;'); title.id = 'bootRescueTitle';
+    box.appendChild(title);
+    box.appendChild(el('p', '下のボタンを上から順に試してください。読み出せる記録があればセーブコードを表示できます。自動バックアップがあれば、そこから記録をもどせます。', 'margin:0 0 12px;'));
+    var reload = el('button', 'もういちど よみこむ', BTN + 'font-size:20px;padding:16px;border-color:#2a7;');
+    reload.id = 'bootRescueReload'; reload.type = 'button';
+    reload.onclick = function () { location.reload(); };
+    var copy = el('button', 'セーブコードを表示する', BTN); copy.id = 'bootRescueCopy'; copy.type = 'button';
+    var out = el('textarea', '', 'display:none;width:100%;height:96px;font:12px monospace;'); out.id = 'bootRescueCode'; out.readOnly = true;
+    copy.onclick = function () {
+      var codes = [], main = read(KEY), backup = read(BACKUP);
+      if (main) codes.push(encode(main));
+      if (backup && backup !== main) codes.push(encode(backup));
+      out.value = codes.length ? codes.join('\n\n') : '(きろくが ありません)';
+      out.style.display = 'block'; out.focus(); out.select();
+      try { if (codes.length && navigator.clipboard) navigator.clipboard.writeText(codes.join('\n\n')); } catch (e) { /* 手で コピー */ }
+    };
+    var restore = el('button', '自動バックアップからもどす', BTN); restore.id = 'bootRescueRestore'; restore.type = 'button';
+    var list = el('div', ''); list.id = 'bootRescueSnaps';
+    restore.onclick = function () {
+      list.textContent = '';
+      var snaps = [];
+      try { snaps = JSON.parse(read(SNAPS) || '[]'); } catch (e) { snaps = []; }
+      snaps = Array.isArray(snaps) ? snaps.filter(function (x) { return x && typeof x.raw === 'string' && typeof x.at === 'number'; }) : [];
+      if (!snaps.length) { list.appendChild(el('p', '自動バックアップはありません。')); return; }
+      snaps.forEach(function (snap, i) {
+        var b = el('button', new Date(snap.at).toLocaleString('ja-JP') + ' に もどす', BTN); b.type = 'button'; b.setAttribute('data-snap', String(i));
+        b.onclick = function () {
+          if (b.getAttribute('data-armed') !== '1') { b.setAttribute('data-armed', '1'); b.textContent = '本当に' + new Date(snap.at).toLocaleString('ja-JP') + 'の記録にもどす'; return; }
+          try {
+            var current = read(KEY);
+            if (current) localStorage.setItem(RESCUED, current); // もどす まえの きろくは べつの 場所に のこす(消さない)
+            localStorage.setItem(KEY, snap.raw);
+          } catch (e) { b.textContent = 'もどせませんでした'; return; }
+          location.reload();
+        };
+        list.appendChild(b);
+      });
+    };
+    box.appendChild(reload); box.appendChild(copy); box.appendChild(out); box.appendChild(restore); box.appendChild(list);
+    panel.appendChild(box);
+    document.body.appendChild(panel);
+    reload.focus();
+  }
+  window.__naotocchiBootGuard = {
+    show: show,
+    // 起動が あとから おわったら パネルを しまう(起動中の ちいさな error で とじこめない)
+    done: function () { if (panel && panel.parentNode) panel.parentNode.removeChild(panel); panel = null; }
+  };
+  window.addEventListener('error', function () { if (!booted()) setTimeout(show, 0); });
+  setTimeout(function () { if (!booted()) show(); }, 6000);
+})();
+</script>
+  <link rel="stylesheet" href="style.css?v=64a21f8c6ff3">
+  <link rel="preload" as="font" type="font/woff2" href="assets/fonts/mplus-rounded-1c-regular.woff2" crossorigin>
+  <link rel="stylesheet" href="ui.css?v=31c57b61de3f">
+  <link rel="stylesheet" href="design.css?v=ee88ca429f1c">
+  <link rel="stylesheet" href="egg-hatching.css?v=598e0030ceaf">
+  <link rel="stylesheet" href="care-status.css?v=d59c7572425b">
+  <link rel="stylesheet" href="ui-illustrations.css?v=94f2a91665f9">
+  <link rel="stylesheet" href="home-diorama.css?v=9b96642319b3">
+  <link rel="stylesheet" href="world-scene.css?v=0040aff1df96">
+  <link rel="stylesheet" href="care-attention.css?v=356834a1a0c5">
+  <link rel="stylesheet" href="pet-expression.css?v=3e6a9bc6262b">
+  <link rel="stylesheet" href="home-care-colors.css?v=ea67edc0b0c2">
+  <link rel="stylesheet" href="movie.css?v=4c9414c01e23">
+  <link rel="preload" as="image" href="assets/characters/egg/intact.png">
+  <link rel="preload" as="image" href="assets/characters/egg/cracking.png">
+  <link rel="preload" as="image" href="assets/characters/egg/ready.png">
+  <link rel="stylesheet" href="item-memories.css?v=8434fee41472">
+<link rel="stylesheet" href="home-art.css?v=74ceb2792d5e">
+<link rel="stylesheet" href="home-v8.css?v=5b8d58a9f12f">
+<link rel="stylesheet" href="home-production-layout.css?v=318e25a7f6f4">
+<style>body[data-home-v6-egg] .world-scene{display:none}body[data-home-v6-egg] .device{position:relative;z-index:1}.home-v6-egg-world{pointer-events:none;overflow:hidden}.home-v6-egg-world img{max-width:none}body[data-home-v6-egg] #petSprite{filter:drop-shadow(0 3px 2px #36230c55)}</style>
+<script type="module" src="home-production-egg.mjs?v=95b0eb7a4986"></script>
+<meta name="theme-color" content="#342b25"><link rel="stylesheet" href="home-dayparts.css?v=0a21aac3b5be">
+  <link rel="stylesheet" href="game-home-return.css?v=d8a23fc2ed30">
+<style>@media (orientation: portrait) { body[data-home-production="true"] .diorama-view { display: none; } }</style>
+</head>
+<body data-home-display-version="18" data-home-viewport-version="12" data-home-production="true" data-home-hero-percent="110" data-home-population-profile="v1">
+  <div class="world-scene" id="worldScene" aria-hidden="true" hidden>
+    <div class="world-backdrop" id="worldBackdrop"></div>
+    <div class="world-depth" id="worldDepth"></div>
+    <div class="world-light"></div>
+    <div class="world-atmosphere" id="worldAtmosphere"></div>
+    <div class="world-foreground" id="worldForeground"></div>
+  </div>
+  <div class="care-alert-fx" id="careAlertFx" aria-hidden="true"></div>
+  <div class="season-tint" id="seasonTint"></div>
+  <div class="time-tint" id="timeTint"></div>
+  <div class="region-decor" id="regionDecor"></div>
+  <div class="season-bg-fx" id="seasonBgFx"></div>
+  <div class="device surface-device" id="device">
+    <div class="device-top">
+      <div class="lamp" id="lamp"></div>
+    </div>
+
+    <header class="device-header">
+      <div class="header-title">
+        <div class="name-plate">なおとっち</div>
+        <div class="cast-badges"><div class="badges" id="badges"></div><div class="ending-badges" id="endingBadges"></div></div>
+        <div class="ending-badge-tip hidden" id="endingBadgeTip" role="status"></div>
+      </div>
+      <div class="header-actions">
+        <button type="button" class="header-button hidden" id="profileBtn" title="データ">👤<span>データ</span></button>
+        <button type="button" class="header-button hidden" id="commBtn" title="つうしん">✉️<span>つうしん</span></button>
+      </div>
+    </header>
+
+    <div class="screen-frame">
+      <div class="screen surface-screen" id="screen">
+        <div class="screen-normal" id="screenNormal">
+          <div class="home-information" id="homeInformation">
+          <div class="status-row">
+            <div class="age-status"><span id="ageLabel">ねんれい: 0さい</span><span id="sodachiLabel">そだち: 20</span></div>
+            <span id="moneyLabel">💰 0</span>
+          </div>
+
+
+          <div class="sub-status-row hidden" id="subStatusRow">
+            <span id="environmentLabel"></span>
+            <div class="world-status" id="worldStatus">
+              <span id="seasonLabel"></span>
+              <span id="regionLabel"></span>
+            </div>
+          </div>
+
+          <div class="cast-heading">
+            <div class="cast-names">
+              <div class="cast-title-line"><div id="mainNameLabel">たまご</div><div class="stage-name-row"><span id="stageLabel">たまご</span></div></div>
+              <button type="button" id="partnerLabel" aria-label="こいびとの詳しいデータ"></button>
+            </div>
+            <div class="world-care-state" id="worldCareState" role="status" aria-live="polite"></div>
+            <p class="world-description" id="worldDescription"></p>
+          </div>
+          <div id="homeGestureGuide" hidden><button type="button" id="homeGuideDismissBtn" aria-label="操作案内をとじる">とじる</button></div>
+          </div>
+          <div class="home-event-slot" id="homeEventSlot">
+          <div class="birthday-toast hidden" id="birthdayToast" role="status" aria-live="polite"></div>
+          <div class="mg-result-toast hidden" id="mgResultToast" role="status" aria-live="polite"></div>
+          </div>
+          <div class="pet-area" id="petArea">
+            <div class="cast-stage" id="castStage"><div class="cast-sway" id="castSway"><div class="cast-response" id="castResponse"><div class="pet" id="pet">
+              <span class="companion-side left" id="companionLeft"></span>
+              <span class="pet-core">
+                <span class="partner-companion hidden" id="partnerCompanion"></span>
+                <span id="petSprite">🥚</span>
+                <span class="pet-accessory hidden" id="petAccessory"></span>
+              </span>
+              <span class="companion-side right" id="companionRight"></span>
+            </div></div></div><div class="poop-row" id="poopRow" role="img" aria-label="うんち"></div></div>
+            <div class="speech-slot" id="speechSlot"><div class="speech-bubble hidden" id="speechBubble" role="status" aria-live="polite">
+              <span class="speech-speaker" id="speechSpeaker"></span>
+              <span class="speech-text" id="speechText" tabindex="0" aria-label="セリフ"></span>
+            </div><div class="speech-choices hidden" id="speechChoices" role="group" aria-label="こたえる"></div><div id="homeChoiceResult" class="home-choice-result hidden" role="status" aria-live="polite"><span id="homeChoiceSpeaker" class="lane-speaker hidden"></span><span id="homeChoiceText" class="lane-text" tabindex="0"></span></div><div class="home-comment-dock" id="homeCommentDock"><div id="homeActionComment" class="speech-bubble hidden" role="status" aria-live="polite"><span id="homeActionSpeaker" class="lane-speaker"></span><span id="homeActionText" class="lane-text"></span></div></div></div>
+
+          </div>
+
+          <div class="home-meters">
+            <div class="bars care-meters" id="careMeters" role="group" aria-label="おせわのようす">
+              <div class="bar-line">
+                <span class="bar-label">おなか</span><span class="bar-value" id="hungerValue">0</span>
+                <div class="bar"><div class="bar-fill hunger" id="hungerBar"></div></div>
+              </div>
+              <div class="bar-line">
+                <span class="bar-label">ごきげん</span><span class="bar-value" id="happinessValue">0</span>
+                <div class="bar"><div class="bar-fill happiness" id="happinessBar"></div></div>
+              </div>
+              <div class="bar-line">
+                <span class="bar-label">げんき</span><span class="bar-value" id="energyValue">0</span>
+                <div class="bar"><div class="bar-fill energy" id="energyBar"></div></div>
+              </div>
+              <div class="bar-line">
+                <span class="bar-label">けんこう</span><span class="bar-value" id="healthValue">0</span>
+                <div class="bar"><div class="bar-fill health" id="healthBar"></div></div>
+              </div>
+            </div>
+  
+            <div class="bars meters" id="lifeMeterRow" role="group" aria-label="せいちょうといっしょう">
+              <div class="bar-line">
+                <span class="bar-label">せいちょう</span>
+                <div class="bar"><div class="bar-fill evo" id="evoBar"></div></div>
+                <span class="bar-value" id="evoValue">0 / 100</span>
+              </div>
+              <div class="bar-line">
+                <span class="bar-label">おとろえ</span>
+                <div class="bar"><div class="bar-fill devo" id="devoBar"></div></div>
+                <span class="bar-value" id="devoValue">0 / 100</span>
+              </div>
+
+              <div class="bar-line" id="deathMeterItem">
+                <span class="bar-label">いのち</span>
+                <div class="bar"><div class="bar-fill death" id="deathBar"></div></div>
+                <span class="bar-value" id="deathValue">0 / 100</span>
+              </div>
+              <div class="bar-line">
+                <span class="bar-label">へんしん</span>
+                <div class="bar"><div class="bar-fill transform" id="transformBar"></div></div>
+                <span class="bar-value" id="transformValue">0 / 100</span>
+              </div>
+              <div class="bar-line">
+                <span class="bar-label">100さいまで</span>
+                <div class="bar"><div class="bar-fill goal" id="goalBar"></div></div>
+                <span class="bar-value" id="goalValue">0 / 100</span>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+        <div class="minigame-overlay hidden" id="minigameOverlay" role="dialog" aria-modal="true" aria-label="ミニゲーム"></div>
+        <div class="minigame-overlay hidden" id="meguruOverlay" aria-label="めぐる" role="dialog" aria-modal="true"></div>
+        <div class="mg-help hidden" id="mgHelpOverlay" role="dialog" aria-label="操作の説明">
+          <div class="mg-help-card">
+            <div class="mg-intro-badge">✨あそびかた</div>
+            <div class="mg-help-title" id="mgHelpTitle"></div>
+            <canvas class="mg-intro-demo" id="mgHelpDemo" width="220" height="90" aria-hidden="true"></canvas>
+            <div class="mg-help-text" id="mgHelpText"></div>
+            <div class="mg-help-note">説明を読んでいる間も、ゲームは進むよ。読んだらとじよう。</div>
+            <button type="button" class="mg-tap-btn primary mg-help-close" id="mgHelpCloseBtn">とじる</button>
+          </div>
+        </div>
+
+        <div class="life-card-overlay hidden" id="lifeCardOverlay" role="dialog" aria-modal="true" aria-label="いっしょうカード">
+          <div class="life-card" id="lifeCardBody"></div>
+          <button class="life-card-next" id="lifeCardNextBtn">あたらしいたまごをむかえる</button>
+        </div>
+
+        <div class="story-flash hidden" id="storyFlash" role="status" aria-live="polite">
+          <div class="story-flash-emoji" id="storyFlashEmoji"></div>
+          <div class="notice-speaker-name hidden" id="storyFlashName"></div>
+          <div class="story-flash-text" id="storyFlashText"></div>
+        </div>
+
+        <div class="transform-overlay hidden" id="transformOverlay" role="dialog" aria-modal="true" aria-label="すがたをえらべるよ!">
+          <div class="transform-title">すがたをえらべるよ!</div>
+          <div class="transform-choices" id="transformChoices"></div>
+          <button class="transform-skip-btn" id="transformSkipBtn">このままでいい</button>
+        </div>
+
+        <div class="dex-overlay hidden" id="dexOverlay" role="dialog" aria-modal="true" aria-label="ずかん">
+          <div class="dex-header">
+            <span class="dex-title">ずかん</span>
+            <span class="dex-progress" id="dexProgress">0 / —</span>
+            <button class="dex-close-btn" id="dexCloseBtn">✕</button>
+          </div>
+          <div class="dex-scroll">
+            <div class="profile-hint">出会った姿をタップすると、名前や成長の段階、その子の小さな話を読めます</div>
+            <div class="profile-hint hidden" id="dexFreePlayHint">♾️のせかいでは、くわしい画面から、その姿になれます</div>
+            <div id="dexSummary"></div>
+            <div class="dex-grid" id="dexGrid"></div>
+            <div class="dex-section-divider">
+              <span class="dex-section-title">なかま</span>
+              <span class="dex-progress" id="companionDexProgress">0 / —</span>
+            </div>
+            <div class="companion-dex-row" id="companionDexGrid"></div>
+            <div class="dex-section-divider hidden" id="rareCompanionDexDivider">
+              <span class="dex-section-title">レアなかま</span>
+              <span class="dex-progress" id="rareCompanionDexProgress">0 / —</span>
+            </div>
+            <div class="companion-dex-row hidden" id="rareCompanionDexGrid"></div>
+            <div class="dex-section-divider">
+              <span class="dex-section-title">こいびと</span>
+              <span class="dex-progress" id="partnerDexProgress">0 / —</span>
+            </div>
+            <div class="companion-dex-row" id="partnerDexGrid"></div>
+          </div>
+        </div>
+
+        <div class="dex-detail-overlay hidden" id="dexDetailOverlay" role="dialog" aria-modal="true" aria-label="ずかんのくわしい画面">
+          <div class="dex-detail-card">
+            <button class="dex-close-btn dex-detail-close" id="dexDetailCloseBtn">✕</button>
+            <div class="dex-detail-emoji" id="dexDetailEmoji"></div>
+            <div class="dex-detail-label" id="dexDetailLabel"></div>
+            <div class="dex-detail-meta" id="dexDetailMeta"></div>
+            <div class="dex-detail-desc" id="dexDetailDesc"></div>
+            <button type="button" class="dex-detail-transform-btn hidden" id="dexDetailTransformBtn">このすがたになる</button>
+          </div>
+        </div>
+
+        <div class="dex-overlay hidden" id="achOverlay" role="dialog" aria-modal="true" aria-label="じっせき">
+          <div class="dex-header">
+            <span class="dex-title" id="achTitle">じっせき</span>
+            <span class="dex-progress" id="achProgress">0 / —</span>
+            <button class="dex-close-btn" id="achCloseBtn">ホームにもどる</button>
+          </div>
+          <div class="ach-tabs" id="achTabs">
+            <button type="button" class="ach-tab active" data-tab="ach">🏅じっせき</button>
+            <button type="button" class="ach-tab" data-tab="games">🎮ゲームきろく</button>
+          </div>
+          <div class="ach-grid" id="achGrid"></div>
+          <div class="ach-grid game-list hidden" id="gameListGrid"></div>
+        </div>
+
+        <div class="dex-overlay hidden" id="themeOverlay" role="dialog" aria-modal="true" aria-label="でざいん">
+          <div class="dex-header">
+            <span class="dex-title">でざいん</span>
+            <button class="dex-close-btn" id="themeCloseBtn" aria-label="でざいんをとじる">✕</button>
+          </div>
+          <div class="theme-scroll">
+            <p class="design-help">ボタンや情報のうしろに、景色がどれくらい見えるかを変えられるよ。<br>ボタンの枠は、押せる場所のしるしだよ。</p>
+            <div class="design-preview" aria-label="いまの背景での見本">
+              <div class="design-preview-world" aria-hidden="true"></div>
+              <span class="design-preview-caption">ホームの見本</span>
+              <p class="design-preview-info world-information">ねんれい 25さい　そだち 85</p>
+              <p class="design-preview-narration" id="glassPreviewStatus" role="status">せかいを のんびり ながめている。</p>
+              <button type="button" class="world-glass-button" id="glassPreviewBtn">おしてためす</button>
+            </div>
+            <div class="design-range-row">
+              <label for="buttonTransparency">ボタンの透明度 <output id="buttonTransparencyValue" for="buttonTransparency">72%</output></label>
+              <input type="range" id="buttonTransparency" min="30" max="80" step="1" value="72" aria-describedby="buttonTransparencyHelp">
+              <div class="design-range-ends"><span>くっきり</span><span>よくすける</span></div>
+              <p id="buttonTransparencyHelp" class="design-help">ボタンの背景だけが変わるよ。文字と枠はくっきり見えるよ。</p>
+            </div>
+            <div class="design-range-row">
+              <label for="infoReadability">情報の読みやすさ <output id="infoReadabilityValue" for="infoReadability">50%</output></label>
+              <input type="range" id="infoReadability" min="0" max="100" step="1" value="50" aria-describedby="infoReadabilityHelp">
+              <div class="design-range-ends"><span>けしきをみせる</span><span>もじをよみやすく</span></div>
+              <p id="infoReadabilityHelp" class="design-help">年齢・名前・メーター・おしらせの背景を、ふんわり明るくしたり暗くしたりできるよ。</p>
+            </div>
+            <button type="button" id="glassResetBtn" class="glass-reset-btn">おすすめにもどす</button>
+            <p class="design-help">メーターと警告のいろは、からだの状態をあらわすよ。</p>
+            <div class="design-font-row"><label for="fontSelect">文字のふんいき</label><select id="fontSelect"><option value="rounded">やわらか</option><option value="standard">すっきり</option><option value="retro">レトロ</option></select></div>
+            <div class="design-font-row"><label for="textSizeSelect">文字の大きさ</label><select id="textSizeSelect"><option value="normal">ふつう</option><option value="large">おおきめ</option></select></div>
+            <details class="design-collection">
+              <summary>集めた色・柄 <span class="dex-progress" id="themeProgress">0 / 81</span></summary>
+              <p class="design-help">達成でもらえる、無料の色と柄の見本だよ。からだの着せ替えではありません。</p>
+              <div class="theme-section-title">いろ</div><div class="theme-grid" id="colorCollectionGrid"></div>
+              <div class="theme-section-title">がら</div><div class="theme-grid" id="patternCollectionGrid"></div>
+            </details>
+          </div>
+        </div>
+
+        <div class="wipe-overlay hidden" id="wipeOverlay" role="dialog" aria-modal="true" aria-label="⚠️ぜんぶさいしょからやりなおす">
+          <div class="wipe-box">
+            <div class="wipe-title">⚠️ぜんぶさいしょからやりなおす</div>
+            <div class="wipe-body" id="wipeSummary"></div>
+            <div class="wipe-warn">ずかん・じっせき・おかね・あいてむ・おもいでが、全部消えます。<br>元にもどせません。</div>
+            <div class="wipe-actions">
+              <button class="wipe-cancel" id="wipeCancelBtn">やめる</button>
+              <button class="wipe-next" id="wipeNextBtn">つぎへ</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="wipe-overlay hidden" id="wipeConfirmOverlay" role="dialog" aria-modal="true" aria-label="本当に全部消しますか？">
+          <div class="wipe-box">
+            <div class="wipe-title">本当に全部消しますか？</div>
+            <div class="wipe-warn">消すには、下のボタンを<b>3秒長押し</b>してください。</div>
+            <button class="wipe-hold" id="wipeHoldBtn"><span id="wipeHoldFill"></span><span class="wipe-hold-text">長押しで消す</span></button>
+            <div class="wipe-actions">
+              <button class="wipe-cancel" id="wipeConfirmCancelBtn">やめる</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="dex-overlay hidden" id="itemOverlay" role="dialog" aria-modal="true" aria-label="あいてむ">
+          <div class="dex-header">
+            <span class="dex-title">あいてむ</span>
+            <span class="dex-progress" id="itemMoneyLabel">💰 0</span>
+            <button class="dex-close-btn" id="itemCloseBtn">✕</button>
+          </div>
+          <div class="theme-scroll">
+            <div class="theme-section">
+              <div class="theme-section-title">みにつけるもの</div>
+              <div class="profile-hint">買ったものはずっと残ります。身につけられるのは1つ。もう一度タップすると、はずせます。</div>
+              <div class="shop-item-grid" id="shopItemGrid"></div>
+              <button type="button" id="itemMemoriesBtn">おもいで</button>
+              <div id="itemMemoriesPanel" class="hidden"><div id="itemMemoriesList"></div></div>
+            </div>
+            <div class="theme-section">
+              <div class="theme-section-title">なおとのひみつ</div>
+              <div class="profile-hint">4つのクリア目標を達成するたび、1こずつもらえる、なおとからの贈りもの。もらったものはずっと残り、それぞれの場面で役立ちます</div>
+              <div class="shop-item-grid" id="naotoItemGrid"></div>
+              <button type="button" class="profile-code-btn naoto-greeting-btn hidden" id="naotoGreetingBtn"></button>
+            </div>
+            <div class="theme-section">
+              <div class="theme-section-title">ふくろとどうぐ</div>
+              <div class="profile-hint">買うとふくろに入り、使うときに選べます。たまごは購入と同時に予約され、取消後もたまごは残り、「よやくする」で再び予約できます。未使用の品は次の一生にも残ります。発動待ちの効果はひとつずつで、その一生の間だけです。待ち時間は育成が進む間に減ります。</div>
+              <div class="profile-hint" id="onetimeActive"></div>
+              <div class="shop-item-grid" id="onetimeItemGrid"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="dex-overlay hidden" id="pickerOverlay" role="dialog" aria-modal="true" aria-label="えらぶ">
+          <div class="dex-header">
+            <span class="dex-title" id="pickerTitle">えらぶ</span>
+            <button class="dex-close-btn" id="pickerCloseBtn">✕</button>
+          </div>
+          <div class="theme-scroll">
+            <div class="profile-hint" id="pickerHint"></div>
+            <div id="pickerGrid"></div>
+          </div>
+        </div>
+
+        <div class="companion-invite-overlay hidden" id="companionInviteOverlay" role="dialog" aria-modal="true" aria-label="なかまの さそい">
+          <div class="companion-invite-card">
+            <div class="companion-invite-emoji" id="companionInviteEmoji">🐾</div>
+            <div class="companion-invite-title" id="companionInviteTitle"></div>
+            <div class="companion-invite-flavor" id="companionInviteFlavor"></div>
+            <div class="companion-invite-actions">
+              <button type="button" class="companion-invite-btn play" id="companionInvitePlayBtn">あそぶ!</button>
+              <button type="button" class="companion-invite-btn later" id="companionInviteLaterBtn">またこんど</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="date-overlay hidden" id="itemSceneOverlay" role="dialog" aria-modal="true" aria-label="あいてむ">
+          <div class="date-card date-reward-confirm" style="max-height:100%;overflow-y:auto" role="group" aria-labelledby="itemSceneTitle">
+            <h2 class="date-title" id="itemSceneTitle"></h2>
+            <div class="date-movie-actors hidden" id="itemSceneActors"></div>
+            <p class="date-reward-count" id="itemSceneText"></p>
+            <div class="date-choice-grid" style="grid-template-columns:repeat(2,minmax(0,1fr))" id="itemSceneChoiceGrid"></div>
+            <button type="button" class="date-cancel-btn" id="itemSceneCancelBtn">またこんど</button>
+          </div>
+        </div>
+        <div class="date-overlay hidden" id="dateOverlay" role="dialog" aria-modal="true" aria-label="デートをえらぼう">
+          <div class="date-card" id="dateChooser">
+            <div class="date-kicker">💞きょうはどこへいく?</div>
+            <div class="date-title">デートをえらぼう</div>
+            <div class="date-choice-grid" id="dateChoiceGrid"></div>
+            <button type="button" class="date-cancel-btn" id="dateCancelBtn">またこんど</button>
+          </div>
+
+          <div class="date-movie hidden" id="dateMovie" role="dialog" aria-modal="true" aria-labelledby="dateMoviePlace" aria-describedby="dateMovieCaption" tabindex="-1">
+            <div class="date-movie-scene" id="dateMovieScene">
+              <div class="movie-backdrop" aria-hidden="true"></div>
+              <div class="movie-light" aria-hidden="true"></div>
+              <div class="movie-atmosphere" id="dateMovieAtmosphere" aria-hidden="true"></div>
+              <div class="movie-vignette" aria-hidden="true"></div>
+              <div class="movie-kicker" id="dateMovieKicker"></div>
+              <div class="date-movie-place" id="dateMoviePlace"></div>
+              <div class="date-movie-actors">
+                <span class="date-movie-actor pet" id="dateMoviePet"></span>
+                <span class="date-movie-heart" aria-hidden="true">♥</span>
+                <span class="movie-partner-anchor">
+                  <span class="movie-water" aria-hidden="true"><i></i><i></i><i></i></span>
+                  <span class="date-movie-actor partner" id="dateMoviePartner"></span>
+                </span>
+              </div>
+              <div class="date-movie-caption" id="dateMovieCaption" aria-live="polite" aria-atomic="true"></div>
+              <div class="movie-progress" id="dateMovieProgress" aria-hidden="true"></div>
+            </div>
+            <div class="date-movie-actions">
+              <button type="button" class="date-movie-skip" id="dateMovieSkipBtn">スキップ</button>
+              <button type="button" class="date-movie-close hidden" id="dateMovieCloseBtn">おもいでにしまう</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="dex-overlay hidden" id="menuOverlay" aria-label="メニュー" role="dialog" aria-modal="true">
+          <div class="dex-header"><span class="dex-title">メニュー</span><button type="button" class="dex-close-btn" id="menuCloseBtn" aria-label="メニューをとじる">✕</button></div>
+          <details class="home-guide-help"><summary>あそびかた · ホームのそうさ</summary><p>タップで選択・ドラッグでおさんぽ</p><p>キャラをタップすると足もとにしるしが出るよ。地面をタップするか、キャラをドラッグして行き先を教えてね。じゃれる・きゅうあい・そうじは育成ボタンから。</p><p>仲間や恋人は、ひとりずつ遊びに来るよ。</p><button type="button" id="homeGuideReplayBtn">ホームで案内を見る</button></details>
+          <div class="menu-grid">
+            <button type="button" id="worldBtn"><span class="menu-heading"><span class="menu-icon" aria-hidden="true"><i class="care-icon ui-icon" data-ui-icon="world" aria-hidden="true"></i></span><span class="menu-label">せかい</span></span><small><span>じかん・</span><span>てんき・</span><span>きせつ</span></small></button>
+            <button type="button" id="itemBtn"><span class="menu-heading"><span class="menu-icon" aria-hidden="true"><i class="care-icon" data-care-icon="gift" aria-hidden="true"></i></span><span class="menu-label">あいてむ</span></span><small><span>もちもの・</span><span>おみせ</span></small></button>
+            <button type="button" id="dexBtn"><span class="menu-heading"><span class="menu-icon" aria-hidden="true"><i class="care-icon ui-icon" data-ui-icon="book" aria-hidden="true"></i></span><span class="menu-label">ずかん</span></span><small>であったすがた</small></button>
+            <button type="button" id="achBtn"><span class="menu-heading"><span class="menu-icon" aria-hidden="true"><i class="care-icon ui-icon" data-ui-icon="medal" aria-hidden="true"></i></span><span class="menu-label">じっせき</span></span><small><span>できたこと・</span><span>おもいで</span></small></button>
+            <button type="button" id="stickerBtn"><span class="menu-heading"><span class="menu-icon" aria-hidden="true"><i class="care-icon ui-icon" data-ui-icon="star_badge" aria-hidden="true"></i></span><span class="menu-label">シール<wbr>ちょう</span></span><small><span>あつめて・</span><span>はる</span></small></button>
+            <button type="button" id="themeBtn"><span class="menu-heading"><span class="menu-icon" aria-hidden="true"><i class="care-icon ui-icon" data-ui-icon="palette" aria-hidden="true"></i></span><span class="menu-label">でざいん</span></span><small><span>透明度・</span><span>もじ</span></small></button>
+            <button type="button" id="gamesBtn"><span class="menu-heading"><span class="menu-icon" aria-hidden="true"><i class="care-icon" data-care-icon="game" aria-hidden="true"></i></span><span class="menu-label">ゲームを<wbr>えらぶ</span></span><small>きろくからあそぶ</small></button>
+            <button type="button" id="quickBtn"><span class="menu-heading"><span class="menu-icon" aria-hidden="true"><span class="menu-emoji" aria-hidden="true">⚡</span></span><span class="menu-label">クイック</span></span><small>げんき消費なし</small></button>
+            <a class="independent-game" href="prototypes/naopoyo/"><span class="menu-heading"><span class="menu-icon" aria-hidden="true"><svg class="naopoyo-menu-icon" aria-hidden="true" width="56" height="40" viewBox="0 0 56 40"><rect x="1" y="1" width="54" height="38" rx="15" fill="#fff8e7"/><path d="M30 34V18a12 12 0 0 1 24 0v16Z" fill="#a2d5b6"/><path d="M34 32V18a8 8 0 0 1 16 0v14Z" fill="#315e62"/><path d="m42 10 2.5 6 6.5.5-5 4.5 1.5 6.5-5.5-3.5-5.5 3.5L38 21l-5-4.5 6.5-.5Z" fill="#ffe398" stroke="#8e753c" stroke-width=".65"/><path d="M30 34h24" stroke="#e9ecc4" stroke-width="2"/><svg x="2" y="5" width="31" height="32" viewBox="25 38 77 84"><image href="assets/characters/dog/02.png" width="128" height="128"/></svg></svg></span><span class="menu-label">なおぽよ。</span></span><small>合体・分裂で救出！</small></a>
+            <button type="button" id="naokoroBtn" class="naokoro-entry" onclick="document.getElementById('naokoroDialog').showModal()"><span class="menu-heading"><span class="menu-icon" aria-hidden="true"><span>🎲</span></span><span class="menu-label">なおころ。</span></span><small>ころがる人生すごろく</small></button>
+            <a class="independent-game" href="prototypes/card-game/"><span class="menu-heading"><span class="menu-icon" aria-hidden="true"><span aria-hidden="true">▣</span></span><span class="menu-label">CARD GAME</span></span><small>1台でふたり対戦</small></a>
+            <a id="storyBtn" class="independent-game story-entry" href="prototypes/madoromi-white-reader-20261027/dist/?from=game#top"><span class="menu-heading"><span class="menu-icon" aria-hidden="true"><svg aria-hidden="true" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5.5C9 3.8 5.5 3.3 2.5 4v15c3-.7 6.5-.2 9.5 1.5M12 5.5c3-1.7 6.5-2.2 9.5-1.5v15c-3-.7-6.5-.2-9.5 1.5Zm0 0v15"/></svg></span><span class="menu-label">ものがたり</span></span><small>微睡みの箱庭</small></a>
+          </div>
+        </div>
+        <dialog id="naokoroDialog" aria-labelledby="naokoroTitle" onkeydown="if (event.key === 'Escape') event.stopPropagation()">
+          <h2 id="naokoroTitle">なおころ。</h2>
+          <p>ころがるサイコロ、かわる人生。</p>
+          <p>FIRST START · 日本編48マス</p>
+          <p><a class="independent-game" href="prototypes/life-sugoroku/">なおころ。をはじめる</a></p>
+          <form method="dialog"><button type="submit">とじる</button></form>
+        </dialog>
+        <div class="dex-overlay hidden" id="worldOverlay" role="dialog" aria-modal="true" aria-label="せかい">
+          <div class="dex-header"><span class="dex-title">せかい</span><button class="dex-close-btn" id="worldCloseBtn" aria-label="せかいをとじる">✕</button></div>
+          <div class="profile-scroll">
+            <div class="profile-hint">「げんざい」は、じかんをスマホの時計、てんきを現在地、きせつをスマホの日付にあわせます。てんきが取れないときは、いまいる地域の気候から予想します。</div>
+            <div class="world-now-card" id="worldNowCard"></div>
+            <section class="profile-section"><h3>じかん</h3><div class="environment-choices" id="timeModeGrid"></div></section>
+            <section class="profile-section"><h3>てんき</h3><div class="environment-choices" id="weatherModeGrid"></div></section>
+            <section class="profile-section"><h3>きせつ</h3><div class="environment-choices" id="seasonModeGrid"></div></section>
+            <section class="profile-section"><h3>ゲームのむずかしさ</h3><div class="environment-choices" id="difficultyModeGrid"></div><p class="profile-hint">「やさしい」は、年齢によって上がるむずかしさをおさえ、制限時間も長くなります。</p></section>
+            <section class="profile-section"><h3>ゲームのながさ</h3><div class="environment-choices" id="gameLengthGrid"></div><p class="profile-hint">「みじかめ」は、20秒以上の制限時間を元の70%にします。ボード・カーリング・すごろくなど、手番で進むゲームの長さは変わりません。</p></section>
+            <section class="profile-section"><h3>おと</h3><div class="environment-choices" id="sfxModeGrid"></div><div class="environment-choices" id="bgmModeGrid"></div><p class="profile-hint">クイックモードのこえ</p><div class="environment-choices" id="quickVoiceGrid"></div></section>
+            <div class="location-card"><div id="worldLocationLabel">げんざいち：まだわからない</div><p class="profile-hint" id="environmentStatus" role="status">現在地を調べると、近くのてんきにあわせられます。</p><button type="button" class="profile-code-btn" id="locationRefreshBtn">📍げんざいち・てんきをしらべる</button><p class="profile-hint">表示は市区町村まで。位置情報の数値はセーブに残しません。旅先に選んだ市区町村名は、景色を表示するために保存します。</p><div class="environment-credit">住所：<a href="https://geoapi.heartrails.com/" target="_blank" rel="noopener noreferrer">HeartRails Geo API</a> ／ 天気：<a href="https://open-meteo.com/" target="_blank" rel="noopener noreferrer">Open-Meteo</a></div></div>
+          </div>
+        </div>
+
+        <div class="dex-overlay hidden" id="travelOverlay" role="dialog" aria-modal="true" aria-label="たびにでる">
+          <div class="dex-header">
+            <span class="dex-title">たびにでる</span>
+            <button class="dex-close-btn" id="travelCloseBtn">✕</button>
+          </div>
+          <div class="theme-scroll">
+            <div class="theme-section meguru-section"><div class="meguru-entry" id="meguruEntry"></div></div>
+            <div class="theme-section">
+              <div class="profile-hint">行きたい場所をえらんでタップすると、その地域へたびにでられます</div>
+              <button type="button" class="profile-code-btn" id="currentLocationBtn" aria-pressed="false">📍げんざいち</button>
+              <div class="profile-hint" id="travelLocationStatus" role="status"></div>
+              <div class="theme-grid" id="travelRegionGrid"></div>
+            </div>
+            <div class="theme-section hidden" id="travelSpecialSection">
+              <div class="profile-hint">とくべつな旅先。地図にはのっていない場所です</div>
+              <div class="theme-grid" id="travelSpecialGrid"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="dex-overlay hidden" id="stickerOverlay" aria-label="シールちょう" role="dialog" aria-modal="true">
+          <div class="dex-header"><span class="dex-title">シールちょう</span><span class="dex-progress" id="stickerProgress"></span><button type="button" class="dex-close-btn" id="stickerCloseBtn" aria-label="シールちょうをとじる">✕</button></div>
+          <div class="ach-tabs sticker-tabs" id="stickerPageTabs" role="tablist"></div>
+          <div class="profile-scroll sticker-scroll">
+            <div class="sticker-page-controls">
+              <label for="stickerBackgroundSelect">はいけい</label>
+              <select id="stickerBackgroundSelect" aria-label="このページのはいけい"></select>
+              <button type="button" class="profile-code-btn" id="stickerAddPageBtn">＋ ページを追加（1/15）</button>
+            </div>
+            <p class="profile-hint sticker-page-hint">最初は1ページ。最大15ページまで増やせます。シールは好きなページに貼れます。</p>
+            <div class="sticker-board-wrap">
+              <div class="sticker-board" id="stickerBoard" data-page="page-1" data-background="home"></div>
+              <div class="sticker-tools hidden" id="stickerTools">
+                <button type="button" data-act="rot-" aria-label="ひだりにまわす">↺</button>
+                <button type="button" data-act="rot+" aria-label="みぎにまわす">↻</button>
+                <button type="button" data-act="size-" aria-label="ちいさく">－</button>
+                <button type="button" data-act="size+" aria-label="おおきく">＋</button>
+                <button type="button" data-act="front" aria-label="いちばんうえにする">⤴</button>
+                <button type="button" data-act="remove" aria-label="はがす">🗑</button>
+              </div>
+              <p class="profile-hint" id="stickerBoardHint">下のシールをタップすると、ページの真ん中に貼れるよ。貼ったシールは指で動かせるよ。タップすると、回したり、大きさを変えたり、はがしたりできるよ。</p>
+            </div>
+            <section class="profile-section"><h3>おだい</h3><div class="sticker-tasks" id="stickerTasks"></div></section>
+            <section class="profile-section">
+              <h3>シールをふやす</h3>
+              <div class="sticker-pack-controls">
+                <button type="button" class="profile-code-btn" id="stickerPackBtn"></button>
+                <label for="stickerThemeKind">分類をえらぶ</label>
+                <select id="stickerThemeKind"><option value="form">しゅぞく</option><option value="companion">なかま</option><option value="partner">こいびと</option><option value="item">あいてむ</option><option value="scenery">その他</option></select>
+                <button type="button" class="profile-code-btn" id="stickerThemePackBtn"></button>
+              </div>
+              <p class="profile-hint">同じシールは1種類につき9枚まで持てます。持っている枚数だけ、好きなページに貼れます。</p>
+              <p class="profile-hint">シールは飾りです。本編の発見やなかまの加入にはなりません。</p>
+              <div class="sticker-pack-result hidden" id="stickerPackResult"></div>
+              <div class="sticker-page-action">
+                <button type="button" class="profile-code-btn" id="stickerExportBtn">📷 このページを画像にする</button>
+              </div>
+              <div class="sticker-export hidden" id="stickerExportView"></div>
+              <p class="profile-hint">新しい姿がずかんにのると、その姿のシールがもらえます。ミニゲームでなかまができると、なかまのシールがもらえます。こいびとができると、こいびとのシールがもらえますが、おきゃくさんは対象外です。通常のミニゲームでSランクを取ると、30%の確率でシールが1枚もらえます。そのプレイで「今日のチャレンジ」をクリアしたときは、この抽選はありません。同じシールは9枚までで、すでに9枚持っている種類はもらえません。</p>
+            </section>
+            <section class="profile-section">
+              <h3>持っているシール <span class="sticker-owned-count" id="stickerOwnedCount"></span></h3>
+              <div class="ach-tabs sticker-filter" id="stickerFilter"></div>
+              <div class="sticker-tray" id="stickerTray"></div>
+            </section>
+          </div>
+        </div>
+        <div class="dex-overlay hidden" id="profileOverlay" role="dialog" aria-modal="true" aria-label="データ">
+          <div class="dex-header">
+            <span class="dex-title">データ</span>
+            <button class="dex-close-btn" id="profileCloseBtn">✕</button>
+          </div>
+          <div class="profile-scroll">
+            <div class="profile-section">
+              <div class="profile-row"><span class="profile-label">しゅぞく</span><span id="profileSpecies"></span></div>
+              <div class="profile-row"><span class="profile-label">いまのすがた</span><span id="profileStage"></span></div>
+              <div class="profile-row"><span class="profile-label">せいべつ</span><span id="profileGender"></span></div>
+              <div class="profile-row">
+                <span class="profile-label">れんあいタイプ</span>
+                <span class="profile-value-with-help">
+                  <span id="profileOrientation"></span>
+                  <button class="profile-help-btn hidden" id="profileOrientationHelpBtn" type="button" title="せつめいをみる">？</button>
+                </span>
+              </div>
+              <div class="profile-hint hidden" id="profileOrientationHint"></div>
+            </div>
+            <div class="profile-section">
+              <div class="profile-section-title">この子の個性</div>
+              <div class="profile-traits" id="profileTraits"></div>
+            </div>
+            <div class="profile-section" id="profilePartnerSection">
+              <div class="profile-section-title">こいびと</div>
+              <div id="profilePartnerCard"></div>
+              <button type="button" class="profile-code-btn date-invite-btn" id="worldDateBtn">💞デートにさそう</button>
+              <div class="world-date-hint hidden" id="worldDateHint"></div>
+            </div>
+            <div class="profile-section" id="profileCompanionSection">
+              <div class="profile-section-title">なかま</div>
+              <div class="profile-hint">「じゃれる」できずながもどります。ほうっておくと少しずつ下がり、0になると離れていってしまいます</div>
+              <div id="profileCompanionList"></div>
+            </div>
+            <div class="profile-section">
+              <div class="profile-section-title">セーブのバックアップ</div>
+              <div class="profile-hint">セーブをコードにして、機種変更やもしもの時にもどせます。</div>
+              <button class="profile-code-btn" id="saveExportBtn">📋セーブコードをつくる</button>
+              <div class="profile-code-box hidden" id="saveExportBox">
+                <textarea readonly class="profile-code-input" id="saveExportText" rows="3"></textarea>
+                <button class="profile-code-btn profile-code-copy-btn" id="saveExportCopyBtn">📋コードをコピー</button>
+                <div class="profile-hint hidden" id="saveExportCopied">コピーした!</div>
+              </div>
+              <input type="text" class="profile-code-input" id="saveImportInput" placeholder="セーブコードをここに">
+              <button class="profile-code-btn" id="saveImportBtn">読み込んで置きかえる</button>
+              <div class="profile-hint" id="saveImportStatus" role="status"></div>
+              <div class="save-snap-title">自動バックアップ</div>
+              <div class="profile-hint">20分以上あいだがあいたセーブを、3つまで残します。まちがえたときは、ここからもどせます。</div>
+              <div id="saveSnapList"></div>
+              <div class="profile-hint" id="saveSnapStatus" role="status"></div>
+            </div>
+            <div class="profile-section">
+              <div class="profile-section-title">いっしょうの年表</div>
+              <div class="profile-hint">この子に起きたできごとを、年齢順にならべます。おわかれのときは「いっしょうカード」のコードにして、ともだちに見せられます。</div>
+              <div id="profileTimeline"></div>
+              <div class="save-snap-title">これまでの子</div>
+              <div id="profilePastLives"></div>
+              <div class="save-snap-title">いっしょうカードを 見る</div>
+              <input type="text" class="profile-code-input" id="lifeCodeInput" placeholder="いっしょうカードのコードをここに">
+              <button class="profile-code-btn" id="lifeCodeViewBtn">カードを 見る</button>
+              <div class="hidden" id="lifeCodeView"></div>
+            </div>
+            <div class="profile-section">
+              <details class="error-log">
+                <summary class="profile-section-title" id="errorLogSummary">エラーのきろく</summary>
+                <div class="profile-hint">動きがおかしいときは、これをコピーして相談してください。セーブコードも含まれます。</div>
+                <div id="errorLogList"></div>
+                <button class="profile-code-btn" id="errorLogCopyBtn">📋エラーとセーブコードをコピー</button>
+                <div class="profile-hint hidden" id="errorLogCopied">コピーした!</div>
+              </details>
+            </div>
+            <div class="profile-section danger-zone">
+              <div class="profile-section-title">きけんなそうさ</div>
+              <button class="restart-btn" id="softResetBtn">🥚あたらしいたまごをむかえる</button>
+              <div class="danger-note">いまの子のいっしょうを終えて、新しいたまごを迎えます。ずかん・じっせき・おかね・あいてむは残ります。</div>
+              <button class="wipe-btn" id="wipeBtn">⚠️ぜんぶさいしょからやりなおす</button>
+              <div class="danger-note">セーブデータを全部消します。元にもどせません。</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="dex-overlay hidden" id="commOverlay" role="dialog" aria-modal="true" aria-label="つうしん">
+          <div class="dex-header">
+            <span class="dex-title">つうしん</span>
+            <button class="dex-close-btn" id="commCloseBtn">✕</button>
+          </div>
+          <div class="profile-scroll">
+            <div class="profile-section">
+              <div class="profile-section-title">あいてコード</div>
+              <div class="profile-hint">自分のコードを友達に送り、友達のコードを読みこむと、そのなおとっちにきゅうあいを試せます</div>
+              <button class="profile-code-btn" id="makeCodeBtn">じぶんのコードをつくる</button>
+              <textarea class="profile-code-box hidden" id="myCodeBox" readonly rows="2"></textarea>
+              <div class="profile-code-actions hidden" id="myCodeActions">
+                <button class="profile-code-btn profile-code-copy-btn" id="myCodeCopyBtn">📋コードをコピー</button>
+                <span class="profile-code-copy-msg hidden" id="myCodeCopyMsg">コピーしました!</span>
+              </div>
+              <div class="profile-guest-row">
+                <input type="text" class="profile-code-input" id="guestCodeInput" placeholder="ともだちのコードをここに">
+                <button class="profile-code-btn profile-code-clear-btn" id="guestCodeClearBtn">けす</button>
+                <button class="profile-code-btn" id="loadCodeBtn">よみこむ</button>
+              </div>
+              <div class="profile-code-error hidden" id="codeError"></div>
+              <div id="guestStatus"></div>
+            </div>
+            <div class="profile-section">
+              <div class="profile-section-title">うそつきしょうぶ</div>
+              <div class="profile-hint">ともだちと2人であそぶしょうぶ。回答Aが5つの質問に答え、推理Bがうそを見ぬきます。コードを送りあって遊ぼう。おかねもかけられます</div>
+              <button class="profile-code-btn" id="openDuelBtn">しょうぶをはじめる</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="dex-overlay hidden" id="duelOverlay" role="dialog" aria-modal="true" aria-label="うそつきしょうぶ">
+          <div class="dex-header">
+            <span class="dex-title">うそつきしょうぶ</span>
+            <button class="dex-close-btn" id="duelCloseBtn">✕</button>
+          </div>
+          <div class="profile-scroll">
+            <p class="profile-hint" id="duelStakeHint"></p>
+            <button type="button" class="duel-abandon-btn hidden" id="duelCancelMatchBtn">しょうぶをやめる</button>
+            <div class="profile-section" id="duelHomeSection">
+              <div class="profile-hint">ともだちと2人であそぶしょうぶ。回答Aが5つの質問に答え、推理Bがうそを見ぬきます。コードを送りあって遊ぼう。おかねもかけられます</div>
+              <div class="profile-row"><span class="profile-label">せんせき</span><span id="duelRecord"></span></div>
+              <div class="profile-section-title">みえてきたけいこう</div>
+              <div class="profile-traits" id="duelTraitSummary"></div>
+              <div class="duel-role-row">
+                <button class="profile-code-btn" id="duelStartChallengeBtn">しょうぶをつくる</button>
+                <button class="profile-code-btn" id="duelStartGuessBtn">コードをよみこんでさんか</button>
+              </div>
+            </div>
+
+            <div class="profile-section hidden" id="duelBetSection">
+              <div class="profile-hint">掛け金を決めてください。しょうぶに負けると、この金額を失います</div>
+              <div class="profile-row"><span class="profile-label">いまのおかね</span><span id="duelOwnMoney"></span></div>
+              <input type="number" class="profile-code-input" id="duelBetInput" min="1" step="1" placeholder="かけきん(おかね)">
+              <div class="profile-code-error hidden" id="duelBetError"></div>
+              <button class="profile-code-btn" id="duelBetConfirmBtn">しつもんへすすむ</button>
+            </div>
+
+            <div class="profile-section hidden" id="duelGuessCodeInSection">
+              <div class="profile-hint">あいてからもらった「挑戦コード」をここにいれてください</div>
+              <div class="profile-guest-row">
+                <input type="text" class="profile-code-input" id="duelGuessCodeInput" placeholder="挑戦コードをここに">
+                <button class="profile-code-btn profile-code-clear-btn" id="duelGuessCodeClearBtn">けす</button>
+              </div>
+              <div class="profile-code-error hidden" id="duelGuessCodeError"></div>
+              <button class="profile-code-btn" id="duelGuessCodeBtn">よみこむ</button>
+            </div>
+
+            <div class="profile-section hidden" id="duelQuestionSection">
+              <div class="duel-question-nav-row">
+                <button type="button" class="duel-back-btn" id="duelBackBtn">←もどる</button>
+                <div class="duel-progress" id="duelProgress"></div>
+              </div>
+              <div class="duel-lie-coin-row hidden" id="duelLieCoinRow">🃏のこりうそコイン: <span id="duelLieCoinCount"></span></div>
+              <div class="duel-question-card">
+                <div class="duel-question-emoji" id="duelQuestionEmoji"></div>
+                <div class="duel-question-text" id="duelQuestionText"></div>
+                <div class="duel-question-shown hidden" id="duelQuestionShown"></div>
+              </div>
+              <div class="duel-choice-row" id="duelTruthChoiceRow">
+                <button class="mg-choice-btn" id="duelChoiceABtn"></button>
+                <button class="mg-choice-btn" id="duelChoiceBBtn"></button>
+              </div>
+              <div class="duel-choice-row hidden" id="duelHonestyChoiceRow">
+                <div class="duel-testimony-hint">ひとこと(なくてもOK)</div>
+                <div class="duel-testimony-row" id="duelTestimonyRow"></div>
+                <button class="mg-choice-btn duel-honest-btn" id="duelHonestBtn">😇本音でいく</button>
+                <button class="mg-choice-btn duel-lie-btn" id="duelLieBtn">🃏うそをつく</button>
+              </div>
+              <div class="duel-lie-flash hidden" id="duelLieFlash">😈うそをついた!</div>
+            </div>
+
+            <div class="profile-section hidden" id="duelAnswerReviewSection">
+              <div class="profile-section-title">こたえをみなおす</div>
+              <div class="profile-hint">5問のこたえがそろいました。タップすると見なおせます。「挑戦コードをつくる」をおすまでは、何度でも変更できます</div>
+              <div class="duel-lie-coin-row" id="duelAnswerReviewLieRow">🃏つかったうそコイン: <span id="duelAnswerReviewLieCount"></span></div>
+              <div id="duelAnswerReviewList"></div>
+              <div class="duel-review-actions">
+                <button type="button" class="profile-code-btn duel-secondary-btn" id="duelRestartAnswersBtn">↻さいしょから</button>
+                <button type="button" class="profile-code-btn duel-secondary-btn" id="duelRerollQuestionsBtn">🎲しつもんをかえる</button>
+              </div>
+              <div class="duel-confirm-row hidden" id="duelRerollConfirmRow">
+                <div class="duel-confirm-text">ほんとうに5問とも変えますか?いままでの答えは消えます</div>
+                <div class="duel-confirm-buttons">
+                  <button type="button" class="profile-code-btn duel-secondary-btn" id="duelRerollCancelBtn">やめる</button>
+                  <button type="button" class="profile-code-btn duel-danger-btn" id="duelRerollYesBtn">かえる</button>
+                </div>
+              </div>
+              <button type="button" class="profile-code-btn" id="duelFinalizeChallengeBtn">挑戦コードをつくる</button>
+            </div>
+
+            <div class="profile-section hidden" id="duelGuessListSection">
+              <div class="profile-hint">あいては5問中、最大2回までうそをつけます。5問すべてを見くらべてから、すいりしてください</div>
+              <div id="duelGuessList"></div>
+              <div class="profile-code-error hidden" id="duelGuessConfirmError"></div>
+              <button class="profile-code-btn" id="duelGuessConfirmBtn">すいりをきめる</button>
+            </div>
+
+            <div class="profile-section hidden" id="duelSuspicionSection">
+              <div class="profile-hint">さいごに、5問の中から「いちばんあやしい」と思う答えを1つ選んでください。当たっていればあなたに、はずれていればあいてに、ボーナス+1点が入ります</div>
+              <div id="duelSuspicionList"></div>
+              <div class="profile-code-error hidden" id="duelSuspicionError"></div>
+            </div>
+
+            <div class="profile-section hidden" id="duelCodeOutSection">
+              <div class="profile-hint" id="duelCodeOutHint"></div>
+              <textarea class="profile-code-box" id="duelCodeOutBox" readonly rows="3"></textarea>
+              <div class="profile-code-actions">
+                <button class="profile-code-btn profile-code-copy-btn" id="duelCodeOutCopyBtn">📋コードをコピー</button>
+                <span class="profile-code-copy-msg hidden" id="duelCodeOutCopyMsg">コピーしました!</span>
+              </div>
+              <button class="profile-code-btn" id="duelCodeOutDoneBtn">とじる</button>
+            </div>
+
+            <div class="profile-section hidden" id="duelCodeInSection">
+              <div class="profile-hint" id="duelCodeInHint"></div>
+              <div class="profile-guest-row">
+                <input type="text" class="profile-code-input" id="duelCodeInInput" placeholder="あいてのコードをここに">
+                <button class="profile-code-btn profile-code-clear-btn" id="duelCodeInClearBtn">けす</button>
+              </div>
+              <div class="profile-code-error hidden" id="duelCodeInError"></div>
+              <button class="profile-code-btn" id="duelCodeInBtn">よみこむ</button>
+            </div>
+
+            <div class="profile-section hidden" id="duelResultSection">
+              <div id="duelRevealStage">
+                <div class="duel-progress" id="duelRevealProgress"></div>
+                <div class="duel-reveal-running" id="duelRevealRunning"></div>
+                <div class="duel-question-card" id="duelRevealCard">
+                  <div class="duel-question-emoji" id="duelRevealEmoji"></div>
+                  <div class="duel-question-text" id="duelRevealText"></div>
+                  <div class="duel-reveal-pub" id="duelRevealPub"></div>
+                  <div class="duel-reveal-testimony hidden" id="duelRevealTestimony"></div>
+                  <div class="duel-reveal-guess" id="duelRevealGuess"></div>
+                  <div class="duel-reveal-outcome hidden" id="duelRevealOutcome">
+                    <div class="duel-result-title" id="duelRevealOutcomeTitle"></div>
+                    <div class="duel-result-desc" id="duelRevealOutcomeDesc"></div>
+                    <div class="duel-reveal-points" id="duelRevealOutcomePoints"></div>
+                  </div>
+                </div>
+                <button class="profile-code-btn" id="duelRevealNextBtn">めくる🎴</button>
+              </div>
+              <div id="duelFinalStage" class="hidden">
+                <div class="duel-result-title" id="duelResultTitle"></div>
+                <div class="duel-result-score" id="duelResultScore"></div>
+                <div class="duel-result-desc" id="duelResultDesc"></div>
+                <div class="profile-section-title">もんだいのふりかえり</div>
+                <div id="duelResultBreakdown"></div>
+                <button class="profile-code-btn" id="duelRematchBtn">もういちどしょうぶ!</button>
+                <button class="profile-code-btn duel-secondary-btn" id="duelResultCloseBtn">とじる</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="game-clear-overlay hidden" id="gameClearOverlay" role="dialog" aria-modal="true" aria-label="GAME CLEAR">
+          <img class="game-clear-art" id="gameClearArt" src="" alt="">
+          <div class="game-clear-confetti" id="gameClearConfettiTop">🎉🎊✨🎉🎊✨</div>
+          <div class="game-clear-title" id="gameClearTitle">GAME CLEAR</div>
+          <div class="game-clear-badges" id="gameClearBadges"></div>
+          <div class="game-clear-subtitle">なおとっちといっしょに。</div>
+          <div class="game-clear-desc" id="gameClearDesc">さいごまでいっしょに過ごした。<br>「あたらしいたまご」で、つぎの子をむかえよう</div>
+          <button class="game-clear-freeplay-btn hidden" id="gameClearFreePlayBtn">♾️のせかいへ</button>
+          <button class="game-clear-close-btn hidden" id="gameClearCloseBtn">とじる</button>
+          <div class="game-clear-confetti" id="gameClearConfettiBottom">✨🎊🎉✨🎊🎉</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="mg-quit hidden" id="mgQuit">
+      <div class="mg-quit-inner">
+        <button type="button" class="mg-help-btn" id="mgHelpBtn" aria-label="操作の説明">？そうさ</button>
+        <button type="button" class="mg-quit-btn" id="mgQuitBtn">ホームにもどる</button>
+        <div class="mg-quit-confirm hidden" id="mgQuitConfirm">
+          <span class="mg-quit-ask">とちゅうでやめる?</span>
+          <button type="button" class="mg-quit-yes" id="mgQuitYesBtn">やめる</button>
+          <button type="button" class="mg-quit-no" id="mgQuitNoBtn">つづける</button>
+        </div>
+      </div>
+    </div>
+    <div class="message" id="message" role="status" aria-live="polite" tabindex="0" aria-label="おしらせ">たまごがやってきた…</div>
+    <nav class="buttons" id="careActions" aria-label="おせわとメニュー">
+      <button id="feedBtn" title="ごはん"><i class="care-icon" data-care-icon="food" aria-hidden="true"></i><span>ごはん</span></button>
+      <button id="cleanBtn" title="そうじ"><i class="care-icon" data-care-icon="clean" aria-hidden="true"></i><span>そうじ</span></button>
+      <button id="sleepBtn" title="ねる"><i class="care-icon" data-care-icon="sleep" aria-hidden="true"></i><span>ねる</span></button>
+      <button id="medicineBtn" title="くすり"><i class="care-icon" data-care-icon="medicine" aria-hidden="true"></i><span>くすり</span></button>
+      <button id="playBtn" title="あそぶ"><i class="care-icon" data-care-icon="game" aria-hidden="true"></i><span>あそぶ</span></button>
+      <button id="playWithBtn" title="じゃれる"><i class="care-icon" data-care-icon="play" aria-hidden="true"></i><span>じゃれる</span></button>
+      <button id="courtBtn" title="きゅうあい"><i class="care-icon" data-care-icon="love" aria-hidden="true"></i><span>きゅうあい</span></button>
+      <button id="travelBtn" title="たび">🧭<span>たび</span></button>
+      <button id="menuBtn" title="メニュー">☰<span>メニュー</span></button>
+    </nav>
+    <div class="life-actions">
+      <div class="farewell-bar hidden" id="farewellBar">
+        <span>さいごのじかん—ゆっくりおわかれをしよう</span>
+        <button id="farewellBtn">この子のいっしょうをきろくする</button>
+      </div>
+      <button id="resetBtn" title="あたらしいたまご" class="hidden">🥚<span>あたらしいたまご</span></button>
+      <button id="infiniteBtn" title="♾️のせかい" class="hidden"><span id="infiniteBtnIcon">♾️</span><span id="infiniteBtnLabel">♾️のせかい</span></button>
+    </div>
+  </div>
+
+  <div class="season-front-fx" id="seasonFrontFx"></div>
+  <div class="weather-fx" id="weatherFx"></div>
+
+  <script src="character-world-master.v1.js?v=16d2d5f5e260"></script>
+  <script src="cast-bounds.js?v=3844bd70323c"></script>
+  <script src="cast-motion.js?v=1e8d37ab6841"></script>
+  <script src="cast-layout.js?v=0ccb5535b52c"></script>
+  <script src="local-scenery.js?v=92cd3ea0c093"></script>
+  <script src="world-environment.js?v=1bd1b9931d99"></script>
+  <script src="world-scene.js?v=ab9be6165b58"></script>
+  <script src="prop-illustrations.js?v=e924f8be4ed5"></script>
+  <script src="game-symbol-art.js?v=1cfbbe95b2b7"></script>
+  <script src="ui-symbol-art.js?v=dbdce7f8a510"></script>
+  <script src="illustration-catalog.js?v=75f714c1d6dd"></script>
+  <script src="display-illustrations.js?v=06306aac0770"></script>
+  <script src="canvas-illustrations.js?v=b93c7911b073"></script>
+  <!-- めぐる 3D: script.js が通常起動で読み込む。URL の明示2D指定と失敗時は Canvas へ -->
+  <template id="meguru3dModule" data-src="meguru-3d.mjs?v=fd360e51b32d"></template>
+  <script src="relationship-life.js?v=845ec0c9e35d"></script>
+  <script src="meguru.js?v=cc66b39d3079"></script>
+  <script src="quick.js?v=583d114bd8f4"></script>
+  <script src="games.js?v=869382e6aae9"></script>
+  <script src="assets/bgm/catalog.js?v=20261114-0fdff208"></script>
+  <script src="assets/bgm/placement.js?v=20261114-5d9381bd"></script>
+  <script src="bgm-v2.js?v=20261114-072fe9b2"></script>
+  <script src="audio.js?v=20261114-88e1443d"></script>
+  <script src="comparisons/care-pace-20261125/care-pace-loader.js" data-file="care-status.js"></script>
+  <script src="emotion-state.js?v=d341ed6e7fe0"></script>
+  <script src="relationship-expression.js?v=5fdba60b9155"></script>
+  <script src="pet-expression.js?v=2286598972fd"></script>
+  <!-- めぐる 住民の 表情(Home の Expression System を そのまま つかう。resolver は 複製しない) -->
+  <script src="resident-expression.js?v=57387bc14fff"></script>
+  <script src="expression-presentation.js?v=ab8510eb808f"></script>
+  <script src="item-memories.js?v=252a43fba4fc"></script>
+  <script src="comparisons/care-pace-20261125/care-pace-loader.js" data-file="item-system.js"></script>
+  <script src="movie-dialogue.js?v=d02d262c0899"></script>
+  <script src="conversation-director.js?v=2047b0df7bde"></script>
+  <script src="conversation-banter.js?v=8421d4b21aae"></script>
+  <script src="conversation-postgame.js?v=83e7e8f6dbba"></script>
+  <script src="conversation-quick.js?v=c611170d33a4"></script>
+  <script src="conversation-away.js?v=313e11a812e7"></script>
+  <script src="life-stage-profiles.js?v=96996e9fdeaa"></script>
+  <script src="individuality-data.js?v=abff7c551e89"></script>
+  <script src="individuality.js?v=58f2b79761d4"></script>
+  <script src="minigame-reactions.js?v=b610f680bcab"></script>
+  <script src="home-production-model.js?v=12e7a718bde7"></script>
+  <script src="home-production-diorama.js?v=c96594e461ce"></script>
+  <script src="comparisons/care-pace-20261125/care-pace-loader.js" data-file="script.js"></script>
+  <script src="comparisons/care-pace-20261125/care-pace-hud.js"></script>
+  <script src="home-production-touch.js?v=4b70951f62b9"></script>
+  <script src="home-pinch-zoom.js?v=21e721f028b0"></script>
+<div id="individualityDialog" class="individual-dialog hidden" role="dialog" aria-modal="true" aria-labelledby="individualityTitle"><div class="individual-panel"><span id="individualitySpeaker" class="lane-speaker hidden"></span><h2 id="individualityTitle"></h2><p id="individualityText"></p><div id="individualityChoices"></div><button type="button" id="individualityLater">あとで</button></div></div>
+<script type="module" src="home-dayparts-qa.mjs?v=e19726c2c045"></script>
+</body>
+</html>

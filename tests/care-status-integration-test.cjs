@@ -105,21 +105,21 @@ test('critical care advice follows the real sequence without medicine for a heal
   assert.notEqual(h.get('message').dataset.careSeverity,'critical');
 });
 
-test('six-tick health death remains unchanged while every living tick has a notice', () => {
+// お世話頻度 監査 VERSION 3: けんこう0が 続いても 即死せず、かならず「おわかれの まえぶれ」(3分の 猶予)を 通る。
+// その 間も 生きている tick には かならず 赤い おしらせが 出ている。
+test('health-zero death always passes through the farewell warning while every living tick has a notice', () => {
   const h=harness();critical(h);
   // Production randomness is untouched. Suppress unrelated illness in this fixture.
   require('node:vm').runInContext('Math.random=()=>0.9999',h.sandbox);
-  for(let n=1;n<=6;n++) {
-    h.api.tick();h.api.render();
-    if(n<6) {
-      assert.equal(h.api.state().stage,'growing');
-      assert.equal(h.get('message').dataset.careSeverity,'critical');
-    }
+  let warnedAt=null, n=0;
+  while(h.api.state().stage==='growing' && n<200) {
+    n++;h.api.tick();h.api.render();
+    if(h.api.state().dying && warnedAt==null) warnedAt=n;
+    if(h.api.state().stage==='growing') assert.equal(h.get('message').dataset.careSeverity,'critical');
   }
   assert.equal(h.api.state().stage,'dead');
-  assert.equal(h.api.state().lowHealthStreak,6);
-  // 6 ticks x (4 from zero health + neglect-decline risk); childhood age risk no longer exists
-  assert.ok(Math.abs(h.api.state().deathMeter-24.18)<0.00001);
+  assert.ok(warnedAt!=null && warnedAt<=6,'the warning starts by the old six-tick limit: '+warnedAt);
+  assert.ok(n-warnedAt>=59,'death waits for the three-minute grace: '+(n-warnedAt));
   assert.notEqual(h.get('message').dataset.careSeverity,'critical');
 });
 
@@ -141,8 +141,9 @@ test('explicit care displays changes once; ordinary natural ticks stay quiet', (
   h.api.tick();h.api.render();
   assert.notEqual(h.get('message').dataset.careKind,'change');
   h.dispatch(h.get('feedBtn'),'click');
-  assert.match(h.get('message').textContent,/おなか.*[+＋]25/);
-  h.advance(5000);
+  assert.match(h.get('message').textContent,/おなか.*[+＋]30/);
+  // VERSION 3: ごはんの せいちょうが 5 に なり、つづけて「せいちょう ↑」が 出る ことが ある(お世話への 反応の 一部)
+  h.advance(10000);
   assert.notEqual(h.get('message').dataset.careKind,'change');
 });
 

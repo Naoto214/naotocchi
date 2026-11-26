@@ -89,7 +89,7 @@
       };
     }
     if (state.isSleeping && needsHunger) {
-      return { action: 'sleepBtn', detail: lifeRecovery ? '起きて、おなかを60以上にしよう' : '起きて、ごはんをあげよう' };
+      return { action: 'feedBtn', detail: lifeRecovery ? 'おなかを60以上にしよう' : 'ごはんをあげよう' };
     }
     if (needsHunger) {
       return { action: 'feedBtn', detail: lifeRecovery ? 'おなかを60以上にしよう' : 'ごはんをあげよう' };
@@ -100,7 +100,7 @@
     }
     if (needsHappiness) {
       if (energy <= 25) return { action: 'sleepBtn', detail: 'まずは寝て、げんきを回復しよう' };
-      if (petAvailable) return { action: 'playWithBtn', detail: lifeRecovery ? 'じゃれて、ごきげんを60以上にしよう' : 'やさしくじゃれよう' };
+      if (petAvailable && numeric(state, 'affectionStreak', 0) < 4) return { action: 'playWithBtn', detail: lifeRecovery ? 'じゃれて、ごきげんを60以上にしよう' : 'やさしくじゃれよう' };
       if (lifeRecovery && energy < 60) return { action: 'sleepBtn', detail: 'まずげんきを60以上にしよう' };
       return { action: 'playBtn', detail: lifeRecovery ? '遊んで、ごきげんを60以上にしよう' : '遊んで、ごきげんを整えよう' };
     }
@@ -108,7 +108,7 @@
       if (state.isSleeping) return { action: '', detail: lifeRecovery ? '寝て、げんきを60以上にしよう' : '寝ている間、げんきを回復中' };
       return { action: 'sleepBtn', detail: lifeRecovery ? '寝て、げんきを60以上にしよう' : '寝て、げんきを回復しよう' };
     }
-    if (numeric(state, 'poopCount', 0) >= 2) {
+    if (numeric(state, 'poopCount', 0) >= 3) {
       return { action: 'cleanBtn', detail: 'うんちが原因。そうじしよう' };
     }
     return { action: '', detail: 'おせわを続けて、少しずつ回復するのを待とう' };
@@ -155,7 +155,7 @@
     const hunger = numeric(state, 'hunger', 100);
     if (hunger <= 25) {
       if (state.isSleeping) {
-        return notice('hunger', 'warning', 'おなかがすいている', '起きてから、ごはんをあげよう', 'hunger', 'sleepBtn', 'droop');
+        return notice('hunger', 'warning', 'おなかがすいている', 'ごはんをあげよう（ねていたら起きて食べるよ）', 'hunger', 'feedBtn', 'droop');
       }
       return notice('hunger', 'warning', 'おなかがすいている', 'ごはんをあげよう', 'hunger', 'feedBtn', 'droop');
     }
@@ -173,13 +173,13 @@
           : '起きて、ごきげんを整えよう';
         return notice('happiness', 'info', 'ごきげんがひくい', detail, 'play', energy <= 25 ? '' : 'sleepBtn', 'droop');
       }
-      if (!petAvailable) {
+      if (!petAvailable || numeric(state, 'affectionStreak', 0) >= 4) {
         return notice('happiness', 'info', 'ごきげんがひくい', '遊んで、ごきげんを整えよう', 'play', 'playBtn', 'droop');
       }
       return notice('happiness', 'info', 'ごきげんがひくい', 'やさしくじゃれよう', 'play', 'playWithBtn', 'droop');
     }
 
-    if (numeric(state, 'poopCount', 0) >= 2) {
+    if (numeric(state, 'poopCount', 0) >= 3) {
       return notice('poop', 'info', 'うんちがたまっている', 'そうじしてきれいにしよう', 'clean', 'cleanBtn', 'droop');
     }
 

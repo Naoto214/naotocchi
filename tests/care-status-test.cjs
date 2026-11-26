@@ -138,12 +138,13 @@ test('low life gives recovery advice before the critical threshold and clears af
 test('life and health notices choose one useful action from the actual cause', () => {
   const cases = [
     ['illness can be treated even asleep', { isSick: true, sicknessType: 'ねつ', isSleeping: true }, 'medicineBtn', /くすり.*ねつ/],
-    ['sleeping must end before food', { hunger: 40, isSleeping: true }, 'sleepBtn', /起きて.*ごはん/],
+    // VERSION 3: ねていても ごはんを 押せば 起きて 食べるので、おすすめは ごはん
+    ['sleeping pets are fed directly (they wake up to eat)', { hunger: 40, isSleeping: true }, 'feedBtn', /ごはん/],
     ['hunger can be restored while awake', { hunger: 40 }, 'feedBtn', /ごはん/],
     ['sleeping must end before affection', { happiness: 40, isSleeping: true }, 'sleepBtn', /起きて.*ごきげん/],
     ['safe affection can restore mood', { happiness: 40 }, 'playWithBtn', /じゃれ/],
     ['tired pets need sleep rather than play', { happiness: 40, energy: 20 }, 'sleepBtn', /寝て.*げんき/],
-    ['dirt can be removed', { poopCount: 2 }, 'cleanBtn', /そうじ/],
+    ['dirt can be removed', { poopCount: 3 }, 'cleanBtn', /そうじ/],
     ['health recovery takes continued balanced care', {}, '', /少しずつ.*回復/],
   ];
 
@@ -200,7 +201,7 @@ test('assess reports ordinary care needs in priority order', () => {
     ['hunger', { hunger: 25 }, 'hunger', 'warning', 'hunger', 'feedBtn'],
     ['energy before mood', { energy: 25, happiness: 10 }, 'energy', 'warning', 'sleep', 'sleepBtn'],
     ['mood', { happiness: 25 }, 'happiness', 'info', 'play', 'playWithBtn'],
-    ['dirt', { poopCount: 2 }, 'poop', 'info', 'clean', 'cleanBtn'],
+    ['dirt', { poopCount: 3 }, 'poop', 'info', 'clean', 'cleanBtn'],
     ['decline', { decline: 70 }, 'decline', 'info', 'decline', ''],
   ];
 
@@ -242,7 +243,7 @@ test('fixed-slot status copy stays compact and has no Japanese word spacing', ()
     growing({ hunger: 25 }),
     growing({ energy: 25 }),
     growing({ happiness: 25 }),
-    growing({ poopCount: 2 }),
+    growing({ poopCount: 3 }),
     growing({ decline: 70 }),
     growing({ isSleeping: true, energy: 50 }),
     growing({ isSleeping: true, energy: 100 }),

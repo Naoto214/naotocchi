@@ -55,6 +55,10 @@ test('retired crown cannot rescue zero health but the existing miracle still wor
   s.itemLife.crownUsed=false;
   s.health=0;s.lowHealthStreak=14;
   h.api.tick();
+  // VERSION 3: けんこう0でも 即死せず、まず「おわかれの まえぶれ」(3分の 猶予)
+  assert.equal(s.stage,'growing');
+  assert.equal(s.dying,true);
+  for(let i=0;i<70&&s.stage==='growing';i++) h.api.tick();
   assert.equal(s.stage,'dead');
   assert.equal(s.itemLife.crownUsed,false);
 });
@@ -153,7 +157,7 @@ test('game pass applies exactly ordinary score-50 care and 30 coins without star
   let started=false;
   assert.equal(h.api.tryStartPlay({id:'pass-probe',noIntro:true,start(){started=true;}}),true);
   assert.equal(started,false);
-  assert.equal(s.energy,78);
+  assert.equal(s.energy,82); // VERSION 3: ミニゲーム(ゲームパス)1回の げんきは 8
   assert.equal(s.happiness,55);
   assert.equal(s.growth,7);
   assert.equal(s.decline,7);

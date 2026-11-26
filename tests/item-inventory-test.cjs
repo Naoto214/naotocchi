@@ -52,18 +52,19 @@ test('normal equipment catalog contains only the final ten products', () => {
 });
 
 const normalEquipmentPrices={
-  poop1:1000,sleepboost1:3000,bowtie:3000,ribbon:3000,scarf:3000,
+  // お世話頻度 監査 VERSION 3: お世話の 頻度に あわせて 自動お世話アイテムの 値段を 見なおした
+  poop1:1000,sleepboost1:2000,bowtie:1500,ribbon:1000,scarf:2000,
   travel1:3000,partner1:5000,bond1:5000,gamepass1:8000,star:10000,
 };
 const normalEquipmentDescriptions={
   poop1:'うんちが3個たまると、自動できれいにする。',
-  sleepboost1:'ねると、すぐにげんきが満タンになる。',
+  sleepboost1:'ねると、すぐにげんきが満タン。ねている間は、おなか・ごきげんが減らず、うんちも出ない。',
   bowtie:'おなかがへると、自動で満タンにする。',
   ribbon:'ごきげんが下がると、自動で満タンにする。',
-  scarf:'病気になると、自動で治してくれる。',
+  scarf:'病気になると、自動で治してくれる。様子がおかしいときは、1回だけ手当てもする。',
   travel1:'たびで、おなかとげんきが減らなくなる。',
-  partner1:'こいびとのなかよし度が25以下になると、自動で100にもどる。',
-  bond1:'なかまのきずなが25以下になると、自動で100にもどる。',
+  partner1:'こいびとのなかよし度が60より下がらず、いつでも家に来てくれる。',
+  bond1:'なかまのきずなが60より下がらず、いつでも家にあそびに来る。',
   gamepass1:'通常のミニゲームを遊ばずに、通常成功と同じ育成効果と30コインを得られます。プレイ回数や点数には記録されません。',
   star:'通常ミニゲームでもらえるコインが3倍になる。',
 };

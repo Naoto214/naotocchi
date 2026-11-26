@@ -119,7 +119,7 @@ test('URL presets use a strict allowlist and reset every care fixture independen
     hungry:{hunger:40,happiness:80,energy:80,isSick:false,sicknessType:null,deathMeter:0,affectionStreak:0},
     sick:{hunger:80,happiness:80,energy:80,isSick:true,sicknessType:'かぜ',deathMeter:0,affectionStreak:0},
     tired:{hunger:80,happiness:80,energy:40,isSick:false,sicknessType:null,deathMeter:0,affectionStreak:0},
-    sulky:{hunger:80,happiness:40,energy:80,isSick:false,sicknessType:null,deathMeter:0,affectionStreak:3},
+    sulky:{hunger:80,happiness:40,energy:80,isSick:false,sicknessType:null,deathMeter:0,affectionStreak:4},
     weak:{hunger:80,happiness:80,energy:80,health:80,isSick:false,sicknessType:null,deathMeter:60,affectionStreak:0,isSleeping:false},
     critical:{hunger:80,happiness:80,energy:80,isSick:false,sicknessType:null,deathMeter:80,affectionStreak:0},
     wantsPlay:{hunger:80,happiness:40,energy:80,health:80,isSick:false,sicknessType:null,deathMeter:0,affectionStreak:0,isSleeping:false},

@@ -143,11 +143,11 @@ test('health danger, explicit care changes, partner affinity and recovery remain
   assert.equal(h.get('device').dataset.worldCare,'critical');
   assert.match(h.get('worldCareState').textContent,/けんこうがげんかい/);
   assert.equal(h.get('feedBtn').dataset.careRecommended,'true');
-  h.dispatch(h.get('feedBtn'),'click');assert.equal(s.hunger,25);
+  h.dispatch(h.get('feedBtn'),'click');assert.equal(s.hunger,30); // VERSION 3: ごはん +30
   h.advance(10000); // The real feeding story pauses attention until it ends.
   Object.assign(s,{health:90,hunger:70,energy:90,happiness:90});h.api.render();
   assert.equal(h.get('device').dataset.worldCare,'normal');
-  h.dispatch(h.get('feedBtn'),'click');assert.match(h.get('message').textContent,/おなか.*[+＋]25/);
+  h.dispatch(h.get('feedBtn'),'click');assert.match(h.get('message').textContent,/おなか.*[+＋]30/);
   s.partner={id:'robot_neighbor',label:'ロボット',gender:'nonbinary',orientationId:'pan',affection:83};h.api.render();
   assert.match(h.get('partnerLabel').innerHTML,/なかよし度 83/);
   assert.doesNotMatch(h.get('partnerLabel').innerHTML,/NaN/);
