@@ -11421,7 +11421,7 @@
     if (state.deathMeter >= 80) {
       if (!state.dying) {
         state.dying = true;
-        state.dyingTicks = DYING_GRACE_TICKS;
+        state.dyingTicks = currentAge() >= 70 ? 40 : DYING_GRACE_TICKS; // ろうねんは 現行と 同じ 2分(老衰に 影響させない)
         setMessage('なおとっちの様子がおかしい…早くおせわをしてあげて!');
         emotePet('sad');
       } else if (!caring && state.dyingTicks > 0) {

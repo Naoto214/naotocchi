@@ -195,7 +195,7 @@ function newPlayer(h, s, plan, r, CS) {
 function setupRelations(h, s, opts) {
   if (!opts) return;
   const a = h.api;
-  if (opts.companions) s.companions = a.normalCompanions.slice(0, opts.companions).map(c => ({ id: c.id, bond: 100 }));
+  if (opts.companions) s.companions = [...a.normalCompanions, ...(a.rareCompanions || [])].slice(0, opts.companions).map(c => ({ id: c.id, bond: 100 }));
   if (opts.partner) {
     const cand = a.REGIONS.find(r => r.id === 'forest').candidates.find(c => c.attractedTo && c.attractedTo.length >= 2);
     Object.assign(s, { gender: 'female', orientationId: 'bi', attractedTo: ['female', 'male', 'nonbinary'] });
@@ -205,7 +205,7 @@ function setupRelations(h, s, opts) {
   if (opts.equip) { s.lifetime.equippedItemId = opts.equip; }
 }
 const OPT_PRESETS = {
-  base: {}, c4p: { companions: 4, partner: true }, c12p: { companions: 12, partner: true },
+  base: {}, c4p: { companions: 4, partner: true }, c12p: { companions: 12, partner: true }, c26p: { companions: 26, partner: true },
 };
 function presetOpts(key) {
   const out = {};
@@ -478,4 +478,4 @@ if (require.main === module) {
   if (outFile) fs.writeFileSync(outFile, json); else console.log(json);
 }
 
-module.exports = { PERSONAS, runLife, summarize, summarizeIdle, runIdleSnapshots, runRescue, spawnJob, IDLE_STATES };
+module.exports = { PERSONAS, runLife, summarize, summarizeIdle, runIdleSnapshots, runRescue, spawnJob, IDLE_STATES, newPlayer, setupRelations, presetOpts };

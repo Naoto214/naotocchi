@@ -95,6 +95,7 @@ PLANS.V3 = Object.assign({}, PLANS.B2, {
   poopSickGraceTicks: 80,      // うんち満杯から 4分は 病気の 抽選に 入れない(B2 2分)
   achievementsV3: true,        // ごはん12・そうじ15・病気を なおす 通算3/8・かんびょうのきろく→ねがおの見守り(通算10)
   phoenixRebirth: true,        // フェニックス: 生まれかわり(過去の人生 3回いじょう、そだち60なら 2回)・40さい いこうの 抽選
+  oldAgeGraceTicks: 40,        // ろうねん(70さい〜)の まえぶれの 猶予は 現行どおり 2分(3分に すると 99さいの 老衰が 100さいに まにあって しまう)
   neglectGraceTicks: 60,       // 「おこたり」が 3分 続いて から 病気の 抽選に 入る
   healthDrainScale: 0.6,       // 体調を くずした ときの けんこうの へり(現行の 0.6倍)
   itemsV3: { autoThreshold: 40, scarfAid: true, scarfNoCount: true, pillowRest: true, relationItemFloor: 60 },
@@ -238,6 +239,9 @@ function scriptPatches(plan) {
     '        } else if (!state.dying) {\n          // お世話頻度 監査 B2: 予告なしに 死なせない。まえぶれ(猶予つき)を 先に 出す\n' +
     '          state.deathMeter = Math.max(state.deathMeter, 80);\n          updateDyingWarning();\n' +
     '        } else if (state.dyingTicks <= 0) {\n          triggerDeath();\n        }\n      }\n\n      // 「死亡」メーターは');
+  if (P.oldAgeGraceTicks) add('ろうねん(70さい〜)の まえぶれの 猶予は 現行の まま(老衰の 時期を かえない)',
+    '        state.dyingTicks = DYING_GRACE_TICKS;',
+    `        state.dyingTicks = currentAge() >= 70 ? ${P.oldAgeGraceTicks} : DYING_GRACE_TICKS; // ろうねんは 現行と 同じ ${P.oldAgeGraceTicks * 3 / 60}分(老衰に 影響させない)`);
   if (P.dyingGraceTicks) add('おわかれの まえぶれの 猶予',
     'const DYING_GRACE_TICKS = 40; // 2分',
     `const DYING_GRACE_TICKS = ${P.dyingGraceTicks}; // ${P.dyingGraceTicks * 3 / 60}分(お世話頻度 監査 ${P.short})`);

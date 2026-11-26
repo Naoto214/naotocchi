@@ -86,6 +86,8 @@ test('まえぶれの 間、お世話を 続けていれば 猶予は へらな�
   const old = life({ ageTicks: 75 * 20, deathMeter: 99 });
   old.h.api.tick();
   const leftOld = old.s.dyingTicks;
+  assert.equal(leftOld, 40, 'ろうねんの まえぶれの 猶予は 現行と 同じ 2分(40 tick)');
+  assert.equal(left, 60, '70さい未満の 猶予は 3分(60 tick)');
   old.tap('feedBtn');
   ticks(old.h, 5);
   assert.ok(old.s.dyingTicks < leftOld, 'ろうねんは 猶予が へる(老衰の しくみを のこす)');
@@ -192,4 +194,55 @@ test('アイテムの 値段: トイレットペーパー1000・おもちゃば�
   const catalog = items.CATALOG || (items.catalog && items.catalog());
   const price = id => (catalog[id] || {}).price;
   assert.deepEqual(['poop1', 'ribbon', 'bowtie', 'scarf', 'sleepboost1', 'bond1', 'partner1'].map(price), [1000, 1000, 1500, 2000, 2000, 5000, 5000]);
+});
+
+// ---- 既存セーブとの 互換(VERSION 3 正式採用前の 最終確認) ----
+// 変更前の 本体(基準 main 24c64450)で つくった セーブを、V3 の 本体で 読みこむ。
+test('変更前の セーブを 読みこんでも、アイテム・実績・ずかん・なかま・こいびと・記録は 失われない', () => {
+  const { loadHarnessModule } = require('../tools/care-pace/simulate.cjs');
+  const Old = loadHarnessModule('current');
+  const before = Old.harness({ deterministic: true });
+  const o = before.api.state();
+  Object.assign(o, { hunger: 70, happiness: 60, energy: 50, poopCount: 3, isSick: true, sicknessType: 'かぜ', sicknessCuredThisLife: 4 });
+  o.lifetime.money = 12345;
+  o.lifetime.sicknessCured = 4;
+  o.lifetime.equippedItemId = 'scarf';
+  o.lifetime.itemInventory = { scarf: 1, bond1: 1, partner1: 1, sleepboost1: 1, c_life: 2 };
+  o.achievementsUnlocked = ['feed-100', 'clean-50', 'medicine-30', 'sick-cured-10'];
+  o.discoveredStages = [...new Set([...(o.discoveredStages || []), 'phoenix:0', 'dog:3'])];
+  o.lifetime.pastLives = [{ speciesLine: 'cat', maxAge: 100, sodachi: 70 }];
+  o.companions = [{ id: 'cat_friend', bond: 30 }, { id: 'tanuki', bond: 90 }];
+  o.partner = { id: 'grove_deer', label: 'こだちのシカ', emoji: '🦌', gender: 'female', orientationId: 'bi', attractedTo: ['female', 'male', 'nonbinary'], affection: 20, married: false, bondCount: 3 };
+  Object.assign(o, { gender: 'female', orientationId: 'bi', attractedTo: ['female', 'male', 'nonbinary'] });
+  const saved = JSON.stringify(o);
+  const storage = { data: { 'naotocchi-save-v1': saved }, getItem(k) { return this.data[k] ?? null; }, setItem(k, v) { this.data[k] = String(v); }, removeItem(k) { delete this.data[k]; } };
+  const h = harness({ resume: true, storage });
+  const s = h.api.state();
+  assert.equal(s.lifetime.money, 12345);
+  assert.equal(s.lifetime.equippedItemId, 'scarf');
+  for (const id of ['scarf', 'bond1', 'partner1', 'sleepboost1']) assert.ok((s.lifetime.itemInventory[id] || 0) >= 1, id + ' は 所持の まま');
+  assert.equal(s.lifetime.itemInventory.c_life, 2);
+  for (const id of ['feed-100', 'clean-50', 'medicine-30', 'sick-cured-10']) assert.ok(s.achievementsUnlocked.includes(id), id + ' は 達成の まま');
+  assert.ok(s.discoveredStages.includes('phoenix:0'), 'ずかん(フェニックス)は のこる');
+  assert.equal(s.lifetime.pastLives.length, 1);
+  assert.equal(s.lifetime.sicknessCured, 4);
+  assert.equal(JSON.stringify(s.companions.map(c => c.id)), JSON.stringify(['cat_friend', 'tanuki']));
+  assert.equal(s.partner && s.partner.affection, 20, 'きずなは 読みこみで かわらない(下限で 引き上げない)');
+  assert.equal(s.isSick, true);
+  // V3 で ふえた 値は、古い セーブに なくても そのまま うごき、保存・読みこみで のこる
+  for (let i = 0; i < 40; i++) h.api.tick();
+  assert.equal(s.stage, 'growing');
+  assert.ok(s.poopTimer > 0, 'うんちの 次の 時刻が きまる');
+  s.lifetime.sleepWatched = 3;
+  h.api.saveState();
+  const again = harness({ resume: true, storage });
+  assert.equal(again.api.state().lifetime.sleepWatched, 3, 'ねがおの見守りの 回数は 保存される');
+  assert.ok(again.api.state().poopTimer > 0);
+});
+
+test('寝ている間の デートと なかまの さそいでも 起きて 応じる(さそえない 理由に「ねている」が 出ない)', () => {
+  const src = fs.readFileSync('script.js', 'utf8');
+  assert.doesNotMatch(src, /if \(state\.isSleeping\) return 'ねている…おきてからさそおう';/);
+  assert.match(src, /plan = datePlanForRegion\(plan\);\n    if \(state\.isSleeping\) wakeForAction\(\);/);
+  assert.match(src, /if \(state\.isSleeping && state\.stage === STAGE\.GROWING\) wakeForAction\(\);\n    const stillOk/);
 });
