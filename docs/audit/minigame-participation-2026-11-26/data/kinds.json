@@ -1,0 +1,702 @@
+[
+ {
+  "id": "road-themed",
+  "factory": "makeRoadGame",
+  "kind": "アクション(4秒区切り)",
+  "achieved": "",
+  "actSites": 3
+ },
+ {
+  "id": "stack-themed",
+  "factory": "makeStackGame",
+  "kind": "アクション(4秒区切り)",
+  "achieved": "",
+  "actSites": 3
+ },
+ {
+  "id": "stack-snowman",
+  "factory": "makeStackGame",
+  "kind": "アクション(4秒区切り)",
+  "achieved": "",
+  "actSites": 3
+ },
+ {
+  "id": "falling-block-puzzle",
+  "factory": "makeFallingBlockPuzzleGame",
+  "kind": "アクション(4秒区切り)",
+  "achieved": "",
+  "actSites": 4
+ },
+ {
+  "id": "crane-game-3d",
+  "factory": "makeCraneGame",
+  "kind": "考える(2回)",
+  "achieved": "won.length > 0",
+  "actSites": 9
+ },
+ {
+  "id": "pinball-physics",
+  "factory": "makePinballGame",
+  "kind": "アクション(4秒区切り)",
+  "achieved": "",
+  "actSites": 7
+ },
+ {
+  "id": "haunted-house-3d",
+  "factory": "makeHauntedHouseGame",
+  "kind": "アクション(4秒区切り)",
+  "achieved": "hasKey || result === 'escaped'",
+  "actSites": 1
+ },
+ {
+  "id": "bowling-3d",
+  "factory": "makeBowlingGame",
+  "kind": "考える(2回)",
+  "achieved": "pinsDown > 0",
+  "actSites": 3
+ },
+ {
+  "id": "archery-3d",
+  "factory": "makeArcheryGame",
+  "kind": "考える(2回)",
+  "achieved": "",
+  "actSites": 9
+ },
+ {
+  "id": "breakout-classic",
+  "factory": "makeBreakoutGame",
+  "kind": "アクション(4秒区切り)",
+  "achieved": "score > 0 || !!all",
+  "actSites": 2
+ },
+ {
+  "id": "dragDecorate-cake",
+  "factory": "makeCakeDecorateGame",
+  "kind": "考える(1回)",
+  "achieved": "placedCount > 0",
+  "actSites": 1
+ },
+ {
+  "id": "dragDecorate-bento",
+  "factory": "makeBentoBoxGame",
+  "kind": "考える(1回)",
+  "achieved": "placedCount > 0",
+  "actSites": 1
+ },
+ {
+  "id": "p3-space",
+  "factory": "makeRoadGame",
+  "kind": "アクション(4秒区切り)",
+  "achieved": "",
+  "actSites": 3
+ },
+ {
+  "id": "p3-drive",
+  "factory": "makeRoadGame",
+  "kind": "アクション(4秒区切り)",
+  "achieved": "",
+  "actSites": 3
+ },
+ {
+  "id": "fp-dungeon",
+  "factory": "makeFirstPersonDungeonGame",
+  "kind": "アクション(4秒区切り)",
+  "achieved": "escaped || taken > 0",
+  "actSites": 1
+ },
+ {
+  "id": "race-3d",
+  "factory": "makeRoadRaceGame",
+  "kind": "アクション(4秒区切り)",
+  "achieved": "win",
+  "actSites": 3
+ },
+ {
+  "id": "rhythm-highway-3d",
+  "factory": "makeRhythmHighwayGame",
+  "kind": "アクション(4秒区切り)",
+  "achieved": "",
+  "actSites": 6
+ },
+ {
+  "id": "tilt-maze-3d",
+  "factory": "makeTiltMazeGame",
+  "kind": "アクション(4秒区切り)",
+  "achieved": "",
+  "actSites": 2
+ },
+ {
+  "id": "space-gunner-3d",
+  "factory": "makeSpaceGunnerGame",
+  "kind": "アクション(4秒区切り)",
+  "achieved": "kills > 0",
+  "actSites": 8
+ },
+ {
+  "id": "mini-golf-physics",
+  "factory": "makeMiniGolfGame",
+  "kind": "考える(2回)",
+  "achieved": "holeIdx > 0 || sunk",
+  "actSites": 5
+ },
+ {
+  "id": "real-fishing",
+  "factory": "makeRealFishingGame",
+  "kind": "考える(2回)",
+  "achieved": "caught.length > 0",
+  "actSites": 9
+ },
+ {
+  "id": "basketball-3d",
+  "factory": "makeBasketballGame",
+  "kind": "考える(2回)",
+  "achieved": "made > 0",
+  "actSites": 9
+ },
+ {
+  "id": "pingpong-3d",
+  "factory": "makePingPongGame",
+  "kind": "アクション(4秒区切り)",
+  "achieved": "me > 0",
+  "actSites": 5
+ },
+ {
+  "id": "chain-puzzle",
+  "factory": "makeChainPuzzleGame",
+  "kind": "アクション(4秒区切り)",
+  "achieved": "popped > 0",
+  "actSites": 6
+ },
+ {
+  "id": "street-fight",
+  "factory": "makeStreetFightGame",
+  "kind": "アクション(4秒区切り)",
+  "achieved": "",
+  "actSites": 8
+ },
+ {
+  "id": "free-kick-3d",
+  "factory": "makeFreeKickGame",
+  "kind": "考える(2回)",
+  "achieved": "goals > 0",
+  "actSites": 8
+ },
+ {
+  "id": "tower-defense",
+  "factory": "makeTowerDefenseGame",
+  "kind": "考える(2回)",
+  "achieved": "kills > 0",
+  "actSites": 8
+ },
+ {
+  "id": "roguelike-dungeon",
+  "factory": "makeRoguelikeGame",
+  "kind": "考える(3回)",
+  "achieved": "win || kills > 0 || floor > 1",
+  "actSites": 2
+ },
+ {
+  "id": "grand-prix-3d",
+  "factory": "makeGrandPrixGame",
+  "kind": "アクション(4秒区切り)",
+  "achieved": "",
+  "actSites": 3
+ },
+ {
+  "id": "sky-shooter",
+  "factory": "makeSkyShooterGame",
+  "kind": "アクション(4秒区切り)",
+  "achieved": "",
+  "actSites": 4
+ },
+ {
+  "id": "jump-quest",
+  "factory": "makeJumpQuestGame",
+  "kind": "アクション(4秒区切り)",
+  "achieved": "win || got > 0 || stomps > 0",
+  "actSites": 4
+ },
+ {
+  "id": "push-puzzle",
+  "factory": "makePushPuzzleGame",
+  "kind": "考える(3回)",
+  "achieved": "solved > 0",
+  "actSites": 5
+ },
+ {
+  "id": "reversi-6",
+  "factory": "makeReversiGame",
+  "kind": "盤上の対戦(手と手の間)",
+  "achieved": "",
+  "actSites": 3
+ },
+ {
+  "id": "billiards-6",
+  "factory": "makeBilliardsGame",
+  "kind": "考える(2回)",
+  "achieved": "pocketed > 0",
+  "actSites": 7
+ },
+ {
+  "id": "animal-shogi",
+  "factory": "makeAnimalShogiGame",
+  "kind": "盤上の対戦(手と手の間)",
+  "achieved": "",
+  "actSites": 2
+ },
+ {
+  "id": "minesweeper-8",
+  "factory": "makeMinesweeperGame",
+  "kind": "アクション(4秒区切り)",
+  "achieved": "",
+  "actSites": 3
+ },
+ {
+  "id": "snake-classic",
+  "factory": "makeSnakeGame",
+  "kind": "アクション(4秒区切り)",
+  "achieved": "ate > 0 || turns >= 3",
+  "actSites": 1
+ },
+ {
+  "id": "baseball-batting",
+  "factory": "makeBaseballGame",
+  "kind": "考える(2回)",
+  "achieved": "hits > 0",
+  "actSites": 4
+ },
+ {
+  "id": "ring-flight-3d",
+  "factory": "makeRingFlightGame",
+  "kind": "アクション(4秒区切り)",
+  "achieved": "",
+  "actSites": 8
+ },
+ {
+  "id": "bubble-shooter",
+  "factory": "makeBubbleShooterGame",
+  "kind": "アクション(4秒区切り)",
+  "achieved": "",
+  "actSites": 3
+ },
+ {
+  "id": "catapult-castle",
+  "factory": "makeCatapultGame",
+  "kind": "考える(2回)",
+  "achieved": "killed > 0",
+  "actSites": 4
+ },
+ {
+  "id": "connect-four",
+  "factory": "makeConnectFourGame",
+  "kind": "盤上の対戦(手と手の間)",
+  "achieved": "",
+  "actSites": 2
+ },
+ {
+  "id": "puzzle-2048",
+  "factory": "makeTwentyFortyEightGame",
+  "kind": "考える(3回)",
+  "achieved": "",
+  "actSites": 1
+ },
+ {
+  "id": "frogger-road",
+  "factory": "makeFroggerGame",
+  "kind": "アクション(4秒区切り)",
+  "achieved": "goals > 0 || bestAdv >= 3",
+  "actSites": 6
+ },
+ {
+  "id": "ski-jump",
+  "factory": "makeSkiJumpGame",
+  "kind": "考える(2回)",
+  "achieved": "",
+  "actSites": 11
+ },
+ {
+  "id": "air-hockey",
+  "factory": "makeAirHockeyGame",
+  "kind": "アクション(4秒区切り)",
+  "achieved": "",
+  "actSites": 5
+ },
+ {
+  "id": "submarine-3d",
+  "factory": "makeSubmarineGame",
+  "kind": "アクション(4秒区切り)",
+  "achieved": "",
+  "actSites": 8
+ },
+ {
+  "id": "match-3",
+  "factory": "makeMatchThreeGame",
+  "kind": "アクション(4秒区切り)",
+  "achieved": "score > 0",
+  "actSites": 1
+ },
+ {
+  "id": "gomoku-9",
+  "factory": "makeGomokuGame",
+  "kind": "盤上の対戦(手と手の間)",
+  "achieved": "",
+  "actSites": 4
+ },
+ {
+  "id": "tank-battle",
+  "factory": "makeTankBattleGame",
+  "kind": "アクション(4秒区切り)",
+  "achieved": "killed > 0",
+  "actSites": 3
+ },
+ {
+  "id": "tennis-rally",
+  "factory": "makeTennisGame",
+  "kind": "アクション(4秒区切り)",
+  "achieved": "",
+  "actSites": 6
+ },
+ {
+  "id": "picross-5",
+  "factory": "makePicrossGame",
+  "kind": "考える(2回)",
+  "achieved": "solved > 0",
+  "actSites": 5
+ },
+ {
+  "id": "darts-board",
+  "factory": "makeDartsGame",
+  "kind": "考える(2回)",
+  "achieved": "",
+  "actSites": 5
+ },
+ {
+  "id": "hang-glider-3d",
+  "factory": "makeHangGliderGame",
+  "kind": "アクション(4秒区切り)",
+  "achieved": "",
+  "actSites": 6
+ },
+ {
+  "id": "bomber-maze",
+  "factory": "makeBomberGame",
+  "kind": "アクション(4秒区切り)",
+  "achieved": "",
+  "actSites": 2
+ },
+ {
+  "id": "blackjack-21",
+  "factory": "makeBlackjackGame",
+  "kind": "考える(1回)",
+  "achieved": "",
+  "actSites": 3
+ },
+ {
+  "id": "pipe-connect",
+  "factory": "makePipeConnectGame",
+  "kind": "考える(2回)",
+  "achieved": "solved > 0",
+  "actSites": 5
+ },
+ {
+  "id": "fruit-slice",
+  "factory": "makeFruitSliceGame",
+  "kind": "アクション(4秒区切り)",
+  "achieved": "",
+  "actSites": 3
+ },
+ {
+  "id": "track-field",
+  "factory": "makeTrackFieldGame",
+  "kind": "アクション(4秒区切り)",
+  "achieved": "!!results.dash",
+  "actSites": 4
+ },
+ {
+  "id": "voxel-mine",
+  "factory": "makeVoxelMineGame",
+  "kind": "アクション(4秒区切り)",
+  "achieved": "score > 0",
+  "actSites": 2
+ },
+ {
+  "id": "sushi-belt",
+  "factory": "makeSushiBeltGame",
+  "kind": "アクション(4秒区切り)",
+  "achieved": "",
+  "actSites": 3
+ },
+ {
+  "id": "asteroids-classic",
+  "factory": "makeAsteroidsGame",
+  "kind": "アクション(4秒区切り)",
+  "achieved": "",
+  "actSites": 5
+ },
+ {
+  "id": "yacht-dice",
+  "factory": "makeYachtDiceGame",
+  "kind": "考える(2回)",
+  "achieved": "total > 0",
+  "actSites": 2
+ },
+ {
+  "id": "lights-out",
+  "factory": "makeLightsOutGame",
+  "kind": "考える(2回)",
+  "achieved": "solved > 0",
+  "actSites": 1
+ },
+ {
+  "id": "doodle-jump",
+  "factory": "makeDoodleJumpGame",
+  "kind": "アクション(4秒区切り)",
+  "achieved": "",
+  "actSites": 5
+ },
+ {
+  "id": "curling-ice",
+  "factory": "makeCurlingGame",
+  "kind": "アクション(回数のみ)",
+  "achieved": "",
+  "actSites": 8
+ },
+ {
+  "id": "jenga-tower",
+  "factory": "makeJengaGame",
+  "kind": "考える(1回)",
+  "achieved": "",
+  "actSites": 1
+ },
+ {
+  "id": "line-trace",
+  "factory": "makeLineTraceGame",
+  "kind": "考える(1回)",
+  "achieved": "avg > 0",
+  "actSites": 6
+ },
+ {
+  "id": "checkers-6",
+  "factory": "makeCheckersGame",
+  "kind": "盤上の対戦(手と手の間)",
+  "achieved": "",
+  "actSites": 2
+ },
+ {
+  "id": "memory-cards",
+  "factory": "makeMemoryCardsGame",
+  "kind": "考える(2回)",
+  "achieved": "matched > 0",
+  "actSites": 1
+ },
+ {
+  "id": "halfpipe-skate",
+  "factory": "makeHalfpipeGame",
+  "kind": "アクション(4秒区切り)",
+  "achieved": "",
+  "actSites": 3
+ },
+ {
+  "id": "domino-run",
+  "factory": "makeDominoRunGame",
+  "kind": "考える(2回)",
+  "achieved": "cleared > 0",
+  "actSites": 4
+ },
+ {
+  "id": "sudoku-mini",
+  "factory": "makeSudokuGame",
+  "kind": "考える(2回)",
+  "achieved": "solved > 0",
+  "actSites": 5
+ },
+ {
+  "id": "mancala-kalah",
+  "factory": "makeMancalaGame",
+  "kind": "盤上の対戦(手と手の間)",
+  "achieved": "",
+  "actSites": 4
+ },
+ {
+  "id": "plane-landing",
+  "factory": "makePlaneLandingGame",
+  "kind": "アクション(4秒区切り)",
+  "achieved": "",
+  "actSites": 4
+ },
+ {
+  "id": "dot-eater",
+  "factory": "makeDotEaterGame",
+  "kind": "アクション(4秒区切り)",
+  "achieved": "dotsTotal - dots > 0",
+  "actSites": 1
+ },
+ {
+  "id": "missile-command",
+  "factory": "makeMissileCommandGame",
+  "kind": "アクション(4秒区切り)",
+  "achieved": "ratio > 0",
+  "actSites": 4
+ },
+ {
+  "id": "area-claim",
+  "factory": "makeAreaClaimGame",
+  "kind": "アクション(4秒区切り)",
+  "achieved": "won || claimed > 0",
+  "actSites": 2
+ },
+ {
+  "id": "solitaire-klondike",
+  "factory": "makeSolitaireGame",
+  "kind": "考える(2回)",
+  "achieved": "won || n > 0",
+  "actSites": 2
+ },
+ {
+  "id": "hit-blow",
+  "factory": "makeHitBlowGame",
+  "kind": "考える(1回)",
+  "achieved": "solved",
+  "actSites": 3
+ },
+ {
+  "id": "lunar-lander",
+  "factory": "makeLunarLanderGame",
+  "kind": "アクション(4秒区切り)",
+  "achieved": "landed > 0",
+  "actSites": 4
+ },
+ {
+  "id": "shanghai-tiles",
+  "factory": "makeShanghaiGame",
+  "kind": "考える(2回)",
+  "achieved": "won || pairs > 0",
+  "actSites": 1
+ },
+ {
+  "id": "beach-volley",
+  "factory": "makeBeachVolleyGame",
+  "kind": "アクション(4秒区切り)",
+  "achieved": "me > 0",
+  "actSites": 4
+ },
+ {
+  "id": "slide-puzzle",
+  "factory": "makeSlidePuzzleGame",
+  "kind": "考える(2回)",
+  "achieved": "solved",
+  "actSites": 1
+ },
+ {
+  "id": "sugoroku-race",
+  "factory": "makeSugorokuGame",
+  "kind": "考える(2回)",
+  "achieved": "",
+  "actSites": 4
+ },
+ {
+  "id": "takoyaki-grill",
+  "factory": "makeTakoyakiGame",
+  "kind": "アクション(4秒区切り)",
+  "achieved": "perfect + good > 0",
+  "actSites": 1
+ },
+ {
+  "id": "road-city",
+  "factory": "makeRoadGame",
+  "kind": "アクション(4秒区切り)",
+  "achieved": "",
+  "actSites": 3
+ },
+ {
+  "id": "stack-harvest",
+  "factory": "makeStackGame",
+  "kind": "アクション(4秒区切り)",
+  "achieved": "",
+  "actSites": 3
+ },
+ {
+  "id": "stack-acorn",
+  "factory": "makeStackGame",
+  "kind": "アクション(4秒区切り)",
+  "achieved": "",
+  "actSites": 3
+ },
+ {
+  "id": "downhill-mountain",
+  "factory": "makeRockClimbGame",
+  "kind": "考える(2回)",
+  "achieved": "row > 0",
+  "actSites": 3
+ },
+ {
+  "id": "downhill-snow",
+  "factory": "makeDownhillGame",
+  "kind": "アクション(4秒区切り)",
+  "achieved": "",
+  "actSites": 2
+ },
+ {
+  "id": "fishing-sea",
+  "factory": "makeRealFishingGame",
+  "kind": "考える(2回)",
+  "achieved": "caught.length > 0",
+  "actSites": 9
+ },
+ {
+  "id": "fishing-deepsea",
+  "factory": "makeRealFishingGame",
+  "kind": "考える(2回)",
+  "achieved": "caught.length > 0",
+  "actSites": 9
+ },
+ {
+  "id": "fishing-river",
+  "factory": "makeRealFishingGame",
+  "kind": "考える(2回)",
+  "achieved": "caught.length > 0",
+  "actSites": 9
+ },
+ {
+  "id": "road-jungle",
+  "factory": "makeRoadGame",
+  "kind": "アクション(4秒区切り)",
+  "achieved": "",
+  "actSites": 3
+ },
+ {
+  "id": "road-desert",
+  "factory": "makeRoadGame",
+  "kind": "アクション(4秒区切り)",
+  "achieved": "",
+  "actSites": 3
+ },
+ {
+  "id": "stack-sakura",
+  "factory": "makeStackGame",
+  "kind": "アクション(4秒区切り)",
+  "achieved": "",
+  "actSites": 3
+ },
+ {
+  "id": "ring-flight-summer",
+  "factory": "makeRingFlightGame",
+  "kind": "アクション(4秒区切り)",
+  "achieved": "",
+  "actSites": 8
+ },
+ {
+  "id": "stack-leaves",
+  "factory": "makeStackGame",
+  "kind": "アクション(4秒区切り)",
+  "achieved": "",
+  "actSites": 3
+ },
+ {
+  "id": "curling-winter",
+  "factory": "makeCurlingGame",
+  "kind": "アクション(回数のみ)",
+  "achieved": "",
+  "actSites": 8
+ }
+]

@@ -1,9 +1,19 @@
 {
   "index.html": {
     "before": "c9432f2b62b2c95a36338f8166627abe8feb97d3",
-    "after": "4f7e699ae3923ee0e4be53d5e4faa0eeba4c8d02",
+    "after": "f079e6c6c02e6286efdba568a6bc408c914942b3",
     "size": 73100,
     "reverse": [
+      [
+        72427,
+        72478,
+        "  <script src=\"script.js?v=f1ea16206e71\"></script>\n"
+      ],
+      [
+        70755,
+        70805,
+        "  <script src=\"games.js?v=2ad139f5d541\"></script>\n"
+      ],
       [
         72293,
         72604,
@@ -38,9 +48,24 @@
   },
   "tools/pages/allowlist.json": {
     "before": "f1b1fb9cf575c6305fac17fb25dcf80a59d13c31",
-    "after": "09104aef5d8b1e12aa78da9bdaf22947e42e3c75",
+    "after": "1aba774c3647060382c31cf49d3b6b9884d89188",
     "size": 296644,
     "reverse": [
+      [
+        281809,
+        281894,
+        "    \"script.js\": \"f1ea16206e71609ec2f47a4307772568252a407ead0e340da5d42aaaa82a5650\",\n"
+      ],
+      [
+        267630,
+        267716,
+        "    \"index.html\": \"1093f16cab31b11e5b035c766e3e16c617cff4c177ffb6dbe5bc9b102fda8412\",\n"
+      ],
+      [
+        265226,
+        265310,
+        "    \"games.js\": \"2ad139f5d5414b852d2d1b7768f12f3987ce4c832697e1ab9534289bdeb5bdd0\",\n"
+      ],
       [
         294374,
         294683,
@@ -119,9 +144,784 @@
   },
   "games.js": {
     "before": "a93847e0d6ce254074270b01583caad8c54f1928",
-    "after": "5aedc476aa03d9d5a7462d9fb2897cfef3553d58",
-    "size": 1018153,
+    "after": "fd67d802864f8848e56a914b2ec6d5d2fc7816a3",
+    "size": 1026001,
     "reverse": [
+      [
+        1014652,
+        1014785,
+        "          setTimeout(() => onComplete(score), 650);\n"
+      ],
+      [
+        1010104,
+        1010423,
+        "        canvas.addEventListener('pointerdown', (e) => { if (!running) return; e.preventDefault(); const p = mgPointerPos(canvas, e); const now = performance.now(); if (now < startTime) return; for (const h of holes) { if (Math.hypot(p.x - h.cx, p.y - h.cy) < CELL * 0.48) { tapHole(h, now); break; } } });\n"
+      ],
+      [
+        1007119,
+        1007214,
+        "        const startTime = performance.now() + MG_ACTION_START_GRACE_MS;\n"
+      ],
+      [
+        994358,
+        994479,
+        "          setTimeout(() => onComplete(score), 650);\n"
+      ],
+      [
+        989669,
+        989793,
+        "          board[blank] = board[idx]; board[idx] = N * N - 1; blank = idx; moves++; hud(); showPreview = false;\n"
+      ],
+      [
+        984752,
+        984822,
+        "        const startTime = performance.now();\n"
+      ],
+      [
+        983785,
+        983906,
+        "          setTimeout(() => onComplete(score), 650);\n"
+      ],
+      [
+        974112,
+        974303,
+        "        bindHeldButton(container.querySelector('#bvAttack'), (v) => { held.a = v; if (v) { attackAt = performance.now(); if (!P.jumping) { P.jumping = true; P.vy = -300; } } });\n"
+      ],
+      [
+        973099,
+        973385,
+        "        const { pad } = mgPad(container, { mode: 'vector', axis: 'x', sticky: true, onVector: (x) => { held.l = x < -0.4; held.r = x > 0.4; } }, `<button class=\"mg-tap-btn primary mg-hold-btn\" id=\"bvAttack\" data-key=\"action\">🏐アタック</button>`);\n"
+      ],
+      [
+        972301,
+        972397,
+        "        const startTime = performance.now();\n"
+      ],
+      [
+        971133,
+        971264,
+        "          setTimeout(() => onComplete(score), 650);\n"
+      ],
+      [
+        967817,
+        967840,
+        ""
+      ],
+      [
+        956622,
+        956692,
+        "        const startTime = performance.now();\n"
+      ],
+      [
+        955221,
+        955346,
+        "          setTimeout(() => onComplete(score), 650);\n"
+      ],
+      [
+        946243,
+        946349,
+        "        bindHeldButton(container.querySelector('#llThrust'), (v) => { held.t = v; });\n"
+      ],
+      [
+        945339,
+        945624,
+        "        const { pad } = mgPad(container, { mode: 'vector', axis: 'x', holdMs: 150, onVector: (x) => { held.l = x < -0.4; held.r = x > 0.4; } }, `<button class=\"mg-tap-btn primary mg-hold-btn\" id=\"llThrust\" data-key=\"action\">🔥ふんしゃ</button>`);\n"
+      ],
+      [
+        944607,
+        944703,
+        "        const startTime = performance.now();\n"
+      ],
+      [
+        934742,
+        934869,
+        "          setTimeout(() => onComplete(score), 650);\n"
+      ],
+      [
+        927616,
+        927668,
+        "        function draw() {\n"
+      ],
+      [
+        926516,
+        926576,
+        "        function moveTo(target) {\n"
+      ],
+      [
+        923406,
+        923476,
+        "        const startTime = performance.now();\n"
+      ],
+      [
+        922305,
+        922438,
+        "          setTimeout(() => onComplete(score), 650);\n"
+      ],
+      [
+        913529,
+        913921,
+        "        canvas.addEventListener('pointermove', (e) => { if (!swipe || e.pointerId !== swipe.id) return; const dx = e.clientX - swipe.x, dy = e.clientY - swipe.y; if (Math.hypot(dx, dy) < MG_SWIPE_MIN * 0.6) return; held = { l: dx < -Math.abs(dy), r: dx > Math.abs(dy), u: dy < -Math.abs(dx), d: dy > Math.abs(dx) }; swipe.x = e.clientX; swipe.y = e.clientY; swipe.moved = true; });\n"
+      ],
+      [
+        911801,
+        912035,
+        "        const { pad } = mgPad(container, { mode: 'vector', sticky: true, dominant: true, onVector: (x, y) => { held = { l: x < -0.4, r: x > 0.4, u: y < -0.4, d: y > 0.4 }; } }, '');\n"
+      ],
+      [
+        911053,
+        911176,
+        "        const startTime = performance.now() + MG_ACTION_START_GRACE_MS;\n"
+      ],
+      [
+        909902,
+        910026,
+        "          setTimeout(() => onComplete(score), 650);\n"
+      ],
+      [
+        903330,
+        903476,
+        "        canvas.addEventListener('pointerdown', (e) => { e.preventDefault(); const p = mgPointerPos(canvas, e); fireAt(p.x, p.y); });\n"
+      ],
+      [
+        900038,
+        900133,
+        "        const startTime = performance.now() + MG_ACTION_START_GRACE_MS;\n"
+      ],
+      [
+        899022,
+        899157,
+        "          setTimeout(() => onComplete(score), 650);\n"
+      ],
+      [
+        889301,
+        889442,
+        "        function turnTo(dx, dy) { player.want = [dx, dy]; }\n"
+      ],
+      [
+        886650,
+        886745,
+        "        const startTime = performance.now() + MG_ACTION_START_GRACE_MS;\n"
+      ],
+      [
+        857789,
+        857914,
+        "          setTimeout(() => onComplete(score), 650);\n"
+      ],
+      [
+        853790,
+        853813,
+        ""
+      ],
+      [
+        848802,
+        848872,
+        "        const startTime = performance.now();\n"
+      ],
+      [
+        829675,
+        829801,
+        "          setTimeout(() => onComplete(score), 650);\n"
+      ],
+      [
+        826058,
+        826154,
+        "          c.flipAt = performance.now(); c.faceUp = true; open.push(c); sfx('pop');\n"
+      ],
+      [
+        824092,
+        824162,
+        "        const startTime = performance.now();\n"
+      ],
+      [
+        811545,
+        811667,
+        "          setTimeout(() => onComplete(score), 650);\n"
+      ],
+      [
+        806501,
+        806935,
+        "        canvas.addEventListener('pointerdown', (e) => { e.preventDefault(); if (!running || doneAt) return; try { canvas.setPointerCapture(e.pointerId); } catch (err) {} const p = mgPointerPos(canvas, e); if (Math.hypot(p.x - pts[0][0], p.y - pts[0][1]) > 30) { say('●のスタートからはじめて', 800); return; } drawing = { id: e.pointerId }; trail = []; covered = pts.map(() => false); addPoint(p.x, p.y); });\n"
+      ],
+      [
+        804686,
+        804756,
+        "        const startTime = performance.now();\n"
+      ],
+      [
+        767688,
+        767813,
+        "          setTimeout(() => onComplete(score), 650);\n"
+      ],
+      [
+        764771,
+        765396,
+        "        canvas.addEventListener('pointerdown', (e) => { e.preventDefault(); if (!running || solvedAt) return; const p = mgPointerPos(canvas, e); const x = Math.floor((p.x - PAD) / CELL), y = Math.floor((p.y - PAD) / CELL); if (x < 0 || y < 0 || x >= N || y >= N) return; press(x, y, true); moves++; totalMoves++; hud(); if (grid.every((r) => r.every((v) => !v))) { solvedAt = performance.now(); solved++; say(moves <= par ? '✨最少手数でクリア!' : `クリア!${moves}手`, 1500); setTimeout(() => { if (!running) return; round++; if (round >= ROUNDS) { finish(); return; } gen(); hud(); }, 1600); } });\n"
+      ],
+      [
+        762651,
+        762721,
+        "        const startTime = performance.now();\n"
+      ],
+      [
+        761252,
+        761376,
+        "          setTimeout(() => onComplete(score), 650);\n"
+      ],
+      [
+        757727,
+        757921,
+        "          const pts = cat.f(dice); used[cat.id] = pts; total += pts; sfx(pts >= 25 ? 'coin' : pts ? 'pop' : 'bad'); say(pts ? `${cat.name} +${pts}!` : `${cat.name} 0点…`, 1300);\n"
+      ],
+      [
+        756541,
+        756968,
+        "        function roll() { if (!running || rolls >= 3 || rolling) return; rolls++; rolling = 1; sfx('whoosh'); rollAnim = dice.map((v, i) => (heldD[i] ? null : { at: performance.now() })); setTimeout(() => { if (!running) return; dice = dice.map((v, i) => (heldD[i] ? v : 1 + Math.floor(Math.random() * 6))); rolling = 0; rollAnim = []; hud(); if (rolls >= 3) say('役を選んで記録!', 1200); }, 450); hud(); }\n"
+      ],
+      [
+        753224,
+        753303,
+        "        const TURNS = 5;\n"
+      ],
+      [
+        733003,
+        733127,
+        "          setTimeout(() => onComplete(final), 650);\n"
+      ],
+      [
+        724670,
+        725405,
+        "        let swipe = null; canvas.addEventListener('pointerdown', (e) => { e.preventDefault(); swipe = { x: e.clientX, y: e.clientY, id: e.pointerId }; }); canvas.addEventListener('pointermove', (e) => { if (!swipe || e.pointerId !== swipe.id) return; const dx = e.clientX - swipe.x, dy = e.clientY - swipe.y; if (Math.hypot(dx, dy) < MG_SWIPE_MIN) return; held = { up: false, down: false, left: false, right: false }; if (Math.abs(dx) > Math.abs(dy)) held[dx > 0 ? 'right' : 'left'] = true; else held[dy > 0 ? 'down' : 'up'] = true; swipe.tap = true; setTimeout(() => { held = { up: false, down: false, left: false, right: false }; }, 450); swipe = null; }); canvas.addEventListener('pointerup', () => { swipe = null; });\n"
+      ],
+      [
+        723091,
+        723360,
+        "        const { pad } = mgPad(container, { mode: 'vector', sticky: true, dominant: true, onVector: (x, y) => { held.left = x < -0.4; held.right = x > 0.4; held.up = y < -0.4; held.down = y > 0.4; } }, '');\n"
+      ],
+      [
+        722255,
+        722378,
+        "        const startTime = performance.now() + MG_ACTION_START_GRACE_MS;\n"
+      ],
+      [
+        721193,
+        721322,
+        "          setTimeout(() => onComplete(score), 650);\n"
+      ],
+      [
+        713610,
+        713842,
+        "        bindHeldButton(jumpBtn, (v) => { if (!running || event !== 'jump') return; if (v) { if (jumpPhase === 'run') { holdStart = performance.now(); jumpPhase = 'hold'; } } else if (jumpPhase === 'hold') doJump(); });\n"
+      ],
+      [
+        712872,
+        713243,
+        "        const run = (k) => { if (!running || performance.now() < startTime + 3000) return; if (event === 'jump' && jumpPhase !== 'run') return; if (k === lastKey) { speed = Math.max(0, speed - 0.3); return; } lastKey = k; taps++; sfx('tick'); speed = Math.min(lerp(9.5, 11.5, 1 - difficulty * 0.4), speed + lerp(1.4, 1.1, difficulty)); };\n"
+      ],
+      [
+        711352,
+        711426,
+        "        const startTime = performance.now() + 900;\n"
+      ],
+      [
+        700313,
+        700438,
+        "          setTimeout(() => onComplete(score), 650);\n"
+      ],
+      [
+        696667,
+        697339,
+        "        canvas.addEventListener('pointerdown', (e) => { e.preventDefault(); if (!running || flow) return; const p = mgPointerPos(canvas, e); const x = Math.floor((p.x - PAD) / CELL), y = Math.floor((p.y - PAD) / CELL); if (x < 0 || y < 0 || x >= N || y >= N) return; grid[y][x] = rotate(grid[y][x]); rot[y][x] = performance.now(); taps++; sfx('tick'); hud(); const r = check(); if (r) { wet = r; flow = { at: performance.now(), cells: r.size }; solved++; sfx('coin'); say('💧つながった!', 1500); setTimeout(() => { if (!running) return; round++; if (round >= ROUNDS) { finish(); return; } gen(); hud(); say('つぎのパイプ!', 900); }, 1800); } });\n"
+      ],
+      [
+        692562,
+        692632,
+        "        const startTime = performance.now();\n"
+      ],
+      [
+        683050,
+        683214,
+        "          setTimeout(() => onComplete(score), 650);\n"
+      ],
+      [
+        677369,
+        677552,
+        "            const cx = Math.floor(player.x), cy = Math.floor(player.y); for (const b of bombs) if (b.walk && (b.cx !== cx || b.cy !== cy)) b.walk = false;\n"
+      ],
+      [
+        675721,
+        676104,
+        "        function placeBomb() { if (!running || !player.alive || performance.now() < startTime) return; const cx = Math.floor(player.x), cy = Math.floor(player.y); if (bombs.filter((b) => b.mine).length >= player.maxBombs || bombs.some((b) => b.cx === cx && b.cy === cy)) return; bombs.push({ cx, cy, t: 2.0, range: player.range, mine: true, walk: true }); }\n"
+      ],
+      [
+        672959,
+        673306,
+        "        const { pad } = mgPad(container, { mode: 'vector', sticky: true, dominant: true, onVector: (x, y) => { held.left = x < -0.4; held.right = x > 0.4; held.up = y < -0.4; held.down = y > 0.4; } }, `<button class=\"mg-tap-btn primary\" id=\"bmBomb\" data-key=\"action\">💣</button>`);\n"
+      ],
+      [
+        671840,
+        672263,
+        "        const startTime = performance.now() + MG_ACTION_START_GRACE_MS;\n"
+      ],
+      [
+        648123,
+        648248,
+        "          setTimeout(() => onComplete(score), 650);\n"
+      ],
+      [
+        643048,
+        643671,
+        "        function fill(x, y) { if (solvedAt || cells[y][x] === 1) return; if (puzzle.rows[y][x] !== '1') { mistakes++; marks[y][x] = true; sfx('bad'); say('✕そこはぬらない', 700); hud(); return; } cells[y][x] = 1; marks[y][x] = false; sfx('tick'); if (isSolved()) { solvedAt = performance.now(); solved++; say(`${puzzle.emoji} ${puzzle.name}!正解`, 1600); setTimeout(() => { if (!running) return; round++; if (round >= ROUNDS) { finish(); return; } load(); hud(); }, 1700); } }\n        function toggleMark(x, y) { if (solvedAt || cells[y][x] === 1) return; marks[y][x] = !marks[y][x]; }\n"
+      ],
+      [
+        640514,
+        640584,
+        "        const startTime = performance.now();\n"
+      ],
+      [
+        627157,
+        627282,
+        "          setTimeout(() => onComplete(score), 650);\n"
+      ],
+      [
+        617849,
+        618086,
+        "        bindHeldButton(container.querySelector('#tkFire'), (v) => { fireHeld = v; if (v) fire(player, true); });\n        canvas.addEventListener('pointerdown', (e) => { e.preventDefault(); fire(player, true); });\n"
+      ],
+      [
+        616446,
+        616805,
+        "        const { pad } = mgPad(container, { mode: 'vector', sticky: true, dominant: true, onVector: (x, y) => { held.left = x < -0.4; held.right = x > 0.4; held.up = y < -0.4; held.down = y > 0.4; } }, `<button class=\"mg-tap-btn mg-hold-btn primary\" id=\"tkFire\" data-key=\"action\">🔥</button>`);\n"
+      ],
+      [
+        615656,
+        615779,
+        "        const startTime = performance.now() + MG_ACTION_START_GRACE_MS;\n"
+      ],
+      [
+        606020,
+        606144,
+        "          setTimeout(() => onComplete(final), 650);\n"
+      ],
+      [
+        601286,
+        601390,
+        "          if (b[0] < 0 || b[1] < 0 || b[0] >= N || b[1] >= N || busy) return; busy = true;\n"
+      ],
+      [
+        597461,
+        597529,
+        "        const startTime = performance.now();\n"
+      ],
+      [
+        561708,
+        561848,
+        "          setTimeout(() => onComplete(score), 650);\n"
+      ],
+      [
+        553058,
+        553146,
+        "          if (fy < maxRow) { maxRow = fy; }\n"
+      ],
+      [
+        552420,
+        552490,
+        ""
+      ],
+      [
+        550111,
+        550335,
+        "        const startTime = performance.now() + MG_ACTION_START_GRACE_MS;\n"
+      ],
+      [
+        531289,
+        531414,
+        "          setTimeout(() => onComplete(score), 650);\n"
+      ],
+      [
+        521267,
+        521576,
+        "        canvas.addEventListener('pointerup', (e) => { if (!aiming || e.pointerId !== aiming.id) return; const v = launchVec(); aiming = null; if (!v || !running) return; sfx('whoosh'); proj = { x: SLING.x, y: SLING.y, vx: v.vx, vy: v.vy, born: performance.now(), trail: [] }; shots++; hud(); });\n"
+      ],
+      [
+        518191,
+        518261,
+        "        const startTime = performance.now();\n"
+      ],
+      [
+        491621,
+        491744,
+        "          setTimeout(() => onComplete(score), 650);\n"
+      ],
+      [
+        483751,
+        483907,
+        "        function doSwing() { if (!running || swing || !ball || ball.done) return; swing = { at: performance.now(), x: batX }; sfx('whoosh'); }\n"
+      ],
+      [
+        482504,
+        482649,
+        "        const endDrag = (e) => { if (!drag || (e && e.pointerId !== drag.id)) return; if (!drag.moved) doSwing(); drag = null; };\n"
+      ],
+      [
+        481871,
+        482008,
+        "        container.querySelector('#bbSwing').addEventListener('pointerdown', (e) => { e.preventDefault(); doSwing(); });\n"
+      ],
+      [
+        480446,
+        480516,
+        "        const startTime = performance.now();\n"
+      ],
+      [
+        479185,
+        479321,
+        "          setTimeout(() => onComplete(score), 650);\n"
+      ],
+      [
+        473577,
+        473771,
+        "        function turnTo(dx, dy) { if (nextDir[0] === -dx && nextDir[1] === -dy) return; if (nextDir[0] === dx && nextDir[1] === dy && !queued) return; queued = [dx, dy]; }\n"
+      ],
+      [
+        472141,
+        472374,
+        "        const startTime = performance.now() + MG_ACTION_START_GRACE_MS;\n"
+      ],
+      [
+        445288,
+        445415,
+        "          setTimeout(() => onComplete(score), 650);\n"
+      ],
+      [
+        437300,
+        437445,
+        "          sfx('whoosh'); cue.vx = dx / len * power; cue.vy = dy / len * power; moving = true; shots++; lastShotPocketed = 0; hud();\n"
+      ],
+      [
+        434506,
+        434576,
+        "        const startTime = performance.now();\n"
+      ],
+      [
+        402161,
+        402304,
+        "          setTimeout(() => onComplete(score), 650);\n"
+      ],
+      [
+        393575,
+        393895,
+        "        bindHeldButton(container.querySelector('#jqJump'), (v) => { jumpHeld = v; if (v) jumpQueued = true; });\n        canvas.addEventListener('pointerdown', (e) => { e.preventDefault(); jumpHeld = true; jumpQueued = true; try { canvas.setPointerCapture(e.pointerId); } catch (err) {} });\n"
+      ],
+      [
+        392850,
+        393140,
+        "        const { pad } = mgPad(container, { mode: 'vector', axis: 'x', sticky: true, onVector: (x) => { leftHeld = x < -0.4; rightHeld = x > 0.4; } }, `<button class=\"mg-tap-btn mg-hold-btn primary\" id=\"jqJump\" data-key=\"action\">ジャンプ</button>`);\n"
+      ],
+      [
+        392115,
+        392238,
+        "        const startTime = performance.now() + MG_ACTION_START_GRACE_MS;\n"
+      ],
+      [
+        363334,
+        363478,
+        "          setTimeout(() => onComplete(score), 650);\n"
+      ],
+      [
+        358757,
+        358952,
+        "        container.querySelector('#rgWait').addEventListener('pointerdown', (e) => { e.preventDefault(); if (running && !dead) { hp = Math.min(maxHp, hp + 1); hud(); endTurn(); } });\n"
+      ],
+      [
+        355946,
+        355991,
+        ""
+      ],
+      [
+        351954,
+        352059,
+        "        const startTime = performance.now(), TIME_LIMIT_MS = mgDuration(90000);\n"
+      ],
+      [
+        336370,
+        336494,
+        "          setTimeout(() => onComplete(score), 650);\n"
+      ],
+      [
+        327617,
+        327715,
+        "          kick++; noEl.textContent = Math.min(KICKS, kick) + '/' + KICKS + '本目';\n"
+      ],
+      [
+        324900,
+        324970,
+        "        const startTime = performance.now();\n"
+      ],
+      [
+        306988,
+        307114,
+        "          setTimeout(() => onComplete(result), 650);\n"
+      ],
+      [
+        297989,
+        298094,
+        "        function hardDrop() { if (!piece || phase !== 'fall') return; while (stepDown()); }\n"
+      ],
+      [
+        297457,
+        297828,
+        "        function move(dx) { if (!piece || phase !== 'fall') return; const q = { ...piece, x: piece.x + dx }; if (fits(q)) piece = q; }\n        function rotate() { if (!piece || phase !== 'fall') return; for (const kick of [0, -1, 1]) { const q = { ...piece, rot: (piece.rot + 1) % 4, x: piece.x + kick }; if (fits(q)) { piece = q; return; } } }\n"
+      ],
+      [
+        295303,
+        295398,
+        "        const startTime = performance.now() + MG_ACTION_START_GRACE_MS;\n"
+      ],
+      [
+        293638,
+        293759,
+        "          setTimeout(() => onComplete(score), 650);\n"
+      ],
+      [
+        285400,
+        285921,
+        "        canvas.addEventListener('pointerdown', (e) => { e.preventDefault(); pid = e.pointerId; const p = mgPointerPos(canvas, e); const u = unproject(p.x, p.y); px = clamp(u.x, -1.1, 1.1); py = clamp(u.y, 0.05, 0.9); try { canvas.setPointerCapture(e.pointerId); } catch (err) {} });\n        canvas.addEventListener('pointermove', (e) => { if (pid !== e.pointerId) return; const p = mgPointerPos(canvas, e); const u = unproject(p.x, p.y); px = clamp(u.x, -1.1, 1.1); py = clamp(u.y, 0.05, 0.9); });\n"
+      ],
+      [
+        283992,
+        284057,
+        ""
+      ],
+      [
+        282680,
+        282803,
+        "          setTimeout(() => onComplete(score), 650);\n"
+      ],
+      [
+        274961,
+        275006,
+        "          shots++; updateHud();\n"
+      ],
+      [
+        271616,
+        271713,
+        "        const startTime = performance.now() + MG_ACTION_START_GRACE_MS;\n"
+      ],
+      [
+        269008,
+        269152,
+        "          setTimeout(() => onComplete(Math.round(score)), 900);\n"
+      ],
+      [
+        256437,
+        256939,
+        "        canvas.addEventListener('pointerdown', (e) => { e.preventDefault(); if (phase === 'wait') strike(); else if (phase === 'ready' && !charging) { charging = true; charge = 0; } else if (phase === 'fight') reeling = true; try { canvas.setPointerCapture(e.pointerId); } catch (err) {} });\n        const canvasUp = () => { if (phase === 'ready' && charging) { charging = false; cast(); } if (phase === 'fight') reeling = false; };\n"
+      ],
+      [
+        256136,
+        256425,
+        "          if (phase === 'ready') { if (v) { charging = true; charge = 0; } else if (charging) { charging = false; cast(); } }\n          else if (phase === 'wait') { if (v) strike(); }\n          else if (phase === 'fight') reeling = v;\n"
+      ],
+      [
+        253180,
+        253250,
+        "        const startTime = performance.now();\n"
+      ],
+      [
+        250958,
+        251104,
+        "          setTimeout(() => onComplete(Math.round(score)), 900);\n"
+      ],
+      [
+        242115,
+        242257,
+        "          moving = true; strokes++; totalStrokes++; sfx('hit'); strokesEl.textContent = '打数' + strokes; lastRest = [bx, by];\n"
+      ],
+      [
+        239198,
+        239268,
+        "        const startTime = performance.now();\n"
+      ],
+      [
+        236784,
+        236920,
+        "          setTimeout(() => onComplete(Math.round(score)), 850);\n"
+      ],
+      [
+        227266,
+        227507,
+        "        canvas.addEventListener('pointerdown', (e) => { e.preventDefault(); const p = mgPointerPos(canvas, e); drag = { id: e.pointerId, x: p.x, y: p.y, moved: 0 }; try { canvas.setPointerCapture(e.pointerId); } catch (err) {} });\n"
+      ],
+      [
+        227112,
+        227241,
+        "        container.querySelector('#sgFire').addEventListener('pointerdown', (e) => { e.preventDefault(); fire(); });\n"
+      ],
+      [
+        226410,
+        226732,
+        "        const { pad } = mgPad(container, { mode: 'delta', glide: { speed: 200 }, onDelta: (dx, dy) => { cx = clamp(cx + dx * 1.15, 10, W - 10); cy = clamp(cy + dy * 1.15, 10, H - 10); } }, `<button class=\"mg-tap-btn primary\" id=\"sgFire\" data-key=\"action\">うつ!</button>`);\n"
+      ],
+      [
+        225665,
+        225788,
+        "        const startTime = performance.now() + MG_ACTION_START_GRACE_MS;\n"
+      ],
+      [
+        200398,
+        200528,
+        "          setTimeout(() => onComplete(Math.round(score)), 800);\n"
+      ],
+      [
+        194911,
+        195262,
+        "        bindHeldButton(container.querySelector('#rcAccel'), (v) => { accelHeld = v; });\n        canvas.addEventListener('pointerdown', (e) => { e.preventDefault(); try { canvas.setPointerCapture(e.pointerId); } catch (err) {} touchAccel = true; touchSteer = clamp((mgPointerPos(canvas, e).nx - 0.5) * 2.6, -1, 1); });\n"
+      ],
+      [
+        191853,
+        192143,
+        "        const { pad } = mgPad(container, { mode: 'vector', axis: 'x', holdMs: 150, onVector: (x) => { leftHeld = x < -0.4; rightHeld = x > 0.4; } }, `<button class=\"mg-tap-btn mg-hold-btn primary\" id=\"rcAccel\" data-key=\"action\">アクセル</button>`);\n"
+      ],
+      [
+        191139,
+        191262,
+        "        const startTime = performance.now() + MG_ACTION_START_GRACE_MS;\n"
+      ],
+      [
+        177533,
+        177690,
+        "          setTimeout(() => onComplete(Math.round(score)), 900);\n"
+      ],
+      [
+        174146,
+        174236,
+        "            const mv = controls.move() * SPEED * dt;\n"
+      ],
+      [
+        169222,
+        169345,
+        "        const startTime = performance.now() + MG_ACTION_START_GRACE_MS;\n"
+      ],
+      [
+        153540,
+        153669,
+        "          setTimeout(() => onComplete(score), 650);\n"
+      ],
+      [
+        143805,
+        144470,
+        "        bindHeldButton(btn, (v) => { if (!running) return; held = v; if (!v) onRelease(); else if (phase === 'idle') { phase = 'x'; btn.textContent = 'はなすととまる'; } else if (phase === 'depth') { phase = 'z'; btn.textContent = 'はなすととまる'; } });\n        canvas.addEventListener('pointerdown', (e) => { e.preventDefault(); if (!running || btn.disabled) return; held = true; if (phase === 'idle') { phase = 'x'; btn.textContent = 'はなすととまる'; } else if (phase === 'depth') { phase = 'z'; btn.textContent = 'はなすととまる'; } try { canvas.setPointerCapture(e.pointerId); } catch (err) {} });\n"
+      ],
+      [
+        141893,
+        141998,
+        "        const startTime = performance.now(), TIME_LIMIT_MS = mgDuration(45000);\n"
+      ],
+      [
+        133890,
+        134029,
+        "        draw(); setTimeout(() => onComplete(Math.round(result)), 800);\n"
+      ],
+      [
+        131010,
+        131056,
+        "        nextAttempt = now + 500;\n"
+      ],
+      [
+        130168,
+        130246,
+        ""
+      ],
+      [
+        127083,
+        127178,
+        "      const startTime = performance.now() + MG_ACTION_START_GRACE_MS;\n"
+      ],
+      [
+        113593,
+        113740,
+        "          setTimeout(() => onComplete(Math.round(score)), 800);\n"
+      ],
+      [
+        110685,
+        110775,
+        "            const mv = controls.move() * SPEED * dt;\n"
+      ],
+      [
+        108063,
+        108186,
+        "        const startTime = performance.now() + MG_ACTION_START_GRACE_MS;\n"
+      ],
+      [
+        92119,
+        92203,
+        "            const correct = target.dataset.key === itemEl.dataset.key;\n"
+      ],
+      [
+        91762,
+        91840,
+        "          onComplete(score);\n"
+      ],
+      [
+        89826,
+        90025,
+        "        const TIME_LIMIT_MS = mgDuration(11000), placeAt = performance.now() + PREVIEW_MS; // つめる 時間は 見本が きえてから\n"
+      ],
+      [
+        79350,
+        79483,
+        "          setTimeout(() => onComplete(final), 650);\n"
+      ],
+      [
+        70654,
+        70891,
+        "        canvas.addEventListener('pointerdown', (e) => { e.preventDefault(); try { canvas.setPointerCapture(e.pointerId); } catch (err) {} const p = mgPointerPos(canvas, e); drag = { id: e.pointerId, x: p.x, px: paddle.x }; });\n"
+      ],
+      [
+        69821,
+        70046,
+        "        const { pad } = mgPad(container, { mode: 'delta', axis: 'x', glide: { speed: 240 }, onDelta: (dx) => { paddle.x = clamp(paddle.x + dx * 1.15, paddle.w / 2, W - paddle.w / 2); } }, '');\n"
+      ],
+      [
+        68875,
+        68940,
+        ""
+      ],
+      [
+        57018,
+        57145,
+        "          setTimeout(() => onComplete(score), 650);\n"
+      ],
+      [
+        46650,
+        46710,
+        "        function throwBall(power, aim, hook) {\n"
+      ],
+      [
+        43623,
+        43693,
+        "        const startTime = performance.now();\n"
+      ],
+      [
+        10160,
+        10452,
+        ""
+      ],
+      [
+        8974,
+        9180,
+        "        return cover ? { acts, spans: wins.size, cover: Math.round(Math.min(1, wins.size / n) * 100) / 100 } : { acts };\n"
+      ],
+      [
+        8573,
+        8753,
+        "      done({ decided = false } = {}) {\n"
+      ],
+      [
+        8020,
+        8299,
+        "  function mgPlayMeter({ cover = true, turnGap = false } = {}) {\n"
+      ],
       [
         841223,
         841349,
@@ -941,9 +1741,34 @@
   },
   "script.js": {
     "before": "70112eac0365045f7ff701229028ddf5debe4cae",
-    "after": "959696bbbedae1882996439d202e0ad5f399b1fa",
-    "size": 1205245,
+    "after": "930c741819dc56b084693e654d0443e7f4653f45",
+    "size": 1207095,
     "reverse": [
+      [
+        1067250,
+        1067338,
+        "    if (mgNotParticipated(game, play)) { retireMinigame(MG_IDLE_MESSAGE); return; }\n"
+      ],
+      [
+        1066298,
+        1066707,
+        ""
+      ],
+      [
+        1065922,
+        1066256,
+        "    if (play && Number.isFinite(play.acts)) return play.acts > 0 && (!Number.isFinite(play.cover) || (play.cover >= MG_IDLE_COVER && (play.cover >= 1 || !(play.spans < 2))));\n"
+      ],
+      [
+        1064985,
+        1065760,
+        ""
+      ],
+      [
+        1063677,
+        1064180,
+        ""
+      ],
       [
         1190921,
         1191063,

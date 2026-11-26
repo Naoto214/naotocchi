@@ -17750,6 +17750,9 @@
   // 通常の 100本だけ(Quick・テスト用の ゲームは 対象外)。点・記録・コイン・そだち・個性・会話には 入れず、
   // 元気-6・きげん+2 だけ(やめる ボタンと おなじ)。遊んで 低い 点だった ときは いままでどおり(セーブの 形は かえない)
   const MG_IDLE_COVER = 0.2, MG_IDLE_MESSAGE = 'そうさがなかったので、今回は記録しないよ';
+  // 参加度(2026-11-26): 操作は あったが、何も 達成せず 4びょうの 区切り 1つの うちに おわった 回。わざと すぐ 失敗する くりかえしと
+  // 区別が つかない ので 記録しない(げんき −6・きげん +2 だけ。しっぱいの ペナルティは もともと ない)。やさしい ことばで つたえる
+  const MG_SHORT_MESSAGE = 'すぐにおわったので、今回は記録しないよ。もう少しあそぶと記録されるよ';
   let mgPlayInputs = 0, mgPlayLaunched = 0, mgPlayIds = null;
   function mgCountPlayInput(e) {
     if (!gameActive || !mgSession || mgPlayLaunched !== mgSession || e.isTrusted === false || e.key === 'Escape') return;
@@ -17761,11 +17764,22 @@
   // 盤上の 対戦 6本(turnGap): 合法手を 指し、決着したか、いちばん ながい 間が MG_TURN_GAP_MS いないなら 参加。
   // 長考は 参加。数手 指して 放置・時間切れ 直前の 1手だけは 間が ながく なるので 参加なし
   const MG_TURN_GAP_MS = 30000;
+  // 参加度(2026-11-26 ご承認): 意味の ある 操作が 1回いじょう あって、つぎの どれか。
+  //  - achieved: 最初の 小さな 目標を 達成した(リンゴを 1こ 食べた・1ライン 消した など。ゲームが わたす)→ すぐ おわっても 参加
+  //  - アクション(cover): 4びょう区切りの 2つ いじょうで 操作し、遊んだ 時間の 2わり いじょうで 操作した
+  //    (まえは「1区切り(4びょう 未満)で おわった 回は 1回 さわれば 参加」だった。わざと すぐ 失敗する くりかえしで へんしんメーターが たまった)
+  //  - 考える ゲーム(cover なし): 意味の ある 操作が きまった 回数(games.js の mgThinkMeter が きめる)
   function mgParticipated(play) {
     if (play && Number.isFinite(play.maxGap)) return play.acts > 0 && (play.decided === true || play.maxGap <= MG_TURN_GAP_MS);
-    if (play && Number.isFinite(play.acts)) return play.acts > 0 && (!Number.isFinite(play.cover) || (play.cover >= MG_IDLE_COVER && (play.cover >= 1 || !(play.spans < 2))));
+    if (play && Number.isFinite(play.acts)) {
+      if (!(play.acts > 0)) return false;
+      if (play.achieved === true || !Number.isFinite(play.cover)) return true;
+      return play.cover >= MG_IDLE_COVER && !(play.spans < (play.minSpans || 2)); // minSpans: すぐ やられて しまう ゲーム(スネーク など)は 3
+    }
     return !!play && play.inputs > 0;
   }
+  // みじかく おわった(4びょう区切り 1つ・その中では 操作して いた)アクションの 回だけ「すぐにおわった」。放置・操作の 少ない 回は これまでの ことば
+  const mgIdleMessage = (play) => (play && Number.isFinite(play.cover) && play.acts > 0 && play.spans < (play.minSpans || 2) && play.cover >= MG_IDLE_COVER ? MG_SHORT_MESSAGE : MG_IDLE_MESSAGE);
   function mgNotParticipated(game, play) {
     if (!play || !game || !game.id) return false;
     if (!mgPlayIds) mgPlayIds = new Set(buildMinigamePool().map((g) => g.id));
@@ -17776,7 +17790,7 @@
     const game = activeMinigame;
     if (!gameActive || !game || !Number.isFinite(score)) return;
     // T7: 参加なしは 記録・コイン・そだち・個性・会話の まえで「途中で やめた」へ(play は onComplete から くる)
-    if (mgNotParticipated(game, play)) { retireMinigame(MG_IDLE_MESSAGE); return; }
+    if (mgNotParticipated(game, play)) { retireMinigame(mgIdleMessage(play)); return; }
     // ここから さきの ふつうの がめんの タイマー(えもーと/ふきだし など)に
     // ゲームの セッションの しるしが つかない よう、いったん「ゲームの
     // コードの そと」に 出る(finally で もとに もどす ので、この あとに

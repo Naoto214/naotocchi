@@ -1,0 +1,1802 @@
+[
+ {
+  "id": "air-hockey",
+  "before": {
+   "idle": "××",
+   "tap1": "××",
+   "random": "○○",
+   "mash": "××",
+   "farm": 0
+  },
+  "after": {
+   "idle": "××",
+   "tap1": "××",
+   "random": "○○",
+   "mash": "××",
+   "farm": 0
+  },
+  "quickSec": 31
+ },
+ {
+  "id": "animal-shogi",
+  "before": {
+   "idle": "××",
+   "tap1": "××",
+   "random": "××",
+   "mash": "××",
+   "farm": 0
+  },
+  "after": {
+   "idle": "××",
+   "tap1": "××",
+   "random": "××",
+   "mash": "××",
+   "farm": 0
+  },
+  "quickSec": 61
+ },
+ {
+  "id": "archery-3d",
+  "before": {
+   "idle": "××",
+   "tap1": "○○",
+   "random": "○○",
+   "mash": "○○",
+   "farm": 53
+  },
+  "after": {
+   "idle": "××",
+   "tap1": "××",
+   "random": "○○",
+   "mash": "××",
+   "farm": 53
+  },
+  "quickSec": 20
+ },
+ {
+  "id": "area-claim",
+  "before": {
+   "idle": "××",
+   "tap1": "○○",
+   "random": "○○",
+   "mash": "○○",
+   "farm": 40
+  },
+  "after": {
+   "idle": "××",
+   "tap1": "××",
+   "random": "○○",
+   "mash": "××",
+   "farm": 40
+  },
+  "quickSec": 29
+ },
+ {
+  "id": "asteroids-classic",
+  "before": {
+   "idle": "××",
+   "tap1": "○○",
+   "random": "○○",
+   "mash": "○○",
+   "farm": 58
+  },
+  "after": {
+   "idle": "××",
+   "tap1": "××",
+   "random": "○○",
+   "mash": "○○",
+   "farm": 63
+  },
+  "quickSec": 16
+ },
+ {
+  "id": "baseball-batting",
+  "before": {
+   "idle": "××",
+   "tap1": "○○",
+   "random": "○○",
+   "mash": "○○",
+   "farm": 74
+  },
+  "after": {
+   "idle": "××",
+   "tap1": "××",
+   "random": "×○",
+   "mash": "○○",
+   "farm": 74
+  },
+  "quickSec": 12
+ },
+ {
+  "id": "basketball-3d",
+  "before": {
+   "idle": "××",
+   "tap1": "○○",
+   "random": "○○",
+   "mash": "○○",
+   "farm": 44
+  },
+  "after": {
+   "idle": "××",
+   "tap1": "××",
+   "random": "○○",
+   "mash": "××",
+   "farm": 44
+  },
+  "quickSec": 26
+ },
+ {
+  "id": "beach-volley",
+  "before": {
+   "idle": "××",
+   "tap1": "○○",
+   "random": "○○",
+   "mash": "○○",
+   "farm": 75
+  },
+  "after": {
+   "idle": "××",
+   "tap1": "××",
+   "random": "○○",
+   "mash": "○○",
+   "farm": 75
+  },
+  "quickSec": 12
+ },
+ {
+  "id": "billiards-6",
+  "before": {
+   "idle": "××",
+   "tap1": "○○",
+   "random": "○○",
+   "mash": "○○",
+   "farm": 31
+  },
+  "after": {
+   "idle": "××",
+   "tap1": "××",
+   "random": "○○",
+   "mash": "××",
+   "farm": 31
+  },
+  "quickSec": 41
+ },
+ {
+  "id": "blackjack-21",
+  "before": {
+   "idle": "――",
+   "tap1": "――",
+   "random": "○○",
+   "mash": "○○",
+   "farm": 143
+  },
+  "after": {
+   "idle": "――",
+   "tap1": "――",
+   "random": "○○",
+   "mash": "○○",
+   "farm": 143
+  },
+  "quickSec": 3
+ },
+ {
+  "id": "bomber-maze",
+  "before": {
+   "idle": "××",
+   "tap1": "○○",
+   "random": "○○",
+   "mash": "○○",
+   "farm": 109
+  },
+  "after": {
+   "idle": "××",
+   "tap1": "××",
+   "random": "○○",
+   "mash": "××",
+   "farm": 97
+  },
+  "quickSec": 6
+ },
+ {
+  "id": "bowling-3d",
+  "before": {
+   "idle": "××",
+   "tap1": "○○",
+   "random": "○○",
+   "mash": "○○",
+   "farm": 26
+  },
+  "after": {
+   "idle": "××",
+   "tap1": "××",
+   "random": "○○",
+   "mash": "××",
+   "farm": 0
+  },
+  "quickSec": 51
+ },
+ {
+  "id": "breakout-classic",
+  "before": {
+   "idle": "××",
+   "tap1": "○○",
+   "random": "○○",
+   "mash": "○○",
+   "farm": 85
+  },
+  "after": {
+   "idle": "××",
+   "tap1": "××",
+   "random": "○○",
+   "mash": "○○",
+   "farm": 85
+  },
+  "quickSec": 10
+ },
+ {
+  "id": "bubble-shooter",
+  "before": {
+   "idle": "××",
+   "tap1": "××",
+   "random": "○○",
+   "mash": "○○",
+   "farm": 123
+  },
+  "after": {
+   "idle": "××",
+   "tap1": "××",
+   "random": "○○",
+   "mash": "×○",
+   "farm": 0
+  },
+  "quickSec": 4
+ },
+ {
+  "id": "catapult-castle",
+  "before": {
+   "idle": "××",
+   "tap1": "○○",
+   "random": "○○",
+   "mash": "○○",
+   "farm": 46
+  },
+  "after": {
+   "idle": "××",
+   "tap1": "××",
+   "random": "○○",
+   "mash": "○○",
+   "farm": 46
+  },
+  "quickSec": 24
+ },
+ {
+  "id": "chain-puzzle",
+  "before": {
+   "idle": "××",
+   "tap1": "○○",
+   "random": "○○",
+   "mash": "○○",
+   "farm": 143
+  },
+  "after": {
+   "idle": "××",
+   "tap1": "××",
+   "random": "○○",
+   "mash": "××",
+   "farm": 72
+  },
+  "quickSec": 3
+ },
+ {
+  "id": "checkers-6",
+  "before": {
+   "idle": "××",
+   "tap1": "××",
+   "random": "××",
+   "mash": "××",
+   "farm": 0
+  },
+  "after": {
+   "idle": "××",
+   "tap1": "××",
+   "random": "××",
+   "mash": "××",
+   "farm": 0
+  },
+  "quickSec": 61
+ },
+ {
+  "id": "connect-four",
+  "before": {
+   "idle": "××",
+   "tap1": "××",
+   "random": "○○",
+   "mash": "××",
+   "farm": 58
+  },
+  "after": {
+   "idle": "××",
+   "tap1": "××",
+   "random": "○○",
+   "mash": "××",
+   "farm": 58
+  },
+  "quickSec": 18
+ },
+ {
+  "id": "crane-game-3d",
+  "before": {
+   "idle": "××",
+   "tap1": "――",
+   "random": "○○",
+   "mash": "○○",
+   "farm": 68
+  },
+  "after": {
+   "idle": "××",
+   "tap1": "――",
+   "random": "○○",
+   "mash": "○○",
+   "farm": 68
+  },
+  "quickSec": 14
+ },
+ {
+  "id": "curling-ice",
+  "before": {
+   "idle": "××",
+   "tap1": "××",
+   "random": "○○",
+   "mash": "××",
+   "farm": 0
+  },
+  "after": {
+   "idle": "××",
+   "tap1": "××",
+   "random": "○○",
+   "mash": "××",
+   "farm": 0
+  },
+  "quickSec": 33
+ },
+ {
+  "id": "curling-winter",
+  "before": {
+   "idle": "××",
+   "tap1": "××",
+   "random": "○○",
+   "mash": "××",
+   "farm": 0
+  },
+  "after": {
+   "idle": "××",
+   "tap1": "××",
+   "random": "○○",
+   "mash": "××",
+   "farm": 0
+  },
+  "quickSec": 46
+ },
+ {
+  "id": "darts-board",
+  "before": {
+   "idle": "――",
+   "tap1": "――",
+   "random": "○○",
+   "mash": "○○",
+   "farm": 56
+  },
+  "after": {
+   "idle": "――",
+   "tap1": "――",
+   "random": "○○",
+   "mash": "○○",
+   "farm": 0
+  },
+  "quickSec": 6
+ },
+ {
+  "id": "domino-run",
+  "before": {
+   "idle": "××",
+   "tap1": "○○",
+   "random": "○○",
+   "mash": "○○",
+   "farm": 111
+  },
+  "after": {
+   "idle": "××",
+   "tap1": "××",
+   "random": "××",
+   "mash": "○×",
+   "farm": 111
+  },
+  "quickSec": 6
+ },
+ {
+  "id": "doodle-jump",
+  "before": {
+   "idle": "××",
+   "tap1": "××",
+   "random": "○○",
+   "mash": "××",
+   "farm": 91
+  },
+  "after": {
+   "idle": "××",
+   "tap1": "××",
+   "random": "○○",
+   "mash": "××",
+   "farm": 91
+  },
+  "quickSec": 9
+ },
+ {
+  "id": "dot-eater",
+  "before": {
+   "idle": "××",
+   "tap1": "○○",
+   "random": "○○",
+   "mash": "○○",
+   "farm": 48
+  },
+  "after": {
+   "idle": "××",
+   "tap1": "××",
+   "random": "○○",
+   "mash": "××",
+   "farm": 48
+  },
+  "quickSec": 23
+ },
+ {
+  "id": "downhill-mountain",
+  "before": {
+   "idle": "××",
+   "tap1": "○○",
+   "random": "○○",
+   "mash": "○○",
+   "farm": 45
+  },
+  "after": {
+   "idle": "××",
+   "tap1": "××",
+   "random": "○○",
+   "mash": "○○",
+   "farm": 45
+  },
+  "quickSec": 25
+ },
+ {
+  "id": "downhill-snow",
+  "before": {
+   "idle": "××",
+   "tap1": "××",
+   "random": "○○",
+   "mash": "○○",
+   "farm": 46
+  },
+  "after": {
+   "idle": "××",
+   "tap1": "××",
+   "random": "○○",
+   "mash": "○○",
+   "farm": 46
+  },
+  "quickSec": 14
+ },
+ {
+  "id": "dragDecorate-bento",
+  "before": {
+   "idle": "××",
+   "tap1": "○○",
+   "random": "○○",
+   "mash": "○○",
+   "farm": 71
+  },
+  "after": {
+   "idle": "××",
+   "tap1": "××",
+   "random": "××",
+   "mash": "××",
+   "farm": 0
+  },
+  "quickSec": 13
+ },
+ {
+  "id": "dragDecorate-cake",
+  "before": {
+   "idle": "××",
+   "tap1": "○○",
+   "random": "○○",
+   "mash": "○○",
+   "farm": 63
+  },
+  "after": {
+   "idle": "××",
+   "tap1": "××",
+   "random": "××",
+   "mash": "××",
+   "farm": 0
+  },
+  "quickSec": 16
+ },
+ {
+  "id": "falling-block-puzzle",
+  "before": {
+   "idle": "××",
+   "tap1": "××",
+   "random": "○○",
+   "mash": "○○",
+   "farm": 50
+  },
+  "after": {
+   "idle": "××",
+   "tap1": "××",
+   "random": "○○",
+   "mash": "○○",
+   "farm": 50
+  },
+  "quickSec": 22
+ },
+ {
+  "id": "fishing-deepsea",
+  "before": {
+   "idle": "××",
+   "tap1": "○○",
+   "random": "○○",
+   "mash": "○○",
+   "farm": 42
+  },
+  "after": {
+   "idle": "××",
+   "tap1": "××",
+   "random": "○○",
+   "mash": "○○",
+   "farm": 42
+  },
+  "quickSec": 28
+ },
+ {
+  "id": "fishing-river",
+  "before": {
+   "idle": "××",
+   "tap1": "○○",
+   "random": "○○",
+   "mash": "○○",
+   "farm": 42
+  },
+  "after": {
+   "idle": "××",
+   "tap1": "××",
+   "random": "○○",
+   "mash": "○○",
+   "farm": 42
+  },
+  "quickSec": 28
+ },
+ {
+  "id": "fishing-sea",
+  "before": {
+   "idle": "××",
+   "tap1": "○○",
+   "random": "○○",
+   "mash": "○○",
+   "farm": 42
+  },
+  "after": {
+   "idle": "××",
+   "tap1": "××",
+   "random": "○○",
+   "mash": "○○",
+   "farm": 42
+  },
+  "quickSec": 28
+ },
+ {
+  "id": "fp-dungeon",
+  "before": {
+   "idle": "××",
+   "tap1": "○○",
+   "random": "○○",
+   "mash": "○○",
+   "farm": 41
+  },
+  "after": {
+   "idle": "××",
+   "tap1": "××",
+   "random": "○○",
+   "mash": "××",
+   "farm": 41
+  },
+  "quickSec": 28
+ },
+ {
+  "id": "free-kick-3d",
+  "before": {
+   "idle": "××",
+   "tap1": "○○",
+   "random": "○○",
+   "mash": "○○",
+   "farm": 24
+  },
+  "after": {
+   "idle": "××",
+   "tap1": "××",
+   "random": "○○",
+   "mash": "××",
+   "farm": 24
+  },
+  "quickSec": 32
+ },
+ {
+  "id": "frogger-road",
+  "before": {
+   "idle": "××",
+   "tap1": "○○",
+   "random": "○○",
+   "mash": "○○",
+   "farm": 115
+  },
+  "after": {
+   "idle": "××",
+   "tap1": "××",
+   "random": "○○",
+   "mash": "○○",
+   "farm": 115
+  },
+  "quickSec": 5
+ },
+ {
+  "id": "fruit-slice",
+  "before": {
+   "idle": "××",
+   "tap1": "○○",
+   "random": "○○",
+   "mash": "○○",
+   "farm": 45
+  },
+  "after": {
+   "idle": "××",
+   "tap1": "××",
+   "random": "○○",
+   "mash": "○○",
+   "farm": 45
+  },
+  "quickSec": 25
+ },
+ {
+  "id": "gomoku-9",
+  "before": {
+   "idle": "××",
+   "tap1": "××",
+   "random": "××",
+   "mash": "××",
+   "farm": 0
+  },
+  "after": {
+   "idle": "××",
+   "tap1": "××",
+   "random": "××",
+   "mash": "××",
+   "farm": 0
+  },
+  "quickSec": 61
+ },
+ {
+  "id": "grand-prix-3d",
+  "before": {
+   "idle": "××",
+   "tap1": "○○",
+   "random": "○○",
+   "mash": "○○",
+   "farm": 37
+  },
+  "after": {
+   "idle": "××",
+   "tap1": "××",
+   "random": "○○",
+   "mash": "○○",
+   "farm": 37
+  },
+  "quickSec": 33
+ },
+ {
+  "id": "halfpipe-skate",
+  "before": {
+   "idle": "××",
+   "tap1": "○○",
+   "random": "○○",
+   "mash": "○○",
+   "farm": 43
+  },
+  "after": {
+   "idle": "××",
+   "tap1": "××",
+   "random": "○○",
+   "mash": "○○",
+   "farm": 43
+  },
+  "quickSec": 27
+ },
+ {
+  "id": "hang-glider-3d",
+  "before": {
+   "idle": "××",
+   "tap1": "××",
+   "random": "○○",
+   "mash": "××",
+   "farm": 0
+  },
+  "after": {
+   "idle": "××",
+   "tap1": "××",
+   "random": "○○",
+   "mash": "××",
+   "farm": 0
+  },
+  "quickSec": 12
+ },
+ {
+  "id": "haunted-house-3d",
+  "before": {
+   "idle": "××",
+   "tap1": "○○",
+   "random": "○○",
+   "mash": "○○",
+   "farm": 72
+  },
+  "after": {
+   "idle": "××",
+   "tap1": "××",
+   "random": "○○",
+   "mash": "××",
+   "farm": 70
+  },
+  "quickSec": 13
+ },
+ {
+  "id": "hit-blow",
+  "before": {
+   "idle": "××",
+   "tap1": "××",
+   "random": "××",
+   "mash": "××",
+   "farm": 0
+  },
+  "after": {
+   "idle": "××",
+   "tap1": "××",
+   "random": "××",
+   "mash": "××",
+   "farm": 0
+  },
+  "quickSec": 51
+ },
+ {
+  "id": "jenga-tower",
+  "before": {
+   "idle": "××",
+   "tap1": "××",
+   "random": "○×",
+   "mash": "××",
+   "farm": 28
+  },
+  "after": {
+   "idle": "××",
+   "tap1": "××",
+   "random": "○×",
+   "mash": "××",
+   "farm": 28
+  },
+  "quickSec": 46
+ },
+ {
+  "id": "jump-quest",
+  "before": {
+   "idle": "××",
+   "tap1": "○○",
+   "random": "○○",
+   "mash": "○○",
+   "farm": 40
+  },
+  "after": {
+   "idle": "××",
+   "tap1": "××",
+   "random": "○○",
+   "mash": "○○",
+   "farm": 40
+  },
+  "quickSec": 29
+ },
+ {
+  "id": "lights-out",
+  "before": {
+   "idle": "××",
+   "tap1": "○○",
+   "random": "○○",
+   "mash": "○○",
+   "farm": 28
+  },
+  "after": {
+   "idle": "××",
+   "tap1": "××",
+   "random": "○○",
+   "mash": "○○",
+   "farm": 28
+  },
+  "quickSec": 46
+ },
+ {
+  "id": "line-trace",
+  "before": {
+   "idle": "××",
+   "tap1": "○○",
+   "random": "○○",
+   "mash": "○○",
+   "farm": 37
+  },
+  "after": {
+   "idle": "××",
+   "tap1": "××",
+   "random": "○×",
+   "mash": "××",
+   "farm": 37
+  },
+  "quickSec": 33
+ },
+ {
+  "id": "lunar-lander",
+  "before": {
+   "idle": "××",
+   "tap1": "○○",
+   "random": "○○",
+   "mash": "○○",
+   "farm": 74
+  },
+  "after": {
+   "idle": "××",
+   "tap1": "××",
+   "random": "○○",
+   "mash": "○○",
+   "farm": 74
+  },
+  "quickSec": 12
+ },
+ {
+  "id": "mancala-kalah",
+  "before": {
+   "idle": "××",
+   "tap1": "××",
+   "random": "××",
+   "mash": "××",
+   "farm": 0
+  },
+  "after": {
+   "idle": "××",
+   "tap1": "××",
+   "random": "××",
+   "mash": "××",
+   "farm": 0
+  },
+  "quickSec": 61
+ },
+ {
+  "id": "match-3",
+  "before": {
+   "idle": "××",
+   "tap1": "○○",
+   "random": "○○",
+   "mash": "○○",
+   "farm": 37
+  },
+  "after": {
+   "idle": "××",
+   "tap1": "××",
+   "random": "○○",
+   "mash": "××",
+   "farm": 37
+  },
+  "quickSec": 33
+ },
+ {
+  "id": "memory-cards",
+  "before": {
+   "idle": "××",
+   "tap1": "○○",
+   "random": "○○",
+   "mash": "○○",
+   "farm": 28
+  },
+  "after": {
+   "idle": "××",
+   "tap1": "××",
+   "random": "○○",
+   "mash": "××",
+   "farm": 28
+  },
+  "quickSec": 46
+ },
+ {
+  "id": "minesweeper-8",
+  "before": {
+   "idle": "××",
+   "tap1": "××",
+   "random": "××",
+   "mash": "○○",
+   "farm": 22
+  },
+  "after": {
+   "idle": "××",
+   "tap1": "××",
+   "random": "××",
+   "mash": "○○",
+   "farm": 22
+  },
+  "quickSec": 61
+ },
+ {
+  "id": "mini-golf-physics",
+  "before": {
+   "idle": "××",
+   "tap1": "○○",
+   "random": "○○",
+   "mash": "○○",
+   "farm": 31
+  },
+  "after": {
+   "idle": "××",
+   "tap1": "××",
+   "random": "××",
+   "mash": "××",
+   "farm": 0
+  },
+  "quickSec": 41
+ },
+ {
+  "id": "missile-command",
+  "before": {
+   "idle": "××",
+   "tap1": "○○",
+   "random": "○○",
+   "mash": "○○",
+   "farm": 38
+  },
+  "after": {
+   "idle": "××",
+   "tap1": "××",
+   "random": "○○",
+   "mash": "○○",
+   "farm": 38
+  },
+  "quickSec": 32
+ },
+ {
+  "id": "p3-drive",
+  "before": {
+   "idle": "××",
+   "tap1": "××",
+   "random": "○○",
+   "mash": "○○",
+   "farm": 56
+  },
+  "after": {
+   "idle": "××",
+   "tap1": "××",
+   "random": "○○",
+   "mash": "○○",
+   "farm": 56
+  },
+  "quickSec": 19
+ },
+ {
+  "id": "p3-space",
+  "before": {
+   "idle": "××",
+   "tap1": "××",
+   "random": "○○",
+   "mash": "○○",
+   "farm": 56
+  },
+  "after": {
+   "idle": "××",
+   "tap1": "××",
+   "random": "○○",
+   "mash": "○○",
+   "farm": 56
+  },
+  "quickSec": 19
+ },
+ {
+  "id": "picross-5",
+  "before": {
+   "idle": "××",
+   "tap1": "○○",
+   "random": "○○",
+   "mash": "○○",
+   "farm": 18
+  },
+  "after": {
+   "idle": "××",
+   "tap1": "××",
+   "random": "○○",
+   "mash": "××",
+   "farm": 18
+  },
+  "quickSec": 76
+ },
+ {
+  "id": "pinball-physics",
+  "before": {
+   "idle": "××",
+   "tap1": "××",
+   "random": "○○",
+   "mash": "○○",
+   "farm": 43
+  },
+  "after": {
+   "idle": "××",
+   "tap1": "××",
+   "random": "○○",
+   "mash": "○○",
+   "farm": 43
+  },
+  "quickSec": 27
+ },
+ {
+  "id": "pingpong-3d",
+  "before": {
+   "idle": "××",
+   "tap1": "○○",
+   "random": "○○",
+   "mash": "○○",
+   "farm": 64
+  },
+  "after": {
+   "idle": "××",
+   "tap1": "××",
+   "random": "○○",
+   "mash": "○○",
+   "farm": 64
+  },
+  "quickSec": 15
+ },
+ {
+  "id": "pipe-connect",
+  "before": {
+   "idle": "××",
+   "tap1": "○○",
+   "random": "○○",
+   "mash": "○○",
+   "farm": 26
+  },
+  "after": {
+   "idle": "××",
+   "tap1": "××",
+   "random": "○○",
+   "mash": "○○",
+   "farm": 26
+  },
+  "quickSec": 51
+ },
+ {
+  "id": "plane-landing",
+  "before": {
+   "idle": "××",
+   "tap1": "××",
+   "random": "○○",
+   "mash": "××",
+   "farm": 36
+  },
+  "after": {
+   "idle": "××",
+   "tap1": "××",
+   "random": "○○",
+   "mash": "××",
+   "farm": 36
+  },
+  "quickSec": 31
+ },
+ {
+  "id": "push-puzzle",
+  "before": {
+   "idle": "××",
+   "tap1": "――",
+   "random": "○○",
+   "mash": "××",
+   "farm": 13
+  },
+  "after": {
+   "idle": "××",
+   "tap1": "――",
+   "random": "○○",
+   "mash": "××",
+   "farm": 13
+  },
+  "quickSec": 61
+ },
+ {
+  "id": "puzzle-2048",
+  "before": {
+   "idle": "××",
+   "tap1": "××",
+   "random": "○○",
+   "mash": "××",
+   "farm": 28
+  },
+  "after": {
+   "idle": "××",
+   "tap1": "××",
+   "random": "○○",
+   "mash": "××",
+   "farm": 28
+  },
+  "quickSec": 46
+ },
+ {
+  "id": "race-3d",
+  "before": {
+   "idle": "××",
+   "tap1": "○○",
+   "random": "○○",
+   "mash": "○○",
+   "farm": 44
+  },
+  "after": {
+   "idle": "××",
+   "tap1": "××",
+   "random": "○○",
+   "mash": "○○",
+   "farm": 44
+  },
+  "quickSec": 26
+ },
+ {
+  "id": "real-fishing",
+  "before": {
+   "idle": "××",
+   "tap1": "○○",
+   "random": "○○",
+   "mash": "○○",
+   "farm": 42
+  },
+  "after": {
+   "idle": "××",
+   "tap1": "××",
+   "random": "○○",
+   "mash": "○○",
+   "farm": 42
+  },
+  "quickSec": 28
+ },
+ {
+  "id": "reversi-6",
+  "before": {
+   "idle": "××",
+   "tap1": "××",
+   "random": "××",
+   "mash": "××",
+   "farm": 0
+  },
+  "after": {
+   "idle": "××",
+   "tap1": "××",
+   "random": "××",
+   "mash": "××",
+   "farm": 0
+  },
+  "quickSec": 61
+ },
+ {
+  "id": "rhythm-highway-3d",
+  "before": {
+   "idle": "××",
+   "tap1": "○○",
+   "random": "○○",
+   "mash": "○○",
+   "farm": 48
+  },
+  "after": {
+   "idle": "××",
+   "tap1": "××",
+   "random": "○○",
+   "mash": "○○",
+   "farm": 48
+  },
+  "quickSec": 23
+ },
+ {
+  "id": "ring-flight-3d",
+  "before": {
+   "idle": "××",
+   "tap1": "××",
+   "random": "○○",
+   "mash": "××",
+   "farm": 44
+  },
+  "after": {
+   "idle": "××",
+   "tap1": "××",
+   "random": "○○",
+   "mash": "××",
+   "farm": 44
+  },
+  "quickSec": 26
+ },
+ {
+  "id": "ring-flight-summer",
+  "before": {
+   "idle": "××",
+   "tap1": "××",
+   "random": "○○",
+   "mash": "××",
+   "farm": 44
+  },
+  "after": {
+   "idle": "××",
+   "tap1": "××",
+   "random": "○○",
+   "mash": "××",
+   "farm": 44
+  },
+  "quickSec": 26
+ },
+ {
+  "id": "road-city",
+  "before": {
+   "idle": "××",
+   "tap1": "××",
+   "random": "○○",
+   "mash": "○○",
+   "farm": 56
+  },
+  "after": {
+   "idle": "××",
+   "tap1": "××",
+   "random": "○○",
+   "mash": "○○",
+   "farm": 56
+  },
+  "quickSec": 19
+ },
+ {
+  "id": "road-desert",
+  "before": {
+   "idle": "××",
+   "tap1": "××",
+   "random": "○○",
+   "mash": "○○",
+   "farm": 56
+  },
+  "after": {
+   "idle": "××",
+   "tap1": "××",
+   "random": "○○",
+   "mash": "○○",
+   "farm": 56
+  },
+  "quickSec": 19
+ },
+ {
+  "id": "road-jungle",
+  "before": {
+   "idle": "××",
+   "tap1": "××",
+   "random": "○○",
+   "mash": "○○",
+   "farm": 56
+  },
+  "after": {
+   "idle": "××",
+   "tap1": "××",
+   "random": "○○",
+   "mash": "○○",
+   "farm": 56
+  },
+  "quickSec": 19
+ },
+ {
+  "id": "road-themed",
+  "before": {
+   "idle": "××",
+   "tap1": "××",
+   "random": "○○",
+   "mash": "○○",
+   "farm": 56
+  },
+  "after": {
+   "idle": "××",
+   "tap1": "××",
+   "random": "○○",
+   "mash": "○○",
+   "farm": 56
+  },
+  "quickSec": 19
+ },
+ {
+  "id": "roguelike-dungeon",
+  "before": {
+   "idle": "××",
+   "tap1": "○○",
+   "random": "○○",
+   "mash": "○○",
+   "farm": 123
+  },
+  "after": {
+   "idle": "××",
+   "tap1": "××",
+   "random": "○○",
+   "mash": "○○",
+   "farm": 123
+  },
+  "quickSec": 4
+ },
+ {
+  "id": "shanghai-tiles",
+  "before": {
+   "idle": "××",
+   "tap1": "○○",
+   "random": "○○",
+   "mash": "○○",
+   "farm": 18
+  },
+  "after": {
+   "idle": "××",
+   "tap1": "××",
+   "random": "××",
+   "mash": "××",
+   "farm": 0
+  },
+  "quickSec": 76
+ },
+ {
+  "id": "ski-jump",
+  "before": {
+   "idle": "――",
+   "tap1": "――",
+   "random": "○○",
+   "mash": "○○",
+   "farm": 71
+  },
+  "after": {
+   "idle": "――",
+   "tap1": "――",
+   "random": "○○",
+   "mash": "○○",
+   "farm": 71
+  },
+  "quickSec": 13
+ },
+ {
+  "id": "sky-shooter",
+  "before": {
+   "idle": "××",
+   "tap1": "××",
+   "random": "○○",
+   "mash": "○○",
+   "farm": 80
+  },
+  "after": {
+   "idle": "××",
+   "tap1": "××",
+   "random": "○○",
+   "mash": "○○",
+   "farm": 80
+  },
+  "quickSec": 11
+ },
+ {
+  "id": "slide-puzzle",
+  "before": {
+   "idle": "××",
+   "tap1": "○○",
+   "random": "○○",
+   "mash": "○○",
+   "farm": 31
+  },
+  "after": {
+   "idle": "××",
+   "tap1": "××",
+   "random": "○○",
+   "mash": "××",
+   "farm": 31
+  },
+  "quickSec": 41
+ },
+ {
+  "id": "snake-classic",
+  "before": {
+   "idle": "××",
+   "tap1": "○○",
+   "random": "○○",
+   "mash": "○○",
+   "farm": 124
+  },
+  "after": {
+   "idle": "××",
+   "tap1": "××",
+   "random": "××",
+   "mash": "××",
+   "farm": 0
+  },
+  "quickSec": 4
+ },
+ {
+  "id": "solitaire-klondike",
+  "before": {
+   "idle": "××",
+   "tap1": "○○",
+   "random": "○○",
+   "mash": "○○",
+   "farm": 15
+  },
+  "after": {
+   "idle": "××",
+   "tap1": "××",
+   "random": "○○",
+   "mash": "○○",
+   "farm": 15
+  },
+  "quickSec": 91
+ },
+ {
+  "id": "space-gunner-3d",
+  "before": {
+   "idle": "××",
+   "tap1": "○○",
+   "random": "○○",
+   "mash": "○○",
+   "farm": 93
+  },
+  "after": {
+   "idle": "××",
+   "tap1": "××",
+   "random": "○○",
+   "mash": "○○",
+   "farm": 93
+  },
+  "quickSec": 8
+ },
+ {
+  "id": "stack-acorn",
+  "before": {
+   "idle": "××",
+   "tap1": "○○",
+   "random": "○○",
+   "mash": "○○",
+   "farm": 99
+  },
+  "after": {
+   "idle": "××",
+   "tap1": "××",
+   "random": "○○",
+   "mash": "××",
+   "farm": 0
+  },
+  "quickSec": 5
+ },
+ {
+  "id": "stack-harvest",
+  "before": {
+   "idle": "××",
+   "tap1": "○○",
+   "random": "○○",
+   "mash": "○○",
+   "farm": 99
+  },
+  "after": {
+   "idle": "××",
+   "tap1": "××",
+   "random": "○○",
+   "mash": "××",
+   "farm": 0
+  },
+  "quickSec": 5
+ },
+ {
+  "id": "stack-leaves",
+  "before": {
+   "idle": "××",
+   "tap1": "○○",
+   "random": "○○",
+   "mash": "○○",
+   "farm": 99
+  },
+  "after": {
+   "idle": "××",
+   "tap1": "××",
+   "random": "○○",
+   "mash": "××",
+   "farm": 0
+  },
+  "quickSec": 5
+ },
+ {
+  "id": "stack-sakura",
+  "before": {
+   "idle": "××",
+   "tap1": "○○",
+   "random": "○○",
+   "mash": "○○",
+   "farm": 99
+  },
+  "after": {
+   "idle": "××",
+   "tap1": "××",
+   "random": "○○",
+   "mash": "××",
+   "farm": 0
+  },
+  "quickSec": 5
+ },
+ {
+  "id": "stack-snowman",
+  "before": {
+   "idle": "××",
+   "tap1": "○○",
+   "random": "○○",
+   "mash": "○○",
+   "farm": 99
+  },
+  "after": {
+   "idle": "××",
+   "tap1": "××",
+   "random": "○○",
+   "mash": "××",
+   "farm": 0
+  },
+  "quickSec": 5
+ },
+ {
+  "id": "stack-themed",
+  "before": {
+   "idle": "××",
+   "tap1": "○○",
+   "random": "○○",
+   "mash": "○○",
+   "farm": 105
+  },
+  "after": {
+   "idle": "××",
+   "tap1": "××",
+   "random": "○○",
+   "mash": "××",
+   "farm": 0
+  },
+  "quickSec": 5
+ },
+ {
+  "id": "street-fight",
+  "before": {
+   "idle": "××",
+   "tap1": "○○",
+   "random": "○○",
+   "mash": "○○",
+   "farm": 50
+  },
+  "after": {
+   "idle": "××",
+   "tap1": "××",
+   "random": "○○",
+   "mash": "○○",
+   "farm": 50
+  },
+  "quickSec": 22
+ },
+ {
+  "id": "submarine-3d",
+  "before": {
+   "idle": "××",
+   "tap1": "××",
+   "random": "○○",
+   "mash": "××",
+   "farm": 66
+  },
+  "after": {
+   "idle": "××",
+   "tap1": "××",
+   "random": "○○",
+   "mash": "××",
+   "farm": 66
+  },
+  "quickSec": 15
+ },
+ {
+  "id": "sudoku-mini",
+  "before": {
+   "idle": "××",
+   "tap1": "○○",
+   "random": "○○",
+   "mash": "○○",
+   "farm": 15
+  },
+  "after": {
+   "idle": "××",
+   "tap1": "××",
+   "random": "××",
+   "mash": "××",
+   "farm": 0
+  },
+  "quickSec": 91
+ },
+ {
+  "id": "sugoroku-race",
+  "before": {
+   "idle": "××",
+   "tap1": "××",
+   "random": "○○",
+   "mash": "○○",
+   "farm": 31
+  },
+  "after": {
+   "idle": "××",
+   "tap1": "××",
+   "random": "○○",
+   "mash": "○○",
+   "farm": 31
+  },
+  "quickSec": 28
+ },
+ {
+  "id": "sushi-belt",
+  "before": {
+   "idle": "××",
+   "tap1": "××",
+   "random": "××",
+   "mash": "××",
+   "farm": 0
+  },
+  "after": {
+   "idle": "××",
+   "tap1": "××",
+   "random": "××",
+   "mash": "××",
+   "farm": 0
+  },
+  "quickSec": 25
+ },
+ {
+  "id": "takoyaki-grill",
+  "before": {
+   "idle": "××",
+   "tap1": "○○",
+   "random": "○○",
+   "mash": "○○",
+   "farm": 45
+  },
+  "after": {
+   "idle": "××",
+   "tap1": "××",
+   "random": "○○",
+   "mash": "○○",
+   "farm": 45
+  },
+  "quickSec": 25
+ },
+ {
+  "id": "tank-battle",
+  "before": {
+   "idle": "××",
+   "tap1": "○○",
+   "random": "○○",
+   "mash": "○○",
+   "farm": 72
+  },
+  "after": {
+   "idle": "××",
+   "tap1": "××",
+   "random": "○○",
+   "mash": "○○",
+   "farm": 72
+  },
+  "quickSec": 13
+ },
+ {
+  "id": "tennis-rally",
+  "before": {
+   "idle": "××",
+   "tap1": "××",
+   "random": "○○",
+   "mash": "○○",
+   "farm": 71
+  },
+  "after": {
+   "idle": "××",
+   "tap1": "××",
+   "random": "○○",
+   "mash": "○○",
+   "farm": 71
+  },
+  "quickSec": 10
+ },
+ {
+  "id": "tilt-maze-3d",
+  "before": {
+   "idle": "××",
+   "tap1": "××",
+   "random": "○○",
+   "mash": "××",
+   "farm": 46
+  },
+  "after": {
+   "idle": "××",
+   "tap1": "××",
+   "random": "○○",
+   "mash": "××",
+   "farm": 46
+  },
+  "quickSec": 24
+ },
+ {
+  "id": "tower-defense",
+  "before": {
+   "idle": "××",
+   "tap1": "××",
+   "random": "○○",
+   "mash": "○○",
+   "farm": 28
+  },
+  "after": {
+   "idle": "××",
+   "tap1": "××",
+   "random": "○○",
+   "mash": "○○",
+   "farm": 28
+  },
+  "quickSec": 45
+ },
+ {
+  "id": "track-field",
+  "before": {
+   "idle": "――",
+   "tap1": "――",
+   "random": "――",
+   "mash": "○○",
+   "farm": 0
+  },
+  "after": {
+   "idle": "――",
+   "tap1": "――",
+   "random": "――",
+   "mash": "○○",
+   "farm": 0
+  },
+  "quickSec": 19
+ },
+ {
+  "id": "voxel-mine",
+  "before": {
+   "idle": "××",
+   "tap1": "○○",
+   "random": "○○",
+   "mash": "○○",
+   "farm": 40
+  },
+  "after": {
+   "idle": "××",
+   "tap1": "××",
+   "random": "○○",
+   "mash": "××",
+   "farm": 0
+  },
+  "quickSec": 29
+ },
+ {
+  "id": "yacht-dice",
+  "before": {
+   "idle": "――",
+   "tap1": "――",
+   "random": "○○",
+   "mash": "――",
+   "farm": 32
+  },
+  "after": {
+   "idle": "――",
+   "tap1": "――",
+   "random": "○○",
+   "mash": "――",
+   "farm": 32
+  },
+  "quickSec": 40
+ }
+]
