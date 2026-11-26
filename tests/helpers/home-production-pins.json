@@ -1,9 +1,14 @@
 {
   "index.html": {
     "before": "c9432f2b62b2c95a36338f8166627abe8feb97d3",
-    "after": "2ebd89f672904fbc00decbdda3a9dd546d08f79f",
+    "after": "ec42077e2a8e930143136502c80629ddf8e93af7",
     "size": 73100,
     "reverse": [
+      [
+        70755,
+        70805,
+        "  <script src=\"games.js?v=b1393be15a05\"></script>\n"
+      ],
       [
         72427,
         72478,
@@ -68,9 +73,19 @@
   },
   "tools/pages/allowlist.json": {
     "before": "f1b1fb9cf575c6305fac17fb25dcf80a59d13c31",
-    "after": "720f428031c468191e9cbce7225dde9523be294a",
+    "after": "acc248815e5d2d5e4b2db74d7b4b00324bd04bb6",
     "size": 296644,
     "reverse": [
+      [
+        267630,
+        267716,
+        "    \"index.html\": \"d7df357d26b5b47501653c3c9a745a2f6cb74098a91efe45bec1c299daaa8948\",\n"
+      ],
+      [
+        265226,
+        265310,
+        "    \"games.js\": \"b1393be15a057db70a6190b9b1e23806b93074126b1cb8ca784af440042dcf75\",\n"
+      ],
       [
         281809,
         281894,
@@ -239,9 +254,24 @@
   },
   "games.js": {
     "before": "a93847e0d6ce254074270b01583caad8c54f1928",
-    "after": "9611f3bb8c844e2ec8a78dd9a74f1c0d78ff128c",
-    "size": 1013853,
+    "after": "1ea16fd6e035c43c815c7e3b10aedc73ab2db0b8",
+    "size": 1013959,
     "reverse": [
+      [
+        280518,
+        280655,
+        "        const startTime = performance.now() + MG_ACTION_START_GRACE_MS, meter = mgPlayMeter(), stroke = mgActEvery(meter);\n"
+      ],
+      [
+        127479,
+        127557,
+        ""
+      ],
+      [
+        67391,
+        67528,
+        "        const startTime = performance.now() + MG_ACTION_START_GRACE_MS, meter = mgPlayMeter(), stroke = mgActEvery(meter);\n"
+      ],
       [
         1002504,
         1002637,

@@ -782,7 +782,8 @@
         const difficulty = ageDifficulty();
         const DURATION_MS = mgDuration(30000), COLS = 8;
         let running = true, rafId = null, last = null, stage = 0, lives = 3, score = 0, bricks = [], balls = [], items = [], parts = [], paddle = { x: 0, w: 64, tw: 64, wideUntil: 0 }, slowUntil = 0, msg = '', msgUntil = 0, drag = null, serveAt = 0, leftHeld = false, rightHeld = false, cleared = 0, hitsTotal = 0;
-        const startTime = performance.now() + MG_ACTION_START_GRACE_MS, meter = mgPlayMeter(), stroke = mgActEvery(meter);
+        const startTime = performance.now() + MG_ACTION_START_GRACE_MS;
+        const meter = mgPlayMeter(), stroke = mgActEvery(meter);
         container.innerHTML = `
           <div class="mg-header"><span id="bkStage">ステージ1/3</span><span id="bkScore">❤️❤️❤️／0点</span>${mgTimerSpan(DURATION_MS)}</div>
           <div class="mg-title">${title}</div>
@@ -1655,6 +1656,7 @@
         right.disabled = !running || selected >= Math.min(2, lane + 1);
       }
       function choose(delta) {
+        if (running) meter.act(); // 岩を えらぶ のも 遊びの 一部
         if (!running) return;
         selected = clamp(selected + delta, Math.max(0, lane - 1), Math.min(2, lane + 1)); hud();
       }
@@ -3467,7 +3469,8 @@
         const AI_SPEED = lerp(1.3, 2.2, difficulty), AI_ERR = lerp(0.22, 0.11, difficulty);
         let me = 0, ai = 0, rally = 0, bestRally = 0, running = true, rafId = null, last = null, msg = '', msgUntil = 0, serveAt = 0, server = 'me';
         let ball = null, px = 0, py = 0.25, prevPx = 0, prevPy = 0.25, pvx = 0, aiX = 0, aiY = 0.25, hitFlash = 0;
-        const startTime = performance.now() + MG_ACTION_START_GRACE_MS, meter = mgPlayMeter(), stroke = mgActEvery(meter);
+        const startTime = performance.now() + MG_ACTION_START_GRACE_MS;
+        const meter = mgPlayMeter(), stroke = mgActEvery(meter);
         container.innerHTML = `
           <div class="mg-header"><span id="ppScore">じぶん0 - 0あいて</span><span id="ppRally">ラリー0</span>${mgTimerSpan(TIME_LIMIT_MS)}</div>
           <div class="mg-title">${title}</div>
