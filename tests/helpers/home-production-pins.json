@@ -1,13 +1,23 @@
 {
   "index.html": {
     "before": "c9432f2b62b2c95a36338f8166627abe8feb97d3",
-    "after": "315481ea160437a5321202399a9769983fbc1b20",
-    "size": 73040,
+    "after": "bd21dec4ca993e00f03a30d71486beadc189e4bb",
+    "size": 73100,
     "reverse": [
       [
         70755,
         70805,
         "  <script src=\"games.js?v=869382e6aae9\"></script>\n"
+      ],
+      [
+        72478,
+        72604,
+        "  <script src=\"home-production-touch.js?v=df9353d84de4\"></script>\n"
+      ],
+      [
+        72359,
+        72427,
+        "  <script src=\"home-production-diorama.js?v=ed73883c63e1\"></script>\n"
       ],
       [
         70755,
@@ -53,18 +63,38 @@
   },
   "tools/pages/allowlist.json": {
     "before": "f1b1fb9cf575c6305fac17fb25dcf80a59d13c31",
-    "after": "d33e525c268b3ad2985737739692c06a2ed0be01",
-    "size": 296524,
+    "after": "adba841180938250173b9737aed7b331ca344bbb",
+    "size": 296644,
     "reverse": [
       [
-        267510,
-        267596,
+        267630,
+        267716,
+        "    \"index.html\": \"44f5a51e3bc7835d056f9e57676fe2104dd13bcb0d0ea957800eccaccee40a10\",\n"
+      ],
+      [
+        265226,
+        265310,
+        "    \"games.js\": \"869382e6aae990325663d2d000f0d1a26d047cb378f211220d89d8f69a94d5b6\",\n"
+      ],
+      [
+        267630,
+        267716,
         "    \"index.html\": \"8da367a53956e26875b8b8532e59d7ef4458f017760785747b9306fdc741e2c8\",\n"
       ],
       [
-        265200,
-        265284,
-        "    \"games.js\": \"869382e6aae990325663d2d000f0d1a26d047cb378f211220d89d8f69a94d5b6\",\n"
+        266568,
+        266668,
+        "    \"home-production-touch.js\": \"df9353d84de426e6f71fdd3b9230d31eac2bc8107d801e13ed5eac7d398d8f42\",\n"
+      ],
+      [
+        265967,
+        266163,
+        "    \"home-production-diorama.js\": \"ed73883c63e1b31b42da57260d1a89736a0e35d9863c3be6015ea0e38fe7cf4f\",\n"
+      ],
+      [
+        175007,
+        175033,
+        ""
       ],
       [
         267510,

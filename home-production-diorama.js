@@ -366,7 +366,7 @@
       const vp=env.NaotocchiHomeViewport,p=vp?.residentPresentation?.(),host=displayRect(worldHost);
       const polygons=polygonsAt(a).map(poly=>poly.map(([x,y])=>p?[p.x+(host.left+x-p.x)*p.scaleX,p.y+(host.top+y-p.y)*p.scaleY]:[host.left+x,host.top+y]));
       for(const n of [...row.owner.querySelectorAll('.character-asset'),...(row.attachments||[])]){
-        const r=n.getBoundingClientRect();
+        const r=env.NaotocchiHomeZoom?.rect(n)||n.getBoundingClientRect();
         const near=polygons.filter(poly=>Math.max(...poly.map(q=>q[0]))>=r.left&&Math.min(...poly.map(q=>q[0]))<=r.right&&Math.max(...poly.map(q=>q[1]))>=r.top&&Math.min(...poly.map(q=>q[1]))<=r.bottom);
         if(!near.length){if(n.style.maskImage){n.style.maskImage=n.style.webkitMaskImage='';}continue;}
         let m=new env.DOMMatrix();
@@ -739,7 +739,7 @@
     }
     const refreshDayparts=()=>{if(environment)update(environment,flags);};
     env.addEventListener?.('dayparts-qa-change',refreshDayparts);
-    function point(e){const r=displayRect(stage);const p=env.NaotocchiHomeViewport?.unscalePoint?.({x:e.clientX,y:e.clientY})||{x:e.clientX,y:e.clientY};return {x:p.x-r.left,y:p.y-r.top};}
+    function point(e){const r=displayRect(stage);const c=env.NaotocchiHomeZoom?.point({x:e.clientX,y:e.clientY})||{x:e.clientX,y:e.clientY};const p=env.NaotocchiHomeViewport?.unscalePoint?.(c)||c;return {x:p.x-r.left,y:p.y-r.top};}
     function hit(p,target){
       const items=model.snapshot().sort((a,b)=>b.y-a.y);
       const owner=target?.closest?.('[data-diorama-actor]');
