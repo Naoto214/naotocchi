@@ -1,38 +1,23 @@
 {
   "index.html": {
     "before": "c9432f2b62b2c95a36338f8166627abe8feb97d3",
-    "after": "b8e11f4cc2ea261406a148d09a92c640278879b0",
+    "after": "a01b86d6657777dd525ae10292b4323d6b0a242f",
     "size": 73100,
     "reverse": [
       [
-        72478,
+        72293,
         72604,
-        "  <script src=\"home-production-touch.js?v=df9353d84de4\"></script>\n"
+        "  <script src=\"home-production-model.js?v=812fad81ddc5\"></script>\n  <script src=\"home-production-diorama.js?v=ecac051a6f90\"></script>\n  <script src=\"script.js?v=958e4c160582\"></script>\n  <script src=\"home-production-touch.js?v=df9353d84de4\"></script>\n"
       ],
       [
-        72359,
-        72427,
-        "  <script src=\"home-production-diorama.js?v=ed73883c63e1\"></script>\n"
+        71609,
+        71665,
+        "  <script src=\"item-system.js?v=faff6498c4c9\"></script>\n"
       ],
       [
-        70755,
-        70805,
-        "  <script src=\"games.js?v=e0769e72dd39\"></script>\n"
-      ],
-      [
-        72427,
-        72478,
-        "  <script src=\"script.js?v=958e4c160582\"></script>\n"
-      ],
-      [
-        70755,
-        70805,
-        "  <script src=\"games.js?v=24bd3bc4f701\"></script>\n"
-      ],
-      [
-        6970,
-        6982,
-        "0d1b0a12508f"
+        71054,
+        71110,
+        "  <script src=\"care-status.js?v=240e5d1c060f\"></script>\n"
       ],
       [
         70755,
@@ -45,36 +30,56 @@
         ""
       ],
       [
-        72257,
-        72298,
-        "home-production-diorama.js?v=ecac051a6f90"
-      ],
-      [
-        72191,
-        72230,
-        "home-production-model.js?v=812fad81ddc5"
+        6912,
+        6985,
+        "<link rel=\"stylesheet\" href=\"home-production-layout.css?v=0d1b0a12508f\">\n"
       ]
     ]
   },
   "tools/pages/allowlist.json": {
     "before": "f1b1fb9cf575c6305fac17fb25dcf80a59d13c31",
-    "after": "dd79a255d1365dede1f42d951ae6015942517194",
+    "after": "5b8579025871110e75fc084a4505eb5d84c46b9f",
     "size": 296644,
     "reverse": [
       [
-        267630,
-        267716,
-        "    \"index.html\": \"8da367a53956e26875b8b8532e59d7ef4458f017760785747b9306fdc741e2c8\",\n"
+        294374,
+        294683,
+        "    \"home-ground-expansion.mjs\": \"886c97b278c4c2fee73455cbb130827a3e4b2e7828a9719d6cc6c88c7b3fe906\",\n    \"home-visible-ground-navigation.mjs\": \"47d394909efd22698dc697883efab1dc5f5142842d03615283d43d2f9490093b\",\n"
       ],
       [
-        266568,
-        266668,
-        "    \"home-production-touch.js\": \"df9353d84de426e6f71fdd3b9230d31eac2bc8107d801e13ed5eac7d398d8f42\",\n"
+        291841,
+        291942,
+        "    \"home-route-navigation.mjs\": \"9459d7632eb786f8415839e102ddd422829804423f0b9e674bae44424eef678e\",\n"
+      ],
+      [
+        281809,
+        281894,
+        "    \"script.js\": \"958e4c16058264dc22ad23ad6c74f78ffc55c8351635f3591cb4f53878601807\",\n"
+      ],
+      [
+        268090,
+        268180,
+        "    \"item-system.js\": \"faff6498c4c936f4c6f781e92e5f1dad016c7aaa31a380e6b7230a2755a7aba3\",\n"
+      ],
+      [
+        267630,
+        267716,
+        "    \"index.html\": \"76cd45be9c8bccfa81f96a04a52caa54c9fae9159436a83fca1a0fe42bd72cc7\",\n"
       ],
       [
         265967,
-        266163,
-        "    \"home-production-diorama.js\": \"ed73883c63e1b31b42da57260d1a89736a0e35d9863c3be6015ea0e38fe7cf4f\",\n"
+        266979,
+        "    \"home-production-diorama.js\": \"ecac051a6f903dab5ee2f266d70b879686e15a035fbcefd1e6a84fa5a2db783a\",\n    \"home-production-egg.mjs\": \"95b0eb7a4986281f61fa9eb3beae933db2cd8ef3ae162031a5c401fab39bddf5\",\n    \"home-production-layout.css\": \"0d1b0a12508f0194bbcf62c222be6768242073d0b51a8fed52d8d4a9e81a41fd\",\n    \"home-production-manifest.mjs\": \"8c9c44d8adecc52051a7ce9b9e542c6f98da58971e81b6adb77c2543bf2303f3\",\n    \"home-production-model.js\": \"812fad81ddc5f157ad57bd71930dd925af4c91e680ba927d56346e838dec8856\",\n    \"home-production-touch.js\": \"df9353d84de426e6f71fdd3b9230d31eac2bc8107d801e13ed5eac7d398d8f42\",\n    \"home-production-transform.mjs\": \"e4ab3a2d221e2efa2baee71092738767d9e1e33d46d04147e32b5b2f57c06214\",\n    \"home-production-world.mjs\": \"d824c818c676353898afb052b43f8e88db9a14a7add55c3986af0104dbdc9ca6\",\n    \"home-recovered-navigation.mjs\": \"9a7e25d9fbe9598f66f04139fc534b70cf847a289c53b908d5dc69e3eb62578d\",\n"
+      ],
+      [
+        265226,
+        265409,
+        "    \"games.js\": \"4642cb6e6de070aaaae79dcb7f653ac61a80e669682a7d5f1139e10e8562d2a6\",\n    \"home-art-navigation.mjs\": \"b08b767e0984c662aae5bd2e98dfc1463923950b7c41ded9af7ee4a26f8668be\",\n"
+      ],
+      [
+        260596,
+        260686,
+        "    \"care-status.js\": \"240e5d1c060fb02de61b7ff9716e757cea3b0f6bac0542d23372665139d686e2\",\n"
       ],
       [
         175007,
@@ -82,109 +87,9 @@
         ""
       ],
       [
-        267510,
-        267596,
-        "    \"index.html\": \"a8689379fc4ffb150c161cc775201bd23c99db1aeb19778298d7213cc7943f8e\",\n"
-      ],
-      [
-        265200,
-        265284,
-        "    \"games.js\": \"e0769e72dd39925a33d4d53e256781f2e7ab784f5352a245ca53af4f557bb0cd\",\n"
-      ],
-      [
-        281689,
-        281774,
-        "    \"script.js\": \"958e4c16058264dc22ad23ad6c74f78ffc55c8351635f3591cb4f53878601807\",\n"
-      ],
-      [
-        267510,
-        267596,
-        "    \"index.html\": \"13ec7f523eb4ab208394df764543d4cca41819bdc34d7b7afa52f7d8df6dffc2\",\n"
-      ],
-      [
-        267510,
-        267596,
-        "    \"index.html\": \"d9f9284c4eee19c3964f01fbd0c074ca7c4588eb428a38eb8a0b069b40591140\",\n"
-      ],
-      [
-        265200,
-        265284,
-        "    \"games.js\": \"24bd3bc4f701498ed342584dc6219c5947b55e303b18e87d6097f4fcc94bccd1\",\n"
-      ],
-      [
-        266177,
-        266241,
-        "0d1b0a12508f0194bbcf62c222be6768242073d0b51a8fed52d8d4a9e81a41fd"
-      ],
-      [
-        267529,
-        267593,
-        "4e2e5b5626fbe13bcd13ff543521b87e9ea071eb35e154848fdc454fc03a648f"
-      ],
-      [
-        267510,
-        267596,
-        "    \"index.html\": \"1338e2678e2019165513b904efcc384e0231e2e92bb56b0ed71c4f949eb4e78c\",\n"
-      ],
-      [
-        265200,
-        265284,
-        "    \"games.js\": \"4642cb6e6de070aaaae79dcb7f653ac61a80e669682a7d5f1139e10e8562d2a6\",\n"
-      ],
-      [
-        267529,
-        267593,
-        "d144940ba40c365bd295d0873c4c17eeaeee7d66c19f3343228a9674ddb6abfd"
-      ],
-      [
-        294254,
-        294385,
-        "    \"home-ground-expansion.mjs\": "
-      ],
-      [
         174736,
         174766,
         ""
-      ],
-      [
-        266351,
-        266415,
-        "812fad81ddc5f157ad57bd71930dd925af4c91e680ba927d56346e838dec8856"
-      ],
-      [
-        265286,
-        265350,
-        "b08b767e0984c662aae5bd2e98dfc1463923950b7c41ded9af7ee4a26f8668be"
-      ],
-      [
-        266762,
-        266826,
-        "9a7e25d9fbe9598f66f04139fc534b70cf847a289c53b908d5dc69e3eb62578d"
-      ],
-      [
-        294368,
-        294432,
-        "47d394909efd22698dc697883efab1dc5f5142842d03615283d43d2f9490093b"
-      ],
-      [
-        266657,
-        266721,
-        "d824c818c676353898afb052b43f8e88db9a14a7add55c3986af0104dbdc9ca6"
-      ],
-      [
-        291725,
-        291789,
-        "9459d7632eb786f8415839e102ddd422829804423f0b9e674bae44424eef678e"
-      ],
-      [
-        267499,
-        267563,
-        "76cd45be9c8bccfa81f96a04a52caa54c9fae9159436a83fca1a0fe42bd72cc7"
-      ],
-      [
-        265946,
-        266010,
-        "ecac051a6f903dab5ee2f266d70b879686e15a035fbcefd1e6a84fa5a2db783a"
       ]
     ]
   },
@@ -706,23 +611,386 @@
   },
   "script.js": {
     "before": "70112eac0365045f7ff701229028ddf5debe4cae",
-    "after": "152ed46dfd19eb774bc36820b4dd95f7cb0a98ef",
-    "size": 1201387,
+    "after": "959696bbbedae1882996439d202e0ad5f399b1fa",
+    "size": 1205245,
     "reverse": [
       [
-        1067542,
-        1067542,
-        "    } else {\n      applyDecline(8);\n      raiseDeathMeter(2);\n"
+        1190921,
+        1191063,
+        "    state.hunger = clamp(cap(state.hunger, 0.25 * factor), 0, 100);\n    state.happiness = clamp(cap(state.happiness, 0.25 * factor), 0, 100);\n"
       ],
       [
-        1067000,
-        1067417,
+        1146191,
+        1146267,
         ""
       ],
       [
-        673680,
-        673754,
+        1139556,
+        1139599,
+        "    if (state.isSleeping) { setActionComment(randomBlockedMessage('sleepingTravel'));saveState();render();return false; }\n"
+      ],
+      [
+        1137350,
+        1137393,
+        "    if (state.isSleeping) { setActionComment(randomBlockedMessage('sleepingTravel')); render(); return; }\n"
+      ],
+      [
+        1120882,
+        1120925,
+        "    if (state.isSleeping) {\n      setActionComment(randomBlockedMessage('sleepingCourt'));\n      return;\n    }\n"
+      ],
+      [
+        1114932,
+        1115217,
+        "      state.happiness = clamp(state.happiness - 5, 0, 100);\n      applyDecline(6);\n    } else {\n      state.happiness = clamp(state.happiness + 5, 0, 100);\n      applyGrowth(1.5); applyDecline(-2);\n"
+      ],
+      [
+        1114658,
+        1114701,
+        "    if (state.isSleeping) {\n      setActionComment(randomBlockedMessage('sleepingPet'));\n      return;\n    }\n"
+      ],
+      [
+        1110158,
+        1110196,
+        "    applyGrowth(4); applyDecline(-5);\n"
+      ],
+      [
+        1108446,
+        1108511,
+        ""
+      ],
+      [
+        1107040,
+        1107139,
+        "    state.energy = clamp(state.energy - Math.max(1, Math.round(12 * envModifiers().play)), 0, 100);\n"
+      ],
+      [
+        1104004,
+        1104042,
+        "    applyGrowth(4); applyDecline(-4);\n"
+      ],
+      [
+        1102746,
+        1102882,
+        "    if (state.isSleeping) {\n      setActionComment(randomBlockedMessage('sleepingFeed'));\n      return;\n    }\n    const overfed = state.hunger >= 80;\n    state.hunger = clamp(state.hunger + 25, 0, 100);\n"
+      ],
+      [
+        1101697,
+        1102119,
+        ""
+      ],
+      [
+        1071094,
+        1071094,
+        "    } else {\n      applyDecline(8);\n      raiseDeathMeter(2);\n"
+      ],
+      [
+        1070552,
+        1070969,
+        ""
+      ],
+      [
+        1070267,
+        1070340,
+        "    const energyCost = Math.max(1, Math.round(12 * envModifiers().play));\n"
+      ],
+      [
+        940895,
+        940938,
+        "    if (state.isSleeping) { setActionComment(randomBlockedMessage('sleepingTravel')); saveState(); render(); return false; }\n"
+      ],
+      [
+        875457,
+        875602,
+        "            if (m.happiness) state.happiness = clamp(state.happiness + m.happiness, 0, 100);\n"
+      ],
+      [
+        874843,
+        874892,
+        "    const delay = 150000 + Math.random() * 150000;\n"
+      ],
+      [
+        819063,
+        819111,
+        "      && !state.isSleeping && !gameActive && !state.transformOptions\n"
+      ],
+      [
+        683220,
+        683640,
+        ""
+      ],
+      [
+        681970,
+        682015,
+        "        applyGrowth(0.1, { silent: true });\n"
+      ],
+      [
+        676865,
+        676939,
         "      // 「死亡」メーターは びょうき・ていけんこう・ミニゲーム大失敗・\n"
+      ],
+      [
+        676530,
+        676820,
+        "        } else {\n"
+      ],
+      [
+        675612,
+        675716,
+        "      state.health = clamp(state.health + healthDelta, 0, 100);\n"
+      ],
+      [
+        674682,
+        675020,
+        ""
+      ],
+      [
+        674522,
+        674522,
+        "        recordSicknessCure();\n"
+      ],
+      [
+        673618,
+        673656,
+        "        const sicknessChance = 0.03;\n"
+      ],
+      [
+        672890,
+        673304,
+        "      const neglected = state.poopCount >= 3 || state.health < 40 || state.hunger < 20 || state.happiness < 20;\n      const infantGrace = currentAge() < 3 && state.poopCount < MAX_POOP;\n"
+      ],
+      [
+        672208,
+        672273,
+        "        state.happiness = clamp(state.happiness - 2, 0, 100);\n"
+      ],
+      [
+        671395,
+        671957,
+        "      // 3.5%/tick = やく 1.5分に 1こ(以前 8% = 40秒に 1こ で そうじが おいつかなかった)\n      if (Math.random() < 0.035 && state.poopCount < MAX_POOP) {\n        state.poopCount += 1;\n"
+      ],
+      [
+        670847,
+        671212,
+        "        // おきている あいだの 基本の げんしょうスピード(0.32/tick)\n        // は、「あそぶ」でミニゲームを たくさん あそべる ように、満腹・機嫌\n        // よりも すこし ゆっくりめに おさえてある\n        state.energy = clamp(state.energy - 0.32 * energyDecayMultiplier() * legendFactor, 0, 100);\n"
+      ],
+      [
+        670118,
+        670633,
+        ""
+      ],
+      [
+        669834,
+        669893,
+        "      if (isEquipped('ribbon') && state.happiness <= ITEM_AUTO_CARE_DANGER) {\n"
+      ],
+      [
+        669324,
+        669662,
+        "      // 0.35/tick: 100→30 が やく 10分。「つねに お世話しないと」に ならず、\n      // ほのぼの ながめて いられる はやさ(以前 0.6 = やく 6分)\n      state.hunger = clamp(state.hunger - 0.35 * sleepFactor * legendFactor * envMod.hunger, 0, 100);\n      state.happiness = clamp(state.happiness - 0.35 * sleepFactor * legendFactor * envMod.happy, 0, 100);\n      if (isEquipped('bowtie') && state.hunger <= ITEM_AUTO_CARE_DANGER) {\n"
+      ],
+      [
+        668734,
+        669083,
+        "      // 満腹・機嫌の 基本の げんしょうスピード(0.6/tick)は、なにも せずに\n      // 基本がめんで しばらく ながめていても あわてなくて いい よう、\n      // 余裕を もたせた 大きさに おさえてある(以前は 1/tick で、放置3分\n      // ほどで お世話ぎれの 状態に なってしまっていた)\n"
+      ],
+      [
+        668226,
+        668315,
+        "      const sleepFactor = state.isSleeping ? 0.4 : 1;\n"
+      ],
+      [
+        667618,
+        667944,
+        "    if (state.recentActionTicks > 0) state.recentActionTicks -= 1;\n"
+      ],
+      [
+        648483,
+        648873,
+        "        state.dyingTicks = DYING_GRACE_TICKS;\n        setMessage('なおとっちの様子がおかしい…早くおせわをしてあげて!');\n        emotePet('sad');\n      } else if (state.dyingTicks > 0) {\n        state.dyingTicks -= 1;\n"
+      ],
+      [
+        648043,
+        648318,
+        "  const DYING_GRACE_TICKS = 40; // 2分\n  function updateDyingWarning() {\n"
+      ],
+      [
+        607327,
+        607500,
+        "  const RECENT_ACTION_TICKS = 20; // 60秒\n  function markCared() { state.recentActionTicks = RECENT_ACTION_TICKS; }\n"
+      ],
+      [
+        576948,
+        576991,
+        ""
+      ],
+      [
+        560602,
+        560602,
+        "    if (state.isSleeping) return 'ねている…おきてからさそおう';\n"
+      ],
+      [
+        515207,
+        515350,
+        "      c.bond = clamp((c.bond ?? 100) - COMPANION_BOND_DECAY_PER_TICK * bondDecayFactor, 0, 100);\n"
+      ],
+      [
+        513298,
+        513461,
+        "    p.affection = clamp((p.affection ?? 100) - PARTNER_AFFECTION_DECAY_PER_TICK * mismatchFactor, 0, 100);\n"
+      ],
+      [
+        508869,
+        509714,
+        ""
+      ],
+      [
+        418681,
+        418719,
+        "  const AFFECTION_SPAM_THRESHOLD = 3;\n"
+      ],
+      [
+        159643,
+        160215,
+        "    { id: 'sick-cured-30', emoji: '🏥', label: 'めいいのたまご(じょうきゅう)', desc: 'びょうきを15かいなおした', tier: 'hard1', condition: (l) => l.sicknessCured >= 15 },\n    { id: 'age-100', emoji: '🎊', label: 'ひゃくさいばんざい', desc: '100さいになった', tier: 'hard1', condition: (l) => l.maxAgeReached >= 100 },\n    { id: 'medicine-30', emoji: '🩹', label: 'かんびょうのきろく', desc: 'ひとつの人生で、くすりを10回あげた', tier: 'hard1', condition: (l, s) => s.actionCounts.medicine >= 10 },\n"
+      ],
+      [
+        155689,
+        155881,
+        "    { id: 'clean-50', emoji: '🧹', label: 'ピカピカ20かい', desc: 'ひとつの人生で、そうじを20回した', tier: 'normal', condition: (l, s) => s.actionCounts.clean >= 20 },\n"
+      ],
+      [
+        151482,
+        152189,
+        "    { id: 'sick-cured-10', emoji: '💊', label: 'めいいのたまご', desc: 'びょうきを5かいなおした', tier: 'easy2', condition: (l) => l.sicknessCured >= 5 },\n    { id: 'age-25', emoji: '🌼', label: 'すくすくせいちょう', desc: '25さいになった', tier: 'easy2', condition: (l) => l.maxAgeReached >= 25 },\n    { id: 'dex-25', emoji: '📗', label: 'ずかんのはじまり', desc: 'ずかんを25しゅるいうめた', tier: 'easy2', condition: (l, s) => dexFoundCount(s) >= 25 },\n    { id: 'feed-100', emoji: '🍚', label: 'ごはんだいすき', desc: 'ひとつの人生で、ごはんを30回あげた', tier: 'easy2', condition: (l, s) => s.actionCounts.feed >= 30 },\n"
+      ],
+      [
+        69469,
+        69588,
+        "      if (line === 'phoenix') return (state.sicknessCuredThisLife || 0) >= (eased ? 3 : 5);\n"
+      ],
+      [
+        10390,
+        10425,
+        "  const RELATION_DECAY_YEARS = 28;\n"
+      ]
+    ]
+  },
+  "care-status.js": {
+    "before": "7c9fcb3695b6c92ff0f711d90f43b38ebb120122",
+    "after": "9afcdf447e102847883204166d0d3b2573fe4d5f",
+    "size": 12208,
+    "reverse": [
+      [
+        8396,
+        8443,
+        "    if (numeric(state, 'poopCount', 0) >= 2) {\n"
+      ],
+      [
+        8033,
+        8105,
+        "      if (!petAvailable) {\n"
+      ],
+      [
+        7072,
+        7247,
+        "        return notice('hunger', 'warning', 'おなかがすいている', '起きてから、ごはんをあげよう', 'hunger', 'sleepBtn', 'droop');\n"
+      ],
+      [
+        4957,
+        5004,
+        "    if (numeric(state, 'poopCount', 0) >= 2) {\n"
+      ],
+      [
+        4128,
+        4339,
+        "      if (petAvailable) return { action: 'playWithBtn', detail: lifeRecovery ? 'じゃれて、ごきげんを60以上にしよう' : 'やさしくじゃれよう' };\n"
+      ],
+      [
+        3336,
+        3460,
+        "      return { action: 'sleepBtn', detail: lifeRecovery ? '起きて、おなかを60以上にしよう' : '起きて、ごはんをあげよう' };\n"
+      ]
+    ]
+  },
+  "item-system.js": {
+    "before": "3ad716bb6b2c683797d169e22d4f9873ba3f0323",
+    "after": "d29f92ab673d9f58bf88667a4376ffc7bccb3a1b",
+    "size": 24966,
+    "reverse": [
+      [
+        2995,
+        3217,
+        "    \"desc\": \"なかまのきずなが25以下になると、自動で100にもどる。\",\n    \"guard\": \"通常時の自然減は軽くしない。危険域に入った時だけ発動し、じゃれる回数・加入・シール・実績は増やさない。\"\n"
+      ],
+      [
+        2598,
+        2892,
+        "    \"desc\": \"こいびとのなかよし度が25以下になると、自動で100にもどる。\",\n    \"guard\": \"通常時の自然減は軽くしない。危険域に入った時だけ発動し、交際成立・仲直り・結婚は自動化しない。手紙の思い出表示は残す。\"\n"
+      ],
+      [
+        1798,
+        2206,
+        "    \"price\": 3000,\n    \"kind\": \"equipment\",\n    \"desc\": \"病気になると、自動で治してくれる。\",\n    \"guard\": \"病気の予防ではなく発病後の自動治療。手動治療回数・実績等を増やさない。\"\n"
+      ],
+      [
+        1490,
+        1754,
+        "    \"price\": 3000,\n    \"kind\": \"equipment\",\n    \"desc\": \"ごきげんが下がると、自動で満タンにする。\",\n    \"guard\": \"ごきげん25以下で100。専用リアクションは維持し、手動のじゃれる回数・実績等を増やさない。\"\n"
+      ],
+      [
+        1226,
+        1436,
+        "    \"price\": 3000,\n    \"kind\": \"equipment\",\n    \"desc\": \"おなかがへると、自動で満タンにする。\",\n    \"guard\": \"おなか25以下で100。手動の食事回数・実績等を増やさない。\"\n"
+      ],
+      [
+        787,
+        1169,
+        "    \"price\": 3000,\n    \"kind\": \"equipment\",\n    \"desc\": \"ねると、すぐにげんきが満タンになる。\",\n    \"guard\": \"睡眠後の時間限定バフは付けない。通常の睡眠状態・睡眠回数・十分に寝た時の成長判定は維持する。\"\n"
+      ]
+    ]
+  },
+  "tests/care-status-test.cjs": {
+    "before": "4a696bd19ef208749a40a4e4f8f41637217a9306",
+    "after": "b5975d4bcaae03349fefd6319961006d8bccba3a",
+    "size": 13379,
+    "reverse": [
+      [
+        10785,
+        10816,
+        "    growing({ poopCount: 2 }),\n"
+      ],
+      [
+        9083,
+        9152,
+        "    ['dirt', { poopCount: 2 }, 'poop', 'info', 'clean', 'cleanBtn'],\n"
+      ],
+      [
+        6521,
+        6593,
+        "    ['dirt can be removed', { poopCount: 2 }, 'cleanBtn', /そうじ/],\n"
+      ],
+      [
+        5886,
+        6117,
+        "    ['sleeping must end before food', { hunger: 40, isSleeping: true }, 'sleepBtn', /起きて.*ごはん/],\n"
+      ]
+    ]
+  },
+  "tests/item-inventory-test.cjs": {
+    "before": "f55a64f1fc5996d6ba966726f1dd3101f2770f79",
+    "after": "c4600c41dd74b984779668620a345e0cda3197c9",
+    "size": 6799,
+    "reverse": [
+      [
+        3920,
+        4610,
+        "  sleepboost1:'ねると、すぐにげんきが満タンになる。',\n  bowtie:'おなかがへると、自動で満タンにする。',\n  ribbon:'ごきげんが下がると、自動で満タンにする。',\n  scarf:'病気になると、自動で治してくれる。',\n  travel1:'たびで、おなかとげんきが減らなくなる。',\n  partner1:'こいびとのなかよし度が25以下になると、自動で100にもどる。',\n  bond1:'なかまのきずなが25以下になると、自動で100にもどる。',\n"
+      ],
+      [
+        3543,
+        3741,
+        "  poop1:1000,sleepboost1:3000,bowtie:3000,ribbon:3000,scarf:3000,\n"
       ]
     ]
   }
