@@ -7114,11 +7114,11 @@
           let ang = Math.atan2(dx, -dy); if (ang < 0) ang += Math.PI * 2; const idx = Math.round(ang / (Math.PI * 2 / 20)) % 20; const n = SECTORS[idx];
           if (d > 0.92) return { pts: n * 2, label: `ダブル${n}! ${n * 2}` }; if (d > 0.56 && d < 0.64) return { pts: n * 3, label: `トリプル${n}!! ${n * 3}` }; return { pts: n, label: `${n}点` };
         }
-        function throwDart(tx, ty) { meter.act(); const spread = lerp(3, 6, difficulty); const fx = tx + (Math.random() - 0.5) * spread, fy = ty + (Math.random() - 0.5) * spread; flying = { fx, fy, born: performance.now() }; sfx('whoosh'); setTimeout(() => { if (!running) return; const r = scoreAt(fx, fy); sfx(r.pts >= 50 ? 'coin' : r.pts > 0 ? 'hit' : 'bad'); darts.push({ x: fx, y: fy, pts: r.pts }); total += r.pts; best = Math.max(best, r.pts); thrown++; flying = null; say(r.label, 1100); hud(); if (thrown >= DARTS) setTimeout(finish, 1300); }, 320); }
+        function throwDart(tx, ty) { const spread = lerp(3, 6, difficulty); const fx = tx + (Math.random() - 0.5) * spread, fy = ty + (Math.random() - 0.5) * spread; flying = { fx, fy, born: performance.now() }; sfx('whoosh'); setTimeout(() => { if (!running) return; const r = scoreAt(fx, fy); sfx(r.pts >= 50 ? 'coin' : r.pts > 0 ? 'hit' : 'bad'); darts.push({ x: fx, y: fy, pts: r.pts }); if (r.pts > 0) meter.act(); total += r.pts; /* 的に 当たった 投げだけ 数える(わざと 外へ 投げて すぐ おわらせる 回は 参加なし) */ best = Math.max(best, r.pts); thrown++; flying = null; say(r.label, 1100); hud(); if (thrown >= DARTS) setTimeout(finish, 1300); }, 320); }
         // amp は じっさいの ゆれ。「おちつき」ゲージと 照準円も この値を そのまま 読む(式を 2か所に 書かない)
         // Phase 3(2026-11-26): おさえた 直後は 手が ふるえて(DT_SETTLE_AMP)、DT_SETTLE_S 秒で おちつく。そのあと ながく おさえると また ゆれる。
         // まえは 押して すぐ はなすと ゆれ 0 で、まんなかを たたく だけで 6本とも ブル(100点)に なった
-        const DT_SETTLE_AMP = 40, DT_SETTLE_S = 0.7; let wobPhase = 0; // ゆれの 位相は なげる たびに ランダム
+        const DT_SETTLE_AMP = R * 0.42, DT_SETTLE_S = 0.7; let wobPhase = 0; // ふるえの 大きさは 的の 大きさに あわせる。ゆれの 位相は なげる たびに ランダム
         function shake(now) { amp = DT_SETTLE_AMP * Math.max(0, 1 - holdT / DT_SETTLE_S) + Math.min(26, holdT * holdT * lerp(9, 14, difficulty)); const k = now + wobPhase; wob.x = Math.sin(k / 90) * amp * 0.6 + Math.sin(k / 37) * amp * 0.25; wob.y = Math.cos(k / 73) * amp * 0.6 + Math.sin(k / 51) * amp * 0.25; }
         function update(dt, now) { if (aim) { holdT += dt; shake(now); drift.x += (Math.random() - 0.5) * dt * 40 * holdT; drift.y += (Math.random() - 0.5) * dt * 40 * holdT; } else { wob.x *= 0.8; wob.y *= 0.8; } }
         function drawBoard() {
@@ -8717,7 +8717,7 @@
         }
         gen();
         canvas.addEventListener('pointerdown', (e) => { e.preventDefault(); if (!running || phase !== 'build') return; const p = mgPointerPos(canvas, e); let best = -1, bd = 22; path.forEach((d, i) => { const dist = Math.hypot(d.x - p.x, d.y - p.y); if (dist < bd) { bd = dist; best = i; } }); if (best < 0) return; const d = path[best]; if (d.present) { if (d.placed) { d.present = false; d.placed = false; spare++; hud(); } else say('そこにはもうある', 600); return; } if (spare <= 0) { say('手持ちがない!', 800); return; } d.present = true; d.placed = true; spare--; meter.act(); sfx('pop'); hud(); });
-        pushBtn.addEventListener('pointerdown', (e) => { e.preventDefault(); if (!running || phase !== 'build') return; phase = 'run'; meter.act(); sfx('whoosh'); pushAt = performance.now(); path[0].fallen = performance.now(); fallen = 1; hud(); say('👉パタパタ…', 1000); });
+        pushBtn.addEventListener('pointerdown', (e) => { e.preventDefault(); if (!running || phase !== 'build') return; phase = 'run'; if (path.some((d) => d.placed)) meter.act(); sfx('whoosh'); pushAt = performance.now(); path[0].fallen = performance.now(); fallen = 1; hud(); say('👉パタパタ…', 1000); });
         function update(dt, now) {
           if (phase !== 'run') return;
           for (let i = 0; i < path.length; i++) { const d = path[i]; if (!d.fallen || !d.present) continue; d.tilt = Math.min(1, d.tilt + dt * 6); const nxt = path[i + 1]; if (d.tilt > 0.55 && nxt && !nxt.fallen) { if (nxt.present) { sfx('tick'); nxt.fallen = now; fallen++; if (i + 1 === path.length - 1) { phase = 'done'; cleared++; lastClearAt = now; say('🔔ゴール!ぜんぶたおれた!', 1500); setTimeout(next, 1700); return; } } else { phase = 'done'; say('💦途中で止まった…', 1500); setTimeout(next, 1700); return; } } }
