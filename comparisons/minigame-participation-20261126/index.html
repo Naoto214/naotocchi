@@ -1,0 +1,188 @@
+<!doctype html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>参加度の判定</title>
+<link rel="stylesheet" href="style.css">
+<style>
+/* Layout: 説明 → 一覧表 → ゲームと版の切りかえ+式の比較 → スマホ枠の中で本物のゲーム → 結果の記録表。1カラム、最大 760px */
+:root {
+  --p-bg: #f3f6f4; --p-panel: #ffffff; --p-ink: #1f2a27; --p-muted: #5b6a64; --p-line: #d7e1dc;
+  --p-before: #b4472f; --p-before-bg: #fbe9e4; --p-after: #23795d; --p-after-bg: #e2f3ea; --p-accent: #2f6f8f;
+  --p-down: #b4472f; --p-same: #5b6a64; --p-up: #23795d;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --p-bg: #131917; --p-panel: #1c2421; --p-ink: #e4ede9; --p-muted: #9db0a8; --p-line: #2e3a35;
+  --p-before: #ff9a82; --p-before-bg: #3a201a; --p-after: #79d6ae; --p-after-bg: #173126; --p-accent: #8cc8e6;
+  --p-down: #ff9a82; --p-same: #9db0a8; --p-up: #79d6ae; color-scheme: dark; } }
+:root[data-theme="dark"] {
+  --p-bg: #131917; --p-panel: #1c2421; --p-ink: #e4ede9; --p-muted: #9db0a8; --p-line: #2e3a35;
+  --p-before: #ff9a82; --p-before-bg: #3a201a; --p-after: #79d6ae; --p-after-bg: #173126; --p-accent: #8cc8e6;
+  --p-down: #ff9a82; --p-same: #9db0a8; --p-up: #79d6ae; color-scheme: dark; }
+html, body { background: var(--p-bg) !important; color: var(--p-ink); }
+body { font: 15px/1.7 "Hiragino Sans", "Noto Sans JP", system-ui, sans-serif; margin: 0; display: block !important; min-height: 0 !important; height: auto !important; overflow: auto !important; }
+.p-wrap { max-width: 760px; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); padding-block: 20px 48px; display: grid; gap: 16px; }
+.p-wrap h1 { font-size: 1.35rem; margin: 0; text-wrap: balance; line-height: 1.35; }
+.p-wrap h2 { font-size: 1.02rem; margin: 0; }
+.p-wrap h3 { font-size: .95rem; margin: 0; }
+.p-lead { color: var(--p-muted); margin: 4px 0 0; }
+.p-panel { background: var(--p-panel); border: 1px solid var(--p-line); border-radius: 14px; padding: 14px; display: grid; gap: 10px; min-width: 0; }
+.p-panel p, .p-panel ul { margin: 0; }
+.p-panel ul { padding-left: 1.2em; }
+.p-seg { display: flex; flex-wrap: wrap; gap: 6px; }
+.p-seg button, .p-btn { font: inherit; font-size: .88rem; border: 1px solid var(--p-line); background: var(--p-panel); color: var(--p-ink); border-radius: 999px; padding: 6px 12px; cursor: pointer; min-height: 40px; }
+.p-seg button[aria-pressed="true"] { background: var(--p-accent); border-color: var(--p-accent); color: var(--p-panel); font-weight: 700; }
+.p-seg button.v-before[aria-pressed="true"] { background: var(--p-before); border-color: var(--p-before); }
+.p-seg button.v-after[aria-pressed="true"] { background: var(--p-after); border-color: var(--p-after); }
+.p-btn.primary { background: var(--p-ink); color: var(--p-panel); border-color: var(--p-ink); font-weight: 700; }
+:focus-visible { outline: 2px solid var(--p-accent); outline-offset: 2px; }
+.p-tag { font-size: .72rem; font-weight: 700; border-radius: 999px; padding: 1px 9px; white-space: nowrap; }
+.p-tag.before { color: var(--p-before); background: var(--p-before-bg); } .p-tag.after { color: var(--p-after); background: var(--p-after-bg); }
+.p-phone { width: 100%; max-width: 390px; height: 640px; margin: 0 auto; border-radius: 22px; overflow: hidden; border: 1px solid var(--p-line); background: #fffaf2; display: flex; flex-direction: column; position: relative; }
+.p-phone .minigame-overlay { flex: 1; min-height: 0; padding: 8px; }
+.p-phone-empty { margin: auto; color: #6b6255; text-align: center; padding: 24px; font-size: .9rem; }
+.p-status { font-size: .88rem; min-height: 1.6em; font-weight: 700; }
+.p-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+table.p-t { border-collapse: collapse; width: 100%; font-size: .8rem; font-variant-numeric: tabular-nums; }
+table.p-t th, table.p-t td { border-top: 1px solid var(--p-line); padding: 6px 8px; text-align: left; vertical-align: top; }
+table.p-t th { color: var(--p-muted); font-weight: 600; white-space: nowrap; }
+table.p-t.wide { min-width: 640px; }
+.p-note { font-size: .8rem; color: var(--p-muted); }
+.p-row { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.p-formula { display: grid; gap: 6px; }
+.p-formula div { border-left: 4px solid var(--p-line); padding: 4px 10px; font-size: .86rem; }
+.p-formula .b { border-color: var(--p-before); } .p-formula .a { border-color: var(--p-after); }
+.d-down { color: var(--p-down); font-weight: 700; } .d-same { color: var(--p-same); } .d-up { color: var(--p-up); font-weight: 700; }
+details summary { cursor: pointer; font-weight: 700; }
+.p-pt td.num { text-align: right; white-space: nowrap; }
+.p-pt td.lbl { white-space: nowrap; }
+</style>
+
+<div class="p-wrap">
+  <header>
+    <div class="p-note">なおとっち・参加度の判定(2026-11-26)</div>
+    <h1>わざとすぐ失敗するくりかえしは記録しない。まじめに遊べば今までどおり</h1>
+    <p class="p-lead">全100本のミニゲームに参加度メーターをそろえます(46本はこのPR、16本は Phase 3 の #597)。本物の games.js を2つ(変更前 = main、変更後 = このブランチ)読みこんで、遊んで比べられます。「本体での扱い」は本体と同じ判定です(記録・コインは実際には増えません)。</p>
+  </header>
+  <section class="p-panel" aria-label="きまり">
+    <h2>判定のきまり</h2>
+    <ul>
+      <li>数えるのは、ゲームの状態が変わった「意味のある操作」だけ(かべにぶつかる・同じ向きを押す・的の外・何も置かずに「おす!」などは数えない)。</li>
+      <li>アクション: 4秒の区切り2つ以上で操作すれば参加。<b>何も達成せず4秒未満で終わった回は記録しない</b>(スネーク・フロッガー・ボンバーは8秒)。</li>
+      <li>最初の小さな目標(リンゴ1こ・ブロック1こ・1体たおす など)を達成していれば、すぐ終わっても記録する。</li>
+      <li>考えるゲーム・盤上の対戦: 回数で見る(考えている時間は放置とみなさない)。</li>
+      <li>記録しない回は「途中でやめた」と同じ(げんき −6・きげん +2)。しっぱいのペナルティはもともとありません(C案)。</li>
+    </ul>
+  </section>
+  <section class="p-panel" aria-label="ゲーム">
+    <h2>遊んで比べる</h2>
+    <div class="p-seg" id="gameSeg" role="group" aria-label="ゲーム"></div>
+    <div class="p-seg" id="verSeg" role="group" aria-label="版">
+      <button type="button" class="v-before" data-ver="before" aria-pressed="false">変更前</button>
+      <button type="button" class="v-after" data-ver="after" aria-pressed="true">変更後</button>
+    </div>
+    <div id="gameInfo" class="p-formula"></div>
+    <div class="p-row"><button type="button" class="p-btn primary" id="playBtn">▶ あそぶ</button><button type="button" class="p-btn" id="stopBtn">やめる</button></div>
+    <div class="p-status" id="status" role="status"></div>
+  </section>
+  <div class="p-phone" id="phone"><div class="p-phone-empty">ゲームと版をえらんで「あそぶ」を押してください。</div></div>
+  <section class="p-panel">
+    <h2>結果の記録(このページを開いている間だけ)</h2>
+    <div class="p-scroll"><table class="p-t" style="min-width:480px"><thead><tr><th>#</th><th>ゲーム</th><th>版</th><th>点</th><th>本体での扱い</th></tr></thead><tbody id="log"><tr><td colspan="5" class="p-note">まだありません。</td></tr></tbody></table></div>
+  </section>
+  <section class="p-panel" aria-label="一覧">
+    <h2>全100本の判定</h2>
+    <div class="p-scroll"><table class="p-t wide" id="all"><thead><tr><th>ゲーム</th><th>種類</th><th>数える操作</th><th>最初の目標</th><th>1回だけ操作(前→後)</th><th>即時失敗のへんしん/分(前→後)</th></tr></thead><tbody></tbody></table></div>
+    <p class="p-note">○ = 記録・× = 記録しない・― = 終わらない(自動プレイ各2回)。へんしん/分 = 30点未満のまま記録された回のいちばん速いもの(画面の行き来 8秒をふくむ)。#597 = Phase 3 の PR でメーターが入るゲーム。</p>
+  </section>
+</div>
+
+<script src="helpers.js"></script>
+<script src="games-before.js"></script>
+<script src="games-after.js"></script>
+<script>
+(() => {
+  'use strict';
+  const $ = (id) => document.getElementById(id);
+  const GAMES = [
+    {id: 'snake-classic', name: 'スネーク', diff: 0.3, before: '1回さわれば記録(4秒で壁にぶつかっても)', after: '向きを変えた回数で見る。リンゴを1こ食べるか、8秒以上(3区切り)操作すれば記録', example: '1回スワイプして壁: 記録(へんしん+25) → 記録しない'},
+    {id: 'frogger-road', name: 'フロッガー', diff: 0.3, before: '1回さわれば記録', after: '進んだ回数で見る。1匹おうちに帰すか、8秒以上操作すれば記録', example: '連打で車にとびこむ(5秒): 記録 → 記録しない'},
+    {id: 'bomber-maze', name: 'ボンバー', diff: 0.3, before: '1回さわれば記録', after: '移動・ばくだんで見る。1体たおすか、8秒以上操作すれば記録', example: '自分のばくだんで6秒: 記録 → 記録しない'},
+    {id: 'breakout-classic', name: 'ブロックくずし', diff: 0.3, before: '1回さわれば記録', after: 'パドルを動かした区切りで見る。ブロックを1こ割れば記録', example: ''},
+    {id: 'lights-out', name: 'ライツアウト', diff: 0.3, before: '1回さわれば記録', after: 'ライトを押した回数(2回)で見る。考えている時間は放置とみなさない', example: ''},
+    {id: 'fishing-sea', name: 'つり(うみ)', diff: 0.3, before: '1回さわれば記録', after: '投げる・あわせる・巻くの回数(2回)。1ぴき釣れば記録', example: ''},
+    {id: 'pingpong-3d', name: '3D卓球', diff: 0.3, before: '1回さわれば記録(ラケットに自動で当たる球も)', after: 'ラケットを動かした区切りで見る(自動で当たる球は数えない)。1点とれば記録', example: ''},
+  ];
+  const ALL = [["road-themed", "ロードげーむ(道路/空/海 ランダムテーマ)", "アクション(4秒区切り)", "レーンを変える", "―", "以前", "××", "××", 56, 56], ["stack-themed", "つみき/パンケーキ/ケーキタワー(ランダムテーマ)", "#597", "おとす", "―", "P3", "○○", "○○", 105, "#597"], ["stack-snowman", "ゆきだるまタワー", "#597", "おとす", "―", "P3", "○○", "○○", 99, "#597"], ["falling-block-puzzle", "ブロックパズル", "アクション(4秒区切り)", "動かす・回す・落とす", "―", "以前", "××", "××", 50, 50], ["crane-game-3d", "UFOキャッチャー", "考える(2回)", "アームを動かす", "景品を1こ", "本PR", "――", "――", 68, 68], ["pinball-physics", "ピンボール", "アクション(4秒区切り)", "フリッパー・発射", "―", "P2", "××", "××", 43, 43], ["haunted-house-3d", "3Dおばけ屋敷", "アクション(4秒区切り)", "歩く・向きを変える", "カギをとる", "本PR", "○○", "××", 72, 70], ["bowling-3d", "ボウリング", "考える(2回)", "投げる", "ピンを1本たおす", "本PR", "○○", "××", 26, 0], ["archery-3d", "アーチェリー", "#597", "射る", "―", "P3", "○○", "○○", 53, "#597"], ["breakout-classic", "ブロックくずし", "アクション(4秒区切り)", "パドルを動かす", "ブロックを1こ割る", "本PR", "○○", "××", 85, 85], ["dragDecorate-cake", "ケーキデコレーション", "#597", "トッピングを置く", "1こ置く", "P3", "○○", "○○", 63, "#597"], ["dragDecorate-bento", "おべんとうづくり", "考える(1回)", "おかずをつめる", "1こつめる", "本PR", "○○", "××", 71, 0], ["p3-space", "3Dうちゅうフライト", "アクション(4秒区切り)", "レーンを変える", "―", "以前", "××", "××", 56, 56], ["p3-drive", "3Dハイウェイ", "アクション(4秒区切り)", "レーンを変える", "―", "以前", "××", "××", 56, 56], ["fp-dungeon", "3Dダンジョン", "アクション(4秒区切り)", "歩く・向きを変える", "宝箱を1つとる", "本PR", "○○", "××", 41, 41], ["race-3d", "3Dレース", "アクション(4秒区切り)", "アクセル・ハンドル", "ゴールする", "本PR", "○○", "××", 44, 44], ["rhythm-highway-3d", "リズムハイウェイ", "#597", "ノーツに当てる(おてつきは数えない)", "―", "P3", "○○", "○○", 48, "#597"], ["tilt-maze-3d", "たまころがし迷路", "アクション(4秒区切り)", "かたむける", "―", "以前", "××", "××", 46, 46], ["space-gunner-3d", "スペースガンナー", "アクション(4秒区切り)", "撃つ・照準を動かす", "1機たおす", "本PR", "○○", "××", 93, 93], ["mini-golf-physics", "ミニゴルフ", "考える(2回)", "打つ", "1ホール入れる", "本PR", "○○", "××", 31, 0], ["real-fishing", "ほんかくさかなつり", "考える(2回)", "投げる・あわせる・巻く", "1ぴき釣る", "本PR", "○○", "××", 42, 42], ["basketball-3d", "3Dバスケ", "考える(2回)", "シュート", "1本決める", "本PR", "○○", "××", 44, 44], ["pingpong-3d", "3D卓球", "アクション(4秒区切り)", "ラケットを動かす(自動で当たる球は数えない)", "1点とる", "本PR", "○○", "××", 64, 64], ["chain-puzzle", "れんさパズル", "アクション(4秒区切り)", "動かす・回す・落とす", "ぷよを消す", "本PR", "○○", "××", 143, 72], ["street-fight", "かくとうバトル", "#597", "わざ・ガード・移動", "―", "P3", "○○", "○○", 50, "#597"], ["free-kick-3d", "フリーキック", "考える(2回)", "キック", "1点決める", "本PR", "○○", "××", 24, 24], ["tower-defense", "タワーディフェンス", "考える(2回)", "タワーを建てる・強化・つぎのウェーブ", "敵を1体たおす", "P2", "××", "××", 28, 28], ["roguelike-dungeon", "ローグライク", "考える(3回)", "1マス動く・休む", "1体たおす・つぎの階", "本PR", "○○", "××", 123, 123], ["grand-prix-3d", "グランプリ", "#597", "アクセル・ハンドル", "―", "P3", "○○", "○○", 37, "#597"], ["sky-shooter", "スカイシューター", "アクション(4秒区切り)", "移動・ボム", "―", "以前", "××", "××", 80, 80], ["jump-quest", "ジャンプクエスト", "アクション(4秒区切り)", "移動・ジャンプ", "コインをとる・ふむ・ゴール", "本PR", "○○", "××", 40, 40], ["push-puzzle", "そうこばん", "考える(3回)", "箱・人を動かす(本番の問題だけ)", "1問とく", "P2", "――", "――", 13, 13], ["reversi-6", "オセロ(6×6)", "盤上の対戦(手と手の間)", "合法手", "決着", "以前", "××", "××", 0, 0], ["billiards-6", "ビリヤード", "考える(2回)", "打つ", "1球入れる", "本PR", "○○", "××", 31, 31], ["animal-shogi", "どうぶつしょうぎ", "盤上の対戦(手と手の間)", "合法手", "決着", "以前", "××", "××", 0, 0], ["minesweeper-8", "マインスイーパー(8×8)", "アクション(4秒区切り)", "マスを開く・旗", "―", "以前", "××", "××", 22, 22], ["snake-classic", "スネーク", "アクション(4秒区切り)", "向きを変える", "リンゴを1こ食べる", "本PR", "○○", "××", 124, 0], ["baseball-batting", "やきゅうバッティング", "考える(2回)", "スイング(球が来ているとき)", "1本ヒット", "本PR", "○○", "××", 74, 74], ["ring-flight-3d", "リングフライト3D", "アクション(4秒区切り)", "機体を動かす", "―", "以前", "××", "××", 44, 44], ["bubble-shooter", "バブルシューター", "アクション(4秒区切り)", "撃つ", "―", "以前", "××", "××", 123, 0], ["catapult-castle", "カタパルト", "考える(2回)", "発射", "1体たおす", "本PR", "○○", "××", 46, 46], ["connect-four", "コネクトフォー", "盤上の対戦(手と手の間)", "合法手", "決着", "以前", "××", "××", 58, 58], ["puzzle-2048", "2048", "考える(3回)", "タイルが動いたスワイプ", "―", "P2", "××", "××", 28, 28], ["frogger-road", "フロッガー(道路と川)", "アクション(4秒区切り)", "1マス進む", "1匹おうちに帰す", "本PR", "○○", "××", 115, 40], ["ski-jump", "スキージャンプ", "考える(2回)", "スタート・とぶ", "―", "P2", "――", "――", 71, 71], ["air-hockey", "エアホッケー", "アクション(4秒区切り)", "マレットを動かす", "―", "以前", "××", "××", 0, 0], ["submarine-3d", "サブマリン3D", "アクション(4秒区切り)", "潜水艦を動かす", "―", "以前", "××", "××", 66, 66], ["match-3", "フルーツマッチ3", "アクション(4秒区切り)", "入れかえる", "1回そろえる", "本PR", "○○", "××", 37, 37], ["gomoku-9", "五目ならべ", "盤上の対戦(手と手の間)", "合法手", "決着", "以前", "××", "××", 0, 0], ["tank-battle", "タンクバトル", "アクション(4秒区切り)", "移動・撃つ", "1台たおす", "本PR", "○○", "××", 72, 72], ["tennis-rally", "テニス", "アクション(4秒区切り)", "移動・スイング", "―", "以前", "××", "××", 71, 71], ["picross-5", "ピクロス", "考える(2回)", "ぬる・×をつける", "1問とく", "本PR", "○○", "××", 18, 18], ["darts-board", "ダーツ", "#597", "的に当たった投げ", "―", "P3", "――", "――", 56, "#597"], ["hang-glider-3d", "ハンググライダー3D", "アクション(4秒区切り)", "機体を動かす", "―", "以前", "××", "××", 0, 0], ["bomber-maze", "ボンバー", "アクション(4秒区切り)", "移動・ばくだん", "1体たおす", "本PR", "○○", "××", 109, 0], ["blackjack-21", "ブラックジャック", "考える(1回)", "ヒット・スタンド", "―", "P2", "――", "――", 143, 143], ["pipe-connect", "パイプつなぎ", "考える(2回)", "パイプを回す", "1問つなぐ", "本PR", "○○", "××", 26, 26], ["fruit-slice", "フルーツ斬り", "#597", "スワイプ・斬る", "―", "P3", "○○", "○○", 45, "#597"], ["track-field", "りくじょう", "アクション(4秒区切り)", "左右を交互に押す・とぶ(同じ側の連打は数えない)", "100mを走りきる", "本PR", "――", "――", 0, 0], ["voxel-mine", "ボクセルマイニング", "アクション(4秒区切り)", "掘る向きを決める", "鉱石を1こ掘る", "本PR", "○○", "××", 40, 0], ["sushi-belt", "かいてんずし", "アクション(4秒区切り)", "注文の皿をとる(ちがう皿は数えない)", "―", "P2", "××", "××", 0, 0], ["asteroids-classic", "アステロイド", "#597", "撃つ・回す・噴射", "―", "P3", "○○", "○○", 58, "#597"], ["yacht-dice", "ヨット", "考える(2回)", "ふる・役をえらぶ", "1回点をとる", "本PR", "――", "――", 32, 32], ["lights-out", "ライツアウト", "考える(2回)", "ライトを押す", "1問とく", "本PR", "○○", "××", 28, 28], ["doodle-jump", "ぴょんぴょんジャンプ", "アクション(4秒区切り)", "左右に動かす", "―", "以前", "××", "××", 91, 91], ["curling-ice", "カーリング", "アクション(回数のみ)", "投げる・スイープ", "―", "以前", "××", "××", 0, 0], ["jenga-tower", "ジェンガ", "考える(1回)", "ブロックを抜く", "―", "P2", "××", "××", 28, 28], ["line-trace", "せんなぞり", "考える(1回)", "スタートからなぞる", "1問なぞる", "本PR", "○○", "××", 37, 37], ["checkers-6", "チェッカー", "盤上の対戦(手と手の間)", "合法手", "決着", "以前", "××", "××", 0, 0], ["memory-cards", "しんけいすいじゃく", "考える(2回)", "カードをめくる", "1組そろえる", "本PR", "○○", "××", 28, 28], ["halfpipe-skate", "ハーフパイプ", "#597", "ポンプ・技", "―", "P3", "○○", "○○", 43, "#597"], ["domino-run", "ドミノたおし", "#597", "ドミノを置く・置いてから「おす!」", "1問クリア", "P3", "○○", "○○", 111, "#597"], ["sudoku-mini", "ナンプレ", "考える(2回)", "数字を入れる", "1問とく", "本PR", "○○", "××", 15, 0], ["mancala-kalah", "マンカラ", "盤上の対戦(手と手の間)", "合法手", "決着", "以前", "××", "××", 0, 0], ["plane-landing", "ひこうき着陸", "アクション(4秒区切り)", "機首を上げ下げ", "―", "以前", "××", "××", 36, 36], ["dot-eater", "ドットイーター", "アクション(4秒区切り)", "向きを変える", "ドットを食べる", "本PR", "○○", "××", 48, 48], ["missile-command", "ミサイルコマンド", "アクション(4秒区切り)", "ミサイルを撃つ", "1発うちおとす", "本PR", "○○", "××", 38, 38], ["area-claim", "じんとり", "アクション(4秒区切り)", "移動", "陣地をとる", "本PR", "○○", "××", 40, 40], ["solitaire-klondike", "ソリティア", "考える(2回)", "山札をめくる・カードを動かす", "台に1まい上げる", "本PR", "○○", "××", 15, 15], ["hit-blow", "ヒット&ブロー", "考える(1回)", "予想を出す", "正解", "P2", "××", "××", 0, 0], ["lunar-lander", "ルナランダー", "アクション(4秒区切り)", "噴射・左右", "1回着陸する", "本PR", "○○", "××", 74, 74], ["shanghai-tiles", "上海", "考える(2回)", "取れる牌をえらぶ", "1組とる", "本PR", "○○", "××", 18, 0], ["beach-volley", "ビーチバレー", "アクション(4秒区切り)", "移動・アタック", "1点とる", "本PR", "○○", "××", 75, 75], ["slide-puzzle", "スライドパズル", "考える(2回)", "パネルを動かす", "完成", "本PR", "○○", "××", 31, 31], ["sugoroku-race", "すごろく", "考える(2回)", "サイコロをふる", "―", "P2", "××", "××", 31, 31], ["takoyaki-grill", "たこやきやさん", "アクション(4秒区切り)", "たこやきをひっくり返す", "ちょうどよく焼く", "本PR", "○○", "××", 45, 45], ["road-city", "都会を走ろう(地域: city)", "アクション(4秒区切り)", "レーンを変える", "―", "以前", "××", "××", 56, 56], ["stack-harvest", "いなかの収穫タワー(地域: countryside)", "#597", "おとす", "―", "P3", "○○", "○○", 99, "#597"], ["stack-acorn", "きのみタワー(地域: forest)", "#597", "おとす", "―", "P3", "○○", "○○", 99, "#597"], ["downhill-mountain", "岩場のぼり(地域: mountain、保存id流用)", "考える(2回)", "岩をえらぶ・つかむ", "1段のぼる", "本PR", "○○", "××", 45, 45], ["downhill-snow", "スキー/スノーボード ダウンヒル(地域: snow)", "アクション(4秒区切り)", "ハンドル・ジャンプ", "―", "P2", "××", "××", 46, 46], ["fishing-sea", "うみでほんかくさかなつり", "考える(2回)", "投げる・あわせる・巻く", "1ぴき釣る", "本PR", "○○", "××", 42, 42], ["fishing-deepsea", "しんかいフィッシング", "考える(2回)", "投げる・あわせる・巻く", "1ぴき釣る", "本PR", "○○", "××", 42, 42], ["fishing-river", "みずべで魚つり", "考える(2回)", "投げる・あわせる・巻く", "1ぴき釣る", "本PR", "○○", "××", 42, 42], ["road-jungle", "ジャングルをかけぬけろ(地域: jungle)", "アクション(4秒区切り)", "レーンを変える", "―", "以前", "××", "××", 56, 56], ["road-desert", "さばくを走ろう(地域: desert)", "アクション(4秒区切り)", "レーンを変える", "―", "以前", "××", "××", 56, 56], ["stack-sakura", "さくらタワー(季節: 春)", "#597", "おとす", "―", "P3", "○○", "○○", 99, "#597"], ["ring-flight-summer", "なつのうみフライト(夏の季節ゲーム)", "アクション(4秒区切り)", "機体を動かす", "―", "以前", "××", "××", 44, 44], ["stack-leaves", "落ち葉タワー(季節: 秋)", "#597", "おとす", "―", "P3", "○○", "○○", 99, "#597"], ["curling-winter", "ふゆのカーリング大会", "アクション(回数のみ)", "投げる・スイープ", "―", "以前", "××", "××", 0, 0]];
+  $('all').querySelector('tbody').innerHTML = ALL.map((r) => `<tr><th scope="row">${r[1]}<br><span class="p-note">${r[0]}</span></th><td>${r[2]}</td><td>${r[3]}</td><td>${r[4]}</td><td>${r[6]} → ${r[7]}</td><td>${r[8]} → ${r[9]}</td></tr>`).join('');
+  $('gameSeg').innerHTML = GAMES.map((g, i) => `<button type="button" data-i="${i}" aria-pressed="${i === 0}">${g.name}</button>`).join('');
+  let gi = 0, ver = 'after', session = 0, logN = 0;
+  const reg = {};
+  function registry(v) {
+    if (reg[v]) return reg[v];
+    const H = window.P3Helpers;
+    const S = {
+      sfx() {}, perfLow: () => false, perfScale: () => 1, foodIconHTML: (_k, e) => e, canvasIllustrations: null, drawProp: () => false,
+      MG_ACTION_START_GRACE_MS: H.MG_ACTION_START_GRACE_MS, MG_SWIPE_MIN: H.MG_SWIPE_MIN, SEASON: {SPRING: 'spring', SUMMER: 'summer', AUTUMN: 'autumn', WINTER: 'winter'},
+      ageDifficulty: () => GAMES[gi].diff, bindHeldButton: H.bindHeldButton, createTouchPad: H.createTouchPad, createPadRow: H.createPadRow, clamp: H.clamp,
+      createMgCanvas: H.createMgCanvas, currentSprite: () => '🐶', generateMaze: H.generateMaze, lerp: H.lerp, mazeBfs: H.mazeBfs,
+      mgDuration: (ms) => ms, mgPointerPos: H.mgPointerPos, minigameEase: () => 0.5,
+    };
+    const r = (v === 'before' ? window.P3InstallBefore : window.P3InstallAfter)(S);
+    // 地域・季節の ゲーム(スキーダウンヒル(雪) など)も ふくめて あつめる
+    const all = new Map(), walk = (x) => { if (!x || typeof x !== 'object') return; if (Array.isArray(x)) return x.forEach(walk); if (x.id && typeof x.start === 'function') { all.set(x.id, x); return; } Object.values(x).forEach(walk); };
+    walk([r.MINIGAMES, r.REGION_MINIGAMES, r.SEASONAL_MINIGAMES]);
+    reg[v] = all;
+    return reg[v];
+  }
+  // 本体の T7 と おなじ 判定(script.js mgParticipated)。メーターを わたさない ゲームは 1回でも さわれば 記録
+  // 本体の 参加度(script.js mgParticipated)。変更前と 変更後で ちがう
+  function participated(play, v) {
+    if (play && Number.isFinite(play.maxGap)) return play.acts > 0 && (play.decided === true || play.maxGap <= 30000);
+    if (play && Number.isFinite(play.acts)) {
+      if (!(play.acts > 0)) return false;
+      if (v === 'before') return !Number.isFinite(play.cover) || (play.cover >= 0.2 && (play.cover >= 1 || !(play.spans < 2)));
+      if (play.achieved === true || !Number.isFinite(play.cover)) return true;
+      return play.cover >= 0.2 && !(play.spans < (play.minSpans || 2));
+    }
+    return !play || !Number.isFinite(play.acts) ? true : false;
+  }
+  const band = (s) => s >= 70 ? '大成功・60コイン' : s >= 30 ? 'ふつう・30コイン' : 'しっぱい・0コイン';
+  function render() {
+    for (const b of document.querySelectorAll('#gameSeg button')) b.setAttribute('aria-pressed', String(+b.dataset.i === gi));
+    for (const b of document.querySelectorAll('#verSeg button')) b.setAttribute('aria-pressed', String(b.dataset.ver === ver));
+    const g = GAMES[gi];
+    $('gameInfo').innerHTML = `<h3>${g.name}</h3><div class="b"><span class="p-tag before">変更前</span> ${g.before}</div><div class="a"><span class="p-tag after">変更後</span> ${g.after}</div>${g.example ? `<p class="p-note">例: ${g.example}</p>` : ''}`;
+  }
+  function stop(msg) {
+    session++;
+    if (window.P3Helpers.resetMinigameInput) window.P3Helpers.resetMinigameInput();
+    $('phone').innerHTML = `<div class="p-phone-empty">${msg ?? 'ゲームと版をえらんで「あそぶ」を押してください。'}</div>`;
+  }
+  function addLog(row) {
+    const tb = $('log'); if (!logN) tb.innerHTML = '';
+    logN++;
+    const tr = document.createElement('tr');
+    tr.innerHTML = `<td>${logN}</td><td>${row.name}</td><td><span class="p-tag ${row.ver}">${row.ver === 'before' ? '変更前' : '変更後'}</span></td><td>${row.score}</td><td>${row.treat}</td>`;
+    tb.prepend(tr);
+  }
+  function play() {
+    stop('');
+    const my = ++session, g = GAMES[gi], v = ver;
+    $('phone').innerHTML = '<div class="minigame-overlay" id="minigameOverlay"></div>';
+    $('status').textContent = '';
+    const game = registry(v).get(g.id);
+    game.start($('minigameOverlay'), (score, _msg, detail) => {
+      if (my !== session) return;
+      const s = Math.max(0, Math.min(100, Math.round(score))), treat = (v === 'before' && !detail) ? band(s) + '(1回さわれば記録)' : participated(detail, v) ? band(s) : '記録しない(参加なし)';
+      $('status').textContent = `${g.name}(${v === 'before' ? '変更前' : '変更後'}): ${s}点 → ${treat}`;
+      addLog({name: g.name, ver: v, score: s, treat});
+    });
+  }
+  $('gameSeg').addEventListener('click', (e) => { const b = e.target.closest('button'); if (!b) return; gi = +b.dataset.i; stop(); render(); });
+  $('verSeg').addEventListener('click', (e) => { const b = e.target.closest('button'); if (!b) return; ver = b.dataset.ver; stop(); render(); });
+  $('playBtn').addEventListener('click', play);
+  $('stopBtn').addEventListener('click', () => { stop(); $('status').textContent = ''; });
+  window.pTrial = {select: (id) => { gi = GAMES.findIndex((g) => g.id === id); render(); }, setVer: (v) => { ver = v; render(); }, play, status: () => $('status').textContent};
+  render();
+})();
+</script>

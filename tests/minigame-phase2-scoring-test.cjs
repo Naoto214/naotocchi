@@ -85,7 +85,11 @@ test('T7: ふつうに 操作した プレイの 点は かわらない(判定�
   assert.equal(finishWith('hang-glider-3d', 82, {acts: 3, cover: 0.05}, {input: true}).counted, 0, 'さいしょだけ さわって ほうち');
   assert.equal(finishWith('road-city', 41, {acts: 1, spans: 1, cover: 0.2}, {input: true}).counted, 0, '1つの 区切りだけ(みじかい ゲームでも 2区切り いじょう)');
   assert.equal(finishWith('road-city', 41, {acts: 4, spans: 2, cover: 0.4}, {input: true}).final, 41);
-  assert.equal(finishWith('sky-shooter', 30, {acts: 2, spans: 1, cover: 1}, {input: true}).final, 30, '1区切りで おわった ゲームは その 1つで よい');
+  // 参加度(2026-11-26 ご承認): 1区切り(4びょう 未満)で おわった 回は、最初の 目標を 達成した(achieved)ときだけ 参加
+  // (まえは「1区切りで おわった ゲームは その 1つで よい」だった。わざと すぐ 失敗する くりかえしを 記録しない ため)
+  const quick = finishWith('sky-shooter', 30, {acts: 2, spans: 1, cover: 1}, {input: true});
+  assert.equal(quick.counted, 0, '1区切りで おわり、目標も 達成して いない');
+  assert.equal(finishWith('sky-shooter', 30, {acts: 2, spans: 1, cover: 1, achieved: true}, {input: true}).final, 30, '目標を 達成すれば すぐ おわっても 参加');
   assert.equal(finishWith('reversi-6', 20, {acts: 0}).counted, 0, '低い 点でも 参加なしなら 記録しない');
 });
 

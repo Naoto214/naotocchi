@@ -1,0 +1,56 @@
+name: Minigame participation
+
+# 参加度(2026-11-26): 全100本の 参加判定(放置・1回だけ・すぐ 失敗する くりかえしを 記録しない)。
+# 本物の ページを スマホ幅・タッチで ひらき、Chromium と WebKit(iPhone の Safari と おなじ エンジン)で たしかめる。
+# 回帰テストは npm test(Runtime smoke test)の tests/minigame-participation-test.cjs。
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'games.js'
+      - 'tools/minigame-audit/**'
+      - 'script.js'
+      - 'index.html'
+      - 'tests/minigame-participation-*.cjs'
+      - 'tests/helpers/**'
+      - 'package*.json'
+      - '.github/workflows/minigame-participation.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'games.js'
+      - 'tools/minigame-audit/**'
+      - 'script.js'
+      - 'index.html'
+      - 'tests/minigame-participation-*.cjs'
+      - 'tests/helpers/**'
+      - 'package*.json'
+      - '.github/workflows/minigame-participation.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  minigame-participation-browser:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm ci
+      - run: npm install --no-save --package-lock=false playwright@1.62.1
+      - run: npx playwright install --with-deps chromium webkit
+      - name: Scoring regressions (harness)
+        run: node --test tests/minigame-participation-test.cjs
+      - name: Real page, phone size, touch (Chromium and WebKit)
+        run: |
+          mkdir -p test-results/minigame-participation
+          node tests/minigame-participation-browser.cjs --engines chromium,webkit --shots test-results/minigame-participation
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: minigame-participation
+          path: test-results/minigame-participation
+          retention-days: 14
