@@ -75,7 +75,14 @@ async function mash(page, sel, ms, until) {
 }
 async function center(page, sel) { const b = await page.locator(sel).boundingBox(); return {x: b.x + b.width / 2, y: b.y + b.height / 2, b}; }
 
-async function swipeOn(page, sel, dx, dy) { const b = await page.locator(sel).boundingBox(); const x = b.x + b.width / 2, y = b.y + b.height / 2; await page.mouse.move(x, y); await page.mouse.down(); await page.mouse.move(x + dx * 60, y + dy * 60, {steps: 3}); await page.mouse.up(); }
+// スワイプは ページの 中で PointerEvent を おくる(WebKit の モバイル表示では マウス操作が pointer に ならない ことが ある)
+async function swipeOn(page, sel, dx, dy) {
+  await page.evaluate(([sel, dx, dy]) => {
+    const c = document.querySelector(sel); const r = c.getBoundingClientRect(); const x = r.left + r.width / 2, y = r.top + r.height / 2;
+    const ev = (t, px, py) => c.dispatchEvent(new PointerEvent(t, {pointerId: 31, bubbles: true, cancelable: true, clientX: px, clientY: py, pointerType: 'touch', isPrimary: true}));
+    ev('pointerdown', x, y); ev('pointermove', x + dx * 30, y + dy * 30); ev('pointermove', x + dx * 60, y + dy * 60); ev('pointerup', x + dx * 60, y + dy * 60);
+  }, [sel, dx, dy]);
+}
 async function snakeOnce(page) {
   const before = await snap(page); await start(page, 'snake-classic', 3);
   await page.clock.runFor(1200); await swipeOn(page, '#snCanvas', 0, -1);
