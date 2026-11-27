@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <title>表記の確定台帳｜なおとっち V5</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="review.js" defer></script>
+</head>
+<body data-view="ledger">
+  <a class="skip" href="#filter-form">絞り込みへ</a>
+  <header class="top"><div class="wrap bar"><span>なおとっち</span><span>日本語表記レビュー</span><strong>V5</strong></div></header>
+  <main class="wrap">
+    <div class="heading"><div><h1>表記の確定台帳</h1><p>519候補の採用表記は本人確定済みです。本編への変更は実装前です。</p></div></div>
+    <nav class="links" aria-label="関連資料"><a href="rules.html">カードのルール説明19箇所</a><a href="final.csv" download>確定台帳を保存（CSV）</a><a href="../v4/">V4の判断を読む</a></nav>
+    <form class="filters" id="filter-form" aria-label="候補を絞り込む" tabindex="-1">
+      <label>承認経路<select id="route"><option value="">すべての経路</option></select></label>
+      <label>判断<select id="action"><option value="">変更・維持</option></select></label>
+      <label class="search">候補を検索<input id="search" type="search" placeholder="ID・表記・出典など" autocomplete="off"></label>
+      <button id="clear" type="button">条件をクリア</button>
+    </form>
+    <p id="status" role="status">台帳を読み込んでいます…</p>
+    <div class="layout">
+      <aside class="browse" id="browse" aria-label="候補一覧" hidden>
+        <div class="list-head"><h2>候補一覧</h2><small id="range"></small></div>
+        <ul id="list"></ul>
+        <nav class="pager" aria-label="一覧のページ"><button id="prev" type="button">前のページ</button><button id="next" type="button">次のページ</button></nav>
+      </aside>
+      <article class="entry" id="detail" aria-label="選んだ候補" tabindex="-1" hidden></article>
+    </div>
+    <noscript>JavaScriptを使用できない場合は、<a href="final.csv" download>確定台帳（CSV）</a>を参照できます。</noscript>
+  </main>
+</body>
+</html>

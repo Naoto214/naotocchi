@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <title>表記の変更・維持｜なおとっち 日本語表記レビュー V4</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="review.js" defer></script>
+</head>
+<body data-view="review">
+  <a class="skip" href="#filters">絞り込みへ移動</a>
+  <header><div class="wrap mast"><span>なおとっち</span><span>日本語表記レビュー</span><b>V4</b></div></header>
+  <main class="wrap">
+    <h1>表記の変更・維持</h1>
+    <p class="intro">全519件の現行文とV4の表記を見比べ、候補ごとの承認状況と実装前の確認事項を確認できます。</p>
+    <nav class="resources" aria-label="関連資料"><a href="rules.html">カードのルール説明</a><a href="guide.html">判断と集計</a><a href="technical.html">実装前の確認事項</a><a href="../v3/">V3の比較</a><a href="final.csv" download>判断表を保存（CSV）</a></nav>
+    <div class="shortcuts" role="group" aria-label="よく使う絞り込み">
+      <a data-preset="individual" href="?group=individual">個別48件</a>
+      <a data-preset="adopt" href="?group=adopt">一括採用319件</a>
+      <a data-preset="keep" href="?group=keep">一括維持152件</a>
+      <a id="verify-preset" href="?authority=check">条件確認待ちを開く</a>
+    </div>
+    <section id="filters" class="filters" aria-label="候補を絞り込む" tabindex="-1">
+      <label>V3からのグループ<select id="group"><option value="">すべて</option></select></label>
+      <label>V4の判断<select id="action"><option value="">すべて</option></select></label>
+      <label>承認状況<select id="authority"><option value="">すべて</option></select></label>
+      <label>優先度<select id="priority"><option value="">すべて</option></select></label>
+      <label>分野<select id="domain"><option value="">すべて</option></select></label>
+      <label>検索<input id="search" type="search" placeholder="表記・候補ID・出典など" autocomplete="off"></label>
+      <button class="reset" id="reset" type="button">条件をクリア</button>
+    </section>
+    <p id="loading" role="status">候補を読み込んでいます…</p>
+    <p id="count" role="status"></p>
+    <p id="story-note" hidden>物語本文の扱いは<a href="../v3/home-story.html">ホーム・ものがたりの原文保護方針</a>で確認できます。</p>
+    <div class="workspace">
+      <aside id="browse" class="browse" aria-label="候補一覧" hidden>
+        <div class="list-head"><h2>候補一覧</h2><span id="range"></span></div>
+        <ul id="list"></ul>
+        <nav class="pages" aria-label="一覧のページ"><button type="button" id="prev">前のページ</button><button type="button" id="next">次のページ</button></nav>
+      </aside>
+      <article id="detail" class="detail" aria-label="選んだ候補" tabindex="-1" hidden></article>
+    </div>
+    <noscript><p>候補の比較にはJavaScriptが必要です。<a href="final.csv" download>最終候補表を保存（CSV）</a></p></noscript>
+  </main>
+</body>
+</html>

@@ -1,0 +1,571 @@
+﻿識別ID,主分野,VERSION 1,VERSION 2,VERSION 3の未承認案,グループ,確認優先度,対応ID・文脈キー,比較ページ
+J001,CARD GAME,変更推奨,変更推奨,採用推奨,1,B,E-misunderstanding,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J001
+J002,CARD GAME,変更推奨,変更推奨,採用推奨,1,B,E-reconciliation,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J002
+J003,CARD GAME,変更推奨,変更推奨,採用推奨,1,B,E-wedding-anniversary,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J003
+J004,CARD GAME,変更推奨,変更推奨,採用推奨,1,B,E-new-encounter,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J004
+J005,CARD GAME,変更推奨,変更推奨,採用推奨,1,B,E-sudden-trip,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J005
+J006,ホーム・育成・お世話,保留,維持,現行維持推奨,2,C,#ageLabel,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J006
+J007,ホーム・育成・お世話,保留,維持,現行維持推奨,2,C,"#lifeMeterRow / bar-label
+renderMeterValue() / evo
+name",https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J007
+J008,CARD GAME,変更推奨,変更推奨,採用推奨,1,A,G-tilt-maze-3d,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J008
+J009,ホーム・育成・お世話,保留,保留,採用推奨,1,C,render(),https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J009
+J010,CARD GAME,保留,変更推奨,個別判断,3,A,rule-01-16,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J010
+J011,CARD GAME,保留,変更推奨,個別判断,3,A,rule-06-26,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J011
+J012,通常ミニゲーム100種・クイック50種,変更推奨,変更推奨,個別判断,3,A,共通,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J012
+J013,実績・でざいん・シール,変更推奨,変更推奨,採用推奨,1,B,ACHIEVEMENTS / desc / [10] / games-played-25,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J013
+J014,実績・でざいん・シール,変更推奨,変更推奨,採用推奨,1,B,STICKER_TASKS / label / [6] / multi-pages-2,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J014
+J015,通常ミニゲーム100種・クイック50種,保留,維持,現行維持推奨,2,C,p3-space,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J015
+J016,通常ミニゲーム100種・クイック50種,保留,維持,現行維持推奨,2,C,fp-dungeon,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J016
+J017,通常ミニゲーム100種・クイック50種,保留,維持,現行維持推奨,2,C,p3-drive,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J017
+J018,通常ミニゲーム100種・クイック50種,保留,維持,現行維持推奨,2,C,basketball-3d,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J018
+J019,通常ミニゲーム100種・クイック50種,保留,維持,現行維持推奨,2,C,pingpong-3d,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J019
+J020,CARD GAME,変更推奨,変更推奨,採用推奨,1,B,E-midlife-50th,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J020
+J021,CARD GAME,保留,変更推奨,個別判断,3,A,rule-06-25,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J021
+J022,実績・でざいん・シール,変更推奨,変更推奨,採用推奨,1,B,ACHIEVEMENTS / desc / [40] / games-played-60,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J022
+J023,アイテム・地域,保留,維持,現行維持推奨,2,C,NAOTO_ITEMS / desc / [0] / naoto_charm,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J023
+J024,なおぽよ。・なおころ。,変更推奨,変更推奨,採用推奨,1,B,"対局 / title
+旧対局（ホームから継続可） / title",https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J024
+J025,CARD GAME,変更推奨,変更推奨,個別判断,3,B,life-clock,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J025
+J026,CARD GAME,変更推奨,変更推奨,採用推奨,1,B,chapter-15,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J026
+J027,CARD GAME,保留,変更推奨,個別判断,3,A,rule-01-16,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J027
+J028,CARD GAME,保留,変更推奨,個別判断,3,A,rule-01-16,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J028
+J029,なおぽよ。・なおころ。,変更推奨,変更推奨,採用推奨,1,B,対局 / title,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J029
+J030,通知・コメント・説明文・その他,保留,保留,採用推奨,1,A,recheckRelationship(),https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J030
+J031,通知・コメント・説明文・その他,保留,保留,採用推奨,1,A,el.courtBtn,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J031
+J032,通知・コメント・説明文・その他,保留,維持,現行維持推奨,2,C,recheckRelationship(),https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J032
+J033,通常ミニゲーム100種・クイック50種,変更推奨,変更推奨,採用推奨,1,B,renderDuelFinalStage() / el.duelResultBreakdown.innerHTML / duel-result-row-detail,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J033
+J034,通知・コメント・説明文・その他,変更推奨,維持,現行維持推奨,2,C,dislike,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J034
+J035,通知・コメント・説明文・その他,変更推奨,維持,現行維持推奨,2,C,sleeping,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J035
+J036,通常ミニゲーム100種・クイック50種,保留,変更推奨,採用推奨,1,B,"line-trace
+対局 / makeLineTraceGame",https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J036
+J037,通知・コメント・説明文・その他,保留,維持,現行維持推奨,2,C,enterInfinite(),https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J037
+J038,通常ミニゲーム100種・クイック50種,変更推奨,変更推奨,個別判断,3,A,共通,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J038
+J039,実績・でざいん・シール,変更推奨,保留,個別判断,3,A,new_themed_pack,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J039
+J040,CARD GAME,変更推奨,変更推奨,採用推奨,1,B,chapter-9,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J040
+J041,通常ミニゲーム100種・クイック50種,変更推奨,変更推奨,採用推奨,1,B,pinball-physics,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J041
+J042,通常ミニゲーム100種・クイック50種,保留,変更推奨,採用推奨,1,B,"#worldOverlay / profile-hint
+共通",https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J042
+J043,通常ミニゲーム100種・クイック50種,保留,維持,現行維持推奨,2,B,"#worldOverlay / profile-hint
+共通",https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J043
+J044,通常ミニゲーム100種・クイック50種,変更推奨,変更推奨,採用推奨,1,B,renderDuelAnswerReviewStep() / el.duelAnswerReviewList.innerHTML / duel-review-row-pub,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J044
+J045,なおぽよ。・なおころ。,変更推奨,維持,現行維持推奨,2,C,"対局 / work-05
+旧対局（ホームから継続可） / work-05",https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J045
+J046,CARD GAME,変更推奨,変更推奨,採用推奨,1,B,M-antlion-01,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J046
+J047,アイテム・地域,保留,保留,現行維持推奨,2,C,connections/transition,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J047
+J048,アイテム・地域,保留,維持,現行維持推奨,2,C,"deepsea/shelf
+connections/transition",https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J048
+J049,CARD GAME,変更推奨,変更推奨,採用推奨,1,B,M-dandelion-04,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J049
+J050,CARD GAME,変更推奨,変更推奨,採用推奨,1,B,M-sakura-01,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J050
+J051,ホーム・育成・お世話,変更推奨,変更推奨,採用推奨,1,B,assess,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J051
+J052,ホーム・育成・お世話,変更推奨,変更推奨,採用推奨,1,B,detail,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J052
+J053,ホーム・育成・お世話,変更推奨,変更推奨,採用推奨,1,B,"detail
+assess",https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J053
+J054,CARD GAME,変更推奨,変更推奨,採用推奨,1,B,M-hermit_crab-04,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J054
+J055,実績・でざいん・シール,変更推奨,変更推奨,採用推奨,1,B,#themeOverlay / summary,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J055
+J056,CARD GAME,変更推奨,維持,現行維持推奨,2,C,M-butterfly-01,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J056
+J057,通知・コメント・説明文・その他,変更推奨,維持,現行維持推奨,2,C,tired,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J057
+J058,CARD GAME,変更推奨,変更推奨,採用推奨,1,B,M-venus_flytrap-05,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J058
+J059,ホーム・育成・お世話,変更推奨,変更推奨,採用推奨,1,B,#profileOverlay / profile-section-title,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J059
+J060,通知・コメント・説明文・その他,変更推奨,維持,現行維持推奨,2,C,wantsPlay,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J060
+J061,CARD GAME,変更推奨,変更推奨,採用推奨,1,B,M-dog-06,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J061
+J062,CARD GAME,変更推奨,維持,現行維持推奨,2,C,M-penguin-06,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J062
+J063,アイテム・地域,変更推奨,変更推奨,採用推奨,1,B,共通,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J063
+J064,CARD GAME,変更推奨,変更推奨,採用推奨,1,B,M-cicada-07,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J064
+J065,CARD GAME,変更推奨,変更推奨,採用推奨,1,B,M-frog-01,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J065
+J066,CARD GAME,変更推奨,変更推奨,採用推奨,1,B,M-frog-06,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J066
+J067,CARD GAME,変更推奨,変更推奨,採用推奨,1,B,M-clownfish-05,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J067
+J068,共通UI・設定・ヘルプ,変更推奨,変更推奨,採用推奨,1,B,#profileOverlay / danger-note,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J068
+J069,CARD GAME,変更推奨,変更推奨,採用推奨,1,B,M-coral-05,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J069
+J070,CARD GAME,変更推奨,維持,現行維持推奨,2,C,M-jellyfish-01,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J070
+J071,通知・コメント・説明文・その他,変更推奨,維持,現行維持推奨,2,C,sick,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J071
+J072,共通UI・設定・ヘルプ,変更推奨,変更推奨,採用推奨,1,B,#profileOverlay / profile-hint,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J072
+J073,なおぽよ。・なおころ。,変更推奨,維持,現行維持推奨,2,C,現行・時の針 / 地下牢 02,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J073
+J074,CARD GAME,保留,保留,現行維持推奨,2,C,G-p3-space,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J074
+J075,通常ミニゲーム100種・クイック50種,保留,維持,現行維持推奨,2,C,p3-space,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J075
+J076,CARD GAME,変更推奨,変更推奨,採用推奨,1,B,M-beetle-05,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J076
+J077,CARD GAME,変更推奨,変更推奨,採用推奨,1,B,M-salmon-01,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J077
+J078,なおぽよ。・なおころ。,変更推奨,変更推奨,採用推奨,1,B,"対局 / romance-02
+旧対局（ホームから継続可） / romance-02",https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J078
+J079,CARD GAME,変更推奨,変更推奨,採用推奨,1,B,M-coral-03,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J079
+J080,通知・コメント・説明文・その他,変更推奨,維持,現行維持推奨,2,C,positive,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J080
+J081,CARD GAME,変更推奨,変更推奨,採用推奨,1,B,M-plush-02,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J081
+J082,通常ミニゲーム100種・クイック50種,保留,保留,個別判断,3,C,quick-solo,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J082
+J083,CARD GAME,変更推奨,変更推奨,採用推奨,1,B,M-hermit_crab-06,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J083
+J084,CARD GAME,変更推奨,維持,現行維持推奨,2,C,M-turtle-06,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J084
+J085,CARD GAME,変更推奨,変更推奨,採用推奨,1,B,M-coral-07,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J085
+J086,CARD GAME,変更推奨,変更推奨,採用推奨,1,B,M-god-06,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J086
+J087,ホーム・育成・お世話,変更推奨,変更推奨,採用推奨,1,B,detail,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J087
+J088,ホーム・育成・お世話,変更推奨,変更推奨,採用推奨,1,B,assess,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J088
+J089,ホーム・育成・お世話,変更推奨,変更推奨,採用推奨,1,B,detail,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J089
+J090,ホーム・育成・お世話,変更推奨,変更推奨,採用推奨,1,B,"detail
+assess.detail",https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J090
+J091,ホーム・育成・お世話,変更推奨,変更推奨,採用推奨,1,B,detail,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J091
+J092,CARD GAME,変更推奨,変更推奨,採用推奨,1,B,M-plush-03,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J092
+J093,ホーム・育成・お世話,変更推奨,維持,現行維持推奨,2,C,detail,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J093
+J094,実績・でざいん・シール,変更推奨,変更推奨,採用推奨,1,B,checkStickerTasks() / message,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J094
+J095,実績・でざいん・シール,変更推奨,変更推奨,採用推奨,1,B,checkStickerTasks() / message,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J095
+J096,実績・でざいん・シール,変更推奨,変更推奨,採用推奨,1,B,checkStickerTasks() / message,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J096
+J097,アイテム・地域,保留,保留,現行維持推奨,2,C,connections/transition,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J097
+J098,CARD GAME,変更推奨,変更推奨,採用推奨,1,B,M-dandelion-02,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J098
+J099,CARD GAME,変更推奨,変更推奨,採用推奨,1,B,M-mushroom-03,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J099
+J100,CARD GAME,保留,保留,現行維持推奨,2,C,G-haunted-house-3d,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J100
+J101,アイテム・地域,保留,維持,現行維持推奨,2,C,tick(),https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J101
+J102,なおぽよ。・なおころ。,変更推奨,維持,現行維持推奨,2,C,"対局 / daily-08
+旧対局（ホームから継続可） / daily-08",https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J102
+J103,ホーム・育成・お世話,変更推奨,変更推奨,採用推奨,1,B,#careActions,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J103
+J104,CARD GAME,変更推奨,変更推奨,採用推奨,1,B,M-hermit_crab-07,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J104
+J105,CARD GAME,変更推奨,変更推奨,採用推奨,1,B,M-salmon-06,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J105
+J106,CARD GAME,変更推奨,変更推奨,採用推奨,1,B,M-clownfish-03,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J106
+J107,CARD GAME,変更推奨,変更推奨,採用推奨,1,B,M-star-05,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J107
+J108,通常ミニゲーム100種・クイック50種,変更推奨,変更推奨,採用推奨,1,B,el.duelBetConfirmBtn / el.duelBetError.textContent,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J108
+J109,通常ミニゲーム100種・クイック50種,変更推奨,変更推奨,採用推奨,1,B,renderDuelOverlay() / cancel.textContent,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J109
+J110,通常ミニゲーム100種・クイック50種,変更推奨,変更推奨,採用推奨,1,B,el.duelBetConfirmBtn / el.duelBetError.textContent,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J110
+J111,通常ミニゲーム100種・クイック50種,変更推奨,変更推奨,採用推奨,1,B,#duelBetSection / profile-hint,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J111
+J112,CARD GAME,変更推奨,変更推奨,採用推奨,1,B,M-butterfly-04,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J112
+J113,CARD GAME,変更推奨,変更推奨,採用推奨,1,B,M-salmon-07,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J113
+J114,実績・でざいん・シール,変更推奨,変更推奨,採用推奨,1,B,el.stickerExportBtn / el.stickerExportView.innerHTML / profile-hint,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J114
+J115,実績・でざいん・シール,変更推奨,変更推奨,採用推奨,1,B,el.stickerExportBtn / el.stickerExportView.innerHTML / profile-hint,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J115
+J116,共通UI・設定・ヘルプ,変更推奨,変更推奨,個別判断,3,B,#profileOverlay / profile-section-title,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J116
+J117,CARD GAME,変更推奨,変更推奨,採用推奨,1,B,M-turtle-07,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J117
+J118,CARD GAME,変更推奨,変更推奨,採用推奨,1,B,M-turtle-04,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J118
+J119,CARD GAME,変更推奨,変更推奨,採用推奨,1,B,M-starfish-06,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J119
+J120,通知・コメント・説明文・その他,変更推奨,維持,現行維持推奨,2,C,positive,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J120
+J121,通知・コメント・説明文・その他,変更推奨,維持,現行維持推奨,2,C,positive,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J121
+J122,共通UI・設定・ヘルプ,変更推奨,変更推奨,個別判断,3,A,show(),https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J122
+J123,ホーム・育成・お世話,保留,保留,個別判断,3,C,MARRIAGE_MILESTONES / title / [3],https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J123
+J124,CARD GAME,変更推奨,変更推奨,採用推奨,1,B,M-salmon-04,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J124
+J125,ホーム・育成・お世話,保留,保留,個別判断,3,C,MARRIAGE_MILESTONES / title / [2],https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J125
+J126,なおぽよ。・なおころ。,変更推奨,維持,現行維持推奨,2,C,"対局 / daily-03
+旧対局（ホームから継続可） / daily-03",https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J126
+J127,CARD GAME,変更推奨,変更推奨,採用推奨,1,B,M-world_tree-06,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J127
+J128,CARD GAME,変更推奨,変更推奨,採用推奨,1,B,M-world_tree-02,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J128
+J129,CARD GAME,変更推奨,変更推奨,採用推奨,1,B,M-god-07,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J129
+J130,CARD GAME,変更推奨,変更推奨,採用推奨,1,B,M-ren-03,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J130
+J131,CARD GAME,変更推奨,変更推奨,採用推奨,1,B,M-venus_flytrap-06,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J131
+J132,CARD GAME,変更推奨,変更推奨,採用推奨,1,B,M-ren-06,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J132
+J133,CARD GAME,変更推奨,変更推奨,採用推奨,1,B,M-man-07,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J133
+J134,CARD GAME,変更推奨,変更推奨,採用推奨,1,B,M-woman-07,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J134
+J135,共通UI・設定・ヘルプ,変更推奨,変更推奨,採用推奨,1,B,#wipeConfirmOverlay / wipe-warn,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J135
+J136,ホーム・育成・お世話,保留,保留,個別判断,3,C,MARRIAGE_MILESTONES / title / [1],https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J136
+J137,ホーム・育成・お世話,変更推奨,維持,現行維持推奨,2,C,assess.title,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J137
+J138,ホーム・育成・お世話,変更推奨,維持,現行維持推奨,2,C,assess,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J138
+J139,通常ミニゲーム100種・クイック50種,保留,維持,現行維持推奨,2,C,"#quickBtn / small
+共通",https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J139
+J140,通常ミニゲーム100種・クイック50種,変更推奨,変更推奨,個別判断,3,A,共通,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J140
+J141,なおぽよ。・なおころ。,変更推奨,変更推奨,採用推奨,1,B,対局 / partner-farewell,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J141
+J142,アイテム・地域,変更推奨,変更推奨,個別判断,3,A,partner1,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J142
+J143,通常ミニゲーム100種・クイック50種,変更推奨,変更推奨,採用推奨,1,B,renderDuelRevealCard() / el.duelRevealPub.textContent,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J143
+J144,通常ミニゲーム100種・クイック50種,変更推奨,変更推奨,採用推奨,1,B,renderDuelGuessListStep() / el.duelGuessList.innerHTML / duel-guess-row-pub,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J144
+J145,キャラクター・進化・図鑑,保留,維持,現行維持推奨,2,C,SPECIES / rabbit / stages / message / [2],https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J145
+J146,CARD GAME,変更推奨,変更推奨,採用推奨,1,B,M-turtle-02,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J146
+J147,CARD GAME,変更推奨,変更推奨,採用推奨,1,B,M-world_tree-03,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J147
+J148,CARD GAME,変更推奨,維持,現行維持推奨,2,C,M-salmon-02,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J148
+J149,キャラクター・進化・図鑑,変更推奨,維持,現行維持推奨,2,C,transformAside,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J149
+J150,キャラクター・進化・図鑑,変更推奨,維持,現行維持推奨,2,C,transformAside,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J150
+J151,実績・でざいん・シール,変更推奨,変更推奨,採用推奨,1,B,el.stickerExportBtn / el.stickerExportView.innerHTML / profile-hint,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J151
+J152,通知・コメント・説明文・その他,変更推奨,維持,現行維持推奨,2,C,strained,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J152
+J153,キャラクター・進化・図鑑,変更推奨,維持,現行維持推奨,2,C,#dexDetailTransformBtn,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J153
+J154,実績・でざいん・シール,変更推奨,維持,現行維持推奨,2,C,#stickerBackgroundSelect,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J154
+J155,ホーム・育成・お世話,保留,変更推奨,採用推奨,1,B,#profileOverlay / profile-hint,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J155
+J156,ホーム・育成・お世話,変更推奨,変更推奨,採用推奨,1,B,renderLifeTimeline() / el.profilePastLives.innerHTML / life-timeline-empty,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J156
+J157,キャラクター・進化・図鑑,保留,維持,現行維持推奨,2,C,SPECIES / owl / stages / message / [2],https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J157
+J158,CARD GAME,変更推奨,変更推奨,採用推奨,1,B,M-man-01,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J158
+J159,CARD GAME,変更推奨,変更推奨,採用推奨,1,B,M-clownfish-06,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J159
+J160,共通UI・設定・ヘルプ,変更推奨,変更推奨,採用推奨,1,B,decodeLifeCode(),https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J160
+J161,なおぽよ。・なおころ。,変更推奨,維持,現行維持推奨,2,C,"対局 / adventure-04
+旧対局（ホームから継続可） / adventure-04",https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J161
+J162,なおぽよ。・なおころ。,変更推奨,維持,現行維持推奨,2,C,"対局 / adventure-08
+旧対局（ホームから継続可） / adventure-08",https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J162
+J163,キャラクター・進化・図鑑,変更推奨,維持,現行維持推奨,2,C,transformAside,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J163
+J164,ホーム・育成・お世話,変更推奨,維持,現行維持推奨,2,C,assess,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J164
+J165,CARD GAME,変更推奨,変更推奨,採用推奨,1,B,E-final-time,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J165
+J166,CARD GAME,変更推奨,変更推奨,採用推奨,1,B,M-starfish-07,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J166
+J167,CARD GAME,変更推奨,変更推奨,採用推奨,1,B,M-sakura-05,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J167
+J168,CARD GAME,変更推奨,維持,現行維持推奨,2,C,M-beetle-04,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J168
+J169,CARD GAME,変更推奨,変更推奨,採用推奨,1,B,M-cicada-08,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J169
+J170,CARD GAME,変更推奨,変更推奨,採用推奨,1,B,M-world_tree-04,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J170
+J171,CARD GAME,変更推奨,変更推奨,採用推奨,1,B,M-sakura-04,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J171
+J172,実績・でざいん・シール,変更推奨,変更推奨,採用推奨,1,B,#stickerBoardHint,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J172
+J173,通常ミニゲーム100種・クイック50種,変更推奨,変更推奨,採用推奨,1,B,space-gunner-3d,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J173
+J174,通常ミニゲーム100種・クイック50種,変更推奨,変更推奨,採用推奨,1,B,hang-glider-3d,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J174
+J175,通常ミニゲーム100種・クイック50種,変更推奨,変更推奨,採用推奨,1,B,sky-shooter,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J175
+J176,通常ミニゲーム100種・クイック50種,変更推奨,変更推奨,採用推奨,1,B,submarine-3d,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J176
+J177,通常ミニゲーム100種・クイック50種,変更推奨,変更推奨,採用推奨,1,B,"ring-flight-3d
+ring-flight-summer",https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J177
+J178,通常ミニゲーム100種・クイック50種,変更推奨,変更推奨,採用推奨,1,B,frogger-road,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J178
+J179,通常ミニゲーム100種・クイック50種,保留,変更推奨,採用推奨,1,B,"snake-classic
+対局 / makeSnakeGame",https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J179
+J180,通常ミニゲーム100種・クイック50種,変更推奨,変更推奨,採用推奨,1,B,dot-eater,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J180
+J181,通常ミニゲーム100種・クイック50種,変更推奨,変更推奨,採用推奨,1,B,puzzle-2048,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J181
+J182,通常ミニゲーム100種・クイック50種,変更推奨,変更推奨,採用推奨,1,B,baseball-batting,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J182
+J183,通常ミニゲーム100種・クイック50種,変更推奨,変更推奨,採用推奨,1,B,doodle-jump,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J183
+J184,通常ミニゲーム100種・クイック50種,変更推奨,変更推奨,採用推奨,1,B,voxel-mine,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J184
+J185,通常ミニゲーム100種・クイック50種,変更推奨,変更推奨,採用推奨,1,B,area-claim,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J185
+J186,通常ミニゲーム100種・クイック50種,変更推奨,変更推奨,採用推奨,1,B,area-claim,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J186
+J187,通常ミニゲーム100種・クイック50種,変更推奨,変更推奨,採用推奨,1,B,bomber-maze,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J187
+J188,通常ミニゲーム100種・クイック50種,変更推奨,変更推奨,採用推奨,1,B,tank-battle,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J188
+J189,通常ミニゲーム100種・クイック50種,変更推奨,変更推奨,採用推奨,1,B,push-puzzle,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J189
+J190,通常ミニゲーム100種・クイック50種,変更推奨,変更推奨,採用推奨,1,B,roguelike-dungeon,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J190
+J191,通常ミニゲーム100種・クイック50種,変更推奨,変更推奨,採用推奨,1,B,lunar-lander,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J191
+J192,通常ミニゲーム100種・クイック50種,変更推奨,変更推奨,採用推奨,1,B,chain-puzzle,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J192
+J193,通常ミニゲーム100種・クイック50種,変更推奨,変更推奨,採用推奨,1,B,tennis-rally,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J193
+J194,通常ミニゲーム100種・クイック50種,変更推奨,変更推奨,採用推奨,1,B,tennis-rally,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J194
+J195,通常ミニゲーム100種・クイック50種,変更推奨,変更推奨,採用推奨,1,B,street-fight,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J195
+J196,通常ミニゲーム100種・クイック50種,変更推奨,変更推奨,採用推奨,1,B,haunted-house-3d,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J196
+J197,通常ミニゲーム100種・クイック50種,変更推奨,変更推奨,採用推奨,1,B,fp-dungeon,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J197
+J198,通常ミニゲーム100種・クイック50種,変更推奨,変更推奨,採用推奨,1,B,asteroids-classic,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J198
+J199,通常ミニゲーム100種・クイック50種,変更推奨,変更推奨,採用推奨,1,B,falling-block-puzzle,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J199
+J200,通常ミニゲーム100種・クイック50種,変更推奨,変更推奨,採用推奨,1,B,jump-quest,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J200
+J201,通常ミニゲーム100種・クイック50種,変更推奨,変更推奨,採用推奨,1,B,downhill-snow,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J201
+J202,通常ミニゲーム100種・クイック50種,変更推奨,変更推奨,採用推奨,1,B,"road-themed / p3-space / p3-drive / road-city / road-jungle / road-desert
+road-themed
+p3-space
+p3-drive
+road-city
+road-jungle
+road-desert",https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J202
+J203,共通UI・設定・ヘルプ,変更推奨,変更推奨,採用推奨,1,B,#profileOverlay / save-snap-title,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J203
+J204,共通UI・設定・ヘルプ,変更推奨,変更推奨,採用推奨,1,B,show(),https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J204
+J205,共通UI・設定・ヘルプ,変更推奨,変更推奨,採用推奨,1,B,show() / restore.onclick,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J205
+J206,CARD GAME,変更推奨,変更推奨,採用推奨,1,B,M-unknown-05,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J206
+J207,ホーム・育成・お世話,変更推奨,変更推奨,採用推奨,1,B,detail,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J207
+J208,CARD GAME,変更推奨,変更推奨,採用推奨,1,B,M-ghost-05,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J208
+J209,CARD GAME,変更推奨,変更推奨,採用推奨,1,B,M-ren-08,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J209
+J210,CARD GAME,変更推奨,変更推奨,採用推奨,1,B,M-ren-05,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J210
+J211,CARD GAME,変更推奨,維持,現行維持推奨,2,C,M-ren-01,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J211
+J212,CARD GAME,変更推奨,変更推奨,採用推奨,1,B,M-ghost-04,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J212
+J213,実績・でざいん・シール,保留,維持,現行維持推奨,2,C,ACHIEVEMENTS / label / [25] / age-25,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J213
+J214,CARD GAME,保留,保留,個別判断,3,C,M-starfish-03,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J214
+J215,アイテム・地域,保留,保留,現行維持推奨,2,C,connections/sea,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J215
+J216,通常ミニゲーム100種・クイック50種,変更推奨,変更推奨,採用推奨,1,B,beach-volley,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J216
+J217,通常ミニゲーム100種・クイック50種,変更推奨,変更推奨,採用推奨,1,B,beach-volley,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J217
+J218,CARD GAME,変更推奨,変更推奨,採用推奨,1,B,M-antlion-06,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J218
+J219,なおぽよ。・なおころ。,変更推奨,維持,現行維持推奨,2,C,"対局 / friend-05
+旧対局（ホームから継続可） / friend-05",https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J219
+J220,CARD GAME,変更推奨,変更推奨,採用推奨,1,B,M-antlion-02,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J220
+J221,CARD GAME,変更推奨,変更推奨,採用推奨,1,B,M-antlion-04,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J221
+J222,キャラクター・進化・図鑑,変更推奨,変更推奨,採用推奨,1,B,#dexDetailOverlay,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J222
+J223,共通UI・設定・ヘルプ,変更推奨,変更推奨,採用推奨,1,B,#wipeOverlay / wipe-warn,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J223
+J224,ホーム・育成・お世話,保留,維持,現行維持推奨,2,C,renderCareNotice() / text,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J224
+J225,ホーム・育成・お世話,保留,維持,現行維持推奨,2,C,"activeBoostSummary()
+render() / badge badge-boost",https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J225
+J226,通知・コメント・説明文・その他,保留,維持,現行維持推奨,2,C,renderCareNotice() / text,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J226
+J227,ホーム・育成・お世話,保留,維持,現行維持推奨,2,C,#lifeMeterRow,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J227
+J228,CARD GAME,保留,保留,個別判断,3,C,M-world_tree-08,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J228
+J229,実績・でざいん・シール,変更推奨,変更推奨,個別判断,3,B,#themeOverlay / design-help,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J229
+J230,実績・でざいん・シール,変更推奨,維持,現行維持推奨,2,C,#glassPreviewStatus,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J230
+J231,共通UI・設定・ヘルプ,変更推奨,維持,現行維持推奨,2,C,#profileOrientationHelpBtn,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J231
+J232,CARD GAME,変更推奨,変更推奨,採用推奨,1,B,M-beetle-07,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J232
+J233,共通UI・設定・ヘルプ,保留,変更推奨,採用推奨,1,B,"#mgHelpOverlay
+#mgHelpBtn
+共通",https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J233
+J234,CARD GAME,変更推奨,維持,現行維持推奨,2,C,M-antlion-03,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J234
+J235,ホーム・育成・お世話,保留,維持,現行維持推奨,2,C,SODACHI_PERKS / 30 / desc,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J235
+J236,CARD GAME,変更推奨,変更推奨,採用推奨,1,B,M-butterfly-03,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J236
+J237,CARD GAME,変更推奨,変更推奨,採用推奨,1,B,M-salmon-03,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J237
+J238,CARD GAME,変更推奨,変更推奨,採用推奨,1,B,M-antlion-07,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J238
+J239,CARD GAME,変更推奨,変更推奨,採用推奨,1,B,M-ghost-07,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J239
+J240,CARD GAME,変更推奨,変更推奨,採用推奨,1,B,M-dog-08,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J240
+J241,CARD GAME,保留,変更推奨,採用推奨,1,B,"E-gate
+gate",https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J241
+J242,CARD GAME,保留,保留,現行維持推奨,2,C,G-fp-dungeon,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J242
+J243,CARD GAME,変更推奨,変更推奨,採用推奨,1,B,M-plush-08,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J243
+J244,CARD GAME,変更推奨,変更推奨,採用推奨,1,B,M-dragon-04,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J244
+J245,CARD GAME,保留,保留,個別判断,3,C,M-dragon-08,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J245
+J246,CARD GAME,変更推奨,変更推奨,採用推奨,1,B,M-butterfly-02,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J246
+J247,CARD GAME,変更推奨,変更推奨,採用推奨,1,B,M-dragon-06,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J247
+J248,CARD GAME,変更推奨,変更推奨,採用推奨,1,B,M-dragon-03,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J248
+J249,アイテム・地域,保留,維持,現行維持推奨,2,C,"deepsea/shelfedge
+connections/transition",https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J249
+J250,アイテム・地域,変更推奨,変更推奨,採用推奨,1,A,travel1,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J250
+J251,CARD GAME,変更推奨,変更推奨,採用推奨,1,B,M-venus_flytrap-08,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J251
+J252,CARD GAME,保留,変更推奨,個別判断,3,A,rule-01-17,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J252
+J253,CARD GAME,変更推奨,変更推奨,採用推奨,1,B,M-dragon-05,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J253
+J254,CARD GAME,変更推奨,変更推奨,採用推奨,1,B,M-starfish-02,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J254
+J255,CARD GAME,保留,変更推奨,個別判断,3,A,rule-02-1,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J255
+J256,CARD GAME,変更推奨,変更推奨,採用推奨,1,B,M-dandelion-06,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J256
+J257,CARD GAME,変更推奨,維持,現行維持推奨,2,C,M-god-01,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J257
+J258,CARD GAME,変更推奨,変更推奨,採用推奨,1,B,M-world_tree-01,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J258
+J259,CARD GAME,変更推奨,変更推奨,採用推奨,1,B,M-coral-04,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J259
+J260,CARD GAME,変更推奨,変更推奨,採用推奨,1,B,M-dandelion-08,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J260
+J261,CARD GAME,変更推奨,変更推奨,採用推奨,1,B,M-woman-01,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J261
+J262,CARD GAME,変更推奨,変更推奨,採用推奨,1,B,M-woman-02,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J262
+J263,通知・コメント・説明文・その他,変更推奨,維持,現行維持推奨,2,C,dislike,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J263
+J264,通知・コメント・説明文・その他,変更推奨,維持,現行維持推奨,2,C,sick,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J264
+J265,CARD GAME,変更推奨,変更推奨,採用推奨,1,B,M-dog-01,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J265
+J266,CARD GAME,変更推奨,変更推奨,採用推奨,1,B,M-dragon-07,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J266
+J267,CARD GAME,変更推奨,変更推奨,採用推奨,1,B,M-man-06,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J267
+J268,CARD GAME,変更推奨,変更推奨,採用推奨,1,B,M-cicada-04,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J268
+J269,CARD GAME,変更推奨,変更推奨,採用推奨,1,B,M-clownfish-02,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J269
+J270,CARD GAME,変更推奨,変更推奨,採用推奨,1,B,M-jellyfish-08,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J270
+J271,CARD GAME,変更推奨,変更推奨,採用推奨,1,B,M-clownfish-08,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J271
+J272,CARD GAME,変更推奨,変更推奨,採用推奨,1,B,M-frog-03,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J272
+J273,CARD GAME,保留,保留,個別判断,3,C,M-phoenix-07,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J273
+J274,CARD GAME,変更推奨,変更推奨,採用推奨,1,B,M-woman-08,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J274
+J275,CARD GAME,変更推奨,変更推奨,採用推奨,1,B,M-sakura-08,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J275
+J276,CARD GAME,変更推奨,維持,現行維持推奨,2,C,M-man-08,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J276
+J277,CARD GAME,変更推奨,変更推奨,採用推奨,1,B,M-butterfly-08,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J277
+J278,CARD GAME,変更推奨,変更推奨,採用推奨,1,B,M-cicada-02,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J278
+J279,CARD GAME,変更推奨,変更推奨,採用推奨,1,B,M-mushroom-01,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J279
+J280,CARD GAME,変更推奨,変更推奨,採用推奨,1,B,M-mushroom-08,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J280
+J281,CARD GAME,変更推奨,変更推奨,採用推奨,1,B,M-ren-04,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J281
+J282,CARD GAME,変更推奨,変更推奨,採用推奨,1,B,M-coral-06,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J282
+J283,CARD GAME,保留,保留,個別判断,3,C,M-dandelion-05,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J283
+J284,CARD GAME,保留,保留,現行維持推奨,2,C,G-stack-themed,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J284
+J285,CARD GAME,変更推奨,変更推奨,採用推奨,1,B,M-beetle-08,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J285
+J286,CARD GAME,変更推奨,変更推奨,採用推奨,1,B,M-cicada-03,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J286
+J287,CARD GAME,変更推奨,変更推奨,採用推奨,1,B,M-salmon-05,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J287
+J288,なおぽよ。・なおころ。,変更推奨,維持,現行維持推奨,2,C,現行・時の針 / small,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J288
+J289,なおぽよ。・なおころ。,変更推奨,維持,現行維持推奨,2,C,対局 / offer,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J289
+J290,CARD GAME,変更推奨,変更推奨,採用推奨,1,B,M-man-03,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J290
+J291,通知・コメント・説明文・その他,変更推奨,維持,現行維持推奨,2,C,date-movie-scene.special-reward,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J291
+J292,CARD GAME,保留,変更推奨,採用推奨,1,B,"E-mirror
+mirror",https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J292
+J293,CARD GAME,変更推奨,変更推奨,採用推奨,1,B,M-sakura-03,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J293
+J294,CARD GAME,変更推奨,変更推奨,採用推奨,1,B,M-dandelion-03,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J294
+J295,CARD GAME,変更推奨,変更推奨,採用推奨,1,B,M-antlion-05,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J295
+J296,CARD GAME,変更推奨,変更推奨,採用推奨,1,B,M-venus_flytrap-03,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J296
+J297,通常ミニゲーム100種・クイック50種,変更推奨,変更推奨,現行維持推奨,2,A,renderDuelOverlay() / cancel.textContent,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J297
+J298,通知・コメント・説明文・その他,変更推奨,維持,現行維持推奨,2,C,strained,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J298
+J299,CARD GAME,変更推奨,変更推奨,採用推奨,1,B,M-butterfly-05,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J299
+J300,なおぽよ。・なおころ。,変更推奨,変更推奨,採用推奨,1,B,対局 / friend-farewell,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J300
+J301,アイテム・地域,変更推奨,変更推奨,個別判断,3,A,bond1,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J301
+J302,共通UI・設定・ヘルプ,変更推奨,変更推奨,採用推奨,1,B,#wipeHoldBtn / wipe-hold-text,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J302
+J303,CARD GAME,変更推奨,変更推奨,採用推奨,1,B,M-turtle-08,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J303
+J304,CARD GAME,変更推奨,変更推奨,採用推奨,1,B,M-jellyfish-05,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J304
+J305,CARD GAME,変更推奨,変更推奨,採用推奨,1,B,M-clownfish-01,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J305
+J306,CARD GAME,変更推奨,変更推奨,採用推奨,1,B,M-cicada-06,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J306
+J307,CARD GAME,変更推奨,変更推奨,採用推奨,1,B,M-starfish-08,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J307
+J308,CARD GAME,変更推奨,変更推奨,採用推奨,1,B,M-starfish-04,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J308
+J309,CARD GAME,変更推奨,変更推奨,採用推奨,1,B,M-god-04,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J309
+J310,CARD GAME,変更推奨,変更推奨,採用推奨,1,B,M-cicada-05,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J310
+J311,通知・コメント・説明文・その他,変更推奨,維持,現行維持推奨,2,C,wantsPlay,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J311
+J312,CARD GAME,変更推奨,変更推奨,採用推奨,1,B,M-god-05,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J312
+J313,CARD GAME,変更推奨,変更推奨,採用推奨,1,B,M-sakura-02,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J313
+J314,CARD GAME,変更推奨,変更推奨,採用推奨,1,B,M-dandelion-01,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J314
+J315,ホーム・育成・お世話,変更推奨,変更推奨,採用推奨,1,B,detail,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J315
+J316,ホーム・育成・お世話,変更推奨,変更推奨,採用推奨,1,B,detail,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J316
+J317,CARD GAME,変更推奨,変更推奨,採用推奨,1,B,M-cicada-01,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J317
+J318,通知・コメント・説明文・その他,変更推奨,維持,現行維持推奨,2,C,tired,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J318
+J319,ホーム・育成・お世話,変更推奨,変更推奨,採用推奨,1,B,"detail
+assess",https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J319
+J320,CARD GAME,変更推奨,変更推奨,採用推奨,1,B,M-world_tree-05,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J320
+J321,CARD GAME,変更推奨,変更推奨,採用推奨,1,B,M-cat-05,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J321
+J322,アイテム・地域,変更推奨,変更推奨,採用推奨,1,A,sleepboost1,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J322
+J323,ホーム・育成・お世話,保留,維持,現行維持推奨,2,C,#themeOverlay / design-preview-info world-information,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J323
+J324,ホーム・育成・お世話,保留,維持,現行維持推奨,2,C,render() / el.ageLabel.textContent,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J324
+J325,ホーム・育成・お世話,保留,維持,現行維持推奨,2,C,render() / el.ageLabel.textContent,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J325
+J326,CARD GAME,変更推奨,変更推奨,採用推奨,1,B,M-god-08,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J326
+J327,CARD GAME,変更推奨,変更推奨,採用推奨,1,B,M-dragon-02,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J327
+J328,CARD GAME,変更推奨,変更推奨,採用推奨,1,B,M-plush-06,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J328
+J329,CARD GAME,保留,保留,個別判断,3,C,M-phoenix-08,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J329
+J330,実績・でざいん・シール,変更推奨,維持,現行維持推奨,2,C,STICKER_TASKS / label / [7] / background-change,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J330
+J331,CARD GAME,変更推奨,変更推奨,採用推奨,1,B,M-dog-05,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J331
+J332,CARD GAME,変更推奨,変更推奨,採用推奨,1,B,M-stagbeetle-05,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J332
+J333,CARD GAME,変更推奨,変更推奨,採用推奨,1,B,M-hermit_crab-02,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J333
+J334,ホーム・育成・お世話,保留,保留,個別判断,3,C,MARRIAGE_MILESTONES / title / [0],https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J334
+J335,ホーム・育成・お世話,保留,維持,現行維持推奨,2,C,SODACHI_PERKS / 30 / name,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J335
+J336,アイテム・地域,保留,維持,現行維持推奨,2,C,"sea/far
+sea/farbeach
+connections/transition",https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J336
+J337,CARD GAME,変更推奨,変更推奨,採用推奨,1,B,M-butterfly-07,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J337
+J338,通知・コメント・説明文・その他,変更推奨,維持,現行維持推奨,2,C,positive,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J338
+J339,CARD GAME,変更推奨,変更推奨,採用推奨,1,B,M-penguin-04,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J339
+J340,CARD GAME,変更推奨,変更推奨,採用推奨,1,B,M-butterfly-06,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J340
+J341,キャラクター・進化・図鑑,保留,維持,現行維持推奨,2,C,SPECIES / bird / stages / message / [5],https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J341
+J342,CARD GAME,変更推奨,変更推奨,採用推奨,1,B,M-clownfish-07,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J342
+J343,CARD GAME,変更推奨,変更推奨,採用推奨,1,B,M-hermit_crab-03,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J343
+J344,実績・でざいん・シール,変更推奨,変更推奨,採用推奨,1,B,STICKER_TASKS / label / [5] / page-8,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J344
+J345,実績・でざいん・シール,変更推奨,変更推奨,個別判断,3,B,STICKER_TASKS / label / [2] / page-item-2,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J345
+J346,実績・でざいん・シール,変更推奨,変更推奨,採用推奨,1,B,STICKER_TASKS / label / [4] / page-other-3,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J346
+J347,実績・でざいん・シール,変更推奨,変更推奨,個別判断,3,B,STICKER_TASKS / label / [3] / page-companion-3,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J347
+J348,実績・でざいん・シール,変更推奨,変更推奨,採用推奨,1,B,STICKER_TASKS / label / [0] / page-any-3,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J348
+J349,実績・でざいん・シール,変更推奨,変更推奨,採用推奨,1,B,STICKER_TASKS / label / [1] / same-sticker-2,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J349
+J350,CARD GAME,変更推奨,変更推奨,採用推奨,1,B,M-frog-08,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J350
+J351,通知・コメント・説明文・その他,変更推奨,維持,現行維持推奨,2,C,wantsPlay,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J351
+J352,CARD GAME,変更推奨,変更推奨,採用推奨,1,B,M-coral-08,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J352
+J353,CARD GAME,変更推奨,変更推奨,採用推奨,1,B,M-phoenix-01,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J353
+J354,通知・コメント・説明文・その他,変更推奨,維持,現行維持推奨,2,C,tired,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J354
+J355,CARD GAME,変更推奨,変更推奨,採用推奨,1,B,M-star-06,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J355
+J356,CARD GAME,変更推奨,変更推奨,採用推奨,1,B,M-antlion-08,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J356
+J357,CARD GAME,変更推奨,変更推奨,採用推奨,1,B,M-woman-03,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J357
+J358,CARD GAME,変更推奨,変更推奨,採用推奨,1,B,M-venus_flytrap-01,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J358
+J359,ホーム・育成・お世話,保留,維持,現行維持推奨,2,C,playMovieBeats() / document.getElementById('dateMovieKicker').textContent,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J359
+J360,アイテム・地域,変更推奨,変更推奨,採用推奨,1,B,共通,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J360
+J361,アイテム・地域,保留,保留,現行維持推奨,2,C,connections/vertical,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J361
+J362,実績・でざいん・シール,変更推奨,変更推奨,採用推奨,1,B,#stickerOverlay / stickerThemeKind,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J362
+J363,実績・でざいん・シール,変更推奨,保留,個別判断,3,A,renderStickerOverlay() / themeBtn.innerHTML,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J363
+J364,共通UI・設定・ヘルプ,変更推奨,変更推奨,採用推奨,1,B,OTHER_TAB_MESSAGE,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J364
+J365,アイテム・地域,保留,保留,現行維持推奨,2,C,connections/vertical,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J365
+J366,共通UI・設定・ヘルプ,変更推奨,変更推奨,採用推奨,1,A,show() / b.textContent,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J366
+J367,共通UI・設定・ヘルプ,変更推奨,変更推奨,採用推奨,1,B,"#wipeConfirmOverlay
+#wipeConfirmOverlay / wipe-title",https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J367
+J368,アイテム・地域,保留,保留,現行維持推奨,2,C,connections/sea,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J368
+J369,CARD GAME,変更推奨,変更推奨,採用推奨,1,B,M-god-02,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J369
+J370,CARD GAME,変更推奨,変更推奨,採用推奨,1,B,M-dog-04,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J370
+J371,ホーム・育成・お世話,変更推奨,変更推奨,採用推奨,1,B,"detail
+assess.detail",https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J371
+J372,CARD GAME,変更推奨,維持,現行維持推奨,2,C,M-starfish-05,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J372
+J373,キャラクター・進化・図鑑,変更推奨,維持,現行維持推奨,2,C,transformAside,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J373
+J374,実績・でざいん・シール,変更推奨,変更推奨,採用推奨,1,B,renderStickerOverlay() / profile-hint,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J374
+J375,CARD GAME,変更推奨,変更推奨,採用推奨,1,B,M-plush-01,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J375
+J376,CARD GAME,変更推奨,変更推奨,採用推奨,1,B,M-frog-02,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J376
+J377,キャラクター・進化・図鑑,変更推奨,維持,現行維持推奨,2,C,transformAside,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J377
+J378,CARD GAME,変更推奨,変更推奨,採用推奨,1,B,M-sakura-06,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J378
+J379,CARD GAME,変更推奨,変更推奨,採用推奨,1,B,M-mushroom-02,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J379
+J380,キャラクター・進化・図鑑,保留,維持,現行維持推奨,2,C,SPECIES / plant / stages / message / [6],https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J380
+J381,通常ミニゲーム100種・クイック50種,保留,保留,現行維持推奨,2,C,quick-run,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J381
+J382,CARD GAME,変更推奨,変更推奨,採用推奨,1,B,M-cat-07,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J382
+J383,アイテム・地域,保留,保留,現行維持推奨,2,C,connections/sea,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J383
+J384,アイテム・地域,保留,保留,現行維持推奨,2,C,connections/sea,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J384
+J385,アイテム・地域,保留,保留,現行維持推奨,2,C,connections/sea,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J385
+J386,アイテム・地域,変更推奨,維持,現行維持推奨,2,C,#itemOverlay / theme-section-title,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J386
+J387,CARD GAME,変更推奨,変更推奨,採用推奨,1,B,M-sakura-07,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J387
+J388,CARD GAME,変更推奨,変更推奨,採用推奨,1,B,M-dog-07,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J388
+J389,CARD GAME,変更推奨,維持,現行維持推奨,2,C,M-ren-07,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J389
+J390,CARD GAME,変更推奨,変更推奨,採用推奨,1,B,M-penguin-03,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J390
+J391,CARD GAME,変更推奨,変更推奨,採用推奨,1,B,M-penguin-05,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J391
+J392,CARD GAME,変更推奨,変更推奨,採用推奨,1,B,M-hermit_crab-08,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J392
+J393,CARD GAME,変更推奨,変更推奨,採用推奨,1,B,M-ghost-06,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J393
+J394,CARD GAME,変更推奨,変更推奨,採用推奨,1,B,M-world_tree-07,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J394
+J395,CARD GAME,変更推奨,変更推奨,採用推奨,1,B,M-frog-07,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J395
+J396,アイテム・地域,保留,保留,現行維持推奨,2,C,connections/vertical,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J396
+J397,CARD GAME,変更推奨,変更推奨,採用推奨,1,B,M-penguin-08,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J397
+J398,CARD GAME,変更推奨,変更推奨,採用推奨,1,B,M-penguin-01,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J398
+J399,CARD GAME,変更推奨,変更推奨,採用推奨,1,B,M-penguin-07,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J399
+J400,CARD GAME,変更推奨,変更推奨,採用推奨,1,B,M-phoenix-06,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J400
+J401,CARD GAME,変更推奨,変更推奨,採用推奨,1,B,M-phoenix-05,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J401
+J402,実績・でざいん・シール,変更推奨,変更推奨,採用推奨,1,B,#themeOverlay / textSizeSelect,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J402
+J403,実績・でざいん・シール,変更推奨,変更推奨,採用推奨,1,B,#themeOverlay / fontSelect,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J403
+J404,実績・でざいん・シール,変更推奨,変更推奨,採用推奨,1,B,#stickerOverlay / h3,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J404
+J405,共通UI・設定・ヘルプ,変更推奨,変更推奨,採用推奨,1,B,#wipeOverlay / wipe-warn,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J405
+J406,CARD GAME,変更推奨,変更推奨,採用推奨,1,B,M-salmon-08,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J406
+J407,アイテム・地域,保留,保留,現行維持推奨,2,C,connections/transition,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J407
+J408,アイテム・地域,保留,保留,現行維持推奨,2,C,connections/vertical,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J408
+J409,アイテム・地域,保留,保留,現行維持推奨,2,C,connections/vertical,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J409
+J410,CARD GAME,変更推奨,変更推奨,採用推奨,1,B,M-clownfish-04,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J410
+J411,CARD GAME,変更推奨,変更推奨,採用推奨,1,B,M-hermit_crab-01,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J411
+J412,キャラクター・進化・図鑑,保留,維持,現行維持推奨,2,C,SPECIES / panda / stages / message / [2],https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J412
+J413,CARD GAME,変更推奨,維持,現行維持推奨,2,C,M-turtle-03,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J413
+J414,通常ミニゲーム100種・クイック50種,変更推奨,変更推奨,採用推奨,1,B,tilt-maze-3d,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J414
+J415,CARD GAME,保留,保留,現行維持推奨,2,C,G-road-themed,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J415
+J416,キャラクター・進化・図鑑,保留,維持,現行維持推奨,2,C,SPECIES / rabbit / stages / message / [1],https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J416
+J417,キャラクター・進化・図鑑,保留,維持,現行維持推奨,2,C,SPECIES / fox / stages / message / [1],https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J417
+J418,キャラクター・進化・図鑑,保留,維持,現行維持推奨,2,C,SPECIES / panda / stages / message / [1],https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J418
+J419,キャラクター・進化・図鑑,保留,維持,現行維持推奨,2,C,SPECIES / unicorn / stages / message / [1],https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J419
+J420,キャラクター・進化・図鑑,保留,維持,現行維持推奨,2,C,SPECIES / dinosaur / stages / message / [1],https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J420
+J421,CARD GAME,保留,変更推奨,採用推奨,1,B,"E-lamp
+lamp",https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J421
+J422,共通UI・設定・ヘルプ,変更推奨,変更推奨,採用推奨,1,B,el.saveImportBtn / el.saveImportStatus.textContent,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J422
+J423,共通UI・設定・ヘルプ,変更推奨,変更推奨,採用推奨,1,B,#saveImportBtn,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J423
+J424,CARD GAME,変更推奨,変更推奨,採用推奨,1,B,M-woman-06,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J424
+J425,通常ミニゲーム100種・クイック50種,変更推奨,変更推奨,採用推奨,1,B,flames,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J425
+J426,CARD GAME,変更推奨,変更推奨,採用推奨,1,B,M-dandelion-07,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J426
+J427,CARD GAME,変更推奨,変更推奨,採用推奨,1,B,M-frog-04,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J427
+J428,CARD GAME,変更推奨,変更推奨,採用推奨,1,B,M-frog-05,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J428
+J429,キャラクター・進化・図鑑,保留,維持,現行維持推奨,2,C,SPECIES / rabbit / stages / message / [3],https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J429
+J430,キャラクター・進化・図鑑,保留,維持,現行維持推奨,2,C,SPECIES / fox / stages / message / [3],https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J430
+J431,キャラクター・進化・図鑑,保留,維持,現行維持推奨,2,C,SPECIES / fish / stages / message / [3],https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J431
+J432,キャラクター・進化・図鑑,保留,維持,現行維持推奨,2,C,SPECIES / mermaid / stages / message / [3],https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J432
+J433,キャラクター・進化・図鑑,保留,維持,現行維持推奨,2,C,SPECIES / unicorn / stages / message / [3],https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J433
+J434,キャラクター・進化・図鑑,保留,維持,現行維持推奨,2,C,SPECIES / dinosaur / stages / message / [3],https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J434
+J435,通常ミニゲーム100種・クイック50種,変更推奨,変更推奨,採用推奨,1,B,race-3d,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J435
+J436,通常ミニゲーム100種・クイック50種,変更推奨,変更推奨,採用推奨,1,B,grand-prix-3d,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J436
+J437,CARD GAME,保留,保留,現行維持推奨,2,C,G-dragDecorate-cake,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J437
+J438,通常ミニゲーム100種・クイック50種,保留,変更推奨,個別判断,3,B,"#mgHelpOverlay / mg-help-note
+共通",https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J438
+J439,CARD GAME,保留,保留,現行維持推奨,2,C,G-race-3d,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J439
+J440,実績・でざいん・シール,変更推奨,変更推奨,採用推奨,1,B,#stickerOverlay / profile-hint,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J440
+J441,実績・でざいん・シール,変更推奨,変更推奨,採用推奨,1,B,#stickerOverlay / h3,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J441
+J442,実績・でざいん・シール,変更推奨,変更推奨,採用推奨,1,B,ACHIEVEMENTS / desc / [69] / sticker-100,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J442
+J443,実績・でざいん・シール,変更推奨,変更推奨,採用推奨,1,B,ACHIEVEMENTS / desc / [15] / sticker-10,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J443
+J444,CARD GAME,変更推奨,変更推奨,採用推奨,1,A,chapter-10,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J444
+J445,共通UI・設定・ヘルプ,変更推奨,変更推奨,個別判断,3,A,show(),https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J445
+J446,共通UI・設定・ヘルプ,変更推奨,変更推奨,採用推奨,1,B,#profileOverlay / danger-note,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J446
+J447,通常ミニゲーム100種・クイック50種,保留,維持,現行維持推奨,2,B,共通,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J447
+J448,ホーム・育成・お世話,保留,維持,現行維持推奨,2,C,"#menuOverlay / p
+createController",https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J448
+J449,通常ミニゲーム100種・クイック50種,保留,維持,現行維持推奨,2,C,fp-dungeon,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J449
+J450,通常ミニゲーム100種・クイック50種,保留,維持,現行維持推奨,2,C,p3-drive,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J450
+J451,CARD GAME,保留,保留,現行維持推奨,2,C,G-p3-drive,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J451
+J452,CARD GAME,保留,維持,現行維持推奨,2,C,"G-basketball-3d
+basketball-3d",https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J452
+J453,CARD GAME,保留,保留,現行維持推奨,2,C,G-pingpong-3d,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J453
+J454,通常ミニゲーム100種・クイック50種,変更推奨,変更推奨,採用推奨,1,B,ski-jump,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J454
+J455,実績・でざいん・シール,変更推奨,変更推奨,採用推奨,1,B,#themeOverlay / design-help,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J455
+J456,実績・でざいん・シール,変更推奨,変更推奨,採用推奨,1,B,#buttonTransparencyHelp,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J456
+J457,通常ミニゲーム100種・クイック50種,変更推奨,変更推奨,採用推奨,1,B,crane-game-3d,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J457
+J458,通常ミニゲーム100種・クイック50種,変更推奨,変更推奨,採用推奨,1,B,"real-fishing / fishing-sea / fishing-deepsea / fishing-river
+real-fishing
+fishing-sea
+fishing-deepsea
+fishing-river",https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J458
+J459,通常ミニゲーム100種・クイック50種,変更推奨,変更推奨,採用推奨,1,B,bowling-3d,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J459
+J460,通常ミニゲーム100種・クイック50種,変更推奨,変更推奨,採用推奨,1,B,minesweeper-8,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J460
+J461,アイテム・地域,変更推奨,変更推奨,個別判断,3,A,gamepass1,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J461
+J462,通常ミニゲーム100種・クイック50種,変更推奨,変更推奨,個別判断,3,A,partner,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J462
+J463,通常ミニゲーム100種・クイック50種,変更推奨,変更推奨,採用推奨,1,B,halfpipe-skate,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J463
+J464,なおぽよ。・なおころ。,変更推奨,変更推奨,個別判断,3,B,"対局 / title
+旧対局（ホームから継続可） / title",https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J464
+J465,なおぽよ。・なおころ。,変更推奨,変更推奨,採用推奨,1,B,現行・時の針 / 地下牢 05,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J465
+J466,CARD GAME,保留,変更推奨,個別判断,3,A,rule-01-16,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J466
+J467,CARD GAME,保留,変更推奨,個別判断,3,A,ラウンド,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J467
+J468,CARD GAME,保留,変更推奨,個別判断,3,A,rule-01-1,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J468
+J469,CARD GAME,保留,変更推奨,個別判断,3,A,rule-01-13,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J469
+J470,キャラクター・進化・図鑑,保留,維持,現行維持推奨,2,B,#dexOverlay / profile-hint,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J470
+J471,なおぽよ。・なおころ。,変更推奨,変更推奨,採用推奨,1,B,現行・時の針 / label,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J471
+J472,通常ミニゲーム100種・クイック50種,変更推奨,変更推奨,採用推奨,1,B,stop,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J472
+J473,通常ミニゲーム100種・クイック50種,保留,維持,現行維持推奨,2,C,pingpong-3d,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J473
+J474,なおぽよ。・なおころ。,保留,維持,現行維持推奨,2,C,現行・時の針 / victory,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J474
+J475,なおぽよ。・なおころ。,変更推奨,変更推奨,個別判断,3,B,現行・時の針 / 地下牢 02,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J475
+J476,なおぽよ。・なおころ。,変更推奨,変更推奨,採用推奨,1,B,現行・時の針 / 地下牢 03,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J476
+J477,実績・でざいん・シール,変更推奨,変更推奨,採用推奨,1,B,#stickerOverlay / profile-hint,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J477
+J478,なおぽよ。・なおころ。,変更推奨,変更推奨,採用推奨,1,B,直リンク・救出編 / 2,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J478
+J479,CARD GAME,変更推奨,変更推奨,採用推奨,1,B,#menuOverlay / small / prototypes/card-game/,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J479
+J480,アイテム・地域,保留,保留,現行維持推奨,2,C,connections/vertical,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J480
+J481,アイテム・地域,保留,保留,現行維持推奨,2,C,connections/sea,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J481
+J482,アイテム・地域,変更推奨,変更推奨,採用推奨,1,B,c_friend,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J482
+J483,アイテム・地域,変更推奨,変更推奨,採用推奨,1,B,c_rare_friend,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J483
+J484,通常ミニゲーム100種・クイック50種,変更推奨,変更推奨,個別判断,3,B,renderDuelOverlay() / document.getElementById('duelStakeHint').textContent,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J484
+J485,キャラクター・進化・図鑑,保留,維持,現行維持推奨,2,C,SPECIES / mermaid / stages / message / [2],https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J485
+J486,なおぽよ。・なおころ。,変更推奨,維持,現行維持推奨,2,C,"対局 / work-03
+旧対局（ホームから継続可） / work-03",https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J486
+J487,キャラクター・進化・図鑑,保留,維持,現行維持推奨,2,C,SPECIES / fish / stages / message / [2],https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J487
+J488,キャラクター・進化・図鑑,保留,維持,現行維持推奨,2,C,SPECIES / bird / stages / message / [2],https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J488
+J489,なおぽよ。・なおころ。,変更推奨,変更推奨,採用推奨,1,B,現行・時の針 / command,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J489
+J490,実績・でざいん・シール,保留,変更推奨,採用推奨,1,B,#infoReadabilityHelp,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J490
+J491,キャラクター・進化・図鑑,保留,維持,現行維持推奨,2,C,SPECIES / robot / stages / message / [5],https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J491
+J492,通常ミニゲーム100種・クイック50種,変更推奨,変更推奨,個別判断,3,B,共通,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J492
+J493,通常ミニゲーム100種・クイック50種,変更推奨,変更推奨,採用推奨,1,B,picross-5,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J493
+J494,なおぽよ。・なおころ。,変更推奨,維持,現行維持推奨,2,C,"対局 / fate-01
+旧対局（ホームから継続可） / fate-01",https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J494
+J495,実績・でざいん・シール,変更推奨,変更推奨,採用推奨,1,B,#stickerOverlay / profile-hint sticker-page-hint,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J495
+J496,なおぽよ。・なおころ。,変更推奨,変更推奨,採用推奨,1,B,現行・時の針 / render,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J496
+J497,通常ミニゲーム100種・クイック50種,保留,変更推奨,採用推奨,1,B,"breakout-classic
+対局 / makeBreakoutGame",https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J497
+J498,通常ミニゲーム100種・クイック50種,変更推奨,変更推奨,個別判断,3,B,tilt-maze-3d,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J498
+J499,キャラクター・進化・図鑑,保留,維持,現行維持推奨,2,C,SPECIES / owl / stages / message / [1],https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J499
+J500,通常ミニゲーム100種・クイック50種,変更推奨,変更推奨,個別判断,3,A,mole,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J500
+J501,なおぽよ。・なおころ。,保留,維持,現行維持推奨,2,C,"現行・時の針 / small
+現行・時の針 / victory",https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J501
+J502,CARD GAME,保留,変更推奨,個別判断,3,A,rule-01-20,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J502
+J503,CARD GAME,変更推奨,変更推奨,採用推奨,1,B,chapter-9,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J503
+J504,キャラクター・進化・図鑑,保留,維持,現行維持推奨,2,C,SPECIES / rabbit / stages / message / [5],https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J504
+J505,キャラクター・進化・図鑑,保留,維持,現行維持推奨,2,C,SPECIES / fox / stages / message / [5],https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J505
+J506,キャラクター・進化・図鑑,保留,維持,現行維持推奨,2,C,SPECIES / fish / stages / message / [5],https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J506
+J507,キャラクター・進化・図鑑,保留,維持,現行維持推奨,2,C,SPECIES / mermaid / stages / message / [5],https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J507
+J508,キャラクター・進化・図鑑,保留,維持,現行維持推奨,2,C,SPECIES / owl / stages / message / [5],https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J508
+J509,キャラクター・進化・図鑑,保留,維持,現行維持推奨,2,C,SPECIES / panda / stages / message / [5],https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J509
+J510,キャラクター・進化・図鑑,保留,維持,現行維持推奨,2,C,SPECIES / unicorn / stages / message / [5],https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J510
+J511,キャラクター・進化・図鑑,保留,維持,現行維持推奨,2,C,SPECIES / dinosaur / stages / message / [5],https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J511
+J512,キャラクター・進化・図鑑,保留,維持,現行維持推奨,2,C,SPECIES / bird / stages / message / [3],https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J512
+J513,なおぽよ。・なおころ。,変更推奨,維持,現行維持推奨,2,C,現行・時の針 / 地下牢 08,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J513
+J514,通常ミニゲーム100種・クイック50種,変更推奨,変更推奨,採用推奨,1,B,doors,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J514
+J515,なおぽよ。・なおころ。,変更推奨,維持,現行維持推奨,2,C,"対局 / daily-01
+旧対局（ホームから継続可） / daily-01",https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J515
+J516,なおぽよ。・なおころ。,変更推奨,変更推奨,個別判断,3,B,"対局 / adventure-06
+旧対局（ホームから継続可） / adventure-06",https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J516
+J517,通常ミニゲーム100種・クイック50種,変更推奨,変更推奨,採用推奨,1,A,共通,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J517
+J518,キャラクター・進化・図鑑,変更推奨,変更推奨,個別判断,3,A,renderDexSummary() / el.dexSummary.innerHTML / dex-next,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J518
+J519,実績・でざいん・シール,変更推奨,変更推奨,採用推奨,1,B,#stickerExportBtn,https://naotocchi-nihongo-v1-20261120.kerzion214.chatgpt.site/v3/#J519
