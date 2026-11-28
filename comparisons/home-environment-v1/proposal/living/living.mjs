@@ -9,7 +9,7 @@ import {drawMountainJungleDesert} from './mountain-jungle-desert.mjs';
 import {drawDeepseaStars} from './deepsea-stars.mjs';
 import {paintMaximum, MAXIMUM_STRENGTH} from './maximum.mjs';
 import {paintFinal, paintSway, paintFoliage, FINAL_EFFECTS, daylightOf} from './final.mjs';
-import {paintClouds, SKY} from './clouds.mjs';
+import {paintClouds, paintCloudsFlat, cloudVeil, SKY} from './clouds.mjs';
 
 const painters = {
   sea:drawSeaE, forest:drawForestE,
@@ -27,7 +27,7 @@ export const livingRegions = Object.freeze(Object.keys(painters));
 
 // `maximum` drives the reused painters at full strength and adds the maximum layer on top.
 // `final` keeps them at their calm strength, without cut-out deformation, and adds the final layer.
-export function paintLiving(ctx, rect, fade, seconds, env, reduced, {maximum = false, final = false, treeSway = 'tips2', wind = 0, daySource = null, layers = null, level = 1, cloud = 0, document:doc} = {}) {
+export function paintLiving(ctx, rect, fade, seconds, env, reduced, {maximum = false, final = false, treeSway = 'tips2', wind = 0, daySource = null, layers = null, level = 1, cloud = 0, cloudStyle = 'layered', document:doc} = {}) {
   function layer(image, opacity) {
     const scene = picture(image), paint = painters[scene?.region];
     if (!paint || opacity <= 0) return;
@@ -57,7 +57,11 @@ export function paintLiving(ctx, rect, fade, seconds, env, reduced, {maximum = f
     if (cloud > 0 && SKY[scene.region]) {
       const source = typeof daySource === 'function' ? daySource(scene.region) : daySource;
       const day = /-day\.webp(?:\?|$)/.test(shown.src || '') ? shown : source ? daylightOf(scene.region + '#sky', shown, doc, source) : null;
-      if (day && day !== shown || day && /-day\.webp/.test(shown.src || '')) paintClouds(ctx, day, scene.region, scene.time, env.weather === 'unknown' ? 'sunny' : env.weather, seconds, cloud, doc);
+      const sky = env.weather === 'unknown' ? 'sunny' : env.weather;
+      if (day && cloudStyle === 'flat') paintCloudsFlat(ctx, day, scene.region, scene.time, sky, seconds, cloud, doc);
+      else if (day && cloudStyle !== 'none') paintClouds(ctx, day, scene.region, scene.time, sky, seconds, cloud, doc, cloudStyle === 'single' ? 1 : 2);
+      // Stars and shooting stars are hidden where cloud lies over them, and show in the gaps.
+      if (day && layers && cloudStyle !== 'none' && cloudStyle !== 'flat') layers = {...layers, hidden:(x, y) => cloudVeil(scene.region, x, y, seconds, cloud, cloudStyle === 'single' ? 1 : 2, sky === 'rain' || sky === 'snow')};
     }
     if (treeSway === 'bump') paintSway(ctx, shown, scene.region, seconds);
     else paintFoliage(ctx, shown, scene.region, scene.time, seconds, treeSway, doc, wind, typeof daySource === 'function' ? daySource(scene.region) : daySource, level);

@@ -263,7 +263,7 @@ export function paintFinal(ctx, scene, env, seconds, doc, layers = null) {
   layer(() => waterGlints(ctx, region, time, env.weather, seconds, {gain:.55, size:.7}));
   // With `layers`, stars dim under thin cloud and vanish in rain or snow, and so do shooting stars.
   const twinkle = layers ? layers.twinkle : time === 'night' && env.weather === 'sunny' ? 1 : 0, meteors = layers ? layers.meteors : twinkle;
-  if (twinkle > 0 || meteors > 0) layer(() => nightSky(ctx, region, seconds, {gain:.6 * twinkle, size:.6, meteors}));
+  if (twinkle > 0 || meteors > 0) layer(() => nightSky(ctx, region, seconds, layers?.hidden ? {gain:.6 * Math.max(twinkle, .8), size:.6, meteors:Math.max(meteors, .8), veil:layers.hidden} : {gain:.6 * twinkle, size:.6, meteors}));
   const dusk = time === 'evening' || time === 'night';
   if (layers ? layers.fireflies : clear && (region === 'memory_lake' || dusk && BUGS.has(region) && env.season === 'summer'))
     layer(() => fireflies(ctx, region, time, seconds, doc, {gain:region === 'memory_lake' && !dusk ? .55 : 1, size:.8}));

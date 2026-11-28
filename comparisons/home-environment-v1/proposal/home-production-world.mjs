@@ -5,6 +5,7 @@ import {fallingKind,paintFalling,paintWeatherVeil} from './home-atmosphere-fx.mj
 import {paintLiving} from './living/living.mjs';
 import {layersFor,createClimate} from './home-climate.mjs';
 import {seasonalPainting} from './living/seasons.mjs';
+import {seasonArt,loadSeasonArt} from './home-season-art.mjs';
 import {daylightOf} from './living/final.mjs';
 import {ART_CANDIDATES,selectRecoveredScene} from './home-production-manifest.mjs';
 import {artTransform,paintBackdrop,backdropComposition} from './home-production-transform.mjs';
@@ -50,6 +51,8 @@ export function createHomeWorld(options){
  // `subtle` lets the evergreen regions lean slightly with the months.
  const tintOf=()=>{const v=typeof options.seasonTint==='function'?options.seasonTint():options.seasonTint??win.NaotocchiSeasonTint??0;return typeof v==='object'&&v?{strength:Number(v.strength)||0,far:!!v.far,rich:!!v.rich,subtle:!!v.subtle}:{strength:Number(v)||0,far:false,rich:false,subtle:false};};
  const seasoned=(picture,tint)=>{if(!picture||!tint.strength)return picture;const scene=picture.src?.match(/\/([a-z_]+)-(morning|day|evening|night)\.webp(?:\?|$)/);if(!scene)return picture;
+  // A dedicated painting for this region, hour and season wins over recolouring, once loaded.
+  const art=seasonArt(scene[1],scene[2],env.season,options.seasonArt),painted=art&&loadSeasonArt(art,doc);if(painted)return painted;
   // The forest's night painting differs in outline from its day one, so it reads its own leaves.
   const reference=scene[1]==='forest'&&scene[2]==='night'?picture:scene[2]==='day'?picture:(()=>{const day=daylightOf(scene[1]+'#tint',picture,doc,DAYPARTS[scene[1]]?.day);return day===picture?null:day;})();
   return reference?seasonalPainting(picture,{region:scene[1],time:scene[2],season:env.season,strength:tint.strength,far:tint.far,rich:tint.rich,subtle:tint.subtle,reference,doc}):picture;};
@@ -152,7 +155,7 @@ export function createHomeWorld(options){
   // A representative painting is retained. This restrained overlay is not a
   // claim that baked sunset/sunbeams have become a completed night artwork.
   if(!fade.image&&(env.time==='night'||env.weather==='rain')){ctx.fillStyle=env.time==='night'?'rgba(21,30,73,.24)':'rgba(38,57,78,.15)';if(contain&&v15)ctx.fillRect(t.left,t.top,t.width,t.height);else ctx.fillRect(0,0,host.width,host.height);}
-  if(living&&fade.image)paintLiving(ctx,t,fade,time/1000,env,flags.reducedMotion,{maximum,final,treeSway:treeSway(),wind:windBoost(),daySource:region=>DAYPARTS[region]?.day,layers,level:air.wind,cloud:air.cloud,document:doc});
+  if(living&&fade.image)paintLiving(ctx,t,fade,time/1000,env,flags.reducedMotion,{maximum,final,treeSway:treeSway(),wind:windBoost(),daySource:region=>DAYPARTS[region]?.day,layers,level:air.wind,cloud:air.cloud,cloudStyle:(typeof options.cloudStyle==='function'?options.cloudStyle():options.cloudStyle)||win.NaotocchiCloudStyle||'layered',document:doc});
   else if(!flags.reducedMotion){ctx.save();ctx.globalCompositeOperation='screen';for(let i=0;i<7;i++){const u=.18+(i*.117)% .65,v=spec.accent==='water'?.28+(i%3)*.035:.16+(i%4)*.13,x=(contain?t.left:0)+u*t.width,y=t.top+v*t.height+Math.sin(time/2400+i)*3;ctx.globalAlpha=.08+.12*(.5+.5*Math.sin(time/1500+i));ctx.fillStyle=spec.accent==='glow'?'#ffdb9b':'#fffad4';ctx.beginPath();ctx.ellipse(x,y,spec.accent==='water'?7:1.4,spec.accent==='water'?1:1.4,0,0,Math.PI*2);ctx.fill();}ctx.restore();}
   }}
   lastFrame=frame;screen.setTransform(1,0,0,1,0,0);screen.drawImage(backdrop,0,0);

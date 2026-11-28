@@ -4,6 +4,7 @@
 // buildings and the ground are never recoloured. The 52 paintings themselves are not altered;
 // a seasonal copy is made in memory and summer at strength 0 is the painting as it is.
 import {leafness} from './foliage.mjs';
+import {skylineAt} from './clouds.mjs';
 
 const clamp = (v, lo = 0, hi = 1) => Math.min(hi, Math.max(lo, v));
 const smooth = v => { const t = clamp(v); return t * t * (3 - 2 * t); };
@@ -74,7 +75,8 @@ export function seasonTone(season, r, g, b, day, x, y, plants, strength, time, s
   const v = variety(x * 9, y * 13, seed);
   if (season === 'spring') {
     // Young leaves: lighter and yellower, a little softer.
-    return [Math.min(255, r * 1.08 + 16), Math.min(255, g * 1.07 + 14), b * .78 + 6, .75 * strength * (1 - .6 * evergreen)];
+    return rich ? [Math.min(255, r * 1.16 + 26), Math.min(255, g * 1.1 + 22), b * .7 + 4, .92 * strength * (1 - .5 * evergreen)]
+      : [Math.min(255, r * 1.08 + 16), Math.min(255, g * 1.07 + 14), b * .78 + 6, .75 * strength * (1 - .6 * evergreen)];
   }
   if (season === 'summer') {
     // Deep, full green.
@@ -94,8 +96,10 @@ export function seasonTone(season, r, g, b, day, x, y, plants, strength, time, s
     turf = [...carry([196, 180, 136], light, 150), (rich ? .9 : .78) * strength * (.75 + .25 * v)];
     if (rich) {
       // Frost: pale, cool patches over the dry grass, and a breath of it on the bare trees.
-      const frost = smooth((variety(x * 7, y * 10, seed + 9) - .3) / .5) * hour;
-      turf = [turf[0] + (224 - turf[0]) * .3 * frost, turf[1] + (230 - turf[1]) * .3 * frost, turf[2] + (236 - turf[2]) * .3 * frost, turf[3]];
+      // Frost and a thin dusting of snow: broad pale drifts, broken up finely so blades of grass show through.
+      const drift = smooth((variety(x * 5, y * 7, seed + 9) - .25) / .45), grain = variety(x * 90, y * 130, seed + 10);
+      const frost = hour * drift * (.35 + .65 * smooth((grain - .35) / .3));
+      turf = [turf[0] + (232 - turf[0]) * .62 * frost, turf[1] + (238 - turf[1]) * .62 * frost, turf[2] + (246 - turf[2]) * .62 * frost, Math.min(1, turf[3] + .1 * frost)];
       tree = [tree[0] + (200 - tree[0]) * .18 * frost, tree[1] + (206 - tree[1]) * .18 * frost, tree[2] + (216 - tree[2]) * .18 * frost, tree[3]];
     }
   }
@@ -138,6 +142,8 @@ export function seasonalPainting(image, {region, time, season, strength = 0, far
   const guideTime = reference === image ? (plants.palette === 'dry' && time === 'day' ? 'dry' : time) : plants.palette || 'day';
   const p = own.data, d = guide.data, seed = region.length * 131 + region.charCodeAt(0);
   const [x0, x1, y0, y1] = plants.box || [0, 1, 0, 1];
+  // The skyline per column of this half-size copy (null where the region has no open sky).
+  const horizon = rich && far && plants.far && region !== 'forest' ? Array.from({length:w}, (_, i) => skylineAt(reference, region, doc, i / w)) : null;
   for (let j = 0; j < h; j++) for (let i = 0; i < w; i++) {
     const k = 4 * (j * w + i), x = i / w, y = j / h;
     let amount = 0, tone = null;
@@ -145,6 +151,13 @@ export function seasonalPainting(image, {region, time, season, strength = 0, far
       let leaf = smooth((leafness(d[k], d[k + 1], d[k + 2], guideTime) - .2) / .4);
       // How far away this height is: 1 well above the line, easing to 0 just below it.
       const distant = far && plants.far ? smooth((plants.far - y) / .05 + .5) : 0;
+      // With the skyline known, everything between it and the far line is hillside, whatever its
+      // colour: the blue of distance turns with the season too, more faintly the bluer it is.
+      if (rich && distant > 0 && horizon && y > horizon[i] + .006) {
+        const R = d[k], G = d[k + 1], B = d[k + 2], light = (R + G + B) / 3;
+        const land = light < 200 && !(Math.max(R, G, B) - Math.min(R, G, B) < 26 && light > 120);   // not snow, cloud or bare rock
+        if (land) leaf = Math.max(leaf, distant * (B > G * 1.15 ? .5 : .8));
+      }
       if (distant > 0 && reference !== image || distant > 0 && time === 'day') leaf = Math.max(leaf, distant * farFoliage(d[k], d[k + 1], d[k + 2], rich));
       if (leaf > .02) { tone = seasonTone(season, p[k], p[k + 1], p[k + 2], [d[k], d[k + 1], d[k + 2]], x, y, plants, strength, time, seed, distant, rich); amount = leaf * tone[3];
         // Spring in bloom: some trees carry clusters of pale pink blossom, and small flowers dot the grass.

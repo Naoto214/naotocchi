@@ -654,14 +654,42 @@ test('seasons (far): distant hills turn, water and sky never do, and evergreen r
   }
 });
 
-test('clouds: only over open sky, more under grey weather, measured cover used for dry skies only', async () => {
-  const {skyness, SKY} = await import('./proposal/living/clouds.mjs');
+test('clouds: only over open sky, shaped not flat, more under grey weather, measured cover used for dry skies only', async () => {
+  const {SKY, cloudDensity, cloudVeil} = await import('./proposal/living/clouds.mjs');
+  const {findSky, SKY_W, SKY_H} = await import('./proposal/living/skyline.mjs');
   const {createClimate} = await import('./proposal/home-climate.mjs');
-  assert.ok(skyness(70, 150, 235, true) > .9 && skyness(245, 248, 250, true) > .9);
-  assert.ok(skyness(245, 248, 250, false) < .05); // snow on a peak is not sky
-  for (const [r, g, b] of [[120,200,60],[60,120,110],[95,70,50],[150,150,150],[20,160,150],[222,199,178]]) assert.ok(skyness(r, g, b, true) < .1, `${r},${g},${b}`);
   assert.deepEqual(Object.keys(SKY).sort(), ['city','countryside','desert','forest','home','memory_lake','mountain','river_lake','sea','snow']);
-  assert.deepEqual(SKY.home.box, [.27, .57]);
+  assert.deepEqual(SKY.home.box, [.275, .565]);
+  // A test painting: smooth blue sky, a pale painted cloud, then a far ridge painted in almost
+  // the sky's own blue but with brushwork, then green land. The ridge must not count as sky.
+  const data = new Uint8ClampedArray(SKY_W * SKY_H * 4);
+  for (let y = 0; y < SKY_H; y++) for (let x = 0; x < SKY_W; x++) {
+    const k = 4 * (y * SKY_W + x), ridge = 30 + Math.round(8 * Math.sin(x / 9));
+    const c = y < 12 && x > 40 && x < 90 ? [240, 244, 250] : y < ridge ? [85, 155, 239] : y < 52 ? ((x + y) % 2 ? [70, 120, 190] : [120, 175, 235]) : [90, 160, 70];
+    data.set([...c, 255], k);
+  }
+  const {line, mask} = findSky(data, 'countryside');
+  let gap = 0;
+  for (let x = 6; x < SKY_W - 6; x++) { const ridge = 30 + 8 * Math.sin(x / 9); assert.ok(line[x] <= ridge + 3, `${x} ${line[x]} ${ridge}`); gap += ridge - line[x]; }
+  assert.ok(gap / (SKY_W - 12) < 12, String(gap)); // and it stays close to the ridge
+  let land = 0; for (let y = 54; y < SKY_H; y++) for (let x = 0; x < SKY_W; x++) land += mask[y * SKY_W + x];
+  assert.equal(land, 0);
+  // Nor does any cloud reach more than a few rows into the ridge.
+  let ridgeCover = 0; for (let y = 42; y < 54; y++) for (let x = 0; x < SKY_W; x++) ridgeCover += mask[y * SKY_W + x] > 0 ? 1 : 0;
+  assert.ok(ridgeCover < SKY_W * 12 * .05, String(ridgeCover));
+  assert.ok(mask[5 * SKY_W + 60] > 200 && mask[8 * SKY_W + 150] > 200); // painted cloud and blue sky both take new cloud
+  // Shape: at half cover part of the sky is clear and part is thick, and neighbours differ.
+  const at = (cover, t = 50) => Array.from({length:400}, (_, k) => cloudDensity((k % 20) / 20, Math.floor(k / 20) / 20, t, cover, 1));
+  const half = at(.5), clear = half.filter(v => v < .05).length, thick = half.filter(v => v > .8).length;
+  assert.ok(clear > 60 && thick > 40, `${clear} ${thick}`);
+  // Overcast still has light and dark: the cloud is thicker in places than in others... and never a hole.
+  const over = at(1); assert.ok(Math.min(...over) > .5);
+  const veils = Array.from({length:200}, (_, k) => cloudVeil('sea', 50 + (k % 20) * 45, 20 + Math.floor(k / 20) * 30, 80, .5));
+  assert.ok(Math.max(...veils) > .8 && Math.min(...veils) < .1); // stars show in the gaps and vanish behind cloud
+  assert.equal(cloudVeil('jungle', 500, 100, 80, .9), 0);
+  // The shape drifts and slowly changes.
+  const later = at(.5, 110); let moved = 0; half.forEach((v, k) => { moved += Math.abs(v - later[k]); });
+  assert.ok(moved / 400 > .1);
   const climate = createClimate(5), mean = (weather, o) => { let s = 0; for (let t = 0; t < 3000; t += 10) s += climate.cloud(t, {weather}, o); return s / 300; };
   assert.ok(mean('sunny') < .3 && mean('cloudy') > .65 && mean('rain') > .9 && mean('snow') > .84);
   assert.ok(mean('sunny', {measured:{cloudCover:80}}) > .7 && mean('sunny', {measured:{cloudCover:5}}) < .08);
@@ -670,4 +698,19 @@ test('clouds: only over open sky, more under grey weather, measured cover used f
   assert.equal(climate.cloud(9, {weather:'sunny'}, {cloud:.5}), .5);
   let jump = 0; for (let t = 1; t < 3000; t++) jump = Math.max(jump, Math.abs(climate.cloud(t, {weather:'cloudy'}) - climate.cloud(t - 1, {weather:'cloudy'})));
   assert.ok(jump < .05);
+});
+
+test('season art: a dedicated painting is used when listed, and recolouring otherwise', async () => {
+  const {seasonArt, loadSeasonArt, SEASON_ART} = await import('./proposal/home-season-art.mjs');
+  assert.equal(seasonArt('forest', 'day', 'autumn'), null); // none yet: every scene is recoloured
+  assert.deepEqual(SEASON_ART, {});
+  const table = {forest:{day:{autumn:'comparisons/seasons-v1/autumn/forest-day.webp'}}};
+  assert.equal(seasonArt('forest', 'day', 'autumn', table), 'comparisons/seasons-v1/autumn/forest-day.webp');
+  assert.equal(seasonArt('forest', 'night', 'autumn', table), null);
+  // The name still ends in <region>-<hour>.webp, which is how the painters know the scene.
+  assert.ok(/\/([a-z_]+)-(morning|day|evening|night)\.webp$/.test(table.forest.day.autumn));
+  class Picture { set src(value) { this.address = value; } }
+  const doc = {defaultView:{Image:Picture}};
+  assert.equal(loadSeasonArt('x/forest-day.webp', doc), null); // loading: the recoloured painting shows meanwhile
+  assert.equal(loadSeasonArt('x/forest-day.webp', doc), null);
 });

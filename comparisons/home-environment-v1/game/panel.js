@@ -46,6 +46,11 @@
     tint.onchange = subtle.onchange = () => { window.NaotocchiSeasonTint = {strength:parseFloat(tint.value), far:/[fr]$/.test(tint.value), rich:tint.value.endsWith('r'), subtle:subtle.value === '1'}; };
     panel.append(tint, subtle);
     live('wind', [['','風：自動で変化'],['0.22','風：無風に近い'],['0.6','風：弱い'],['1','風：普通'],['1.45','風：強い']]);
+    const style = document.createElement('select');
+    style.id = 'env-cloud-style'; style.style.cssText = 'display:block;width:100%;margin:3px 0;font:inherit';
+    for (const [value, text] of [['layered','雲：D 奥行きのある2層'],['single','雲：C 形と濃淡'],['flat','雲：B 前回'],['none','雲：A なし']]) { const o = document.createElement('option'); o.value = value; o.textContent = text; style.append(o); }
+    style.onchange = () => { window.NaotocchiCloudStyle = style.value; };
+    panel.append(style);
     live('cloud', [['','雲：天気に合わせて自動'],['0','雲：なし'],['0.25','雲：少ない'],['0.6','雲：多い'],['1','雲：空を覆う']]);
     live('density', [['','量：自動で変化'],['0.55','量：小'],['1','量：中'],['1.45','量：大']]);
     live('speed', [['','時間：ふつう'],['12','時間：12倍速']]);

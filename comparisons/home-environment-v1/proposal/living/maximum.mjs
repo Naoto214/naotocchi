@@ -281,7 +281,8 @@ export function meteorsAt(region, seconds, rate = 1) {
   return out;
 }
 // Stars twinkle one by one on their own beats, and once in a while one falls.
-export function nightSky(ctx, region, seconds, {gain = 1, size = 1, meteors = 1.5} = {}) {
+// `veil(x, y)` says how much cloud lies over a point; stars fade behind it.
+export function nightSky(ctx, region, seconds, {gain = 1, size = 1, meteors = 1.5, veil = null} = {}) {
   const stars = NIGHT_STARS[region];
   if (stars && gain > 0) {
     ctx.fillStyle = '#f4f7ff';
@@ -289,7 +290,7 @@ export function nightSky(ctx, region, seconds, {gain = 1, size = 1, meteors = 1.
       const period = 1.6 + 4.2 * hash(i + 3001), cycle = seconds / period + hash(i + 3011);
       if (hash(i * 41 + Math.floor(cycle)) < .45) return;
       const beat = Math.sin(Math.PI * unit(cycle)) ** 2;
-      ctx.globalAlpha = .85 * beat * gain;
+      ctx.globalAlpha = .85 * beat * gain * (veil ? Math.max(0, 1 - 1.6 * veil(u * 1000, v * 1500)) : 1);
       sparkle(ctx, u * 1000, v * 1500, size * (5 + 9 * hash(i + 3023) * beat) * (SMALL_SKY.has(region) ? .55 : 1));
     });
   }
@@ -301,7 +302,7 @@ export function nightSky(ctx, region, seconds, {gain = 1, size = 1, meteors = 1.
     const g = ctx.createLinearGradient(hx, hy, tx, ty);
     g.addColorStop(0, 'rgba(255,255,255,.95)'); g.addColorStop(1, 'rgba(200,220,255,0)');
     // Under thin cloud they are rarer and fainter.
-    ctx.globalAlpha = Math.sin(Math.PI * m.p) * m.bright * Math.min(1, .5 + .5 * meteors);
+    ctx.globalAlpha = Math.sin(Math.PI * m.p) * m.bright * Math.min(1, .5 + .5 * meteors) * (veil ? Math.max(0, 1 - 1.6 * veil(hx, hy)) : 1);
     ctx.strokeStyle = g; ctx.lineWidth = m.width; ctx.lineCap = 'round';
     ctx.beginPath(); ctx.moveTo(hx, hy); ctx.lineTo(tx, ty); ctx.stroke();
   }

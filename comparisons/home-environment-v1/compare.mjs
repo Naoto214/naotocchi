@@ -31,6 +31,7 @@ const ZOOMS = [['','全体'],['top','上部'],['mid','中央'],['left','左が�
 const WINDS = [['auto','自動で変化'],['calm','無風に近い'],['light','弱い'],['normal','普通'],['strong','強い']];
 const AMOUNTS = [['auto','自動で変化'],['small','小'],['medium','中（承認済みの量）'],['large','大']];
 const TINTS = [['none','原画の色'],['wide','A 現在のD案'],['full','B 遠景まで強化＋春の花・冬の霜']];
+const CLOUD_STYLES = [['none','A 雲なし'],['flat','B 前回の雲'],['single','C 形と濃淡のある雲'],['layered','D 奥行きのある2層の雲']];
 const CLOUDS = [['auto','天気に合わせて自動'],['0','雲なし'],['0.25','少ない'],['0.6','多い'],['1','空を覆う']];
 const SUBTLES = [['off','変えない（原画のまま）'],['on','ごく控えめに変える']];
 const SPEEDS = [['1','ふつう'],['12','12倍速（変化を早く見る）']];
@@ -54,17 +55,17 @@ const PRESETS_OLD = [
   ['とかい・夜','city','summer','sunny','night'],['おうち・昼','home','summer','sunny','day']
 ];
 const PRESETS = [
-  ['秋のかわ','river_lake','autumn','sunny','day'],['秋のいなか','countryside','autumn','sunny','day'],
-  ['秋の森','forest','autumn','sunny','day'],['春の森（花）','forest','spring','sunny','day'],
+  ['いなか・晴れの雲','countryside','summer','sunny','day'],['いなか・曇り','countryside','summer','cloudy','day'],
+  ['うみ・雨雲','sea','summer','rain','day'],['うみ・夕方の雲','sea','summer','cloudy','evening'],
+  ['さばく・夜の雲と星','desert','summer','cloudy','night'],['おうち・曇り（窓の外）','home','summer','cloudy','day'],
+  ['いなか・冬の雪雲','countryside','winter','snow','day'],['きおくのみずうみ・曇り','memory_lake','summer','cloudy','day'],
+  ['秋のいなか（遠くの山）','countryside','autumn','sunny','day'],['秋のかわ','river_lake','autumn','sunny','day'],
   ['春のいなか（花）','countryside','spring','sunny','day'],['冬のいなか（霜）','countryside','winter','sunny','morning'],
-  ['冬の森＋雪','forest','winter','snow','day'],['おうち・秋','home','autumn','sunny','day'],
-  ['おうち・冬の雪','home','winter','snow','day'],['いなか・曇り','countryside','summer','cloudy','day'],
-  ['うみ・雨雲','sea','summer','rain','day'],['さばく・夜の雲','desert','summer','cloudy','night'],
-  ['ジャングル（春）','jungle','spring','sunny','day'],['ほしぞら（秋）','star_stop','autumn','sunny','day'],
-  ['ゆきぐに（冬）','snow','winter','snow','day'],['さばく（春）','desert','spring','sunny','day']
+  ['秋の森','forest','autumn','sunny','day'],['冬の森','forest','winter','sunny','day'],
+  ['おうち・秋','home','autumn','sunny','day'],['ほしぞら（秋）','star_stop','autumn','sunny','day']
 ];
 void PRESETS_OLD;
-const state = {region:'river_lake', season:'autumn', weather:'sunny', time:'day', tier:'1', left:'now', right:'tips2', zoom:'', wind:'auto', amount:'auto', speed:'1', measured:'none', tint:'full', subtle:'on', cloud:'auto'};
+const state = {region:'countryside', season:'summer', weather:'sunny', time:'day', tier:'1', left:'now', right:'tips2', zoom:'', wind:'auto', amount:'auto', speed:'1', measured:'none', tint:'full', subtle:'on', cloud:'auto', cloudStyle:'layered'};
 const order = ['region','season','weather','time','tier'];
 function readHash() {
   const m = location.hash.match(/^#t(\d+)-(\d)-(\d)-(\d)-(\d)-(\d)-(\d)$/);
@@ -88,7 +89,7 @@ function mount(scene, side) {
       ...(state.wind === 'auto' ? {} : {wind:WIND_LEVELS[state.wind]}), ...(state.amount === 'auto' ? {} : {density:DENSITY_LEVELS[state.amount]}), ...(state.cloud === 'auto' ? {} : {cloud:Number(state.cloud)})};
   };
   const make = mod => mod.createHomeWorld({container:scene, document:doc, window, environmentFx:'final',
-    treeSway:() => state[side] === 'still' ? 'still' : 'tips2', climate:override, seasonTint:() => ({...TINT_CHOICES[state.tint], subtle:state.subtle === 'on'}), onClimate:air => { latest[side] = air; }});
+    treeSway:() => state[side] === 'still' ? 'still' : 'tips2', climate:override, cloudStyle:() => state.cloudStyle, seasonTint:() => ({...TINT_CHOICES[state.tint], subtle:state.subtle === 'on'}), onClimate:air => { latest[side] = air; }});
   // Each pane holds the production renderer and the final one, and shows whichever is chosen.
   const pair = {now:make(current), next:make(world)};
   const canvases = [...scene.querySelectorAll('canvas.home-art-canvas')], layers = [...scene.querySelectorAll('.home-dayparts-fx')];
@@ -130,6 +131,7 @@ function apply() {
   chips(document.getElementById('zoom'), ZOOMS, () => state.zoom, value => { state.zoom = value; });
   chips(document.getElementById('wind'), WINDS, () => state.wind, value => { state.wind = value; });
   chips(document.getElementById('tint'), TINTS, () => state.tint, value => { state.tint = value; });
+  chips(document.getElementById('cloudStyle'), CLOUD_STYLES, () => state.cloudStyle, value => { state.cloudStyle = value; });
   chips(document.getElementById('cloud'), CLOUDS, () => state.cloud, value => { state.cloud = value; });
   chips(document.getElementById('subtle'), SUBTLES, () => state.subtle, value => { state.subtle = value; });
   drawSeasons();
