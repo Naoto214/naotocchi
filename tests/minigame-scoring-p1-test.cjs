@@ -116,7 +116,8 @@ for (const [label, mode] of [['60まい', undefined], ['68まい', 'hard']]) {
     assert.ok(rescues >= 1, '救済が 少なくとも 1局で はたらいた(この シードの 組で 再現)');
     // 救済が あった 局も なかった 局も、点 + 2×ふつうの回数 が おなじ(= 救済は 減点されていない)
     assert.deepEqual([...bases], [[...bases][0]], `clear base ${[...bases]}`);
-    assert.ok([...bases][0] >= 95 && [...bases][0] <= 97, 'clear base ~96');
+    // Phase 4(2026-11-28): 時間ボーナスは 制限時間の 4わりが のこれば 満点。すぐ とりきった この テストでは 100(まえは 96)
+    assert.equal([...bases][0], 100, 'clear base 100');
   });
 }
 test('shanghai: まだ とりきれる 盤で「まぜる」を おすと、救済ではなく ふつうの まぜる(1回 2点 減点)', () => {

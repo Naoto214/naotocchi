@@ -1,0 +1,2162 @@
+[
+{
+"id": "air-hockey",
+"bot": "idle",
+"before": {
+"avg": 40,
+"recorded": 0,
+"coins": 0.0
+},
+"after": {
+"avg": 40,
+"recorded": 0,
+"coins": 0.0
+},
+"n": 2
+},
+{
+"id": "air-hockey",
+"bot": "mash",
+"before": {
+"avg": 40,
+"recorded": 0,
+"coins": 0.0
+},
+"after": {
+"avg": 40,
+"recorded": 0,
+"coins": 0.0
+},
+"n": 4
+},
+{
+"id": "air-hockey",
+"bot": "random",
+"before": {
+"avg": 30,
+"recorded": 4,
+"coins": 15.0
+},
+"after": {
+"avg": 30,
+"recorded": 4,
+"coins": 15.0
+},
+"n": 4
+},
+{
+"id": "air-hockey",
+"bot": "tap1",
+"before": {
+"avg": 40,
+"recorded": 0,
+"coins": 0.0
+},
+"after": {
+"avg": 40,
+"recorded": 0,
+"coins": 0.0
+},
+"n": 2
+},
+{
+"id": "beach-volley",
+"bot": "idle",
+"before": {
+"avg": 5,
+"recorded": 0,
+"coins": 0.0
+},
+"after": {
+"avg": 5,
+"recorded": 0,
+"coins": 0.0
+},
+"n": 2
+},
+{
+"id": "beach-volley",
+"bot": "mash",
+"before": {
+"avg": 5,
+"recorded": 4,
+"coins": 0.0
+},
+"after": {
+"avg": 5,
+"recorded": 4,
+"coins": 0.0
+},
+"n": 4
+},
+{
+"id": "beach-volley",
+"bot": "random",
+"before": {
+"avg": 5,
+"recorded": 4,
+"coins": 0.0
+},
+"after": {
+"avg": 5,
+"recorded": 4,
+"coins": 0.0
+},
+"n": 4
+},
+{
+"id": "beach-volley",
+"bot": "tap1",
+"before": {
+"avg": 5,
+"recorded": 0,
+"coins": 0.0
+},
+"after": {
+"avg": 5,
+"recorded": 0,
+"coins": 0.0
+},
+"n": 2
+},
+{
+"id": "billiards-6",
+"bot": "idle",
+"before": {
+"avg": 10,
+"recorded": 0,
+"coins": 0.0
+},
+"after": {
+"avg": 10,
+"recorded": 0,
+"coins": 0.0
+},
+"n": 2
+},
+{
+"id": "billiards-6",
+"bot": "mash",
+"before": {
+"avg": 10,
+"recorded": 0,
+"coins": 0.0
+},
+"after": {
+"avg": 10,
+"recorded": 0,
+"coins": 0.0
+},
+"n": 4
+},
+{
+"id": "billiards-6",
+"bot": "random",
+"before": {
+"avg": 10,
+"recorded": 4,
+"coins": 0.0
+},
+"after": {
+"avg": 10,
+"recorded": 4,
+"coins": 0.0
+},
+"n": 4
+},
+{
+"id": "billiards-6",
+"bot": "tap1",
+"before": {
+"avg": 10,
+"recorded": 0,
+"coins": 0.0
+},
+"after": {
+"avg": 10,
+"recorded": 0,
+"coins": 0.0
+},
+"n": 2
+},
+{
+"id": "bowling-3d",
+"bot": "idle",
+"before": {
+"avg": 14,
+"recorded": 0,
+"coins": 0.0
+},
+"after": {
+"avg": 14,
+"recorded": 0,
+"coins": 0.0
+},
+"n": 2
+},
+{
+"id": "bowling-3d",
+"bot": "mash",
+"before": {
+"avg": 14,
+"recorded": 0,
+"coins": 0.0
+},
+"after": {
+"avg": 14,
+"recorded": 0,
+"coins": 0.0
+},
+"n": 4
+},
+{
+"id": "bowling-3d",
+"bot": "random",
+"before": {
+"avg": 52,
+"recorded": 4,
+"coins": 30.0
+},
+"after": {
+"avg": 52,
+"recorded": 4,
+"coins": 30.0
+},
+"n": 4
+},
+{
+"id": "bowling-3d",
+"bot": "tap1",
+"before": {
+"avg": 14,
+"recorded": 0,
+"coins": 0.0
+},
+"after": {
+"avg": 14,
+"recorded": 0,
+"coins": 0.0
+},
+"n": 2
+},
+{
+"id": "breakout-classic",
+"bot": "idle",
+"before": {
+"avg": 14,
+"recorded": 0,
+"coins": 0.0
+},
+"after": {
+"avg": 16,
+"recorded": 0,
+"coins": 0.0
+},
+"n": 2
+},
+{
+"id": "breakout-classic",
+"bot": "mash",
+"before": {
+"avg": 14,
+"recorded": 4,
+"coins": 0.0
+},
+"after": {
+"avg": 16,
+"recorded": 4,
+"coins": 0.0
+},
+"n": 4
+},
+{
+"id": "breakout-classic",
+"bot": "random",
+"before": {
+"avg": 16,
+"recorded": 4,
+"coins": 0.0
+},
+"after": {
+"avg": 18,
+"recorded": 4,
+"coins": 0.0
+},
+"n": 4
+},
+{
+"id": "breakout-classic",
+"bot": "tap1",
+"before": {
+"avg": 14,
+"recorded": 0,
+"coins": 0.0
+},
+"after": {
+"avg": 16,
+"recorded": 0,
+"coins": 0.0
+},
+"n": 2
+},
+{
+"id": "catapult-castle",
+"bot": "idle",
+"before": {
+"avg": 10,
+"recorded": 0,
+"coins": 0.0
+},
+"after": {
+"avg": 10,
+"recorded": 0,
+"coins": 0.0
+},
+"n": 2
+},
+{
+"id": "catapult-castle",
+"bot": "mash",
+"before": {
+"avg": 10,
+"recorded": 4,
+"coins": 0.0
+},
+"after": {
+"avg": 10,
+"recorded": 4,
+"coins": 0.0
+},
+"n": 4
+},
+{
+"id": "catapult-castle",
+"bot": "random",
+"before": {
+"avg": 10,
+"recorded": 4,
+"coins": 0.0
+},
+"after": {
+"avg": 10,
+"recorded": 4,
+"coins": 0.0
+},
+"n": 4
+},
+{
+"id": "catapult-castle",
+"bot": "tap1",
+"before": {
+"avg": 10,
+"recorded": 0,
+"coins": 0.0
+},
+"after": {
+"avg": 10,
+"recorded": 0,
+"coins": 0.0
+},
+"n": 2
+},
+{
+"id": "connect-four",
+"bot": "idle",
+"before": {
+"avg": 40,
+"recorded": 0,
+"coins": 0.0
+},
+"after": {
+"avg": 40,
+"recorded": 0,
+"coins": 0.0
+},
+"n": 2
+},
+{
+"id": "connect-four",
+"bot": "mash",
+"before": {
+"avg": 40,
+"recorded": 0,
+"coins": 0.0
+},
+"after": {
+"avg": 32,
+"recorded": 0,
+"coins": 0.0
+},
+"n": 4
+},
+{
+"id": "connect-four",
+"bot": "random",
+"before": {
+"avg": 30,
+"recorded": 4,
+"coins": 7.5
+},
+"after": {
+"avg": 30,
+"recorded": 4,
+"coins": 7.5
+},
+"n": 4
+},
+{
+"id": "connect-four",
+"bot": "tap1",
+"before": {
+"avg": 40,
+"recorded": 0,
+"coins": 0.0
+},
+"after": {
+"avg": 40,
+"recorded": 0,
+"coins": 0.0
+},
+"n": 2
+},
+{
+"id": "curling-winter",
+"bot": "idle",
+"before": {
+"avg": 40,
+"recorded": 0,
+"coins": 0.0
+},
+"after": {
+"avg": 40,
+"recorded": 0,
+"coins": 0.0
+},
+"n": 2
+},
+{
+"id": "curling-winter",
+"bot": "mash",
+"before": {
+"avg": 40,
+"recorded": 0,
+"coins": 0.0
+},
+"after": {
+"avg": 40,
+"recorded": 0,
+"coins": 0.0
+},
+"n": 4
+},
+{
+"id": "curling-winter",
+"bot": "random",
+"before": {
+"avg": 34,
+"recorded": 4,
+"coins": 30.0
+},
+"after": {
+"avg": 34,
+"recorded": 4,
+"coins": 30.0
+},
+"n": 4
+},
+{
+"id": "curling-winter",
+"bot": "tap1",
+"before": {
+"avg": 40,
+"recorded": 0,
+"coins": 0.0
+},
+"after": {
+"avg": 40,
+"recorded": 0,
+"coins": 0.0
+},
+"n": 2
+},
+{
+"id": "dot-eater",
+"bot": "idle",
+"before": {
+"avg": 5,
+"recorded": 0,
+"coins": 0.0
+},
+"after": {
+"avg": 5,
+"recorded": 0,
+"coins": 0.0
+},
+"n": 2
+},
+{
+"id": "dot-eater",
+"bot": "mash",
+"before": {
+"avg": 5,
+"recorded": 0,
+"coins": 0.0
+},
+"after": {
+"avg": 5,
+"recorded": 0,
+"coins": 0.0
+},
+"n": 4
+},
+{
+"id": "dot-eater",
+"bot": "random",
+"before": {
+"avg": 9,
+"recorded": 4,
+"coins": 0.0
+},
+"after": {
+"avg": 9,
+"recorded": 4,
+"coins": 0.0
+},
+"n": 4
+},
+{
+"id": "dot-eater",
+"bot": "tap1",
+"before": {
+"avg": 5,
+"recorded": 0,
+"coins": 0.0
+},
+"after": {
+"avg": 5,
+"recorded": 0,
+"coins": 0.0
+},
+"n": 2
+},
+{
+"id": "fp-dungeon",
+"bot": "idle",
+"before": {
+"avg": 18,
+"recorded": 0,
+"coins": 0.0
+},
+"after": {
+"avg": 18,
+"recorded": 0,
+"coins": 0.0
+},
+"n": 2
+},
+{
+"id": "fp-dungeon",
+"bot": "mash",
+"before": {
+"avg": 18,
+"recorded": 0,
+"coins": 0.0
+},
+"after": {
+"avg": 18,
+"recorded": 0,
+"coins": 0.0
+},
+"n": 4
+},
+{
+"id": "fp-dungeon",
+"bot": "random",
+"before": {
+"avg": 18,
+"recorded": 4,
+"coins": 0.0
+},
+"after": {
+"avg": 18,
+"recorded": 4,
+"coins": 0.0
+},
+"n": 4
+},
+{
+"id": "fp-dungeon",
+"bot": "tap1",
+"before": {
+"avg": 18,
+"recorded": 0,
+"coins": 0.0
+},
+"after": {
+"avg": 18,
+"recorded": 0,
+"coins": 0.0
+},
+"n": 2
+},
+{
+"id": "frogger-road",
+"bot": "idle",
+"before": {
+"avg": 12,
+"recorded": 0,
+"coins": 0.0
+},
+"after": {
+"avg": 12,
+"recorded": 0,
+"coins": 0.0
+},
+"n": 2
+},
+{
+"id": "frogger-road",
+"bot": "mash",
+"before": {
+"avg": 15,
+"recorded": 3,
+"coins": 0.0
+},
+"after": {
+"avg": 15,
+"recorded": 3,
+"coins": 0.0
+},
+"n": 4
+},
+{
+"id": "frogger-road",
+"bot": "random",
+"before": {
+"avg": 12,
+"recorded": 4,
+"coins": 0.0
+},
+"after": {
+"avg": 12,
+"recorded": 4,
+"coins": 0.0
+},
+"n": 4
+},
+{
+"id": "frogger-road",
+"bot": "tap1",
+"before": {
+"avg": 12,
+"recorded": 0,
+"coins": 0.0
+},
+"after": {
+"avg": 12,
+"recorded": 0,
+"coins": 0.0
+},
+"n": 2
+},
+{
+"id": "gomoku-9",
+"bot": "idle",
+"before": {
+"avg": 40,
+"recorded": 0,
+"coins": 0.0
+},
+"after": {
+"avg": 40,
+"recorded": 0,
+"coins": 0.0
+},
+"n": 2
+},
+{
+"id": "gomoku-9",
+"bot": "mash",
+"before": {
+"avg": 40,
+"recorded": 0,
+"coins": 0.0
+},
+"after": {
+"avg": 40,
+"recorded": 0,
+"coins": 0.0
+},
+"n": 4
+},
+{
+"id": "gomoku-9",
+"bot": "random",
+"before": {
+"avg": 40,
+"recorded": 0,
+"coins": 0.0
+},
+"after": {
+"avg": 40,
+"recorded": 0,
+"coins": 0.0
+},
+"n": 4
+},
+{
+"id": "gomoku-9",
+"bot": "tap1",
+"before": {
+"avg": 40,
+"recorded": 0,
+"coins": 0.0
+},
+"after": {
+"avg": 40,
+"recorded": 0,
+"coins": 0.0
+},
+"n": 2
+},
+{
+"id": "grand-prix-3d",
+"bot": "idle",
+"before": {
+"avg": 15,
+"recorded": 0,
+"coins": 0.0
+},
+"after": {
+"avg": 15,
+"recorded": 0,
+"coins": 0.0
+},
+"n": 2
+},
+{
+"id": "grand-prix-3d",
+"bot": "mash",
+"before": {
+"avg": 15,
+"recorded": 4,
+"coins": 0.0
+},
+"after": {
+"avg": 15,
+"recorded": 4,
+"coins": 0.0
+},
+"n": 4
+},
+{
+"id": "grand-prix-3d",
+"bot": "random",
+"before": {
+"avg": 15,
+"recorded": 4,
+"coins": 0.0
+},
+"after": {
+"avg": 15,
+"recorded": 4,
+"coins": 0.0
+},
+"n": 4
+},
+{
+"id": "grand-prix-3d",
+"bot": "tap1",
+"before": {
+"avg": 15,
+"recorded": 0,
+"coins": 0.0
+},
+"after": {
+"avg": 15,
+"recorded": 0,
+"coins": 0.0
+},
+"n": 2
+},
+{
+"id": "halfpipe-skate",
+"bot": "idle",
+"before": {
+"avg": 10,
+"recorded": 0,
+"coins": 0.0
+},
+"after": {
+"avg": 10,
+"recorded": 0,
+"coins": 0.0
+},
+"n": 2
+},
+{
+"id": "halfpipe-skate",
+"bot": "mash",
+"before": {
+"avg": 10,
+"recorded": 4,
+"coins": 0.0
+},
+"after": {
+"avg": 10,
+"recorded": 4,
+"coins": 0.0
+},
+"n": 4
+},
+{
+"id": "halfpipe-skate",
+"bot": "random",
+"before": {
+"avg": 10,
+"recorded": 4,
+"coins": 0.0
+},
+"after": {
+"avg": 10,
+"recorded": 4,
+"coins": 0.0
+},
+"n": 4
+},
+{
+"id": "halfpipe-skate",
+"bot": "tap1",
+"before": {
+"avg": 10,
+"recorded": 0,
+"coins": 0.0
+},
+"after": {
+"avg": 10,
+"recorded": 0,
+"coins": 0.0
+},
+"n": 2
+},
+{
+"id": "haunted-house-3d",
+"bot": "idle",
+"before": {
+"avg": 24,
+"recorded": 0,
+"coins": 0.0
+},
+"after": {
+"avg": 24,
+"recorded": 0,
+"coins": 0.0
+},
+"n": 2
+},
+{
+"id": "haunted-house-3d",
+"bot": "mash",
+"before": {
+"avg": 24,
+"recorded": 0,
+"coins": 0.0
+},
+"after": {
+"avg": 24,
+"recorded": 0,
+"coins": 0.0
+},
+"n": 4
+},
+{
+"id": "haunted-house-3d",
+"bot": "random",
+"before": {
+"avg": 24,
+"recorded": 4,
+"coins": 0.0
+},
+"after": {
+"avg": 24,
+"recorded": 4,
+"coins": 0.0
+},
+"n": 4
+},
+{
+"id": "haunted-house-3d",
+"bot": "tap1",
+"before": {
+"avg": 24,
+"recorded": 0,
+"coins": 0.0
+},
+"after": {
+"avg": 24,
+"recorded": 0,
+"coins": 0.0
+},
+"n": 2
+},
+{
+"id": "hit-blow",
+"bot": "idle",
+"before": {
+"avg": 10,
+"recorded": 0,
+"coins": 0.0
+},
+"after": {
+"avg": 10,
+"recorded": 0,
+"coins": 0.0
+},
+"n": 2
+},
+{
+"id": "hit-blow",
+"bot": "mash",
+"before": {
+"avg": 10,
+"recorded": 0,
+"coins": 0.0
+},
+"after": {
+"avg": 10,
+"recorded": 0,
+"coins": 0.0
+},
+"n": 4
+},
+{
+"id": "hit-blow",
+"bot": "random",
+"before": {
+"avg": 10,
+"recorded": 0,
+"coins": 0.0
+},
+"after": {
+"avg": 10,
+"recorded": 0,
+"coins": 0.0
+},
+"n": 4
+},
+{
+"id": "hit-blow",
+"bot": "tap1",
+"before": {
+"avg": 10,
+"recorded": 0,
+"coins": 0.0
+},
+"after": {
+"avg": 10,
+"recorded": 0,
+"coins": 0.0
+},
+"n": 2
+},
+{
+"id": "line-trace",
+"bot": "idle",
+"before": {
+"avg": 10,
+"recorded": 0,
+"coins": 0.0
+},
+"after": {
+"avg": 10,
+"recorded": 0,
+"coins": 0.0
+},
+"n": 2
+},
+{
+"id": "line-trace",
+"bot": "mash",
+"before": {
+"avg": 10,
+"recorded": 2,
+"coins": 0.0
+},
+"after": {
+"avg": 10,
+"recorded": 2,
+"coins": 0.0
+},
+"n": 4
+},
+{
+"id": "line-trace",
+"bot": "random",
+"before": {
+"avg": 10,
+"recorded": 1,
+"coins": 0.0
+},
+"after": {
+"avg": 10,
+"recorded": 1,
+"coins": 0.0
+},
+"n": 4
+},
+{
+"id": "line-trace",
+"bot": "tap1",
+"before": {
+"avg": 10,
+"recorded": 0,
+"coins": 0.0
+},
+"after": {
+"avg": 10,
+"recorded": 0,
+"coins": 0.0
+},
+"n": 2
+},
+{
+"id": "mancala-kalah",
+"bot": "idle",
+"before": {
+"avg": 40,
+"recorded": 0,
+"coins": 0.0
+},
+"after": {
+"avg": 40,
+"recorded": 0,
+"coins": 0.0
+},
+"n": 2
+},
+{
+"id": "mancala-kalah",
+"bot": "mash",
+"before": {
+"avg": 40,
+"recorded": 0,
+"coins": 0.0
+},
+"after": {
+"avg": 40,
+"recorded": 0,
+"coins": 0.0
+},
+"n": 4
+},
+{
+"id": "mancala-kalah",
+"bot": "random",
+"before": {
+"avg": 44,
+"recorded": 0,
+"coins": 0.0
+},
+"after": {
+"avg": 50,
+"recorded": 0,
+"coins": 0.0
+},
+"n": 4
+},
+{
+"id": "mancala-kalah",
+"bot": "tap1",
+"before": {
+"avg": 40,
+"recorded": 0,
+"coins": 0.0
+},
+"after": {
+"avg": 40,
+"recorded": 0,
+"coins": 0.0
+},
+"n": 2
+},
+{
+"id": "memory-cards",
+"bot": "idle",
+"before": {
+"avg": 10,
+"recorded": 0,
+"coins": 0.0
+},
+"after": {
+"avg": 10,
+"recorded": 0,
+"coins": 0.0
+},
+"n": 2
+},
+{
+"id": "memory-cards",
+"bot": "mash",
+"before": {
+"avg": 10,
+"recorded": 0,
+"coins": 0.0
+},
+"after": {
+"avg": 10,
+"recorded": 0,
+"coins": 0.0
+},
+"n": 4
+},
+{
+"id": "memory-cards",
+"bot": "random",
+"before": {
+"avg": 10,
+"recorded": 4,
+"coins": 0.0
+},
+"after": {
+"avg": 10,
+"recorded": 4,
+"coins": 0.0
+},
+"n": 4
+},
+{
+"id": "memory-cards",
+"bot": "tap1",
+"before": {
+"avg": 10,
+"recorded": 0,
+"coins": 0.0
+},
+"after": {
+"avg": 10,
+"recorded": 0,
+"coins": 0.0
+},
+"n": 2
+},
+{
+"id": "minesweeper-8",
+"bot": "idle",
+"before": {
+"avg": 10,
+"recorded": 0,
+"coins": 0.0
+},
+"after": {
+"avg": 10,
+"recorded": 0,
+"coins": 0.0
+},
+"n": 2
+},
+{
+"id": "minesweeper-8",
+"bot": "mash",
+"before": {
+"avg": 10,
+"recorded": 4,
+"coins": 0.0
+},
+"after": {
+"avg": 10,
+"recorded": 4,
+"coins": 0.0
+},
+"n": 4
+},
+{
+"id": "minesweeper-8",
+"bot": "random",
+"before": {
+"avg": 10,
+"recorded": 0,
+"coins": 0.0
+},
+"after": {
+"avg": 10,
+"recorded": 0,
+"coins": 0.0
+},
+"n": 4
+},
+{
+"id": "minesweeper-8",
+"bot": "tap1",
+"before": {
+"avg": 10,
+"recorded": 0,
+"coins": 0.0
+},
+"after": {
+"avg": 10,
+"recorded": 0,
+"coins": 0.0
+},
+"n": 2
+},
+{
+"id": "mini-golf-physics",
+"bot": "idle",
+"before": {
+"avg": 17,
+"recorded": 0,
+"coins": 0.0
+},
+"after": {
+"avg": 17,
+"recorded": 0,
+"coins": 0.0
+},
+"n": 2
+},
+{
+"id": "mini-golf-physics",
+"bot": "mash",
+"before": {
+"avg": 16,
+"recorded": 0,
+"coins": 0.0
+},
+"after": {
+"avg": 16,
+"recorded": 0,
+"coins": 0.0
+},
+"n": 4
+},
+{
+"id": "mini-golf-physics",
+"bot": "random",
+"before": {
+"avg": 16,
+"recorded": 0,
+"coins": 0.0
+},
+"after": {
+"avg": 16,
+"recorded": 0,
+"coins": 0.0
+},
+"n": 4
+},
+{
+"id": "mini-golf-physics",
+"bot": "tap1",
+"before": {
+"avg": 17,
+"recorded": 0,
+"coins": 0.0
+},
+"after": {
+"avg": 17,
+"recorded": 0,
+"coins": 0.0
+},
+"n": 2
+},
+{
+"id": "pipe-connect",
+"bot": "idle",
+"before": {
+"avg": 12,
+"recorded": 0,
+"coins": 0.0
+},
+"after": {
+"avg": 12,
+"recorded": 0,
+"coins": 0.0
+},
+"n": 2
+},
+{
+"id": "pipe-connect",
+"bot": "mash",
+"before": {
+"avg": 12,
+"recorded": 4,
+"coins": 0.0
+},
+"after": {
+"avg": 12,
+"recorded": 4,
+"coins": 0.0
+},
+"n": 4
+},
+{
+"id": "pipe-connect",
+"bot": "random",
+"before": {
+"avg": 12,
+"recorded": 4,
+"coins": 0.0
+},
+"after": {
+"avg": 12,
+"recorded": 4,
+"coins": 0.0
+},
+"n": 4
+},
+{
+"id": "pipe-connect",
+"bot": "tap1",
+"before": {
+"avg": 12,
+"recorded": 0,
+"coins": 0.0
+},
+"after": {
+"avg": 12,
+"recorded": 0,
+"coins": 0.0
+},
+"n": 2
+},
+{
+"id": "plane-landing",
+"bot": "idle",
+"before": {
+"avg": 48,
+"recorded": 0,
+"coins": 0.0
+},
+"after": {
+"avg": 49,
+"recorded": 0,
+"coins": 0.0
+},
+"n": 2
+},
+{
+"id": "plane-landing",
+"bot": "mash",
+"before": {
+"avg": 46,
+"recorded": 0,
+"coins": 0.0
+},
+"after": {
+"avg": 48,
+"recorded": 0,
+"coins": 0.0
+},
+"n": 4
+},
+{
+"id": "plane-landing",
+"bot": "random",
+"before": {
+"avg": 33,
+"recorded": 4,
+"coins": 22.5
+},
+"after": {
+"avg": 34,
+"recorded": 4,
+"coins": 22.5
+},
+"n": 4
+},
+{
+"id": "plane-landing",
+"bot": "tap1",
+"before": {
+"avg": 48,
+"recorded": 0,
+"coins": 0.0
+},
+"after": {
+"avg": 49,
+"recorded": 0,
+"coins": 0.0
+},
+"n": 2
+},
+{
+"id": "puzzle-2048",
+"bot": "idle",
+"before": {
+"avg": 16,
+"recorded": 0,
+"coins": 0.0
+},
+"after": {
+"avg": 16,
+"recorded": 0,
+"coins": 0.0
+},
+"n": 2
+},
+{
+"id": "puzzle-2048",
+"bot": "mash",
+"before": {
+"avg": 16,
+"recorded": 0,
+"coins": 0.0
+},
+"after": {
+"avg": 16,
+"recorded": 0,
+"coins": 0.0
+},
+"n": 4
+},
+{
+"id": "puzzle-2048",
+"bot": "random",
+"before": {
+"avg": 16,
+"recorded": 4,
+"coins": 0.0
+},
+"after": {
+"avg": 16,
+"recorded": 4,
+"coins": 0.0
+},
+"n": 4
+},
+{
+"id": "puzzle-2048",
+"bot": "tap1",
+"before": {
+"avg": 16,
+"recorded": 0,
+"coins": 0.0
+},
+"after": {
+"avg": 16,
+"recorded": 0,
+"coins": 0.0
+},
+"n": 2
+},
+{
+"id": "race-3d",
+"bot": "idle",
+"before": {
+"avg": 14,
+"recorded": 0,
+"coins": 0.0
+},
+"after": {
+"avg": 14,
+"recorded": 0,
+"coins": 0.0
+},
+"n": 2
+},
+{
+"id": "race-3d",
+"bot": "mash",
+"before": {
+"avg": 14,
+"recorded": 4,
+"coins": 0.0
+},
+"after": {
+"avg": 14,
+"recorded": 4,
+"coins": 0.0
+},
+"n": 4
+},
+{
+"id": "race-3d",
+"bot": "random",
+"before": {
+"avg": 22,
+"recorded": 4,
+"coins": 0.0
+},
+"after": {
+"avg": 22,
+"recorded": 4,
+"coins": 0.0
+},
+"n": 4
+},
+{
+"id": "race-3d",
+"bot": "tap1",
+"before": {
+"avg": 14,
+"recorded": 0,
+"coins": 0.0
+},
+"after": {
+"avg": 14,
+"recorded": 0,
+"coins": 0.0
+},
+"n": 2
+},
+{
+"id": "reversi-6",
+"bot": "idle",
+"before": {
+"avg": 40,
+"recorded": 0,
+"coins": 0.0
+},
+"after": {
+"avg": 40,
+"recorded": 0,
+"coins": 0.0
+},
+"n": 2
+},
+{
+"id": "reversi-6",
+"bot": "mash",
+"before": {
+"avg": 40,
+"recorded": 0,
+"coins": 0.0
+},
+"after": {
+"avg": 40,
+"recorded": 0,
+"coins": 0.0
+},
+"n": 4
+},
+{
+"id": "reversi-6",
+"bot": "random",
+"before": {
+"avg": 38,
+"recorded": 1,
+"coins": 7.5
+},
+"after": {
+"avg": 38,
+"recorded": 1,
+"coins": 7.5
+},
+"n": 4
+},
+{
+"id": "reversi-6",
+"bot": "tap1",
+"before": {
+"avg": 40,
+"recorded": 0,
+"coins": 0.0
+},
+"after": {
+"avg": 40,
+"recorded": 0,
+"coins": 0.0
+},
+"n": 2
+},
+{
+"id": "shanghai-tiles",
+"bot": "idle",
+"before": {
+"avg": 6,
+"recorded": 0,
+"coins": 0.0
+},
+"after": {
+"avg": 6,
+"recorded": 0,
+"coins": 0.0
+},
+"n": 2
+},
+{
+"id": "shanghai-tiles",
+"bot": "mash",
+"before": {
+"avg": 5,
+"recorded": 0,
+"coins": 0.0
+},
+"after": {
+"avg": 5,
+"recorded": 0,
+"coins": 0.0
+},
+"n": 4
+},
+{
+"id": "shanghai-tiles",
+"bot": "random",
+"before": {
+"avg": 5,
+"recorded": 2,
+"coins": 0.0
+},
+"after": {
+"avg": 5,
+"recorded": 2,
+"coins": 0.0
+},
+"n": 4
+},
+{
+"id": "shanghai-tiles",
+"bot": "tap1",
+"before": {
+"avg": 6,
+"recorded": 0,
+"coins": 0.0
+},
+"after": {
+"avg": 6,
+"recorded": 0,
+"coins": 0.0
+},
+"n": 2
+},
+{
+"id": "sky-shooter",
+"bot": "idle",
+"before": {
+"avg": 26,
+"recorded": 0,
+"coins": 0.0
+},
+"after": {
+"avg": 26,
+"recorded": 0,
+"coins": 0.0
+},
+"n": 2
+},
+{
+"id": "sky-shooter",
+"bot": "mash",
+"before": {
+"avg": 26,
+"recorded": 4,
+"coins": 0.0
+},
+"after": {
+"avg": 26,
+"recorded": 4,
+"coins": 0.0
+},
+"n": 4
+},
+{
+"id": "sky-shooter",
+"bot": "random",
+"before": {
+"avg": 56,
+"recorded": 4,
+"coins": 30.0
+},
+"after": {
+"avg": 56,
+"recorded": 4,
+"coins": 30.0
+},
+"n": 4
+},
+{
+"id": "sky-shooter",
+"bot": "tap1",
+"before": {
+"avg": 26,
+"recorded": 0,
+"coins": 0.0
+},
+"after": {
+"avg": 26,
+"recorded": 0,
+"coins": 0.0
+},
+"n": 2
+},
+{
+"id": "solitaire-klondike",
+"bot": "idle",
+"before": {
+"avg": 8,
+"recorded": 0,
+"coins": 0.0
+},
+"after": {
+"avg": 8,
+"recorded": 0,
+"coins": 0.0
+},
+"n": 2
+},
+{
+"id": "solitaire-klondike",
+"bot": "mash",
+"before": {
+"avg": 13,
+"recorded": 4,
+"coins": 0.0
+},
+"after": {
+"avg": 13,
+"recorded": 4,
+"coins": 0.0
+},
+"n": 4
+},
+{
+"id": "solitaire-klondike",
+"bot": "random",
+"before": {
+"avg": 10,
+"recorded": 4,
+"coins": 0.0
+},
+"after": {
+"avg": 10,
+"recorded": 4,
+"coins": 0.0
+},
+"n": 4
+},
+{
+"id": "solitaire-klondike",
+"bot": "tap1",
+"before": {
+"avg": 8,
+"recorded": 0,
+"coins": 0.0
+},
+"after": {
+"avg": 8,
+"recorded": 0,
+"coins": 0.0
+},
+"n": 2
+},
+{
+"id": "street-fight",
+"bot": "idle",
+"before": {
+"avg": 10,
+"recorded": 0,
+"coins": 0.0
+},
+"after": {
+"avg": 10,
+"recorded": 0,
+"coins": 0.0
+},
+"n": 2
+},
+{
+"id": "street-fight",
+"bot": "mash",
+"before": {
+"avg": 17,
+"recorded": 4,
+"coins": 0.0
+},
+"after": {
+"avg": 17,
+"recorded": 4,
+"coins": 0.0
+},
+"n": 4
+},
+{
+"id": "street-fight",
+"bot": "random",
+"before": {
+"avg": 18,
+"recorded": 4,
+"coins": 0.0
+},
+"after": {
+"avg": 18,
+"recorded": 4,
+"coins": 0.0
+},
+"n": 4
+},
+{
+"id": "street-fight",
+"bot": "tap1",
+"before": {
+"avg": 10,
+"recorded": 0,
+"coins": 0.0
+},
+"after": {
+"avg": 10,
+"recorded": 0,
+"coins": 0.0
+},
+"n": 2
+},
+{
+"id": "submarine-3d",
+"bot": "idle",
+"before": {
+"avg": 30,
+"recorded": 0,
+"coins": 0.0
+},
+"after": {
+"avg": 30,
+"recorded": 0,
+"coins": 0.0
+},
+"n": 2
+},
+{
+"id": "submarine-3d",
+"bot": "mash",
+"before": {
+"avg": 40,
+"recorded": 0,
+"coins": 0.0
+},
+"after": {
+"avg": 40,
+"recorded": 0,
+"coins": 0.0
+},
+"n": 4
+},
+{
+"id": "submarine-3d",
+"bot": "random",
+"before": {
+"avg": 20,
+"recorded": 4,
+"coins": 7.5
+},
+"after": {
+"avg": 20,
+"recorded": 4,
+"coins": 7.5
+},
+"n": 4
+},
+{
+"id": "submarine-3d",
+"bot": "tap1",
+"before": {
+"avg": 30,
+"recorded": 0,
+"coins": 0.0
+},
+"after": {
+"avg": 30,
+"recorded": 0,
+"coins": 0.0
+},
+"n": 2
+},
+{
+"id": "takoyaki-grill",
+"bot": "idle",
+"before": {
+"avg": 5,
+"recorded": 0,
+"coins": 0.0
+},
+"after": {
+"avg": 5,
+"recorded": 0,
+"coins": 0.0
+},
+"n": 2
+},
+{
+"id": "takoyaki-grill",
+"bot": "mash",
+"before": {
+"avg": 5,
+"recorded": 4,
+"coins": 0.0
+},
+"after": {
+"avg": 5,
+"recorded": 4,
+"coins": 0.0
+},
+"n": 4
+},
+{
+"id": "takoyaki-grill",
+"bot": "random",
+"before": {
+"avg": 5,
+"recorded": 4,
+"coins": 0.0
+},
+"after": {
+"avg": 5,
+"recorded": 4,
+"coins": 0.0
+},
+"n": 4
+},
+{
+"id": "takoyaki-grill",
+"bot": "tap1",
+"before": {
+"avg": 5,
+"recorded": 0,
+"coins": 0.0
+},
+"after": {
+"avg": 5,
+"recorded": 0,
+"coins": 0.0
+},
+"n": 2
+},
+{
+"id": "tank-battle",
+"bot": "idle",
+"before": {
+"avg": 12,
+"recorded": 0,
+"coins": 0.0
+},
+"after": {
+"avg": 12,
+"recorded": 0,
+"coins": 0.0
+},
+"n": 2
+},
+{
+"id": "tank-battle",
+"bot": "mash",
+"before": {
+"avg": 37,
+"recorded": 4,
+"coins": 30.0
+},
+"after": {
+"avg": 37,
+"recorded": 4,
+"coins": 30.0
+},
+"n": 4
+},
+{
+"id": "tank-battle",
+"bot": "random",
+"before": {
+"avg": 19,
+"recorded": 4,
+"coins": 7.5
+},
+"after": {
+"avg": 19,
+"recorded": 4,
+"coins": 7.5
+},
+"n": 4
+},
+{
+"id": "tank-battle",
+"bot": "tap1",
+"before": {
+"avg": 12,
+"recorded": 0,
+"coins": 0.0
+},
+"after": {
+"avg": 12,
+"recorded": 0,
+"coins": 0.0
+},
+"n": 2
+},
+{
+"id": "tennis-rally",
+"bot": "idle",
+"before": {
+"avg": 15,
+"recorded": 0,
+"coins": 0.0
+},
+"after": {
+"avg": 15,
+"recorded": 0,
+"coins": 0.0
+},
+"n": 2
+},
+{
+"id": "tennis-rally",
+"bot": "mash",
+"before": {
+"avg": 40,
+"recorded": 4,
+"coins": 30.0
+},
+"after": {
+"avg": 40,
+"recorded": 4,
+"coins": 30.0
+},
+"n": 4
+},
+{
+"id": "tennis-rally",
+"bot": "random",
+"before": {
+"avg": 15,
+"recorded": 4,
+"coins": 0.0
+},
+"after": {
+"avg": 15,
+"recorded": 4,
+"coins": 0.0
+},
+"n": 4
+},
+{
+"id": "tennis-rally",
+"bot": "tap1",
+"before": {
+"avg": 15,
+"recorded": 0,
+"coins": 0.0
+},
+"after": {
+"avg": 15,
+"recorded": 0,
+"coins": 0.0
+},
+"n": 2
+},
+{
+"id": "tilt-maze-3d",
+"bot": "idle",
+"before": {
+"avg": 15,
+"recorded": 0,
+"coins": 0.0
+},
+"after": {
+"avg": 15,
+"recorded": 0,
+"coins": 0.0
+},
+"n": 2
+},
+{
+"id": "tilt-maze-3d",
+"bot": "mash",
+"before": {
+"avg": 15,
+"recorded": 0,
+"coins": 0.0
+},
+"after": {
+"avg": 15,
+"recorded": 0,
+"coins": 0.0
+},
+"n": 4
+},
+{
+"id": "tilt-maze-3d",
+"bot": "random",
+"before": {
+"avg": 18,
+"recorded": 4,
+"coins": 0.0
+},
+"after": {
+"avg": 18,
+"recorded": 4,
+"coins": 0.0
+},
+"n": 4
+},
+{
+"id": "tilt-maze-3d",
+"bot": "tap1",
+"before": {
+"avg": 15,
+"recorded": 0,
+"coins": 0.0
+},
+"after": {
+"avg": 15,
+"recorded": 0,
+"coins": 0.0
+},
+"n": 2
+},
+{
+"id": "voxel-mine",
+"bot": "idle",
+"before": {
+"avg": 16,
+"recorded": 0,
+"coins": 0.0
+},
+"after": {
+"avg": 19,
+"recorded": 0,
+"coins": 0.0
+},
+"n": 2
+},
+{
+"id": "voxel-mine",
+"bot": "mash",
+"before": {
+"avg": 16,
+"recorded": 0,
+"coins": 0.0
+},
+"after": {
+"avg": 19,
+"recorded": 0,
+"coins": 0.0
+},
+"n": 4
+},
+{
+"id": "voxel-mine",
+"bot": "random",
+"before": {
+"avg": 36,
+"recorded": 4,
+"coins": 22.5
+},
+"after": {
+"avg": 28,
+"recorded": 4,
+"coins": 15.0
+},
+"n": 4
+},
+{
+"id": "voxel-mine",
+"bot": "tap1",
+"before": {
+"avg": 16,
+"recorded": 0,
+"coins": 0.0
+},
+"after": {
+"avg": 19,
+"recorded": 0,
+"coins": 0.0
+},
+"n": 2
+}
+]

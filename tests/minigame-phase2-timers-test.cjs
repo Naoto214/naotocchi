@@ -27,15 +27,16 @@ function shownSeconds(g) {
   return Number(m[1]);
 }
 
-// T3: 手番で すすむ ゲーム(16本)。games.js の MG_TURN_BASED と 一致させる
-const TURN_BASED = ['reversi-6', 'animal-shogi', 'connect-four', 'gomoku-9', 'checkers-6', 'mancala-kalah', 'curling-ice', 'curling-winter', 'sugoroku-race', 'solitaire-klondike', 'hit-blow', 'slide-puzzle', 'sudoku-mini', 'picross-5', 'push-puzzle', 'roguelike-dungeon'];
+// T3: 手番で すすむ ゲーム(18本)。games.js の MG_TURN_BASED と 一致させる
+// Phase 4(2026-11-28): 1打の 重さが かわらない ビリヤード・ミニゴルフを 追加(28びょうでは 6球・3ホールが 終わらなかった)
+const TURN_BASED = ['reversi-6', 'animal-shogi', 'connect-four', 'gomoku-9', 'checkers-6', 'mancala-kalah', 'curling-ice', 'curling-winter', 'billiards-6', 'mini-golf-physics', 'sugoroku-race', 'solitaire-klondike', 'hit-blow', 'slide-puzzle', 'sudoku-mini', 'picross-5', 'push-puzzle', 'roguelike-dungeon'];
 // T4: もとは 残り時間を 出して いなかった 時間制の ゲーム(31本)と、mgDuration に わたす 長さ
 const T4 = {
   'breakout-classic': 30000, 'dragDecorate-cake': 16000, 'dragDecorate-bento': 11000, 'crane-game-3d': 45000, 'rhythm-highway-3d': 22000,
   'mini-golf-physics': 40000, 'pingpong-3d': 28000, 'tower-defense': 90000, 'roguelike-dungeon': 90000, 'grand-prix-3d': 30000,
   'push-puzzle': 60000, 'reversi-6': 60000, 'billiards-6': 40000, 'animal-shogi': 60000, 'minesweeper-8': 60000,
   'catapult-castle': 30000, 'connect-four': 60000, 'match-3': 32000, 'gomoku-9': 60000, 'picross-5': 75000,
-  'pipe-connect': 50000, 'lights-out': 45000, 'curling-ice': 45000, 'curling-winter': 45000, 'jenga-tower': 45000,
+  'pipe-connect': 50000, 'lights-out': 45000, 'curling-ice': 45000, 'curling-winter': 60000 /* Phase 4: 1投 15びょう(4投) */, 'jenga-tower': 45000,
   'line-trace': 32000, 'checkers-6': 60000, 'memory-cards': 45000, 'domino-run': 45000, 'sudoku-mini': 90000, 'mancala-kalah': 60000,
 };
 
@@ -104,8 +105,9 @@ test('curling-winter throws all 8 stones in the short setting (T3)', () => {
 
 test('curling time-up waits for the turn boundary: every throw gets its answer (T3)', () => {
   // 1投に 14秒 かける 遅い プレイ(42秒めに なげる): 時間ぎれでも、なげた 石が とまり、あいてが かならず こたえてから おわる
-  for (const [id, cut] of [['curling-winter', true], ['curling-ice', false]]) {
-    const {g, mine, theirs} = playCurling(id, 'normal', 14000);
+  // Phase 4: ふゆの 4投は 60びょう(1投 15びょう)に なったので、1投 20びょう かける プレイで 時間ぎれを たしかめる
+  for (const [id, cut, think] of [['curling-winter', true, 20000], ['curling-ice', false, 14000]]) {
+    const {g, mine, theirs} = playCurling(id, 'normal', think);
     assert.equal(g.scores.length, 1);
     assert.equal(mine > 0, cut, `${id}: the slow play is ${cut ? '' : 'not '}cut by time`);
     assert.equal(mine, theirs, `${id}: no throw is left unanswered`);
