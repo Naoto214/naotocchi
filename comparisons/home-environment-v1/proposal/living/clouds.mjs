@@ -44,8 +44,10 @@ const LAYERS = [{scale:1.9, speed:.0022, seed:.37, weight:.8}, {scale:1.05, spee
 // defaults to the clock), `look.size` the scale of their shapes.
 function cloudField(u, d, seconds, layer, look) {
   const L = LAYERS[layer], scale = L.scale / (look?.size || 1), squeeze = 1 + 1.3 * d * d, wind = (look?.travel ?? seconds) * L.speed;
-  const a = field(u * scale * 2 + wind + L.seed, d * scale * squeeze * .8 + L.seed * 3);
-  const b = field(u * scale * 3.1 - wind * .6 + L.seed * 7, d * scale * squeeze * 1.3 + seconds * .0011);
+  // `look.shift` starts each visit somewhere else in the field, each layer on its own.
+  const ox = look?.shift?.[layer * 2] || 0, oy = look?.shift?.[layer * 2 + 1] || 0;
+  const a = field(u * scale * 2 + wind + L.seed + ox, d * scale * squeeze * .8 + L.seed * 3 + oy);
+  const b = field(u * scale * 3.1 - wind * .6 + L.seed * 7 + oy, d * scale * squeeze * 1.3 + seconds * .0011 + ox);
   return a * .82 + b * .18;
 }
 // More cover lowers the level the field must clear, and overcast leaves no gaps.

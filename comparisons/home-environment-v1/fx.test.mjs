@@ -704,8 +704,18 @@ test('one two-layer sky, many faces: cover, brightness, thickness, size and grou
   const {createClimate} = await import('./proposal/home-climate.mjs');
   const {cloudTone, cloudDensity, cloudVeil} = await import('./proposal/living/clouds.mjs');
   const range = (weather, key, o = {}) => { let lo = 9, hi = -9; for (let seed = 1; seed < 9; seed++) { const c = createClimate(seed * 977); for (let t = 0; t < 6000; t += 20) { const v = c.sky(t, {weather}, o)[key]; lo = Math.min(lo, v); hi = Math.max(hi, v); } } return [lo, hi]; };
-  // A fine day runs from nearly clear to large clouds, always white.
-  assert.ok(range('sunny', 'cover')[0] < .06 && range('sunny', 'cover')[1] > .4);
+  // A fine day runs from no cloud at all to a fairly cloudy sky, always white.
+  assert.ok(range('sunny', 'cover')[0] === 0 && range('sunny', 'cover')[1] > .5);
+  { let none = 0, few = 0, some = 0, big = 0, n = 0;
+    for (let seed = 1; seed < 40; seed++) { const c = createClimate(seed * 7717); for (let t = 0; t < 20000; t += 50) { const v = c.sky(t, {weather:'sunny'}).cover; n++; if (v <= .02) none++; else if (v < .12) few++; else if (v < .35) some++; else big++; } }
+    for (const share of [none / n, few / n, some / n, big / n]) assert.ok(share > .08 && share < .6, [none, few, some, big, n].join());
+    // Measured 0 % cover means no added cloud; the game's own variation is used only without it.
+    assert.equal(createClimate(3).sky(40, {weather:'sunny'}, {measured:{cloudCover:0}}).cover, 0); }
+  // Every visit begins somewhere else in the cloud field, and the two layers overlap differently.
+  { const a = createClimate(11).sky(0, {weather:'cloudy'}).shift, b = createClimate(12).sky(0, {weather:'cloudy'}).shift;
+    assert.ok(a.length === 4 && a.every((v, i) => v >= 0 && v < 1 && v !== b[i]));
+    const row = shift => Array.from({length:400}, (_, k) => cloudDensity((k % 20) / 20, Math.floor(k / 20) / 20, 0, .5, 1, {shift}));
+    let differ = 0; const ra = row(a), rb = row(b); ra.forEach((v, k) => { differ += Math.abs(v - rb[k]); }); assert.ok(differ / 400 > .1, String(differ)); }
   assert.deepEqual(range('sunny', 'bright'), [1, 1]);
   // Rain is not always dark, nor always overcast; nor is snow or a grey day.
   const [rainLo, rainHi] = range('rain', 'bright'); assert.ok(rainLo < .2 && rainHi > .8, `${rainLo} ${rainHi}`);

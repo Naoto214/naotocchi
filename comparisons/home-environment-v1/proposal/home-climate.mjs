@@ -116,8 +116,9 @@ export function createClimate(seed = 1) {
       } else cover = weather === 'rain' ? .58 + .42 * smooth(mood * 1.5)
         : weather === 'snow' ? .55 + .43 * smooth(mood * 1.4)
         : weather === 'cloudy' ? .5 + .5 * mood
-        // A fine day: often nearly clear, usually a few clouds, now and then large cumulus.
-        : mood < .22 ? .03 + .2 * mood : .08 + .42 * (mood - .22) / .78;
+        // A fine day: sometimes no cloud at all, sometimes barely any, usually a few white
+        // clouds, now and then large cumulus or a fairly cloudy sky.
+        : mood < .14 ? 0 : mood < .3 ? .1 * (mood - .14) / .16 : .1 + .52 * ((mood - .3) / .7) ** 1.3;
       // Brightness of the cloud itself. Heavy measured rain leans darker, but never decides it.
       const tone = d(73, 260), heavy = weather === 'rain' && valid(measured.precipitation) ? smooth(measured.precipitation / 8) : weather === 'snow' && valid(measured.snowfall) ? .5 * smooth(measured.snowfall / 4) : 0;
       const bright = typeof pin.bright === 'number' ? pin.bright
@@ -130,7 +131,9 @@ export function createClimate(seed = 1) {
       const gap = smooth((d(83, 140) - .45) / .5) * (1 - .6 * smooth((cover - .85) / .15));
       const shade = smooth((cover - .3) / .6) * (.35 + .65 * (1 - bright)) * (.55 + .45 * thick);
       const light = typeof pin.light === 'number' ? pin.light : clamp(1 - .72 * shade * (1 - .7 * gap));
-      return {cover, bright, thick, size, light};
+      // Where in the endless field of cloud this visit begins: the shapes, their places and the
+      // way the two layers overlap differ every time.
+      return {cover, bright, thick, size, light, shift:[0, 1, 2, 3].map(k => hash(Math.imul(base, 31) + 5 + k))};
     },
     // How much of the sky is under cloud, 0 clear to 1 overcast.
     cloud(seconds, env, override = {}) { return this.sky(seconds, env, override).cover; },
