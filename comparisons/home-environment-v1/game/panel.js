@@ -46,12 +46,15 @@
     tint.onchange = subtle.onchange = () => { window.NaotocchiSeasonTint = {strength:parseFloat(tint.value), far:/[fr]$/.test(tint.value), rich:tint.value.endsWith('r'), subtle:subtle.value === '1'}; };
     panel.append(tint, subtle);
     live('wind', [['','風：自動で変化'],['0.22','風：無風に近い'],['0.6','風：弱い'],['1','風：普通'],['1.45','風：強い']]);
-    const style = document.createElement('select');
-    style.id = 'env-cloud-style'; style.style.cssText = 'display:block;width:100%;margin:3px 0;font:inherit';
-    for (const [value, text] of [['layered','雲：D 奥行きのある2層'],['single','雲：C 形と濃淡'],['flat','雲：B 前回'],['none','雲：A なし']]) { const o = document.createElement('option'); o.value = value; o.textContent = text; style.append(o); }
-    style.onchange = () => { window.NaotocchiCloudStyle = style.value; };
-    panel.append(style);
-    live('cloud', [['','雲：天気に合わせて自動'],['0','雲：なし'],['0.25','雲：少ない'],['0.6','雲：多い'],['1','雲：空を覆う']]);
+    // Faces of the one two-layer sky; empty lets it drift by itself.
+    const looks = {clear:{cover:.03, bright:1, thick:.6, size:1}, cumulus:{cover:.44, bright:1, thick:1, size:1.35}, thin:{cover:.62, bright:1, thick:.25, size:1.25},
+      high:{cover:.92, bright:.95, thick:.55, size:1.25}, broken:{cover:.6, bright:.8, thick:.9, size:1}, white:{cover:1, bright:.62, thick:1, size:1.05},
+      bluegrey:{cover:.9, bright:.38, thick:.9, size:1.1}, dark:{cover:1, bright:.05, thick:1, size:1.2}};
+    const look = document.createElement('select');
+    look.id = 'env-look'; look.style.cssText = 'display:block;width:100%;margin:3px 0;font:inherit';
+    for (const [value, text] of [['','空：自動で変化'],['clear','空：快晴'],['cumulus','空：大きな綿雲'],['thin','空：薄く広がる雲'],['high','空：明るい高曇り'],['broken','空：青空の残る雲'],['white','空：厚い白灰色'],['bluegrey','空：青灰色'],['dark','空：厚く暗い雲']]) { const o = document.createElement('option'); o.value = value; o.textContent = text; look.append(o); }
+    look.onchange = () => { if (look.value) pin.sky = looks[look.value]; else delete pin.sky; };
+    panel.append(look);
     live('density', [['','量：自動で変化'],['0.55','量：小'],['1','量：中'],['1.45','量：大']]);
     live('speed', [['','時間：ふつう'],['12','時間：12倍速']]);
   }

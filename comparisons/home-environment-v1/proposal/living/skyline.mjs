@@ -18,7 +18,7 @@ const pale = (r, g, b) => (r + g + b) / 3 > 186 && b >= g - 6 && b >= r - 6 && M
 // row where the sky ends, mask is 0..255 per pixel.
 export function findSky(data, region) {
   const sky = SKY[region], W = SKY_W, H = SKY_H, mask = new Uint8ClampedArray(W * H), line = new Float32Array(W);
-  if (!sky) return {line, mask};
+  if (!sky) return {line, mask, wide:null};
   const [x0, x1] = sky.box || [0, 1], top = Math.round((sky.from || 0) * H), cap = Math.round(sky.to * H);
   const px = (x, y) => { const k = 4 * (y * W + x); return [data[k], data[k + 1], data[k + 2]]; };
   const rough = (x, y) => { // brushwork: how much this pixel differs from its neighbours
@@ -76,5 +76,14 @@ export function findSky(data, region) {
     let sum = 0; for (let dy = -1; dy <= 1; dy++) for (let dx = -1; dx <= 1; dx++) sum += hard[(y + dy) * W + x + dx];
     mask[y * W + x] = Math.min(hard[y * W + x] + 96, sum / 9);
   }
-  return {line, mask};
+  // Under a canopy, the same sky reaching a pixel further beneath the leaf edges (clouds.mjs).
+  let wide = null;
+  if (sky.open === false) {
+    wide = Uint8ClampedArray.from(mask);
+    for (let y = 1; y < H - 1; y++) for (let x = 1; x < W - 1; x++) {
+      let best = 0; for (let dy = -1; dy <= 1; dy++) for (let dx = -1; dx <= 1; dx++) best = Math.max(best, mask[(y + dy) * W + x + dx]);
+      wide[y * W + x] = best;
+    }
+  }
+  return {line, mask, wide};
 }

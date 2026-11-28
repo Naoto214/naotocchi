@@ -121,8 +121,9 @@ export function createHomeWorld(options){
   const amount=(kind,at)=>{const share=climate.density(kind,at,env,held);return strained?Math.min(share,.6):share;};
   // The wind never steps, even when a new measurement arrives: it eases over a few seconds.
   const gale=climate.wind(clock,env,held),eased=air.at===undefined?gale:air.wind+(gale-air.wind)*Math.min(1,Math.max(0,clock-air.at)*.45);
-  const cloud=climate.cloud(clock,env,held);
-  air={at:clock,cloud,wind:eased,rain:amount('rain',clock),snow:amount('snow',clock),petal:amount('petal',clock),leaf:amount('leaf',clock),layers};options.onClimate?.(air);
+  // Clouds travel with the wind of the moment, so their path is summed, never recomputed.
+  const look=climate.sky(clock,env,held),travel=(air.travel??clock*.6)+Math.max(0,air.at===undefined?0:clock-air.at)*(.35+.65*eased)*(held.speed||1),cloud=look.cover;
+  air={at:clock,cloud,sky:{...look,travel},travel,wind:eased,rain:amount('rain',clock),snow:amount('snow',clock),petal:amount('petal',clock),leaf:amount('leaf',clock),layers};options.onClimate?.(air);
   const leafScene=!flags.reducedMotion&&layers.leaves>0,falls=!flags.reducedMotion&&(leafScene||!!layers.precipitation||layers.petals>0);
   if(wantLiving&&!flags.reducedMotion)follow(Number(dt)||0,flags.tier>=2?66:33);
   const living=wantLiving&&level<PACES.length;
@@ -155,7 +156,7 @@ export function createHomeWorld(options){
   // A representative painting is retained. This restrained overlay is not a
   // claim that baked sunset/sunbeams have become a completed night artwork.
   if(!fade.image&&(env.time==='night'||env.weather==='rain')){ctx.fillStyle=env.time==='night'?'rgba(21,30,73,.24)':'rgba(38,57,78,.15)';if(contain&&v15)ctx.fillRect(t.left,t.top,t.width,t.height);else ctx.fillRect(0,0,host.width,host.height);}
-  if(living&&fade.image)paintLiving(ctx,t,fade,time/1000,env,flags.reducedMotion,{maximum,final,treeSway:treeSway(),wind:windBoost(),daySource:region=>DAYPARTS[region]?.day,layers,level:air.wind,cloud:air.cloud,cloudStyle:(typeof options.cloudStyle==='function'?options.cloudStyle():options.cloudStyle)||win.NaotocchiCloudStyle||'layered',document:doc});
+  if(living&&fade.image)paintLiving(ctx,t,fade,time/1000,env,flags.reducedMotion,{maximum,final,treeSway:treeSway(),wind:windBoost(),daySource:region=>DAYPARTS[region]?.day,layers,level:air.wind,sky:air.sky,clouds:((typeof options.cloudStyle==='function'?options.cloudStyle():options.cloudStyle)||win.NaotocchiCloudStyle)!=='none',document:doc});
   else if(!flags.reducedMotion){ctx.save();ctx.globalCompositeOperation='screen';for(let i=0;i<7;i++){const u=.18+(i*.117)% .65,v=spec.accent==='water'?.28+(i%3)*.035:.16+(i%4)*.13,x=(contain?t.left:0)+u*t.width,y=t.top+v*t.height+Math.sin(time/2400+i)*3;ctx.globalAlpha=.08+.12*(.5+.5*Math.sin(time/1500+i));ctx.fillStyle=spec.accent==='glow'?'#ffdb9b':'#fffad4';ctx.beginPath();ctx.ellipse(x,y,spec.accent==='water'?7:1.4,spec.accent==='water'?1:1.4,0,0,Math.PI*2);ctx.fill();}ctx.restore();}
   }}
   lastFrame=frame;screen.setTransform(1,0,0,1,0,0);screen.drawImage(backdrop,0,0);

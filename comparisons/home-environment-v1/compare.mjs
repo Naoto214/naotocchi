@@ -31,8 +31,19 @@ const ZOOMS = [['','全体'],['top','上部'],['mid','中央'],['left','左が�
 const WINDS = [['auto','自動で変化'],['calm','無風に近い'],['light','弱い'],['normal','普通'],['strong','強い']];
 const AMOUNTS = [['auto','自動で変化'],['small','小'],['medium','中（承認済みの量）'],['large','大']];
 const TINTS = [['none','原画の色'],['wide','A 現在のD案'],['full','B 遠景まで強化＋春の花・冬の霜']];
-const CLOUD_STYLES = [['none','A 雲なし'],['flat','B 前回の雲'],['single','C 形と濃淡のある雲'],['layered','D 奥行きのある2層の雲']];
-const CLOUDS = [['auto','天気に合わせて自動'],['0','雲なし'],['0.25','少ない'],['0.6','多い'],['1','空を覆う']];
+// Faces of the one two-layer sky. Each pins {cover, bright, thick, size}; 'auto' lets them drift.
+const LOOKS = [['auto','自動（自然に変化）'],
+  ['clear','快晴',{cover:.03, bright:1, thick:.6, size:1}],
+  ['few','白い雲が少し',{cover:.2, bright:1, thick:.75, size:.9}],
+  ['cumulus','大きな綿雲',{cover:.44, bright:1, thick:1, size:1.35}],
+  ['thin','薄く広がる雲',{cover:.62, bright:1, thick:.25, size:1.25}],
+  ['high','明るい高曇り',{cover:.92, bright:.95, thick:.55, size:1.25}],
+  ['broken','青空の残る雲',{cover:.6, bright:.8, thick:.9, size:1}],
+  ['white','厚い白灰色の雲',{cover:1, bright:.62, thick:1, size:1.05}],
+  ['bluegrey','青灰色の雲',{cover:.9, bright:.38, thick:.9, size:1.1}],
+  ['dark','厚く暗い雲',{cover:1, bright:.05, thick:1, size:1.2}],
+  ['break','雲間から光',{cover:.8, bright:.7, thick:.9, size:1.1, light:1}]];
+const CLOUDS = LOOKS.map(([key, name]) => [key, name]);
 const SUBTLES = [['off','変えない（原画のまま）'],['on','ごく控えめに変える']];
 const SPEEDS = [['1','ふつう'],['12','12倍速（変化を早く見る）']];
 // Example measurements, as the weather service would report them (mm/h, cm/h, m/s).
@@ -55,17 +66,21 @@ const PRESETS_OLD = [
   ['とかい・夜','city','summer','sunny','night'],['おうち・昼','home','summer','sunny','day']
 ];
 const PRESETS = [
-  ['いなか・晴れの雲','countryside','summer','sunny','day'],['いなか・曇り','countryside','summer','cloudy','day'],
-  ['うみ・雨雲','sea','summer','rain','day'],['うみ・夕方の雲','sea','summer','cloudy','evening'],
-  ['さばく・夜の雲と星','desert','summer','cloudy','night'],['おうち・曇り（窓の外）','home','summer','cloudy','day'],
-  ['いなか・冬の雪雲','countryside','winter','snow','day'],['きおくのみずうみ・曇り','memory_lake','summer','cloudy','day'],
-  ['秋のいなか（遠くの山）','countryside','autumn','sunny','day'],['秋のかわ','river_lake','autumn','sunny','day'],
-  ['春のいなか（花）','countryside','spring','sunny','day'],['冬のいなか（霜）','countryside','winter','sunny','morning'],
-  ['秋の森','forest','autumn','sunny','day'],['冬の森','forest','winter','sunny','day'],
-  ['おうち・秋','home','autumn','sunny','day'],['ほしぞら（秋）','star_stop','autumn','sunny','day']
+  ['晴れ・快晴','countryside','summer','sunny','day','clear'],['晴れ・大きな綿雲','countryside','summer','sunny','day','cumulus'],
+  ['晴れ・薄雲','sea','summer','sunny','day','thin'],['明るい高曇り','countryside','summer','cloudy','day','high'],
+  ['暗めの曇り','river_lake','summer','cloudy','day','dark'],['雲間から光','countryside','summer','cloudy','day','break'],
+  ['明るい雨（通り雨）','countryside','summer','rain','day','broken'],['白っぽい雨雲','sea','summer','rain','day','white'],
+  ['青灰色の雨','river_lake','summer','rain','day','bluegrey'],['強い雨の暗い雲','sea','summer','rain','day','dark'],
+  ['明るい雪雲','countryside','winter','snow','day','high'],['青空の残る雪','mountain','winter','snow','day','broken'],
+  ['静かな雪空','city','winter','snow','day','bluegrey'],['夜の雪雲','countryside','winter','snow','night','white'],
+  ['朝の雲','sea','summer','sunny','morning','cumulus'],['夕焼けの雲','sea','summer','sunny','evening','broken'],
+  ['夕方・いなか','countryside','autumn','cloudy','evening','broken'],['夜・雲間の星','desert','summer','cloudy','night','broken'],
+  ['おうちの窓','home','summer','cloudy','day','broken'],['森（葉の間の空）','forest','summer','cloudy','day','white'],
+  ['都会','city','summer','cloudy','day','broken'],['きおくのみずうみ','memory_lake','summer','sunny','day','cumulus'],
+  ['おまかせ（12倍速で変化）','countryside','summer','cloudy','day','auto','12']
 ];
 void PRESETS_OLD;
-const state = {region:'countryside', season:'summer', weather:'sunny', time:'day', tier:'1', left:'now', right:'tips2', zoom:'', wind:'auto', amount:'auto', speed:'1', measured:'none', tint:'full', subtle:'on', cloud:'auto', cloudStyle:'layered'};
+const state = {region:'countryside', season:'summer', weather:'sunny', time:'day', tier:'1', left:'now', right:'tips2', zoom:'', wind:'auto', amount:'auto', speed:'1', measured:'none', tint:'full', subtle:'on', cloud:'auto'};
 const order = ['region','season','weather','time','tier'];
 function readHash() {
   const m = location.hash.match(/^#t(\d+)-(\d)-(\d)-(\d)-(\d)-(\d)-(\d)$/);
@@ -86,10 +101,10 @@ function mount(scene, side) {
   const override = () => {
     const measured = MEASURED.find(([key]) => key === state.measured)[2];
     return {speed:Number(state.speed), ...(measured ? {measured} : {}),
-      ...(state.wind === 'auto' ? {} : {wind:WIND_LEVELS[state.wind]}), ...(state.amount === 'auto' ? {} : {density:DENSITY_LEVELS[state.amount]}), ...(state.cloud === 'auto' ? {} : {cloud:Number(state.cloud)})};
+      ...(state.wind === 'auto' ? {} : {wind:WIND_LEVELS[state.wind]}), ...(state.amount === 'auto' ? {} : {density:DENSITY_LEVELS[state.amount]}), ...(state.cloud === 'auto' ? {} : {sky:LOOKS.find(([key]) => key === state.cloud)[2]})};
   };
   const make = mod => mod.createHomeWorld({container:scene, document:doc, window, environmentFx:'final',
-    treeSway:() => state[side] === 'still' ? 'still' : 'tips2', climate:override, cloudStyle:() => state.cloudStyle, seasonTint:() => ({...TINT_CHOICES[state.tint], subtle:state.subtle === 'on'}), onClimate:air => { latest[side] = air; }});
+    treeSway:() => state[side] === 'still' ? 'still' : 'tips2', climate:override, seasonTint:() => ({...TINT_CHOICES[state.tint], subtle:state.subtle === 'on'}), onClimate:air => { latest[side] = air; }});
   // Each pane holds the production renderer and the final one, and shows whichever is chosen.
   const pair = {now:make(current), next:make(world)};
   const canvases = [...scene.querySelectorAll('canvas.home-art-canvas')], layers = [...scene.querySelectorAll('.home-dayparts-fx')];
@@ -131,7 +146,6 @@ function apply() {
   chips(document.getElementById('zoom'), ZOOMS, () => state.zoom, value => { state.zoom = value; });
   chips(document.getElementById('wind'), WINDS, () => state.wind, value => { state.wind = value; });
   chips(document.getElementById('tint'), TINTS, () => state.tint, value => { state.tint = value; });
-  chips(document.getElementById('cloudStyle'), CLOUD_STYLES, () => state.cloudStyle, value => { state.cloudStyle = value; });
   chips(document.getElementById('cloud'), CLOUDS, () => state.cloud, value => { state.cloud = value; });
   chips(document.getElementById('subtle'), SUBTLES, () => state.subtle, value => { state.subtle = value; });
   drawSeasons();
@@ -145,8 +159,9 @@ function apply() {
   for (const [label, ...values] of PRESETS) {
     const button = document.createElement('button');
     button.type = 'button'; button.textContent = label;
-    button.setAttribute('aria-pressed', String(values.every((v, i) => state[order[i]] === v)));
-    button.onclick = () => { values.forEach((v, i) => { state[order[i]] = v; }); apply(); };
+    const [look = 'auto', speed = '1'] = values.splice(4);
+    button.setAttribute('aria-pressed', String(values.every((v, i) => state[order[i]] === v) && state.cloud === look && state.speed === speed));
+    button.onclick = () => { values.forEach((v, i) => { state[order[i]] = v; }); state.cloud = look; state.speed = speed; state.measured = 'none'; if (state.right === 'now') state.right = 'tips2'; apply(); };
     presets.append(button);
   }
   writeHash();
@@ -182,7 +197,8 @@ function readout() {
   if (l.petals > 0) amount('petal', l.petals);
   if (l.leaves > 0) amount('leaf', l.leaves);
   if (l.rings) parts.push('水面の波紋');
-  if (air.cloud > .02) parts.push(`雲：${Math.round(air.cloud * 100)}%`);
+  if (air.sky && air.cloud > .02) parts.push(`雲：${Math.round(air.cloud * 100)}%・${air.sky.bright > .75 ? '明るい' : air.sky.bright > .4 ? '白灰' : '暗め'}・${air.sky.thick > .65 ? '厚い' : '薄い'}`);
+  if (air.sky) parts.push(`地上の光：${Math.round(air.sky.light * 100)}%`);
   if (l.twinkle > 0) parts.push(l.twinkle < 1 ? '星のまたたき（薄雲ごし）' : '星のまたたき');
   if (l.meteors > 0) parts.push(l.meteors < 1 ? '流れ星（まれ）' : '流れ星（ときどき）');
   if (l.fireflies) parts.push('ほたる・ただよう光');

@@ -95,18 +95,45 @@ export function createClimate(seed = 1) {
       }
       return drifting(base + 11, t, 31, windPick(stormy)) * (.92 + .16 * drifting(base + 13, t, 7, r => r));
     },
-    // How much of the sky is under cloud, 0 clear to 1 overcast. A fine day has a few passing
-    // clouds, sometimes more; grey days vary between broken and solid cover.
-    cloud(seconds, env, override = {}) {
-      if (typeof override.cloud === 'number') return override.cloud;
-      const t = seconds * (override.speed || 1), cover = override.measured?.cloudCover;
-      const drift = drifting(base + 71, t, 83, r => r);
-      if (env.weather === 'rain') return .9 + .1 * drift;
-      if (env.weather === 'snow') return .84 + .14 * drift;
-      // Measured cover applies to dry skies only: rain and snow are always under cloud.
-      if (typeof cover === 'number' && Number.isFinite(cover) && cover >= 0 && cover <= 100) return clamp(cover / 100 * (.94 + .12 * drift));
-      return env.weather === 'cloudy' ? .62 + .3 * drift : .08 + .3 * drift * drift;
+    // The sky of the moment. One two-layer cloud serves every weather; what differs is how much
+    // of it there is, how bright, how thick and how large, and how much light reaches the ground.
+    // Each drifts on its own clock, so a heavy sky may be bright and a rainy one may show blue.
+    //   cover  0 clear … 1 overcast        bright 0 dark slate … 1 white
+    //   thick  0 thin and airy … 1 dense    size   scale of the cloud shapes (1 = usual)
+    //   light  share of full daylight on the ground (1 = as painted)
+    sky(seconds, env, override = {}) {
+      const t = seconds * (override.speed || 1), pin = override.sky || {}, weather = env.weather;
+      const d = (k, span) => drifting(base + k, t, span, r => r);
+      const measured = override.measured || {}, valid = v => typeof v === 'number' && Number.isFinite(v) && v >= 0;
+      const mood = d(71, 200), wet = weather === 'rain' || weather === 'snow';
+      let cover;
+      if (typeof override.cloud === 'number') cover = override.cloud;
+      else if (typeof pin.cover === 'number') cover = pin.cover;
+      else if (valid(measured.cloudCover) && measured.cloudCover <= 100) {
+        // Measured cover is the base. Rain and snow need cloud to fall from, whatever the reading.
+        cover = clamp(measured.cloudCover / 100 * (.94 + .12 * mood));
+        if (wet) cover = Math.max(cover, .55 + .1 * mood);
+      } else cover = weather === 'rain' ? .58 + .42 * smooth(mood * 1.5)
+        : weather === 'snow' ? .55 + .43 * smooth(mood * 1.4)
+        : weather === 'cloudy' ? .5 + .5 * mood
+        // A fine day: often nearly clear, usually a few clouds, now and then large cumulus.
+        : mood < .22 ? .03 + .2 * mood : .08 + .42 * (mood - .22) / .78;
+      // Brightness of the cloud itself. Heavy measured rain leans darker, but never decides it.
+      const tone = d(73, 260), heavy = weather === 'rain' && valid(measured.precipitation) ? smooth(measured.precipitation / 8) : weather === 'snow' && valid(measured.snowfall) ? .5 * smooth(measured.snowfall / 4) : 0;
+      const bright = typeof pin.bright === 'number' ? pin.bright
+        : weather === 'rain' ? clamp(.05 + .9 * tone - .3 * heavy)
+        : weather === 'snow' ? clamp(.5 + .5 * tone - .2 * heavy)
+        : weather === 'cloudy' ? .3 + .7 * tone : 1;
+      const thick = typeof pin.thick === 'number' ? pin.thick : weather === 'sunny' ? .35 + .65 * d(77, 230) : .55 + .45 * d(77, 230);
+      const size = typeof pin.size === 'number' ? pin.size : .8 + .55 * d(79, 300);
+      // The sun finds a gap now and then, and the ground brightens for a while.
+      const gap = smooth((d(83, 140) - .45) / .5) * (1 - .6 * smooth((cover - .85) / .15));
+      const shade = smooth((cover - .3) / .6) * (.35 + .65 * (1 - bright)) * (.55 + .45 * thick);
+      const light = typeof pin.light === 'number' ? pin.light : clamp(1 - .72 * shade * (1 - .7 * gap));
+      return {cover, bright, thick, size, light};
     },
+    // How much of the sky is under cloud, 0 clear to 1 overcast.
+    cloud(seconds, env, override = {}) { return this.sky(seconds, env, override).cover; },
     // How many particles of a kind fall, as a share of the approved amount, at a moment.
     density(kind, seconds, env, override = {}) {
       if (typeof override.density === 'number') return override.density;

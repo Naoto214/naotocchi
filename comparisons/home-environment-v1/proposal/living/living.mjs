@@ -9,7 +9,7 @@ import {drawMountainJungleDesert} from './mountain-jungle-desert.mjs';
 import {drawDeepseaStars} from './deepsea-stars.mjs';
 import {paintMaximum, MAXIMUM_STRENGTH} from './maximum.mjs';
 import {paintFinal, paintSway, paintFoliage, FINAL_EFFECTS, daylightOf} from './final.mjs';
-import {paintClouds, paintCloudsFlat, cloudVeil, SKY} from './clouds.mjs';
+import {paintClouds, cloudsUnder, cloudVeil, SKY} from './clouds.mjs';
 
 const painters = {
   sea:drawSeaE, forest:drawForestE,
@@ -27,7 +27,7 @@ export const livingRegions = Object.freeze(Object.keys(painters));
 
 // `maximum` drives the reused painters at full strength and adds the maximum layer on top.
 // `final` keeps them at their calm strength, without cut-out deformation, and adds the final layer.
-export function paintLiving(ctx, rect, fade, seconds, env, reduced, {maximum = false, final = false, treeSway = 'tips2', wind = 0, daySource = null, layers = null, level = 1, cloud = 0, cloudStyle = 'layered', document:doc} = {}) {
+export function paintLiving(ctx, rect, fade, seconds, env, reduced, {maximum = false, final = false, treeSway = 'tips2', wind = 0, daySource = null, layers = null, level = 1, sky:look = null, clouds = true, document:doc} = {}) {
   function layer(image, opacity) {
     const scene = picture(image), paint = painters[scene?.region];
     if (!paint || opacity <= 0) return;
@@ -53,18 +53,31 @@ export function paintLiving(ctx, rect, fade, seconds, env, reduced, {maximum = f
   ctx.scale(rect.width / 1000, rect.height / 1500);
   if (maximum) paintMaximum(ctx, scene, env, seconds, doc);
   else {
+    const cover = clouds && SKY[scene.region] ? look?.cover || 0 : 0, canopy = SKY[scene.region]?.open === false;
+    let under = null;
+    if (look && SKY[scene.region]) {
+      // Less light reaches the ground under heavy cloud. The painting is multiplied by a cool
+      // tone, so its shading and texture stay; the sky itself is left to the clouds.
+      const dim = (1 - look.light) * (scene.time === 'night' ? .5 : 1) * (scene.region === 'home' ? 0 : 1);
+      if (dim > .01) {
+        const to = SKY[scene.region].to * 1500, g = ctx.createLinearGradient(0, to * .5, 0, to + 90), tone = k => `rgb(${Math.round(255 - 62 * k)},${Math.round(255 - 54 * k)},${Math.round(255 - 38 * k)})`;
+        g.addColorStop(0, tone(dim * .25)); g.addColorStop(1, tone(dim));
+        ctx.save(); ctx.globalCompositeOperation = 'multiply'; ctx.fillStyle = g; ctx.fillRect(0, 0, 1000, 1500); ctx.restore();
+      }
+    }
     // Clouds go on first, so trees, hills and roofs stay in front of them.
-    if (cloud > 0 && SKY[scene.region]) {
+    if (cover > 0) {
       const source = typeof daySource === 'function' ? daySource(scene.region) : daySource;
       const day = /-day\.webp(?:\?|$)/.test(shown.src || '') ? shown : source ? daylightOf(scene.region + '#sky', shown, doc, source) : null;
-      const sky = env.weather === 'unknown' ? 'sunny' : env.weather;
-      if (day && cloudStyle === 'flat') paintCloudsFlat(ctx, day, scene.region, scene.time, sky, seconds, cloud, doc);
-      else if (day && cloudStyle !== 'none') paintClouds(ctx, day, scene.region, scene.time, sky, seconds, cloud, doc, cloudStyle === 'single' ? 1 : 2);
-      // Stars and shooting stars are hidden where cloud lies over them, and show in the gaps.
-      if (day && layers && cloudStyle !== 'none' && cloudStyle !== 'flat') layers = {...layers, hidden:(x, y) => cloudVeil(scene.region, x, y, seconds, cloud, cloudStyle === 'single' ? 1 : 2, sky === 'rain' || sky === 'snow')};
+      if (day) {
+        paintClouds(ctx, day, scene.region, scene.time, seconds, cover, doc, look);
+        // Stars and shooting stars are hidden where cloud lies over them, and show in the gaps.
+        if (layers) layers = {...layers, hidden:(x, y) => cloudVeil(scene.region, x, y, seconds, cover, look)};
+        if (canopy) under = (x, y, w, h) => { if (y < SKY[scene.region].to * 1500) cloudsUnder(ctx, x, y, w, h); };
+      }
     }
     if (treeSway === 'bump') paintSway(ctx, shown, scene.region, seconds);
-    else paintFoliage(ctx, shown, scene.region, scene.time, seconds, treeSway, doc, wind, typeof daySource === 'function' ? daySource(scene.region) : daySource, level);
+    else paintFoliage(ctx, shown, scene.region, scene.time, seconds, treeSway, doc, wind, typeof daySource === 'function' ? daySource(scene.region) : daySource, level, under);
     paintFinal(ctx, scene, env, seconds, doc, layers);
   }
   ctx.restore();

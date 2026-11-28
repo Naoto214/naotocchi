@@ -181,7 +181,7 @@ export function daylightOf(region, image, doc, source) {
   }
   return entry.ready ? entry.image : null;
 }
-function paintFoliageSoft(ctx, image, region, time, seconds, mode, doc, boost, daySource, level = 1) {
+function paintFoliageSoft(ctx, image, region, time, seconds, mode, doc, boost, daySource, level = 1, under = null) {
   const base = STRENGTH[mode], spots = (base.b2 ? FOLIAGE_B2 : base.wide ? FOLIAGE_WIDE : FOLIAGE)[region];
   // `level` is the wind of the moment (1 = the approved strength): it scales how far the leaves
   // travel, never how they move.
@@ -211,11 +211,13 @@ function paintFoliageSoft(ctx, image, region, time, seconds, mode, doc, boost, d
       sc.drawImage(tile.canvas, margin + tile.x + shift.dx * scale, margin + tile.y + shift.dy * scaleY);
     }
     ctx.drawImage(part.plate, cx - rx, cy - ry, 2 * rx, 2 * ry);
+    // Whatever lies behind the leaves (clouds, under a canopy) goes back over the plate here.
+    under?.(cx - rx, cy - ry, 2 * rx, 2 * ry);
     ctx.drawImage(scratch, 0, 0, W, H, cx - rx - margin / scale, cy - ry - margin / scaleY, W / scale, H / scaleY);
   });
 }
-export function paintFoliage(ctx, image, region, time, seconds, mode, doc, boost = 0, daySource = null, level = 1) {
-  if (STRENGTH[mode]) return paintFoliageSoft(ctx, image, region, time, seconds, mode, doc, boost, daySource, level);
+export function paintFoliage(ctx, image, region, time, seconds, mode, doc, boost = 0, daySource = null, level = 1, under = null) {
+  if (STRENGTH[mode]) return paintFoliageSoft(ctx, image, region, time, seconds, mode, doc, boost, daySource, level, under);
   const spots = FOLIAGE[region];
   if (!spots || !image) return;
   const parts = separateFoliage(image, spots, time, doc);

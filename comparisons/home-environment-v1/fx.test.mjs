@@ -691,13 +691,48 @@ test('clouds: only over open sky, shaped not flat, more under grey weather, meas
   const later = at(.5, 110); let moved = 0; half.forEach((v, k) => { moved += Math.abs(v - later[k]); });
   assert.ok(moved / 400 > .1);
   const climate = createClimate(5), mean = (weather, o) => { let s = 0; for (let t = 0; t < 3000; t += 10) s += climate.cloud(t, {weather}, o); return s / 300; };
-  assert.ok(mean('sunny') < .3 && mean('cloudy') > .65 && mean('rain') > .9 && mean('snow') > .84);
+  assert.ok(mean('sunny') < .3 && mean('cloudy') > .65 && mean('rain') > .7 && mean('snow') > .68, [mean('sunny'), mean('cloudy'), mean('rain'), mean('snow')].join());
   assert.ok(mean('sunny', {measured:{cloudCover:80}}) > .7 && mean('sunny', {measured:{cloudCover:5}}) < .08);
-  assert.ok(mean('rain', {measured:{cloudCover:5}}) > .9);
+  assert.ok(mean('rain', {measured:{cloudCover:5}}) > .55); // rain always has cloud to fall from
   assert.equal(climate.cloud(9, {weather:'sunny'}, {measured:{cloudCover:400}}), climate.cloud(9, {weather:'sunny'}));
   assert.equal(climate.cloud(9, {weather:'sunny'}, {cloud:.5}), .5);
   let jump = 0; for (let t = 1; t < 3000; t++) jump = Math.max(jump, Math.abs(climate.cloud(t, {weather:'cloudy'}) - climate.cloud(t - 1, {weather:'cloudy'})));
   assert.ok(jump < .05);
+});
+
+test('one two-layer sky, many faces: cover, brightness, thickness, size and ground light vary on their own', async () => {
+  const {createClimate} = await import('./proposal/home-climate.mjs');
+  const {cloudTone, cloudDensity, cloudVeil} = await import('./proposal/living/clouds.mjs');
+  const range = (weather, key, o = {}) => { let lo = 9, hi = -9; for (let seed = 1; seed < 9; seed++) { const c = createClimate(seed * 977); for (let t = 0; t < 6000; t += 20) { const v = c.sky(t, {weather}, o)[key]; lo = Math.min(lo, v); hi = Math.max(hi, v); } } return [lo, hi]; };
+  // A fine day runs from nearly clear to large clouds, always white.
+  assert.ok(range('sunny', 'cover')[0] < .06 && range('sunny', 'cover')[1] > .4);
+  assert.deepEqual(range('sunny', 'bright'), [1, 1]);
+  // Rain is not always dark, nor always overcast; nor is snow or a grey day.
+  const [rainLo, rainHi] = range('rain', 'bright'); assert.ok(rainLo < .2 && rainHi > .8, `${rainLo} ${rainHi}`);
+  assert.ok(range('rain', 'cover')[0] < .65 && range('rain', 'cover')[1] > .97);
+  assert.ok(range('snow', 'bright')[0] >= .3 && range('snow', 'bright')[1] > .9);
+  assert.ok(range('cloudy', 'bright')[0] < .45 && range('cloudy', 'bright')[1] > .9);
+  // Heavy measured rain leans darker without fixing the tone; measured cover is the base.
+  assert.ok(range('rain', 'bright', {measured:{precipitation:12}})[1] > .5);
+  assert.ok(range('rain', 'bright', {measured:{precipitation:12}})[1] < rainHi);
+  // The ground is as painted under a clear sky, dimmer under dark overcast, and brightens in gaps.
+  assert.ok(range('sunny', 'light')[0] > .85);
+  const [dim, lit] = range('cloudy', 'light'); assert.ok(dim < .6 && lit > .9, `${dim} ${lit}`);
+  // Every value is a number in range and none of them steps.
+  const c = createClimate(31); let jump = 0, prev = null;
+  for (let t = 0; t < 4000; t++) { const k = c.sky(t, {weather:'rain'}); for (const key of ['cover','bright','thick','light']) { assert.ok(k[key] >= 0 && k[key] <= 1, key); if (prev) jump = Math.max(jump, Math.abs(k[key] - prev[key])); } assert.ok(k.size > .7 && k.size < 1.4); prev = k; }
+  assert.ok(jump < .06, String(jump));
+  // A pinned face is used as given.
+  const pinned = c.sky(5, {weather:'rain'}, {sky:{cover:.6, bright:.8, thick:.9, size:1}});
+  assert.deepEqual([pinned.cover, pinned.bright, pinned.thick, pinned.size], [.6, .8, .9, 1]);
+  // Tone: bright cloud is white by day, gold at dusk, moonlit blue at night; dark cloud is slate.
+  const [dayLit] = cloudTone('day', 1), [duskLit] = cloudTone('evening', 1), [nightLit] = cloudTone('night', 1), [slate] = cloudTone('day', 0);
+  assert.ok(dayLit[0] > 250 && dayLit[2] > 250 && duskLit[0] > duskLit[2] + 60 && nightLit[2] > nightLit[0] + 40 && slate[0] < 190);
+  // Size and wind travel change the same field; thin cloud hides fewer stars.
+  const sum = look => { let v = 0; for (let k = 0; k < 50; k++) v += cloudDensity(k / 50, .4, 50, .5, 1, look) * (k + 1); return v; };
+  assert.ok(sum(null) !== sum({size:1.3}) && sum(null) !== sum({travel:400}));
+  let thickSum = 0, thinSum = 0; for (let k = 0; k < 100; k++) { thickSum += cloudVeil('sea', 40 + k * 9, 100, 80, .7, {thick:1}); thinSum += cloudVeil('sea', 40 + k * 9, 100, 80, .7, {thick:.2}); }
+  assert.ok(thinSum < thickSum * .8);
 });
 
 test('season art: a dedicated painting is used when listed, and recolouring otherwise', async () => {
