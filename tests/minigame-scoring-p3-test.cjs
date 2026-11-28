@@ -70,7 +70,8 @@ test('ハーフパイプ: ポンプ 押しっぱなし+一定間隔の タップ
   }
   assert.ok(many('halfpipe-skate', sk.halfpipeBot({pattern: [1, 2]}), {seeds: seeds(2)}).scores.every((s) => s === 100));
   const hold1 = many('halfpipe-skate', sk.halfpipeBot({smart: false, pattern: [1]}), {seeds: seeds(2)});
-  assert.ok(hold1.scores.every((s) => s >= 30 && s <= 60), `押しっぱなし+1回転 ${hold1.scores}`);
+  // Phase 5(2026-11-28): 押しっぱなしでは 加速しない(1.2びょう いじょう 押しつづけると ポンプが きかない)。まえは 30〜60
+  assert.ok(hold1.scores.every((s) => s < 30), `押しっぱなし+1回転 ${hold1.scores}`);
 });
 
 test('かくとう: 同じ わざの 連打は 見切られて 平均30点未満。わざを まぜる 人は 変わらない', () => {

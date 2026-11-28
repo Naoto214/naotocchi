@@ -1,0 +1,786 @@
+[
+{
+"id": "blackjack-21",
+"bot": "idle",
+"before": {
+"avg": 0,
+"recorded": 0,
+"coins": 0.0
+},
+"after": {
+"avg": 50,
+"recorded": 0,
+"coins": 0.0
+}
+},
+{
+"id": "blackjack-21",
+"bot": "mash",
+"before": {
+"avg": 32,
+"recorded": 4,
+"coins": 15.0
+},
+"after": {
+"avg": 32,
+"recorded": 4,
+"coins": 15.0
+}
+},
+{
+"id": "blackjack-21",
+"bot": "random",
+"before": {
+"avg": 61,
+"recorded": 4,
+"coins": 45.0
+},
+"after": {
+"avg": 61,
+"recorded": 4,
+"coins": 45.0
+}
+},
+{
+"id": "blackjack-21",
+"bot": "tap1",
+"before": {
+"avg": 0,
+"recorded": 0,
+"coins": 0.0
+},
+"after": {
+"avg": 42,
+"recorded": 2,
+"coins": 30.0
+}
+},
+{
+"id": "breakout-classic",
+"bot": "idle",
+"before": {
+"avg": 16,
+"recorded": 0,
+"coins": 0.0
+},
+"after": {
+"avg": 19,
+"recorded": 0,
+"coins": 0.0
+}
+},
+{
+"id": "breakout-classic",
+"bot": "mash",
+"before": {
+"avg": 16,
+"recorded": 4,
+"coins": 0.0
+},
+"after": {
+"avg": 20,
+"recorded": 4,
+"coins": 0.0
+}
+},
+{
+"id": "breakout-classic",
+"bot": "random",
+"before": {
+"avg": 18,
+"recorded": 4,
+"coins": 0.0
+},
+"after": {
+"avg": 22,
+"recorded": 4,
+"coins": 0.0
+}
+},
+{
+"id": "breakout-classic",
+"bot": "tap1",
+"before": {
+"avg": 16,
+"recorded": 0,
+"coins": 0.0
+},
+"after": {
+"avg": 19,
+"recorded": 0,
+"coins": 0.0
+}
+},
+{
+"id": "chain-puzzle",
+"bot": "idle",
+"before": {
+"avg": 12,
+"recorded": 0,
+"coins": 0.0
+},
+"after": {
+"avg": 12,
+"recorded": 0,
+"coins": 0.0
+}
+},
+{
+"id": "chain-puzzle",
+"bot": "mash",
+"before": {
+"avg": 12,
+"recorded": 0,
+"coins": 0.0
+},
+"after": {
+"avg": 12,
+"recorded": 0,
+"coins": 0.0
+}
+},
+{
+"id": "chain-puzzle",
+"bot": "random",
+"before": {
+"avg": 12,
+"recorded": 4,
+"coins": 0.0
+},
+"after": {
+"avg": 12,
+"recorded": 4,
+"coins": 0.0
+}
+},
+{
+"id": "chain-puzzle",
+"bot": "tap1",
+"before": {
+"avg": 12,
+"recorded": 0,
+"coins": 0.0
+},
+"after": {
+"avg": 12,
+"recorded": 0,
+"coins": 0.0
+}
+},
+{
+"id": "darts-board",
+"bot": "idle",
+"before": {
+"avg": 0,
+"recorded": 0,
+"coins": 0.0
+},
+"after": {
+"avg": 10,
+"recorded": 0,
+"coins": 0.0
+}
+},
+{
+"id": "darts-board",
+"bot": "mash",
+"before": {
+"avg": 47,
+"recorded": 4,
+"coins": 30.0
+},
+"after": {
+"avg": 47,
+"recorded": 4,
+"coins": 30.0
+}
+},
+{
+"id": "darts-board",
+"bot": "random",
+"before": {
+"avg": 28,
+"recorded": 3,
+"coins": 15.0
+},
+"after": {
+"avg": 28,
+"recorded": 3,
+"coins": 15.0
+}
+},
+{
+"id": "darts-board",
+"bot": "tap1",
+"before": {
+"avg": 0,
+"recorded": 0,
+"coins": 0.0
+},
+"after": {
+"avg": 10,
+"recorded": 0,
+"coins": 0.0
+}
+},
+{
+"id": "domino-run",
+"bot": "idle",
+"before": {
+"avg": 10,
+"recorded": 0,
+"coins": 0.0
+},
+"after": {
+"avg": 10,
+"recorded": 0,
+"coins": 0.0
+}
+},
+{
+"id": "domino-run",
+"bot": "mash",
+"before": {
+"avg": 10,
+"recorded": 1,
+"coins": 0.0
+},
+"after": {
+"avg": 10,
+"recorded": 3,
+"coins": 0.0
+}
+},
+{
+"id": "domino-run",
+"bot": "random",
+"before": {
+"avg": 10,
+"recorded": 0,
+"coins": 0.0
+},
+"after": {
+"avg": 10,
+"recorded": 0,
+"coins": 0.0
+}
+},
+{
+"id": "domino-run",
+"bot": "tap1",
+"before": {
+"avg": 10,
+"recorded": 0,
+"coins": 0.0
+},
+"after": {
+"avg": 10,
+"recorded": 0,
+"coins": 0.0
+}
+},
+{
+"id": "fp-dungeon",
+"bot": "idle",
+"before": {
+"avg": 18,
+"recorded": 0,
+"coins": 0.0
+},
+"after": {
+"avg": 18,
+"recorded": 0,
+"coins": 0.0
+}
+},
+{
+"id": "fp-dungeon",
+"bot": "mash",
+"before": {
+"avg": 18,
+"recorded": 0,
+"coins": 0.0
+},
+"after": {
+"avg": 18,
+"recorded": 0,
+"coins": 0.0
+}
+},
+{
+"id": "fp-dungeon",
+"bot": "random",
+"before": {
+"avg": 18,
+"recorded": 4,
+"coins": 0.0
+},
+"after": {
+"avg": 18,
+"recorded": 4,
+"coins": 0.0
+}
+},
+{
+"id": "fp-dungeon",
+"bot": "tap1",
+"before": {
+"avg": 18,
+"recorded": 0,
+"coins": 0.0
+},
+"after": {
+"avg": 18,
+"recorded": 0,
+"coins": 0.0
+}
+},
+{
+"id": "halfpipe-skate",
+"bot": "idle",
+"before": {
+"avg": 10,
+"recorded": 0,
+"coins": 0.0
+},
+"after": {
+"avg": 10,
+"recorded": 0,
+"coins": 0.0
+}
+},
+{
+"id": "halfpipe-skate",
+"bot": "mash",
+"before": {
+"avg": 10,
+"recorded": 4,
+"coins": 0.0
+},
+"after": {
+"avg": 10,
+"recorded": 4,
+"coins": 0.0
+}
+},
+{
+"id": "halfpipe-skate",
+"bot": "random",
+"before": {
+"avg": 10,
+"recorded": 4,
+"coins": 0.0
+},
+"after": {
+"avg": 15,
+"recorded": 4,
+"coins": 0.0
+}
+},
+{
+"id": "halfpipe-skate",
+"bot": "tap1",
+"before": {
+"avg": 10,
+"recorded": 0,
+"coins": 0.0
+},
+"after": {
+"avg": 10,
+"recorded": 0,
+"coins": 0.0
+}
+},
+{
+"id": "jenga-tower",
+"bot": "idle",
+"before": {
+"avg": 10,
+"recorded": 0,
+"coins": 0.0
+},
+"after": {
+"avg": 10,
+"recorded": 0,
+"coins": 0.0
+}
+},
+{
+"id": "jenga-tower",
+"bot": "mash",
+"before": {
+"avg": 10,
+"recorded": 0,
+"coins": 0.0
+},
+"after": {
+"avg": 10,
+"recorded": 0,
+"coins": 0.0
+}
+},
+{
+"id": "jenga-tower",
+"bot": "random",
+"before": {
+"avg": 20,
+"recorded": 3,
+"coins": 0.0
+},
+"after": {
+"avg": 22,
+"recorded": 4,
+"coins": 0.0
+}
+},
+{
+"id": "jenga-tower",
+"bot": "tap1",
+"before": {
+"avg": 10,
+"recorded": 0,
+"coins": 0.0
+},
+"after": {
+"avg": 10,
+"recorded": 0,
+"coins": 0.0
+}
+},
+{
+"id": "puzzle-2048",
+"bot": "idle",
+"before": {
+"avg": 16,
+"recorded": 0,
+"coins": 0.0
+},
+"after": {
+"avg": 16,
+"recorded": 0,
+"coins": 0.0
+}
+},
+{
+"id": "puzzle-2048",
+"bot": "mash",
+"before": {
+"avg": 16,
+"recorded": 0,
+"coins": 0.0
+},
+"after": {
+"avg": 16,
+"recorded": 0,
+"coins": 0.0
+}
+},
+{
+"id": "puzzle-2048",
+"bot": "random",
+"before": {
+"avg": 16,
+"recorded": 4,
+"coins": 0.0
+},
+"after": {
+"avg": 16,
+"recorded": 4,
+"coins": 0.0
+}
+},
+{
+"id": "puzzle-2048",
+"bot": "tap1",
+"before": {
+"avg": 16,
+"recorded": 0,
+"coins": 0.0
+},
+"after": {
+"avg": 16,
+"recorded": 0,
+"coins": 0.0
+}
+},
+{
+"id": "ski-jump",
+"bot": "idle",
+"before": {
+"avg": 0,
+"recorded": 0,
+"coins": 0.0
+},
+"after": {
+"avg": 10,
+"recorded": 0,
+"coins": 0.0
+}
+},
+{
+"id": "ski-jump",
+"bot": "mash",
+"before": {
+"avg": 20,
+"recorded": 4,
+"coins": 0.0
+},
+"after": {
+"avg": 20,
+"recorded": 4,
+"coins": 0.0
+}
+},
+{
+"id": "ski-jump",
+"bot": "random",
+"before": {
+"avg": 33,
+"recorded": 4,
+"coins": 22.5
+},
+"after": {
+"avg": 33,
+"recorded": 4,
+"coins": 22.5
+}
+},
+{
+"id": "ski-jump",
+"bot": "tap1",
+"before": {
+"avg": 0,
+"recorded": 0,
+"coins": 0.0
+},
+"after": {
+"avg": 22,
+"recorded": 0,
+"coins": 0.0
+}
+},
+{
+"id": "solitaire-klondike",
+"bot": "idle",
+"before": {
+"avg": 8,
+"recorded": 0,
+"coins": 0.0
+},
+"after": {
+"avg": 8,
+"recorded": 0,
+"coins": 0.0
+}
+},
+{
+"id": "solitaire-klondike",
+"bot": "mash",
+"before": {
+"avg": 13,
+"recorded": 4,
+"coins": 0.0
+},
+"after": {
+"avg": 13,
+"recorded": 4,
+"coins": 0.0
+}
+},
+{
+"id": "solitaire-klondike",
+"bot": "random",
+"before": {
+"avg": 10,
+"recorded": 4,
+"coins": 0.0
+},
+"after": {
+"avg": 10,
+"recorded": 4,
+"coins": 0.0
+}
+},
+{
+"id": "solitaire-klondike",
+"bot": "tap1",
+"before": {
+"avg": 8,
+"recorded": 0,
+"coins": 0.0
+},
+"after": {
+"avg": 8,
+"recorded": 0,
+"coins": 0.0
+}
+},
+{
+"id": "stack-snowman",
+"bot": "idle",
+"before": {
+"avg": 8,
+"recorded": 0,
+"coins": 0.0
+},
+"after": {
+"avg": 8,
+"recorded": 0,
+"coins": 0.0
+}
+},
+{
+"id": "stack-snowman",
+"bot": "mash",
+"before": {
+"avg": 29,
+"recorded": 0,
+"coins": 0.0
+},
+"after": {
+"avg": 29,
+"recorded": 0,
+"coins": 0.0
+}
+},
+{
+"id": "stack-snowman",
+"bot": "random",
+"before": {
+"avg": 44,
+"recorded": 4,
+"coins": 22.5
+},
+"after": {
+"avg": 44,
+"recorded": 4,
+"coins": 22.5
+}
+},
+{
+"id": "stack-snowman",
+"bot": "tap1",
+"before": {
+"avg": 15,
+"recorded": 0,
+"coins": 0.0
+},
+"after": {
+"avg": 15,
+"recorded": 0,
+"coins": 0.0
+}
+},
+{
+"id": "track-field",
+"bot": "idle",
+"before": {
+"avg": 0,
+"recorded": 0,
+"coins": 0.0
+},
+"after": {
+"avg": 10,
+"recorded": 0,
+"coins": 0.0
+}
+},
+{
+"id": "track-field",
+"bot": "mash",
+"before": {
+"avg": 60,
+"recorded": 4,
+"coins": 30.0
+},
+"after": {
+"avg": 60,
+"recorded": 4,
+"coins": 30.0
+}
+},
+{
+"id": "track-field",
+"bot": "random",
+"before": {
+"avg": 0,
+"recorded": 0,
+"coins": 0.0
+},
+"after": {
+"avg": 10,
+"recorded": 4,
+"coins": 0.0
+}
+},
+{
+"id": "track-field",
+"bot": "tap1",
+"before": {
+"avg": 0,
+"recorded": 0,
+"coins": 0.0
+},
+"after": {
+"avg": 10,
+"recorded": 0,
+"coins": 0.0
+}
+},
+{
+"id": "yacht-dice",
+"bot": "idle",
+"before": {
+"avg": 0,
+"recorded": 0,
+"coins": 0.0
+},
+"after": {
+"avg": 10,
+"recorded": 0,
+"coins": 0.0
+}
+},
+{
+"id": "yacht-dice",
+"bot": "mash",
+"before": {
+"avg": 0,
+"recorded": 0,
+"coins": 0.0
+},
+"after": {
+"avg": 0,
+"recorded": 0,
+"coins": 0.0
+}
+},
+{
+"id": "yacht-dice",
+"bot": "random",
+"before": {
+"avg": 15,
+"recorded": 4,
+"coins": 0.0
+},
+"after": {
+"avg": 15,
+"recorded": 4,
+"coins": 0.0
+}
+},
+{
+"id": "yacht-dice",
+"bot": "tap1",
+"before": {
+"avg": 0,
+"recorded": 0,
+"coins": 0.0
+},
+"after": {
+"avg": 10,
+"recorded": 0,
+"coins": 0.0
+}
+}
+]

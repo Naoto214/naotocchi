@@ -117,6 +117,25 @@
     };
   }
   // 長く 押す・なぞりつづける 操作は ms ごとに 1回だけ 数える(参加度。1回の 操作で 何十回も 数えない)
+  // Phase 5(2026-11-28): 放置すると おわらなかった ゲームの 目安。さわらない まま hintMs たつと やさしく 案内し、endMs たつと おわる。
+  // 操作が なければ 参加度で「記録しない」(途中で やめた ときと おなじ あつかい)。考える ゲームは 長め(短い 無操作では おわらない)
+  function mgIdleGuard(container, { hintMs, endMs, onHint, onEnd, alive }) {
+    let lastAct = performance.now(), hinted = false;
+    const poke = () => { lastAct = performance.now(); hinted = false; };
+    container.addEventListener('pointerdown', poke, true);
+    const onKey = () => { if (alive()) poke(); };
+    document.addEventListener('keydown', onKey, true);
+    const tick = () => {
+      if (!alive()) { document.removeEventListener('keydown', onKey, true); return; }
+      const idle = performance.now() - lastAct;
+      if (idle >= endMs) { document.removeEventListener('keydown', onKey, true); onEnd(); return; }
+      if (idle >= hintMs && !hinted) { hinted = true; onHint(); }
+      setTimeout(tick, 500);
+    };
+    setTimeout(tick, 500);
+  }
+  const MG_IDLE_ACTION = { hintMs: 10000, endMs: 30000, hint: '👆さわって あそぼう!(さわらないと しばらくして おわるよ)', end: '💤また こんど あそぼう' };
+  const MG_IDLE_THINK = { hintMs: 60000, endMs: 300000, hint: '🤔ゆっくり かんがえてね。おわりにするときは「やめる」', end: '💤また こんど あそぼう' };
   function mgActEvery(meter, ms = 400) { let at = -1e9; return () => { const t = performance.now(); if (t - at >= ms) { at = t; meter.act(); } }; }
   // T1 対戦の 共通の 点数帯: 決着(decisive) > 判定(judgement: 時間切れで 優劣あり) > 時間切れ・未決着(timeout)。
   // score は「その局面で 決着した とき」の その ゲームの 点。決着なら そのまま(じょうずな 人の 点を さげない)。
@@ -374,7 +393,7 @@
   // --- スタックタワー(canvas 作りなおし): ゆれる クレーンから ブロックを おとし、
   //     したの ブロックと かさねる。はみでた ぶぶんは きりおとされて ほそくなる。
   //     ぴったり(パーフェクト)なら はばが すこし もどる。カメラは たかさに あわせて うえへ ---
-  function makeStackGame({ title, blockEmoji, palette }) {
+  function makeStackGame({ title, blockEmoji, palette, outline }) {
     return {
       start(container, onComplete) {
         const difficulty = ageDifficulty();
@@ -428,7 +447,7 @@
           for (const p of parts) { p.x += p.vx * dt; p.y += p.vy * dt; p.vy += 300 * dt; p.life -= dt; } parts = parts.filter((p) => p.life > 0);
           for (const b of blocks) b.wob *= 0.9; if (shake > 0) shake -= dt * 30;
         }
-        function block(x, y, w, color, emoji, rot = 0) { ctx.save(); ctx.translate(x + w / 2, y - camY + BLOCK_H / 2); ctx.rotate(rot); ctx.fillStyle = 'rgba(0,0,0,.18)'; ctx.fillRect(-w / 2 + 3, -BLOCK_H / 2 + 4, w, BLOCK_H); const g = ctx.createLinearGradient(0, -BLOCK_H / 2, 0, BLOCK_H / 2); g.addColorStop(0, color); g.addColorStop(1, mgShade(color, 0.72)); ctx.fillStyle = g; mgRoundRect(ctx, -w / 2, -BLOCK_H / 2, w, BLOCK_H, 4); ctx.fillStyle = 'rgba(255,255,255,.35)'; ctx.fillRect(-w / 2 + 3, -BLOCK_H / 2 + 2, w - 6, 3); if (emoji && w > 18) { ctx.font = `${Math.round(BLOCK_H * 0.7)}px sans-serif`; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; if (!drawStackBlockArt(ctx, emoji, Math.round(BLOCK_H * 0.7))) ctx.fillText(emoji, 0, 1); } ctx.restore(); }
+        function block(x, y, w, color, emoji, rot = 0) { ctx.save(); ctx.translate(x + w / 2, y - camY + BLOCK_H / 2); ctx.rotate(rot); ctx.fillStyle = 'rgba(0,0,0,.18)'; ctx.fillRect(-w / 2 + 3, -BLOCK_H / 2 + 4, w, BLOCK_H); const g = ctx.createLinearGradient(0, -BLOCK_H / 2, 0, BLOCK_H / 2); g.addColorStop(0, color); g.addColorStop(1, mgShade(color, 0.72)); ctx.fillStyle = g; mgRoundRect(ctx, -w / 2, -BLOCK_H / 2, w, BLOCK_H, 4); if (outline) { ctx.strokeStyle = outline; ctx.lineWidth = 1.5; ctx.stroke(); } ctx.fillStyle = 'rgba(255,255,255,.35)'; ctx.fillRect(-w / 2 + 3, -BLOCK_H / 2 + 2, w - 6, 3); if (emoji && w > 18) { ctx.font = `${Math.round(BLOCK_H * 0.7)}px sans-serif`; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; if (!drawStackBlockArt(ctx, emoji, Math.round(BLOCK_H * 0.7))) ctx.fillText(emoji, 0, 1); } ctx.restore(); }
         function render(now) {
           if (!ctx) return;
           ctx.save(); if (shake > 0) shakeTranslate(ctx, (Math.random() - 0.5) * shake, (Math.random() - 0.5) * shake);
@@ -486,6 +505,7 @@
       title: 'ゆきだるまタワー!丸く重ねよう',
       blockEmoji: '⚪',
       palette: ['#ffffff', '#f0f8ff', '#e6f2ff', '#f5fbff', '#ffffff', '#eef7ff', '#f8fcff'],
+      outline: 'rgba(40,70,120,.6)', // Phase 5: 白い 雪玉が 空や 雲に とけこまない ように ふちどり
     })),
   ];
 
@@ -888,7 +908,7 @@
         }
         function finish(all) {
           if (!running) return; running = false; cancelAnimationFrame(rafId); container.querySelectorAll('button').forEach((b) => { b.disabled = true; });
-          const final = all ? 100 : clamp(Math.round(10 + score / 5 + cleared * 15 + (cleared ? lives * 5 : 0)), 10, 100); // Phase 4: 30びょうでは 3ステージ全部は とどかない。ステージ1を ノーミスで クリアすれば 100
+          const final = all ? 100 : clamp(Math.round(10 + score / 3.5 + cleared * 15 + lives * 3), 10, 100); // Phase 5: 実測(よみの よい ボットでも 30びょうで ステージ1の 3〜9わり)に あわせる。ステージ1の 9わり ノーミス = 100、ふつう(180点)で 70
           say(all ? '🏆全ステージクリア!' : lives <= 0 ? `ゲームオーバー…${score}点` : `⏰タイムアップ${score}点`, 2600); render(performance.now());
           const play = meter.done({ achieved: score > 0 || !!all });
           setTimeout(() => onComplete(final, null, play), 650);
@@ -1417,6 +1437,9 @@
         for (const c of floorCells) {
           if (traps.length >= 2) break;
           if ([exit, ...chests, ...traps].some((p) => Math.abs(p.x - c.x) + Math.abs(p.y - c.y) < 3)) continue;
+          // Phase 5(2026-11-28): おとしあなは「ここしか 通れない」道には 置かない(ふさぐと 宝箱・出口が 遠く なる マスは さける)。
+          // まえは 1本道に おとしあなが あると 2回 通る ことに なり、上手でも 時間内に まわりきれない 迷路が あった
+          { const m = map.map((row) => Array.from(row)); m[c.y][c.x] = '#'; const d = mazeBfs(m, start.x, start.y); if ([exit, ...chests].some((p) => d[p.y][p.x] < 0 || d[p.y][p.x] > d0[p.y][p.x] + 2)) continue; }
           traps.push({ x: c.x, y: c.y, cool: 0 });
         }
         const torches = floorCells.filter((c) => ![exit, ...chests, ...traps].some((p) => p.x === c.x && p.y === c.y)).slice(0, 5);
@@ -3764,6 +3787,7 @@
         function finish() {
           if (!running) return; running = false; cancelAnimationFrame(rafId);
           container.querySelectorAll('button').forEach((b) => { b.disabled = true; });
+          maxChain = Math.max(maxChain, chainNow); // Phase 5: 時間切れの 瞬間に つづいていた れんさも 数える(まえは 9点 ぬけた)
           const result = clamp(Math.round(12 + popped * 1 + maxChain * 9 + Math.min(20, score / 60)), 10, 100);
           say(gameOver ? 'つみあがった…' + popped + 'こ消した' : 'おわり!' + popped + 'こ消した／最大' + maxChain + 'れんさ', 2200);
           render(performance.now());
@@ -6240,8 +6264,8 @@
           if (!running) return; running = false; cancelAnimationFrame(rafId);
           container.querySelectorAll('button').forEach((b) => { b.disabled = true; });
           // Phase 2 で 検討した 結果、点数は 変えない(45びょうでは 上手な 人も 128 が 現実的な 上限で、128 を さげると 上手な 人の 点も さがるため)
-          const tierScore = best >= 512 ? 100 : best >= 256 ? 88 : best >= 128 ? 70 : best >= 64 ? 40 : best >= 32 ? 28 : 16; // Phase 4: 128 で 大成功・512 で 100(でたらめの 64 いかは そのまま)
-          const finalScore = clamp(Math.round(tierScore + Math.min(10, score / 300)), 10, 100);
+          const tierScore = best >= 512 ? 100 : best >= 256 ? 90 : best >= 128 ? 70 : best >= 64 ? 40 : best >= 32 ? 28 : 16; // Phase 4: 128 で 大成功・512 で 100(でたらめの 64 いかは そのまま)。Phase 5: 256 = 90(45びょうで 512 は 1びょう 5手 いじょう ひつようで 人には むり)
+          const finalScore = clamp(Math.round(tierScore + Math.min(10, score / 220)), 10, 100); // Phase 5: 256 と 合成2200点で 100
           say(`おわり!最大${best}、得点：${score}`, 2600);
           render(performance.now());
           setTimeout(() => onComplete(finalScore, null, meter.done()), 650);
@@ -6411,6 +6435,9 @@
         const { ctx, W, H } = createMgCanvas(canvas, 235);
         const jumpEl = container.querySelector('#sjJump'), distEl = container.querySelector('#sjDist'), hint = container.querySelector('#sjHint'), btn = container.querySelector('#sjBtn');
         const say = (t, ms = 1200) => { msg = t; msgUntil = performance.now() + ms; hint.textContent = t; };
+        // Phase 5: 放置の 目安。放置で おわった 回は「途中で やめた」と おなじ(参加なし → 記録しない)
+        const mgDone0 = onComplete; let mgIdleOut = false; onComplete = (sc, m, p) => mgDone0(sc, m, mgIdleOut ? { acts: 0 } : p);
+        mgIdleGuard(container, { hintMs: MG_IDLE_ACTION.hintMs, endMs: MG_IDLE_ACTION.endMs, onHint: () => say(MG_IDLE_ACTION.hint, 4000), onEnd: () => { mgIdleOut = true; say(MG_IDLE_ACTION.end, 2000); finish(); }, alive: () => running });
         const hud = () => { jumpEl.textContent = `${Math.min(JUMPS, jump + 1)}/${JUMPS}本目`; distEl.textContent = `合計${total.toFixed(1)}m`; };
         // コース(m単位): 助走 0..40 くだり坂、台の端 x=40 y=0、着地斜面 y = -(x-40)*0.62 - 6 (x>44)
         const RAMP_END = 40, SCALE = 4.2;
@@ -7169,6 +7196,9 @@
         const SECTORS = [20, 1, 18, 4, 13, 6, 10, 15, 2, 17, 3, 19, 7, 16, 8, 11, 14, 9, 12, 5];
         const leftEl = container.querySelector('#dtLeft'), scoreEl = container.querySelector('#dtScore'), hint = container.querySelector('#dtHint');
         const say = (t, ms = 1200) => { msg = t; msgUntil = performance.now() + ms; hint.textContent = t; };
+        // Phase 5: 放置の 目安。放置で おわった 回は「途中で やめた」と おなじ(参加なし → 記録しない)
+        const mgDone0 = onComplete; let mgIdleOut = false; onComplete = (sc, m, p) => mgDone0(sc, m, mgIdleOut ? { acts: 0 } : p);
+        mgIdleGuard(container, { hintMs: MG_IDLE_ACTION.hintMs, endMs: MG_IDLE_ACTION.endMs, onHint: () => say(MG_IDLE_ACTION.hint, 4000), onEnd: () => { mgIdleOut = true; say(MG_IDLE_ACTION.end, 2000); finish(); }, alive: () => running });
         const hud = () => { leftEl.textContent = `残り${DARTS - thrown}本`; scoreEl.textContent = `${total}点`; };
         canvas.addEventListener('pointerdown', (e) => { e.preventDefault(); if (!running || flying || thrown >= DARTS) return; try { canvas.setPointerCapture(e.pointerId); } catch (err) {} const p = mgPointerPos(canvas, e); aim = { id: e.pointerId, x: p.x, y: p.y, ox: p.x, oy: p.y, at: performance.now() }; holdT = 0; drift = { x: 0, y: 0 }; wobPhase = Math.random() * 5000; shake(performance.now()); });
         canvas.addEventListener('pointermove', (e) => { if (!aim || e.pointerId !== aim.id) return; const p = mgPointerPos(canvas, e); aim.x = p.x; aim.y = p.y; });
@@ -7453,6 +7483,9 @@
         const handEl = container.querySelector('#bjHand'), chipsEl = container.querySelector('#bjChips'), hint = container.querySelector('#bjHint');
         const hitBtn = container.querySelector('#bjHit'), standBtn = container.querySelector('#bjStand'), nextBtn = container.querySelector('#bjNext');
         const say = (t, ms = 1500) => { msg = t; msgUntil = performance.now() + ms; hint.textContent = t; };
+        // Phase 5: 放置の 目安。放置で おわった 回は「途中で やめた」と おなじ(参加なし → 記録しない)
+        const mgDone0 = onComplete; let mgIdleOut = false; onComplete = (sc, m, p) => mgDone0(sc, m, mgIdleOut ? { acts: 0 } : p);
+        mgIdleGuard(container, { hintMs: MG_IDLE_THINK.hintMs, endMs: MG_IDLE_THINK.endMs, onHint: () => say(MG_IDLE_THINK.hint, 4000), onEnd: () => { mgIdleOut = true; say(MG_IDLE_THINK.end, 2000); finish(); }, alive: () => running });
         const hud = () => { handEl.textContent = `${Math.min(HANDS, hand + 1)}/${HANDS}ハンド`; chipsEl.textContent = `🪙 ${chips}`; hitBtn.disabled = phase !== 'play'; standBtn.disabled = phase !== 'play'; nextBtn.disabled = phase !== 'done'; };
         const SUITS = ['♠', '♥', '♦', '♣'];
         function newDeck() { deck = []; for (const s of SUITS) for (let r = 1; r <= 13; r++) deck.push({ s, r }); for (let i = deck.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [deck[i], deck[j]] = [deck[j], deck[i]]; } }
@@ -7689,6 +7722,9 @@
         const { ctx, W, H } = createMgCanvas(canvas, 220);
         const eventEl = container.querySelector('#tfEvent'), timeEl = container.querySelector('#tfTime'), hint = container.querySelector('#tfHint'), jumpBtn = container.querySelector('#tfJump');
         const say = (t, ms = 1200) => { msg = t; msgUntil = performance.now() + ms; hint.textContent = t; };
+        // Phase 5: 放置の 目安。放置で おわった 回は「途中で やめた」と おなじ(参加なし → 記録しない)
+        const mgDone0 = onComplete; let mgIdleOut = false; onComplete = (sc, m, p) => mgDone0(sc, m, mgIdleOut ? { acts: 0 } : p);
+        mgIdleGuard(container, { hintMs: MG_IDLE_ACTION.hintMs, endMs: MG_IDLE_ACTION.endMs, onHint: () => say(MG_IDLE_ACTION.hint, 4000), onEnd: () => { mgIdleOut = true; say(MG_IDLE_ACTION.end, 2000); finish(); }, alive: () => running });
         const GROUND = H * 0.78, SCALE = 9; // px per m
         for (let i = 0; i < 3; i++) rivals.push({ x: 0, spd: lerp(6.2, 8.2, difficulty) * (0.92 + i * 0.05), emoji: ['🧑', '👩', '🧒'][i], lane: i });
         const run = (k) => { if (!running || performance.now() < startTime + 3000) return; if (event === 'jump' && jumpPhase !== 'run') return; if (k !== lastKey) meter.act(); if (k === lastKey) { speed = Math.max(0, speed - 0.3); return; } lastKey = k; taps++; sfx('tick'); speed = Math.min(lerp(9.5, 11.5, 1 - difficulty * 0.4), speed + lerp(1.4, 1.1, difficulty)); };
@@ -8059,6 +8095,9 @@
         const { ctx, W, H } = createMgCanvas(canvas, 300);
         const turnEl = container.querySelector('#ydTurn'), scoreEl = container.querySelector('#ydScore'), hint = container.querySelector('#ydHint'), rollBtn = container.querySelector('#ydRoll');
         const say = (t, ms = 1200) => { msg = t; msgUntil = performance.now() + ms; hint.textContent = t; };
+        // Phase 5: 放置の 目安。放置で おわった 回は「途中で やめた」と おなじ(参加なし → 記録しない)
+        const mgDone0 = onComplete; let mgIdleOut = false; onComplete = (sc, m, p) => mgDone0(sc, m, mgIdleOut ? { acts: 0 } : p);
+        mgIdleGuard(container, { hintMs: MG_IDLE_THINK.hintMs, endMs: MG_IDLE_THINK.endMs, onHint: () => say(MG_IDLE_THINK.hint, 4000), onEnd: () => { mgIdleOut = true; say(MG_IDLE_THINK.end, 2000); finish(); }, alive: () => running });
         const hud = () => { turnEl.textContent = `${Math.min(TURNS, turn + 1)}/${TURNS}ターン`; scoreEl.textContent = `合計${total}`; rollBtn.textContent = rolls >= 3 ? 'やくをえらんで' : `🎲ふる(のこり${3 - rolls}かい)`; rollBtn.disabled = rolls >= 3; };
         const DICE_Y = 26, DS = 34, LIST_Y = 78, ROW = (H - LIST_Y - 4) / 7;
         function roll() { if (!running || rolls >= 3 || rolling) return; meter.act(); rolls++; rolling = 1; sfx('whoosh'); rollAnim = dice.map((v, i) => (heldD[i] ? null : { at: performance.now() })); setTimeout(() => { if (!running) return; dice = dice.map((v, i) => (heldD[i] ? v : 1 + Math.floor(Math.random() * 6))); rolling = 0; rollAnim = []; hud(); if (rolls >= 3) say('役を選んで記録!', 1200); }, 450); hud(); }
@@ -8390,7 +8429,8 @@
         mgTimerHud(container, TIME_LIMIT_MS, () => TIME_LIMIT_MS - (performance.now() - startTime), () => running);
         const canvas = container.querySelector('#jgCanvas');
         const { ctx, W, H } = createMgCanvas(canvas, (w) => Math.round(w * 1.25));
-        const BW = 34, BH = 16, CX = W / 2, BASE_Y = H - 30;
+        // Phase 5(2026-11-28): ブロックの 大きさを 画面に あわせる(まえは どの 幅でも 34×16px で、となりの 段を 押しまちがえやすかった)。17段 ぶんが メッセージの 下に おさまる 高さ
+        const BASE_Y = H - 30, BH = clamp(Math.floor((BASE_Y - 34) / 17), 16, 24), BW = Math.round(BH * 2.125), CX = W / 2;
         const pulledEl = container.querySelector('#jgPulled'), riskEl = container.querySelector('#jgRisk'), hint = container.querySelector('#jgHint');
         const say = (t, ms = 1100) => { msg = t; msgUntil = performance.now() + ms; hint.textContent = t; };
         // Phase 3(2026-11-26): ほんものの ジェンガと おなじく「かたくて ぬけない」ブロックが ある(見た目では わからない。ためすと わかる)。
@@ -8691,16 +8731,23 @@
         // Phase 3(2026-11-26): のぼり(中央から はなれる 向き)で ポンプを 押すと 少し へる(HP_PUMP_UP)。くだりで 押す タイミングが 大事に なる。
         // コンボの 倍率(最大×3)は「前と ちがう 回転数」を きめた ときだけ 上がる(おなじ 技の くりかえしは ×1)。
         // まえは ポンプ 押しっぱなし+空中で 1回 タップ だけで 1回転が ×3 で つづき、100点に なった
-        const HP_PUMP_UP = 2.6, HP_SCORE_DIV = 7, meter = mgPlayMeter();
+        const HP_PUMP_UP = 2.6, HP_SCORE_DIV = 5.5, meter = mgPlayMeter(); // Phase 5: ランプが 0.7ばいの はやさに なり エアの 回数が へる ぶん 7→5.5
         // Phase 4(2026-11-28): くだりの ポンプを 4.6→5.0。光を 見てから 押す(0.25びょう おくれる)人でも エアが 出る。おしっぱなしは 44→57点(大成功には とどかない)
         const HP_PUMP_DOWN = 5.0;
+        // Phase 5(2026-11-28): 反応が ゆっくりな 人・小さな 子でも エアが 出せる ように(光を 見てから 0.3〜0.6びょうで 押す 人を 想定)
+        //  - ランプの うごきを 0.7ばいの はやさに(HP_SWING): くだりが 約0.45→0.65びょうに のびる。空中・回転は そのまま
+        //  - 光るのは くだりの すこし 前(てっぺんで ゆっくり なった とき)から。くだりが おわっても 0.4びょうは 受付(HP_GRACE: 半分の ちから)
+        //  - 光っている あいだに 押しはじめた 1回目は「ぐっと」加速(HP_KICK)。タップでも よい
+        //  - 押しっぱなし(HP_HOLD_OK びょう いじょう)・光っていない ときに 押しはじめた ポンプ・1回の 光で 2回目いこうの 押しは 加速しない(押しっぱなし・連打の 高得点対策は 維持)
+        const HP_SWING = 0.7, HP_LEAD_V = 0.6, HP_GRACE = 0.4, HP_GRACE_PUMP = 2.5, HP_HOLD_OK = 1.2, HP_KICK = 0.8, HP_MISS = 0.3;
+        let swingT = 0, pressAt = -1e9, pressOk = false, downEnd = -1e9, wasDown = false, nPress = 0, kicked = false, kickQ = false, missQ = false;
         let running = true, rafId = null, last = null, s = -0.6, v = 0, pump = false, air = null, score = 0, tricks = 0, bails = 0, msg = '', msgUntil = 0, combo = 0, lastSpins = 0, trickBtn, lastLand = '';
         const startTime = performance.now() + MG_ACTION_START_GRACE_MS;
         container.innerHTML = `
           <div class="mg-header"><span id="hpTimer">残り：${Math.round(DURATION_MS / 1000)}秒</span><span id="hpScore">0点</span></div>
           <div class="mg-title">${title}</div>
           <div class="mg-canvas-wrap"><canvas class="mg-canvas" id="hpCanvas"></canvas></div>
-          <div class="mg-hint" id="hpHint">下り坂で「ポンプ」を長押しすると加速（ボタンが光っているあいだが下り坂）。勢いがつくと、ふちから飛び出す。空中で「トリック」をおすと1回転（何度もおせる）。着地までに回りきらないと転倒!</div>
+          <div class="mg-hint" id="hpHint">ボタンが光ったら「ポンプ」を押す（タップでもOK）。光っているあいだ押すほど加速し、光がきえたらはなす。押しっぱなしでは加速しない。勢いがつくと、ふちから飛び出す。空中で「トリック」をおすと1回転（何度もおせる）。着地までに回りきらないと転倒!</div>
           <div class="mg-race-controls"><button class="mg-tap-btn mg-hold-btn" id="hpPump" data-key="left">ポンプ(ながおし)</button><button class="mg-tap-btn primary" id="hpTrick" data-key="action">🌀トリック</button></div>`;
         const canvas = container.querySelector('#hpCanvas');
         const { ctx, W, H } = createMgCanvas(canvas, 230);
@@ -8708,7 +8755,7 @@
         const say = (t, ms = 900) => { msg = t; msgUntil = performance.now() + ms; hint.textContent = t; };
         const hud = () => { scoreEl.textContent = `${score}点`; };
         const pumpBtn = container.querySelector('#hpPump'); let cueOn = false;
-        bindHeldButton(container.querySelector('#hpPump'), (vv) => { pump = vv; if (vv) meter.act(); });
+        bindHeldButton(container.querySelector('#hpPump'), (vv) => { pump = vv; if (!vv) return; meter.act(); pressAt = swingT; pressOk = cueOn || swingT - downEnd < HP_GRACE; nPress++; if (pressOk && !kicked) { kicked = true; kickQ = true; } else missQ = true; });
         trickBtn.addEventListener('pointerdown', (e) => { e.preventDefault(); trick(); });
         canvas.addEventListener('pointerdown', (e) => { e.preventDefault(); trick(); });
         const RAMP_H = 2.2, hOf = (q) => q * q * RAMP_H; const px = (q) => W / 2 + q * W * 0.42, py = (h) => H - 30 - h * 60;
@@ -8721,10 +8768,15 @@
               else { bails++; combo = 0; lastSpins = 0; v = 0; s = dir * 0.95; say('💫転倒…', 1000); }
             } return; }
           // ランプ上: ちからは かたむき ぶん。ポンプは くだりで かそく
+          dt *= HP_SWING; swingT += dt;
           const slope = 2 * s * RAMP_H; const down = (s > 0 && v < 0) || (s < 0 && v > 0);
+          if (wasDown && !down) downEnd = swingT; if (!wasDown && down) { kicked = false; nPress = 0; } wasDown = down;
+          const inGrace = !down && swingT - downEnd < HP_GRACE, apex = !down && !inGrace && Math.abs(s) > 0.3 && Math.abs(v) < HP_LEAD_V;
+          if (missQ) { missQ = false; v *= 1 - HP_MISS; } // 光っていない ときの ポンプ・2回目いこう: 少し ばたつく
+          if (kickQ) { kickQ = false; v += (Math.abs(v) > 0.1 ? Math.sign(v) : -Math.sign(s || 1)) * HP_KICK; }
           // Phase 4(2026-11-28): くだりの あいだ ポンプボタンを 光らせる(押す タイミングが 見て わかる。初めての 人・小さな 子むけ。押すのは じぶん)
-          const cue = down && Math.abs(v) > 0.05; if (cue !== cueOn) { cueOn = cue; if (pumpBtn) pumpBtn.style.boxShadow = cue ? '0 0 0 3px #ffd34d, 0 0 14px rgba(255,211,77,.9)' : ''; }
-          let acc = -slope * G * 0.45; if (pump) acc += -Math.sign(s) * (down ? HP_PUMP_DOWN : HP_PUMP_UP); acc -= v * 0.09; v += acc * dt; s += v * dt * 0.42;
+          const cue = (down && Math.abs(v) > 0.05) || apex; if (cue !== cueOn) { cueOn = cue; if (pumpBtn) pumpBtn.style.boxShadow = cue ? '0 0 0 3px #ffd34d, 0 0 14px rgba(255,211,77,.9)' : ''; }
+          let acc = -slope * G * 0.45; if (pump) { const held = swingT - pressAt; if (held <= HP_HOLD_OK && pressOk) { if (down) acc += -Math.sign(s) * HP_PUMP_DOWN; else if (inGrace) acc += Math.sign(v) * HP_GRACE_PUMP; else if (!apex) acc += -Math.sign(s) * HP_PUMP_UP; } } acc -= v * 0.09; v += acc * dt; s += v * dt * 0.42;
           if (Math.abs(s) >= 1) { const dir = Math.sign(s); const speed = Math.abs(v); s = dir * 1; if (speed > 2.4) { sfx('jump'); air = { x: dir, y: RAMP_H, vx: dir * speed * 0.12, vy: speed * 0.9, rot: 0, spinTarget: 0, spins: 0, dir, t: 0, v0: v }; say('🛹エア!', 500); } else v = -v * 0.6; }
         }
         function drawSkater(x, y, rot, lean) { ctx.save(); ctx.translate(x, y); ctx.rotate(rot); ctx.fillStyle = 'rgba(0,0,0,.2)'; ctx.beginPath(); ctx.ellipse(0, 14, 16, 4, 0, 0, Math.PI * 2); ctx.fill(); ctx.fillStyle = '#e63946'; mgRoundRect(ctx, -16, 6, 32, 5, 2); ctx.fillStyle = '#333'; ctx.beginPath(); ctx.arc(-10, 12, 3, 0, Math.PI * 2); ctx.arc(10, 12, 3, 0, Math.PI * 2); ctx.fill(); ctx.rotate(lean); ctx.font = '24px sans-serif'; ctx.textAlign = 'center'; ctx.textBaseline = 'bottom'; ctx.fillText(currentSprite(), 0, 8); ctx.restore(); }
@@ -8800,7 +8852,7 @@
           for (const k of idx) path[k].present = false; slots = idx; spare = gaps + 1; phase = 'build'; fallen = 0; hud();
         }
         gen();
-        canvas.addEventListener('pointerdown', (e) => { e.preventDefault(); if (!running || phase !== 'build') return; const p = mgPointerPos(canvas, e); let best = -1, bd = 22; path.forEach((d, i) => { const dist = Math.hypot(d.x - p.x, d.y - p.y); if (dist < bd) { bd = dist; best = i; } }); if (best < 0) return; const d = path[best]; if (d.present) { if (d.placed) { d.present = false; d.placed = false; spare++; hud(); } else say('そこにはもうある', 600); return; } if (spare <= 0) { say('手持ちがない!', 800); return; } d.present = true; d.placed = true; spare--; meter.act(); sfx('pop'); hud(); });
+        canvas.addEventListener('pointerdown', (e) => { e.preventDefault(); if (!running || phase !== 'build') return; const p = mgPointerPos(canvas, e); /* Phase 5: さきに「置ける すきま」と「じぶんで 置いた ドミノ」を さがす(まえは となりの もとからの ドミノに あたって 4回に 1回 置けなかった) */ const near = (ok, r) => { let b = -1, bd = r; path.forEach((d, i) => { if (!ok(d)) return; const dist = Math.hypot(d.x - p.x, d.y - p.y); if (dist < bd) { bd = dist; b = i; } }); return b; }; let best = near((d) => !d.present || d.placed, 24); if (best < 0) best = near(() => true, 22); if (best < 0) return; const d = path[best]; if (d.present) { if (d.placed) { d.present = false; d.placed = false; spare++; hud(); } else say('そこにはもうある', 600); return; } if (spare <= 0) { say('手持ちがない!', 800); return; } d.present = true; d.placed = true; spare--; meter.act(); sfx('pop'); hud(); });
         pushBtn.addEventListener('pointerdown', (e) => { e.preventDefault(); if (!running || phase !== 'build') return; phase = 'run'; if (path.some((d) => d.placed)) meter.act(); sfx('whoosh'); pushAt = performance.now(); path[0].fallen = performance.now(); fallen = 1; hud(); say('👉パタパタ…', 1000); });
         function update(dt, now) {
           if (phase !== 'run') return;
@@ -9638,13 +9690,15 @@
           <div class="mg-hint" id="soHint">カードをタップで選び、置きたい列か右上の台をタップ。選んだカードをもう1回タップすると台へ。山札はタップでめくる。</div>
           <div class="mg-race-controls"><button class="mg-tap-btn" id="soDraw" data-key="action2">🂠めくる</button><button class="mg-tap-btn primary" id="soAuto" data-key="action">⤴だいへあげる</button></div>`;
         const canvas = container.querySelector('#soCanvas');
-        const { ctx, W, H } = createMgCanvas(canvas, 300);
+        const { ctx, W, H } = createMgCanvas(canvas, 300, { grow: true, maxGrow: 1.3 }); // Phase 5: 画面に あきが あれば 高く(長い 列の 下の カードが はみ出さない)
         const timerEl = container.querySelector('#soTimer'), scoreEl = container.querySelector('#soScore'), hint = container.querySelector('#soHint');
         const say = (t, ms = 1000) => { msg = t; msgUntil = performance.now() + ms; hint.textContent = t; };
         const foundCount = () => found.reduce((a, f) => a + f.length, 0);
         const hud = () => { scoreEl.textContent = `🏠 ${foundCount()}/52／手数${moves}`; };
         // レイアウト
         const GAP = 4, CW = Math.floor((W - GAP * 8) / 7), CH = Math.round(CW * 1.4), TOP = 6, TAB_Y = TOP + CH + 10, FAN = 15, FAN_DOWN = 6;
+        // Phase 5: 長い 列は おもての カードの 間を つめて、いちばん 下の カードまで 画面に おさめる(9px いじょうは のこす)
+        const fanOf = (col) => { const up = col.filter((c) => c.up).length, dn = col.length - up; return up > 1 ? Math.max(9, Math.min(FAN, Math.floor((H - 4 - TAB_Y - CH - dn * FAN_DOWN) / (up - 1)))) : FAN; };
         const colX = (i) => GAP + i * (CW + GAP);
         // くばる
         const deck = [];
@@ -9715,7 +9769,7 @@
           if (!col.length) return { kind: 'tab', idx: i, pos: 0, empty: true };
           // うえから じゅんに かさなっている。いちばん した(=さいご)の カードいがいは FAN の はばだけ 見えている
           let yy = TAB_Y, pos = -1;
-          for (let k = 0; k < col.length; k++) { const h = k === col.length - 1 ? CH : (col[k].up ? FAN : FAN_DOWN); if (y >= yy && y < yy + h) { pos = k; break; } yy += h; }
+          for (let k = 0; k < col.length; k++) { const h = k === col.length - 1 ? CH : (col[k].up ? fanOf(col) : FAN_DOWN); if (y >= yy && y < yy + h) { pos = k; break; } yy += h; }
           if (pos < 0) pos = y >= yy ? col.length - 1 : -1;
           return { kind: 'tab', idx: i, pos };
         }
@@ -9759,7 +9813,7 @@
           for (let i = 0; i < 7; i++) {
             const col = tab[i]; let y = TAB_Y;
             if (!col.length) slot(colX(i), TAB_Y, '');
-            for (let k = 0; k < col.length; k++) { const c = col[k]; drawCard(colX(i), y, c, sel && sel.from === 'tab' && sel.idx === i && k >= sel.pos); y += c.up ? FAN : FAN_DOWN; }
+            for (let k = 0; k < col.length; k++) { const c = col[k]; drawCard(colX(i), y, c, sel && sel.from === 'tab' && sel.idx === i && k >= sel.pos); y += c.up ? fanOf(col) : FAN_DOWN; }
           }
           if (now < msgUntil) mgMsgBox(ctx, W, msg, H - 21, 13);
         }

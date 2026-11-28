@@ -28,7 +28,7 @@ test('100点に とどく 式: 上手な 完全クリアの 点が 100(ふつう
   has('clamp(70 + (me - ai) * 10, 70, 100)'); has('clamp(70 + (me - ai) * 7.5, 70, 100)'); // テニス 3-0・エアホッケー 4-0
   has('strikes * 14'); assert.ok(14 + 20 * 2.9 + 2 * 14 >= 100, 'ボウリング 2ストライク');
   has('clamp(79 + lives * 7, 79, 100)'); has('25 * (SHOTS - shots) / Math.max(1, SHOTS - 2)'); // タンク・カタパルト
-  has("best >= 512 ? 100 : best >= 256 ? 88 : best >= 128 ? 70 : best >= 64 ? 40 : best >= 32 ? 28 : 16"); // 2048
+  has("best >= 512 ? 100 : best >= 256 ? 90 : best >= 128 ? 70 : best >= 64 ? 40 : best >= 32 ? 28 : 16"); // 2048(Phase 5 で 256 = 88→90)
   has('const score = clamp(Math.round(10 + avg), 10, 100);'); // せんなぞり
   has('Math.max(0, tries - (PAIRS + 2))'); // しんけいすいじゃく
   has('100 - Math.max(0, guesses.length - 4) * 9'); // ヒット&ブロー 4回いない
@@ -60,11 +60,11 @@ function cueBot(pattern, lag) {
     if (fire) { const n = pattern[i++ % pattern.length]; for (let k = 0; k < n; k++) r.down(r.q('#hpTrick'), 0, 0, 2); }
   };
 }
-test('ハーフパイプ: くだりで ポンプが 光る。光を 見てから 押す 初心者(0.25びょう おくれ)は 70点いじょう、おしっぱなしは 70点未満', () => {
+test('ハーフパイプ: くだりで ポンプが 光る。光を 見てから 押す 初心者(0.25びょう おくれ)は 大成功、押しっぱなしは 30点未満(Phase 5 で 見直し)', () => {
   const beginner = many('halfpipe-skate', fresh(() => cueBot([1], 250)), {seeds: seeds(2)});
   assert.ok(beginner.scores.every((s) => s >= 70), `光を 見て 押す ${beginner.scores}`);
   const hold = many('halfpipe-skate', sk.halfpipeBot({smart: false, pattern: [1]}), {seeds: seeds(2)});
-  assert.ok(hold.scores.every((s) => s >= 30 && s < 70), `おしっぱなし ${hold.scores}`);
+  assert.ok(hold.scores.every((s) => s < 30), `おしっぱなし ${hold.scores}`);
   const expert = many('halfpipe-skate', fresh(() => cueBot([1, 2], 150)), {seeds: seeds(2)});
   assert.ok(expert.scores.every((s) => s === 100), `回転数を かえる ${expert.scores}`);
 });

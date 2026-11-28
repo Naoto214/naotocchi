@@ -245,7 +245,9 @@ function jengaBot1({middleOnly = false, minS = 0.45, every = 1300} = {}) {
     let pick = null;
     for (let r = 0; r < rows.length; r++) for (const i of middleOnly ? [1] : [1, 0, 2]) { if (!legal(r, i)) continue; const s = stab(...apply(rows, top, r, i)); if (middleOnly) { if (!pick) pick = {r, i, s}; } else if (s >= minS && (!pick || s > pick.s + 1e-9)) pick = {r, i, s}; }
     if (!pick) return;
-    const x = 150 + (pick.i - 1) * 34, y = 345 - (pick.r + 1) * 16 + 8;
+    // Phase 5: ブロックの 大きさは 画面の 高さで きまる(ハーネスの 300×375 では 38×18)
+    const BH = Math.max(16, Math.min(24, Math.floor((345 - 34) / 17))), BW = Math.round(BH * 2.125);
+    const x = 150 + (pick.i - 1) * BW, y = 345 - (pick.r + 1) * BH + BH / 2;
     r0.down(r0.q('#jgCanvas'), x, y); pending = [pick.r, pick.i]; pendAt = t; next = t + every;
   };
 }

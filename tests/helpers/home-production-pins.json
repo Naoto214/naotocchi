@@ -1,9 +1,19 @@
 {
   "index.html": {
     "before": "c9432f2b62b2c95a36338f8166627abe8feb97d3",
-    "after": "993943b324c31f330d77be1a25a85a74b941f1bd",
+    "after": "769f4ff8570ecfc92088b6d86ed2aaf01ee14005",
     "size": 73100,
     "reverse": [
+      [
+        72427,
+        72478,
+        "  <script src=\"script.js?v=c655a196a39a\"></script>\n"
+      ],
+      [
+        70755,
+        70805,
+        "  <script src=\"games.js?v=299435c8bb7b\"></script>\n"
+      ],
       [
         70755,
         70805,
@@ -53,9 +63,24 @@
   },
   "tools/pages/allowlist.json": {
     "before": "f1b1fb9cf575c6305fac17fb25dcf80a59d13c31",
-    "after": "4f352ed80b9920e7ed97c8c66ab7e1af446581e5",
+    "after": "326b873e0e19f6b84170a2345deb0e313ac7ce80",
     "size": 296644,
     "reverse": [
+      [
+        281809,
+        281894,
+        "    \"script.js\": \"c655a196a39a416be9e9dde1733585d876876e50d404057ab451764890c4346c\",\n"
+      ],
+      [
+        267630,
+        267716,
+        "    \"index.html\": \"fcab3e4e0fac6328f0ab92d8dcfe491db968b1955b581072b4c2bfbaeaf19a26\",\n"
+      ],
+      [
+        265226,
+        265310,
+        "    \"games.js\": \"299435c8bb7b5efb7195c2a97160fd00658d64102b3bba5518202bf4e968afdf\",\n"
+      ],
       [
         267630,
         267716,
@@ -159,9 +184,139 @@
   },
   "games.js": {
     "before": "a93847e0d6ce254074270b01583caad8c54f1928",
-    "after": "38dff9888456f200e741a2fe7f8b809a423fd396",
-    "size": 1034630,
+    "after": "34d11723168e1446c81f36e74e89301393441cff",
+    "size": 1043253,
     "reverse": [
+      [
+        950277,
+        950468,
+        "            for (let k = 0; k < col.length; k++) { const c = col[k]; drawCard(colX(i), y, c, sel && sel.from === 'tab' && sel.idx === i && k >= sel.pos); y += c.up ? FAN : FAN_DOWN; }\n"
+      ],
+      [
+        946613,
+        946795,
+        "          for (let k = 0; k < col.length; k++) { const h = k === col.length - 1 ? CH : (col[k].up ? FAN : FAN_DOWN); if (y >= yy && y < yy + h) { pos = k; break; } yy += h; }\n"
+      ],
+      [
+        941251,
+        941632,
+        ""
+      ],
+      [
+        940459,
+        940651,
+        "        const { ctx, W, H } = createMgCanvas(canvas, 300);\n"
+      ],
+      [
+        858136,
+        859105,
+        "        canvas.addEventListener('pointerdown', (e) => { e.preventDefault(); if (!running || phase !== 'build') return; const p = mgPointerPos(canvas, e); let best = -1, bd = 22; path.forEach((d, i) => { const dist = Math.hypot(d.x - p.x, d.y - p.y); if (dist < bd) { bd = dist; best = i; } }); if (best < 0) return; const d = path[best]; if (d.present) { if (d.placed) { d.present = false; d.placed = false; spare++; hud(); } else say('そこにはもうある', 600); return; } if (spare <= 0) { say('手持ちがない!', 800); return; } d.present = true; d.placed = true; spare--; meter.act(); sfx('pop'); hud(); });\n"
+      ],
+      [
+        849297,
+        849822,
+        "          const cue = down && Math.abs(v) > 0.05; if (cue !== cueOn) { cueOn = cue; if (pumpBtn) pumpBtn.style.boxShadow = cue ? '0 0 0 3px #ffd34d, 0 0 14px rgba(255,211,77,.9)' : ''; }\n          let acc = -slope * G * 0.45; if (pump) acc += -Math.sign(s) * (down ? HP_PUMP_DOWN : HP_PUMP_UP); acc -= v * 0.09; v += acc * dt; s += v * dt * 0.42;\n"
+      ],
+      [
+        848585,
+        849095,
+        ""
+      ],
+      [
+        848454,
+        848494,
+        ""
+      ],
+      [
+        846600,
+        846866,
+        "        bindHeldButton(container.querySelector('#hpPump'), (vv) => { pump = vv; if (vv) meter.act(); });\n"
+      ],
+      [
+        845379,
+        845787,
+        "          <div class=\"mg-hint\" id=\"hpHint\">下り坂で「ポンプ」を長押しすると加速（ボタンが光っているあいだが下り坂）。勢いがつくと、ふちから飛び出す。空中で「トリック」をおすと1回転（何度もおせる）。着地までに回りきらないと転倒!</div>\n"
+      ],
+      [
+        843598,
+        844786,
+        ""
+      ],
+      [
+        843170,
+        843345,
+        "        const HP_PUMP_UP = 2.6, HP_SCORE_DIV = 7, meter = mgPlayMeter();\n"
+      ],
+      [
+        804925,
+        805294,
+        "        const BW = 34, BH = 16, CX = W / 2, BASE_Y = H - 30;\n"
+      ],
+      [
+        766945,
+        767454,
+        ""
+      ],
+      [
+        722761,
+        723274,
+        ""
+      ],
+      [
+        694546,
+        695055,
+        ""
+      ],
+      [
+        659115,
+        659628,
+        ""
+      ],
+      [
+        571947,
+        572460,
+        ""
+      ],
+      [
+        555850,
+        556306,
+        "          const tierScore = best >= 512 ? 100 : best >= 256 ? 88 : best >= 128 ? 70 : best >= 64 ? 40 : best >= 32 ? 28 : 16; // Phase 4: 128 で 大成功・512 で 100(でたらめの 64 いかは そのまま)\n          const finalScore = clamp(Math.round(tierScore + Math.min(10, score / 300)), 10, 100);\n"
+      ],
+      [
+        312048,
+        312205,
+        ""
+      ],
+      [
+        111606,
+        112158,
+        ""
+      ],
+      [
+        82623,
+        82917,
+        "          const final = all ? 100 : clamp(Math.round(10 + score / 5 + cleared * 15 + (cleared ? lives * 5 : 0)), 10, 100); // Phase 4: 30びょうでは 3ステージ全部は とどかない。ステージ1を ノーミスで クリアすれば 100\n"
+      ],
+      [
+        46079,
+        46201,
+        ""
+      ],
+      [
+        39882,
+        40736,
+        "        function block(x, y, w, color, emoji, rot = 0) { ctx.save(); ctx.translate(x + w / 2, y - camY + BLOCK_H / 2); ctx.rotate(rot); ctx.fillStyle = 'rgba(0,0,0,.18)'; ctx.fillRect(-w / 2 + 3, -BLOCK_H / 2 + 4, w, BLOCK_H); const g = ctx.createLinearGradient(0, -BLOCK_H / 2, 0, BLOCK_H / 2); g.addColorStop(0, color); g.addColorStop(1, mgShade(color, 0.72)); ctx.fillStyle = g; mgRoundRect(ctx, -w / 2, -BLOCK_H / 2, w, BLOCK_H, 4); ctx.fillStyle = 'rgba(255,255,255,.35)'; ctx.fillRect(-w / 2 + 3, -BLOCK_H / 2 + 2, w - 6, 3); if (emoji && w > 18) { ctx.font = `${Math.round(BLOCK_H * 0.7)}px sans-serif`; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; if (!drawStackBlockArt(ctx, emoji, Math.round(BLOCK_H * 0.7))) ctx.fillText(emoji, 0, 1); } ctx.restore(); }\n"
+      ],
+      [
+        33155,
+        33223,
+        "  function makeStackGame({ title, blockEmoji, palette }) {\n"
+      ],
+      [
+        10340,
+        11849,
+        ""
+      ],
       [
         1022925,
         1023169,
@@ -2041,9 +2196,19 @@
   },
   "script.js": {
     "before": "70112eac0365045f7ff701229028ddf5debe4cae",
-    "after": "930c741819dc56b084693e654d0443e7f4653f45",
-    "size": 1207095,
+    "after": "d6058517a9f2602eae39d6d09fda4fac19ec3a3f",
+    "size": 1207630,
     "reverse": [
+      [
+        1051259,
+        1051279,
+        "      : score >= 50\n"
+      ],
+      [
+        1050494,
+        1051059,
+        "    const pools = score >= 80\n"
+      ],
       [
         1067250,
         1067338,
