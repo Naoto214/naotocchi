@@ -1,0 +1,239 @@
+{
+ "name": "relations-26",
+ "result": {
+  "current": {
+   "casual": {
+    "lives": 40,
+    "departuresMean": 1.3,
+    "departuresMax": 26,
+    "livesWithDeparture": 0.05,
+    "companionsLeftMean": 24.7,
+    "breakupRate": 1,
+    "minBondAtEnd": {
+     "mean": 90.83,
+     "p10": 71.25000000000196
+    },
+    "partnerAffectionAtEnd": {
+     "mean": null,
+     "p10": null
+    },
+    "relTapsPerLife": 0,
+    "carePer10": 11.57,
+    "noticesPer10": 2.74,
+    "deathRate": 0,
+    "sicknessesPerLife": 3.92,
+    "sodachi": 68.7,
+    "clearRate": 0.33
+   },
+   "keeper": {
+    "lives": 40,
+    "departuresMean": 0,
+    "departuresMax": 0,
+    "livesWithDeparture": 0,
+    "companionsLeftMean": 26,
+    "breakupRate": 0,
+    "minBondAtEnd": {
+     "mean": 93.6,
+     "p10": 85.00000000000102
+    },
+    "partnerAffectionAtEnd": {
+     "mean": 43.04,
+     "p10": 43.03571428571023
+    },
+    "relTapsPerLife": 10.5,
+    "carePer10": 12.38,
+    "noticesPer10": 2.83,
+    "deathRate": 0,
+    "sicknessesPerLife": 4.13,
+    "sodachi": 69.8,
+    "clearRate": 0.65
+   },
+   "affection": {
+    "lives": 40,
+    "departuresMean": 0,
+    "departuresMax": 0,
+    "livesWithDeparture": 0,
+    "companionsLeftMean": 26,
+    "breakupRate": 0.9,
+    "minBondAtEnd": {
+     "mean": 98.9,
+     "p10": 97.50000000000017
+    },
+    "partnerAffectionAtEnd": {
+     "mean": 30.85,
+     "p10": 2.6785714285707787
+    },
+    "relTapsPerLife": 0,
+    "carePer10": 40.3,
+    "noticesPer10": 4.89,
+    "deathRate": 0.7,
+    "sicknessesPerLife": 6,
+    "sodachi": 67.38,
+    "clearRate": 0.3
+   },
+   "viewer": {
+    "lives": 40,
+    "departuresMean": 0,
+    "departuresMax": 0,
+    "livesWithDeparture": 0,
+    "companionsLeftMean": 26,
+    "breakupRate": 0.05,
+    "minBondAtEnd": {
+     "mean": 79.39,
+     "p10": 66.60714285714248
+    },
+    "partnerAffectionAtEnd": {
+     "mean": 56.77,
+     "p10": 33.035714285713524
+    },
+    "relTapsPerLife": 0,
+    "carePer10": 4.56,
+    "noticesPer10": 5.18,
+    "deathRate": 1,
+    "sicknessesPerLife": 1.68,
+    "sodachi": 24.65,
+    "clearRate": 0
+   },
+   "beginner": {
+    "lives": 40,
+    "departuresMean": 0,
+    "departuresMax": 0,
+    "livesWithDeparture": 0,
+    "companionsLeftMean": 26,
+    "breakupRate": 0.47,
+    "minBondAtEnd": {
+     "mean": 93.87,
+     "p10": 88.66071428571476
+    },
+    "partnerAffectionAtEnd": {
+     "mean": 24.64,
+     "p10": 4.642857142856492
+    },
+    "relTapsPerLife": 0,
+    "carePer10": 15.99,
+    "noticesPer10": 6.16,
+    "deathRate": 1,
+    "sicknessesPerLife": 5.38,
+    "sodachi": 39.45,
+    "clearRate": 0
+   }
+  },
+  "V3": {
+   "casual": {
+    "lives": 40,
+    "departuresMean": 0,
+    "departuresMax": 0,
+    "livesWithDeparture": 0,
+    "companionsLeftMean": 26,
+    "breakupRate": 0,
+    "minBondAtEnd": {
+     "mean": 50,
+     "p10": 50
+    },
+    "partnerAffectionAtEnd": {
+     "mean": 50,
+     "p10": 50
+    },
+    "relTapsPerLife": 0,
+    "carePer10": 4.21,
+    "noticesPer10": 0,
+    "deathRate": 0,
+    "sicknessesPerLife": 0,
+    "sodachi": 69.75,
+    "clearRate": 0.53
+   },
+   "keeper": {
+    "lives": 40,
+    "departuresMean": 0,
+    "departuresMax": 0,
+    "livesWithDeparture": 0,
+    "companionsLeftMean": 26,
+    "breakupRate": 0,
+    "minBondAtEnd": {
+     "mean": 50,
+     "p10": 50
+    },
+    "partnerAffectionAtEnd": {
+     "mean": 50,
+     "p10": 50
+    },
+    "relTapsPerLife": 0,
+    "carePer10": 4.21,
+    "noticesPer10": 0,
+    "deathRate": 0,
+    "sicknessesPerLife": 0,
+    "sodachi": 69.75,
+    "clearRate": 0.53
+   },
+   "affection": {
+    "lives": 40,
+    "departuresMean": 0,
+    "departuresMax": 0,
+    "livesWithDeparture": 0,
+    "companionsLeftMean": 26,
+    "breakupRate": 0,
+    "minBondAtEnd": {
+     "mean": 99.7,
+     "p10": 99.5
+    },
+    "partnerAffectionAtEnd": {
+     "mean": 50,
+     "p10": 50
+    },
+    "relTapsPerLife": 0,
+    "carePer10": 35.91,
+    "noticesPer10": 0,
+    "deathRate": 0,
+    "sicknessesPerLife": 0,
+    "sodachi": 77.22,
+    "clearRate": 1
+   },
+   "viewer": {
+    "lives": 40,
+    "departuresMean": 0,
+    "departuresMax": 0,
+    "livesWithDeparture": 0,
+    "companionsLeftMean": 26,
+    "breakupRate": 0,
+    "minBondAtEnd": {
+     "mean": 93.7,
+     "p10": 87.9375
+    },
+    "partnerAffectionAtEnd": {
+     "mean": 50,
+     "p10": 50
+    },
+    "relTapsPerLife": 0,
+    "carePer10": 3.99,
+    "noticesPer10": 0.67,
+    "deathRate": 0,
+    "sicknessesPerLife": 0,
+    "sodachi": 57.58,
+    "clearRate": 0
+   },
+   "beginner": {
+    "lives": 40,
+    "departuresMean": 0,
+    "departuresMax": 0,
+    "livesWithDeparture": 0,
+    "companionsLeftMean": 26,
+    "breakupRate": 0,
+    "minBondAtEnd": {
+     "mean": 94.35,
+     "p10": 89.375
+    },
+    "partnerAffectionAtEnd": {
+     "mean": 49.18,
+     "p10": 47
+    },
+    "relTapsPerLife": 0,
+    "carePer10": 8.17,
+    "noticesPer10": 0.98,
+    "deathRate": 0,
+    "sicknessesPerLife": 0.3,
+    "sodachi": 62.58,
+    "clearRate": 0.03
+   }
+  }
+ }
+}
