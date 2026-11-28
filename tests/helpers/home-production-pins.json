@@ -1,9 +1,14 @@
 {
   "index.html": {
     "before": "c9432f2b62b2c95a36338f8166627abe8feb97d3",
-    "after": "f079e6c6c02e6286efdba568a6bc408c914942b3",
+    "after": "993943b324c31f330d77be1a25a85a74b941f1bd",
     "size": 73100,
     "reverse": [
+      [
+        70755,
+        70805,
+        "  <script src=\"games.js?v=c6f078be7c4b\"></script>\n"
+      ],
       [
         72427,
         72478,
@@ -48,9 +53,19 @@
   },
   "tools/pages/allowlist.json": {
     "before": "f1b1fb9cf575c6305fac17fb25dcf80a59d13c31",
-    "after": "1aba774c3647060382c31cf49d3b6b9884d89188",
+    "after": "4f352ed80b9920e7ed97c8c66ab7e1af446581e5",
     "size": 296644,
     "reverse": [
+      [
+        267630,
+        267716,
+        "    \"index.html\": \"f703a7e17bf523307c9a6e0be76e7e2b8656eed9f968a41c69c9a3a0376bd262\",\n"
+      ],
+      [
+        265226,
+        265310,
+        "    \"games.js\": \"c6f078be7c4b28f6adee8d3082fed361365b84e57bc2a5b2d921c56ac47e0301\",\n"
+      ],
       [
         281809,
         281894,
@@ -144,9 +159,294 @@
   },
   "games.js": {
     "before": "a93847e0d6ce254074270b01583caad8c54f1928",
-    "after": "fd67d802864f8848e56a914b2ec6d5d2fc7816a3",
-    "size": 1026001,
+    "after": "38dff9888456f200e741a2fe7f8b809a423fd396",
+    "size": 1034630,
     "reverse": [
+      [
+        1022925,
+        1023169,
+        "          const score = clamp(Math.round(6 + perfect * 9 + good * 3.6 - bad * 2), 5, 100);\n"
+      ],
+      [
+        991924,
+        992096,
+        "          const score = clamp(Math.round(10 + me * 12 + (won ? 22 : 0) - cpu * 2 + Math.min(8, bestRally)), 5, 100);\n"
+      ],
+      [
+        979223,
+        979440,
+        "          const score = clamp(Math.round(won ? 84 + Math.min(16, remainS / 6) - shuffles * 2 : 6 + pairs / totalPairs * 70 - shuffles * 2), 5, 100);\n"
+      ],
+      [
+        951696,
+        951949,
+        "          const score = clamp(Math.round(solved ? 100 - Math.max(0, guesses.length - 3) * 9 : Math.min(25, 10 + bestTry)), 5, 100);\n"
+      ],
+      [
+        943562,
+        943728,
+        "        const DURATION_MS = mgDuration(50000);\n"
+      ],
+      [
+        942580,
+        942748,
+        "          const score = clamp(Math.round(won ? 90 + Math.min(10, remainS / 12) : 8 + n * 1.6), 5, 100);\n"
+      ],
+      [
+        930835,
+        931069,
+        "        const DURATION_MS = mgDuration(90000);\n"
+      ],
+      [
+        906350,
+        906706,
+        "          const score = clamp(Math.round(eatenRatio * 95 + eatenGhosts * 5 + (cleared ? 18 : 0) + Math.max(0, lives) * 3), 5, 100);\n"
+      ],
+      [
+        883769,
+        883908,
+        "            const pSoft = Math.round(clamp((3.2 - soft) / 2.6, 0, 1) * 35);\n"
+      ],
+      [
+        874607,
+        874883,
+        "        function loop(now) { if (!running) return; if (turn === 1 && aiAt && now >= aiAt) { aiAt = 0; aiMove(); if (!running) return; } render(now); if (now - startTime > TIME_LIMIT_MS) { pits = finishBoard(pits); end(true); return; } rafId = requestAnimationFrame(loop); }\n"
+      ],
+      [
+        867085,
+        867305,
+        "        mgTimerHud(container, TIME_LIMIT_MS, () => TIME_LIMIT_MS - (performance.now() - startTime), () => running);\n"
+      ],
+      [
+        841527,
+        842076,
+        "          let acc = -slope * G * 0.45; if (pump) acc += -Math.sign(s) * (down ? 4.6 : HP_PUMP_UP); acc -= v * 0.09; v += acc * dt; s += v * dt * 0.42;\n"
+      ],
+      [
+        840383,
+        840613,
+        "          if (air) { air.vy -= G * dt; air.x += air.vx * dt; air.y += air.vy * dt; air.rot += (air.spinTarget - air.rot) * Math.min(1, dt * 6); air.t += dt;\n"
+      ],
+      [
+        839664,
+        839743,
+        ""
+      ],
+      [
+        838605,
+        838930,
+        "          <div class=\"mg-hint\" id=\"hpHint\">下り坂で「ポンプ」を長押しすると加速。勢いがつくと、ふちから飛び出す。空中で「トリック」をおすと1回転（何度もおせる）。着地までに回りきらないと転倒!</div>\n"
+      ],
+      [
+        837759,
+        838012,
+        ""
+      ],
+      [
+        835612,
+        836140,
+        "          const el = (performance.now() - startTime) / 1000; const eff = clamp(1 - Math.max(0, tries - PAIRS) / (PAIRS * 1.6), 0, 1);\n          const score = matched >= PAIRS ? clamp(Math.round(42 + eff * 50 + Math.max(0, 60 - el) * 0.13), 42, 100) : clamp(Math.round(10 + matched * 7), 10, 45);\n"
+      ],
+      [
+        827993,
+        828319,
+        "        function loop(now) { if (!running) return; if (turn === AI && aiAt && now >= aiAt && !chain) { aiAt = 0; aiMove(); if (!running) return; } render(now); if (now - startTime > TIME_LIMIT_MS) { end(count(ME) > count(AI) ? ME : count(ME) < count(AI) ? AI : 0, 'timeUp'); return; } rafId = requestAnimationFrame(loop); }\n"
+      ],
+      [
+        819999,
+        820220,
+        "        mgTimerHud(container, TIME_LIMIT_MS, () => TIME_LIMIT_MS - (performance.now() - startTime), () => running);\n"
+      ],
+      [
+        817591,
+        817725,
+        "          const score = clamp(Math.round(10 + avg * 0.9), 10, 100);\n"
+      ],
+      [
+        784326,
+        784517,
+        "        const STONES = stoneCount || 3, TIME_LIMIT_MS = mgDuration(45000);\n"
+      ],
+      [
+        738707,
+        738959,
+        "          const final = clamp(Math.round(10 + score / 2 + depthMax * 0.8 + (reason ? 0 : hp * 2)), 10, 100);\n"
+      ],
+      [
+        700707,
+        700988,
+        ""
+      ],
+      [
+        643211,
+        643354,
+        "          const decided = me > ai ? clamp(70 + (me - ai) * 8, 70, 100) : me === ai ? 50 : clamp(15 + me * 9, 15, 48);\n"
+      ],
+      [
+        632457,
+        632612,
+        "          const score = cleared ? clamp(78 + lives * 7, 78, 100) : clamp(Math.round(12 + killed * 9), 12, 70);\n"
+      ],
+      [
+        619260,
+        620095,
+        "          const score = mgVersusOutcome({ result: w === ME ? 'win' : w === AI ? 'lose' : 'draw', by: timeUp ? 'timeout' : 'decisive', score: decided });\n          say(w === ME ? '🏆 5つならんだ!かち!' : w === AI ? 'まけ…あいてが5つならべた' : timeUp ? '時間切れ。勝負つかず' : '盤がうまって引き分け', 2600);\n"
+      ],
+      [
+        618635,
+        618889,
+        "        function loop(now) { if (!running) return; if (turn === AI && aiAt && now >= aiAt) { aiAt = 0; aiMove(); if (!running) return; } render(now); if (now - startTime > TIME_LIMIT_MS) { end(0, true); return; } rafId = requestAnimationFrame(loop); }\n"
+      ],
+      [
+        612561,
+        612782,
+        "        mgTimerHud(container, TIME_LIMIT_MS, () => TIME_LIMIT_MS - (performance.now() - startTime), () => running);\n"
+      ],
+      [
+        593602,
+        593891,
+        "          o2 -= dt * lerp(4.5, 6.5, difficulty); if (o2 <= 0) { o2 = 0; finish('酸素がなくなった…'); return; }\n"
+      ],
+      [
+        588556,
+        588700,
+        "          const decided = me > ai ? clamp(70 + (me - ai) * 7, 70, 100) : me === ai ? 50 : clamp(15 + me * 8, 15, 48);\n"
+      ],
+      [
+        554442,
+        554661,
+        "        const COLS = 9, ROWS = 12, DURATION_MS = mgDuration(28000), GOAL_N = 3;\n"
+      ],
+      [
+        553378,
+        553591,
+        "          const tierScore = best >= 1024 ? 100 : best >= 512 ? 86 : best >= 256 ? 70 : best >= 128 ? 54 : best >= 64 ? 40 : best >= 32 ? 28 : 16;\n"
+      ],
+      [
+        544256,
+        545145,
+        "          const score = mgVersusOutcome({ result: w === ME ? 'win' : w === AI ? 'lose' : 'draw', by: timeUp ? 'timeout' : 'decisive', score: decided });\n          say(w === ME ? '🏆 4つそろった!かち!' : w === AI ? 'まけ…あいてがそろえた' : timeUp ? '時間切れ。勝負つかず' : '盤がうまって引き分け', 2600);\n"
+      ],
+      [
+        543631,
+        543885,
+        "        function loop(now) { if (!running) return; if (turn === AI && aiAt && now >= aiAt) { aiAt = 0; aiMove(); if (!running) return; } render(now); if (now - startTime > TIME_LIMIT_MS) { end(0, true); return; } rafId = requestAnimationFrame(loop); }\n"
+      ],
+      [
+        536773,
+        536994,
+        "        mgTimerHud(container, TIME_LIMIT_MS, () => TIME_LIMIT_MS - (performance.now() - startTime), () => running);\n"
+      ],
+      [
+        534907,
+        535100,
+        "          const score = cleared ? clamp(75 + (SHOTS - shots) * 6, 75, 100) : clamp(Math.round(10 + killed * 11), 10, 70);\n"
+      ],
+      [
+        474562,
+        474805,
+        "          const score = win ? clamp(Math.round(72 + Math.max(0, 60 - el) * 0.4), 72, 100) : clamp(Math.round(10 + (own / rest) * 45), 10, 55);\n"
+      ],
+      [
+        462443,
+        462697,
+        "        function loop(now) { if (!running) return; if (turn === AI && aiAt && now >= aiAt) { aiAt = 0; aiMove(); if (!running) return; } render(now); if (now - startTime > TIME_LIMIT_MS) { end(0, true); return; } rafId = requestAnimationFrame(loop); }\n"
+      ],
+      [
+        451313,
+        451534,
+        "        mgTimerHud(container, TIME_LIMIT_MS, () => TIME_LIMIT_MS - (performance.now() - startTime), () => running);\n"
+      ],
+      [
+        435775,
+        436007,
+        "        function loop(now) { if (!running) return; if (turn === AI && aiAt && now >= aiAt) { aiAt = 0; aiMove(); } render(now); if (now - startTime > TIME_LIMIT_MS) { finish(true); return; } rafId = requestAnimationFrame(loop); }\n"
+      ],
+      [
+        430087,
+        430308,
+        "        mgTimerHud(container, TIME_LIMIT_MS, () => TIME_LIMIT_MS - (performance.now() - startTime), () => running);\n"
+      ],
+      [
+        385376,
+        385607,
+        "          if (!boss && elapsed >= BOSS_AT && !bossDead) { boss = { x: W + 40, y: H / 2, hp: 70 + difficulty * 40, maxHp: 70 + difficulty * 40, t: 0, fire: 0, r: 26 }; say('⚠️ボス出現!', 1600); }\n"
+      ],
+      [
+        380007,
+        380262,
+        "        const DURATION_MS = mgDuration(27000), BOSS_AT = 15000;\n"
+      ],
+      [
+        370189,
+        370792,
+        "        for (let i = 0; i < 6; i++) { let dir = Math.random() < 0.5 ? -1 : 1; if (dir === gpPrev && gpRun >= 2) dir = -dir; gpRun = dir === gpPrev ? gpRun + 1 : 1; gpPrev = dir; road.addRoad(10, 14 + Math.floor(Math.random() * 8), 10, dir * (2 + Math.random() * 2), (Math.random() - 0.5) * 50); if (i % 2) road.addRoad(6, 8, 6, 0, (Math.random() - 0.5) * 30); }\n"
+      ],
+      [
+        325970,
+        326155,
+        "          const score = clamp(Math.round((win ? 50 : 16) + me.hp * 0.3 + Math.min(12, hits) - Math.min(15, taken)), 10, 100);\n"
+      ],
+      [
+        226307,
+        226603,
+        "          if (win) { score = clamp(100 - falls * 12 - Math.max(0, elapsed - 18) * 1.5, 55, 100); say('🎉ゴール!' + (falls === 0 ? 'ノーミス!' : '')); }\n"
+      ],
+      [
+        202632,
+        203136,
+        "          if (win) { score = clamp(62 + remRatio * 34 - hits * 5 - Math.min(12, offroadTime * 2), 55, 100); say('🏁ゴール!' + (hits === 0 ? 'ノーミス!' : 'ぶつかった回数：' + hits)); }\n"
+      ],
+      [
+        179453,
+        179740,
+        "          if (result === 'escaped') { score = clamp(100 - Math.max(0, elapsedSec - 25) * 1.4, 70, 100); say('🚪脱出成功!'); }\n"
+      ],
+      [
+        170723,
+        170989,
+        ""
+      ],
+      [
+        170639,
+        170639,
+        "        const COLS = 11, ROWS = 9;\n        const map = generateMaze(COLS, ROWS, 5);\n"
+      ],
+      [
+        115396,
+        115650,
+        "          if (escaped) { score = clamp(52 + taken * 12 + remRatio * 16 - trapHits * 4, 40, 100); say(taken >= 3 ? '🏆完全脱出!' : '🚪脱出!宝箱' + taken + '/3'); }\n"
+      ],
+      [
+        108648,
+        108950,
+        ""
+      ],
+      [
+        108564,
+        108564,
+        "        const COLS = 11, ROWS = 9;\n        const map = generateMaze(COLS, ROWS, 3);\n"
+      ],
+      [
+        80904,
+        81154,
+        "          const final = all ? clamp(85 + lives * 5, 85, 100) : clamp(Math.round(10 + score / 7 + cleared * 12), 10, 80);\n"
+      ],
+      [
+        58560,
+        58697,
+        "          const score = clamp(Math.round(14 + pinsDown * 2.9 + strikes * 12 + spares * 5), 12, 100);\n"
+      ],
+      [
+        11738,
+        13518,
+        ""
+      ],
+      [
+        6474,
+        6797,
+        "  const MG_TURN_BASED = new Set(['reversi-6', 'animal-shogi', 'connect-four', 'gomoku-9', 'checkers-6', 'mancala-kalah', 'curling-ice', 'curling-winter', 'sugoroku-race', 'solitaire-klondike', 'hit-blow', 'slide-puzzle', 'sudoku-mini', 'picross-5', 'push-puzzle', 'roguelike-dungeon']);\n"
+      ],
       [
         1014652,
         1014785,

@@ -1,0 +1,729 @@
+<!doctype html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>ミニゲーム Phase 4</title>
+<link rel="stylesheet" href="style.css">
+<style>
+/* Layout: 説明 → 一覧表 → ゲームと版の切りかえ+式の比較 → スマホ枠の中で本物のゲーム → 結果の記録表。1カラム、最大 760px */
+:root {
+  --p-bg: #f3f6f4; --p-panel: #ffffff; --p-ink: #1f2a27; --p-muted: #5b6a64; --p-line: #d7e1dc;
+  --p-before: #b4472f; --p-before-bg: #fbe9e4; --p-after: #23795d; --p-after-bg: #e2f3ea; --p-accent: #2f6f8f;
+  --p-down: #b4472f; --p-same: #5b6a64; --p-up: #23795d;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --p-bg: #131917; --p-panel: #1c2421; --p-ink: #e4ede9; --p-muted: #9db0a8; --p-line: #2e3a35;
+  --p-before: #ff9a82; --p-before-bg: #3a201a; --p-after: #79d6ae; --p-after-bg: #173126; --p-accent: #8cc8e6;
+  --p-down: #ff9a82; --p-same: #9db0a8; --p-up: #79d6ae; color-scheme: dark; } }
+:root[data-theme="dark"] {
+  --p-bg: #131917; --p-panel: #1c2421; --p-ink: #e4ede9; --p-muted: #9db0a8; --p-line: #2e3a35;
+  --p-before: #ff9a82; --p-before-bg: #3a201a; --p-after: #79d6ae; --p-after-bg: #173126; --p-accent: #8cc8e6;
+  --p-down: #ff9a82; --p-same: #9db0a8; --p-up: #79d6ae; color-scheme: dark; }
+html, body { background: var(--p-bg) !important; color: var(--p-ink); }
+body { font: 15px/1.7 "Hiragino Sans", "Noto Sans JP", system-ui, sans-serif; margin: 0; display: block !important; min-height: 0 !important; height: auto !important; overflow: auto !important; }
+.p-wrap { max-width: 760px; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); padding-block: 20px 48px; display: grid; gap: 16px; }
+.p-wrap h1 { font-size: 1.35rem; margin: 0; text-wrap: balance; line-height: 1.35; }
+.p-wrap h2 { font-size: 1.02rem; margin: 0; }
+.p-wrap h3 { font-size: .95rem; margin: 0; }
+.p-lead { color: var(--p-muted); margin: 4px 0 0; }
+.p-panel { background: var(--p-panel); border: 1px solid var(--p-line); border-radius: 14px; padding: 14px; display: grid; gap: 10px; min-width: 0; }
+.p-panel p, .p-panel ul { margin: 0; }
+.p-panel ul { padding-left: 1.2em; }
+.p-seg { display: flex; flex-wrap: wrap; gap: 6px; }
+.p-seg button, .p-btn { font: inherit; font-size: .88rem; border: 1px solid var(--p-line); background: var(--p-panel); color: var(--p-ink); border-radius: 999px; padding: 6px 12px; cursor: pointer; min-height: 40px; }
+.p-seg button[aria-pressed="true"] { background: var(--p-accent); border-color: var(--p-accent); color: var(--p-panel); font-weight: 700; }
+.p-seg button.v-before[aria-pressed="true"] { background: var(--p-before); border-color: var(--p-before); }
+.p-seg button.v-after[aria-pressed="true"] { background: var(--p-after); border-color: var(--p-after); }
+.p-btn.primary { background: var(--p-ink); color: var(--p-panel); border-color: var(--p-ink); font-weight: 700; }
+:focus-visible { outline: 2px solid var(--p-accent); outline-offset: 2px; }
+.p-tag { font-size: .72rem; font-weight: 700; border-radius: 999px; padding: 1px 9px; white-space: nowrap; }
+.p-tag.before { color: var(--p-before); background: var(--p-before-bg); } .p-tag.after { color: var(--p-after); background: var(--p-after-bg); }
+.p-phone { width: 100%; max-width: 390px; height: 640px; margin: 0 auto; border-radius: 22px; overflow: hidden; border: 1px solid var(--p-line); background: #fffaf2; display: flex; flex-direction: column; position: relative; }
+.p-phone .minigame-overlay { flex: 1; min-height: 0; padding: 8px; }
+.p-phone-empty { margin: auto; color: #6b6255; text-align: center; padding: 24px; font-size: .9rem; }
+.p-status { font-size: .88rem; min-height: 1.6em; font-weight: 700; }
+.p-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+table.p-t { border-collapse: collapse; width: 100%; font-size: .8rem; font-variant-numeric: tabular-nums; }
+table.p-t th, table.p-t td { border-top: 1px solid var(--p-line); padding: 6px 8px; text-align: left; vertical-align: top; }
+table.p-t th { color: var(--p-muted); font-weight: 600; white-space: nowrap; }
+table.p-t.wide { min-width: 640px; }
+.p-note { font-size: .8rem; color: var(--p-muted); }
+.p-row { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.p-formula { display: grid; gap: 6px; }
+.p-formula div { border-left: 4px solid var(--p-line); padding: 4px 10px; font-size: .86rem; }
+.p-formula .b { border-color: var(--p-before); } .p-formula .a { border-color: var(--p-after); }
+.d-down { color: var(--p-down); font-weight: 700; } .d-same { color: var(--p-same); } .d-up { color: var(--p-up); font-weight: 700; }
+details summary { cursor: pointer; font-weight: 700; }
+.p-pt td.num { text-align: right; white-space: nowrap; }
+.p-pt td.lbl { white-space: nowrap; }
+</style>
+<div class="p-wrap">
+  <header>
+    <div class="p-note">なおとっち・ミニゲーム Phase 4(2026-11-28)</div>
+    <h1>上手に遊べば100点にとどき、はじめてでも達成感がある</h1>
+    <p class="p-lead">100点にとどかなかった17本、どう遊んでも100点だったボクセル、時間が足りなかったゲーム、「みじかめ」で不利なゲームを見直しました。本物の games.js を2つ(変更前 = いまの main、変更後 = このブランチ)読みこんで、遊んで比べられます。</p>
+  </header>
+
+  <section class="p-panel" aria-label="きまり">
+    <h2>変更のきまり</h2>
+    <ul>
+      <li>上手な完全クリアで100点にとどくように、式の上の部分だけをなおす。ふつうのクリアや途中までの点は下げない。</li>
+      <li>難しいゲーム・運の強いゲームも個性として残す。問題のないゲームは変えない。</li>
+      <li>参加度判定・C案(しっぱいしても下げない)・コインの帯・へんしんメーターは変えていません。</li>
+      <li>「みじかめ」設定では、中身を時間にあわせる。1打の重さがかわらないゲームは短くしない。</li>
+    </ul>
+  </section>
+
+  <section class="p-panel" aria-label="一覧">
+    <h2>変更したゲームの一覧(めやす)</h2>
+    <div class="p-scroll"><table class="p-t wide" id="summary"><thead><tr><th>ゲーム</th><th>変更前</th><th>変更後</th><th>例(変更前 → 変更後)</th><th>根拠</th></tr></thead><tbody></tbody></table></div>
+    <p class="p-note">70点以上=大成功(60コイン)、30〜69点=ふつう(30コイン)、29点以下=しっぱい。根拠: 計算=式に値を入れた計算、自動=ハーネス上の自動プレイ、実ブラウザ=Chromium・WebKit、推定=操作時間の見積もり。人間の実機プレイではありません。</p>
+  </section>
+
+  <section class="p-panel" aria-label="ゲーム">
+    <h2>遊んで比べる</h2>
+    <div class="p-seg" id="gameSeg" role="group" aria-label="ゲーム"></div>
+    <div class="p-seg" id="verSeg" role="group" aria-label="版">
+      <button type="button" class="v-before" data-ver="before" aria-pressed="false">変更前</button>
+      <button type="button" class="v-after" data-ver="after" aria-pressed="true">変更後</button>
+    </div>
+    <div class="p-seg" id="lenSeg" role="group" aria-label="ながさ">
+      <button type="button" data-len="normal" aria-pressed="true">ふつうの長さ</button>
+      <button type="button" data-len="short" aria-pressed="false">みじかめ(×0.7)</button>
+    </div>
+    <div id="gameInfo" class="p-formula"></div>
+    <div class="p-row">
+      <button type="button" class="p-btn primary" id="playBtn">▶ あそぶ</button>
+      <button type="button" class="p-btn" id="stopBtn">やめる</button>
+    </div>
+    <div class="p-status" id="status" role="status"></div>
+  </section>
+
+  <div class="p-phone" id="phone"><div class="p-phone-empty">ゲームと版をえらんで「あそぶ」を押してください。</div></div>
+
+  <section class="p-panel">
+    <h2>結果の記録(このページを開いている間だけ)</h2>
+    <div class="p-scroll"><table class="p-t" style="min-width:480px"><thead><tr><th>#</th><th>ゲーム</th><th>版</th><th>点</th><th>本体での扱い</th></tr></thead><tbody id="log"><tr><td colspan="5" class="p-note">まだありません</td></tr></tbody></table></div>
+  </section>
+
+  <section class="p-panel">
+    <details><summary>変えなかったもの</summary>
+      <ul style="margin-top:8px">
+        <li><b>つみあげタワー・ダーツ・ドミノ</b>(Phase 3 で初心者の点が下がった): どれも30点以上がとれ、ゆれ・ふるえが目で見えるので上達できる。</li>
+        <li><b>リングフライト</b>: 6こくぐると50点台。<b>ドットイーター(ふつう)</b>: 約85%+おばけで100にとどく。<b>卓球・ライツアウト</b>: みじかめでも上手なら100。</li>
+        <li><b>ブラックジャック・ローグライク・フロッガー</b>のへんしんメーター効率: ご指示どおりそのまま。</li>
+        <li><b>ソリティア・ピクロス・パイプ</b>: 実装の不具合なし(ソリティアの解けない配りはゲームの性質。パイプは念のため予備の盤を追加)。</li>
+      </ul>
+    </details>
+  </section>
+</div>
+
+<script src="helpers.js"></script>
+<script src="games-before.js"></script>
+<script src="games-after.js"></script>
+<script>
+(() => {
+  'use strict';
+  const $ = (id) => document.getElementById(id);
+  const GAMES = [
+ {
+  "id": "beach-volley",
+  "name": "ビーチバレー",
+  "before": "10+得点×12+(勝ち22)−失点×2+ラリー(8まで)。4-0でも88",
+  "after": "勝ったとき 点差×3 を足す。4-0・ラリー8で100",
+  "levels": [
+   [
+    "4-3で勝ち",
+    "79",
+    "82"
+   ],
+   [
+    "4-0で勝ち",
+    "88",
+    "100"
+   ]
+  ],
+  "basis": "計算"
+ },
+ {
+  "id": "race-3d",
+  "name": "3Dレース",
+  "before": "ゴール: 62+のこり時間の割合×34。0秒でゴールしないと100にならない(上限 約85)",
+  "after": "最高速の1.15倍の時間でゴールすれば時間ボーナス満点",
+  "levels": [
+   [
+    "制限の3/4でゴール",
+    "71",
+    "約80"
+   ],
+   [
+    "ほぼ最速",
+    "約85",
+    "100"
+   ]
+  ],
+  "basis": "計算"
+ },
+ {
+  "id": "street-fight",
+  "name": "かくとうバトル",
+  "before": "勝ち50+のこりHP×0.3+ヒット(12まで)−被弾。上限92",
+  "after": "勝ったときは HP×0.38。ノーダメージ・12ヒットで100",
+  "levels": [
+   [
+    "HP50で勝ち",
+    "67",
+    "71"
+   ],
+   [
+    "ノーダメージ勝ち",
+    "92",
+    "100"
+   ]
+  ],
+  "basis": "計算"
+ },
+ {
+  "id": "plane-landing",
+  "name": "ひこうき着陸",
+  "before": "ふわっと点=(3.2−沈下)/2.6。沈下は1.2未満にならず、満点がとれない(上限92)",
+  "after": "沈下1.2m/s(いちばんふわっと)で満点",
+  "levels": [
+   [
+    "沈下2.2の着陸(1回)",
+    "13点ぶん",
+    "18点ぶん"
+   ],
+   [
+    "2回とも完ぺき",
+    "92",
+    "100"
+   ]
+  ],
+  "basis": "計算"
+ },
+ {
+  "id": "tennis-rally",
+  "name": "テニス",
+  "before": "勝ち70+点差×8。3-0でも94",
+  "after": "点差×10。3-0で100",
+  "levels": [
+   [
+    "3-2で勝ち",
+    "78",
+    "80"
+   ],
+   [
+    "3-0",
+    "94",
+    "100"
+   ]
+  ],
+  "basis": "計算"
+ },
+ {
+  "id": "bowling-3d",
+  "name": "ボウリング",
+  "before": "14+倒したピン×2.9+ストライク×12+スペア×5。2ストライクで96",
+  "after": "ストライク×14。2ストライクで100",
+  "levels": [
+   [
+    "ストライク+スペア",
+    "89",
+    "91"
+   ],
+   [
+    "2ストライク",
+    "96",
+    "100"
+   ]
+  ],
+  "basis": "計算"
+ },
+ {
+  "id": "minesweeper-8",
+  "name": "マインスイーパー",
+  "before": "勝ち72+(60−経過秒)×0.4。0秒でも96",
+  "after": "のこり時間が制限の6割以上で満点(みじかめでも同じきびしさ)",
+  "levels": [
+   [
+    "40秒でクリア",
+    "80",
+    "88"
+   ],
+   [
+    "20秒でクリア",
+    "88",
+    "100"
+   ]
+  ],
+  "basis": "計算"
+ },
+ {
+  "id": "shanghai-tiles",
+  "name": "上海",
+  "before": "84+のこり秒/6(16まで)。制限75秒より長い96秒が必要",
+  "after": "のこり4割で満点",
+  "levels": [
+   [
+    "のこり10秒",
+    "86",
+    "89"
+   ],
+   [
+    "のこり30秒",
+    "89",
+    "100"
+   ]
+  ],
+  "basis": "計算"
+ },
+ {
+  "id": "solitaire-klondike",
+  "name": "ソリティア",
+  "before": "90秒。完成で90+のこり秒/12(制限より長い120秒が必要)",
+  "after": "150秒に。のこり3割で満点。解ける配りは約7割(ゲームの性質)",
+  "levels": [
+   [
+    "完成(のこり30秒)",
+    "92",
+    "95"
+   ],
+   [
+    "途中まで(26枚)",
+    "50",
+    "50"
+   ]
+  ],
+  "basis": "計算"
+ },
+ {
+  "id": "air-hockey",
+  "name": "エアホッケー",
+  "before": "勝ち70+点差×7。4-0で98",
+  "after": "点差×7.5。4-0で100",
+  "levels": [
+   [
+    "4-2",
+    "84",
+    "85"
+   ],
+   [
+    "4-0",
+    "98",
+    "100"
+   ]
+  ],
+  "basis": "計算"
+ },
+ {
+  "id": "tank-battle",
+  "name": "タンクバトル",
+  "before": "全滅78+残機×7。ノーダメージでも99",
+  "after": "79+残機×7",
+  "levels": [
+   [
+    "1機へって全滅",
+    "92",
+    "93"
+   ],
+   [
+    "ノーダメージ",
+    "99",
+    "100"
+   ]
+  ],
+  "basis": "計算"
+ },
+ {
+  "id": "catapult-castle",
+  "name": "カタパルト",
+  "before": "全滅75+のこり弾×6。最少2発でも93〜99",
+  "after": "2発で全滅=100、弾がのこるほど75→100",
+  "levels": [
+   [
+    "弾をぜんぶ使って全滅",
+    "75",
+    "75"
+   ],
+   [
+    "2発で全滅",
+    "93〜99",
+    "100"
+   ]
+  ],
+  "basis": "計算"
+ },
+ {
+  "id": "memory-cards",
+  "name": "しんけいすいじゃく",
+  "before": "42+ていねいさ×50+(60−経過秒)×0.13。1回もまちがえない運が必要",
+  "after": "2回のまちがいまで満点あつかい。時間は制限に対するのこり",
+  "levels": [
+   [
+    "16回・30秒",
+    "65",
+    "74"
+   ],
+   [
+    "10回・20秒",
+    "90",
+    "100"
+   ]
+  ],
+  "basis": "計算"
+ },
+ {
+  "id": "breakout-classic",
+  "name": "ブロックくずし",
+  "before": "3面ぜんぶで85〜100、それ以外は80まで。30秒で3面(120回以上)は不可能",
+  "after": "10+点/5+クリア面×15+(クリアしたら残機×5)。ステージ1をノーミスでクリア=100",
+  "levels": [
+   [
+    "ブロック16こ",
+    "33",
+    "42"
+   ],
+   [
+    "ステージ1クリア(残機1)",
+    "68",
+    "94"
+   ]
+  ],
+  "basis": "計算・推定"
+ },
+ {
+  "id": "fp-dungeon",
+  "name": "3Dダンジョン",
+  "before": "脱出52+宝箱×12+のこり割合×16。のこり75%が必要で上限90〜95",
+  "after": "のこり4割で時間ボーナス満点",
+  "levels": [
+   [
+    "宝箱1つで脱出(のこり3割)",
+    "69",
+    "76"
+   ],
+   [
+    "宝箱3つ・のこり4割",
+    "94",
+    "100"
+   ]
+  ],
+  "basis": "計算"
+ },
+ {
+  "id": "puzzle-2048",
+  "name": "2048",
+  "before": "128=54・256=70・512=86・1024=100。45秒では128が上手な人の目安",
+  "after": "128=70(大成功)・256=88・512=100。64以下はそのまま(でたらめ対策)",
+  "levels": [
+   [
+    "128まで",
+    "56",
+    "72"
+   ],
+   [
+    "でたらめ(64)",
+    "40",
+    "40"
+   ]
+  ],
+  "basis": "計算"
+ },
+ {
+  "id": "line-trace",
+  "name": "せんなぞり",
+  "before": "10+平均×0.9。平均99.5点(0.1pxのずれ)が必要",
+  "after": "10+平均。平均90点のなぞりで100",
+  "levels": [
+   [
+    "平均60",
+    "64",
+    "70"
+   ],
+   [
+    "平均90",
+    "91",
+    "100"
+   ]
+  ],
+  "basis": "計算"
+ },
+ {
+  "id": "voxel-mine",
+  "name": "ボクセルマイニング",
+  "before": "10+鉱石/2+深さ×0.8+HP×2。まっすぐ掘るだけで6回中5回100",
+  "after": "10+鉱石/4+深さ×0.3+HP×3。鉱石の集め方とマグマをよける分で点がかわる",
+  "levels": [
+   [
+    "まっすぐ掘る",
+    "86〜100",
+    "45〜100"
+   ],
+   [
+    "鉱石をねらう",
+    "78〜100",
+    "70〜100"
+   ]
+  ],
+  "basis": "自動"
+ },
+ {
+  "id": "halfpipe-skate",
+  "name": "ハーフパイプ",
+  "before": "くだりの約0.45秒にポンプを押せないとエアが出ず10点。おしっぱなし44",
+  "after": "くだりの間ポンプボタンが光る。くだりのポンプ 4.6→5.0",
+  "levels": [
+   [
+    "光を見てから押す(0.25秒おくれ)",
+    "10",
+    "74"
+   ],
+   [
+    "おしっぱなし",
+    "44",
+    "57"
+   ],
+   [
+    "回転数をかえる",
+    "100",
+    "100"
+   ]
+  ],
+  "basis": "自動・実ブラウザ"
+ },
+ {
+  "id": "hit-blow",
+  "name": "ヒット&ブロー",
+  "before": "50秒。100点は3回以内(いちばんよい当て方でも16%=運)",
+  "after": "75秒。100点は4回以内(69%)、5回91・6回82",
+  "levels": [
+   [
+    "5回で正解",
+    "82",
+    "91"
+   ],
+   [
+    "4回で正解",
+    "91",
+    "100"
+   ]
+  ],
+  "basis": "計算"
+ },
+ {
+  "id": "curling-winter",
+  "name": "ふゆのカーリング大会",
+  "before": "4投ずつなのに45秒(1組 約11秒)",
+  "after": "1投15秒ぶん=60秒",
+  "levels": [
+   [
+    "ふつうに4投",
+    "時間切れになりやすい",
+    "最後まで投げられる"
+   ]
+  ],
+  "basis": "推定"
+ },
+ {
+  "id": "connect-four",
+  "name": "コネクトフォー",
+  "before": "時間切れは盤を見ずに一律40。あいての番の時間も60秒に入る",
+  "after": "時間切れは盤の優劣で判定(優勢55〜69/互角40/劣勢34以下)。あいての番は数えない",
+  "levels": [
+   [
+    "リーチを多く作って時間切れ",
+    "40",
+    "55〜69"
+   ],
+   [
+    "互角",
+    "40",
+    "40"
+   ]
+  ],
+  "basis": "コード"
+ },
+ {
+  "id": "gomoku-9",
+  "name": "五目ならべ",
+  "before": "時間切れは一律40。あいての番の時間も60秒に入る",
+  "after": "時間切れは盤の優劣で判定。あいての番は数えない",
+  "levels": [
+   [
+    "優勢で時間切れ",
+    "40",
+    "55〜69"
+   ]
+  ],
+  "basis": "コード"
+ },
+ {
+  "id": "mancala-kalah",
+  "name": "マンカラ",
+  "before": "60秒にあいての番(0.7秒+種まき)も入り、1局が終わりにくい",
+  "after": "あいての番は数えない(オセロ・どうぶつしょうぎ・チェッカーも同じ)",
+  "levels": [
+   [
+    "ふつうに1局",
+    "時間切れが多い",
+    "終わりやすい"
+   ]
+  ],
+  "basis": "推定"
+ },
+ {
+  "id": "grand-prix-3d",
+  "name": "グランプリ(みじかめ)",
+  "before": "みじかめ21秒では2周できず完走不可(上限75)",
+  "after": "みじかめはカーブ6→4こ(約17秒で2周)",
+  "levels": [
+   [
+    "みじかめで1位",
+    "75",
+    "100"
+   ]
+  ],
+  "basis": "自動"
+ },
+ {
+  "id": "sky-shooter",
+  "name": "スカイシューター(みじかめ)",
+  "before": "ボスが15秒に出て、みじかめではのこり3.9秒(上限76)",
+  "after": "ボスは制限の5割6分に出る。体力も時間にあわせる",
+  "levels": [
+   [
+    "みじかめでボス撃破",
+    "ほぼ不可",
+    "できる"
+   ]
+  ],
+  "basis": "推定"
+ },
+ {
+  "id": "haunted-house-3d",
+  "name": "おばけやしき(みじかめ)",
+  "before": "11×9の迷路。最短17.7秒/制限約20秒",
+  "after": "みじかめは11×7(最短約13.8秒)",
+  "levels": [
+   [
+    "みじかめで脱出",
+    "まれ",
+    "できる"
+   ]
+  ],
+  "basis": "推定"
+ },
+ {
+  "id": "dot-eater",
+  "name": "ドットイーター(みじかめ)",
+  "before": "28秒基準の95点ぶんを19.6秒で",
+  "after": "みじかめは時間の割合ぶんのドットで満点あつかい",
+  "levels": [
+   [
+    "みじかめで上手",
+    "約70",
+    "約95"
+   ]
+  ],
+  "basis": "推定"
+ },
+ {
+  "id": "billiards-6",
+  "name": "ビリヤード(みじかめ)",
+  "before": "みじかめ28秒では6球入らない",
+  "after": "1打の重さがかわらないので、みじかめでも短くしない(40秒)",
+  "levels": [
+   [
+    "みじかめで6球",
+    "ほぼ不可",
+    "ふつうと同じ"
+   ]
+  ],
+  "basis": "コード"
+ },
+ {
+  "id": "frogger-road",
+  "name": "フロッガー(みじかめ)",
+  "before": "みじかめでも3つゴール",
+  "after": "みじかめは2つゴールでクリア",
+  "levels": [
+   [
+    "みじかめでクリア",
+    "運しだい",
+    "ふつうと同じきびしさ"
+   ]
+  ],
+  "basis": "推定"
+ }
+];
+  const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({'&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;'}[c]));
+  $('summary').querySelector('tbody').innerHTML = GAMES.map((g) => `<tr><th scope="row">${esc(g.name)}</th><td>${esc(g.before)}</td><td>${esc(g.after)}</td><td>${g.levels.map(([l, b, a]) => `<span class="p-note">${esc(l)}</span><br>${esc(b)} → <b class="d-up">${esc(a)}</b>`).join('<br>')}</td><td class="p-note">${esc(g.basis)}</td></tr>`).join('');
+  $('gameSeg').innerHTML = GAMES.map((g, i) => `<button type="button" data-i="${i}" aria-pressed="${i === 0}">${esc(g.name)}</button>`).join('');
+  let gi = 0, ver = 'after', len = 'normal', session = 0, logN = 0;
+  const reg = {};
+  function registry(v) {
+    if (reg[v]) return reg[v];
+    const H = window.P4Helpers;
+    // 変更前の games.js は「みじかめ」を ×0.7(手番の ゲームは そのまま)で、変更後は ビリヤード・ミニゴルフも 手番あつかい(games.js が opts.turn を わたす)
+    const S = {
+      sfx() {}, perfLow: () => false, perfScale: () => 1, foodIconHTML: (_k, e) => e, canvasIllustrations: null, drawProp: () => false,
+      MG_ACTION_START_GRACE_MS: H.MG_ACTION_START_GRACE_MS, MG_SWIPE_MIN: H.MG_SWIPE_MIN, SEASON: {SPRING: 'spring', SUMMER: 'summer', AUTUMN: 'autumn', WINTER: 'winter'},
+      ageDifficulty: () => 0.3, bindHeldButton: H.bindHeldButton, createTouchPad: H.createTouchPad, createPadRow: H.createPadRow, clamp: H.clamp,
+      createMgCanvas: H.createMgCanvas, currentSprite: () => '🐶', generateMaze: H.generateMaze, lerp: H.lerp, mazeBfs: H.mazeBfs,
+      mgDuration: (ms, opts) => Math.round(ms * (len === 'short' && ms >= 20000 && !(opts && opts.turn) ? 0.7 : 1)), mgPointerPos: H.mgPointerPos, minigameEase: () => 0.5,
+    };
+    const r = (v === 'before' ? window.P4InstallBefore : window.P4InstallAfter)(S);
+    const all = new Map(), walk = (x) => { if (!x || typeof x !== 'object') return; if (Array.isArray(x)) return x.forEach(walk); if (x.id && typeof x.start === 'function') { all.set(x.id, x); return; } Object.values(x).forEach(walk); };
+    walk([r.MINIGAMES, r.REGION_MINIGAMES, r.SEASONAL_MINIGAMES]);
+    reg[v] = all;
+    return reg[v];
+  }
+  // 本体の 参加度(script.js mgParticipated)と おなじ 判定
+  function participated(play) {
+    if (play && Number.isFinite(play.maxGap)) return play.acts > 0 && (play.decided === true || play.maxGap <= 30000);
+    if (play && Number.isFinite(play.acts)) { if (!(play.acts > 0)) return false; if (play.achieved === true || !Number.isFinite(play.cover)) return true; return play.cover >= 0.2 && !(play.spans < (play.minSpans || 2)); }
+    return !!play && play.inputs > 0;
+  }
+  const band = (s) => s >= 70 ? '大成功・60コイン' : s >= 30 ? 'ふつう・30コイン' : 'しっぱい・0コイン';
+  function render() {
+    for (const b of document.querySelectorAll('#gameSeg button')) b.setAttribute('aria-pressed', String(+b.dataset.i === gi));
+    for (const b of document.querySelectorAll('#verSeg button')) b.setAttribute('aria-pressed', String(b.dataset.ver === ver));
+    for (const b of document.querySelectorAll('#lenSeg button')) b.setAttribute('aria-pressed', String(b.dataset.len === len));
+    const g = GAMES[gi];
+    $('gameInfo').innerHTML = `<h3>${esc(g.name)}</h3><div class="b"><span class="p-tag before">変更前</span> ${esc(g.before)}</div><div class="a"><span class="p-tag after">変更後</span> ${esc(g.after)}</div>`;
+  }
+  function stop(msg) {
+    session++;
+    if (window.P4Helpers.resetMinigameInput) window.P4Helpers.resetMinigameInput();
+    $('phone').innerHTML = `<div class="p-phone-empty">${msg ?? 'ゲームと版をえらんで「あそぶ」を押してください。'}</div>`;
+  }
+  function addLog(row) {
+    const tb = $('log'); if (!logN) tb.innerHTML = '';
+    logN++;
+    const tr = document.createElement('tr');
+    tr.innerHTML = `<td>${logN}</td><td>${esc(row.name)}${row.len === 'short' ? '(みじかめ)' : ''}</td><td><span class="p-tag ${row.ver}">${row.ver === 'before' ? '変更前' : '変更後'}</span></td><td>${row.score}</td><td>${row.treat}</td>`;
+    tb.prepend(tr);
+  }
+  function play() {
+    stop('');
+    const my = ++session, g = GAMES[gi], v = ver, l = len;
+    $('phone').innerHTML = '<div class="minigame-overlay" id="minigameOverlay"></div>';
+    $('status').textContent = '';
+    const game = registry(v).get(g.id);
+    if (!game) { $('status').textContent = 'このゲームは読みこめませんでした'; return; }
+    game.start($('minigameOverlay'), (score, _msg, detail) => {
+      if (my !== session) return;
+      const s = Math.max(0, Math.min(100, Math.round(score))), treat = participated(detail) ? band(s) : '記録しない(参加なし)';
+      $('status').textContent = `${g.name}(${v === 'before' ? '変更前' : '変更後'}${l === 'short' ? '・みじかめ' : ''}): ${s}点 → ${treat}`;
+      addLog({name: g.name, ver: v, len: l, score: s, treat});
+    });
+  }
+  $('gameSeg').addEventListener('click', (e) => { const b = e.target.closest('button'); if (!b) return; gi = +b.dataset.i; stop(); render(); });
+  $('verSeg').addEventListener('click', (e) => { const b = e.target.closest('button'); if (!b) return; ver = b.dataset.ver; stop(); render(); });
+  $('lenSeg').addEventListener('click', (e) => { const b = e.target.closest('button'); if (!b) return; len = b.dataset.len; stop(); render(); });
+  $('playBtn').addEventListener('click', play);
+  $('stopBtn').addEventListener('click', () => { stop(); $('status').textContent = ''; });
+  window.p4Trial = {select: (id) => { gi = GAMES.findIndex((g) => g.id === id); render(); }, setVer: (v) => { ver = v; render(); }, setLen: (v) => { len = v; render(); }, play, status: () => $('status').textContent};
+  render();
+})();
+</script>

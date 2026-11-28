@@ -75,7 +75,7 @@
   // 時間ぎれが ふえるだけ なので、mgDuration の ×0.7 を かけない(きめるのは ここ 1か所)。
   // 盤上の 対戦・カーリング・すごろく・ひとりで かんがえる パズル・ローグライク(てきは こちらが うごいた ときだけ うごく)。
   // 時間そのものが あそびの 一部の もの(マインスイーパー・上海・神経衰弱・ライツアウト など)は ×0.7 の まま
-  const MG_TURN_BASED = new Set(['reversi-6', 'animal-shogi', 'connect-four', 'gomoku-9', 'checkers-6', 'mancala-kalah', 'curling-ice', 'curling-winter', 'sugoroku-race', 'solitaire-klondike', 'hit-blow', 'slide-puzzle', 'sudoku-mini', 'picross-5', 'push-puzzle', 'roguelike-dungeon']);
+  const MG_TURN_BASED = new Set(['reversi-6', 'animal-shogi', 'connect-four', 'gomoku-9', 'checkers-6', 'mancala-kalah', 'curling-ice', 'curling-winter', 'billiards-6', 'mini-golf-physics', 'sugoroku-race', 'solitaire-klondike', 'hit-blow', 'slide-puzzle', 'sudoku-mini', 'picross-5', 'push-puzzle', 'roguelike-dungeon']);
   function mg(id, game) {
     game.id = id;
     const start = game.start, turn = MG_TURN_BASED.has(id);
@@ -131,6 +131,25 @@
   }
   // T3: てばんせいの 時計。時間ぎれは「てばんの くぎり」(石や こまが とまって、つぎの 手を まつ とき)でだけ 見る。
   // up() を よぶ 場所(くぎり)は ゲームが きめる。うごいて いる とちゅうでは よばない
+  // Phase 4(2026-11-28): 盤上の 対戦の「じぶんの 持ち時間」。あいての 番(考える 間・こまが うごく 間)は 時間に 数えない。
+  // まじめに 1手ずつ 考えている 人が、あいての 時間の せいで 時間切れに ならないように。tick(now) は じぶんの 使った 時間を かえす
+  // Phase 4(2026-11-28): ならべる ゲーム(コネクトフォー・五目ならべ)の 時間切れの 優劣。K こ ならぶ 窓の うち、片方の 石だけが 入っている 窓を
+  // 石の 数の 2乗で 足しあわせ、差の わりあいで 優勢(win)・互角(draw)・劣勢(lose)を きめる。margin 0〜1 は 優勢の 大きさ
+  function mgLineLead(board, K, me, ai) {
+    const R = board.length, C = board[0].length, sum = { [me]: 0, [ai]: 0 };
+    for (const [dr, dc] of [[0, 1], [1, 0], [1, 1], [1, -1]]) for (let r = 0; r < R; r++) for (let c = 0; c < C; c++) {
+      const er = r + dr * (K - 1), ec = c + dc * (K - 1); if (er < 0 || er >= R || ec < 0 || ec >= C) continue;
+      let a = 0, b = 0; for (let k = 0; k < K; k++) { const v = board[r + dr * k][c + dc * k]; if (v === me) a++; else if (v === ai) b++; }
+      if (a && !b && a >= 2) sum[me] += a * a; else if (b && !a && b >= 2) sum[ai] += b * b;
+    }
+    const lead = (sum[me] - sum[ai]) / Math.max(8, sum[me] + sum[ai]);
+    return { result: lead > 0.15 ? 'win' : lead < -0.15 ? 'lose' : 'draw', margin: clamp((Math.abs(lead) - 0.15) / 0.5, 0, 1) };
+  }
+  function mgMyClock(isMine) {
+    let last = performance.now(), used = 0;
+    const tick = (now = performance.now()) => { if (isMine()) used += Math.max(0, now - last); last = Math.max(last, now); return used; };
+    return { tick, remain: (limitMs) => limitMs - tick() };
+  }
   function mgTurnClock(limitMs, startAt) {
     return { limitMs, remain: (now) => limitMs - (now - startAt), up: (now) => now - startAt > limitMs };
   }
@@ -648,7 +667,7 @@
         function finish() {
           if (!running) return; running = false; cancelAnimationFrame(rafId);
           container.querySelectorAll('button').forEach((b) => { b.disabled = true; });
-          const score = clamp(Math.round(14 + pinsDown * 2.9 + strikes * 12 + spares * 5), 12, 100);
+          const score = clamp(Math.round(14 + pinsDown * 2.9 + strikes * 14 + spares * 5), 12, 100); // Phase 4: 2ストライクで 100
           say(`結果：${pinsDown}本${strikes ? '／ストライク' + strikes : ''}${spares ? '／スペア' + spares : ''}`, 2000);
           render(performance.now());
           const play = meter.done({ achieved: pinsDown > 0 });
@@ -869,7 +888,7 @@
         }
         function finish(all) {
           if (!running) return; running = false; cancelAnimationFrame(rafId); container.querySelectorAll('button').forEach((b) => { b.disabled = true; });
-          const final = all ? clamp(85 + lives * 5, 85, 100) : clamp(Math.round(10 + score / 7 + cleared * 12), 10, 80);
+          const final = all ? 100 : clamp(Math.round(10 + score / 5 + cleared * 15 + (cleared ? lives * 5 : 0)), 10, 100); // Phase 4: 30びょうでは 3ステージ全部は とどかない。ステージ1を ノーミスで クリアすれば 100
           say(all ? '🏆全ステージクリア!' : lives <= 0 ? `ゲームオーバー…${score}点` : `⏰タイムアップ${score}点`, 2600); render(performance.now());
           const play = meter.done({ achieved: score > 0 || !!all });
           setTimeout(() => onComplete(final, null, play), 650);
@@ -1377,9 +1396,10 @@
     return {
       start(container, onComplete) {
         const difficulty = ageDifficulty();
-        const COLS = 11, ROWS = 9;
-        const map = generateMaze(COLS, ROWS, 3);
         const DURATION_MS = mgDuration(Math.round(lerp(28000, 24000, difficulty)));
+        // Phase 4(2026-11-28):「みじかめ」(約17〜20びょう)では 迷路を 11×9→11×7 に(まえは 宝箱3つ+脱出の 最短ルートが 制限に ほぼ ひとしかった)
+        const COLS = 11, ROWS = DURATION_MS < 22000 ? 7 : 9;
+        const map = generateMaze(COLS, ROWS, 3);
         const SPEED = 2.4, TURN = 2.5;
         const start = { x: 1, y: 1 };
         const d0 = mazeBfs(map, start.x, start.y);
@@ -1466,7 +1486,7 @@
           const elapsed = Math.max(0, performance.now() - startTime) + penaltyMs;
           const remRatio = clamp(1 - elapsed / DURATION_MS, 0, 1);
           let score;
-          if (escaped) { score = clamp(52 + taken * 12 + remRatio * 16 - trapHits * 4, 40, 100); say(taken >= 3 ? '🏆完全脱出!' : '🚪脱出!宝箱' + taken + '/3'); }
+          if (escaped) { score = clamp(52 + taken * 12 + Math.min(1, remRatio / 0.4) * 16 - trapHits * 4, 40, 100); /* Phase 4: のこり4わりで 時間ボーナス満点 */ say(taken >= 3 ? '🏆完全脱出!' : '🚪脱出!宝箱' + taken + '/3'); }
           else { score = clamp(18 + taken * 9, 15, 45); say('時間切れ…宝箱' + taken + '/3'); }
           if (ctx) { view.render(map, px, py, ang, sprites(performance.now())); view.drawMessage(hint.textContent); }
           const play = meter.done({ achieved: escaped || taken > 0 });
@@ -2120,9 +2140,10 @@
     return {
       start(container, onComplete) {
         const difficulty = ageDifficulty();
-        const COLS = 11, ROWS = 9;
-        const map = generateMaze(COLS, ROWS, 5);
         const DURATION_MS = mgDuration(Math.round(lerp(30000, 26000, difficulty)));
+        // Phase 4(2026-11-28):「みじかめ」では 迷路を 11×9→11×7 に(まえは 最短ルートでも 制限に ほぼ とどかなかった)
+        const COLS = 11, ROWS = DURATION_MS < 24000 ? 7 : 9;
+        const map = generateMaze(COLS, ROWS, 5);
         const SPEED = 2.4, TURN = 2.5;
         const GHOST_WANDER = 0.8, GHOST_HUNT = lerp(1.45, 1.85, difficulty);
         const start = { x: 1, y: 1 };
@@ -2245,7 +2266,7 @@
           container.querySelectorAll('button').forEach((b) => { b.disabled = true; });
           const elapsedSec = Math.max(0, performance.now() - startTime) / 1000;
           let score;
-          if (result === 'escaped') { score = clamp(100 - Math.max(0, elapsedSec - 25) * 1.4, 70, 100); say('🚪脱出成功!'); }
+          if (result === 'escaped') { score = clamp(100 - Math.max(0, elapsedSec - 25 * DURATION_MS / S.mgDuration(Math.round(lerp(30000, 26000, difficulty)), { turn: true })) * 1.4, 70, 100); /* Phase 4: 25びょうの めやすも 制限に あわせる */ say('🚪脱出成功!'); }
           else if (result === 'caught') { score = hasKey ? 34 : 22; say('👻つかまった…'); shake = 8; }
           else { score = hasKey ? 40 : 25; say('時間切れ…屋敷に閉じこめられた'); }
           if (ctx) { view.render(map, px, py, ang, sprites(performance.now()), { vignette: result === 'escaped' ? 'rgba(20,60,20,.6)' : 'rgba(80,0,20,.8)' }); view.drawMessage(hint.textContent); }
@@ -2552,7 +2573,7 @@
           const remRatio = clamp(1 - (performance.now() - startTime) / TIME_LIMIT_MS, 0, 1);
           const progress = clamp((position + PLAYER_Z) / (FINISH_INDEX * SEG_LEN), 0, 1);
           let score;
-          if (win) { score = clamp(62 + remRatio * 34 - hits * 5 - Math.min(12, offroadTime * 2), 55, 100); say('🏁ゴール!' + (hits === 0 ? 'ノーミス!' : 'ぶつかった回数：' + hits)); }
+          if (win) { const parRem = clamp(1 - (FINISH_INDEX / 36 + 1.5) * 1150 / TIME_LIMIT_MS, 0.05, 1); /* Phase 4: いちばん はやい 走り(最高速)の 1.15ばいで ゴールすれば 時間ボーナス満点。まえは 0びょうで ゴールしないと 100 に とどかなかった */ score = clamp(62 + Math.min(1, remRatio / parRem) * 34 - hits * 5 - Math.min(12, offroadTime * 2), 55, 100); say('🏁ゴール!' + (hits === 0 ? 'ノーミス!' : 'ぶつかった回数：' + hits)); }
           else { score = clamp(14 + progress * 44, 14, 58); say('タイムアップ…' + Math.round(progress * 100) + '%まで走った'); }
           render(performance.now());
           const play = meter.done({ achieved: win });
@@ -2816,7 +2837,7 @@
           container.querySelectorAll('button').forEach((b) => { b.disabled = true; });
           const elapsed = Math.max(0, performance.now() - startTime) / 1000;
           let score;
-          if (win) { score = clamp(100 - falls * 12 - Math.max(0, elapsed - 18) * 1.5, 55, 100); say('🎉ゴール!' + (falls === 0 ? 'ノーミス!' : '')); }
+          if (win) { score = clamp(100 - falls * 12 - Math.max(0, elapsed - DURATION_MS / 1000 * 0.75) * 1.5, 55, 100); /* Phase 4: 18びょうの めやすは 制限の 7わり5ぶ に(みじかめでも おなじ きびしさ) */ say('🎉ゴール!' + (falls === 0 ? 'ノーミス!' : '')); }
           else { const prog = 1 - bestD / Math.max(1, d0[goal.y][goal.x]); score = clamp(15 + prog * 30, 15, 45); say(lives <= 0 ? 'ボールがなくなった…' : '時間切れ…'); }
           render(performance.now());
           const play = meter.done();
@@ -3922,7 +3943,7 @@
           if (!running) return; running = false; cancelAnimationFrame(rafId);
           container.querySelectorAll('button').forEach((b) => { b.disabled = true; });
           const win = ko === 'win';
-          const score = clamp(Math.round((win ? 50 : 16) + me.hp * 0.3 + Math.min(12, hits) - Math.min(15, taken)), 10, 100);
+          const score = clamp(Math.round((win ? 50 : 16) + me.hp * (win ? 0.38 : 0.3) + Math.min(12, hits) - Math.min(15, taken)), 10, 100); // Phase 4: ノーダメージ勝ちで 100
           say(win ? `🏆勝った!残りHP：${me.hp}` : `負けた…相手の残りHP：${ai.hp}`, 2200);
           render(performance.now());
           const play = meter.done();
@@ -4378,7 +4399,9 @@
         // Phase 3(2026-11-26): カーブの 向きは 毎回 ランダム(同じ 向きが 3つ つづかない)。まえは 右・左・右… と 交互で、
         // カーブの 強さと 長さが 近い コースでは ハンドルを きらず アクセルだけでも 道から ほぼ 出ずに 優勝できた(12回に 3回 68〜94点)
         let gpPrev = 0, gpRun = 0;
-        for (let i = 0; i < 6; i++) { let dir = Math.random() < 0.5 ? -1 : 1; if (dir === gpPrev && gpRun >= 2) dir = -dir; gpRun = dir === gpPrev ? gpRun + 1 : 1; gpPrev = dir; road.addRoad(10, 14 + Math.floor(Math.random() * 8), 10, dir * (2 + Math.random() * 2), (Math.random() - 0.5) * 50); if (i % 2) road.addRoad(6, 8, 6, 0, (Math.random() - 0.5) * 30); }
+        // Phase 4(2026-11-28):「みじかめ」(21びょう)では カーブを 6→4こ に して コースを みじかく(まえは 2周 できず 完走 できなかった)
+        const GP_SECT = TIME_LIMIT_MS < 25000 ? 4 : 6;
+        for (let i = 0; i < GP_SECT; i++) { let dir = Math.random() < 0.5 ? -1 : 1; if (dir === gpPrev && gpRun >= 2) dir = -dir; gpRun = dir === gpPrev ? gpRun + 1 : 1; gpPrev = dir; road.addRoad(10, 14 + Math.floor(Math.random() * 8), 10, dir * (2 + Math.random() * 2), (Math.random() - 0.5) * 50); if (i % 2) road.addRoad(6, 8, 6, 0, (Math.random() - 0.5) * 30); }
         road.addRoad(10, 16, 10, 0, -road.lastY() / SEG_LEN);
         const TRACK_LEN = road.trackLength();
         for (let n = 0; n < segments.length; n += 3) { if (Math.random() < 0.6) segments[n].sprites.push({ emoji: ['🌳', '🏁', '🌲', '📣'][Math.floor(Math.random() * 4)], offset: -1.5 - Math.random() * 1.4, size: 0.5 }); if (Math.random() < 0.6) segments[n].sprites.push({ emoji: ['🌳', '🎪', '🌲', '🏢'][Math.floor(Math.random() * 4)], offset: 1.5 + Math.random() * 1.4, size: 0.5 }); }
@@ -4473,7 +4496,7 @@
     return {
       start(container, onComplete) {
         const difficulty = ageDifficulty();
-        const DURATION_MS = mgDuration(27000), BOSS_AT = 15000;
+        const DURATION_MS = mgDuration(27000), BOSS_AT = Math.min(15000, Math.round(DURATION_MS * 0.556)), BOSS_HP_K = Math.min(1, DURATION_MS / 27000); // Phase 4: ボスは 制限の 5わり6ぶで 出す(みじかめ でも たおす 時間が ある)
         let ship = { x: 40, y: 110, r: 9, lives: 3, inv: 0, power: 1, bombs: 2 }, bullets = [], enemies = [], eBullets = [], drops = [], particles = [], boss = null, kills = 0, score = 0, running = true, rafId = null, last = null, msg = '', msgUntil = 0, fireAcc = 0, spawnAcc = 0, wave = 0, shake = 0, bossDead = false;
         const held = { left: false, right: false, up: false, down: false };
         const startTime = performance.now() + MG_ACTION_START_GRACE_MS, meter = mgPlayMeter();
@@ -4513,7 +4536,7 @@
           fireAcc += dt; if (fireAcc > 0.17) { fireAcc = 0; bullets.push({ x: ship.x + 12, y: ship.y, vx: 320, vy: 0 }); if (ship.power >= 2) { bullets.push({ x: ship.x + 8, y: ship.y - 7, vx: 300, vy: -40 }); bullets.push({ x: ship.x + 8, y: ship.y + 7, vx: 300, vy: 40 }); } if (ship.power >= 3) bullets.push({ x: ship.x + 12, y: ship.y, vx: 380, vy: 0, big: true }); }
           const elapsed = now - startTime;
           if (!boss && elapsed < BOSS_AT) { spawnAcc += dt; if (spawnAcc > lerp(2.6, 1.9, difficulty) && enemies.length < 14) { spawnAcc = 0; spawnWave(now); } }
-          if (!boss && elapsed >= BOSS_AT && !bossDead) { boss = { x: W + 40, y: H / 2, hp: 70 + difficulty * 40, maxHp: 70 + difficulty * 40, t: 0, fire: 0, r: 26 }; say('⚠️ボス出現!', 1600); }
+          if (!boss && elapsed >= BOSS_AT && !bossDead) { boss = { x: W + 40, y: H / 2, hp: (70 + difficulty * 40) * BOSS_HP_K, maxHp: (70 + difficulty * 40) * BOSS_HP_K, t: 0, fire: 0, r: 26 }; say('⚠️ボス出現!', 1600); }
           for (const e of enemies) { e.t += dt; e.x -= (60 + wave * 4) * dt; if (e.kind === 'sine') e.y += Math.sin(e.t * 3) * 60 * dt; if (e.kind === 'dive' && e.x < W * 0.6) e.y += (ship.y - e.y) * dt * 1.2; e.shot -= dt; if (e.shot <= 0 && e.x < W) { e.shot = 1.8 + Math.random() * 1.2; const a = Math.atan2(ship.y - e.y, ship.x - e.x); eBullets.push({ x: e.x, y: e.y, vx: Math.cos(a) * 120, vy: Math.sin(a) * 120 }); } }
           enemies = enemies.filter((e) => e.x > -30);
           if (boss) { boss.t += dt; boss.x += (W - 50 - boss.x) * dt * 1.5; boss.y = H / 2 + Math.sin(boss.t * 1.1) * 60; boss.fire -= dt; if (boss.fire <= 0) { boss.fire = 0.9; for (let k = -2; k <= 2; k++) { const a = Math.PI + k * 0.25; eBullets.push({ x: boss.x - 20, y: boss.y, vx: Math.cos(a) * 130, vy: Math.sin(a) * 130 }); } } if (boss.hp <= 0) { bossDead = true; score += 200; shake = 12; for (let i = 0; i < 30; i++) particles.push({ x: boss.x, y: boss.y, vx: (Math.random() - 0.5) * 260, vy: (Math.random() - 0.5) * 260, born: now, color: '#ff5ea8' }); boss = null; say('🎆ボスをたおした!!', 2000); hud(); } }
@@ -4978,7 +5001,8 @@
           <div class="mg-title">${title}</div>
           <div class="mg-canvas-wrap"><canvas class="mg-canvas" id="rvCanvas"></canvas></div>
           <div class="mg-hint" id="rvHint">光っているマスをタップ。相手の石をはさむと、全部自分の色に変わる。角を取ると強い!</div>`;
-        mgTimerHud(container, TIME_LIMIT_MS, () => TIME_LIMIT_MS - (performance.now() - startTime), () => running);
+        const myClock = mgMyClock(() => running && turn === ME); /* Phase 4: あいての 番は 時間に 数えない */
+        mgTimerHud(container, TIME_LIMIT_MS, () => myClock.remain(TIME_LIMIT_MS), () => running);
         const canvas = container.querySelector('#rvCanvas');
         const { ctx, W, H } = createMgCanvas(canvas, (w) => w);
         const CELL = W / N;
@@ -5036,7 +5060,7 @@
           flips = flips.filter((f) => now - f.born < 320);
           if (now < msgUntil) { ctx.font = 'bold 14px sans-serif'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillStyle = 'rgba(0,0,0,.6)'; ctx.fillRect(W / 2 - 90, H / 2 - 14, 180, 28); ctx.fillStyle = '#fff'; ctx.fillText(msg, W / 2, H / 2); }
         }
-        function loop(now) { if (!running) return; if (turn === AI && aiAt && now >= aiAt) { aiAt = 0; aiMove(); } render(now); if (now - startTime > TIME_LIMIT_MS) { finish(true); return; } rafId = requestAnimationFrame(loop); }
+        function loop(now) { if (!running) return; if (turn === AI && aiAt && now >= aiAt) { aiAt = 0; aiMove(); } render(now); if (myClock.tick(now) > TIME_LIMIT_MS) { finish(true); return; } rafId = requestAnimationFrame(loop); }
         // timeUp: 時間切れは 石の数で 判定(T1。決着の 点は かえない)
         function finish(timeUp) {
           if (!running) return; running = false; cancelAnimationFrame(rafId);
@@ -5218,7 +5242,8 @@
           <div class="mg-title">${title}</div>
           <div class="mg-canvas-wrap"><canvas class="mg-canvas" id="asCanvas"></canvas></div>
           <div class="mg-hint" id="asHint">こまをタップして、光ったマスへ。🦁を取るか、自分の🦁が一番奥まで行けば勝ち。取ったこまは、下の手持ちから打てる。</div>`;
-        mgTimerHud(container, TIME_LIMIT_MS, () => TIME_LIMIT_MS - (performance.now() - startTime), () => running);
+        const myClock = mgMyClock(() => running && turn === ME); /* Phase 4: あいての 番は 時間に 数えない */
+        mgTimerHud(container, TIME_LIMIT_MS, () => myClock.remain(TIME_LIMIT_MS), () => running);
         const canvas = container.querySelector('#asCanvas');
         const CELL = 58, HAND_H = 44;
         const { ctx, W, H } = createMgCanvas(canvas, HAND_H * 2 + CELL * ROWS + 16);
@@ -5332,7 +5357,7 @@
           if (anim) { const t = Math.min(1, (now - anim.born) / 220); const e = 1 - (1 - t) * (1 - t); drawPiece(anim.t, anim.o, anim.from[0] + (anim.to[0] - anim.from[0]) * e, anim.from[1] + (anim.to[1] - anim.from[1]) * e, CELL * 0.86 * (1 + 0.25 * Math.sin(t * Math.PI))); if (t >= 1) anim = null; }
           if (now < msgUntil) { ctx.font = 'bold 14px sans-serif'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillStyle = 'rgba(0,0,0,.6)'; ctx.fillRect(W / 2 - 90, H / 2 - 14, 180, 28); ctx.fillStyle = '#fff'; ctx.fillText(msg, W / 2, H / 2); }
         }
-        function loop(now) { if (!running) return; if (turn === AI && aiAt && now >= aiAt) { aiAt = 0; aiMove(); if (!running) return; } render(now); if (now - startTime > TIME_LIMIT_MS) { end(0, true); return; } rafId = requestAnimationFrame(loop); }
+        function loop(now) { if (!running) return; if (turn === AI && aiAt && now >= aiAt) { aiAt = 0; aiMove(); if (!running) return; } render(now); if (myClock.tick(now) > TIME_LIMIT_MS) { end(0, true); return; } rafId = requestAnimationFrame(loop); }
         // 時間切れは 🦁いがいの こまの ねうち(ばん+てもち)で 判定する(T1)
         function material(who) { let v = 0; for (const r of board) for (const p of r) if (p && p.o === who && p.t !== 'L') v += VALUE[p.t]; for (const t of hands[who]) v += VALUE[t]; return v; }
         function end(w, timeUp) {
@@ -5445,7 +5470,7 @@
           const el = (performance.now() - startTime) / 1000; const total = N * N - MINES;
           // Phase 2: 負けた ときの 点は、さいしょの 1手で 自動で ひらいた マスを のぞいた「じぶんで ひらいた マス」の 割合で 決める(でたらめに 押しても 30点に なりにくい)
           const own = Math.max(0, revealed - Math.max(0, firstOpen)), rest = Math.max(1, total - Math.max(0, firstOpen));
-          const score = win ? clamp(Math.round(72 + Math.max(0, 60 - el) * 0.4), 72, 100) : clamp(Math.round(10 + (own / rest) * 45), 10, 55);
+          const score = win ? clamp(Math.round(72 + 28 * Math.min(1, Math.max(0, TIME_LIMIT_MS / 1000 - el) / (TIME_LIMIT_MS / 1000 * 0.6))), 72, 100) /* Phase 4: のこり6わりで 100 */ : clamp(Math.round(10 + (own / rest) * 45), 10, 55);
           say(win ? `🏆クリア!${Math.round(el)}秒` : boom ? '💥ばくだんをふんだ…' : '時間切れ…', 2600);
           flagBtn.disabled = true; render(performance.now());
           const play = meter.done();
@@ -6042,7 +6067,7 @@
         }
         function finish(cleared) {
           if (!running) return; running = false; cancelAnimationFrame(rafId);
-          const score = cleared ? clamp(75 + (SHOTS - shots) * 6, 75, 100) : clamp(Math.round(10 + killed * 11), 10, 70);
+          const score = cleared ? clamp(Math.round(75 + 25 * (SHOTS - shots) / Math.max(1, SHOTS - 2)), 75, 100) : clamp(Math.round(10 + killed * 11), 10, 70); // Phase 4: 2発で 全滅 = 100
           say(cleared ? '🏆ぜんぶたおした!' : `おわり…👻 ${killed}/${totalTargets}`, 2600);
           render(performance.now());
           const play = meter.done({ achieved: killed > 0 });
@@ -6068,7 +6093,8 @@
           <div class="mg-title">${title}</div>
           <div class="mg-canvas-wrap"><canvas class="mg-canvas" id="c4Canvas"></canvas></div>
           <div class="mg-hint" id="c4Hint">落としたい列をタップ。たて・横・ななめに4つならべたら勝ち。相手（🟡）の3つならびはふさごう。</div>`;
-        mgTimerHud(container, TIME_LIMIT_MS, () => TIME_LIMIT_MS - (performance.now() - startTime), () => running);
+        const myClock = mgMyClock(() => running && turn === ME); /* Phase 4: あいての 番は 時間に 数えない */
+        mgTimerHud(container, TIME_LIMIT_MS, () => myClock.remain(TIME_LIMIT_MS), () => running);
         const canvas = container.querySelector('#c4Canvas');
         const { ctx, W, H } = createMgCanvas(canvas, (w) => Math.round(w * (ROWS + 1) / COLS) + 6);
         const CELL = W / COLS, TOP = CELL;
@@ -6128,13 +6154,15 @@
           if (winLine) { ctx.strokeStyle = `rgba(255,255,255,${0.6 + 0.4 * Math.sin(now / 150)})`; ctx.lineWidth = 4; for (const [r, c] of winLine) { ctx.beginPath(); ctx.arc((c + 0.5) * CELL, TOP + (r + 0.5) * CELL, CELL * 0.42, 0, Math.PI * 2); ctx.stroke(); } }
           if (now < msgUntil) { ctx.font = 'bold 14px sans-serif'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillStyle = 'rgba(0,0,0,.6)'; ctx.fillRect(W / 2 - 90, H / 2 - 14, 180, 28); ctx.fillStyle = '#fff'; ctx.fillText(msg, W / 2, H / 2); }
         }
-        function loop(now) { if (!running) return; if (turn === AI && aiAt && now >= aiAt) { aiAt = 0; aiMove(); if (!running) return; } render(now); if (now - startTime > TIME_LIMIT_MS) { end(0, true); return; } rafId = requestAnimationFrame(loop); }
+        function loop(now) { if (!running) return; if (turn === AI && aiAt && now >= aiAt) { aiAt = 0; aiMove(); if (!running) return; } render(now); if (myClock.tick(now) > TIME_LIMIT_MS) { end(0, true); return; } rafId = requestAnimationFrame(loop); }
         // timeUp: 4つ そろわない まま 時間切れ = 未決着(T1)。盤が うまった 引き分けとは わける
         function end(w, timeUp) {
           if (!running) return; running = false; cancelAnimationFrame(rafId);
           const decided = w === ME ? clamp(100 - Math.max(0, moves - 14) * 2, 72, 100) : w === AI ? clamp(15 + moves, 15, 45) : 55;
-          const score = mgVersusOutcome({ result: w === ME ? 'win' : w === AI ? 'lose' : 'draw', by: timeUp ? 'timeout' : 'decisive', score: decided });
-          say(w === ME ? '🏆 4つそろった!かち!' : w === AI ? 'まけ…あいてがそろえた' : timeUp ? '時間切れ。勝負つかず' : '盤がうまって引き分け', 2600);
+          // Phase 4: 時間切れは 盤の 優劣で 判定(まえは 一律 40。リーチを 多く 作っていた 人も 40 だった)。互角は 40 の まま
+          const lead = timeUp ? mgLineLead(board, 4, ME, AI) : null;
+          const score = lead ? mgVersusOutcome({ result: lead.result, by: 'judgement', score: lead.result === 'lose' ? clamp(15 + moves, 15, 45) : 100, margin: lead.margin }) : mgVersusOutcome({ result: w === ME ? 'win' : w === AI ? 'lose' : 'draw', by: 'decisive', score: decided });
+          say(w === ME ? '🏆 4つそろった!かち!' : w === AI ? 'まけ…あいてがそろえた' : timeUp ? (lead.result === 'win' ? '⏰時間切れ。判定は あなたの ゆうせい!' : lead.result === 'lose' ? '⏰時間切れ。判定は あいての ゆうせい' : '⏰時間切れ。判定は ごかく') : '盤がうまって引き分け', 2600);
           turnEl.textContent = 'おわり'; render(performance.now());
           const play = meter.done({ decided: !timeUp });
           setTimeout(() => onComplete(score, null, play), 650);
@@ -6212,7 +6240,7 @@
           if (!running) return; running = false; cancelAnimationFrame(rafId);
           container.querySelectorAll('button').forEach((b) => { b.disabled = true; });
           // Phase 2 で 検討した 結果、点数は 変えない(45びょうでは 上手な 人も 128 が 現実的な 上限で、128 を さげると 上手な 人の 点も さがるため)
-          const tierScore = best >= 1024 ? 100 : best >= 512 ? 86 : best >= 256 ? 70 : best >= 128 ? 54 : best >= 64 ? 40 : best >= 32 ? 28 : 16;
+          const tierScore = best >= 512 ? 100 : best >= 256 ? 88 : best >= 128 ? 70 : best >= 64 ? 40 : best >= 32 ? 28 : 16; // Phase 4: 128 で 大成功・512 で 100(でたらめの 64 いかは そのまま)
           const finalScore = clamp(Math.round(tierScore + Math.min(10, score / 300)), 10, 100);
           say(`おわり!最大${best}、得点：${score}`, 2600);
           render(performance.now());
@@ -6231,7 +6259,7 @@
     return {
       start(container, onComplete) {
         const difficulty = ageDifficulty();
-        const COLS = 9, ROWS = 12, DURATION_MS = mgDuration(28000), GOAL_N = 3;
+        const COLS = 9, ROWS = 12, DURATION_MS = mgDuration(28000), GOAL_N = DURATION_MS < 24000 ? 2 : 3; // Phase 4:「みじかめ」は 2つ ゴールで クリア(1回 あたりの 時間は ふつうと おなじ)
         let running = true, rafId = null, last = null, fx = 4, fy = ROWS - 1, fxf = 4, fyf = ROWS - 1, lives = 3, goals = 0, dead = 0, msg = '', msgUntil = 0, swipe = null, homes = [1, 4, 7], filled = [], ride = 0, hopAt = 0, maxRow = ROWS - 1, bestReached = 0;
         const startTime = performance.now() + MG_ACTION_START_GRACE_MS, meter = mgPlayMeter({ minSpans: 3 });
         let bestAdv = 0; // 参加度: 8びょう未満でも、1匹 帰すか 前へ 3マス 進んだら 参加
@@ -6555,7 +6583,7 @@
         function finish() {
           if (!running) return; running = false; cancelAnimationFrame(rafId);
           const timeUp = me < WIN && ai < WIN;
-          const decided = me > ai ? clamp(70 + (me - ai) * 7, 70, 100) : me === ai ? 50 : clamp(15 + me * 8, 15, 48);
+          const decided = me > ai ? clamp(70 + (me - ai) * 7.5, 70, 100) : me === ai ? 50 : clamp(15 + me * 8, 15, 48); // Phase 4: 4-0 で 100
           const score = mgVersusOutcome({ result: me > ai ? 'win' : me < ai ? 'lose' : 'draw', by: timeUp ? 'judgement' : 'decisive', score: decided, margin: (me - ai) / WIN });
           say(timeUp ? (me > ai ? '時間切れ。点の差で判定かち' : me === ai ? '時間切れ。同点' : '時間切れ。判定まけ') : me > ai ? '🏆かち!' : '負け…次は勝とう', 2600);
           render(performance.now());
@@ -6608,7 +6636,7 @@
           if (kx || ky) { tx = clamp(tx + kx * dt * 2, -1, 1); ty = clamp(ty + ky * dt * 2, -1, 1); }
           px += (tx - px) * Math.min(1, dt * 5); py += (ty - py) * Math.min(1, dt * 5);
           speed = Math.min(speed + dt * 0.04, lerp(2.8, 3.6, difficulty)); depth += dt * 1.5;
-          o2 -= dt * lerp(4.5, 6.5, difficulty); if (o2 <= 0) { o2 = 0; finish('酸素がなくなった…'); return; }
+          o2 -= dt * lerp(4.5, 6.5, difficulty) * Math.max(1, 25000 / DURATION_MS); /* Phase 4:「みじかめ」でも 空気の あわを とりに いく 必要が ある(まえは みじかいほうが 有利) */ if (o2 <= 0) { o2 = 0; finish('酸素がなくなった…'); return; }
           for (const o of objs) { o.z -= speed * dt; if (o.kind === 'jelly') o.x += Math.sin(now / 600 + o.ph) * dt * 0.25; }
           spawnZ -= speed * dt; while (spawnZ < 6) spawn();
           if (invuln > 0) invuln -= dt;
@@ -6778,7 +6806,8 @@
           <div class="mg-title">${title}</div>
           <div class="mg-canvas-wrap"><canvas class="mg-canvas" id="gmCanvas"></canvas></div>
           <div class="mg-hint" id="gmHint">マスをタップすると仮置き。同じ場所をもう一度タップで決定。たて・横・ななめに5つならべたら勝ち。相手の3つ・4つならびはふさごう。</div>`;
-        mgTimerHud(container, TIME_LIMIT_MS, () => TIME_LIMIT_MS - (performance.now() - startTime), () => running);
+        const myClock = mgMyClock(() => running && turn === ME); /* Phase 4: あいての 番は 時間に 数えない */
+        mgTimerHud(container, TIME_LIMIT_MS, () => myClock.remain(TIME_LIMIT_MS), () => running);
         const canvas = container.querySelector('#gmCanvas');
         const { ctx, W, H } = createMgCanvas(canvas, (w) => w);
         const CELL = W / N;
@@ -6822,13 +6851,15 @@
           if (winLine) { ctx.strokeStyle = `rgba(230,57,70,${0.6 + 0.4 * Math.sin(now / 150)})`; ctx.lineWidth = 4; ctx.beginPath(); const a = winLine[0], b = winLine[winLine.length - 1]; ctx.moveTo((a[0] + 0.5) * CELL, (a[1] + 0.5) * CELL); ctx.lineTo((b[0] + 0.5) * CELL, (b[1] + 0.5) * CELL); ctx.stroke(); }
           if (now < msgUntil) { ctx.font = 'bold 14px sans-serif'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillStyle = 'rgba(0,0,0,.6)'; ctx.fillRect(W / 2 - 90, H / 2 - 14, 180, 28); ctx.fillStyle = '#fff'; ctx.fillText(msg, W / 2, H / 2); }
         }
-        function loop(now) { if (!running) return; if (turn === AI && aiAt && now >= aiAt) { aiAt = 0; aiMove(); if (!running) return; } render(now); if (now - startTime > TIME_LIMIT_MS) { end(0, true); return; } rafId = requestAnimationFrame(loop); }
+        function loop(now) { if (!running) return; if (turn === AI && aiAt && now >= aiAt) { aiAt = 0; aiMove(); if (!running) return; } render(now); if (myClock.tick(now) > TIME_LIMIT_MS) { end(0, true); return; } rafId = requestAnimationFrame(loop); }
         // timeUp: 5つ ならばない まま 時間切れ = 未決着(T1)。盤が うまった 引き分けとは わける
         function end(w, timeUp) {
           if (!running) return; running = false; cancelAnimationFrame(rafId);
           const decided = w === ME ? clamp(100 - Math.max(0, moves - 16) * 2, 72, 100) : w === AI ? clamp(15 + moves, 15, 45) : 55;
-          const score = mgVersusOutcome({ result: w === ME ? 'win' : w === AI ? 'lose' : 'draw', by: timeUp ? 'timeout' : 'decisive', score: decided });
-          say(w === ME ? '🏆 5つならんだ!かち!' : w === AI ? 'まけ…あいてが5つならべた' : timeUp ? '時間切れ。勝負つかず' : '盤がうまって引き分け', 2600);
+          // Phase 4: 時間切れは 盤の 優劣で 判定(まえは 一律 40)。互角は 40 の まま
+          const lead = timeUp ? mgLineLead(board, 5, ME, AI) : null;
+          const score = lead ? mgVersusOutcome({ result: lead.result, by: 'judgement', score: lead.result === 'lose' ? clamp(15 + moves, 15, 45) : 100, margin: lead.margin }) : mgVersusOutcome({ result: w === ME ? 'win' : w === AI ? 'lose' : 'draw', by: 'decisive', score: decided });
+          say(w === ME ? '🏆 5つならんだ!かち!' : w === AI ? 'まけ…あいてが5つならべた' : timeUp ? (lead.result === 'win' ? '⏰時間切れ。判定は あなたの ゆうせい!' : lead.result === 'lose' ? '⏰時間切れ。判定は あいての ゆうせい' : '⏰時間切れ。判定は ごかく') : '盤がうまって引き分け', 2600);
           turnEl.textContent = 'おわり'; render(performance.now());
           const play = meter.done({ decided: !timeUp });
           setTimeout(() => onComplete(score, null, play), 650);
@@ -6928,7 +6959,7 @@
         function finish(cleared) {
           if (!running) return; running = false; cancelAnimationFrame(rafId);
           container.querySelectorAll('button').forEach((b) => { b.disabled = true; });
-          const score = cleared ? clamp(78 + lives * 7, 78, 100) : clamp(Math.round(12 + killed * 9), 12, 70);
+          const score = cleared ? clamp(79 + lives * 7, 79, 100) : clamp(Math.round(12 + killed * 9), 12, 70); // Phase 4: ノーダメージ全滅で 100
           say(cleared ? '🏆全員たおした!勝利!' : lives <= 0 ? `やられた…💥 ${killed}` : `タイムアップ!💥 ${killed}`, 2600);
           render(performance.now());
           const play = meter.done({ achieved: killed > 0 });
@@ -7022,7 +7053,7 @@
           container.querySelectorAll('button').forEach((b) => { b.disabled = true; });
           // 先に WIN ポイント = 決着。時間切れは ポイントの差で 判定(T1。決着の 点は かえない)
           const timeUp = me < WIN && ai < WIN;
-          const decided = me > ai ? clamp(70 + (me - ai) * 8, 70, 100) : me === ai ? 50 : clamp(15 + me * 9, 15, 48);
+          const decided = me > ai ? clamp(70 + (me - ai) * 10, 70, 100) : me === ai ? 50 : clamp(15 + me * 9, 15, 48); // Phase 4: 3-0 で 100
           const score = mgVersusOutcome({ result: me > ai ? 'win' : me < ai ? 'lose' : 'draw', by: timeUp ? 'judgement' : 'decisive', score: decided, margin: (me - ai) / WIN });
           say(timeUp ? (me > ai ? '時間切れ。ポイントの差で判定かち' : me === ai ? '時間切れ。同点' : '時間切れ。判定まけ') : me > ai ? '🏆ゲームセット!かち!' : '負け…次は勝とう', 2600);
           render(performance.now());
@@ -7505,6 +7536,8 @@
           do { path = []; const seen = new Set(); let x = 0, y = Math.floor(Math.random() * N); src = y; seen.add(x + ',' + y); path.push([x, y]); let ok = false;
             while (path.length < 40) { const opts = []; for (const d of [1, 2, 4, 8]) { const [dx, dy] = DIR[d]; const nx = x + dx, ny = y + dy; if (nx < 0 || ny < 0 || nx >= N || ny >= N || seen.has(nx + ',' + ny)) continue; opts.push([nx, ny, d]); } if (!opts.length) break; const w = opts.map(([nx]) => (nx > x ? 1.6 : 1)); let r = Math.random() * w.reduce((a, b) => a + b, 0), k = 0; while (r > w[k]) { r -= w[k]; k++; } const [nx, ny] = opts[k]; x = nx; y = ny; seen.add(x + ',' + y); path.push([x, y]); if (x === N - 1 && path.length >= lerp(8, 12, difficulty)) { ok = true; break; } }
             if (ok) { dst = y; break; } tries++; } while (tries < 200);
+          // Phase 4(2026-11-28): 200回 つづけて だめな ときの 予備(まっすぐな みち)。実際には ほぼ おきないが、とけない 盤を 出さない
+          if (tries >= 200) { path = []; for (let x = 0; x < N; x++) path.push([x, src]); dst = src; }
           grid = Array.from({ length: N }, () => Array(N).fill(0));
           for (let i = 0; i < path.length; i++) { const [x, y] = path[i]; let m = 0; if (i > 0) { const [px, py] = path[i - 1]; for (const d of [1, 2, 4, 8]) { const [dx, dy] = DIR[d]; if (x + dx === px && y + dy === py) m |= d; } } else m |= 8; if (i < path.length - 1) { const [nx, ny] = path[i + 1]; for (const d of [1, 2, 4, 8]) { const [dx, dy] = DIR[d]; if (x + dx === nx && y + dy === ny) m |= d; } } else m |= 2; grid[y][x] = m; }
           for (let y = 0; y < N; y++) for (let x = 0; x < N; x++) if (!grid[y][x]) grid[y][x] = [3, 5, 6, 9, 10, 12, 7, 11, 13, 14][Math.floor(Math.random() * 10)];
@@ -7808,7 +7841,7 @@
         }
         function finish(reason) {
           if (!running) return; running = false; cancelAnimationFrame(rafId); container.querySelectorAll('button').forEach((b) => { b.disabled = true; });
-          const final = clamp(Math.round(10 + score / 2 + depthMax * 0.8 + (reason ? 0 : hp * 2)), 10, 100);
+          const final = clamp(Math.round(10 + score / 4 + depthMax * 0.3 + (reason ? 0 : hp * 3)), 10, 100); // Phase 4: まえは まっすぐ 掘るだけで いつも 100。鉱石の あつめかたと マグマを よける 分で 点が かわる
           say(reason ? `${reason} ${score}点` : `⛏️おわり!${score}点／深さ${depthMax}m`, 2600); render(performance.now());
           const play = meter.done({ achieved: score > 0 });
           setTimeout(() => onComplete(final, null, play), 650);
@@ -8230,7 +8263,7 @@
     return {
       start(container, onComplete) {
         const difficulty = ageDifficulty();
-        const STONES = stoneCount || 3, TIME_LIMIT_MS = mgDuration(45000);
+        const STONES = stoneCount || 3, TIME_LIMIT_MS = mgDuration(15000 * STONES); // Phase 4: 1投 15びょう ぶん(3投=45びょうは そのまま。ふゆの 4投は 45→60びょう)
         let running = true, rafId = null, last = null, stones = [], turn = 0, myThrown = 0, aiThrown = 0, aiming = null, moving = false, sweep = 0, msg = '', msgUntil = 0, phase = 'me', aiAt = 0, sweeps = 0;
         // T3: 時間ぎれは「あなたの番で、石が ぜんぶ とまって いる とき」だけ 見る。なげた 石と、それに こたえる あいての 1投は さいごまで
         const startTime = performance.now(), clock = mgTurnClock(TIME_LIMIT_MS, startTime);
@@ -8490,7 +8523,7 @@
           if (!running) return; running = false; cancelAnimationFrame(rafId);
           // T1: 時間切れで のこった 問題は 0点として 問題数で わる(1問だけ まんてんで 時間切れ → 100点 に しない)
           const avg = scores.reduce((a, b) => a + b, 0) / ROUNDS;
-          const score = clamp(Math.round(10 + avg * 0.9), 10, 100);
+          const score = clamp(Math.round(10 + avg), 10, 100); // Phase 4: 平均90点の なぞりで 100(指で とどく 正確さ)
           say(`おわり!平均精度${Math.round(avg)}%`, 2600); render(performance.now());
           const play = meter.done({ achieved: avg > 0 });
           setTimeout(() => onComplete(score, null, play), 650);
@@ -8522,7 +8555,8 @@
           <div class="mg-title">${title}</div>
           <div class="mg-canvas-wrap"><canvas class="mg-canvas" id="ckCanvas"></canvas></div>
           <div class="mg-hint" id="ckHint">こまをタップして、光ったマスへ。ななめ前に1マス進める。相手のこまを飛びこすと取れる（続けて飛べる）。奥まで行くと👑キングになり、後ろにも進める。</div>`;
-        mgTimerHud(container, TIME_LIMIT_MS, () => TIME_LIMIT_MS - (performance.now() - startTime), () => running);
+        const myClock = mgMyClock(() => running && turn === ME); /* Phase 4: あいての 番は 時間に 数えない */
+        mgTimerHud(container, TIME_LIMIT_MS, () => myClock.remain(TIME_LIMIT_MS), () => running);
         const canvas = container.querySelector('#ckCanvas');
         const { ctx, W, H } = createMgCanvas(canvas, (w) => w);
         const CELL = W / N;
@@ -8567,7 +8601,7 @@
           if (anim) { const t = clamp((now - anim.at) / 220, 0, 1); if (t < 1) piece(lerp(anim.from[0] + 0.5, anim.to[0] + 0.5, t) * CELL, lerp(anim.from[1] + 0.5, anim.to[1] + 0.5, t) * CELL - Math.sin(t * Math.PI) * 14, { o: anim.who, k: anim.k }, 1 + Math.sin(t * Math.PI) * 0.2); else anim = null; }
           if (now < msgUntil) { ctx.font = 'bold 14px sans-serif'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillStyle = 'rgba(0,0,0,.6)'; ctx.fillRect(W / 2 - 100, H / 2 - 14, 200, 28); ctx.fillStyle = '#fff'; ctx.fillText(msg, W / 2, H / 2); }
         }
-        function loop(now) { if (!running) return; if (turn === AI && aiAt && now >= aiAt && !chain) { aiAt = 0; aiMove(); if (!running) return; } render(now); if (now - startTime > TIME_LIMIT_MS) { end(count(ME) > count(AI) ? ME : count(ME) < count(AI) ? AI : 0, 'timeUp'); return; } rafId = requestAnimationFrame(loop); }
+        function loop(now) { if (!running) return; if (turn === AI && aiAt && now >= aiAt && !chain) { aiAt = 0; aiMove(); if (!running) return; } render(now); if (myClock.tick(now) > TIME_LIMIT_MS) { end(count(ME) > count(AI) ? ME : count(ME) < count(AI) ? AI : 0, 'timeUp'); return; } rafId = requestAnimationFrame(loop); }
         // reason: allTaken(ぜんぶ とった)/blocked(うごけない)/timeUp(時間切れで 駒の数)。かちの ことばを おわりかたに あわせる(点数は かえない)
         const WIN_TEXT = { allTaken: '🏆かち!ぜんぶとった!', blocked: '🏆かち!相手はもう動けない!', timeUp: '時間切れ。駒の数で判定かち!' };
         // timeUp は 駒の数で 判定かち/まけ(T1。決着の 点は かえない)
@@ -8633,8 +8667,8 @@
         function loop(now) { if (!running) return; render(now); if (now - startTime > DURATION_MS) { finish(); return; } rafId = requestAnimationFrame(loop); }
         function finish() {
           if (!running) return; running = false; cancelAnimationFrame(rafId);
-          const el = (performance.now() - startTime) / 1000; const eff = clamp(1 - Math.max(0, tries - PAIRS) / (PAIRS * 1.6), 0, 1);
-          const score = matched >= PAIRS ? clamp(Math.round(42 + eff * 50 + Math.max(0, 60 - el) * 0.13), 42, 100) : clamp(Math.round(10 + matched * 7), 10, 45);
+          const el = (performance.now() - startTime) / 1000; const eff = clamp(1 - Math.max(0, tries - (PAIRS + 2)) / (PAIRS * 1.6), 0, 1); /* Phase 4: 2回の まちがいまで 満点あつかい(まえは 1回も まちがえない 運が 必要) */
+          const score = matched >= PAIRS ? clamp(Math.round(42 + eff * 50 + 8 * Math.min(1, Math.max(0, DURATION_MS / 1000 - el) / (DURATION_MS / 1000 * 0.5))), 42, 100) /* Phase 4: 時間は 制限に 対する のこりで */ : clamp(Math.round(10 + matched * 7), 10, 45);
           say(matched >= PAIRS ? `🏆ぜんぶそろった!${tries}かい` : `時間切れ…${matched}ペア`, 2600); render(performance.now());
           const play = meter.done({ achieved: matched > 0 });
           setTimeout(() => onComplete(score, null, play), 650);
@@ -8658,26 +8692,29 @@
         // コンボの 倍率(最大×3)は「前と ちがう 回転数」を きめた ときだけ 上がる(おなじ 技の くりかえしは ×1)。
         // まえは ポンプ 押しっぱなし+空中で 1回 タップ だけで 1回転が ×3 で つづき、100点に なった
         const HP_PUMP_UP = 2.6, HP_SCORE_DIV = 7, meter = mgPlayMeter();
+        // Phase 4(2026-11-28): くだりの ポンプを 4.6→5.0。光を 見てから 押す(0.25びょう おくれる)人でも エアが 出る。おしっぱなしは 44→57点(大成功には とどかない)
+        const HP_PUMP_DOWN = 5.0;
         let running = true, rafId = null, last = null, s = -0.6, v = 0, pump = false, air = null, score = 0, tricks = 0, bails = 0, msg = '', msgUntil = 0, combo = 0, lastSpins = 0, trickBtn, lastLand = '';
         const startTime = performance.now() + MG_ACTION_START_GRACE_MS;
         container.innerHTML = `
           <div class="mg-header"><span id="hpTimer">残り：${Math.round(DURATION_MS / 1000)}秒</span><span id="hpScore">0点</span></div>
           <div class="mg-title">${title}</div>
           <div class="mg-canvas-wrap"><canvas class="mg-canvas" id="hpCanvas"></canvas></div>
-          <div class="mg-hint" id="hpHint">下り坂で「ポンプ」を長押しすると加速。勢いがつくと、ふちから飛び出す。空中で「トリック」をおすと1回転（何度もおせる）。着地までに回りきらないと転倒!</div>
+          <div class="mg-hint" id="hpHint">下り坂で「ポンプ」を長押しすると加速（ボタンが光っているあいだが下り坂）。勢いがつくと、ふちから飛び出す。空中で「トリック」をおすと1回転（何度もおせる）。着地までに回りきらないと転倒!</div>
           <div class="mg-race-controls"><button class="mg-tap-btn mg-hold-btn" id="hpPump" data-key="left">ポンプ(ながおし)</button><button class="mg-tap-btn primary" id="hpTrick" data-key="action">🌀トリック</button></div>`;
         const canvas = container.querySelector('#hpCanvas');
         const { ctx, W, H } = createMgCanvas(canvas, 230);
         const timerEl = container.querySelector('#hpTimer'), scoreEl = container.querySelector('#hpScore'), hint = container.querySelector('#hpHint'); trickBtn = container.querySelector('#hpTrick');
         const say = (t, ms = 900) => { msg = t; msgUntil = performance.now() + ms; hint.textContent = t; };
         const hud = () => { scoreEl.textContent = `${score}点`; };
+        const pumpBtn = container.querySelector('#hpPump'); let cueOn = false;
         bindHeldButton(container.querySelector('#hpPump'), (vv) => { pump = vv; if (vv) meter.act(); });
         trickBtn.addEventListener('pointerdown', (e) => { e.preventDefault(); trick(); });
         canvas.addEventListener('pointerdown', (e) => { e.preventDefault(); trick(); });
         const RAMP_H = 2.2, hOf = (q) => q * q * RAMP_H; const px = (q) => W / 2 + q * W * 0.42, py = (h) => H - 30 - h * 60;
         function trick() { if (!running || !air) return; meter.act(); air.spins++; sfx('whoosh'); air.spinTarget += Math.PI * 2 * (air.dir > 0 ? 1 : -1); say(`🌀 ${air.spins}回転!`, 500); }
         function update(dt, now) {
-          if (air) { air.vy -= G * dt; air.x += air.vx * dt; air.y += air.vy * dt; air.rot += (air.spinTarget - air.rot) * Math.min(1, dt * 6); air.t += dt;
+          if (air) { if (cueOn) { cueOn = false; if (pumpBtn) pumpBtn.style.boxShadow = ''; } air.vy -= G * dt; air.x += air.vx * dt; air.y += air.vy * dt; air.rot += (air.spinTarget - air.rot) * Math.min(1, dt * 6); air.t += dt;
             if (air.y <= RAMP_H && air.t > 0.15) { // ちゃくち
               const rem = Math.abs(air.spinTarget - air.rot); const spins = air.spins, dir = air.dir, v0 = air.v0; const ok = rem < 1.25 || spins === 0; air = null;
               s = dir > 0 ? 1 : -1; if (ok) { const gain = spins * spins * 20 + (spins ? 10 : 0); if (spins) { tricks++; combo = spins === lastSpins ? 1 : combo + 1; lastSpins = spins; sfx('coin'); score += gain * Math.min(3, combo); say(`✨ ${spins}回転成功!+${gain * Math.min(3, combo)}`, 900); hud(); } v = -dir * Math.max(3.2, Math.abs(v0) * 0.95); }
@@ -8685,7 +8722,9 @@
             } return; }
           // ランプ上: ちからは かたむき ぶん。ポンプは くだりで かそく
           const slope = 2 * s * RAMP_H; const down = (s > 0 && v < 0) || (s < 0 && v > 0);
-          let acc = -slope * G * 0.45; if (pump) acc += -Math.sign(s) * (down ? 4.6 : HP_PUMP_UP); acc -= v * 0.09; v += acc * dt; s += v * dt * 0.42;
+          // Phase 4(2026-11-28): くだりの あいだ ポンプボタンを 光らせる(押す タイミングが 見て わかる。初めての 人・小さな 子むけ。押すのは じぶん)
+          const cue = down && Math.abs(v) > 0.05; if (cue !== cueOn) { cueOn = cue; if (pumpBtn) pumpBtn.style.boxShadow = cue ? '0 0 0 3px #ffd34d, 0 0 14px rgba(255,211,77,.9)' : ''; }
+          let acc = -slope * G * 0.45; if (pump) acc += -Math.sign(s) * (down ? HP_PUMP_DOWN : HP_PUMP_UP); acc -= v * 0.09; v += acc * dt; s += v * dt * 0.42;
           if (Math.abs(s) >= 1) { const dir = Math.sign(s); const speed = Math.abs(v); s = dir * 1; if (speed > 2.4) { sfx('jump'); air = { x: dir, y: RAMP_H, vx: dir * speed * 0.12, vy: speed * 0.9, rot: 0, spinTarget: 0, spins: 0, dir, t: 0, v0: v }; say('🛹エア!', 500); } else v = -v * 0.6; }
         }
         function drawSkater(x, y, rot, lean) { ctx.save(); ctx.translate(x, y); ctx.rotate(rot); ctx.fillStyle = 'rgba(0,0,0,.2)'; ctx.beginPath(); ctx.ellipse(0, 14, 16, 4, 0, 0, Math.PI * 2); ctx.fill(); ctx.fillStyle = '#e63946'; mgRoundRect(ctx, -16, 6, 32, 5, 2); ctx.fillStyle = '#333'; ctx.beginPath(); ctx.arc(-10, 12, 3, 0, Math.PI * 2); ctx.arc(10, 12, 3, 0, Math.PI * 2); ctx.fill(); ctx.rotate(lean); ctx.font = '24px sans-serif'; ctx.textAlign = 'center'; ctx.textBaseline = 'bottom'; ctx.fillText(currentSprite(), 0, 8); ctx.restore(); }
@@ -8902,7 +8941,8 @@
           <div class="mg-title">${title}</div>
           <div class="mg-canvas-wrap"><canvas class="mg-canvas" id="mkCanvas"></canvas></div>
           <div class="mg-hint" id="mkHint">下にある自分の穴をタップ。たねを1つずつ、自分のストアの方向へまく。最後のたねが右の自分のストアに入ると、もう1回。空の自分の穴に落ちると、向かいのたねももらえる。</div>`;
-        mgTimerHud(container, TIME_LIMIT_MS, () => TIME_LIMIT_MS - (performance.now() - startTime), () => running);
+        const myClock = mgMyClock(() => running && turn === 0); /* Phase 4: あいての 番は 時間に 数えない */
+        mgTimerHud(container, TIME_LIMIT_MS, () => myClock.remain(TIME_LIMIT_MS), () => running);
         const canvas = container.querySelector('#mkCanvas');
         const { ctx, W, H } = createMgCanvas(canvas, 200);
         const turnEl = container.querySelector('#mkTurn'), scoreEl = container.querySelector('#mkScore'), hint = container.querySelector('#mkHint');
@@ -8939,7 +8979,7 @@
           ctx.fillStyle = 'rgba(255,255,255,.7)'; ctx.font = '9px sans-serif'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillText('🟠あいて', W / 2, 10); ctx.fillText('🟢あなた', W / 2, H - 8); ctx.fillText('じぶんの', W - SX / 2, H / 2 - H * 0.42 - 12); ctx.fillText('ストア', W - SX / 2, H / 2 - H * 0.42 - 3);
           if (now < msgUntil) { ctx.font = 'bold 13px sans-serif'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillStyle = 'rgba(0,0,0,.65)'; ctx.fillRect(W / 2 - 90, H / 2 - 13, 180, 26); ctx.fillStyle = '#fff'; ctx.fillText(msg, W / 2, H / 2); }
         }
-        function loop(now) { if (!running) return; if (turn === 1 && aiAt && now >= aiAt) { aiAt = 0; aiMove(); if (!running) return; } render(now); if (now - startTime > TIME_LIMIT_MS) { pits = finishBoard(pits); end(true); return; } rafId = requestAnimationFrame(loop); }
+        function loop(now) { if (!running) return; if (turn === 1 && aiAt && now >= aiAt) { aiAt = 0; aiMove(); if (!running) return; } render(now); if (myClock.tick(now) > TIME_LIMIT_MS) { pits = finishBoard(pits); end(true); return; } rafId = requestAnimationFrame(loop); }
         // timeUp: のこりの たねを それぞれの ストアに 入れて 判定(T1。決着の 点は かえない)
         function end(timeUp) {
           if (!running) return; running = false; cancelAnimationFrame(rafId); hud();
@@ -9034,7 +9074,7 @@
           else {
             // まんなか ±25m は まんてん。フレアで すこし のびても 損に ならない
             const pZone = Math.round(clamp((ZONE_HALF - Math.abs(x - CTR)) / (ZONE_HALF - 25), 0, 1) * 15);
-            const pSoft = Math.round(clamp((3.2 - soft) / 2.6, 0, 1) * 35);
+            const pSoft = Math.round(clamp((3.2 - soft) / 2.0, 0, 1) * 35); // Phase 4: 沈下 1.2m/s(いちばん ふわっと)で 満点
             const pLine = Math.round(clamp(1 - dev / 4, 0, 1) * 35);
             pts = 15 + pZone + pSoft + pLine;
             text = pts >= 92 ? `🌟パーフェクトランディング!${pts}点` : pts >= 70 ? `✨きれいな着陸!${pts}点` : `着陸 ${pts}点`;
@@ -9282,7 +9322,8 @@
           if (!running) return; running = false; cancelAnimationFrame(rafId);
           container.querySelectorAll('button').forEach((b) => { b.disabled = true; });
           const eatenRatio = (dotsTotal - dots) / Math.max(1, dotsTotal);
-          const score = clamp(Math.round(eatenRatio * 95 + eatenGhosts * 5 + (cleared ? 18 : 0) + Math.max(0, lives) * 3), 5, 100);
+          const DE_TGT = Math.min(1, DURATION_MS / 28000); /* Phase 4:「みじかめ」は 時間の わりあい ぶんの ドットで 満点あつかい(ふつう・やさしいは そのまま) */
+          const score = clamp(Math.round(clamp(eatenRatio / DE_TGT, 0, 1) * 95 + eatenGhosts * 5 + (cleared ? 18 : 0) + Math.max(0, lives) * 3), 5, 100);
           if (!cleared) say(lives <= 0 ? `${dotsTotal - dots}こ食べた…` : `タイムアップ!${dotsTotal - dots}こ食べた`, 2500);
           render(performance.now());
           const play = meter.done({ achieved: dotsTotal - dots > 0 });
@@ -9585,7 +9626,7 @@
   function makeSolitaireGame({ title }) {
     return {
       start(container, onComplete) {
-        const DURATION_MS = mgDuration(90000);
+        const DURATION_MS = mgDuration(150000) /* Phase 4: 90→150びょう(解ける 配りは 約7わりだが、山札を めくる 回数が 多く 90びょうでは 上手な 人でも まれにしか そろわなかった) */;
         const SUITS = ['♠', '♥', '♦', '♣'], RED = { '♥': true, '♦': true };
         const RANK_LABEL = ['', 'A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K'];
         let running = true, rafId = null, stock = [], waste = [], found = [[], [], [], []], tab = [[], [], [], [], [], [], []], sel = null, moves = 0, msg = '', msgUntil = 0, won = false, anim = [];
@@ -9734,7 +9775,7 @@
           container.querySelectorAll('button').forEach((b) => { b.disabled = true; });
           const n = foundCount();
           const remainS = Math.max(0, DURATION_MS - (performance.now() - startTime)) / 1000;
-          const score = clamp(Math.round(won ? 90 + Math.min(10, remainS / 12) : 8 + n * 1.6), 5, 100);
+          const score = clamp(Math.round(won ? 90 + 10 * Math.min(1, remainS / (DURATION_MS / 1000 * 0.3)) : 8 + n * 1.6), 5, 100); // Phase 4: のこり3わりで 100
           if (!won) say(`タイムアップ!台に${n}まい`, 2500);
           render(performance.now());
           const play = meter.done({ achieved: won || n > 0 });
@@ -9753,7 +9794,7 @@
     return {
       start(container, onComplete) {
         const difficulty = ageDifficulty();
-        const DURATION_MS = mgDuration(50000);
+        const DURATION_MS = mgDuration(75000) /* Phase 4: 50→75びょう(色を 4つ えらんで 考える 時間。小さな 子でも 6〜8回 ためせる) */;
         const COLORS = [{ e: '🔴', c: '#e53957' }, { e: '🟡', c: '#f2c230' }, { e: '🟢', c: '#3fae5a' }, { e: '🔵', c: '#2f7fd6' }, { e: '🟣', c: '#8e44ad' }, { e: '🟠', c: '#f07c1f' }];
         const SLOTS = 4, MAX_TRIES = difficulty < 0.4 ? 10 : 8;
         // Phase 2: 参加判定は 考える ゲーム用(予想を 1回 いじょう 出せば 参加。考える 時間は 放置と みなさない)
@@ -9835,7 +9876,7 @@
           container.querySelectorAll('button').forEach((b) => { b.disabled = true; });
           // Phase 2: 正解できなかった ときは、いちばん よかった 予想(ヒット×4+ブロー)で 10〜25点(30点未満)。正解は これまでと おなじ
           const bestTry = guesses.reduce((m, q) => Math.max(m, q.hit * 4 + q.blow), 0);
-          const score = clamp(Math.round(solved ? 100 - Math.max(0, guesses.length - 3) * 9 : Math.min(25, 10 + bestTry)), 5, 100);
+          const score = clamp(Math.round(solved ? 100 - Math.max(0, guesses.length - 4) * 9 : Math.min(25, 10 + bestTry)), 5, 100); // Phase 4: 4回いないで 100(いちばん よい 当てかたでも 3回いないは 16%=運。4回いないは 69%)
           render(performance.now());
           setTimeout(() => onComplete(score, null, meter.done({ achieved: solved })), 650);
         }
@@ -10190,7 +10231,7 @@
           if (!running) return; running = false; cancelAnimationFrame(rafId);
           container.querySelectorAll('button').forEach((b) => { b.disabled = true; });
           const remainS = Math.max(0, DURATION_MS - (performance.now() - startTime)) / 1000;
-          const score = clamp(Math.round(won ? 84 + Math.min(16, remainS / 6) - shuffles * 2 : 6 + pairs / totalPairs * 70 - shuffles * 2), 5, 100);
+          const score = clamp(Math.round(won ? 84 + 16 * Math.min(1, remainS / (DURATION_MS / 1000 * 0.4)) - shuffles * 2 /* Phase 4: のこり4わりで 100 */ : 6 + pairs / totalPairs * 70 - shuffles * 2), 5, 100);
           if (!won) say(`タイムアップ!${pairs}ペアとった`, 2500);
           render(performance.now());
           const play = meter.done({ achieved: won || pairs > 0 });
@@ -10355,7 +10396,7 @@
           if (!running) return; running = false; cancelAnimationFrame(rafId);
           container.querySelectorAll('button').forEach((b) => { b.disabled = true; });
           const won = me > cpu;
-          const score = clamp(Math.round(10 + me * 12 + (won ? 22 : 0) - cpu * 2 + Math.min(8, bestRally)), 5, 100);
+          const score = clamp(Math.round(10 + me * 12 + (won ? 22 + (me - cpu) * 3 : 0) - cpu * 2 + Math.min(8, bestRally)), 5, 100); // Phase 4: 4-0 で 100 に とどく
           say(won ? `🏆かった!${me}-${cpu}` : me === cpu ? `引き分け${me}-${cpu}` : `まけた…${me}-${cpu}`, 2500);
           render(performance.now());
           const play = meter.done({ achieved: me > 0 });
@@ -10723,7 +10764,8 @@
         }
         function finish() {
           if (!running) return; running = false; cancelAnimationFrame(rafId);
-          const score = clamp(Math.round(6 + perfect * 9 + good * 3.6 - bad * 2), 5, 100);
+          const PV = Math.max(1, 24000 / DURATION_MS); /* Phase 4:「みじかめ」は やける 数が へるので 1こ あたりを 重く */
+          const score = clamp(Math.round(6 + (perfect * 9 + good * 3.6) * PV - bad * 2), 5, 100);
           say(`おわり!✨${perfect}／😋${good}／💦${bad}`, 2500);
           render(performance.now());
           const play = meter.done({ achieved: perfect + good > 0 });
