@@ -141,6 +141,6 @@
 
 - `tests/minigame-phase4-test.cjs`(7件): 式の 上限、ボクセル、ハーフパイプ、制限時間、みじかめ、盤上の 対戦。
 - 既存テストの 仕様変更: `minigame-scoring-p1-test` の 上海「すぐ とりきった ときの 点 ~96」→ 100。
-- 自動プレイ(放置・1回・でたらめ・連打)の 変更前後: `data/sim-compare.json`(付録)。
+- 自動プレイ(放置・1回・でたらめ・連打、変更した 36本×4回)の 変更前後: `sim-compare.json`。**記録される 回数・コインが ふえた 組みあわせは 0**(連打・放置で 得を する ように なった ゲームは ない)。でたらめの ボクセルは 平均 36→28点。
 - 実ブラウザ(Chromium・WebKit): `tests/minigame-phase4-browser.cjs`。
 - 試遊ページ: `comparisons/minigame-phase4-20261128/`。
